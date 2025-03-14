@@ -15,16 +15,16 @@ namespace Soenneker.Telnyx.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The primary error message.</summary>
-        public override string Message { get => base.Message; }
-        /// <summary>The source property</summary>
+        /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GenericError_source? Source { get; set; }
+        public List<global::Soenneker.Telnyx.Models.ResourceNotFoundError_errors>? Errors { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GenericError_source Source { get; set; }
+        public List<global::Soenneker.Telnyx.Models.ResourceNotFoundError_errors> Errors { get; set; }
 #endif
+        /// <summary>The primary error message.</summary>
+        public override string Message { get => base.Message; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ResourceNotFoundError"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.Models.GenericError_source>(global::Soenneker.Telnyx.Models.GenericError_source.CreateFromDiscriminatorValue); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.ResourceNotFoundError_errors>(global::Soenneker.Telnyx.Models.ResourceNotFoundError_errors.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GenericError_source>("source", Source);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.ResourceNotFoundError_errors>("errors", Errors);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -14,14 +14,14 @@ namespace Soenneker.Telnyx.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The page_number property</summary>
-        public int? PageNumber { get; set; }
-        /// <summary>The page_size property</summary>
-        public int? PageSize { get; set; }
-        /// <summary>The total_pages property</summary>
-        public int? TotalPages { get; set; }
-        /// <summary>The total_results property</summary>
-        public int? TotalResults { get; set; }
+        /// <summary>Current Page based on pagination settings (included when defaults are used.)</summary>
+        public double? PageNumber { get; set; }
+        /// <summary>Number of results to return per page based on pagination settings (included when defaults are used.)</summary>
+        public double? PageSize { get; set; }
+        /// <summary>Total number of pages based on pagination settings</summary>
+        public double? TotalPages { get; set; }
+        /// <summary>Total number of results</summary>
+        public double? TotalResults { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Metadata"/> and sets the default values.
         /// </summary>
@@ -47,10 +47,10 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "page_number", n => { PageNumber = n.GetIntValue(); } },
-                { "page_size", n => { PageSize = n.GetIntValue(); } },
-                { "total_pages", n => { TotalPages = n.GetIntValue(); } },
-                { "total_results", n => { TotalResults = n.GetIntValue(); } },
+                { "page_number", n => { PageNumber = n.GetDoubleValue(); } },
+                { "page_size", n => { PageSize = n.GetDoubleValue(); } },
+                { "total_pages", n => { TotalPages = n.GetDoubleValue(); } },
+                { "total_results", n => { TotalResults = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -60,10 +60,10 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("page_number", PageNumber);
-            writer.WriteIntValue("page_size", PageSize);
-            writer.WriteIntValue("total_pages", TotalPages);
-            writer.WriteIntValue("total_results", TotalResults);
+            writer.WriteDoubleValue("page_number", PageNumber);
+            writer.WriteDoubleValue("page_size", PageSize);
+            writer.WriteDoubleValue("total_pages", TotalPages);
+            writer.WriteDoubleValue("total_results", TotalResults);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

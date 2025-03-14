@@ -142,10 +142,10 @@ namespace Soenneker.Telnyx.External_connections.Item.Phone_numbers
             [QueryParameter("filter%5Bphone_number%5D%5Beq%5D")]
             public string FilterphoneNumbereq { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

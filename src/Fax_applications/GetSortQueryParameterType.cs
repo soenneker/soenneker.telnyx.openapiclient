@@ -12,9 +12,9 @@ namespace Soenneker.Telnyx.Fax_applications
         #pragma warning disable CS1591
         Created_at,
         #pragma warning restore CS1591
-        [EnumMember(Value = "application_name")]
+        [EnumMember(Value = "friendly_name")]
         #pragma warning disable CS1591
-        Application_name,
+        Friendly_name,
         #pragma warning restore CS1591
         [EnumMember(Value = "active")]
         #pragma warning disable CS1591
