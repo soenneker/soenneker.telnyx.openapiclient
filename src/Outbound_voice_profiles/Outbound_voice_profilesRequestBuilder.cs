@@ -190,10 +190,10 @@ namespace Soenneker.Telnyx.Outbound_voice_profiles
             [QueryParameter("filter%5Bname%5D%5Bcontains%5D")]
             public string Filternamecontains { get; set; }
 #endif
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt;-&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;</summary>

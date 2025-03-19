@@ -117,10 +117,10 @@ namespace Soenneker.Telnyx.Messaging_profile_metrics
             /// <summary>The id of the messaging profile(s) to retrieve</summary>
             [QueryParameter("id")]
             public Guid? Id { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>The timeframe for which you&apos;d like to retrieve metrics.</summary>
