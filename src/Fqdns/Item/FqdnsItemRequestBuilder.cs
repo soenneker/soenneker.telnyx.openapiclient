@@ -41,6 +41,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.Fqdns.Item.FqdnsDeleteResponse?> DeleteAsFqdnsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -55,6 +56,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
             {
                 { "400", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fqdns.Item.FqdnsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.Fqdns.Item.FqdnsDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -66,6 +68,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use DeleteAsFqdnsDeleteResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,6 +84,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
             {
                 { "400", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fqdns.Item.FqdnsResponse>(requestInfo, global::Soenneker.Telnyx.Fqdns.Item.FqdnsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -92,6 +96,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.Fqdns.Item.FqdnsGetResponse?> GetAsFqdnsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -106,6 +111,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
             {
                 { "400", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fqdns.Item.FqdnsGetResponse>(requestInfo, global::Soenneker.Telnyx.Fqdns.Item.FqdnsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -117,6 +123,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsFqdnsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -132,6 +139,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
             {
                 { "400", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fqdns.Item.FqdnsResponse>(requestInfo, global::Soenneker.Telnyx.Fqdns.Item.FqdnsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -143,6 +151,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.Fqdns.Item.FqdnsPatchResponse?> PatchAsFqdnsPatchResponseAsync(global::Soenneker.Telnyx.Models.UpdateFqdnRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -157,6 +166,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fqdns.Item.FqdnsPatchResponse>(requestInfo, global::Soenneker.Telnyx.Fqdns.Item.FqdnsPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -168,6 +178,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use PatchAsFqdnsPatchResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -183,6 +194,7 @@ namespace Soenneker.Telnyx.Fqdns.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fqdns.Item.FqdnsResponse>(requestInfo, global::Soenneker.Telnyx.Fqdns.Item.FqdnsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -14,7 +14,15 @@ namespace Soenneker.Telnyx.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The pointer property</summary>
+        /// <summary>Indicates which query parameter caused the error.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Parameter { get; set; }
+#nullable restore
+#else
+        public string Parameter { get; set; }
+#endif
+        /// <summary>JSON pointer (RFC6901) to the offending entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Pointer { get; set; }
@@ -47,6 +55,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "parameter", n => { Parameter = n.GetStringValue(); } },
                 { "pointer", n => { Pointer = n.GetStringValue(); } },
             };
         }
@@ -57,6 +66,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("parameter", Parameter);
             writer.WriteStringValue("pointer", Pointer);
             writer.WriteAdditionalData(AdditionalData);
         }

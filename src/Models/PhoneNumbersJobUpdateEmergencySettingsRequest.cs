@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Identifies the address to be used with emergency services.</summary>
+        /// <summary>Identifies the address to be used with emergency services. Required if emergency_enabled is true, must be null or omitted if emergency_enabled is false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EmergencyAddressId { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.Models
 #else
         public string EmergencyAddressId { get; set; }
 #endif
-        /// <summary>Indicates whether to enable emergency services on this number.</summary>
+        /// <summary>Indicates whether to enable or disable emergency services on the numbers.</summary>
         public bool? EmergencyEnabled { get; set; }
         /// <summary>The phone_numbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

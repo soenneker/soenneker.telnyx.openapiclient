@@ -41,6 +41,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsDeleteResponse?> DeleteAsFax_applicationsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -55,6 +56,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
             {
                 { "400", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -66,6 +68,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use DeleteAsFax_applicationsDeleteResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,6 +84,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
             {
                 { "400", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsResponse>(requestInfo, global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -92,6 +96,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsGetResponse?> GetAsFax_applicationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -106,6 +111,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
             {
                 { "400", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsGetResponse>(requestInfo, global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -117,6 +123,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsFax_applicationsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -132,6 +139,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
             {
                 { "400", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsResponse>(requestInfo, global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -143,6 +151,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsPatchResponse?> PatchAsFax_applicationsPatchResponseAsync(global::Soenneker.Telnyx.Models.UpdateFaxApplicationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -157,6 +166,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsPatchResponse>(requestInfo, global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -168,6 +178,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use PatchAsFax_applicationsPatchResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -183,6 +194,7 @@ namespace Soenneker.Telnyx.Fax_applications.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsResponse>(requestInfo, global::Soenneker.Telnyx.Fax_applications.Item.Fax_applicationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

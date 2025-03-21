@@ -33,7 +33,13 @@ namespace Soenneker.Telnyx.Models
         public string CampaignId { get; set; }
 #endif
         /// <summary>The createdAt property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedAt { get; set; }
+#nullable restore
+#else
+        public string CreatedAt { get; set; }
+#endif
         /// <summary>Extra info about a failure to assign/unassign a number. Relevant only if the assignmentStatus is either FAILED_ASSIGNMENT or FAILED_UNASSIGNMENT</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +81,13 @@ namespace Soenneker.Telnyx.Models
         public string TelnyxCampaignId { get; set; }
 #endif
         /// <summary>The updatedAt property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UpdatedAt { get; set; }
+#nullable restore
+#else
+        public string UpdatedAt { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PhoneNumberCampaign"/> and sets the default values.
         /// </summary>
@@ -104,13 +116,13 @@ namespace Soenneker.Telnyx.Models
                 { "assignmentStatus", n => { AssignmentStatus = n.GetEnumValue<global::Soenneker.Telnyx.Models.PhoneNumberCampaign_assignmentStatus>(); } },
                 { "brandId", n => { BrandId = n.GetStringValue(); } },
                 { "campaignId", n => { CampaignId = n.GetStringValue(); } },
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "failureReasons", n => { FailureReasons = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
                 { "tcrBrandId", n => { TcrBrandId = n.GetStringValue(); } },
                 { "tcrCampaignId", n => { TcrCampaignId = n.GetStringValue(); } },
                 { "telnyxCampaignId", n => { TelnyxCampaignId = n.GetStringValue(); } },
-                { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -123,13 +135,13 @@ namespace Soenneker.Telnyx.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.Models.PhoneNumberCampaign_assignmentStatus>("assignmentStatus", AssignmentStatus);
             writer.WriteStringValue("brandId", BrandId);
             writer.WriteStringValue("campaignId", CampaignId);
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteObjectValue<UntypedNode>("failureReasons", FailureReasons);
             writer.WriteStringValue("phoneNumber", PhoneNumber);
             writer.WriteStringValue("tcrBrandId", TcrBrandId);
             writer.WriteStringValue("tcrCampaignId", TcrCampaignId);
             writer.WriteStringValue("telnyxCampaignId", TelnyxCampaignId);
-            writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
+            writer.WriteStringValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.Models
 #else
         public global::Soenneker.Telnyx.Models.CustomStorageConfiguration Data { get; set; }
 #endif
-        /// <summary>Identifies the type of the resource.</summary>
+        /// <summary>Identifies record type.</summary>
         public global::Soenneker.Telnyx.Models.RecordType? RecordType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CredentialsResponse"/> and sets the default values.
