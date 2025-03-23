@@ -219,10 +219,10 @@ namespace Soenneker.Telnyx.Sim_card_groups
             /// <summary>A Private Wireless Gateway ID associated with the group.</summary>
             [QueryParameter("filter%5Bprivate_wireless_gateway_id%5D")]
             public Guid? FilterprivateWirelessGatewayId { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

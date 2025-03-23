@@ -39,7 +39,6 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.RecordingsJson
         /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TexmlGetCallRecordingsResponseBody"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.Models.TexmlGetCallRecordingsResponseBody?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -50,11 +49,7 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.RecordingsJson
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.TexmlGetCallRecordingsResponseBody>(requestInfo, global::Soenneker.Telnyx.Models.TexmlGetCallRecordingsResponseBody.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.TexmlGetCallRecordingsResponseBody>(requestInfo, global::Soenneker.Telnyx.Models.TexmlGetCallRecordingsResponseBody.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns recordings for a conference identified by conference_sid.

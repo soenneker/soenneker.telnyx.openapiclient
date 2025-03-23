@@ -218,10 +218,10 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
             /// <summary>Filter results by a list of porting phone number ids</summary>
             [QueryParameter("filter%5Bporting_phone_number_id%5D%5Bin%5D%5B%5D")]
             public Guid? FilterportingPhoneNumberIdin { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order</summary>
