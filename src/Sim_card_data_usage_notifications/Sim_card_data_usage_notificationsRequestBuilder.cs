@@ -216,10 +216,10 @@ namespace Soenneker.Telnyx.Sim_card_data_usage_notifications
             /// <summary>A valid SIM card ID.</summary>
             [QueryParameter("filter%5Bsim_card_id%5D")]
             public Guid? FiltersimCardId { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

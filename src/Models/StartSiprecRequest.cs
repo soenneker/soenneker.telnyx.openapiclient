@@ -38,6 +38,8 @@ namespace Soenneker.Telnyx.Models
         public int? SessionTimeoutSecs { get; set; }
         /// <summary>Specifies which track should be sent on siprec session.</summary>
         public global::Soenneker.Telnyx.Models.StartSiprecRequest_siprec_track? SiprecTrack { get; set; }
+        /// <summary>Specifies SIP transport protocol.</summary>
+        public global::Soenneker.Telnyx.Models.StartSiprecRequest_sip_transport? SipTransport { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.StartSiprecRequest"/> and sets the default values.
         /// </summary>
@@ -45,6 +47,7 @@ namespace Soenneker.Telnyx.Models
         {
             AdditionalData = new Dictionary<string, object>();
             SiprecTrack = global::Soenneker.Telnyx.Models.StartSiprecRequest_siprec_track.Both_tracks;
+            SipTransport = global::Soenneker.Telnyx.Models.StartSiprecRequest_sip_transport.Udp;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -69,6 +72,7 @@ namespace Soenneker.Telnyx.Models
                 { "include_metadata_custom_headers", n => { IncludeMetadataCustomHeaders = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_include_metadata_custom_headers>(); } },
                 { "secure", n => { Secure = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_secure>(); } },
                 { "session_timeout_secs", n => { SessionTimeoutSecs = n.GetIntValue(); } },
+                { "sip_transport", n => { SipTransport = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_sip_transport>(); } },
                 { "siprec_track", n => { SiprecTrack = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_siprec_track>(); } },
             };
         }
@@ -85,6 +89,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_secure>("secure", Secure);
             writer.WriteIntValue("session_timeout_secs", SessionTimeoutSecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_siprec_track>("siprec_track", SiprecTrack);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_sip_transport>("sip_transport", SipTransport);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

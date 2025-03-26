@@ -291,10 +291,10 @@ namespace Soenneker.Telnyx.Customer_service_records
             [QueryParameter("filter%5Bstatus%5D%5Bin%5D%5B%5D")]
             public global::Soenneker.Telnyx.Customer_service_records.GetFilterStatusInQueryParameterType[] FilterstatusinAsGetFilterStatusInQueryParameterType { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>

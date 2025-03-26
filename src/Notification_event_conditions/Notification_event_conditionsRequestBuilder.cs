@@ -128,10 +128,10 @@ namespace Soenneker.Telnyx.Notification_event_conditions
             /// <summary>Filter by the associated record type</summary>
             [QueryParameter("filter%5Bassociated_record_type%5D%5Beq%5D")]
             public global::Soenneker.Telnyx.Notification_event_conditions.GetFilterAssociated_record_typeEqQueryParameterType? FilterassociatedRecordTypeeqAsGetFilterAssociatedRecordTypeEqQueryParameterType { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }
