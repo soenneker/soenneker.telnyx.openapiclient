@@ -4670,7 +4670,7 @@
     "/calls": {
       "post": {
         "summary": "Dial",
-        "description": "Dial a number or SIP URI from a given connection. A successful response will include a `call_leg_id` which can be used to correlate the command with subsequent webhooks.\n\n**Expected Webhooks (see [schema](https://developers.telnyx.com/api/call-control/dial-call#callbacks) below):**\n\n- `call.initiated`\n- `call.answered` or `call.hangup`\n- `call.machine.detection.ended` if `answering_machine_detection` was requested\n- `call.machine.greeting.ended` if `answering_machine_detection` was requested to detect the end of machine greeting\n- `call.machine.premium.detection.ended` if `answering_machine_detection=premium` was requested\n- `call.machine.premium.greeting.ended` if `answering_machine_detection=premium` was requested and a beep was detected\n- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was set\n",
+        "description": "Dial a number or SIP URI from a given connection. A successful response will include a `call_leg_id` which can be used to correlate the command with subsequent webhooks.\n\n**Expected Webhooks (see [schema](https://developers.telnyx.com/api/call-control/dial-call#callbacks) below):**\n\n- `call.initiated`\n- `call.answered` or `call.hangup`\n- `call.machine.detection.ended` if `answering_machine_detection` was requested\n- `call.machine.greeting.ended` if `answering_machine_detection` was requested to detect the end of machine greeting\n- `call.machine.premium.detection.ended` if `answering_machine_detection=premium` was requested\n- `call.machine.premium.greeting.ended` if `answering_machine_detection=premium` was requested and a beep was detected\n- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was set\n\nWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.\n",
         "operationId": "DialCall",
         "tags": [
           "Call Commands"
@@ -4688,7 +4688,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/RetrieveCallStatusResponse"
+            "$ref": "#/components/responses/RetrieveCallStatusResponseWithRecordingId"
           },
           "default": {
             "$ref": "#/components/responses/GenericErrorResponse"
@@ -5027,7 +5027,7 @@
     "/calls/{call_control_id}/actions/answer": {
       "post": {
         "summary": "Answer call",
-        "description": "Answer an incoming call. You must issue this command before executing subsequent commands on an incoming call.\n\n**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/answer-call#callbacks) below):**\n\n- `call.answered`\n- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was set\n",
+        "description": "Answer an incoming call. You must issue this command before executing subsequent commands on an incoming call.\n\n**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/answer-call#callbacks) below):**\n\n- `call.answered`\n- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was set\n\nWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.\n",
         "operationId": "AnswerCall",
         "tags": [
           "Call Commands"
@@ -5050,7 +5050,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/CallControlCommandResponse"
+            "$ref": "#/components/responses/CallControlCommandResponseWithRecordingId"
           },
           "default": {
             "$ref": "#/components/responses/GenericErrorResponse"
@@ -37813,6 +37813,22 @@
           }
         }
       },
+      "CallControlCommandResponseWithRecordingId": {
+        "description": "Successful response upon making a call control command that includes recording_id.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "title": "Call Control Command Response With Recording ID",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/CallControlCommandResultWithRecordingId"
+                }
+              }
+            }
+          }
+        }
+      },
       "CancelFaxResponse": {
         "description": "Successful response upon accepting cancel fax command",
         "content": {
@@ -42294,6 +42310,22 @@
               "properties": {
                 "data": {
                   "$ref": "#/components/schemas/Call"
+                }
+              }
+            }
+          }
+        }
+      },
+      "RetrieveCallStatusResponseWithRecordingId": {
+        "description": "Successful response with details about a call status that includes recording_id.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "title": "Retrieve Call Status Response With Recording ID",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/CallWithRecordingId"
                 }
               }
             }
@@ -47726,6 +47758,26 @@
           }
         }
       },
+      "CallControlCommandResultWithRecordingId": {
+        "type": "object",
+        "title": "Call Control Command Result With Recording ID",
+        "example": {
+          "result": "ok",
+          "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
+        },
+        "properties": {
+          "result": {
+            "type": "string",
+            "example": "ok"
+          },
+          "recording_id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a",
+            "description": "The ID of the recording. Only present when the record parameter is set to record-from-answer."
+          }
+        }
+      },
       "CallControlId": {
         "type": "string",
         "example": "v3:KBnLO0ZK3DhKM5s7bE9VluaSmKsOchKht_fUYvxcp8ysbmzCCtpkmA"
@@ -51651,6 +51703,72 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/CallStreamingStopped"
+          }
+        }
+      },
+      "CallWithRecordingId": {
+        "type": "object",
+        "title": "Call With Recording ID",
+        "required": [
+          "call_control_id",
+          "call_leg_id",
+          "call_session_id",
+          "is_alive",
+          "record_type"
+        ],
+        "example": {
+          "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+          "call_leg_id": "2dc6fc34-f9e0-11ea-b68e-02420a0f7768",
+          "call_session_id": "2dc1b3c8-f9e0-11ea-bc5a-02420a0f7768",
+          "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
+          "is_alive": false,
+          "call_duration": 50,
+          "record_type": "call",
+          "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
+        },
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "enum": [
+              "call"
+            ],
+            "example": "call"
+          },
+          "call_session_id": {
+            "description": "ID that is unique to the call session and can be used to correlate webhook events. Call session is a group of related call legs that logically belong to the same phone call, e.g. an inbound and outbound leg of a transferred call",
+            "type": "string",
+            "example": "428c31b6-7af4-4bcb-b68e-5013ef9657c1"
+          },
+          "call_leg_id": {
+            "description": "ID that is unique to the call and can be used to correlate webhook events",
+            "type": "string",
+            "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1"
+          },
+          "call_control_id": {
+            "description": "Unique identifier and token for controlling the call.",
+            "type": "string",
+            "example": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg"
+          },
+          "is_alive": {
+            "description": "Indicates whether the call is alive or not. For Dial command it will always be `false` (dialing is asynchronous).",
+            "type": "boolean",
+            "example": true
+          },
+          "client_state": {
+            "description": "State received from a command.",
+            "type": "string",
+            "example": "aGF2ZSBhIG5pY2UgZGF5ID1d"
+          },
+          "call_duration": {
+            "description": "Indicates the duration of the call in seconds",
+            "type": "integer",
+            "example": 50
+          },
+          "recording_id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a",
+            "description": "The ID of the recording. Only present when the record parameter is set to record-from-answer."
           }
         }
       },

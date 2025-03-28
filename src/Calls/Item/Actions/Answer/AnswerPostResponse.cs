@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.Calls.Item.Actions.Answer
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CallControlCommandResult? Data { get; set; }
+        public global::Soenneker.Telnyx.Models.CallControlCommandResultWithRecordingId? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CallControlCommandResult Data { get; set; }
+        public global::Soenneker.Telnyx.Models.CallControlCommandResultWithRecordingId Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.Calls.Item.Actions.Answer.AnswerPostResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.Calls.Item.Actions.Answer
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.Models.CallControlCommandResult>(global::Soenneker.Telnyx.Models.CallControlCommandResult.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.Models.CallControlCommandResultWithRecordingId>(global::Soenneker.Telnyx.Models.CallControlCommandResultWithRecordingId.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.Calls.Item.Actions.Answer
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CallControlCommandResult>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CallControlCommandResultWithRecordingId>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

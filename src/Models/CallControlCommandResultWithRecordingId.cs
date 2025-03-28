@@ -2,43 +2,44 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Calls
+namespace Soenneker.Telnyx.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CallsPostResponse : IAdditionalDataHolder, IParsable
+    public partial class CallControlCommandResultWithRecordingId : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The data property</summary>
+        /// <summary>The ID of the recording. Only present when the record parameter is set to record-from-answer.</summary>
+        public Guid? RecordingId { get; set; }
+        /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CallWithRecordingId? Data { get; set; }
+        public string? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CallWithRecordingId Data { get; set; }
+        public string Result { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Calls.CallsPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CallControlCommandResultWithRecordingId"/> and sets the default values.
         /// </summary>
-        public CallsPostResponse()
+        public CallControlCommandResultWithRecordingId()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Calls.CallsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CallControlCommandResultWithRecordingId"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Calls.CallsPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.Models.CallControlCommandResultWithRecordingId CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Calls.CallsPostResponse();
+            return new global::Soenneker.Telnyx.Models.CallControlCommandResultWithRecordingId();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +49,8 @@ namespace Soenneker.Telnyx.Calls
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.Models.CallWithRecordingId>(global::Soenneker.Telnyx.Models.CallWithRecordingId.CreateFromDiscriminatorValue); } },
+                { "recording_id", n => { RecordingId = n.GetGuidValue(); } },
+                { "result", n => { Result = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +60,8 @@ namespace Soenneker.Telnyx.Calls
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CallWithRecordingId>("data", Data);
+            writer.WriteGuidValue("recording_id", RecordingId);
+            writer.WriteStringValue("result", Result);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
