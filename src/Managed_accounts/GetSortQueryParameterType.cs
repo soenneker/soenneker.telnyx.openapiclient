@@ -8,13 +8,13 @@ namespace Soenneker.Telnyx.Managed_accounts
     public enum GetSortQueryParameterType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "created_at")]
+        [EnumMember(Value = "asc")]
         #pragma warning disable CS1591
-        Created_at,
+        Asc,
         #pragma warning restore CS1591
-        [EnumMember(Value = "email")]
+        [EnumMember(Value = "desc")]
         #pragma warning disable CS1591
-        Email,
+        Desc,
         #pragma warning restore CS1591
     }
 }

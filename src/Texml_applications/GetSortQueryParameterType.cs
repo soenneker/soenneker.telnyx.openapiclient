@@ -12,9 +12,9 @@ namespace Soenneker.Telnyx.Texml_applications
         #pragma warning disable CS1591
         Created_at,
         #pragma warning restore CS1591
-        [EnumMember(Value = "friendly_name")]
+        [EnumMember(Value = "application_name")]
         #pragma warning disable CS1591
-        Friendly_name,
+        Application_name,
         #pragma warning restore CS1591
         [EnumMember(Value = "active")]
         #pragma warning disable CS1591

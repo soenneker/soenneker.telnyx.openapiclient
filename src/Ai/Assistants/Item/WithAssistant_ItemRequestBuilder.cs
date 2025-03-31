@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.Ai.Assistants.Item.Texml;
 using Soenneker.Telnyx.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,12 +18,17 @@ namespace Soenneker.Telnyx.Ai.Assistants.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithAssistant_ItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The texml property</summary>
+        public global::Soenneker.Telnyx.Ai.Assistants.Item.Texml.TexmlRequestBuilder Texml
+        {
+            get => new global::Soenneker.Telnyx.Ai.Assistants.Item.Texml.TexmlRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAssistant_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}", pathParameters)
+        public WithAssistant_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}{?call_control_id*,fetch_dynamic_variables_from_webhook*,from*,to*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +36,7 @@ namespace Soenneker.Telnyx.Ai.Assistants.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithAssistant_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}", rawUrl)
+        public WithAssistant_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}{?call_control_id*,fetch_dynamic_variables_from_webhook*,from*,to*}", rawUrl)
         {
         }
         /// <summary>
@@ -65,11 +71,11 @@ namespace Soenneker.Telnyx.Ai.Assistants.Item
         /// <exception cref="global::Soenneker.Telnyx.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.Assistant?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.Models.Assistant?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder.WithAssistant_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.Assistant> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.Models.Assistant> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder.WithAssistant_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -130,11 +136,11 @@ namespace Soenneker.Telnyx.Ai.Assistants.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder.WithAssistant_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder.WithAssistant_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -182,11 +188,47 @@ namespace Soenneker.Telnyx.Ai.Assistants.Item
         {
         }
         /// <summary>
+        /// Retrieve an AI Assistant configuration by `assistant_id`.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithAssistant_ItemRequestBuilderGetQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("call_control_id")]
+            public string? CallControlId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("call_control_id")]
+            public string CallControlId { get; set; }
+#endif
+            [QueryParameter("fetch_dynamic_variables_from_webhook")]
+            public bool? FetchDynamicVariablesFromWebhook { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("from")]
+            public string? From { get; set; }
+#nullable restore
+#else
+            [QueryParameter("from")]
+            public string From { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("to")]
+            public string? To { get; set; }
+#nullable restore
+#else
+            [QueryParameter("to")]
+            public string To { get; set; }
+#endif
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithAssistant_ItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class WithAssistant_ItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder.WithAssistant_ItemRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

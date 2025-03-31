@@ -22,6 +22,46 @@ namespace Soenneker.Telnyx.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The dynamic_variables property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.Models.CreateAssistantRequest_dynamic_variables? DynamicVariables { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.Models.CreateAssistantRequest_dynamic_variables DynamicVariables { get; set; }
+#endif
+        /// <summary>The dynamic_variables_webhook_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DynamicVariablesWebhookUrl { get; set; }
+#nullable restore
+#else
+        public string DynamicVariablesWebhookUrl { get; set; }
+#endif
+        /// <summary>The enabled_features property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.Models.EnabledFeatures?>? EnabledFeatures { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.Models.EnabledFeatures?> EnabledFeatures { get; set; }
+#endif
+        /// <summary>The greeting property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Greeting { get; set; }
+#nullable restore
+#else
+        public string Greeting { get; set; }
+#endif
+        /// <summary>The insight_settings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.Models.InsightSettings? InsightSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.Models.InsightSettings InsightSettings { get; set; }
+#endif
         /// <summary>The instructions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,6 +69,22 @@ namespace Soenneker.Telnyx.Models
 #nullable restore
 #else
         public string Instructions { get; set; }
+#endif
+        /// <summary>The llm_api_key_ref property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LlmApiKeyRef { get; set; }
+#nullable restore
+#else
+        public string LlmApiKeyRef { get; set; }
+#endif
+        /// <summary>The messaging_settings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.Models.MessagingSettings? MessagingSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.Models.MessagingSettings MessagingSettings { get; set; }
 #endif
         /// <summary>The model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,6 +102,14 @@ namespace Soenneker.Telnyx.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The telephony_settings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.Models.TelephonySettings? TelephonySettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.Models.TelephonySettings TelephonySettings { get; set; }
+#endif
         /// <summary>The `function` tool type follows the same schema as the [OpenAI Assistants API](https://platform.openai.com/docs/api-reference/assistants/createAssistant). The `retrieval` tool type is unique to Telnyx. You may pass a list of [embedded storage buckets](https://developers.telnyx.com/api/inference/inference-embedding/post-embedding) for retrieval-augmented generation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,6 +117,22 @@ namespace Soenneker.Telnyx.Models
 #nullable restore
 #else
         public List<global::Soenneker.Telnyx.Models.CreateAssistantRequest.CreateAssistantRequest_tools> Tools { get; set; }
+#endif
+        /// <summary>The transcription property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.Models.TranscriptionSettings? Transcription { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.Models.TranscriptionSettings Transcription { get; set; }
+#endif
+        /// <summary>The voice_settings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.Models.VoiceSettings? VoiceSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.Models.VoiceSettings VoiceSettings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CreateAssistantRequest"/> and sets the default values.
@@ -80,10 +160,20 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.Models.CreateAssistantRequest_dynamic_variables>(global::Soenneker.Telnyx.Models.CreateAssistantRequest_dynamic_variables.CreateFromDiscriminatorValue); } },
+                { "dynamic_variables_webhook_url", n => { DynamicVariablesWebhookUrl = n.GetStringValue(); } },
+                { "enabled_features", n => { EnabledFeatures = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.Models.EnabledFeatures>()?.AsList(); } },
+                { "greeting", n => { Greeting = n.GetStringValue(); } },
+                { "insight_settings", n => { InsightSettings = n.GetObjectValue<global::Soenneker.Telnyx.Models.InsightSettings>(global::Soenneker.Telnyx.Models.InsightSettings.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
+                { "llm_api_key_ref", n => { LlmApiKeyRef = n.GetStringValue(); } },
+                { "messaging_settings", n => { MessagingSettings = n.GetObjectValue<global::Soenneker.Telnyx.Models.MessagingSettings>(global::Soenneker.Telnyx.Models.MessagingSettings.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "telephony_settings", n => { TelephonySettings = n.GetObjectValue<global::Soenneker.Telnyx.Models.TelephonySettings>(global::Soenneker.Telnyx.Models.TelephonySettings.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.CreateAssistantRequest.CreateAssistantRequest_tools>(global::Soenneker.Telnyx.Models.CreateAssistantRequest.CreateAssistantRequest_tools.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.Models.TranscriptionSettings>(global::Soenneker.Telnyx.Models.TranscriptionSettings.CreateFromDiscriminatorValue); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.Models.VoiceSettings>(global::Soenneker.Telnyx.Models.VoiceSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -94,10 +184,20 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CreateAssistantRequest_dynamic_variables>("dynamic_variables", DynamicVariables);
+            writer.WriteStringValue("dynamic_variables_webhook_url", DynamicVariablesWebhookUrl);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.Models.EnabledFeatures>("enabled_features", EnabledFeatures);
+            writer.WriteStringValue("greeting", Greeting);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.InsightSettings>("insight_settings", InsightSettings);
             writer.WriteStringValue("instructions", Instructions);
+            writer.WriteStringValue("llm_api_key_ref", LlmApiKeyRef);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.MessagingSettings>("messaging_settings", MessagingSettings);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.TelephonySettings>("telephony_settings", TelephonySettings);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.CreateAssistantRequest.CreateAssistantRequest_tools>("tools", Tools);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.TranscriptionSettings>("transcription", Transcription);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.VoiceSettings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>

@@ -3,17 +3,18 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.Models
 {
-    /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum UpdateConferenceRequest_AnnounceMethod
+    #pragma warning disable CS1591
+    public enum EnabledFeatures
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "GET")]
+        [EnumMember(Value = "telephony")]
         #pragma warning disable CS1591
-        GET,
+        Telephony,
         #pragma warning restore CS1591
-        [EnumMember(Value = "POST")]
+        [EnumMember(Value = "messaging")]
         #pragma warning disable CS1591
-        POST,
+        Messaging,
         #pragma warning restore CS1591
     }
 }

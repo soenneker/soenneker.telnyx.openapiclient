@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.Models
 {
-    /// <summary>Identifies record type.</summary>
+    /// <summary>Identifies the type of the resource.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum RecordType
     {
-        [EnumMember(Value = "custom_storage_credentials")]
+        [EnumMember(Value = "event")]
         #pragma warning disable CS1591
-        Custom_storage_credentials,
+        Event,
         #pragma warning restore CS1591
     }
 }
