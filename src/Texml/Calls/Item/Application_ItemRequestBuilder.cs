@@ -42,22 +42,43 @@ namespace Soenneker.Telnyx.Texml.Calls.Item
         /// <summary>
         /// Initiate an outbound TeXML call. Telnyx will request TeXML from the XML Request URL configured for the connection in the Mission Control Portal.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.InitiateCallResult"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.Texml.Calls.Item.Application_PostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.InitiateCallResult?> PostAsync(global::Soenneker.Telnyx.Models.InitiateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.Texml.Calls.Item.Application_PostResponse?> PostAsApplication_PostResponseAsync(global::Soenneker.Telnyx.Models.InitiateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.InitiateCallResult> PostAsync(global::Soenneker.Telnyx.Models.InitiateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.Texml.Calls.Item.Application_PostResponse> PostAsApplication_PostResponseAsync(global::Soenneker.Telnyx.Models.InitiateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.InitiateCallResult>(requestInfo, global::Soenneker.Telnyx.Models.InitiateCallResult.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Texml.Calls.Item.Application_PostResponse>(requestInfo, global::Soenneker.Telnyx.Texml.Calls.Item.Application_PostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Initiate an outbound TeXML call. Telnyx will request TeXML from the XML Request URL configured for the connection in the Mission Control Portal.
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.Texml.Calls.Item.Application_Response"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("This method is obsolete. Use PostAsApplication_PostResponseAsync instead.")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Telnyx.Texml.Calls.Item.Application_Response?> PostAsync(global::Soenneker.Telnyx.Models.InitiateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Telnyx.Texml.Calls.Item.Application_Response> PostAsync(global::Soenneker.Telnyx.Models.InitiateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            _ = body ?? throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Texml.Calls.Item.Application_Response>(requestInfo, global::Soenneker.Telnyx.Texml.Calls.Item.Application_Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Initiate an outbound TeXML call. Telnyx will request TeXML from the XML Request URL configured for the connection in the Mission Control Portal.

@@ -264,10 +264,10 @@ namespace Soenneker.Telnyx.Mobile_push_credentials
             /// <summary>type of mobile push credentials</summary>
             [QueryParameter("filter%5Btype%5D")]
             public global::Soenneker.Telnyx.Mobile_push_credentials.GetFilterTypeQueryParameterType? FiltertypeAsGetFilterTypeQueryParameterType { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

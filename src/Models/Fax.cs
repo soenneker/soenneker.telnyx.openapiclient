@@ -56,8 +56,8 @@ namespace Soenneker.Telnyx.Models
 #else
         public string FromDisplayName { get; set; }
 #endif
-        /// <summary>Identifies the type of resource.</summary>
-        public Guid? Id { get; set; }
+        /// <summary>Identifies the resource.</summary>
+        public Guid? Id { get; private set; }
         /// <summary>The media_name used for the fax&apos;s media. Must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. media_name and media_url/contents can&apos;t be submitted together.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -190,7 +190,6 @@ namespace Soenneker.Telnyx.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Direction>("direction", Direction);
             writer.WriteStringValue("from", From);
             writer.WriteStringValue("from_display_name", FromDisplayName);
-            writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("media_name", MediaName);
             writer.WriteStringValue("media_url", MediaUrl);
             writer.WriteStringValue("preview_url", PreviewUrl);

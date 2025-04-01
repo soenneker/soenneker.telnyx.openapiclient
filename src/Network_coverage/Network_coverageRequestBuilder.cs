@@ -168,10 +168,10 @@ namespace Soenneker.Telnyx.Network_coverage
             /// <summary>The region of associated location to filter on.</summary>
             [QueryParameter("filters%5Bavailable_services%5D%5Bcontains%5D")]
             public global::Soenneker.Telnyx.Models.AvailableService? FiltersavailableServicescontainsAsAvailableService { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

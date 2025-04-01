@@ -19,10 +19,6 @@ namespace Soenneker.Telnyx.Models
         #pragma warning disable CS1591
         NON_PROFIT,
         #pragma warning restore CS1591
-        [EnumMember(Value = "SOLE_PROPRIETOR")]
-        #pragma warning disable CS1591
-        SOLE_PROPRIETOR,
-        #pragma warning restore CS1591
         [EnumMember(Value = "GOVERNMENT")]
         #pragma warning disable CS1591
         GOVERNMENT,

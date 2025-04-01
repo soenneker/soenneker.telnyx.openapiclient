@@ -212,10 +212,10 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_blocks
             [QueryParameter("filter%5Bphone_number%5D%5Bin%5D%5B%5D")]
             public string[] FilterphoneNumberin { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order</summary>
