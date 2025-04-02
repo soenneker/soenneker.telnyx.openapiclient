@@ -133,10 +133,10 @@ namespace Soenneker.Telnyx.Rooms.Item.Sessions
             /// <summary>To decide if room participants should be included in the response.</summary>
             [QueryParameter("include_participants")]
             public bool? IncludeParticipants { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

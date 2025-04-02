@@ -135,6 +135,7 @@ using Soenneker.Telnyx.Sub_number_orders;
 using Soenneker.Telnyx.Telephony_credentials;
 using Soenneker.Telnyx.Texml;
 using Soenneker.Telnyx.Texml_applications;
+using Soenneker.Telnyx.TextToSpeech;
 using Soenneker.Telnyx.Usage_reports;
 using Soenneker.Telnyx.User_addresses;
 using Soenneker.Telnyx.User_tags;
@@ -794,6 +795,11 @@ namespace Soenneker.Telnyx
         public global::Soenneker.Telnyx.Texml_applications.Texml_applicationsRequestBuilder Texml_applications
         {
             get => new global::Soenneker.Telnyx.Texml_applications.Texml_applicationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The textToSpeech property</summary>
+        public global::Soenneker.Telnyx.TextToSpeech.TextToSpeechRequestBuilder TextToSpeech
+        {
+            get => new global::Soenneker.Telnyx.TextToSpeech.TextToSpeechRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The usage_reports property</summary>
         public global::Soenneker.Telnyx.Usage_reports.Usage_reportsRequestBuilder Usage_reports

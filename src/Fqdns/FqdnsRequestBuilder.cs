@@ -237,10 +237,10 @@ namespace Soenneker.Telnyx.Fqdns
             /// <summary>Port to use when connecting to the FQDN.</summary>
             [QueryParameter("filter%5Bport%5D")]
             public int? Filterport { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

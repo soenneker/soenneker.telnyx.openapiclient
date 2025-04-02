@@ -40,7 +40,6 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Recordings.Item
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.Models.TexmlCreateCallRecordingResponseBody?> PostAsync(global::Soenneker.Telnyx.Models.TexmlUpdateCallRecordingRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,11 +51,7 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Recordings.Item
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.TexmlCreateCallRecordingResponseBody>(requestInfo, global::Soenneker.Telnyx.Models.TexmlCreateCallRecordingResponseBody.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.TexmlCreateCallRecordingResponseBody>(requestInfo, global::Soenneker.Telnyx.Models.TexmlCreateCallRecordingResponseBody.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates recording resource for particular call.
