@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// High level health metrics about the number and it&apos;s messaging sending patterns.
@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The ratio of messages sucessfully delivered to the number of messages attempted.</summary>
         public float? SuccessRatio { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.NumberHealthMetrics"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics"/> and sets the default values.
         /// </summary>
         public NumberHealthMetrics()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.NumberHealthMetrics"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.NumberHealthMetrics CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.NumberHealthMetrics();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics();
         }
         /// <summary>
         /// The deserialization information for the current model

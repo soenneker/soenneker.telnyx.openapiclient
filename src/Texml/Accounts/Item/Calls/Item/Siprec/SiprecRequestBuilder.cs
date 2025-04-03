@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec.Item;
+using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec
+namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec
 {
     /// <summary>
     /// Builds and executes requests for operations under \texml\Accounts\{account_sid}\Calls\{call_sid}\Siprec
@@ -15,20 +15,20 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SiprecRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.texml.Accounts.item.Calls.item.Siprec.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item.Calls.item.Siprec.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec.Item.WithSiprec_sidJsonItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec.Item.WithSiprec_sidJsonItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec.Item.WithSiprec_sidJsonItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec.Item.WithSiprec_sidJsonItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("siprec_sid", position);
-                return new global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec.Item.WithSiprec_sidJsonItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec.Item.WithSiprec_sidJsonItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec.SiprecRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec.SiprecRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec.SiprecRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec.SiprecRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.Item;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Messaging_tollfree.Verification.Requests
+namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests
 {
     /// <summary>
     /// Builds and executes requests for operations under \messaging_tollfree\verification\requests
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Messaging_tollfree.Verification.Requests
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RequestsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.messaging_tollfree.verification.requests.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messaging_tollfree.verification.requests.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.messaging_tollfree.verification.requests.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messaging_tollfree.verification.requests.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Messaging_tollfree.Verification.Requests
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,50 +62,50 @@ namespace Soenneker.Telnyx.Messaging_tollfree.Verification.Requests
         /// <summary>
         /// Get a list of previously-submitted tollfree verification requests
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Paginated_VerificationRequestStatus_"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Paginated_VerificationRequestStatus_"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.Paginated_VerificationRequestStatus_?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Paginated_VerificationRequestStatus_?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.Paginated_VerificationRequestStatus_> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Paginated_VerificationRequestStatus_> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.Paginated_VerificationRequestStatus_>(requestInfo, global::Soenneker.Telnyx.Models.Paginated_VerificationRequestStatus_.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.Paginated_VerificationRequestStatus_>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.Paginated_VerificationRequestStatus_.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Submit a new tollfree verification request
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.VerificationRequestEgress"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress"/></returns>
         /// <param name="body">The body of a tollfree verification request</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.VerificationRequestEgress?> PostAsync(global::Soenneker.Telnyx.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.VerificationRequestEgress> PostAsync(global::Soenneker.Telnyx.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.VerificationRequestEgress>(requestInfo, global::Soenneker.Telnyx.Models.VerificationRequestEgress.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a list of previously-submitted tollfree verification requests
@@ -114,11 +114,11 @@ namespace Soenneker.Telnyx.Messaging_tollfree.Verification.Requests
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -134,11 +134,11 @@ namespace Soenneker.Telnyx.Messaging_tollfree.Verification.Requests
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -151,11 +151,11 @@ namespace Soenneker.Telnyx.Messaging_tollfree.Verification.Requests
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Get a list of previously-submitted tollfree verification requests
@@ -192,14 +192,14 @@ namespace Soenneker.Telnyx.Messaging_tollfree.Verification.Requests
             public string Status { get; set; }
 #endif
             [QueryParameter("status")]
-            public global::Soenneker.Telnyx.Models.TFVerificationStatus? StatusAsTFVerificationStatus { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationStatus? StatusAsTFVerificationStatus { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RequestsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>
+        public partial class RequestsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.RequestsRequestBuilder.RequestsRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

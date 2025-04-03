@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
+namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item
 {
     /// <summary>
     /// The parameters for creating a new LOA configuration.
@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         /// <summary>The address of the company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_address? Address { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_address? Address { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_address Address { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_address Address { get; set; }
 #endif
         /// <summary>The name of the company</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,18 +34,18 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         /// <summary>The contact information of the company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact? Contact { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact? Contact { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact Contact { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact Contact { get; set; }
 #endif
         /// <summary>The logo of the LOA configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo? Logo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo? Logo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo Logo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo Logo { get; set; }
 #endif
         /// <summary>The name of the LOA configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         public string Name { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody"/> and sets the default values.
         /// </summary>
         public Loa_configurationsPatchRequestBody()
         {
@@ -65,12 +65,12 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,10 +80,10 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_address>(global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_address.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_address>(global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_address.CreateFromDiscriminatorValue); } },
                 { "company_name", n => { CompanyName = n.GetStringValue(); } },
-                { "contact", n => { Contact = n.GetObjectValue<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact>(global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact.CreateFromDiscriminatorValue); } },
-                { "logo", n => { Logo = n.GetObjectValue<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo>(global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo.CreateFromDiscriminatorValue); } },
+                { "contact", n => { Contact = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact>(global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact.CreateFromDiscriminatorValue); } },
+                { "logo", n => { Logo = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo>(global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -94,10 +94,10 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_address>("address", Address);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_address>("address", Address);
             writer.WriteStringValue("company_name", CompanyName);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact>("contact", Contact);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo>("logo", Logo);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact>("contact", Contact);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo>("logo", Logo);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

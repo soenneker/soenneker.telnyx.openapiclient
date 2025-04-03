@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// An object representing the available notifications.
@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.NotificationEvent"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEvent"/> and sets the default values.
         /// </summary>
         public NotificationEvent()
         {
@@ -55,12 +55,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.NotificationEvent"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.NotificationEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.NotificationEvent();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEvent();
         }
         /// <summary>
         /// The deserialization information for the current model

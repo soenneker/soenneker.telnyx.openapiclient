@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Whether to play a beep when recording is started.</summary>
         public bool? PlayBeep { get; set; }
         /// <summary>When `dual`, final audio file has the first leg on channel A, and the rest on channel B. `single` mixes both tracks into a single channel.</summary>
-        public global::Soenneker.Telnyx.Models.TexmlRecordingChannels? RecordingChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels? RecordingChannels { get; set; }
         /// <summary>Url where status callbacks will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,27 +35,27 @@ namespace Soenneker.Telnyx.Models
         public string RecordingStatusCallbackEvent { get; set; }
 #endif
         /// <summary>HTTP method used to send status callbacks.</summary>
-        public global::Soenneker.Telnyx.Models.TexmlStatusCallbackMethod? RecordingStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? RecordingStatusCallbackMethod { get; set; }
         /// <summary>The audio track to record for the call. The default is `both`.</summary>
-        public global::Soenneker.Telnyx.Models.RecordingTrack? RecordingTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack? RecordingTrack { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.TexmlCreateCallRecordingRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingRequestBody"/> and sets the default values.
         /// </summary>
         public TexmlCreateCallRecordingRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            RecordingChannels = global::Soenneker.Telnyx.Models.TexmlRecordingChannels.Dual;
-            RecordingStatusCallbackMethod = global::Soenneker.Telnyx.Models.TexmlStatusCallbackMethod.POST;
+            RecordingChannels = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels.Dual;
+            RecordingStatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod.POST;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TexmlCreateCallRecordingRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.TexmlCreateCallRecordingRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.TexmlCreateCallRecordingRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,11 +66,11 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "PlayBeep", n => { PlayBeep = n.GetBoolValue(); } },
-                { "RecordingChannels", n => { RecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.Models.TexmlRecordingChannels>(); } },
+                { "RecordingChannels", n => { RecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels>(); } },
                 { "RecordingStatusCallback", n => { RecordingStatusCallback = n.GetStringValue(); } },
                 { "RecordingStatusCallbackEvent", n => { RecordingStatusCallbackEvent = n.GetStringValue(); } },
-                { "RecordingStatusCallbackMethod", n => { RecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.Models.TexmlStatusCallbackMethod>(); } },
-                { "RecordingTrack", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.Models.RecordingTrack>(); } },
+                { "RecordingStatusCallbackMethod", n => { RecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>(); } },
+                { "RecordingTrack", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>(); } },
             };
         }
         /// <summary>
@@ -81,11 +81,11 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("PlayBeep", PlayBeep);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TexmlRecordingChannels>("RecordingChannels", RecordingChannels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels>("RecordingChannels", RecordingChannels);
             writer.WriteStringValue("RecordingStatusCallback", RecordingStatusCallback);
             writer.WriteStringValue("RecordingStatusCallbackEvent", RecordingStatusCallbackEvent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TexmlStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RecordingTrack>("RecordingTrack", RecordingTrack);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>("RecordingTrack", RecordingTrack);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

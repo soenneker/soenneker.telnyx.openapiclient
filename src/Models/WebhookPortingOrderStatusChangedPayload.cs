@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The webhook payload for the porting_order.status_changed event
@@ -28,10 +28,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Porting order status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.PortingOrderStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus? Status { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.PortingOrderStatus Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus Status { get; set; }
 #endif
         /// <summary>Identifies the support key associated with the porting order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Models
         public string WebhookUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.WebhookPortingOrderStatusChangedPayload"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderStatusChangedPayload"/> and sets the default values.
         /// </summary>
         public WebhookPortingOrderStatusChangedPayload()
         {
@@ -61,12 +61,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.WebhookPortingOrderStatusChangedPayload"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderStatusChangedPayload"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.WebhookPortingOrderStatusChangedPayload CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderStatusChangedPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.WebhookPortingOrderStatusChangedPayload();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderStatusChangedPayload();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.Models.PortingOrderStatus>(global::Soenneker.Telnyx.Models.PortingOrderStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus.CreateFromDiscriminatorValue); } },
                 { "support_key", n => { SupportKey = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.PortingOrderStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderStatus>("status", Status);
             writer.WriteStringValue("support_key", SupportKey);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("webhook_url", WebhookUrl);

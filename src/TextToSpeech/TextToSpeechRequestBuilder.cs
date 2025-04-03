@@ -2,13 +2,13 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.TextToSpeech.Speech;
-using Soenneker.Telnyx.TextToSpeech.Voices;
+using Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech;
+using Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.TextToSpeech
+namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech
 {
     /// <summary>
     /// Builds and executes requests for operations under \text-to-speech
@@ -17,17 +17,17 @@ namespace Soenneker.Telnyx.TextToSpeech
     public partial class TextToSpeechRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The speech property</summary>
-        public global::Soenneker.Telnyx.TextToSpeech.Speech.SpeechRequestBuilder Speech
+        public global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.SpeechRequestBuilder Speech
         {
-            get => new global::Soenneker.Telnyx.TextToSpeech.Speech.SpeechRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.SpeechRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The voices property</summary>
-        public global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder Voices
+        public global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder Voices
         {
-            get => new global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.TextToSpeech.TextToSpeechRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.TextToSpeechRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.TextToSpeech
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.TextToSpeech.TextToSpeechRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.TextToSpeechRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

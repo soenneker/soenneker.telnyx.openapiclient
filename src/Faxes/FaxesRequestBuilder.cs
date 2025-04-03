@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Faxes.Item;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Faxes.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Faxes
+namespace Soenneker.Telnyx.OpenApiClient.Faxes
 {
     /// <summary>
     /// Builds and executes requests for operations under \faxes
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Faxes
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FaxesRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.faxes.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.faxes.item collection</summary>
         /// <param name="position">The unique identifier of a fax.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Faxes.Item.FaxesItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Faxes.Item.FaxesItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.FaxesItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.FaxesItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Faxes.Item.FaxesItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.FaxesItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.faxes.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.faxes.item collection</summary>
         /// <param name="position">The unique identifier of a fax.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Faxes.Item.FaxesItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.FaxesItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Faxes.Item.FaxesItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.FaxesItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Faxes.Item.FaxesItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.FaxesItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Faxes
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,110 +62,110 @@ namespace Soenneker.Telnyx.Faxes
         /// <summary>
         /// View a list of faxes
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Faxes.FaxesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Faxes.FaxesGetResponse?> GetAsFaxesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesGetResponse?> GetAsFaxesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Faxes.FaxesGetResponse> GetAsFaxesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesGetResponse> GetAsFaxesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Faxes.FaxesGetResponse>(requestInfo, global::Soenneker.Telnyx.Faxes.FaxesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// View a list of faxes
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Faxes.FaxesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsFaxesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Faxes.FaxesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Faxes.FaxesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Faxes.FaxesResponse>(requestInfo, global::Soenneker.Telnyx.Faxes.FaxesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Send a fax. Files have size limits and page count limit validations. If a file is bigger than 50MB or has more than 350 pages it will fail with `file_size_limit_exceeded` and `page_count_limit_exceeded` respectively. **Expected Webhooks:**- `fax.queued`- `fax.media.processed`- `fax.sending.started`- `fax.delivered`- `fax.failed`
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Faxes.FaxesPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Faxes.FaxesPostResponse?> PostAsFaxesPostResponseAsync(global::Soenneker.Telnyx.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesPostResponse?> PostAsFaxesPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Faxes.FaxesPostResponse> PostAsFaxesPostResponseAsync(global::Soenneker.Telnyx.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesPostResponse> PostAsFaxesPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Faxes.FaxesPostResponse>(requestInfo, global::Soenneker.Telnyx.Faxes.FaxesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Send a fax. Files have size limits and page count limit validations. If a file is bigger than 50MB or has more than 350 pages it will fail with `file_size_limit_exceeded` and `page_count_limit_exceeded` respectively. **Expected Webhooks:**- `fax.queued`- `fax.media.processed`- `fax.sending.started`- `fax.delivered`- `fax.failed`
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Faxes.FaxesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use PostAsFaxesPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Faxes.FaxesResponse?> PostAsync(global::Soenneker.Telnyx.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Faxes.FaxesResponse> PostAsync(global::Soenneker.Telnyx.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Faxes.FaxesResponse>(requestInfo, global::Soenneker.Telnyx.Faxes.FaxesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -181,11 +181,11 @@ namespace Soenneker.Telnyx.Faxes
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -198,11 +198,11 @@ namespace Soenneker.Telnyx.Faxes
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// View a list of faxes
@@ -264,7 +264,7 @@ namespace Soenneker.Telnyx.Faxes
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FaxesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>
+        public partial class FaxesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesRequestBuilder.FaxesRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -27,25 +27,25 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The issued_by property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SSLCertificate_issued_by? IssuedBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_by? IssuedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SSLCertificate_issued_by IssuedBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_by IssuedBy { get; set; }
 #endif
         /// <summary>The issued_to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SSLCertificate_issued_to? IssuedTo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_to? IssuedTo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SSLCertificate_issued_to IssuedTo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_to IssuedTo { get; set; }
 #endif
         /// <summary>The time the certificate is valid from</summary>
         public DateTimeOffset? ValidFrom { get; set; }
         /// <summary>The time the certificate is valid to</summary>
         public DateTimeOffset? ValidTo { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SSLCertificate"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate"/> and sets the default values.
         /// </summary>
         public SSLCertificate()
         {
@@ -54,12 +54,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SSLCertificate"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SSLCertificate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SSLCertificate();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,8 +71,8 @@ namespace Soenneker.Telnyx.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "issued_by", n => { IssuedBy = n.GetObjectValue<global::Soenneker.Telnyx.Models.SSLCertificate_issued_by>(global::Soenneker.Telnyx.Models.SSLCertificate_issued_by.CreateFromDiscriminatorValue); } },
-                { "issued_to", n => { IssuedTo = n.GetObjectValue<global::Soenneker.Telnyx.Models.SSLCertificate_issued_to>(global::Soenneker.Telnyx.Models.SSLCertificate_issued_to.CreateFromDiscriminatorValue); } },
+                { "issued_by", n => { IssuedBy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_by>(global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_by.CreateFromDiscriminatorValue); } },
+                { "issued_to", n => { IssuedTo = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_to>(global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_to.CreateFromDiscriminatorValue); } },
                 { "valid_from", n => { ValidFrom = n.GetDateTimeOffsetValue(); } },
                 { "valid_to", n => { ValidTo = n.GetDateTimeOffsetValue(); } },
             };
@@ -86,8 +86,8 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SSLCertificate_issued_by>("issued_by", IssuedBy);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SSLCertificate_issued_to>("issued_to", IssuedTo);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_by>("issued_by", IssuedBy);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_to>("issued_to", IssuedTo);
             writer.WriteDateTimeOffsetValue("valid_from", ValidFrom);
             writer.WriteDateTimeOffsetValue("valid_to", ValidTo);
             writer.WriteAdditionalData(AdditionalData);

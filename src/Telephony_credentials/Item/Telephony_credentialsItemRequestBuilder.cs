@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Telephony_credentials.Item.Token;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Telephony_credentials.Item
+namespace Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \telephony_credentials\{id}
@@ -19,12 +19,12 @@ namespace Soenneker.Telnyx.Telephony_credentials.Item
     public partial class Telephony_credentialsItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The token property</summary>
-        public global::Soenneker.Telnyx.Telephony_credentials.Item.Token.TokenRequestBuilder Token
+        public global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token.TokenRequestBuilder Token
         {
-            get => new global::Soenneker.Telnyx.Telephony_credentials.Item.Token.TokenRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token.TokenRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.Telephony_credentials.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -42,117 +42,117 @@ namespace Soenneker.Telnyx.Telephony_credentials.Item
         /// <summary>
         /// Delete an existing credential.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsDeleteResponse?> DeleteAsTelephony_credentialsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsDeleteResponse?> DeleteAsTelephony_credentialsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsDeleteResponse> DeleteAsTelephony_credentialsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsDeleteResponse> DeleteAsTelephony_credentialsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete an existing credential.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use DeleteAsTelephony_credentialsDeleteResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse>(requestInfo, global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get the details of an existing On-demand Credential.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsGetResponse?> GetAsTelephony_credentialsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsGetResponse?> GetAsTelephony_credentialsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsGetResponse> GetAsTelephony_credentialsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsGetResponse> GetAsTelephony_credentialsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsGetResponse>(requestInfo, global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get the details of an existing On-demand Credential.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsTelephony_credentialsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse>(requestInfo, global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update an existing credential.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsPatchResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsPatchResponse?> PatchAsTelephony_credentialsPatchResponseAsync(global::Soenneker.Telnyx.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsPatchResponse?> PatchAsTelephony_credentialsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsPatchResponse> PatchAsTelephony_credentialsPatchResponseAsync(global::Soenneker.Telnyx.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsPatchResponse> PatchAsTelephony_credentialsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsPatchResponse>(requestInfo, global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsPatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update an existing credential.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PatchAsTelephony_credentialsPatchResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse?> PatchAsync(global::Soenneker.Telnyx.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse> PatchAsync(global::Soenneker.Telnyx.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse>(requestInfo, global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete an existing credential.
@@ -200,11 +200,11 @@ namespace Soenneker.Telnyx.Telephony_credentials.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonyCredentialUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -217,11 +217,11 @@ namespace Soenneker.Telnyx.Telephony_credentials.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Telephony_credentialsItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

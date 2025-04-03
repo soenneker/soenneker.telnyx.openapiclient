@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The loop property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Loopcount? Loop { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount? Loop { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Loopcount Loop { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount Loop { get; set; }
 #endif
         /// <summary>The media_name of a file to be played back in the conference. The media_name must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. The file must either be a WAV or MP3 file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.Models
         public string MediaName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ConferencePlayRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferencePlayRequest"/> and sets the default values.
         /// </summary>
         public ConferencePlayRequest()
         {
@@ -56,12 +56,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ConferencePlayRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferencePlayRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ConferencePlayRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ConferencePlayRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ConferencePlayRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ConferencePlayRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
                 { "call_control_ids", n => { CallControlIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "loop", n => { Loop = n.GetObjectValue<global::Soenneker.Telnyx.Models.Loopcount>(global::Soenneker.Telnyx.Models.Loopcount.CreateFromDiscriminatorValue); } },
+                { "loop", n => { Loop = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount>(global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount.CreateFromDiscriminatorValue); } },
                 { "media_name", n => { MediaName = n.GetStringValue(); } },
             };
         }
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("audio_url", AudioUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("call_control_ids", CallControlIds);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Loopcount>("loop", Loop);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount>("loop", Loop);
             writer.WriteStringValue("media_name", MediaName);
             writer.WriteAdditionalData(AdditionalData);
         }

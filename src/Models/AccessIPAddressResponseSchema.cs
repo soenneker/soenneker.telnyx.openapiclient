@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.Models
         public string Source { get; set; }
 #endif
         /// <summary>An enumeration.</summary>
-        public global::Soenneker.Telnyx.Models.CloudflareSyncStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CloudflareSyncStatus? Status { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The user_id property</summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Models
         public string UserId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.AccessIPAddressResponseSchema"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressResponseSchema"/> and sets the default values.
         /// </summary>
         public AccessIPAddressResponseSchema()
         {
@@ -70,12 +70,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AccessIPAddressResponseSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressResponseSchema"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.AccessIPAddressResponseSchema CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressResponseSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.AccessIPAddressResponseSchema();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressResponseSchema();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "ip_address", n => { IpAddress = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.CloudflareSyncStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CloudflareSyncStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("ip_address", IpAddress);
             writer.WriteStringValue("source", Source);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CloudflareSyncStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CloudflareSyncStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);

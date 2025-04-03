@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.Models
         public string AdministrativeArea { get; set; }
 #endif
         /// <summary>The country_code property</summary>
-        public global::Soenneker.Telnyx.Models.DynamicEmergencyAddress_country_code? CountryCode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress_country_code? CountryCode { get; set; }
         /// <summary>ISO 8601 formatted date of when the resource was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.Models
         public string SipGeolocationId { get; private set; }
 #endif
         /// <summary>Status of dynamic emergency address</summary>
-        public global::Soenneker.Telnyx.Models.DynamicEmergencyAddress_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress_status? Status { get; private set; }
         /// <summary>The street_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -139,7 +139,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.DynamicEmergencyAddress"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress"/> and sets the default values.
         /// </summary>
         public DynamicEmergencyAddress()
         {
@@ -148,12 +148,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.DynamicEmergencyAddress"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.DynamicEmergencyAddress CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.DynamicEmergencyAddress();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -164,7 +164,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "administrative_area", n => { AdministrativeArea = n.GetStringValue(); } },
-                { "country_code", n => { CountryCode = n.GetEnumValue<global::Soenneker.Telnyx.Models.DynamicEmergencyAddress_country_code>(); } },
+                { "country_code", n => { CountryCode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress_country_code>(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "extended_address", n => { ExtendedAddress = n.GetStringValue(); } },
                 { "house_number", n => { HouseNumber = n.GetStringValue(); } },
@@ -174,7 +174,7 @@ namespace Soenneker.Telnyx.Models
                 { "postal_code", n => { PostalCode = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "sip_geolocation_id", n => { SipGeolocationId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.DynamicEmergencyAddress_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress_status>(); } },
                 { "street_name", n => { StreetName = n.GetStringValue(); } },
                 { "street_post_directional", n => { StreetPostDirectional = n.GetStringValue(); } },
                 { "street_pre_directional", n => { StreetPreDirectional = n.GetStringValue(); } },
@@ -190,7 +190,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("administrative_area", AdministrativeArea);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.DynamicEmergencyAddress_country_code>("country_code", CountryCode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyAddress_country_code>("country_code", CountryCode);
             writer.WriteStringValue("extended_address", ExtendedAddress);
             writer.WriteStringValue("house_number", HouseNumber);
             writer.WriteStringValue("house_suffix", HouseSuffix);

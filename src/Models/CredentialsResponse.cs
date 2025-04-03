@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -25,15 +25,15 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CustomStorageConfiguration? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CustomStorageConfiguration Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration Data { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.Models.RecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordType? RecordType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CredentialsResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CredentialsResponse"/> and sets the default values.
         /// </summary>
         public CredentialsResponse()
         {
@@ -42,12 +42,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CredentialsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CredentialsResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CredentialsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CredentialsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CredentialsResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CredentialsResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,8 +58,8 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.Models.CustomStorageConfiguration>(global::Soenneker.Telnyx.Models.CustomStorageConfiguration.CreateFromDiscriminatorValue); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.RecordType>(); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CreateFromDiscriminatorValue); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordType>(); } },
             };
         }
         /// <summary>
@@ -70,8 +70,8 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("connection_id", ConnectionId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CustomStorageConfiguration>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RecordType>("record_type", RecordType);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration>("data", Data);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordType>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Actions.Register.Sim_cards;
+using Soenneker.Telnyx.OpenApiClient.Actions.Register.Sim_cards;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Actions.Register
+namespace Soenneker.Telnyx.OpenApiClient.Actions.Register
 {
     /// <summary>
     /// Builds and executes requests for operations under \actions\register
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Actions.Register
     public partial class RegisterRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The sim_cards property</summary>
-        public global::Soenneker.Telnyx.Actions.Register.Sim_cards.Sim_cardsRequestBuilder Sim_cards
+        public global::Soenneker.Telnyx.OpenApiClient.Actions.Register.Sim_cards.Sim_cardsRequestBuilder Sim_cards
         {
-            get => new global::Soenneker.Telnyx.Actions.Register.Sim_cards.Sim_cardsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Actions.Register.Sim_cards.Sim_cardsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Actions.Register.RegisterRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Actions.Register.RegisterRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Actions.Register
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Actions.Register.RegisterRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Actions.Register.RegisterRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

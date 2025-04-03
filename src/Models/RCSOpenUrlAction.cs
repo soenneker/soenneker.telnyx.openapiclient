@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Opens the user&apos;s default web browser app to the specified URL.
@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>URL open application, browser or webview.</summary>
-        public global::Soenneker.Telnyx.Models.RCSOpenUrlAction_application? Application { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction_application? Application { get; set; }
         /// <summary>Accessbility description for webview.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,9 +34,9 @@ namespace Soenneker.Telnyx.Models
         public string Url { get; set; }
 #endif
         /// <summary>The webview_view_mode property</summary>
-        public global::Soenneker.Telnyx.Models.RCSOpenUrlAction_webview_view_mode? WebviewViewMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction_webview_view_mode? WebviewViewMode { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RCSOpenUrlAction"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction"/> and sets the default values.
         /// </summary>
         public RCSOpenUrlAction()
         {
@@ -45,12 +45,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RCSOpenUrlAction"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RCSOpenUrlAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RCSOpenUrlAction();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,10 +60,10 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "application", n => { Application = n.GetEnumValue<global::Soenneker.Telnyx.Models.RCSOpenUrlAction_application>(); } },
+                { "application", n => { Application = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction_application>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "webview_view_mode", n => { WebviewViewMode = n.GetEnumValue<global::Soenneker.Telnyx.Models.RCSOpenUrlAction_webview_view_mode>(); } },
+                { "webview_view_mode", n => { WebviewViewMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction_webview_view_mode>(); } },
             };
         }
         /// <summary>
@@ -73,10 +73,10 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RCSOpenUrlAction_application>("application", Application);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction_application>("application", Application);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("url", Url);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RCSOpenUrlAction_webview_view_mode>("webview_view_mode", WebviewViewMode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction_webview_view_mode>("webview_view_mode", WebviewViewMode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

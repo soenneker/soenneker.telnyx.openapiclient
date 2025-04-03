@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Mobile_network_operators
+namespace Soenneker.Telnyx.OpenApiClient.Mobile_network_operators
 {
     /// <summary>
     /// Builds and executes requests for operations under \mobile_network_operators
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Mobile_network_operators
     public partial class Mobile_network_operatorsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Mobile_network_operators
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,49 +36,49 @@ namespace Soenneker.Telnyx.Mobile_network_operators
         /// <summary>
         /// Telnyx has a set of GSM mobile operators partners that are available through our mobile network roaming. This resource is entirely managed by Telnyx and may change over time. That means that this resource won&apos;t allow any write operations for it. Still, it&apos;s available so it can be used as a support resource that can be related to other resources or become a configuration option.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsGetResponse?> GetAsMobile_network_operatorsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse?> GetAsMobile_network_operatorsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsGetResponse> GetAsMobile_network_operatorsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse> GetAsMobile_network_operatorsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsGetResponse>(requestInfo, global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Telnyx has a set of GSM mobile operators partners that are available through our mobile network roaming. This resource is entirely managed by Telnyx and may change over time. That means that this resource won&apos;t allow any write operations for it. Still, it&apos;s available so it can be used as a support resource that can be related to other resources or become a configuration option.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsMobile_network_operatorsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsResponse>(requestInfo, global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Telnyx has a set of GSM mobile operators partners that are available through our mobile network roaming. This resource is entirely managed by Telnyx and may change over time. That means that this resource won&apos;t allow any write operations for it. Still, it&apos;s available so it can be used as a support resource that can be related to other resources or become a configuration option.
@@ -87,11 +87,11 @@ namespace Soenneker.Telnyx.Mobile_network_operators
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -102,11 +102,11 @@ namespace Soenneker.Telnyx.Mobile_network_operators
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Telnyx has a set of GSM mobile operators partners that are available through our mobile network roaming. This resource is entirely managed by Telnyx and may change over time. That means that this resource won&apos;t allow any write operations for it. Still, it&apos;s available so it can be used as a support resource that can be related to other resources or become a configuration option.
@@ -199,7 +199,7 @@ namespace Soenneker.Telnyx.Mobile_network_operators
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Mobile_network_operatorsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>
+        public partial class Mobile_network_operatorsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>
         {
         }
     }

@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Connections.Item.Active_calls;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Connections.Item.Active_calls;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Connections.Item
+namespace Soenneker.Telnyx.OpenApiClient.Connections.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \connections\{connection_-id}
@@ -19,12 +19,12 @@ namespace Soenneker.Telnyx.Connections.Item
     public partial class Connection_ItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The active_calls property</summary>
-        public global::Soenneker.Telnyx.Connections.Item.Active_calls.Active_callsRequestBuilder Active_calls
+        public global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Active_calls.Active_callsRequestBuilder Active_calls
         {
-            get => new global::Soenneker.Telnyx.Connections.Item.Active_calls.Active_callsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Active_calls.Active_callsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Connections.Item.Connection_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.Connections.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Connections.Item.Connection_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -42,53 +42,53 @@ namespace Soenneker.Telnyx.Connections.Item
         /// <summary>
         /// Retrieves the high-level details of an existing connection. To retrieve specific authentication information, use the endpoint for the specific connection type.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Connections.Item.Connection_GetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_GetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Connections.Item.Connection_GetResponse?> GetAsConnection_GetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_GetResponse?> GetAsConnection_GetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Connections.Item.Connection_GetResponse> GetAsConnection_GetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_GetResponse> GetAsConnection_GetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Connections.Item.Connection_GetResponse>(requestInfo, global::Soenneker.Telnyx.Connections.Item.Connection_GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_GetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the high-level details of an existing connection. To retrieve specific authentication information, use the endpoint for the specific connection type.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Connections.Item.Connection_Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsConnection_GetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Connections.Item.Connection_Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Connections.Item.Connection_Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Connections.Item.Connection_Response>(requestInfo, global::Soenneker.Telnyx.Connections.Item.Connection_Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the high-level details of an existing connection. To retrieve specific authentication information, use the endpoint for the specific connection type.
@@ -112,11 +112,11 @@ namespace Soenneker.Telnyx.Connections.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Connections.Item.Connection_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_ItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Connections.Item.Connection_ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_ItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Connections.Item.Connection_ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Connections.Item.Connection_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

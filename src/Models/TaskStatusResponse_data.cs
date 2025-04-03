@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Models
         public string FinishedAt { get; set; }
 #endif
         /// <summary>Status of an embeddings task.</summary>
-        public global::Soenneker.Telnyx.Models.BackgroundTaskStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTaskStatus? Status { get; set; }
         /// <summary>The task_id property</summary>
         public Guid? TaskId { get; set; }
         /// <summary>The task_name property</summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.Models
         public string TaskName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.TaskStatusResponse_data"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatusResponse_data"/> and sets the default values.
         /// </summary>
         public TaskStatusResponse_data()
         {
@@ -52,12 +52,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TaskStatusResponse_data"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatusResponse_data"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.TaskStatusResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatusResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.TaskStatusResponse_data();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatusResponse_data();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "finished_at", n => { FinishedAt = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.BackgroundTaskStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTaskStatus>(); } },
                 { "task_id", n => { TaskId = n.GetGuidValue(); } },
                 { "task_name", n => { TaskName = n.GetStringValue(); } },
             };
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("finished_at", FinishedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BackgroundTaskStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTaskStatus>("status", Status);
             writer.WriteGuidValue("task_id", TaskId);
             writer.WriteStringValue("task_name", TaskName);
             writer.WriteAdditionalData(AdditionalData);

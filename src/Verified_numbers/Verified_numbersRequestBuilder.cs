@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Verified_numbers.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Verified_numbers
+namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers
 {
     /// <summary>
     /// Builds and executes requests for operations under \verified_numbers
@@ -18,20 +18,20 @@ namespace Soenneker.Telnyx.Verified_numbers
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Verified_numbersRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.verified_numbers.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.verified_numbers.item collection</summary>
         /// <param name="position">The phone number being deleted.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Verified_numbers.Item.WithPhone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Verified_numbers.Item.WithPhone_numberItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.WithPhone_numberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.WithPhone_numberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("phone_number", position);
-                return new global::Soenneker.Telnyx.Verified_numbers.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Verified_numbers.Verified_numbersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.Verified_numbers
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Verified_numbers.Verified_numbersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -49,58 +49,58 @@ namespace Soenneker.Telnyx.Verified_numbers
         /// <summary>
         /// Gets a paginated list of Verified Numbers.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ListVerifiedNumbersResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifiedNumbersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.ListVerifiedNumbersResponse422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifiedNumbersResponse422Error">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.ListVerifiedNumbersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Verified_numbers.Verified_numbersRequestBuilder.Verified_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifiedNumbersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersRequestBuilder.Verified_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.ListVerifiedNumbersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Verified_numbers.Verified_numbersRequestBuilder.Verified_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifiedNumbersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersRequestBuilder.Verified_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.Models.ListVerifiedNumbersResponse422Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifiedNumbersResponse422Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.ListVerifiedNumbersResponse>(requestInfo, global::Soenneker.Telnyx.Models.ListVerifiedNumbersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifiedNumbersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifiedNumbersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Initiates phone number verification procedure.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CreateVerifiedNumberResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.CreateVerifiedNumberResponse422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse422Error">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.CreateVerifiedNumberResponse?> PostAsync(global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.CreateVerifiedNumberResponse> PostAsync(global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.Models.CreateVerifiedNumberResponse422Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse422Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.CreateVerifiedNumberResponse>(requestInfo, global::Soenneker.Telnyx.Models.CreateVerifiedNumberResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gets a paginated list of Verified Numbers.
@@ -109,11 +109,11 @@ namespace Soenneker.Telnyx.Verified_numbers
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Verified_numbers.Verified_numbersRequestBuilder.Verified_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersRequestBuilder.Verified_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Verified_numbers.Verified_numbersRequestBuilder.Verified_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersRequestBuilder.Verified_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -129,11 +129,11 @@ namespace Soenneker.Telnyx.Verified_numbers
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -146,11 +146,11 @@ namespace Soenneker.Telnyx.Verified_numbers
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Verified_numbers.Verified_numbersRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Verified_numbers.Verified_numbersRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Verified_numbers.Verified_numbersRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Gets a paginated list of Verified Numbers.
@@ -168,7 +168,7 @@ namespace Soenneker.Telnyx.Verified_numbers
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Verified_numbersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Verified_numbers.Verified_numbersRequestBuilder.Verified_numbersRequestBuilderGetQueryParameters>
+        public partial class Verified_numbersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersRequestBuilder.Verified_numbersRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

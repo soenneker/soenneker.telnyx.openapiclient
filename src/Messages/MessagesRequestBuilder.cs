@@ -3,18 +3,18 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Messages.Group_mms;
-using Soenneker.Telnyx.Messages.Item;
-using Soenneker.Telnyx.Messages.Long_code;
-using Soenneker.Telnyx.Messages.Number_pool;
-using Soenneker.Telnyx.Messages.Short_code;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Messages.Group_mms;
+using Soenneker.Telnyx.OpenApiClient.Messages.Item;
+using Soenneker.Telnyx.OpenApiClient.Messages.Long_code;
+using Soenneker.Telnyx.OpenApiClient.Messages.Number_pool;
+using Soenneker.Telnyx.OpenApiClient.Messages.Short_code;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Messages
+namespace Soenneker.Telnyx.OpenApiClient.Messages
 {
     /// <summary>
     /// Builds and executes requests for operations under \messages
@@ -23,52 +23,52 @@ namespace Soenneker.Telnyx.Messages
     public partial class MessagesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The group_mms property</summary>
-        public global::Soenneker.Telnyx.Messages.Group_mms.Group_mmsRequestBuilder Group_mms
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Group_mms.Group_mmsRequestBuilder Group_mms
         {
-            get => new global::Soenneker.Telnyx.Messages.Group_mms.Group_mmsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Group_mms.Group_mmsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The long_code property</summary>
-        public global::Soenneker.Telnyx.Messages.Long_code.Long_codeRequestBuilder Long_code
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Long_code.Long_codeRequestBuilder Long_code
         {
-            get => new global::Soenneker.Telnyx.Messages.Long_code.Long_codeRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Long_code.Long_codeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The number_pool property</summary>
-        public global::Soenneker.Telnyx.Messages.Number_pool.Number_poolRequestBuilder Number_pool
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Number_pool.Number_poolRequestBuilder Number_pool
         {
-            get => new global::Soenneker.Telnyx.Messages.Number_pool.Number_poolRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Number_pool.Number_poolRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The short_code property</summary>
-        public global::Soenneker.Telnyx.Messages.Short_code.Short_codeRequestBuilder Short_code
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Short_code.Short_codeRequestBuilder Short_code
         {
-            get => new global::Soenneker.Telnyx.Messages.Short_code.Short_codeRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Short_code.Short_codeRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.messages.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messages.item collection</summary>
         /// <param name="position">The id of the message</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messages.Item.MessagesItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Messages.Item.MessagesItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Messages.Item.MessagesItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.messages.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messages.item collection</summary>
         /// <param name="position">The id of the message</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messages.Item.MessagesItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Messages.Item.MessagesItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Messages.Item.MessagesItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messages.MessagesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.Messages
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messages.MessagesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -86,53 +86,53 @@ namespace Soenneker.Telnyx.Messages
         /// <summary>
         /// Send a message with a Phone Number, Alphanumeric Sender ID, Short Code or Number Pool.This endpoint allows you to send a message with any messaging resource.Current messaging resources include: long-code, short-code, number-pool, andalphanumeric-sender-id.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messages.MessagesPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Messages.MessagesPostResponse?> PostAsMessagesPostResponseAsync(global::Soenneker.Telnyx.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesPostResponse?> PostAsMessagesPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Messages.MessagesPostResponse> PostAsMessagesPostResponseAsync(global::Soenneker.Telnyx.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesPostResponse> PostAsMessagesPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Messages.MessagesPostResponse>(requestInfo, global::Soenneker.Telnyx.Messages.MessagesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Send a message with a Phone Number, Alphanumeric Sender ID, Short Code or Number Pool.This endpoint allows you to send a message with any messaging resource.Current messaging resources include: long-code, short-code, number-pool, andalphanumeric-sender-id.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messages.MessagesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use PostAsMessagesPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Messages.MessagesResponse?> PostAsync(global::Soenneker.Telnyx.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Messages.MessagesResponse> PostAsync(global::Soenneker.Telnyx.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Messages.MessagesResponse>(requestInfo, global::Soenneker.Telnyx.Messages.MessagesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Send a message with a Phone Number, Alphanumeric Sender ID, Short Code or Number Pool.This endpoint allows you to send a message with any messaging resource.Current messaging resources include: long-code, short-code, number-pool, andalphanumeric-sender-id.
@@ -142,11 +142,11 @@ namespace Soenneker.Telnyx.Messages
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -159,11 +159,11 @@ namespace Soenneker.Telnyx.Messages
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messages.MessagesRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Messages.MessagesRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Messages.MessagesRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

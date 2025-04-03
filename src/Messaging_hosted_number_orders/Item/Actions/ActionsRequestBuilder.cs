@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions.File_upload;
+using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.File_upload;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions
+namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions
 {
     /// <summary>
     /// Builds and executes requests for operations under \messaging_hosted_number_orders\{id}\actions
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The file_upload property</summary>
-        public global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions.File_upload.File_uploadRequestBuilder File_upload
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.File_upload.File_uploadRequestBuilder File_upload
         {
-            get => new global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions.File_upload.File_uploadRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.File_upload.File_uploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

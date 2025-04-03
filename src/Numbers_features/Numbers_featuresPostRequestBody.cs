@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Numbers_features
+namespace Soenneker.Telnyx.OpenApiClient.Numbers_features
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.Numbers_features
         public List<string> PhoneNumbers { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Numbers_features.Numbers_featuresPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Numbers_features.Numbers_featuresPostRequestBody"/> and sets the default values.
         /// </summary>
         public Numbers_featuresPostRequestBody()
         {
@@ -32,12 +32,12 @@ namespace Soenneker.Telnyx.Numbers_features
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Numbers_features.Numbers_featuresPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Numbers_features.Numbers_featuresPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Numbers_features.Numbers_featuresPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Numbers_features.Numbers_featuresPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Numbers_features.Numbers_featuresPostRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Numbers_features.Numbers_featuresPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

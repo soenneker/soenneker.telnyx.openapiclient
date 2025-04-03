@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -31,11 +31,11 @@ namespace Soenneker.Telnyx.Models
         public string Commenter { get; private set; }
 #endif
         /// <summary>The commenter_type property</summary>
-        public global::Soenneker.Telnyx.Models.Comment_commenter_type? CommenterType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Comment_commenter_type? CommenterType { get; private set; }
         /// <summary>The comment_record_id property</summary>
         public Guid? CommentRecordId { get; set; }
         /// <summary>The comment_record_type property</summary>
-        public global::Soenneker.Telnyx.Models.Comment_comment_record_type? CommentRecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Comment_comment_record_type? CommentRecordType { get; set; }
         /// <summary>An ISO 8901 datetime string denoting when the comment was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Comment"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Comment"/> and sets the default values.
         /// </summary>
         public Comment()
         {
@@ -72,12 +72,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Comment"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Comment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.Comment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Comment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.Comment();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Comment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,9 +89,9 @@ namespace Soenneker.Telnyx.Models
             {
                 { "body", n => { Body = n.GetStringValue(); } },
                 { "comment_record_id", n => { CommentRecordId = n.GetGuidValue(); } },
-                { "comment_record_type", n => { CommentRecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.Comment_comment_record_type>(); } },
+                { "comment_record_type", n => { CommentRecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Comment_comment_record_type>(); } },
                 { "commenter", n => { Commenter = n.GetStringValue(); } },
-                { "commenter_type", n => { CommenterType = n.GetEnumValue<global::Soenneker.Telnyx.Models.Comment_commenter_type>(); } },
+                { "commenter_type", n => { CommenterType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Comment_commenter_type>(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "read_at", n => { ReadAt = n.GetStringValue(); } },
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("body", Body);
             writer.WriteGuidValue("comment_record_id", CommentRecordId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Comment_comment_record_type>("comment_record_type", CommentRecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Comment_comment_record_type>("comment_record_type", CommentRecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

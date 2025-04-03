@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
+namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item
 {
     /// <summary>
     /// The contact information of the company.
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact"/> and sets the default values.
         /// </summary>
         public Loa_configurationsPatchRequestBody_contact()
         {
@@ -41,12 +41,12 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact();
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_contact();
         }
         /// <summary>
         /// The deserialization information for the current model

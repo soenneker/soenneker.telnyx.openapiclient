@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>This setting allows you to set the format with which the caller&apos;s number (ANI) is sent for inbound phone calls.</summary>
-        public global::Soenneker.Telnyx.Models.CredentialInbound_ani_number_format? AniNumberFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_ani_number_format? AniNumberFormat { get; set; }
         /// <summary>When set, this will limit the total number of inbound calls to phone numbers associated with this connection.</summary>
         public int? ChannelLimit { get; set; }
         /// <summary>Defines the list of codecs that Telnyx will send for inbound calls to a specific number on your portal account, in priority order. This only works when the Connection the number is assigned to uses Media Handling mode: default. OPUS and H.264 codecs are available only when using TCP or TLS transport for SIP.</summary>
@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.Models
         public List<string> Codecs { get; set; }
 #endif
         /// <summary>The dnis_number_format property</summary>
-        public global::Soenneker.Telnyx.Models.CredentialInbound_dnis_number_format? DnisNumberFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_dnis_number_format? DnisNumberFormat { get; set; }
         /// <summary>Generate ringback tone through 183 session progress message with early media.</summary>
         public bool? GenerateRingbackTone { get; set; }
         /// <summary>When set, inbound phone calls will receive ISUP parameters via SIP headers. (Only when available and only when using TCP or TLS transport.)</summary>
@@ -49,24 +49,24 @@ namespace Soenneker.Telnyx.Models
         public string Timeout2xxSecs { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CredentialInbound"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound"/> and sets the default values.
         /// </summary>
         public CredentialInbound()
         {
             AdditionalData = new Dictionary<string, object>();
-            AniNumberFormat = global::Soenneker.Telnyx.Models.CredentialInbound_ani_number_format.E164National;
-            DnisNumberFormat = global::Soenneker.Telnyx.Models.CredentialInbound_dnis_number_format.E164;
+            AniNumberFormat = global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_ani_number_format.E164National;
+            DnisNumberFormat = global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_dnis_number_format.E164;
             Timeout2xxSecs = "90";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CredentialInbound"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CredentialInbound CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CredentialInbound();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,10 +76,10 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ani_number_format", n => { AniNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.Models.CredentialInbound_ani_number_format>(); } },
+                { "ani_number_format", n => { AniNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_ani_number_format>(); } },
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
                 { "codecs", n => { Codecs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "dnis_number_format", n => { DnisNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.Models.CredentialInbound_dnis_number_format>(); } },
+                { "dnis_number_format", n => { DnisNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_dnis_number_format>(); } },
                 { "generate_ringback_tone", n => { GenerateRingbackTone = n.GetBoolValue(); } },
                 { "isup_headers_enabled", n => { IsupHeadersEnabled = n.GetBoolValue(); } },
                 { "prack_enabled", n => { PrackEnabled = n.GetBoolValue(); } },
@@ -96,10 +96,10 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CredentialInbound_ani_number_format>("ani_number_format", AniNumberFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_ani_number_format>("ani_number_format", AniNumberFormat);
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteCollectionOfPrimitiveValues<string>("codecs", Codecs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CredentialInbound_dnis_number_format>("dnis_number_format", DnisNumberFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_dnis_number_format>("dnis_number_format", DnisNumberFormat);
             writer.WriteBoolValue("generate_ringback_tone", GenerateRingbackTone);
             writer.WriteBoolValue("isup_headers_enabled", IsupHeadersEnabled);
             writer.WriteBoolValue("prack_enabled", PrackEnabled);

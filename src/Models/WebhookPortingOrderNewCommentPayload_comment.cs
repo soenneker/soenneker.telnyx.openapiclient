@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The comment that was added to the porting order.
@@ -30,9 +30,9 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Identifies the user that create the comment.</summary>
         public Guid? UserId { get; set; }
         /// <summary>Identifies the type of the user that created the comment.</summary>
-        public global::Soenneker.Telnyx.Models.WebhookPortingOrderNewCommentPayload_comment_user_type? UserType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload_comment_user_type? UserType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.WebhookPortingOrderNewCommentPayload_comment"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload_comment"/> and sets the default values.
         /// </summary>
         public WebhookPortingOrderNewCommentPayload_comment()
         {
@@ -41,12 +41,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.WebhookPortingOrderNewCommentPayload_comment"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload_comment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.WebhookPortingOrderNewCommentPayload_comment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload_comment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.WebhookPortingOrderNewCommentPayload_comment();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload_comment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "inserted_at", n => { InsertedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
-                { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.Telnyx.Models.WebhookPortingOrderNewCommentPayload_comment_user_type>(); } },
+                { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload_comment_user_type>(); } },
             };
         }
         /// <summary>
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteDateTimeOffsetValue("inserted_at", InsertedAt);
             writer.WriteGuidValue("user_id", UserId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.WebhookPortingOrderNewCommentPayload_comment_user_type>("user_type", UserType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload_comment_user_type>("user_type", UserType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Sim_card_data_usage_notifications
+namespace Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications
 {
     /// <summary>
     /// Data usage threshold that will trigger the notification.
@@ -24,9 +24,9 @@ namespace Soenneker.Telnyx.Sim_card_data_usage_notifications
         public string Amount { get; set; }
 #endif
         /// <summary>The unit property</summary>
-        public global::Soenneker.Telnyx.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold_unit? Unit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold_unit? Unit { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold"/> and sets the default values.
         /// </summary>
         public Sim_card_data_usage_notificationsPostRequestBody_threshold()
         {
@@ -35,12 +35,12 @@ namespace Soenneker.Telnyx.Sim_card_data_usage_notifications
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold();
+            return new global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Sim_card_data_usage_notifications
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
-                { "unit", n => { Unit = n.GetEnumValue<global::Soenneker.Telnyx.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold_unit>(); } },
+                { "unit", n => { Unit = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold_unit>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.Sim_card_data_usage_notifications
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold_unit>("unit", Unit);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostRequestBody_threshold_unit>("unit", Unit);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

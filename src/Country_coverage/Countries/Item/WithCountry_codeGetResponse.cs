@@ -2,11 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Country_coverage.Countries.Item
+namespace Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,13 +18,13 @@ namespace Soenneker.Telnyx.Country_coverage.Countries.Item
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CountryCoverage? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CountryCoverage Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage Data { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Country_coverage.Countries.Item.WithCountry_codeGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountry_codeGetResponse"/> and sets the default values.
         /// </summary>
         public WithCountry_codeGetResponse()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Country_coverage.Countries.Item
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Country_coverage.Countries.Item.WithCountry_codeGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountry_codeGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Country_coverage.Countries.Item.WithCountry_codeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountry_codeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Country_coverage.Countries.Item.WithCountry_codeGetResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountry_codeGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.Country_coverage.Countries.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage>(global::Soenneker.Telnyx.Models.CountryCoverage.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.Country_coverage.Countries.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

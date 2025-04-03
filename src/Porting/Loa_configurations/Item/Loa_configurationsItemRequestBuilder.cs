@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Porting.Loa_configurations.Item.Preview;
+using Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Preview;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
+namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \porting\loa_configurations\{id}
@@ -18,12 +18,12 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
     public partial class Loa_configurationsItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The preview property</summary>
-        public global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Preview.PreviewRequestBuilder Preview
+        public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Preview.PreviewRequestBuilder Preview
         {
-            get => new global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Preview.PreviewRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Preview.PreviewRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -58,80 +58,80 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         /// <summary>
         /// Retrieve a specific LOA configuration.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsGetResponse?> GetAsLoa_configurationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsGetResponse?> GetAsLoa_configurationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsGetResponse> GetAsLoa_configurationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsGetResponse> GetAsLoa_configurationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsGetResponse>(requestInfo, global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a specific LOA configuration.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsLoa_configurationsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsResponse>(requestInfo, global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update a specific LOA configuration.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchResponse"/></returns>
         /// <param name="body">The parameters for creating a new LOA configuration.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchResponse?> PatchAsLoa_configurationsPatchResponseAsync(global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchResponse?> PatchAsLoa_configurationsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchResponse> PatchAsLoa_configurationsPatchResponseAsync(global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchResponse> PatchAsLoa_configurationsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchResponse>(requestInfo, global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update a specific LOA configuration.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsResponse"/></returns>
         /// <param name="body">The parameters for creating a new LOA configuration.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PatchAsLoa_configurationsPatchResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsResponse?> PatchAsync(global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsResponse> PatchAsync(global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsResponse>(requestInfo, global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete a specific LOA configuration.
@@ -178,11 +178,11 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -195,11 +195,11 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

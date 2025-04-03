@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The count of phone numbers in the number order.</summary>
         public int? PhoneNumbersCount { get; private set; }
         /// <summary>The phone_number_type property</summary>
-        public global::Soenneker.Telnyx.Models.SubNumberOrder_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder_phone_number_type? PhoneNumberType { get; set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,15 +59,15 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The regulatory_requirements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement>? RegulatoryRequirements { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement>? RegulatoryRequirements { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement> RegulatoryRequirements { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement> RegulatoryRequirements { get; set; }
 #endif
         /// <summary>True if all requirements are met for every phone number, false otherwise.</summary>
         public bool? RequirementsMet { get; private set; }
         /// <summary>The status of the order.</summary>
-        public global::Soenneker.Telnyx.Models.SubNumberOrder_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder_status? Status { get; private set; }
         /// <summary>An ISO 8901 datetime string for when the number order was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The user_id property</summary>
         public Guid? UserId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SubNumberOrder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder"/> and sets the default values.
         /// </summary>
         public SubNumberOrder()
         {
@@ -88,12 +88,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SubNumberOrder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SubNumberOrder CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SubNumberOrder();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,12 +109,12 @@ namespace Soenneker.Telnyx.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_block_sub_number_order", n => { IsBlockSubNumberOrder = n.GetBoolValue(); } },
                 { "order_request_id", n => { OrderRequestId = n.GetGuidValue(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.Models.SubNumberOrder_phone_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder_phone_number_type>(); } },
                 { "phone_numbers_count", n => { PhoneNumbersCount = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement>(global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.SubNumberOrder_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder_status>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
             };
@@ -127,8 +127,8 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("customer_reference", CustomerReference);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.SubNumberOrder_phone_number_type>("phone_number_type", PhoneNumberType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement>("regulatory_requirements", RegulatoryRequirements);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement>("regulatory_requirements", RegulatoryRequirements);
             writer.WriteGuidValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }

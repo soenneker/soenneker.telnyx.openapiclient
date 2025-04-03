@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The Border Gateway Protocol (BGP) Autonomous System Number (ASN). If null, value will be assigned by Telnyx.</summary>
         public double? BgpAsn { get; set; }
         /// <summary>The Virtual Private Cloud with which you would like to establish a cross connect.</summary>
-        public global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate_cloud_provider? CloudProvider { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate_cloud_provider? CloudProvider { get; set; }
         /// <summary>The region where your Virtual Private Cloud hosts are located.&lt;br /&gt;&lt;br /&gt;The available regions can be found using the /virtual_cross_connect_regions endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -133,7 +133,7 @@ namespace Soenneker.Telnyx.Models
         public string SecondaryTelnyxIp { get; set; }
 #endif
         /// <summary>The current status of the interface deployment.</summary>
-        public global::Soenneker.Telnyx.Models.InterfaceStatus? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus? Status { get; private set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -143,7 +143,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate"/> and sets the default values.
         /// </summary>
         public VirtualCrossConnectCreate()
         {
@@ -152,12 +152,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -169,7 +169,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "bandwidth_mbps", n => { BandwidthMbps = n.GetDoubleValue(); } },
                 { "bgp_asn", n => { BgpAsn = n.GetDoubleValue(); } },
-                { "cloud_provider", n => { CloudProvider = n.GetEnumValue<global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate_cloud_provider>(); } },
+                { "cloud_provider", n => { CloudProvider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate_cloud_provider>(); } },
                 { "cloud_provider_region", n => { CloudProviderRegion = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
@@ -187,7 +187,7 @@ namespace Soenneker.Telnyx.Models
                 { "secondary_cloud_ip", n => { SecondaryCloudIp = n.GetStringValue(); } },
                 { "secondary_enabled", n => { SecondaryEnabled = n.GetBoolValue(); } },
                 { "secondary_telnyx_ip", n => { SecondaryTelnyxIp = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.InterfaceStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -200,7 +200,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("bandwidth_mbps", BandwidthMbps);
             writer.WriteDoubleValue("bgp_asn", BgpAsn);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate_cloud_provider>("cloud_provider", CloudProvider);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate_cloud_provider>("cloud_provider", CloudProvider);
             writer.WriteStringValue("cloud_provider_region", CloudProviderRegion);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("network_id", NetworkId);

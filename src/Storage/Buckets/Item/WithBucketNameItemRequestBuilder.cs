@@ -2,14 +2,14 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Storage.Buckets.Item.Item;
-using Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate;
-using Soenneker.Telnyx.Storage.Buckets.Item.Usage;
+using Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Item;
+using Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate;
+using Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Storage.Buckets.Item
+namespace Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \storage\buckets\{bucketName}
@@ -18,29 +18,29 @@ namespace Soenneker.Telnyx.Storage.Buckets.Item
     public partial class WithBucketNameItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The ssl_certificate property</summary>
-        public global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder Ssl_certificate
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder Ssl_certificate
         {
-            get => new global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The usage property</summary>
-        public global::Soenneker.Telnyx.Storage.Buckets.Item.Usage.UsageRequestBuilder Usage
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.UsageRequestBuilder Usage
         {
-            get => new global::Soenneker.Telnyx.Storage.Buckets.Item.Usage.UsageRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.UsageRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.storage.buckets.item.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.storage.buckets.item.item collection</summary>
         /// <param name="position">The name of the object</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Item.WithObjectNameItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Storage.Buckets.Item.Item.WithObjectNameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Item.WithObjectNameItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Item.WithObjectNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("objectName", position);
-                return new global::Soenneker.Telnyx.Storage.Buckets.Item.Item.WithObjectNameItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Item.WithObjectNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.WithBucketNameItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.WithBucketNameItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.Storage.Buckets.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.WithBucketNameItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.WithBucketNameItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

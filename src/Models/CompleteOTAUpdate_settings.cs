@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// A JSON object representation of the operation. The information present here will relate directly to the source of the OTA request.
@@ -18,13 +18,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>A list of mobile network operators and the priority that should be applied when the SIM is connecting to the network.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.MobileNetworkOperatorPreferencesResponse>? MobileNetworkOperatorsPreferences { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse>? MobileNetworkOperatorsPreferences { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.MobileNetworkOperatorPreferencesResponse> MobileNetworkOperatorsPreferences { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse> MobileNetworkOperatorsPreferences { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CompleteOTAUpdate_settings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings"/> and sets the default values.
         /// </summary>
         public CompleteOTAUpdate_settings()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CompleteOTAUpdate_settings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CompleteOTAUpdate_settings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CompleteOTAUpdate_settings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mobile_network_operators_preferences", n => { MobileNetworkOperatorsPreferences = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.MobileNetworkOperatorPreferencesResponse>(global::Soenneker.Telnyx.Models.MobileNetworkOperatorPreferencesResponse.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "mobile_network_operators_preferences", n => { MobileNetworkOperatorsPreferences = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.MobileNetworkOperatorPreferencesResponse>("mobile_network_operators_preferences", MobileNetworkOperatorsPreferences);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MobileNetworkOperatorPreferencesResponse>("mobile_network_operators_preferences", MobileNetworkOperatorsPreferences);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

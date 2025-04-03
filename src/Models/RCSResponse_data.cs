@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSAgentMessage? Body { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSAgentMessage? Body { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSAgentMessage Body { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSAgentMessage Body { get; set; }
 #endif
         /// <summary>The direction property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,10 +41,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSFrom? From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSFrom? From { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSFrom From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSFrom From { get; set; }
 #endif
         /// <summary>message ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,10 +83,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.RCSToItem>? To { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem>? To { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.RCSToItem> To { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem> To { get; set; }
 #endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.Models
         public string Type { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RCSResponse_data"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSResponse_data"/> and sets the default values.
         /// </summary>
         public RCSResponse_data()
         {
@@ -106,12 +106,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RCSResponse_data"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSResponse_data"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RCSResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RCSResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RCSResponse_data();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RCSResponse_data();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -121,16 +121,16 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "body", n => { Body = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSAgentMessage>(global::Soenneker.Telnyx.Models.RCSAgentMessage.CreateFromDiscriminatorValue); } },
+                { "body", n => { Body = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSAgentMessage>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSAgentMessage.CreateFromDiscriminatorValue); } },
                 { "direction", n => { Direction = n.GetStringValue(); } },
                 { "encoding", n => { Encoding = n.GetStringValue(); } },
-                { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSFrom>(global::Soenneker.Telnyx.Models.RCSFrom.CreateFromDiscriminatorValue); } },
+                { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSFrom>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSFrom.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "received_at", n => { ReceivedAt = n.GetDateTimeOffsetValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RCSToItem>(global::Soenneker.Telnyx.Models.RCSToItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -141,16 +141,16 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSAgentMessage>("body", Body);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSAgentMessage>("body", Body);
             writer.WriteStringValue("direction", Direction);
             writer.WriteStringValue("encoding", Encoding);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSFrom>("from", From);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSFrom>("from", From);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
             writer.WriteStringValue("organization_id", OrganizationId);
             writer.WriteDateTimeOffsetValue("received_at", ReceivedAt);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RCSToItem>("to", To);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem>("to", To);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

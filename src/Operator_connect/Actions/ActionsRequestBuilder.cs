@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Operator_connect.Actions.Refresh;
+using Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Operator_connect.Actions
+namespace Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions
 {
     /// <summary>
     /// Builds and executes requests for operations under \operator_connect\actions
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Operator_connect.Actions
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The refresh property</summary>
-        public global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshRequestBuilder Refresh
+        public global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshRequestBuilder Refresh
         {
-            get => new global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Operator_connect.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Operator_connect.Actions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Operator_connect.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

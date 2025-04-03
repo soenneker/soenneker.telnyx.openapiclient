@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Operator_connect.Actions.Refresh
+namespace Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh
 {
     /// <summary>
     /// Builds and executes requests for operations under \operator_connect\actions\refresh
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Operator_connect.Actions.Refresh
     public partial class RefreshRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Operator_connect.Actions.Refresh
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,39 +35,39 @@ namespace Soenneker.Telnyx.Operator_connect.Actions.Refresh
         /// <summary>
         /// This endpoint will make an asynchronous request to refresh the Operator Connect integration with Microsoft Teams for the current user. This will create new external connections on the user&apos;s account if needed, and/or report the integration results as [log messages](https://developers.telnyx.com/api/external-voice-integrations/list-external-connection-log-messages).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshPostResponse?> PostAsRefreshPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshPostResponse?> PostAsRefreshPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshPostResponse> PostAsRefreshPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshPostResponse> PostAsRefreshPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshPostResponse>(requestInfo, global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This endpoint will make an asynchronous request to refresh the Operator Connect integration with Microsoft Teams for the current user. This will create new external connections on the user&apos;s account if needed, and/or report the integration results as [log messages](https://developers.telnyx.com/api/external-voice-integrations/list-external-connection-log-messages).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PostAsRefreshPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshResponse>(requestInfo, global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This endpoint will make an asynchronous request to refresh the Operator Connect integration with Microsoft Teams for the current user. This will create new external connections on the user&apos;s account if needed, and/or report the integration results as [log messages](https://developers.telnyx.com/api/external-voice-integrations/list-external-connection-log-messages).
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.Operator_connect.Actions.Refresh
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Operator_connect.Actions.Refresh.RefreshRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Actions.Refresh.RefreshRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

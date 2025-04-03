@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Number Pool allows you to send messages from a pool of numbers of different types, assigningweights to each type. The pool consists of all the long code and toll free numbersassigned to the messaging profile.To disable this feature, set the object field to `null`.
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Defines the probability weight for a Toll Free number to be selected when sending a message.The higher the weight the higher the probability. The sum of the weights for all number typesdoes not necessarily need to add to 100. Weight must be a non-negative number, and when equalto zero it will remove the number type from the pool.</summary>
         public double? TollFreeWeight { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.NumberPoolSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings"/> and sets the default values.
         /// </summary>
         public NumberPoolSettings()
         {
@@ -35,12 +35,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.NumberPoolSettings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.NumberPoolSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.NumberPoolSettings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -5,23 +5,23 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group
+namespace Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Requirement_group
 {
     [Obsolete("This class is obsolete. Use Requirement_groupPostResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Requirement_groupResponse : global::Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupPostResponse, IParsable
+    public partial class Requirement_groupResponse : global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupPostResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupResponse();
         }
     }
 }

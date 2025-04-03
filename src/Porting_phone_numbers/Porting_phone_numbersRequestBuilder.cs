@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Porting_phone_numbers
+namespace Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers
 {
     /// <summary>
     /// Builds and executes requests for operations under \porting_phone_numbers
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Porting_phone_numbers
     public partial class Porting_phone_numbersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Porting_phone_numbers
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,39 +36,39 @@ namespace Soenneker.Telnyx.Porting_phone_numbers
         /// <summary>
         /// Returns a list of your porting phone numbers.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersGetResponse?> GetAsPorting_phone_numbersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersGetResponse?> GetAsPorting_phone_numbersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersGetResponse> GetAsPorting_phone_numbersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersGetResponse> GetAsPorting_phone_numbersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersGetResponse>(requestInfo, global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your porting phone numbers.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsPorting_phone_numbersGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersResponse>(requestInfo, global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your porting phone numbers.
@@ -77,11 +77,11 @@ namespace Soenneker.Telnyx.Porting_phone_numbers
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -92,11 +92,11 @@ namespace Soenneker.Telnyx.Porting_phone_numbers
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns a list of your porting phone numbers.
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.Porting_phone_numbers
 #endif
             /// <summary>Filter results by activation status</summary>
             [QueryParameter("filter%5Bactivation_status%5D")]
-            public global::Soenneker.Telnyx.Models.PortingOrderActivationStatus? FilteractivationStatusAsPortingOrderActivationStatus { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus? FilteractivationStatusAsPortingOrderActivationStatus { get; set; }
             /// <summary>Filter results by phone number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.Porting_phone_numbers
 #endif
             /// <summary>Filter results by portability status</summary>
             [QueryParameter("filter%5Bportability_status%5D")]
-            public global::Soenneker.Telnyx.Models.PortabilityStatus? FilterportabilityStatusAsPortabilityStatus { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityStatus? FilterportabilityStatusAsPortabilityStatus { get; set; }
             /// <summary>Filter results by porting order id</summary>
             [QueryParameter("filter%5Bporting_order_id%5D")]
             public Guid? FilterportingOrderId { get; set; }
@@ -178,7 +178,7 @@ namespace Soenneker.Telnyx.Porting_phone_numbers
 #endif
             /// <summary>Filter results by porting order status</summary>
             [QueryParameter("filter%5Bporting_order_status%5D")]
-            public global::Soenneker.Telnyx.Porting_phone_numbers.GetFilterPorting_order_statusQueryParameterType? FilterportingOrderStatusAsGetFilterPortingOrderStatusQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.GetFilterPorting_order_statusQueryParameterType? FilterportingOrderStatusAsGetFilterPortingOrderStatusQueryParameterType { get; set; }
             /// <summary>Filter results by support key</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -211,7 +211,7 @@ namespace Soenneker.Telnyx.Porting_phone_numbers
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Porting_phone_numbersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>
+        public partial class Porting_phone_numbersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers.Porting_phone_numbersRequestBuilder.Porting_phone_numbersRequestBuilderGetQueryParameters>
         {
         }
     }

@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Access_ip_address.Item;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Access_ip_address.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Access_ip_address
+namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address
 {
     /// <summary>
     /// Builds and executes requests for operations under \access_ip_address
@@ -18,20 +18,20 @@ namespace Soenneker.Telnyx.Access_ip_address
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Access_ip_addressRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.access_ip_address.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.access_ip_address.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Access_ip_address.Item.WithAccess_ip_address_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Access_ip_address.Item.WithAccess_ip_address_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Item.WithAccess_ip_address_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Item.WithAccess_ip_address_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("access_ip_address_id", position);
-                return new global::Soenneker.Telnyx.Access_ip_address.Item.WithAccess_ip_address_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Item.WithAccess_ip_address_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Access_ip_address.Access_ip_addressRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.Access_ip_address
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Access_ip_address.Access_ip_addressRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -49,50 +49,50 @@ namespace Soenneker.Telnyx.Access_ip_address
         /// <summary>
         /// List all Access IP Addresses
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AccessIPAddressListResponseSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressListResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.AccessIPAddressListResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Access_ip_address.Access_ip_addressRequestBuilder.Access_ip_addressRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressListResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder.Access_ip_addressRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.AccessIPAddressListResponseSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Access_ip_address.Access_ip_addressRequestBuilder.Access_ip_addressRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressListResponseSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder.Access_ip_addressRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.AccessIPAddressListResponseSchema>(requestInfo, global::Soenneker.Telnyx.Models.AccessIPAddressListResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressListResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressListResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create new Access IP Address
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AccessIPAddressResponseSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressResponseSchema"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.AccessIPAddressResponseSchema?> PostAsync(global::Soenneker.Telnyx.Models.AccessIPAddressPOST body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressResponseSchema?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressPOST body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.AccessIPAddressResponseSchema> PostAsync(global::Soenneker.Telnyx.Models.AccessIPAddressPOST body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressResponseSchema> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressPOST body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.AccessIPAddressResponseSchema>(requestInfo, global::Soenneker.Telnyx.Models.AccessIPAddressResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all Access IP Addresses
@@ -101,11 +101,11 @@ namespace Soenneker.Telnyx.Access_ip_address
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Access_ip_address.Access_ip_addressRequestBuilder.Access_ip_addressRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder.Access_ip_addressRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Access_ip_address.Access_ip_addressRequestBuilder.Access_ip_addressRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder.Access_ip_addressRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -121,11 +121,11 @@ namespace Soenneker.Telnyx.Access_ip_address
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.AccessIPAddressPOST body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressPOST body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.AccessIPAddressPOST body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.AccessIPAddressPOST body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -138,11 +138,11 @@ namespace Soenneker.Telnyx.Access_ip_address
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Access_ip_address.Access_ip_addressRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Access_ip_address.Access_ip_addressRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Access_ip_address.Access_ip_addressRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List all Access IP Addresses
@@ -182,7 +182,7 @@ namespace Soenneker.Telnyx.Access_ip_address
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Access_ip_addressRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Access_ip_address.Access_ip_addressRequestBuilder.Access_ip_addressRequestBuilderGetQueryParameters>
+        public partial class Access_ip_addressRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Access_ip_address.Access_ip_addressRequestBuilder.Access_ip_addressRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
+namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
         /// <summary>Specifies the start of the activation range. Must be greater or equal the start of the extension range.</summary>
         public int? StartAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody_activation_ranges"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody_activation_ranges"/> and sets the default values.
         /// </summary>
         public Phone_number_extensionsPostRequestBody_activation_ranges()
         {
@@ -28,12 +28,12 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody_activation_ranges"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody_activation_ranges"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody_activation_ranges CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody_activation_ranges CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody_activation_ranges();
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody_activation_ranges();
         }
         /// <summary>
         /// The deserialization information for the current model

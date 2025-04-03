@@ -3,16 +3,16 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Ai.Embeddings.Buckets;
-using Soenneker.Telnyx.Ai.Embeddings.Item;
-using Soenneker.Telnyx.Ai.Embeddings.SimilaritySearch;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets;
+using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Item;
+using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.SimilaritySearch;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Ai.Embeddings
+namespace Soenneker.Telnyx.OpenApiClient.Ai.Embeddings
 {
     /// <summary>
     /// Builds and executes requests for operations under \ai\embeddings
@@ -21,29 +21,29 @@ namespace Soenneker.Telnyx.Ai.Embeddings
     public partial class EmbeddingsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The buckets property</summary>
-        public global::Soenneker.Telnyx.Ai.Embeddings.Buckets.BucketsRequestBuilder Buckets
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.BucketsRequestBuilder Buckets
         {
-            get => new global::Soenneker.Telnyx.Ai.Embeddings.Buckets.BucketsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.BucketsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The similaritySearch property</summary>
-        public global::Soenneker.Telnyx.Ai.Embeddings.SimilaritySearch.SimilaritySearchRequestBuilder SimilaritySearch
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.SimilaritySearch.SimilaritySearchRequestBuilder SimilaritySearch
         {
-            get => new global::Soenneker.Telnyx.Ai.Embeddings.SimilaritySearch.SimilaritySearchRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.SimilaritySearch.SimilaritySearchRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.ai.embeddings.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.embeddings.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Ai.Embeddings.Item.WithTask_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Ai.Embeddings.Item.WithTask_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Item.WithTask_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Item.WithTask_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("task_id", position);
-                return new global::Soenneker.Telnyx.Ai.Embeddings.Item.WithTask_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Item.WithTask_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Ai.Embeddings
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -61,50 +61,50 @@ namespace Soenneker.Telnyx.Ai.Embeddings
         /// <summary>
         /// Retrieve tasks for the user that are either `queued`, `processing`, `failed`, `success` or `partial_success` based on the query string. Defaults to `queued` and `processing`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.BackgroundTasksQueryResponseData"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTasksQueryResponseData"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.BackgroundTasksQueryResponseData?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder.EmbeddingsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTasksQueryResponseData?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder.EmbeddingsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.BackgroundTasksQueryResponseData> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder.EmbeddingsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTasksQueryResponseData> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder.EmbeddingsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.BackgroundTasksQueryResponseData>(requestInfo, global::Soenneker.Telnyx.Models.BackgroundTasksQueryResponseData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTasksQueryResponseData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTasksQueryResponseData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Perform embedding on a Telnyx Storage Bucket using the a embedding model.The current supported file types are:- PDF- HTML- txt/unstructured text files- json- csv- audio / video (mp3, mp4, mpeg, mpga, m4a, wav, or webm ) - Max of 100mb file size.Any files not matching the above types will be attempted to be embedded as unstructured text.This process can be slow, so it runs in the background and the user can checkthe status of the task using the endpoint `/ai/embeddings/{task_id}`. **Important Note**: When you update documents in a Telnyx Storage bucket, their associated embeddings are automatically kept up to date. If you add or update a file, it is automatically embedded. If you delete a file, the embeddings are deleted for that particular file.You can also specify a custom `loader` param. Currently the only supported loader value is`intercom` which loads Intercom article jsons as specified by [the Intercom article API](https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Articles/article/)This loader will split each article into paragraphs and save additional parameters relevant to Intercom docs, such as`article_url` and `heading`. These values will be returned by the `/v2/ai/embeddings/similarity-search` endpoint in the `loader_metadata` field.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.EmbeddingResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.EmbeddingResponse?> PostAsync(global::Soenneker.Telnyx.Models.EmbeddingBucketRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.EmbeddingResponse> PostAsync(global::Soenneker.Telnyx.Models.EmbeddingBucketRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.EmbeddingResponse>(requestInfo, global::Soenneker.Telnyx.Models.EmbeddingResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve tasks for the user that are either `queued`, `processing`, `failed`, `success` or `partial_success` based on the query string. Defaults to `queued` and `processing`.
@@ -113,11 +113,11 @@ namespace Soenneker.Telnyx.Ai.Embeddings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder.EmbeddingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder.EmbeddingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder.EmbeddingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder.EmbeddingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -133,11 +133,11 @@ namespace Soenneker.Telnyx.Ai.Embeddings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.EmbeddingBucketRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.EmbeddingBucketRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -150,11 +150,11 @@ namespace Soenneker.Telnyx.Ai.Embeddings
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Retrieve tasks for the user that are either `queued`, `processing`, `failed`, `success` or `partial_success` based on the query string. Defaults to `queued` and `processing`.
@@ -178,7 +178,7 @@ namespace Soenneker.Telnyx.Ai.Embeddings
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EmbeddingsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder.EmbeddingsRequestBuilderGetQueryParameters>
+        public partial class EmbeddingsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder.EmbeddingsRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

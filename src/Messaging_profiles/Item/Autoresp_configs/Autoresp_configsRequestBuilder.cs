@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Item;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs
+namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs
 {
     /// <summary>
     /// Builds and executes requests for operations under \messaging_profiles\{-id}\autoresp_configs
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Autoresp_configsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.messaging_profiles.item.autoresp_configs.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messaging_profiles.item.autoresp_configs.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("autoresp_cfg_id", position);
-                return new global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.messaging_profiles.item.autoresp_configs.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messaging_profiles.item.autoresp_configs.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("autoresp_cfg_id", position);
-                return new global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,50 +62,50 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs
         /// <summary>
         /// List Auto-Response Settings
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AutorespConfigsResponseSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.AutorespConfigsResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.AutorespConfigsResponseSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.AutorespConfigsResponseSchema>(requestInfo, global::Soenneker.Telnyx.Models.AutorespConfigsResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create Auto-Reponse Setting
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AutorespConfigResponseSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigResponseSchema"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.AutorespConfigResponseSchema?> PostAsync(global::Soenneker.Telnyx.Models.AutoRespConfigCreateSchema body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigResponseSchema?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchema body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.AutorespConfigResponseSchema> PostAsync(global::Soenneker.Telnyx.Models.AutoRespConfigCreateSchema body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigResponseSchema> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchema body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.AutorespConfigResponseSchema>(requestInfo, global::Soenneker.Telnyx.Models.AutorespConfigResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List Auto-Response Settings
@@ -114,11 +114,11 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -134,11 +134,11 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.AutoRespConfigCreateSchema body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchema body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.AutoRespConfigCreateSchema body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchema body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -151,11 +151,11 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List Auto-Response Settings
@@ -214,7 +214,7 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Autoresp_configsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>
+        public partial class Autoresp_configsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

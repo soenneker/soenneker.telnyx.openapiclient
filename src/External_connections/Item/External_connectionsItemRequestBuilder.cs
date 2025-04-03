@@ -3,18 +3,18 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.External_connections.Item.Civic_addresses;
-using Soenneker.Telnyx.External_connections.Item.Locations;
-using Soenneker.Telnyx.External_connections.Item.Phone_numbers;
-using Soenneker.Telnyx.External_connections.Item.Releases;
-using Soenneker.Telnyx.External_connections.Item.Uploads;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses;
+using Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations;
+using Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers;
+using Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases;
+using Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.External_connections.Item
+namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \external_connections\{id}
@@ -23,32 +23,32 @@ namespace Soenneker.Telnyx.External_connections.Item
     public partial class External_connectionsItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The civic_addresses property</summary>
-        public global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder Civic_addresses
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder Civic_addresses
         {
-            get => new global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The locations property</summary>
-        public global::Soenneker.Telnyx.External_connections.Item.Locations.LocationsRequestBuilder Locations
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.LocationsRequestBuilder Locations
         {
-            get => new global::Soenneker.Telnyx.External_connections.Item.Locations.LocationsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.LocationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The phone_numbers property</summary>
-        public global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Phone_numbersRequestBuilder Phone_numbers
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Phone_numbersRequestBuilder Phone_numbers
         {
-            get => new global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Phone_numbersRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Phone_numbersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The releases property</summary>
-        public global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder Releases
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder Releases
         {
-            get => new global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The uploads property</summary>
-        public global::Soenneker.Telnyx.External_connections.Item.Uploads.UploadsRequestBuilder Uploads
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsRequestBuilder Uploads
         {
-            get => new global::Soenneker.Telnyx.External_connections.Item.Uploads.UploadsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.External_connectionsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.External_connections.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.External_connectionsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -66,117 +66,117 @@ namespace Soenneker.Telnyx.External_connections.Item
         /// <summary>
         /// Permanently deletes an External Connection. Deletion may be prevented if the application is in use by phone numbers, is active, or if it is an Operator Connect connection. To remove an Operator Connect integration please contact Telnyx support.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.External_connectionsDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsDeleteResponse?> DeleteAsExternal_connectionsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsDeleteResponse?> DeleteAsExternal_connectionsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsDeleteResponse> DeleteAsExternal_connectionsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsDeleteResponse> DeleteAsExternal_connectionsDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.External_connectionsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.External_connectionsDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Permanently deletes an External Connection. Deletion may be prevented if the application is in use by phone numbers, is active, or if it is an Operator Connect connection. To remove an Operator Connect integration please contact Telnyx support.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use DeleteAsExternal_connectionsDeleteResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return the details of an existing External Connection inside the &apos;data&apos; attribute of the response.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.External_connectionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsGetResponse?> GetAsExternal_connectionsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsGetResponse?> GetAsExternal_connectionsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsGetResponse> GetAsExternal_connectionsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsGetResponse> GetAsExternal_connectionsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.External_connectionsGetResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.External_connectionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return the details of an existing External Connection inside the &apos;data&apos; attribute of the response.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsExternal_connectionsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates settings of an existing External Connection based on the parameters of the request.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.External_connectionsPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsPatchResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsPatchResponse?> PatchAsExternal_connectionsPatchResponseAsync(global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsPatchResponse?> PatchAsExternal_connectionsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsPatchResponse> PatchAsExternal_connectionsPatchResponseAsync(global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsPatchResponse> PatchAsExternal_connectionsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.External_connectionsPatchResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.External_connectionsPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsPatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates settings of an existing External Connection based on the parameters of the request.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PatchAsExternal_connectionsPatchResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse?> PatchAsync(global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse> PatchAsync(global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.External_connectionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Permanently deletes an External Connection. Deletion may be prevented if the application is in use by phone numbers, is active, or if it is an Operator Connect connection. To remove an Operator Connect integration please contact Telnyx support.
@@ -224,11 +224,11 @@ namespace Soenneker.Telnyx.External_connections.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -241,11 +241,11 @@ namespace Soenneker.Telnyx.External_connections.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.External_connectionsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.External_connections.Item.External_connectionsItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.External_connections.Item.External_connectionsItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.External_connectionsItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

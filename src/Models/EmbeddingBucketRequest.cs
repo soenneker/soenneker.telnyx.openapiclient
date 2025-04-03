@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -27,27 +27,27 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The document_chunk_size property</summary>
         public int? DocumentChunkSize { get; set; }
         /// <summary>The embedding_model property</summary>
-        public global::Soenneker.Telnyx.Models.SupportedEmbeddingModels? EmbeddingModel { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingModels? EmbeddingModel { get; set; }
         /// <summary>The loader property</summary>
-        public global::Soenneker.Telnyx.Models.SupportedEmbeddingLoaders? Loader { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingLoaders? Loader { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.EmbeddingBucketRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest"/> and sets the default values.
         /// </summary>
         public EmbeddingBucketRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            EmbeddingModel = global::Soenneker.Telnyx.Models.SupportedEmbeddingModels.ThenlperGteLarge;
-            Loader = global::Soenneker.Telnyx.Models.SupportedEmbeddingLoaders.Default;
+            EmbeddingModel = global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingModels.ThenlperGteLarge;
+            Loader = global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingLoaders.Default;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.EmbeddingBucketRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.EmbeddingBucketRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.EmbeddingBucketRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,8 +60,8 @@ namespace Soenneker.Telnyx.Models
                 { "bucket_name", n => { BucketName = n.GetStringValue(); } },
                 { "document_chunk_overlap_size", n => { DocumentChunkOverlapSize = n.GetIntValue(); } },
                 { "document_chunk_size", n => { DocumentChunkSize = n.GetIntValue(); } },
-                { "embedding_model", n => { EmbeddingModel = n.GetEnumValue<global::Soenneker.Telnyx.Models.SupportedEmbeddingModels>(); } },
-                { "loader", n => { Loader = n.GetEnumValue<global::Soenneker.Telnyx.Models.SupportedEmbeddingLoaders>(); } },
+                { "embedding_model", n => { EmbeddingModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingModels>(); } },
+                { "loader", n => { Loader = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingLoaders>(); } },
             };
         }
         /// <summary>
@@ -74,8 +74,8 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("bucket_name", BucketName);
             writer.WriteIntValue("document_chunk_overlap_size", DocumentChunkOverlapSize);
             writer.WriteIntValue("document_chunk_size", DocumentChunkSize);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.SupportedEmbeddingModels>("embedding_model", EmbeddingModel);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.SupportedEmbeddingLoaders>("loader", Loader);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingModels>("embedding_model", EmbeddingModel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingLoaders>("loader", Loader);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

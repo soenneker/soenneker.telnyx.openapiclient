@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -37,26 +37,26 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The local property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CountryCoverage_local? Local { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_local? Local { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CountryCoverage_local Local { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_local Local { get; set; }
 #endif
         /// <summary>The mobile property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CountryCoverage_mobile? Mobile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_mobile? Mobile { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CountryCoverage_mobile Mobile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_mobile Mobile { get; set; }
 #endif
         /// <summary>The national property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CountryCoverage_national? National { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_national? National { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CountryCoverage_national National { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_national National { get; set; }
 #endif
         /// <summary>The numbers property</summary>
         public bool? Numbers { get; set; }
@@ -77,21 +77,21 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The shared_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CountryCoverage_shared_cost? SharedCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost? SharedCost { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CountryCoverage_shared_cost SharedCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost SharedCost { get; set; }
 #endif
         /// <summary>The toll_free property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CountryCoverage_toll_free? TollFree { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free? TollFree { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CountryCoverage_toll_free TollFree { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free TollFree { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CountryCoverage"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage"/> and sets the default values.
         /// </summary>
         public CountryCoverage()
         {
@@ -100,12 +100,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CountryCoverage"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CountryCoverage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CountryCoverage();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,16 +119,16 @@ namespace Soenneker.Telnyx.Models
                 { "features", n => { Features = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "international_sms", n => { InternationalSms = n.GetBoolValue(); } },
                 { "inventory_coverage", n => { InventoryCoverage = n.GetBoolValue(); } },
-                { "local", n => { Local = n.GetObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage_local>(global::Soenneker.Telnyx.Models.CountryCoverage_local.CreateFromDiscriminatorValue); } },
-                { "mobile", n => { Mobile = n.GetObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage_mobile>(global::Soenneker.Telnyx.Models.CountryCoverage_mobile.CreateFromDiscriminatorValue); } },
-                { "national", n => { National = n.GetObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage_national>(global::Soenneker.Telnyx.Models.CountryCoverage_national.CreateFromDiscriminatorValue); } },
+                { "local", n => { Local = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_local>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_local.CreateFromDiscriminatorValue); } },
+                { "mobile", n => { Mobile = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_mobile>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_mobile.CreateFromDiscriminatorValue); } },
+                { "national", n => { National = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_national>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_national.CreateFromDiscriminatorValue); } },
                 { "numbers", n => { Numbers = n.GetBoolValue(); } },
                 { "p2p", n => { P2p = n.GetBoolValue(); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "quickship", n => { Quickship = n.GetBoolValue(); } },
                 { "reservable", n => { Reservable = n.GetBoolValue(); } },
-                { "shared_cost", n => { SharedCost = n.GetObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage_shared_cost>(global::Soenneker.Telnyx.Models.CountryCoverage_shared_cost.CreateFromDiscriminatorValue); } },
-                { "toll_free", n => { TollFree = n.GetObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage_toll_free>(global::Soenneker.Telnyx.Models.CountryCoverage_toll_free.CreateFromDiscriminatorValue); } },
+                { "shared_cost", n => { SharedCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost.CreateFromDiscriminatorValue); } },
+                { "toll_free", n => { TollFree = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -142,16 +142,16 @@ namespace Soenneker.Telnyx.Models
             writer.WriteCollectionOfPrimitiveValues<string>("features", Features);
             writer.WriteBoolValue("international_sms", InternationalSms);
             writer.WriteBoolValue("inventory_coverage", InventoryCoverage);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage_local>("local", Local);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage_mobile>("mobile", Mobile);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage_national>("national", National);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_local>("local", Local);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_mobile>("mobile", Mobile);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_national>("national", National);
             writer.WriteBoolValue("numbers", Numbers);
             writer.WriteBoolValue("p2p", P2p);
             writer.WriteCollectionOfPrimitiveValues<string>("phone_number_type", PhoneNumberType);
             writer.WriteBoolValue("quickship", Quickship);
             writer.WriteBoolValue("reservable", Reservable);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage_shared_cost>("shared_cost", SharedCost);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CountryCoverage_toll_free>("toll_free", TollFree);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost>("shared_cost", SharedCost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free>("toll_free", TollFree);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

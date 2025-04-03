@@ -2,11 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Notification_event_conditions
+namespace Soenneker.Telnyx.OpenApiClient.Notification_event_conditions
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,21 +18,21 @@ namespace Soenneker.Telnyx.Notification_event_conditions
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.NotificationEventCondition>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.NotificationEventCondition> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition> Data { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.PaginationMeta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.PaginationMeta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta Meta { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsGetResponse"/> and sets the default values.
         /// </summary>
         public Notification_event_conditionsGetResponse()
         {
@@ -41,12 +41,12 @@ namespace Soenneker.Telnyx.Notification_event_conditions
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsGetResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +56,8 @@ namespace Soenneker.Telnyx.Notification_event_conditions
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.NotificationEventCondition>(global::Soenneker.Telnyx.Models.NotificationEventCondition.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.Models.PaginationMeta>(global::Soenneker.Telnyx.Models.PaginationMeta.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition>(global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Telnyx.Notification_event_conditions
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.NotificationEventCondition>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.PaginationMeta>("meta", Meta);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationEventCondition>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

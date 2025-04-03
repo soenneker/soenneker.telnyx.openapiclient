@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Queues.Item.Calls.Item;
+using Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Queues.Item.Calls
+namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
 {
     /// <summary>
     /// Builds and executes requests for operations under \queues\{queue_name}\calls
@@ -17,20 +17,20 @@ namespace Soenneker.Telnyx.Queues.Item.Calls
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CallsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.queues.item.calls.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.queues.item.calls.item collection</summary>
         /// <param name="position">Unique identifier and token for controlling the call</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Queues.Item.Calls.Item.WithCall_control_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Queues.Item.Calls.Item.WithCall_control_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("call_control_id", position);
-                return new global::Soenneker.Telnyx.Queues.Item.Calls.Item.WithCall_control_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.Queues.Item.Calls
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -48,39 +48,39 @@ namespace Soenneker.Telnyx.Queues.Item.Calls
         /// <summary>
         /// Retrieve the list of calls in an existing queue
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Queues.Item.Calls.CallsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Queues.Item.Calls.CallsGetResponse?> GetAsCallsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse?> GetAsCallsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Queues.Item.Calls.CallsGetResponse> GetAsCallsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse> GetAsCallsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Queues.Item.Calls.CallsGetResponse>(requestInfo, global::Soenneker.Telnyx.Queues.Item.Calls.CallsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the list of calls in an existing queue
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Queues.Item.Calls.CallsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsCallsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Queues.Item.Calls.CallsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Queues.Item.Calls.CallsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Queues.Item.Calls.CallsResponse>(requestInfo, global::Soenneker.Telnyx.Queues.Item.Calls.CallsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the list of calls in an existing queue
@@ -89,11 +89,11 @@ namespace Soenneker.Telnyx.Queues.Item.Calls
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -104,11 +104,11 @@ namespace Soenneker.Telnyx.Queues.Item.Calls
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Retrieve the list of calls in an existing queue
@@ -128,7 +128,7 @@ namespace Soenneker.Telnyx.Queues.Item.Calls
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CallsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>
+        public partial class CallsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>
         {
         }
     }

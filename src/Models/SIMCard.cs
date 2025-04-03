@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -35,18 +35,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The SIM card consumption so far in the current billing cycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SIMCard_current_billing_period_consumed_data? CurrentBillingPeriodConsumedData { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_billing_period_consumed_data? CurrentBillingPeriodConsumedData { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SIMCard_current_billing_period_consumed_data CurrentBillingPeriodConsumedData { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_billing_period_consumed_data CurrentBillingPeriodConsumedData { get; private set; }
 #endif
         /// <summary>Current physical location data of a given SIM card. Accuracy is given in meters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SIMCard_current_device_location? CurrentDeviceLocation { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_device_location? CurrentDeviceLocation { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SIMCard_current_device_location CurrentDeviceLocation { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_device_location CurrentDeviceLocation { get; private set; }
 #endif
         /// <summary>IMEI of the device where a given SIM card is currently being used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,10 +75,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The SIM card individual data limit configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SIMCard_data_limit? DataLimit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_data_limit? DataLimit { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SIMCard_data_limit DataLimit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_data_limit DataLimit { get; set; }
 #endif
         /// <summary>The ICCID is the identifier of the specific SIM card/chip. Each SIM is internationally identified by its integrated circuit card identifier (ICCID). ICCIDs are stored in the SIM card&apos;s memory and are also engraved or printed on the SIM card body during a process called personalization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.Models
         public string Ipv6 { get; private set; }
 #endif
         /// <summary>Indicates whether the device is actively connected to a network and able to run data.</summary>
-        public global::Soenneker.Telnyx.Models.SIMCard_live_data_session? LiveDataSession { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_live_data_session? LiveDataSession { get; private set; }
         /// <summary>Mobile Station International Subscriber Directory Number (MSISDN) is a number used to identify a mobile phone number internationally. &lt;br/&gt;MSISDN is defined by the E.164 numbering plan. It includes a country code and a National Destination Code which identifies the subscriber&apos;s operator.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -137,10 +137,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SIMCardStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus? Status { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SIMCardStatus Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus Status { get; set; }
 #endif
         /// <summary>Searchable tags associated with the SIM card</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.Models
         public List<string> Tags { get; set; }
 #endif
         /// <summary>The type of SIM card</summary>
-        public global::Soenneker.Telnyx.Models.SIMCard_type? Type { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_type? Type { get; private set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -161,7 +161,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SIMCard"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard"/> and sets the default values.
         /// </summary>
         public SIMCard()
         {
@@ -170,12 +170,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SIMCard"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SIMCard CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SIMCard();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -188,24 +188,24 @@ namespace Soenneker.Telnyx.Models
                 { "actions_in_progress", n => { ActionsInProgress = n.GetBoolValue(); } },
                 { "authorized_imeis", n => { AuthorizedImeis = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "current_billing_period_consumed_data", n => { CurrentBillingPeriodConsumedData = n.GetObjectValue<global::Soenneker.Telnyx.Models.SIMCard_current_billing_period_consumed_data>(global::Soenneker.Telnyx.Models.SIMCard_current_billing_period_consumed_data.CreateFromDiscriminatorValue); } },
-                { "current_device_location", n => { CurrentDeviceLocation = n.GetObjectValue<global::Soenneker.Telnyx.Models.SIMCard_current_device_location>(global::Soenneker.Telnyx.Models.SIMCard_current_device_location.CreateFromDiscriminatorValue); } },
+                { "current_billing_period_consumed_data", n => { CurrentBillingPeriodConsumedData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_billing_period_consumed_data>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_billing_period_consumed_data.CreateFromDiscriminatorValue); } },
+                { "current_device_location", n => { CurrentDeviceLocation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_device_location>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_device_location.CreateFromDiscriminatorValue); } },
                 { "current_imei", n => { CurrentImei = n.GetStringValue(); } },
                 { "current_mcc", n => { CurrentMcc = n.GetStringValue(); } },
                 { "current_mnc", n => { CurrentMnc = n.GetStringValue(); } },
-                { "data_limit", n => { DataLimit = n.GetObjectValue<global::Soenneker.Telnyx.Models.SIMCard_data_limit>(global::Soenneker.Telnyx.Models.SIMCard_data_limit.CreateFromDiscriminatorValue); } },
+                { "data_limit", n => { DataLimit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_data_limit>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_data_limit.CreateFromDiscriminatorValue); } },
                 { "iccid", n => { Iccid = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "imsi", n => { Imsi = n.GetStringValue(); } },
                 { "ipv4", n => { Ipv4 = n.GetStringValue(); } },
                 { "ipv6", n => { Ipv6 = n.GetStringValue(); } },
-                { "live_data_session", n => { LiveDataSession = n.GetEnumValue<global::Soenneker.Telnyx.Models.SIMCard_live_data_session>(); } },
+                { "live_data_session", n => { LiveDataSession = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_live_data_session>(); } },
                 { "msisdn", n => { Msisdn = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "sim_card_group_id", n => { SimCardGroupId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.Models.SIMCardStatus>(global::Soenneker.Telnyx.Models.SIMCardStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.Models.SIMCard_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -217,9 +217,9 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("authorized_imeis", AuthorizedImeis);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SIMCard_data_limit>("data_limit", DataLimit);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_data_limit>("data_limit", DataLimit);
             writer.WriteGuidValue("sim_card_group_id", SimCardGroupId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SIMCardStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus>("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);
         }

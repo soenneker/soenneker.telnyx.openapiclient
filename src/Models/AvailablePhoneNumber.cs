@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -19,18 +19,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The cost_information property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CostInformation? CostInformation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation? CostInformation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CostInformation CostInformation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation CostInformation { get; set; }
 #endif
         /// <summary>The features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.Feature>? Features { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>? Features { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.Feature> Features { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Feature> Features { get; set; }
 #endif
         /// <summary>The phone_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,14 +43,14 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Specifies whether the phone number can receive calls immediately after purchase or not.</summary>
         public bool? Quickship { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.Models.AvailablePhoneNumber_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumber_record_type? RecordType { get; set; }
         /// <summary>The region_information property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.RegionInformation>? RegionInformation { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>? RegionInformation { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.RegionInformation> RegionInformation { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation> RegionInformation { get; set; }
 #endif
         /// <summary>Specifies whether the phone number can be reserved before purchase or not.</summary>
         public bool? Reservable { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.Models
         public string VanityFormat { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.AvailablePhoneNumber"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumber"/> and sets the default values.
         /// </summary>
         public AvailablePhoneNumber()
         {
@@ -72,12 +72,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AvailablePhoneNumber"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumber"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.AvailablePhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.AvailablePhoneNumber();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumber();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,12 +88,12 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "best_effort", n => { BestEffort = n.GetBoolValue(); } },
-                { "cost_information", n => { CostInformation = n.GetObjectValue<global::Soenneker.Telnyx.Models.CostInformation>(global::Soenneker.Telnyx.Models.CostInformation.CreateFromDiscriminatorValue); } },
-                { "features", n => { Features = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Feature>(global::Soenneker.Telnyx.Models.Feature.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "cost_information", n => { CostInformation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation>(global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation.CreateFromDiscriminatorValue); } },
+                { "features", n => { Features = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>(global::Soenneker.Telnyx.OpenApiClient.Models.Feature.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "quickship", n => { Quickship = n.GetBoolValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.AvailablePhoneNumber_record_type>(); } },
-                { "region_information", n => { RegionInformation = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RegionInformation>(global::Soenneker.Telnyx.Models.RegionInformation.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumber_record_type>(); } },
+                { "region_information", n => { RegionInformation = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>(global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "reservable", n => { Reservable = n.GetBoolValue(); } },
                 { "vanity_format", n => { VanityFormat = n.GetStringValue(); } },
             };
@@ -106,12 +106,12 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("best_effort", BestEffort);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CostInformation>("cost_information", CostInformation);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Feature>("features", Features);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation>("cost_information", CostInformation);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>("features", Features);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteBoolValue("quickship", Quickship);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.AvailablePhoneNumber_record_type>("record_type", RecordType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RegionInformation>("region_information", RegionInformation);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumber_record_type>("record_type", RecordType);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>("region_information", RegionInformation);
             writer.WriteBoolValue("reservable", Reservable);
             writer.WriteStringValue("vanity_format", VanityFormat);
             writer.WriteAdditionalData(AdditionalData);

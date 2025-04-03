@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Verifications.By_phone_number.Item;
+using Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Verifications.By_phone_number
+namespace Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number
 {
     /// <summary>
     /// Builds and executes requests for operations under \verifications\by_phone_number
@@ -15,20 +15,20 @@ namespace Soenneker.Telnyx.Verifications.By_phone_number
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class By_phone_numberRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.verifications.by_phone_number.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.verifications.by_phone_number.item collection</summary>
         /// <param name="position">The phone number associated with the verifications to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("phone_number", position);
-                return new global::Soenneker.Telnyx.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Verifications.By_phone_number.By_phone_numberRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.By_phone_numberRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.Verifications.By_phone_number
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Verifications.By_phone_number.By_phone_numberRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.By_phone_numberRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.Error>? Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Error>? Errors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.Error> Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Error> Errors { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,17 +31,17 @@ namespace Soenneker.Telnyx.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>Indicates whether an address is valid or invalid.</summary>
-        public global::Soenneker.Telnyx.Models.ValidateAddressResult_result? Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult_result? Result { get; set; }
         /// <summary>The suggested property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.ValidateAddress? Suggested { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddress? Suggested { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.ValidateAddress Suggested { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddress Suggested { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ValidateAddressResult"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult"/> and sets the default values.
         /// </summary>
         public ValidateAddressResult()
         {
@@ -50,12 +50,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ValidateAddressResult"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ValidateAddressResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ValidateAddressResult();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,10 +65,10 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Error>(global::Soenneker.Telnyx.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>(global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetEnumValue<global::Soenneker.Telnyx.Models.ValidateAddressResult_result>(); } },
-                { "suggested", n => { Suggested = n.GetObjectValue<global::Soenneker.Telnyx.Models.ValidateAddress>(global::Soenneker.Telnyx.Models.ValidateAddress.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult_result>(); } },
+                { "suggested", n => { Suggested = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddress.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,10 +78,10 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Error>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>("errors", Errors);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.ValidateAddressResult_result>("result", Result);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ValidateAddress>("suggested", Suggested);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddressResult_result>("result", Result);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidateAddress>("suggested", Suggested);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

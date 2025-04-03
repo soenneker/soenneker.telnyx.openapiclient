@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Faxes.Item.Actions.Refresh
+namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.Faxes.Item.Actions.Refresh
         public string Result { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Faxes.Item.Actions.Refresh.RefreshPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh.RefreshPostResponse"/> and sets the default values.
         /// </summary>
         public RefreshPostResponse()
         {
@@ -32,12 +32,12 @@ namespace Soenneker.Telnyx.Faxes.Item.Actions.Refresh
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Faxes.Item.Actions.Refresh.RefreshPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh.RefreshPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Faxes.Item.Actions.Refresh.RefreshPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh.RefreshPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Faxes.Item.Actions.Refresh.RefreshPostResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh.RefreshPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

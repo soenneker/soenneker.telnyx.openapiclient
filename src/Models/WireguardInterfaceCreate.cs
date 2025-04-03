@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.Models
         public string RegionCode { get; set; }
 #endif
         /// <summary>The current status of the interface deployment.</summary>
-        public global::Soenneker.Telnyx.Models.InterfaceStatus? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus? Status { get; private set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.WireguardInterfaceCreate"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WireguardInterfaceCreate"/> and sets the default values.
         /// </summary>
         public WireguardInterfaceCreate()
         {
@@ -88,12 +88,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.WireguardInterfaceCreate"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WireguardInterfaceCreate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.WireguardInterfaceCreate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.WireguardInterfaceCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.WireguardInterfaceCreate();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.WireguardInterfaceCreate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.Models
                 { "public_key", n => { PublicKey = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "region_code", n => { RegionCode = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.InterfaceStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }

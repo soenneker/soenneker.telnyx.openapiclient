@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,10 +23,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The params property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport? Params { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport? Params { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport Params { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport Params { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,13 +37,13 @@ namespace Soenneker.Telnyx.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>Identifies the type of report</summary>
-        public global::Soenneker.Telnyx.Models.PortoutReport_report_type? ReportType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReport_report_type? ReportType { get; set; }
         /// <summary>The current status of the report generation.</summary>
-        public global::Soenneker.Telnyx.Models.PortoutReport_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReport_status? Status { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PortoutReport"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReport"/> and sets the default values.
         /// </summary>
         public PortoutReport()
         {
@@ -52,12 +52,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PortoutReport"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReport"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PortoutReport CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReport CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PortoutReport();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReport();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,10 +70,10 @@ namespace Soenneker.Telnyx.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "document_id", n => { DocumentId = n.GetGuidValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "params", n => { Params = n.GetObjectValue<global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport>(global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport.CreateFromDiscriminatorValue); } },
+                { "params", n => { Params = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport>(global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "report_type", n => { ReportType = n.GetEnumValue<global::Soenneker.Telnyx.Models.PortoutReport_report_type>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.PortoutReport_status>(); } },
+                { "report_type", n => { ReportType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReport_report_type>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReport_status>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -87,9 +87,9 @@ namespace Soenneker.Telnyx.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("document_id", DocumentId);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport>("params", Params);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.PortoutReport_report_type>("report_type", ReportType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.PortoutReport_status>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport>("params", Params);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReport_report_type>("report_type", ReportType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutReport_status>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

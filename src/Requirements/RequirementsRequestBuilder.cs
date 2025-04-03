@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Requirements.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Requirements.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Requirements
+namespace Soenneker.Telnyx.OpenApiClient.Requirements
 {
     /// <summary>
     /// Builds and executes requests for operations under \requirements
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Requirements
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RequirementsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.requirements.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.requirements.item collection</summary>
         /// <param name="position">Uniquely identifies the requirement_type record</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Requirements.Item.RequirementsItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Requirements.Item.RequirementsItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Requirements.Item.RequirementsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.requirements.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.requirements.item collection</summary>
         /// <param name="position">Uniquely identifies the requirement_type record</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Requirements.Item.RequirementsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Requirements.Item.RequirementsItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Requirements.Item.RequirementsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Requirements
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,49 +62,49 @@ namespace Soenneker.Telnyx.Requirements
         /// <summary>
         /// List all requirements with filtering, sorting, and pagination
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Requirements.RequirementsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Requirements.RequirementsGetResponse?> GetAsRequirementsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsGetResponse?> GetAsRequirementsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Requirements.RequirementsGetResponse> GetAsRequirementsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsGetResponse> GetAsRequirementsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Requirements.RequirementsGetResponse>(requestInfo, global::Soenneker.Telnyx.Requirements.RequirementsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all requirements with filtering, sorting, and pagination
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Requirements.RequirementsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsRequirementsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Requirements.RequirementsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Requirements.RequirementsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Requirements.RequirementsResponse>(requestInfo, global::Soenneker.Telnyx.Requirements.RequirementsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all requirements with filtering, sorting, and pagination
@@ -113,11 +113,11 @@ namespace Soenneker.Telnyx.Requirements
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -128,11 +128,11 @@ namespace Soenneker.Telnyx.Requirements
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List all requirements with filtering, sorting, and pagination
@@ -153,7 +153,7 @@ namespace Soenneker.Telnyx.Requirements
 #endif
             /// <summary>Filters requirements to those applying to a specific action.</summary>
             [QueryParameter("filter%5Baction%5D")]
-            public global::Soenneker.Telnyx.Requirements.GetFilterActionQueryParameterType? FilteractionAsGetFilterActionQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Requirements.GetFilterActionQueryParameterType? FilteractionAsGetFilterActionQueryParameterType { get; set; }
             /// <summary>Filters results to those applying to a 2-character (ISO 3166-1 alpha-2) country code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -177,7 +177,7 @@ namespace Soenneker.Telnyx.Requirements
 #endif
             /// <summary>Filters results to those applying to a specific `phone_number_type`</summary>
             [QueryParameter("filter%5Bphone_number_type%5D")]
-            public global::Soenneker.Telnyx.Requirements.GetFilterPhone_number_typeQueryParameterType? FilterphoneNumberTypeAsGetFilterPhoneNumberTypeQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Requirements.GetFilterPhone_number_typeQueryParameterType? FilterphoneNumberTypeAsGetFilterPhoneNumberTypeQueryParameterType { get; set; }
             /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
@@ -197,14 +197,14 @@ namespace Soenneker.Telnyx.Requirements
 #endif
             /// <summary>Specifies the sort order for results. If you want to sort by a field in ascending order, include it as a sort parameter. If you want to sort in descending order, prepend a `-` in front of the field name.</summary>
             [QueryParameter("sort%5B%5D")]
-            public global::Soenneker.Telnyx.Requirements.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Requirements.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RequirementsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>
+        public partial class RequirementsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>
         {
         }
     }

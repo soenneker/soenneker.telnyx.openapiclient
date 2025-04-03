@@ -2,11 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Global_ip_health_checks.Item
+namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,13 +18,13 @@ namespace Soenneker.Telnyx.Global_ip_health_checks.Item
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIPHealthCheck? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIPHealthCheck Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck Data { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse"/> and sets the default values.
         /// </summary>
         public Global_ip_health_checksGetResponse()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Global_ip_health_checks.Item
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.Global_ip_health_checks.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIPHealthCheck>(global::Soenneker.Telnyx.Models.GlobalIPHealthCheck.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.Global_ip_health_checks.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIPHealthCheck>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

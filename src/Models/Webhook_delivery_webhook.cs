@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Original webhook JSON data. Payload fields vary according to event type.
@@ -30,15 +30,15 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Webhook_delivery_webhook_payload? Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook_payload? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Webhook_delivery_webhook_payload Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook_payload Payload { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.Models.Webhook_delivery_webhook_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook_record_type? RecordType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Webhook_delivery_webhook"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook"/> and sets the default values.
         /// </summary>
         public Webhook_delivery_webhook()
         {
@@ -47,12 +47,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Webhook_delivery_webhook"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.Webhook_delivery_webhook CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.Webhook_delivery_webhook();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,8 +65,8 @@ namespace Soenneker.Telnyx.Models
                 { "event_type", n => { EventType = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "occurred_at", n => { OccurredAt = n.GetDateTimeOffsetValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.Models.Webhook_delivery_webhook_payload>(global::Soenneker.Telnyx.Models.Webhook_delivery_webhook_payload.CreateFromDiscriminatorValue); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.Webhook_delivery_webhook_record_type>(); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook_payload>(global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook_payload.CreateFromDiscriminatorValue); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook_record_type>(); } },
             };
         }
         /// <summary>
@@ -79,8 +79,8 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("event_type", EventType);
             writer.WriteGuidValue("id", Id);
             writer.WriteDateTimeOffsetValue("occurred_at", OccurredAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Webhook_delivery_webhook_payload>("payload", Payload);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Webhook_delivery_webhook_record_type>("record_type", RecordType);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook_payload>("payload", Payload);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook_record_type>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

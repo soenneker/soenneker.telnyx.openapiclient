@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -41,13 +41,13 @@ namespace Soenneker.Telnyx.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>The possible verification record types.</summary>
-        public global::Soenneker.Telnyx.Models.VerificationRecordType? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRecordType? RecordType { get; set; }
         /// <summary>The possible statuses of the verification request.</summary>
-        public global::Soenneker.Telnyx.Models.VerificationStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatus? Status { get; set; }
         /// <summary>This is the number of seconds before the code of the request is expired. Once this request has expired, the code will no longer verify the user. Note: this will override the `default_verification_timeout_secs` on the Verify profile.</summary>
         public int? TimeoutSecs { get; set; }
         /// <summary>The possible types of verification.</summary>
-        public global::Soenneker.Telnyx.Models.VerificationType? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationType? Type { get; set; }
         /// <summary>The updated_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The identifier of the associated Verify profile.</summary>
         public Guid? VerifyProfileId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Verification"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Verification"/> and sets the default values.
         /// </summary>
         public Verification()
         {
@@ -68,12 +68,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Verification"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Verification"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.Verification CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Verification CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.Verification();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Verification();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,10 +87,10 @@ namespace Soenneker.Telnyx.Models
                 { "custom_code", n => { CustomCode = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.VerificationRecordType>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.VerificationStatus>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRecordType>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatus>(); } },
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.Models.VerificationType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "verify_profile_id", n => { VerifyProfileId = n.GetGuidValue(); } },
             };
@@ -106,10 +106,10 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("custom_code", CustomCode);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.VerificationRecordType>("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.VerificationStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRecordType>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatus>("status", Status);
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.VerificationType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationType>("type", Type);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteGuidValue("verify_profile_id", VerifyProfileId);
             writer.WriteAdditionalData(AdditionalData);

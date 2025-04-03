@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The webhook payload for the portout.status_changed event
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.Models
         public string Spid { get; set; }
 #endif
         /// <summary>The new status of the port out.</summary>
-        public global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload_status? Status { get; set; }
         /// <summary>The name of the port-out&apos;s end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Identifies the user that the port-out order belongs to.</summary>
         public Guid? UserId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload"/> and sets the default values.
         /// </summary>
         public WebhookPortoutStatusChangedPayload()
         {
@@ -79,12 +79,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.Models
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "rejection_reason", n => { RejectionReason = n.GetStringValue(); } },
                 { "spid", n => { Spid = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload_status>(); } },
                 { "subscriber_name", n => { SubscriberName = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
             };
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteCollectionOfPrimitiveValues<string>("phone_numbers", PhoneNumbers);
             writer.WriteStringValue("rejection_reason", RejectionReason);
             writer.WriteStringValue("spid", Spid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload_status>("status", Status);
             writer.WriteStringValue("subscriber_name", SubscriberName);
             writer.WriteGuidValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);

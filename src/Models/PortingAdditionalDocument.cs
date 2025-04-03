@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Identifies the associated document</summary>
         public Guid? DocumentId { get; set; }
         /// <summary>Identifies the type of additional document</summary>
-        public global::Soenneker.Telnyx.Models.PortingAdditionalDocument_document_type? DocumentType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocument_document_type? DocumentType { get; set; }
         /// <summary>The filename of the related document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PortingAdditionalDocument"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocument"/> and sets the default values.
         /// </summary>
         public PortingAdditionalDocument()
         {
@@ -60,12 +60,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PortingAdditionalDocument"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocument"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PortingAdditionalDocument CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocument CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PortingAdditionalDocument();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocument();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.Models
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "document_id", n => { DocumentId = n.GetGuidValue(); } },
-                { "document_type", n => { DocumentType = n.GetEnumValue<global::Soenneker.Telnyx.Models.PortingAdditionalDocument_document_type>(); } },
+                { "document_type", n => { DocumentType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocument_document_type>(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetGuidValue(); } },
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("content_type", ContentType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("document_id", DocumentId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.PortingAdditionalDocument_document_type>("document_type", DocumentType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingAdditionalDocument_document_type>("document_type", DocumentType);
             writer.WriteStringValue("filename", Filename);
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);

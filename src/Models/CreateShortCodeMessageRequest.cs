@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.Models
         public string To { get; set; }
 #endif
         /// <summary>The protocol for sending the message, either SMS or MMS.</summary>
-        public global::Soenneker.Telnyx.Models.CreateShortCodeMessageRequest_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest_type? Type { get; set; }
         /// <summary>If the profile this number is associated with has webhooks, use them for delivery notifications. If webhooks are also specified on the message itself, they will be attempted first, then those on the profile.</summary>
         public bool? UseProfileWebhooks { get; set; }
         /// <summary>The failover URL where webhooks related to this message will be sent if sending to the primary URL fails.</summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.Models
         public string WebhookUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CreateShortCodeMessageRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest"/> and sets the default values.
         /// </summary>
         public CreateShortCodeMessageRequest()
         {
@@ -86,12 +86,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CreateShortCodeMessageRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CreateShortCodeMessageRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CreateShortCodeMessageRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.Models
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.Models.CreateShortCodeMessageRequest_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest_type>(); } },
                 { "use_profile_webhooks", n => { UseProfileWebhooks = n.GetBoolValue(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("text", Text);
             writer.WriteStringValue("to", To);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CreateShortCodeMessageRequest_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateShortCodeMessageRequest_type>("type", Type);
             writer.WriteBoolValue("use_profile_webhooks", UseProfileWebhooks);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);

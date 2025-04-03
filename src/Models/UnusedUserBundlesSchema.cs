@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The billing_bundle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.BillingBundleSummary? BillingBundle { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary? BillingBundle { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.BillingBundleSummary BillingBundle { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary BillingBundle { get; set; }
 #endif
         /// <summary>List of user bundle IDs for given bundle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Models
         public List<Guid?> UserBundleIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.UnusedUserBundlesSchema"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnusedUserBundlesSchema"/> and sets the default values.
         /// </summary>
         public UnusedUserBundlesSchema()
         {
@@ -40,12 +40,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UnusedUserBundlesSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnusedUserBundlesSchema"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.UnusedUserBundlesSchema CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UnusedUserBundlesSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.UnusedUserBundlesSchema();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UnusedUserBundlesSchema();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "billing_bundle", n => { BillingBundle = n.GetObjectValue<global::Soenneker.Telnyx.Models.BillingBundleSummary>(global::Soenneker.Telnyx.Models.BillingBundleSummary.CreateFromDiscriminatorValue); } },
+                { "billing_bundle", n => { BillingBundle = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary.CreateFromDiscriminatorValue); } },
                 { "user_bundle_ids", n => { UserBundleIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.BillingBundleSummary>("billing_bundle", BillingBundle);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary>("billing_bundle", BillingBundle);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("user_bundle_ids", UserBundleIds);
             writer.WriteAdditionalData(AdditionalData);
         }

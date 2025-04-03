@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson
+namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson
 {
     /// <summary>
     /// Builds and executes requests for operations under \texml\Accounts\{account_sid}\Transcriptions.json
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson
     public partial class TranscriptionsJsonRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,39 +35,39 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson
         /// <summary>
         /// Returns multiple recording transcription resources for an account.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse?> GetAsTranscriptionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse?> GetAsTranscriptionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse> GetAsTranscriptionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse> GetAsTranscriptionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse>(requestInfo, global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns multiple recording transcription resources for an account.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsTranscriptionsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse>(requestInfo, global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns multiple recording transcription resources for an account.
@@ -76,11 +76,11 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns multiple recording transcription resources for an account.
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TranscriptionsJsonRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>
+        public partial class TranscriptionsJsonRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>
         {
         }
     }

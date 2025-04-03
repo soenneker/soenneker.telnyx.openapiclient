@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Phone_numbers.Inbound_channels
+namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels
 {
     /// <summary>
     /// Builds and executes requests for operations under \phone_numbers\inbound_channels
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Phone_numbers.Inbound_channels
     public partial class Inbound_channelsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Phone_numbers.Inbound_channels
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,108 +35,108 @@ namespace Soenneker.Telnyx.Phone_numbers.Inbound_channels
         /// <summary>
         /// Returns the inbound channels for your account. Inbound channels allows you to use Channel Billing for calls to your Telnyx phone numbers. Please check the Telnyx Support Articles section for full information and example of how to utilize Channel Billing.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels422Error">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsGetResponse?> GetAsInbound_channelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsGetResponse?> GetAsInbound_channelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsGetResponse> GetAsInbound_channelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsGetResponse> GetAsInbound_channelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels404Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels422Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels401Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels404Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels422Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsGetResponse>(requestInfo, global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the inbound channels for your account. Inbound channels allows you to use Channel Billing for calls to your Telnyx phone numbers. Please check the Telnyx Support Articles section for full information and example of how to utilize Channel Billing.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels422Error">When receiving a 422 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsInbound_channelsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels404Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels422Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels401Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels404Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels422Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsResponse>(requestInfo, global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the inbound channels for the account
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchResponse?> PatchAsInbound_channelsPatchResponseAsync(global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchResponse?> PatchAsInbound_channelsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchResponse> PatchAsInbound_channelsPatchResponseAsync(global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchResponse> PatchAsInbound_channelsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels500Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchResponse>(requestInfo, global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the inbound channels for the account
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error">When receiving a 500 status code</exception>
         [Obsolete("This method is obsolete. Use PatchAsInbound_channelsPatchResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsResponse?> PatchAsync(global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsResponse> PatchAsync(global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels500Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsResponse>(requestInfo, global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the inbound channels for your account. Inbound channels allows you to use Channel Billing for calls to your Telnyx phone numbers. Please check the Telnyx Support Articles section for full information and example of how to utilize Channel Billing.
@@ -165,11 +165,11 @@ namespace Soenneker.Telnyx.Phone_numbers.Inbound_channels
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -182,11 +182,11 @@ namespace Soenneker.Telnyx.Phone_numbers.Inbound_channels
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

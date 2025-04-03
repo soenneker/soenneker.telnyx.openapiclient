@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.External_connections.Item.Releases.Item;
+using Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.External_connections.Item.Releases
+namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases
 {
     /// <summary>
     /// Builds and executes requests for operations under \external_connections\{id}\releases
@@ -17,33 +17,33 @@ namespace Soenneker.Telnyx.External_connections.Item.Releases
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReleasesRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.external_connections.item.releases.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.releases.item collection</summary>
         /// <param name="position">Identifies a Release request</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("release_id", position);
-                return new global::Soenneker.Telnyx.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.external_connections.item.releases.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.releases.item collection</summary>
         /// <param name="position">Identifies a Release request</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("release_id", position);
-                return new global::Soenneker.Telnyx.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.Item.WithRelease_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.External_connections.Item.Releases
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -61,39 +61,39 @@ namespace Soenneker.Telnyx.External_connections.Item.Releases
         /// <summary>
         /// Returns a list of your Releases for the given external connection. These are automatically created when you change the `connection_id` of a phone number that is currently on Microsoft Teams.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesGetResponse?> GetAsReleasesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesGetResponse?> GetAsReleasesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesGetResponse> GetAsReleasesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesGetResponse> GetAsReleasesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesGetResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your Releases for the given external connection. These are automatically created when you change the `connection_id` of a phone number that is currently on Microsoft Teams.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsReleasesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your Releases for the given external connection. These are automatically created when you change the `connection_id` of a phone number that is currently on Microsoft Teams.
@@ -102,11 +102,11 @@ namespace Soenneker.Telnyx.External_connections.Item.Releases
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -117,11 +117,11 @@ namespace Soenneker.Telnyx.External_connections.Item.Releases
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns a list of your Releases for the given external connection. These are automatically created when you change the `connection_id` of a phone number that is currently on Microsoft Teams.
@@ -170,11 +170,11 @@ namespace Soenneker.Telnyx.External_connections.Item.Releases
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public global::Soenneker.Telnyx.External_connections.Item.Releases.GetFilterStatusEqQueryParameterType[]? FilterstatuseqAsGetFilterStatusEqQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.GetFilterStatusEqQueryParameterType[]? FilterstatuseqAsGetFilterStatusEqQueryParameterType { get; set; }
 #nullable restore
 #else
             [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public global::Soenneker.Telnyx.External_connections.Item.Releases.GetFilterStatusEqQueryParameterType[] FilterstatuseqAsGetFilterStatusEqQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.GetFilterStatusEqQueryParameterType[] FilterstatuseqAsGetFilterStatusEqQueryParameterType { get; set; }
 #endif
             /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
@@ -188,7 +188,7 @@ namespace Soenneker.Telnyx.External_connections.Item.Releases
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ReleasesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>
+        public partial class ReleasesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.ReleasesRequestBuilder.ReleasesRequestBuilderGetQueryParameters>
         {
         }
     }

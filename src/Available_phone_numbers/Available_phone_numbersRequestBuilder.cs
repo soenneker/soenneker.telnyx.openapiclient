@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Available_phone_numbers
+namespace Soenneker.Telnyx.OpenApiClient.Available_phone_numbers
 {
     /// <summary>
     /// Builds and executes requests for operations under \available_phone_numbers
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Available_phone_numbers
     public partial class Available_phone_numbersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Available_phone_numbers
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,49 +36,49 @@ namespace Soenneker.Telnyx.Available_phone_numbers
         /// <summary>
         /// List available phone numbers
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersGetResponse?> GetAsAvailable_phone_numbersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersGetResponse?> GetAsAvailable_phone_numbersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersGetResponse> GetAsAvailable_phone_numbersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersGetResponse> GetAsAvailable_phone_numbersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersGetResponse>(requestInfo, global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List available phone numbers
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsAvailable_phone_numbersGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersResponse>(requestInfo, global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List available phone numbers
@@ -87,11 +87,11 @@ namespace Soenneker.Telnyx.Available_phone_numbers
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -102,11 +102,11 @@ namespace Soenneker.Telnyx.Available_phone_numbers
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List available phone numbers
@@ -155,11 +155,11 @@ namespace Soenneker.Telnyx.Available_phone_numbers
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter%5Bfeatures%5D")]
-            public global::Soenneker.Telnyx.Available_phone_numbers.GetFilterFeaturesQueryParameterType[]? FilterfeaturesAsGetFilterFeaturesQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.GetFilterFeaturesQueryParameterType[]? FilterfeaturesAsGetFilterFeaturesQueryParameterType { get; set; }
 #nullable restore
 #else
             [QueryParameter("filter%5Bfeatures%5D")]
-            public global::Soenneker.Telnyx.Available_phone_numbers.GetFilterFeaturesQueryParameterType[] FilterfeaturesAsGetFilterFeaturesQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.GetFilterFeaturesQueryParameterType[] FilterfeaturesAsGetFilterFeaturesQueryParameterType { get; set; }
 #endif
             /// <summary>Limits the number of results.</summary>
             [QueryParameter("filter%5Blimit%5D")]
@@ -227,7 +227,7 @@ namespace Soenneker.Telnyx.Available_phone_numbers
 #endif
             /// <summary>Filter phone numbers by number type.</summary>
             [QueryParameter("filter%5Bphone_number_type%5D")]
-            public global::Soenneker.Telnyx.Available_phone_numbers.GetFilterPhone_number_typeQueryParameterType? FilterphoneNumberTypeAsGetFilterPhoneNumberTypeQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.GetFilterPhone_number_typeQueryParameterType? FilterphoneNumberTypeAsGetFilterPhoneNumberTypeQueryParameterType { get; set; }
             /// <summary>Filter to exclude phone numbers that need additional time after to purchase to activate. Only applicable for +1 toll_free numbers.</summary>
             [QueryParameter("filter%5Bquickship%5D")]
             public bool? Filterquickship { get; set; }
@@ -250,7 +250,7 @@ namespace Soenneker.Telnyx.Available_phone_numbers
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Available_phone_numbersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>
+        public partial class Available_phone_numbersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersRequestBuilder.Available_phone_numbersRequestBuilderGetQueryParameters>
         {
         }
     }

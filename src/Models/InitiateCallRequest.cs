@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.Models
         public string AsyncAmdStatusCallback { get; set; }
 #endif
         /// <summary>HTTP request type used for `AsyncAmdStatusCallback`. The default value is inherited from TeXML Application setting.</summary>
-        public global::Soenneker.Telnyx.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod? AsyncAmdStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod? AsyncAmdStatusCallbackMethod { get; set; }
         /// <summary>To be used as the caller id name (SIP From Display Name) presented to the destination (`To` number). The string should have a maximum of 128 characters, containing only letters, numbers, spaces, and `-_~!.+` special characters. If ommited, the display name will be the same as the number in the `From` field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Whether to cancel ongoing playback on `machine` detection. Defaults to `true`.</summary>
         public bool? CancelPlaybackOnMachineDetection { get; set; }
         /// <summary>Allows you to chose between Premium and Standard detections.</summary>
-        public global::Soenneker.Telnyx.Models.InitiateCallRequest_DetectionMode? DetectionMode { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_DetectionMode? DetectionMode { get; set; }
         /// <summary>A failover URL for which Telnyx will retrieve the TeXML call instructions if the `Url` is not responding.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.Models
         public string From { get; set; }
 #endif
         /// <summary>Enables Answering Machine Detection.</summary>
-        public global::Soenneker.Telnyx.Models.InitiateCallRequest_MachineDetection? MachineDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_MachineDetection? MachineDetection { get; set; }
         /// <summary>If initial silence duration is greater than this value, consider it a machine. Ignored when `premium` detection is used.</summary>
         public int? MachineDetectionSilenceTimeout { get; set; }
         /// <summary>Silence duration threshold after a greeting message or voice for it be considered human. Ignored when `premium` detection is used.</summary>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Whether to record the entire participant&apos;s call leg. Defaults to `false`.</summary>
         public bool? Record { get; set; }
         /// <summary>The number of channels in the final recording. Defaults to `mono`.</summary>
-        public global::Soenneker.Telnyx.Models.InitiateCallRequest_RecordingChannels? RecordingChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingChannels? RecordingChannels { get; set; }
         /// <summary>The URL the recording callbacks will be sent to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -103,11 +103,11 @@ namespace Soenneker.Telnyx.Models
         public string RecordingStatusCallbackEvent { get; set; }
 #endif
         /// <summary>HTTP request type used for `RecordingStatusCallback`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.Models.InitiateCallRequest_RecordingStatusCallbackMethod? RecordingStatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingStatusCallbackMethod? RecordingStatusCallbackMethod { get; set; }
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected. The timer only starts when the speech is detected. Please note that the transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite)</summary>
         public int? RecordingTimeout { get; set; }
         /// <summary>The audio track to record for the call. The default is `both`.</summary>
-        public global::Soenneker.Telnyx.Models.InitiateCallRequest_RecordingTrack? RecordingTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingTrack? RecordingTrack { get; set; }
         /// <summary>The password to use for SIP authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -133,9 +133,9 @@ namespace Soenneker.Telnyx.Models
         public string StatusCallback { get; set; }
 #endif
         /// <summary>The call events for which Telnyx should send a webhook. Multiple events can be defined when separated by a space.</summary>
-        public global::Soenneker.Telnyx.Models.InitiateCallRequest_StatusCallbackEvent? StatusCallbackEvent { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent? StatusCallbackEvent { get; set; }
         /// <summary>HTTP request type used for `StatusCallback`.</summary>
-        public global::Soenneker.Telnyx.Models.InitiateCallRequest_StatusCallbackMethod? StatusCallbackMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod? StatusCallbackMethod { get; set; }
         /// <summary>The phone number of the called party. Phone numbers are formatted with a `+` and country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.Models
         public string To { get; set; }
 #endif
         /// <summary>Whether to trim any leading and trailing silence from the recording. Defaults to `trim-silence`.</summary>
-        public global::Soenneker.Telnyx.Models.InitiateCallRequest_Trim? Trim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_Trim? Trim { get; set; }
         /// <summary>The URL from which Telnyx will retrieve the TeXML call instructions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -155,29 +155,29 @@ namespace Soenneker.Telnyx.Models
         public string Url { get; set; }
 #endif
         /// <summary>HTTP request type used for `Url`. The default value is inherited from TeXML Application setting.</summary>
-        public global::Soenneker.Telnyx.Models.InitiateCallRequest_UrlMethod? UrlMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_UrlMethod? UrlMethod { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.InitiateCallRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest"/> and sets the default values.
         /// </summary>
         public InitiateCallRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AsyncAmdStatusCallbackMethod = global::Soenneker.Telnyx.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod.POST;
-            DetectionMode = global::Soenneker.Telnyx.Models.InitiateCallRequest_DetectionMode.Regular;
-            MachineDetection = global::Soenneker.Telnyx.Models.InitiateCallRequest_MachineDetection.Disable;
-            StatusCallbackEvent = global::Soenneker.Telnyx.Models.InitiateCallRequest_StatusCallbackEvent.Completed;
-            StatusCallbackMethod = global::Soenneker.Telnyx.Models.InitiateCallRequest_StatusCallbackMethod.POST;
-            UrlMethod = global::Soenneker.Telnyx.Models.InitiateCallRequest_UrlMethod.POST;
+            AsyncAmdStatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod.POST;
+            DetectionMode = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_DetectionMode.Regular;
+            MachineDetection = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_MachineDetection.Disable;
+            StatusCallbackEvent = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent.Completed;
+            StatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod.POST;
+            UrlMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_UrlMethod.POST;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.InitiateCallRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.InitiateCallRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.InitiateCallRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -190,35 +190,35 @@ namespace Soenneker.Telnyx.Models
                 { "ApplicationSid", n => { ApplicationSid = n.GetStringValue(); } },
                 { "AsyncAmd", n => { AsyncAmd = n.GetBoolValue(); } },
                 { "AsyncAmdStatusCallback", n => { AsyncAmdStatusCallback = n.GetStringValue(); } },
-                { "AsyncAmdStatusCallbackMethod", n => { AsyncAmdStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod>(); } },
+                { "AsyncAmdStatusCallbackMethod", n => { AsyncAmdStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod>(); } },
                 { "CallerId", n => { CallerId = n.GetStringValue(); } },
                 { "CancelPlaybackOnDetectMessageEnd", n => { CancelPlaybackOnDetectMessageEnd = n.GetBoolValue(); } },
                 { "CancelPlaybackOnMachineDetection", n => { CancelPlaybackOnMachineDetection = n.GetBoolValue(); } },
-                { "DetectionMode", n => { DetectionMode = n.GetEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_DetectionMode>(); } },
+                { "DetectionMode", n => { DetectionMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_DetectionMode>(); } },
                 { "FallbackUrl", n => { FallbackUrl = n.GetStringValue(); } },
                 { "From", n => { From = n.GetStringValue(); } },
-                { "MachineDetection", n => { MachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_MachineDetection>(); } },
+                { "MachineDetection", n => { MachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_MachineDetection>(); } },
                 { "MachineDetectionSilenceTimeout", n => { MachineDetectionSilenceTimeout = n.GetIntValue(); } },
                 { "MachineDetectionSpeechEndThreshold", n => { MachineDetectionSpeechEndThreshold = n.GetIntValue(); } },
                 { "MachineDetectionSpeechThreshold", n => { MachineDetectionSpeechThreshold = n.GetIntValue(); } },
                 { "MachineDetectionTimeout", n => { MachineDetectionTimeout = n.GetIntValue(); } },
                 { "PreferredCodecs", n => { PreferredCodecs = n.GetStringValue(); } },
                 { "Record", n => { Record = n.GetBoolValue(); } },
-                { "RecordingChannels", n => { RecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_RecordingChannels>(); } },
+                { "RecordingChannels", n => { RecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingChannels>(); } },
                 { "RecordingStatusCallback", n => { RecordingStatusCallback = n.GetStringValue(); } },
                 { "RecordingStatusCallbackEvent", n => { RecordingStatusCallbackEvent = n.GetStringValue(); } },
-                { "RecordingStatusCallbackMethod", n => { RecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_RecordingStatusCallbackMethod>(); } },
+                { "RecordingStatusCallbackMethod", n => { RecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingStatusCallbackMethod>(); } },
                 { "RecordingTimeout", n => { RecordingTimeout = n.GetIntValue(); } },
-                { "RecordingTrack", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_RecordingTrack>(); } },
+                { "RecordingTrack", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingTrack>(); } },
                 { "SipAuthPassword", n => { SipAuthPassword = n.GetStringValue(); } },
                 { "SipAuthUsername", n => { SipAuthUsername = n.GetStringValue(); } },
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
-                { "StatusCallbackEvent", n => { StatusCallbackEvent = n.GetEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_StatusCallbackEvent>(); } },
-                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_StatusCallbackMethod>(); } },
+                { "StatusCallbackEvent", n => { StatusCallbackEvent = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent>(); } },
+                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod>(); } },
                 { "To", n => { To = n.GetStringValue(); } },
-                { "Trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_Trim>(); } },
+                { "Trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_Trim>(); } },
                 { "Url", n => { Url = n.GetStringValue(); } },
-                { "UrlMethod", n => { UrlMethod = n.GetEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_UrlMethod>(); } },
+                { "UrlMethod", n => { UrlMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_UrlMethod>(); } },
             };
         }
         /// <summary>
@@ -231,35 +231,35 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("ApplicationSid", ApplicationSid);
             writer.WriteBoolValue("AsyncAmd", AsyncAmd);
             writer.WriteStringValue("AsyncAmdStatusCallback", AsyncAmdStatusCallback);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod>("AsyncAmdStatusCallbackMethod", AsyncAmdStatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod>("AsyncAmdStatusCallbackMethod", AsyncAmdStatusCallbackMethod);
             writer.WriteStringValue("CallerId", CallerId);
             writer.WriteBoolValue("CancelPlaybackOnDetectMessageEnd", CancelPlaybackOnDetectMessageEnd);
             writer.WriteBoolValue("CancelPlaybackOnMachineDetection", CancelPlaybackOnMachineDetection);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_DetectionMode>("DetectionMode", DetectionMode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_DetectionMode>("DetectionMode", DetectionMode);
             writer.WriteStringValue("FallbackUrl", FallbackUrl);
             writer.WriteStringValue("From", From);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_MachineDetection>("MachineDetection", MachineDetection);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_MachineDetection>("MachineDetection", MachineDetection);
             writer.WriteIntValue("MachineDetectionSilenceTimeout", MachineDetectionSilenceTimeout);
             writer.WriteIntValue("MachineDetectionSpeechEndThreshold", MachineDetectionSpeechEndThreshold);
             writer.WriteIntValue("MachineDetectionSpeechThreshold", MachineDetectionSpeechThreshold);
             writer.WriteIntValue("MachineDetectionTimeout", MachineDetectionTimeout);
             writer.WriteStringValue("PreferredCodecs", PreferredCodecs);
             writer.WriteBoolValue("Record", Record);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_RecordingChannels>("RecordingChannels", RecordingChannels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingChannels>("RecordingChannels", RecordingChannels);
             writer.WriteStringValue("RecordingStatusCallback", RecordingStatusCallback);
             writer.WriteStringValue("RecordingStatusCallbackEvent", RecordingStatusCallbackEvent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_RecordingStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
             writer.WriteIntValue("RecordingTimeout", RecordingTimeout);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_RecordingTrack>("RecordingTrack", RecordingTrack);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingTrack>("RecordingTrack", RecordingTrack);
             writer.WriteStringValue("SipAuthPassword", SipAuthPassword);
             writer.WriteStringValue("SipAuthUsername", SipAuthUsername);
             writer.WriteStringValue("StatusCallback", StatusCallback);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_StatusCallbackEvent>("StatusCallbackEvent", StatusCallbackEvent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_StatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent>("StatusCallbackEvent", StatusCallbackEvent);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
             writer.WriteStringValue("To", To);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_Trim>("Trim", Trim);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_Trim>("Trim", Trim);
             writer.WriteStringValue("Url", Url);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InitiateCallRequest_UrlMethod>("UrlMethod", UrlMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_UrlMethod>("UrlMethod", UrlMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

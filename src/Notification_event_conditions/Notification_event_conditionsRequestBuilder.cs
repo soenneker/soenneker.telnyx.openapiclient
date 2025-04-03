@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Notification_event_conditions
+namespace Soenneker.Telnyx.OpenApiClient.Notification_event_conditions
 {
     /// <summary>
     /// Builds and executes requests for operations under \notification_event_conditions
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Notification_event_conditions
     public partial class Notification_event_conditionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Notification_event_conditions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,49 +36,49 @@ namespace Soenneker.Telnyx.Notification_event_conditions
         /// <summary>
         /// Returns a list of your notifications events conditions.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsGetResponse?> GetAsNotification_event_conditionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsGetResponse?> GetAsNotification_event_conditionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsGetResponse> GetAsNotification_event_conditionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsGetResponse> GetAsNotification_event_conditionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsGetResponse>(requestInfo, global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your notifications events conditions.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsNotification_event_conditionsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsResponse>(requestInfo, global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your notifications events conditions.
@@ -87,11 +87,11 @@ namespace Soenneker.Telnyx.Notification_event_conditions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -102,11 +102,11 @@ namespace Soenneker.Telnyx.Notification_event_conditions
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns a list of your notifications events conditions.
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.Notification_event_conditions
 #endif
             /// <summary>Filter by the associated record type</summary>
             [QueryParameter("filter%5Bassociated_record_type%5D%5Beq%5D")]
-            public global::Soenneker.Telnyx.Notification_event_conditions.GetFilterAssociated_record_typeEqQueryParameterType? FilterassociatedRecordTypeeqAsGetFilterAssociatedRecordTypeEqQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.GetFilterAssociated_record_typeEqQueryParameterType? FilterassociatedRecordTypeeqAsGetFilterAssociatedRecordTypeEqQueryParameterType { get; set; }
             /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
@@ -140,7 +140,7 @@ namespace Soenneker.Telnyx.Notification_event_conditions
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Notification_event_conditionsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>
+        public partial class Notification_event_conditionsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_event_conditions.Notification_event_conditionsRequestBuilder.Notification_event_conditionsRequestBuilderGetQueryParameters>
         {
         }
     }

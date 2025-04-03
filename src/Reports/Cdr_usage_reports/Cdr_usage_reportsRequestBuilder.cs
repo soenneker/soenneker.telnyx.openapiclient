@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Reports.Cdr_usage_reports.Sync;
+using Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Sync;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Reports.Cdr_usage_reports
+namespace Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports
 {
     /// <summary>
     /// Builds and executes requests for operations under \reports\cdr_usage_reports
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Reports.Cdr_usage_reports
     public partial class Cdr_usage_reportsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The sync property</summary>
-        public global::Soenneker.Telnyx.Reports.Cdr_usage_reports.Sync.SyncRequestBuilder Sync
+        public global::Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Sync.SyncRequestBuilder Sync
         {
-            get => new global::Soenneker.Telnyx.Reports.Cdr_usage_reports.Sync.SyncRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Sync.SyncRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Reports.Cdr_usage_reports.Cdr_usage_reportsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Cdr_usage_reportsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Reports.Cdr_usage_reports
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Reports.Cdr_usage_reports.Cdr_usage_reportsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Cdr_usage_reportsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Current position of the call in the queue</summary>
         public int? QueuePosition { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.Models.QueueCall_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall_record_type? RecordType { get; set; }
         /// <summary>Destination number or SIP URI of the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The time the call has been waiting in the queue, given in seconds</summary>
         public int? WaitTimeSecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.QueueCall"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall"/> and sets the default values.
         /// </summary>
         public QueueCall()
         {
@@ -94,12 +94,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.QueueCall"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.QueueCall CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.QueueCall();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.Models
                 { "from", n => { From = n.GetStringValue(); } },
                 { "queue_id", n => { QueueId = n.GetStringValue(); } },
                 { "queue_position", n => { QueuePosition = n.GetIntValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.QueueCall_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall_record_type>(); } },
                 { "to", n => { To = n.GetStringValue(); } },
                 { "wait_time_secs", n => { WaitTimeSecs = n.GetIntValue(); } },
             };
@@ -137,7 +137,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("from", From);
             writer.WriteStringValue("queue_id", QueueId);
             writer.WriteIntValue("queue_position", QueuePosition);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.QueueCall_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall_record_type>("record_type", RecordType);
             writer.WriteStringValue("to", To);
             writer.WriteIntValue("wait_time_secs", WaitTimeSecs);
             writer.WriteAdditionalData(AdditionalData);

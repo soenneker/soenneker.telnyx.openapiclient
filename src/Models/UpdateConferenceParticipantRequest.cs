@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.Models.UpdateConferenceParticipantRequest_AnnounceMethod? AnnounceMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_AnnounceMethod? AnnounceMethod { get; set; }
         /// <summary>The URL to call to announce something to the participant. The URL may return an MP3 fileo a WAV file, or a TwiML document that contains `&lt;Play&gt;`, `&lt;Say&gt;`, `&lt;Pause&gt;`, or `&lt;Redirect&gt;` verbs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Whether the participant should be on hold.</summary>
         public bool? Hold { get; set; }
         /// <summary>The HTTP method to use when calling the `HoldUrl`.</summary>
-        public global::Soenneker.Telnyx.Models.UpdateConferenceParticipantRequest_HoldMethod? HoldMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_HoldMethod? HoldMethod { get; set; }
         /// <summary>The URL to be called using the `HoldMethod` for music that plays when the participant is on hold. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `&lt;Play&gt;`, `&lt;Say&gt;`, `&lt;Pause&gt;`, or `&lt;Redirect&gt;` verbs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Models
         public string WaitUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.UpdateConferenceParticipantRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest"/> and sets the default values.
         /// </summary>
         public UpdateConferenceParticipantRequest()
         {
@@ -70,12 +70,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UpdateConferenceParticipantRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.UpdateConferenceParticipantRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.UpdateConferenceParticipantRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,14 +85,14 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "AnnounceMethod", n => { AnnounceMethod = n.GetEnumValue<global::Soenneker.Telnyx.Models.UpdateConferenceParticipantRequest_AnnounceMethod>(); } },
+                { "AnnounceMethod", n => { AnnounceMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_AnnounceMethod>(); } },
                 { "AnnounceUrl", n => { AnnounceUrl = n.GetStringValue(); } },
                 { "BeepOnExit", n => { BeepOnExit = n.GetBoolValue(); } },
                 { "CallSidToCoach", n => { CallSidToCoach = n.GetStringValue(); } },
                 { "Coaching", n => { Coaching = n.GetBoolValue(); } },
                 { "EndConferenceOnExit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "Hold", n => { Hold = n.GetBoolValue(); } },
-                { "HoldMethod", n => { HoldMethod = n.GetEnumValue<global::Soenneker.Telnyx.Models.UpdateConferenceParticipantRequest_HoldMethod>(); } },
+                { "HoldMethod", n => { HoldMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_HoldMethod>(); } },
                 { "HoldUrl", n => { HoldUrl = n.GetStringValue(); } },
                 { "Muted", n => { Muted = n.GetBoolValue(); } },
                 { "WaitUrl", n => { WaitUrl = n.GetStringValue(); } },
@@ -105,14 +105,14 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.UpdateConferenceParticipantRequest_AnnounceMethod>("AnnounceMethod", AnnounceMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_AnnounceMethod>("AnnounceMethod", AnnounceMethod);
             writer.WriteStringValue("AnnounceUrl", AnnounceUrl);
             writer.WriteBoolValue("BeepOnExit", BeepOnExit);
             writer.WriteStringValue("CallSidToCoach", CallSidToCoach);
             writer.WriteBoolValue("Coaching", Coaching);
             writer.WriteBoolValue("EndConferenceOnExit", EndConferenceOnExit);
             writer.WriteBoolValue("Hold", Hold);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.UpdateConferenceParticipantRequest_HoldMethod>("HoldMethod", HoldMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_HoldMethod>("HoldMethod", HoldMethod);
             writer.WriteStringValue("HoldUrl", HoldUrl);
             writer.WriteBoolValue("Muted", Muted);
             writer.WriteStringValue("WaitUrl", WaitUrl);

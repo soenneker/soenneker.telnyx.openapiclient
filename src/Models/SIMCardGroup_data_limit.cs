@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Upper limit on the amount of data the SIM cards, within the group, can use.
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.Models
         public string Unit { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SIMCardGroup_data_limit"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroup_data_limit"/> and sets the default values.
         /// </summary>
         public SIMCardGroup_data_limit()
         {
@@ -41,12 +41,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SIMCardGroup_data_limit"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroup_data_limit"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SIMCardGroup_data_limit CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroup_data_limit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SIMCardGroup_data_limit();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroup_data_limit();
         }
         /// <summary>
         /// The deserialization information for the current model

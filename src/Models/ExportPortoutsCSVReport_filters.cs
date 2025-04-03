@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The filters to apply to the export port-out CSV report.
@@ -46,13 +46,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The status of the port-outs to include in the report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport_filters_status__in?>? StatusIn { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport_filters_status__in?>? StatusIn { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport_filters_status__in?> StatusIn { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport_filters_status__in?> StatusIn { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport_filters"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport_filters"/> and sets the default values.
         /// </summary>
         public ExportPortoutsCSVReport_filters()
         {
@@ -61,12 +61,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport_filters"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport_filters"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport_filters CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport_filters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport_filters();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport_filters();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.Models
                 { "customer_reference__in", n => { CustomerReferenceIn = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "end_user_name", n => { EndUserName = n.GetStringValue(); } },
                 { "phone_numbers__overlaps", n => { PhoneNumbersOverlaps = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "status__in", n => { StatusIn = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport_filters_status__in>()?.AsList(); } },
+                { "status__in", n => { StatusIn = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport_filters_status__in>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteCollectionOfPrimitiveValues<string>("customer_reference__in", CustomerReferenceIn);
             writer.WriteStringValue("end_user_name", EndUserName);
             writer.WriteCollectionOfPrimitiveValues<string>("phone_numbers__overlaps", PhoneNumbersOverlaps);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.Models.ExportPortoutsCSVReport_filters_status__in>("status__in", StatusIn);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortoutsCSVReport_filters_status__in>("status__in", StatusIn);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

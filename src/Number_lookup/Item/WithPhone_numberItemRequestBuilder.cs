@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Number_lookup.Item
+namespace Soenneker.Telnyx.OpenApiClient.Number_lookup.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \number_lookup\{phone_number}
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Number_lookup.Item
     public partial class WithPhone_numberItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Number_lookup.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,53 +36,53 @@ namespace Soenneker.Telnyx.Number_lookup.Item
         /// <summary>
         /// Returns information about the provided phone number.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberGetResponse?> GetAsWithPhone_numberGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberGetResponse?> GetAsWithPhone_numberGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberGetResponse> GetAsWithPhone_numberGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberGetResponse> GetAsWithPhone_numberGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberGetResponse>(requestInfo, global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns information about the provided phone number.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsWithPhone_numberGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberResponse>(requestInfo, global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns information about the provided phone number.
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.Number_lookup.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -106,11 +106,11 @@ namespace Soenneker.Telnyx.Number_lookup.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns information about the provided phone number.
@@ -131,14 +131,14 @@ namespace Soenneker.Telnyx.Number_lookup.Item
 #endif
             /// <summary>Specifies the type of number lookup to be performed</summary>
             [QueryParameter("type")]
-            public global::Soenneker.Telnyx.Number_lookup.Item.GetTypeQueryParameterType? TypeAsGetTypeQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.GetTypeQueryParameterType? TypeAsGetTypeQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithPhone_numberItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>
+        public partial class WithPhone_numberItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder.WithPhone_numberItemRequestBuilderGetQueryParameters>
         {
         }
     }

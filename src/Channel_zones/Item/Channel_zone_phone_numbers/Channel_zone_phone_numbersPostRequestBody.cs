@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Channel_zones.Item.Channel_zone_phone_numbers
+namespace Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.Channel_zone_phone_numbers
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.Channel_zones.Item.Channel_zone_phone_numbers
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Channel_zones.Item.Channel_zone_phone_numbers.Channel_zone_phone_numbersPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.Channel_zone_phone_numbers.Channel_zone_phone_numbersPostRequestBody"/> and sets the default values.
         /// </summary>
         public Channel_zone_phone_numbersPostRequestBody()
         {
@@ -32,12 +32,12 @@ namespace Soenneker.Telnyx.Channel_zones.Item.Channel_zone_phone_numbers
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Channel_zones.Item.Channel_zone_phone_numbers.Channel_zone_phone_numbersPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.Channel_zone_phone_numbers.Channel_zone_phone_numbersPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Channel_zones.Item.Channel_zone_phone_numbers.Channel_zone_phone_numbersPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.Channel_zone_phone_numbers.Channel_zone_phone_numbersPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Channel_zones.Item.Channel_zone_phone_numbers.Channel_zone_phone_numbersPostRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.Channel_zone_phone_numbers.Channel_zone_phone_numbersPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

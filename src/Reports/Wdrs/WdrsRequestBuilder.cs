@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Reports.Wdrs
+namespace Soenneker.Telnyx.OpenApiClient.Reports.Wdrs
 {
     /// <summary>
     /// Builds and executes requests for operations under \reports\wdrs
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Reports.Wdrs
     public partial class WdrsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Reports.Wdrs
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,20 +36,20 @@ namespace Soenneker.Telnyx.Reports.Wdrs
         /// <summary>
         /// Fetch all Wdr records 
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ExternalWdrGetDetailResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalWdrGetDetailResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.ExternalWdrGetDetailResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder.WdrsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalWdrGetDetailResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder.WdrsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.ExternalWdrGetDetailResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder.WdrsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalWdrGetDetailResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder.WdrsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.ExternalWdrGetDetailResponse>(requestInfo, global::Soenneker.Telnyx.Models.ExternalWdrGetDetailResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalWdrGetDetailResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ExternalWdrGetDetailResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Fetch all Wdr records 
@@ -58,11 +58,11 @@ namespace Soenneker.Telnyx.Reports.Wdrs
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder.WdrsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder.WdrsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder.WdrsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder.WdrsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -73,11 +73,11 @@ namespace Soenneker.Telnyx.Reports.Wdrs
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Fetch all Wdr records 
@@ -198,7 +198,7 @@ namespace Soenneker.Telnyx.Reports.Wdrs
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WdrsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder.WdrsRequestBuilderGetQueryParameters>
+        public partial class WdrsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder.WdrsRequestBuilderGetQueryParameters>
         {
         }
     }

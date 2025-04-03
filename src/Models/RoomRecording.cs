@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -83,9 +83,9 @@ namespace Soenneker.Telnyx.Models
         public string StartedAt { get; set; }
 #endif
         /// <summary>Shows the room recording status.</summary>
-        public global::Soenneker.Telnyx.Models.RoomRecording_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_status? Status { get; set; }
         /// <summary>Shows the room recording type.</summary>
-        public global::Soenneker.Telnyx.Models.RoomRecording_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_type? Type { get; set; }
         /// <summary>ISO 8601 timestamp when the room recording was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RoomRecording"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording"/> and sets the default values.
         /// </summary>
         public RoomRecording()
         {
@@ -104,12 +104,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RoomRecording"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RoomRecording CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RoomRecording();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -132,8 +132,8 @@ namespace Soenneker.Telnyx.Models
                 { "session_id", n => { SessionId = n.GetGuidValue(); } },
                 { "size_mb", n => { SizeMb = n.GetFloatValue(); } },
                 { "started_at", n => { StartedAt = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.RoomRecording_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.Models.RoomRecording_type>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_status>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -156,8 +156,8 @@ namespace Soenneker.Telnyx.Models
             writer.WriteGuidValue("session_id", SessionId);
             writer.WriteFloatValue("size_mb", SizeMb);
             writer.WriteStringValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RoomRecording_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RoomRecording_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_type>("type", Type);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

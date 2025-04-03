@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// This object represents a SIM card group action request. It allows tracking the current status of an operation that impacts the SIM card group and SIM card in it.
@@ -36,17 +36,17 @@ namespace Soenneker.Telnyx.Models
         /// <summary>A JSON object representation of the action params.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SIMCardGroupAction_settings? Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings? Settings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SIMCardGroupAction_settings Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings Settings { get; set; }
 #endif
         /// <summary>The SIM card group identification.</summary>
         public Guid? SimCardGroupId { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.Models.SIMCardGroupAction_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_status? Status { get; set; }
         /// <summary>Represents the type of the operation requested.</summary>
-        public global::Soenneker.Telnyx.Models.SIMCardGroupAction_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_type? Type { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SIMCardGroupAction"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction"/> and sets the default values.
         /// </summary>
         public SIMCardGroupAction()
         {
@@ -65,12 +65,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SIMCardGroupAction"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SIMCardGroupAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SIMCardGroupAction();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,10 +83,10 @@ namespace Soenneker.Telnyx.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.Models.SIMCardGroupAction_settings>(global::Soenneker.Telnyx.Models.SIMCardGroupAction_settings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings.CreateFromDiscriminatorValue); } },
                 { "sim_card_group_id", n => { SimCardGroupId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.SIMCardGroupAction_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.Models.SIMCardGroupAction_type>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_status>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -97,10 +97,10 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SIMCardGroupAction_settings>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings>("settings", Settings);
             writer.WriteGuidValue("sim_card_group_id", SimCardGroupId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.SIMCardGroupAction_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.SIMCardGroupAction_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

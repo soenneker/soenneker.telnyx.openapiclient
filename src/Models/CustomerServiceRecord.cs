@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -45,17 +45,17 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The result of the CSR request. This field would be null in case of `pending` or `failed` status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CustomerServiceRecord_result? Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CustomerServiceRecord_result Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result Result { get; set; }
 #endif
         /// <summary>The status of the customer service record</summary>
-        public global::Soenneker.Telnyx.Models.CustomerServiceRecord_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_status? Status { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CustomerServiceRecord"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord"/> and sets the default values.
         /// </summary>
         public CustomerServiceRecord()
         {
@@ -64,12 +64,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CustomerServiceRecord"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CustomerServiceRecord CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CustomerServiceRecord();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,8 +84,8 @@ namespace Soenneker.Telnyx.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Telnyx.Models.CustomerServiceRecord_result>(global::Soenneker.Telnyx.Models.CustomerServiceRecord_result.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.CustomerServiceRecord_status>(); } },
+                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_status>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -98,8 +98,8 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error_message", ErrorMessage);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CustomerServiceRecord_result>("result", Result);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CustomerServiceRecord_status>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result>("result", Result);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

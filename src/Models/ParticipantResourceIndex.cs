@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -39,10 +39,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The participants property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.ParticipantResource>? Participants { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource>? Participants { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.ParticipantResource> Participants { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource> Participants { get; set; }
 #endif
         /// <summary>The number of the first element on the page, zero-indexed.</summary>
         public int? Start { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.Models
         public string Uri { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ParticipantResourceIndex"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResourceIndex"/> and sets the default values.
         /// </summary>
         public ParticipantResourceIndex()
         {
@@ -64,12 +64,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ParticipantResourceIndex"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResourceIndex"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ParticipantResourceIndex CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResourceIndex CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ParticipantResourceIndex();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResourceIndex();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.Models
                 { "next_page_uri", n => { NextPageUri = n.GetStringValue(); } },
                 { "page", n => { Page = n.GetIntValue(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
-                { "participants", n => { Participants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.ParticipantResource>(global::Soenneker.Telnyx.Models.ParticipantResource.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "participants", n => { Participants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource>(global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "start", n => { Start = n.GetIntValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("next_page_uri", NextPageUri);
             writer.WriteIntValue("page", Page);
             writer.WriteIntValue("page_size", PageSize);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.ParticipantResource>("participants", Participants);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantResource>("participants", Participants);
             writer.WriteIntValue("start", Start);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

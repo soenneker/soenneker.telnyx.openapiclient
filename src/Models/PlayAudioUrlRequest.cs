@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the type of audio provided in `audio_url` or `playback_content`.</summary>
-        public global::Soenneker.Telnyx.Models.PlayAudioUrlRequest_audio_type? AudioType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest_audio_type? AudioType { get; set; }
         /// <summary>The URL of a file to be played back on the call. The URL can point to either a WAV or MP3 file. media_name and audio_url cannot be used together in one request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,10 +45,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The loop property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Loopcount? Loop { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount? Loop { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Loopcount Loop { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount Loop { get; set; }
 #endif
         /// <summary>The media_name of a file to be played back on the call. The media_name must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. The file must either be a WAV or MP3 file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,23 +85,23 @@ namespace Soenneker.Telnyx.Models
         public string TargetLegs { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PlayAudioUrlRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest"/> and sets the default values.
         /// </summary>
         public PlayAudioUrlRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AudioType = global::Soenneker.Telnyx.Models.PlayAudioUrlRequest_audio_type.Mp3;
+            AudioType = global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest_audio_type.Mp3;
             TargetLegs = "self";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PlayAudioUrlRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PlayAudioUrlRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PlayAudioUrlRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,12 +111,12 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "audio_type", n => { AudioType = n.GetEnumValue<global::Soenneker.Telnyx.Models.PlayAudioUrlRequest_audio_type>(); } },
+                { "audio_type", n => { AudioType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest_audio_type>(); } },
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
                 { "cache_audio", n => { CacheAudio = n.GetBoolValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "loop", n => { Loop = n.GetObjectValue<global::Soenneker.Telnyx.Models.Loopcount>(global::Soenneker.Telnyx.Models.Loopcount.CreateFromDiscriminatorValue); } },
+                { "loop", n => { Loop = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount>(global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount.CreateFromDiscriminatorValue); } },
                 { "media_name", n => { MediaName = n.GetStringValue(); } },
                 { "overlay", n => { Overlay = n.GetBoolValue(); } },
                 { "playback_content", n => { PlaybackContent = n.GetStringValue(); } },
@@ -131,12 +131,12 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.PlayAudioUrlRequest_audio_type>("audio_type", AudioType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PlayAudioUrlRequest_audio_type>("audio_type", AudioType);
             writer.WriteStringValue("audio_url", AudioUrl);
             writer.WriteBoolValue("cache_audio", CacheAudio);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Loopcount>("loop", Loop);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount>("loop", Loop);
             writer.WriteStringValue("media_name", MediaName);
             writer.WriteBoolValue("overlay", Overlay);
             writer.WriteStringValue("playback_content", PlaybackContent);

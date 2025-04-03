@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Porting_orders.Item.Requirements
+namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements
 {
     /// <summary>
     /// Builds and executes requests for operations under \porting_orders\{-id}\requirements
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Requirements
     public partial class RequirementsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Requirements
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,39 +35,39 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Requirements
         /// <summary>
         /// Returns a list of all requirements based on country/number type for this porting order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsGetResponse?> GetAsRequirementsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsGetResponse?> GetAsRequirementsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsGetResponse> GetAsRequirementsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsGetResponse> GetAsRequirementsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsGetResponse>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of all requirements based on country/number type for this porting order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsRequirementsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsResponse>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of all requirements based on country/number type for this porting order.
@@ -76,11 +76,11 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Requirements
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Requirements
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns a list of all requirements based on country/number type for this porting order.
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Requirements
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RequirementsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>
+        public partial class RequirementsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>
         {
         }
     }

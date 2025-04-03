@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Phone_numbers.Slim
+namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim
 {
     /// <summary>
     /// Builds and executes requests for operations under \phone_numbers\slim
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Phone_numbers.Slim
     public partial class SlimRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Phone_numbers.Slim
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,49 +36,49 @@ namespace Soenneker.Telnyx.Phone_numbers.Slim
         /// <summary>
         /// List phone numbers, This endpoint is a lighter version of the /phone_numbers endpoint having higher performance and rate limit.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_numbers.Slim.SlimGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimGetResponse?> GetAsSlimGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimGetResponse?> GetAsSlimGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimGetResponse> GetAsSlimGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimGetResponse> GetAsSlimGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimGetResponse>(requestInfo, global::Soenneker.Telnyx.Phone_numbers.Slim.SlimGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List phone numbers, This endpoint is a lighter version of the /phone_numbers endpoint having higher performance and rate limit.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_numbers.Slim.SlimResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsSlimGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimResponse>(requestInfo, global::Soenneker.Telnyx.Phone_numbers.Slim.SlimResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List phone numbers, This endpoint is a lighter version of the /phone_numbers endpoint having higher performance and rate limit.
@@ -87,11 +87,11 @@ namespace Soenneker.Telnyx.Phone_numbers.Slim
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -102,11 +102,11 @@ namespace Soenneker.Telnyx.Phone_numbers.Slim
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List phone numbers, This endpoint is a lighter version of the /phone_numbers endpoint having higher performance and rate limit.
@@ -177,7 +177,7 @@ namespace Soenneker.Telnyx.Phone_numbers.Slim
 #endif
             /// <summary>Filter phone numbers by phone number type.</summary>
             [QueryParameter("filter%5Bnumber_type%5D%5Beq%5D")]
-            public global::Soenneker.Telnyx.Phone_numbers.Slim.GetFilterNumber_typeEqQueryParameterType? FilternumberTypeeqAsGetFilterNumberTypeEqQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.GetFilterNumber_typeEqQueryParameterType? FilternumberTypeeqAsGetFilterNumberTypeEqQueryParameterType { get; set; }
             /// <summary>Filter by phone number. Requires at least three digits.             Non-numerical characters will result in no values being returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -201,7 +201,7 @@ namespace Soenneker.Telnyx.Phone_numbers.Slim
 #endif
             /// <summary>Filter phone numbers by their source. Use &apos;ported&apos; for numbers ported from other carriers, or &apos;purchased&apos; for numbers bought directly from Telnyx.</summary>
             [QueryParameter("filter%5Bsource%5D")]
-            public global::Soenneker.Telnyx.Phone_numbers.Slim.GetFilterSourceQueryParameterType? FiltersourceAsGetFilterSourceQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.GetFilterSourceQueryParameterType? FiltersourceAsGetFilterSourceQueryParameterType { get; set; }
             /// <summary>Filter by phone number status.</summary>
             [Obsolete("This property is deprecated, use FilterstatusAsGetFilterStatusQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -215,7 +215,7 @@ namespace Soenneker.Telnyx.Phone_numbers.Slim
 #endif
             /// <summary>Filter by phone number status.</summary>
             [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.Phone_numbers.Slim.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
             /// <summary>Filter by phone number tags. (This requires the include_tags param)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -279,7 +279,7 @@ namespace Soenneker.Telnyx.Phone_numbers.Slim
 #endif
             /// <summary>Filter by usage_payment_method.</summary>
             [QueryParameter("filter%5Bvoice%2Eusage_payment_method%5D")]
-            public global::Soenneker.Telnyx.Phone_numbers.Slim.GetFilterVoiceUsage_payment_methodQueryParameterType? FiltervoiceUsagePaymentMethodAsGetFilterVoiceUsagePaymentMethodQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.GetFilterVoiceUsage_payment_methodQueryParameterType? FiltervoiceUsagePaymentMethodAsGetFilterVoiceUsagePaymentMethodQueryParameterType { get; set; }
             /// <summary>Include the connection associated with the phone number.</summary>
             [QueryParameter("include_connection")]
             public bool? IncludeConnection { get; set; }
@@ -305,14 +305,14 @@ namespace Soenneker.Telnyx.Phone_numbers.Slim
 #endif
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.Phone_numbers.Slim.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SlimRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>
+        public partial class SlimRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Slim.SlimRequestBuilder.SlimRequestBuilderGetQueryParameters>
         {
         }
     }

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -47,9 +47,9 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The ID of the user who created this comment</summary>
         public Guid? UserId { get; set; }
         /// <summary>Indicates whether this comment was created by a Telnyx Admin, user, or system</summary>
-        public global::Soenneker.Telnyx.Models.PortingOrdersComment_user_type? UserType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment_user_type? UserType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PortingOrdersComment"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment"/> and sets the default values.
         /// </summary>
         public PortingOrdersComment()
         {
@@ -58,12 +58,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PortingOrdersComment"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PortingOrdersComment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PortingOrdersComment();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "user_email", n => { UserEmail = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
-                { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.Telnyx.Models.PortingOrdersComment_user_type>(); } },
+                { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment_user_type>(); } },
             };
         }
         /// <summary>
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("user_email", UserEmail);
             writer.WriteGuidValue("user_id", UserId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.PortingOrdersComment_user_type>("user_type", UserType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment_user_type>("user_type", UserType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

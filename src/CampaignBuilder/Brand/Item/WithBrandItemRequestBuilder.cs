@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.CampaignBuilder.Brand.Item.Usecase;
+using Soenneker.Telnyx.OpenApiClient.CampaignBuilder.Brand.Item.Usecase;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.CampaignBuilder.Brand.Item
+namespace Soenneker.Telnyx.OpenApiClient.CampaignBuilder.Brand.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \campaignBuilder\brand\{brandId}
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.CampaignBuilder.Brand.Item
     public partial class WithBrandItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The usecase property</summary>
-        public global::Soenneker.Telnyx.CampaignBuilder.Brand.Item.Usecase.UsecaseRequestBuilder Usecase
+        public global::Soenneker.Telnyx.OpenApiClient.CampaignBuilder.Brand.Item.Usecase.UsecaseRequestBuilder Usecase
         {
-            get => new global::Soenneker.Telnyx.CampaignBuilder.Brand.Item.Usecase.UsecaseRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.CampaignBuilder.Brand.Item.Usecase.UsecaseRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.CampaignBuilder.Brand.Item.WithBrandItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.CampaignBuilder.Brand.Item.WithBrandItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.CampaignBuilder.Brand.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.CampaignBuilder.Brand.Item.WithBrandItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.CampaignBuilder.Brand.Item.WithBrandItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

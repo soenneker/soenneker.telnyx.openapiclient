@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Models
         public string CallSid { get; set; }
 #endif
         /// <summary>The channels property</summary>
-        public global::Soenneker.Telnyx.Models.TwimlRecordingChannels? Channels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TwimlRecordingChannels? Channels { get; set; }
         /// <summary>The conference_sid property</summary>
         public Guid? ConferenceSid { get; set; }
         /// <summary>The date_created property</summary>
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.Models
         public string Sid { get; set; }
 #endif
         /// <summary>Defines how the recording was created.</summary>
-        public global::Soenneker.Telnyx.Models.RecordingSource? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource? Source { get; set; }
         /// <summary>The start_time property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,14 +93,14 @@ namespace Soenneker.Telnyx.Models
         public string StartTime { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.Models.TexmlRecordingStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingStatus? Status { get; set; }
         /// <summary>Subresources details for a recording if available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.TexmlRecordingSubresourcesUris? SubresourcesUris { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris? SubresourcesUris { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.TexmlRecordingSubresourcesUris SubresourcesUris { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris SubresourcesUris { get; set; }
 #endif
         /// <summary>The relative URI for this recording resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.Models
         public string Uri { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.TexmlGetCallRecordingResponseBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingResponseBody"/> and sets the default values.
         /// </summary>
         public TexmlGetCallRecordingResponseBody()
         {
@@ -120,12 +120,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TexmlGetCallRecordingResponseBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingResponseBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.TexmlGetCallRecordingResponseBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingResponseBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.TexmlGetCallRecordingResponseBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingResponseBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -137,7 +137,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "account_sid", n => { AccountSid = n.GetStringValue(); } },
                 { "call_sid", n => { CallSid = n.GetStringValue(); } },
-                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.Models.TwimlRecordingChannels>(); } },
+                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TwimlRecordingChannels>(); } },
                 { "conference_sid", n => { ConferenceSid = n.GetGuidValue(); } },
                 { "date_created", n => { DateCreated = n.GetStringValue(); } },
                 { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
@@ -145,10 +145,10 @@ namespace Soenneker.Telnyx.Models
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "media_url", n => { MediaUrl = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.Models.RecordingSource>(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource>(); } },
                 { "start_time", n => { StartTime = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.TexmlRecordingStatus>(); } },
-                { "subresources_uris", n => { SubresourcesUris = n.GetObjectValue<global::Soenneker.Telnyx.Models.TexmlRecordingSubresourcesUris>(global::Soenneker.Telnyx.Models.TexmlRecordingSubresourcesUris.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingStatus>(); } },
+                { "subresources_uris", n => { SubresourcesUris = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris>(global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris.CreateFromDiscriminatorValue); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -161,7 +161,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account_sid", AccountSid);
             writer.WriteStringValue("call_sid", CallSid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TwimlRecordingChannels>("channels", Channels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TwimlRecordingChannels>("channels", Channels);
             writer.WriteGuidValue("conference_sid", ConferenceSid);
             writer.WriteStringValue("date_created", DateCreated);
             writer.WriteStringValue("date_updated", DateUpdated);
@@ -169,10 +169,10 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("error_code", ErrorCode);
             writer.WriteStringValue("media_url", MediaUrl);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RecordingSource>("source", Source);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource>("source", Source);
             writer.WriteStringValue("start_time", StartTime);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TexmlRecordingStatus>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.TexmlRecordingSubresourcesUris>("subresources_uris", SubresourcesUris);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris>("subresources_uris", SubresourcesUris);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

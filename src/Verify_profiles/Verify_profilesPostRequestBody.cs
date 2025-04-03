@@ -2,11 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Verify_profiles
+namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,18 +18,18 @@ namespace Soenneker.Telnyx.Verify_profiles
         /// <summary>The call property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CreateVerifyProfileCallRequest? Call { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileCallRequest? Call { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CreateVerifyProfileCallRequest Call { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileCallRequest Call { get; set; }
 #endif
         /// <summary>The flashcall property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CreateVerifyProfileFlashcallRequest? Flashcall { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest? Flashcall { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CreateVerifyProfileFlashcallRequest Flashcall { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest Flashcall { get; set; }
 #endif
         /// <summary>The language property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,10 +50,10 @@ namespace Soenneker.Telnyx.Verify_profiles
         /// <summary>The sms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CreateVerifyProfileSMSRequest? Sms { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest? Sms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CreateVerifyProfileSMSRequest Sms { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest Sms { get; set; }
 #endif
         /// <summary>The webhook_failover_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.Verify_profiles
         public string WebhookUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Verify_profiles.Verify_profilesPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Verify_profilesPostRequestBody"/> and sets the default values.
         /// </summary>
         public Verify_profilesPostRequestBody()
         {
@@ -81,12 +81,12 @@ namespace Soenneker.Telnyx.Verify_profiles
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Verify_profiles.Verify_profilesPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Verify_profilesPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Verify_profiles.Verify_profilesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Verify_profilesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Verify_profiles.Verify_profilesPostRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Verify_profiles.Verify_profilesPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,11 +96,11 @@ namespace Soenneker.Telnyx.Verify_profiles
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "call", n => { Call = n.GetObjectValue<global::Soenneker.Telnyx.Models.CreateVerifyProfileCallRequest>(global::Soenneker.Telnyx.Models.CreateVerifyProfileCallRequest.CreateFromDiscriminatorValue); } },
-                { "flashcall", n => { Flashcall = n.GetObjectValue<global::Soenneker.Telnyx.Models.CreateVerifyProfileFlashcallRequest>(global::Soenneker.Telnyx.Models.CreateVerifyProfileFlashcallRequest.CreateFromDiscriminatorValue); } },
+                { "call", n => { Call = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileCallRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileCallRequest.CreateFromDiscriminatorValue); } },
+                { "flashcall", n => { Flashcall = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Telnyx.Models.CreateVerifyProfileSMSRequest>(global::Soenneker.Telnyx.Models.CreateVerifyProfileSMSRequest.CreateFromDiscriminatorValue); } },
+                { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest.CreateFromDiscriminatorValue); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -112,11 +112,11 @@ namespace Soenneker.Telnyx.Verify_profiles
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CreateVerifyProfileCallRequest>("call", Call);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CreateVerifyProfileFlashcallRequest>("flashcall", Flashcall);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileCallRequest>("call", Call);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest>("flashcall", Flashcall);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CreateVerifyProfileSMSRequest>("sms", Sms);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest>("sms", Sms);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,9 +23,9 @@ namespace Soenneker.Telnyx.Models
         public string Code { get; set; }
 #endif
         /// <summary>Identifies if the verification code has been accepted or rejected. Only permitted if custom_code was used for the verification.</summary>
-        public global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestById_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById_status? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestById"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById"/> and sets the default values.
         /// </summary>
         public VerifyVerificationCodeRequestById()
         {
@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestById"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestById CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestById();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestById_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById_status>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestById_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestById_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

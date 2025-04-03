@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Verified_numbers
+namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,9 +23,9 @@ namespace Soenneker.Telnyx.Verified_numbers
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>Verification method.</summary>
-        public global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody_verification_method? VerificationMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody_verification_method? VerificationMethod { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody"/> and sets the default values.
         /// </summary>
         public Verified_numbersPostRequestBody()
         {
@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.Verified_numbers
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.Verified_numbers
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "verification_method", n => { VerificationMethod = n.GetEnumValue<global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody_verification_method>(); } },
+                { "verification_method", n => { VerificationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody_verification_method>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Verified_numbers
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Verified_numbers.Verified_numbersPostRequestBody_verification_method>("verification_method", VerificationMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Verified_numbersPostRequestBody_verification_method>("verification_method", VerificationMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

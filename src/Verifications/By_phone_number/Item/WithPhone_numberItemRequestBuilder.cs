@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Verifications.By_phone_number.Item.Actions;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.Actions;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Verifications.By_phone_number.Item
+namespace Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \verifications\by_phone_number\{phone_number}
@@ -19,12 +19,12 @@ namespace Soenneker.Telnyx.Verifications.By_phone_number.Item
     public partial class WithPhone_numberItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The actions property</summary>
-        public global::Soenneker.Telnyx.Verifications.By_phone_number.Item.Actions.ActionsRequestBuilder Actions
+        public global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.Actions.ActionsRequestBuilder Actions
         {
-            get => new global::Soenneker.Telnyx.Verifications.By_phone_number.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.Verifications.By_phone_number.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -42,25 +42,25 @@ namespace Soenneker.Telnyx.Verifications.By_phone_number.Item
         /// <summary>
         /// List verifications by phone number
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ListVerificationsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListVerificationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.ListVerificationsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListVerificationsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.ListVerificationsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListVerificationsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.ListVerificationsResponse>(requestInfo, global::Soenneker.Telnyx.Models.ListVerificationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListVerificationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListVerificationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List verifications by phone number
@@ -84,11 +84,11 @@ namespace Soenneker.Telnyx.Verifications.By_phone_number.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Verifications.By_phone_number.Item.WithPhone_numberItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

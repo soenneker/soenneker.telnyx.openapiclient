@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -57,9 +57,9 @@ namespace Soenneker.Telnyx.Models
         public string Queue { get; set; }
 #endif
         /// <summary>Start recording automatically after an event. Disabled by default.</summary>
-        public global::Soenneker.Telnyx.Models.BridgeRequest_record? Record { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record? Record { get; set; }
         /// <summary>Defines which channel should be recorded (&apos;single&apos; or &apos;dual&apos;) when `record` is specified.</summary>
-        public global::Soenneker.Telnyx.Models.BridgeRequest_record_channels? RecordChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_channels? RecordChannels { get; set; }
         /// <summary>The custom recording file name to be used instead of the default `call_leg_id`. Telnyx will still add a Unix timestamp suffix.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,17 +69,17 @@ namespace Soenneker.Telnyx.Models
         public string RecordCustomFileName { get; set; }
 #endif
         /// <summary>Defines the format of the recording (&apos;wav&apos; or &apos;mp3&apos;) when `record` is specified.</summary>
-        public global::Soenneker.Telnyx.Models.BridgeRequest_record_format? RecordFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_format? RecordFormat { get; set; }
         /// <summary>Defines the maximum length for the recording in seconds when `record` is specified. The minimum value is 0. The maximum value is 43200. The default value is 0 (infinite).</summary>
         public int? RecordMaxLength { get; set; }
         /// <summary>The number of seconds that Telnyx will wait for the recording to be stopped if silence is detected when `record` is specified. The timer only starts when the speech is detected. Please note that call transcription is used to detect silence and the related charge will be applied. The minimum value is 0. The default value is 0 (infinite).</summary>
         public int? RecordTimeoutSecs { get; set; }
         /// <summary>The audio track to be recorded. Can be either `both`, `inbound` or `outbound`. If only single track is specified (`inbound`, `outbound`), `channels` configuration is ignored and it will be recorded as mono (single channel).</summary>
-        public global::Soenneker.Telnyx.Models.BridgeRequest_record_track? RecordTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_track? RecordTrack { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
-        public global::Soenneker.Telnyx.Models.BridgeRequest_record_trim? RecordTrim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_trim? RecordTrim { get; set; }
         /// <summary>Specifies which country ringtone to play when `play_ringtone` is set to `true`. If not set, the US ringtone will be played.</summary>
-        public global::Soenneker.Telnyx.Models.BridgeRequest_ringtone? Ringtone { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_ringtone? Ringtone { get; set; }
         /// <summary>The additional parameter that will be passed to the video conference. It is a text field and the user can decide how to use it. For example, you can set the participant name or pass JSON text. It can be used only with video_room_id parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,25 +91,25 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The ID of the video room you want to bridge with, can&apos;t be used together with call_control_id parameter or queue parameter.</summary>
         public Guid? VideoRoomId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.BridgeRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest"/> and sets the default values.
         /// </summary>
         public BridgeRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            RecordChannels = global::Soenneker.Telnyx.Models.BridgeRequest_record_channels.Dual;
-            RecordFormat = global::Soenneker.Telnyx.Models.BridgeRequest_record_format.Mp3;
-            RecordTrack = global::Soenneker.Telnyx.Models.BridgeRequest_record_track.Both;
-            Ringtone = global::Soenneker.Telnyx.Models.BridgeRequest_ringtone.Us;
+            RecordChannels = global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_channels.Dual;
+            RecordFormat = global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_format.Mp3;
+            RecordTrack = global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_track.Both;
+            Ringtone = global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_ringtone.Us;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.BridgeRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.BridgeRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.BridgeRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -125,15 +125,15 @@ namespace Soenneker.Telnyx.Models
                 { "park_after_unbridge", n => { ParkAfterUnbridge = n.GetStringValue(); } },
                 { "play_ringtone", n => { PlayRingtone = n.GetBoolValue(); } },
                 { "queue", n => { Queue = n.GetStringValue(); } },
-                { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_record>(); } },
-                { "record_channels", n => { RecordChannels = n.GetEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_record_channels>(); } },
+                { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record>(); } },
+                { "record_channels", n => { RecordChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_channels>(); } },
                 { "record_custom_file_name", n => { RecordCustomFileName = n.GetStringValue(); } },
-                { "record_format", n => { RecordFormat = n.GetEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_record_format>(); } },
+                { "record_format", n => { RecordFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_format>(); } },
                 { "record_max_length", n => { RecordMaxLength = n.GetIntValue(); } },
                 { "record_timeout_secs", n => { RecordTimeoutSecs = n.GetIntValue(); } },
-                { "record_track", n => { RecordTrack = n.GetEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_record_track>(); } },
-                { "record_trim", n => { RecordTrim = n.GetEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_record_trim>(); } },
-                { "ringtone", n => { Ringtone = n.GetEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_ringtone>(); } },
+                { "record_track", n => { RecordTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_track>(); } },
+                { "record_trim", n => { RecordTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_trim>(); } },
+                { "ringtone", n => { Ringtone = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_ringtone>(); } },
                 { "video_room_context", n => { VideoRoomContext = n.GetStringValue(); } },
                 { "video_room_id", n => { VideoRoomId = n.GetGuidValue(); } },
             };
@@ -151,15 +151,15 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("park_after_unbridge", ParkAfterUnbridge);
             writer.WriteBoolValue("play_ringtone", PlayRingtone);
             writer.WriteStringValue("queue", Queue);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_record>("record", Record);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_record_channels>("record_channels", RecordChannels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record>("record", Record);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_channels>("record_channels", RecordChannels);
             writer.WriteStringValue("record_custom_file_name", RecordCustomFileName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_record_format>("record_format", RecordFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_format>("record_format", RecordFormat);
             writer.WriteIntValue("record_max_length", RecordMaxLength);
             writer.WriteIntValue("record_timeout_secs", RecordTimeoutSecs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_record_track>("record_track", RecordTrack);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_record_trim>("record_trim", RecordTrim);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BridgeRequest_ringtone>("ringtone", Ringtone);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_track>("record_track", RecordTrack);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_trim>("record_trim", RecordTrim);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_ringtone>("ringtone", Ringtone);
             writer.WriteStringValue("video_room_context", VideoRoomContext);
             writer.WriteGuidValue("video_room_id", VideoRoomId);
             writer.WriteAdditionalData(AdditionalData);

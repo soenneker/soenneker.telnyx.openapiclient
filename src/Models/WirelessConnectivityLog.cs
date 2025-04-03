@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// This object represents a wireless connectivity session log that happened through a SIM card. It aids in finding out potential problems when the SIM is not able to attach properly.
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.Models
         public string LastSeen { get; private set; }
 #endif
         /// <summary>The type of the session, &apos;registration&apos; being the initial authentication session and &apos;data&apos; the actual data transfer sessions.</summary>
-        public global::Soenneker.Telnyx.Models.WirelessConnectivityLog_log_type? LogType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessConnectivityLog_log_type? LogType { get; private set; }
         /// <summary>It&apos;s a three decimal digit that identifies a country.&lt;br/&gt;&lt;br/&gt;This code is commonly seen joined with a Mobile Network Code (MNC) in a tuple that allows identifying a carrier known as PLMN (Public Land Mobile Network) code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -142,7 +142,7 @@ namespace Soenneker.Telnyx.Models
         public string StopTime { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.WirelessConnectivityLog"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessConnectivityLog"/> and sets the default values.
         /// </summary>
         public WirelessConnectivityLog()
         {
@@ -151,12 +151,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.WirelessConnectivityLog"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WirelessConnectivityLog"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.WirelessConnectivityLog CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.WirelessConnectivityLog CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.WirelessConnectivityLog();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.WirelessConnectivityLog();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -175,7 +175,7 @@ namespace Soenneker.Telnyx.Models
                 { "ipv4", n => { Ipv4 = n.GetStringValue(); } },
                 { "ipv6", n => { Ipv6 = n.GetStringValue(); } },
                 { "last_seen", n => { LastSeen = n.GetStringValue(); } },
-                { "log_type", n => { LogType = n.GetEnumValue<global::Soenneker.Telnyx.Models.WirelessConnectivityLog_log_type>(); } },
+                { "log_type", n => { LogType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessConnectivityLog_log_type>(); } },
                 { "mobile_country_code", n => { MobileCountryCode = n.GetStringValue(); } },
                 { "mobile_network_code", n => { MobileNetworkCode = n.GetStringValue(); } },
                 { "radio_access_technology", n => { RadioAccessTechnology = n.GetStringValue(); } },

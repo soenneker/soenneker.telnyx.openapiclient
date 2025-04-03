@@ -5,23 +5,23 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Wireguard_interfaces.Item
+namespace Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Item
 {
     [Obsolete("This class is obsolete. Use Wireguard_interfacesDeleteResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Wireguard_interfacesResponse : global::Soenneker.Telnyx.Wireguard_interfaces.Item.Wireguard_interfacesDeleteResponse, IParsable
+    public partial class Wireguard_interfacesResponse : global::Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Item.Wireguard_interfacesDeleteResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Wireguard_interfaces.Item.Wireguard_interfacesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Item.Wireguard_interfacesResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.Wireguard_interfaces.Item.Wireguard_interfacesResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Item.Wireguard_interfacesResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Wireguard_interfaces.Item.Wireguard_interfacesResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Item.Wireguard_interfacesResponse();
         }
     }
 }

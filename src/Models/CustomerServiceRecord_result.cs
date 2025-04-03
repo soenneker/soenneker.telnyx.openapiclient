@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The result of the CSR request. This field would be null in case of `pending` or `failed` status.
@@ -18,18 +18,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The address of the customer service record</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CustomerServiceRecord_result_address? Address { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result_address? Address { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CustomerServiceRecord_result_address Address { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result_address Address { get; set; }
 #endif
         /// <summary>The admin of the customer service record.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CustomerServiceRecord_result_admin? Admin { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result_admin? Admin { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CustomerServiceRecord_result_admin Admin { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result_admin Admin { get; set; }
 #endif
         /// <summary>The associated phone numbers of the customer service record.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.Models
         public string CarrierName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CustomerServiceRecord_result"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result"/> and sets the default values.
         /// </summary>
         public CustomerServiceRecord_result()
         {
@@ -57,12 +57,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CustomerServiceRecord_result"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CustomerServiceRecord_result CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CustomerServiceRecord_result();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,8 +72,8 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<global::Soenneker.Telnyx.Models.CustomerServiceRecord_result_address>(global::Soenneker.Telnyx.Models.CustomerServiceRecord_result_address.CreateFromDiscriminatorValue); } },
-                { "admin", n => { Admin = n.GetObjectValue<global::Soenneker.Telnyx.Models.CustomerServiceRecord_result_admin>(global::Soenneker.Telnyx.Models.CustomerServiceRecord_result_admin.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result_address>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result_address.CreateFromDiscriminatorValue); } },
+                { "admin", n => { Admin = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result_admin>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result_admin.CreateFromDiscriminatorValue); } },
                 { "associated_phone_numbers", n => { AssociatedPhoneNumbers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "carrier_name", n => { CarrierName = n.GetStringValue(); } },
             };
@@ -85,8 +85,8 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CustomerServiceRecord_result_address>("address", Address);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CustomerServiceRecord_result_admin>("admin", Admin);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result_address>("address", Address);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result_admin>("admin", Admin);
             writer.WriteCollectionOfPrimitiveValues<string>("associated_phone_numbers", AssociatedPhoneNumbers);
             writer.WriteStringValue("carrier_name", CarrierName);
             writer.WriteAdditionalData(AdditionalData);

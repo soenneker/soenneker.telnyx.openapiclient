@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Dialogflow_connections.Item;
+using Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Dialogflow_connections
+namespace Soenneker.Telnyx.OpenApiClient.Dialogflow_connections
 {
     /// <summary>
     /// Builds and executes requests for operations under \dialogflow_connections
@@ -15,20 +15,20 @@ namespace Soenneker.Telnyx.Dialogflow_connections
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Dialogflow_connectionsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.dialogflow_connections.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.dialogflow_connections.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("connection_id", position);
-                return new global::Soenneker.Telnyx.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Dialogflow_connections.Dialogflow_connectionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Dialogflow_connectionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.Dialogflow_connections
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Dialogflow_connections.Dialogflow_connectionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Dialogflow_connectionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

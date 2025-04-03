@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -41,10 +41,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Event metadata, which includes raw event, and extra information based on event type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CallEvent_metadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CallEvent_metadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_metadata Metadata { get; set; }
 #endif
         /// <summary>Event name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,11 +55,11 @@ namespace Soenneker.Telnyx.Models
         public string Name { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.Models.CallEvent_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_record_type? RecordType { get; set; }
         /// <summary>Event type</summary>
-        public global::Soenneker.Telnyx.Models.CallEvent_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_type? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CallEvent"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent"/> and sets the default values.
         /// </summary>
         public CallEvent()
         {
@@ -68,12 +68,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CallEvent"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CallEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CallEvent();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,10 +86,10 @@ namespace Soenneker.Telnyx.Models
                 { "call_leg_id", n => { CallLegId = n.GetStringValue(); } },
                 { "call_session_id", n => { CallSessionId = n.GetStringValue(); } },
                 { "event_timestamp", n => { EventTimestamp = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.Models.CallEvent_metadata>(global::Soenneker.Telnyx.Models.CallEvent_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_metadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.CallEvent_record_type>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.Models.CallEvent_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_record_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_type>(); } },
             };
         }
         /// <summary>
@@ -102,10 +102,10 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("call_leg_id", CallLegId);
             writer.WriteStringValue("call_session_id", CallSessionId);
             writer.WriteStringValue("event_timestamp", EventTimestamp);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CallEvent_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_metadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CallEvent_record_type>("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CallEvent_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallEvent_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

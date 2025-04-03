@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// This object represents an Over the Air (OTA) update request. It allows tracking the current status of a operation that apply settings in a particular SIM card. &lt;br/&gt;&lt;br/&gt;
@@ -36,17 +36,17 @@ namespace Soenneker.Telnyx.Models
         /// <summary>A JSON object representation of the operation. The information present here will relate directly to the source of the OTA request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CompleteOTAUpdate_settings? Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings? Settings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CompleteOTAUpdate_settings Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings Settings { get; set; }
 #endif
         /// <summary>The identification UUID of the related SIM card resource.</summary>
         public Guid? SimCardId { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.Models.CompleteOTAUpdate_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_status? Status { get; set; }
         /// <summary>Represents the type of the operation requested. This will relate directly to the source of the request.</summary>
-        public global::Soenneker.Telnyx.Models.CompleteOTAUpdate_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_type? Type { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CompleteOTAUpdate"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate"/> and sets the default values.
         /// </summary>
         public CompleteOTAUpdate()
         {
@@ -65,12 +65,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CompleteOTAUpdate"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CompleteOTAUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CompleteOTAUpdate();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,10 +83,10 @@ namespace Soenneker.Telnyx.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.Models.CompleteOTAUpdate_settings>(global::Soenneker.Telnyx.Models.CompleteOTAUpdate_settings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings.CreateFromDiscriminatorValue); } },
                 { "sim_card_id", n => { SimCardId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.CompleteOTAUpdate_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.Models.CompleteOTAUpdate_type>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_status>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -97,10 +97,10 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CompleteOTAUpdate_settings>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings>("settings", Settings);
             writer.WriteGuidValue("sim_card_id", SimCardId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CompleteOTAUpdate_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CompleteOTAUpdate_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

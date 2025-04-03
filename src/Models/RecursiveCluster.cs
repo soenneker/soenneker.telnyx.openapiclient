@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -41,23 +41,23 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The nodes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.ClusterNode>? Nodes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode>? Nodes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.ClusterNode> Nodes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode> Nodes { get; set; }
 #endif
         /// <summary>The subclusters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.RecursiveCluster>? Subclusters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster>? Subclusters { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.RecursiveCluster> Subclusters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster> Subclusters { get; set; }
 #endif
         /// <summary>The total_number_of_nodes property</summary>
         public int? TotalNumberOfNodes { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RecursiveCluster"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster"/> and sets the default values.
         /// </summary>
         public RecursiveCluster()
         {
@@ -66,12 +66,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RecursiveCluster"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RecursiveCluster CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RecursiveCluster();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,8 +84,8 @@ namespace Soenneker.Telnyx.Models
                 { "cluster_header", n => { ClusterHeader = n.GetStringValue(); } },
                 { "cluster_id", n => { ClusterId = n.GetStringValue(); } },
                 { "cluster_summary", n => { ClusterSummary = n.GetStringValue(); } },
-                { "nodes", n => { Nodes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.ClusterNode>(global::Soenneker.Telnyx.Models.ClusterNode.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "subclusters", n => { Subclusters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RecursiveCluster>(global::Soenneker.Telnyx.Models.RecursiveCluster.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "nodes", n => { Nodes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode>(global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "subclusters", n => { Subclusters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster>(global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_number_of_nodes", n => { TotalNumberOfNodes = n.GetIntValue(); } },
             };
         }
@@ -99,8 +99,8 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("cluster_header", ClusterHeader);
             writer.WriteStringValue("cluster_id", ClusterId);
             writer.WriteStringValue("cluster_summary", ClusterSummary);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.ClusterNode>("nodes", Nodes);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RecursiveCluster>("subclusters", Subclusters);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ClusterNode>("nodes", Nodes);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster>("subclusters", Subclusters);
             writer.WriteIntValue("total_number_of_nodes", TotalNumberOfNodes);
             writer.WriteAdditionalData(AdditionalData);
         }

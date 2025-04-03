@@ -2,13 +2,13 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.PartnerCampaign.Item;
-using Soenneker.Telnyx.PartnerCampaign.SharedByMe;
+using Soenneker.Telnyx.OpenApiClient.PartnerCampaign.Item;
+using Soenneker.Telnyx.OpenApiClient.PartnerCampaign.SharedByMe;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.PartnerCampaign
+namespace Soenneker.Telnyx.OpenApiClient.PartnerCampaign
 {
     /// <summary>
     /// Builds and executes requests for operations under \partnerCampaign
@@ -17,24 +17,24 @@ namespace Soenneker.Telnyx.PartnerCampaign
     public partial class PartnerCampaignRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The sharedByMe property</summary>
-        public global::Soenneker.Telnyx.PartnerCampaign.SharedByMe.SharedByMeRequestBuilder SharedByMe
+        public global::Soenneker.Telnyx.OpenApiClient.PartnerCampaign.SharedByMe.SharedByMeRequestBuilder SharedByMe
         {
-            get => new global::Soenneker.Telnyx.PartnerCampaign.SharedByMe.SharedByMeRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.PartnerCampaign.SharedByMe.SharedByMeRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.partnerCampaign.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.partnerCampaign.item collection</summary>
         /// <param name="position">ID of the campaign in question</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.PartnerCampaign.Item.WithCampaignItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.PartnerCampaign.Item.WithCampaignItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.PartnerCampaign.Item.WithCampaignItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.PartnerCampaign.Item.WithCampaignItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("campaignId", position);
-                return new global::Soenneker.Telnyx.PartnerCampaign.Item.WithCampaignItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.PartnerCampaign.Item.WithCampaignItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.PartnerCampaign.PartnerCampaignRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.PartnerCampaign.PartnerCampaignRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -42,7 +42,7 @@ namespace Soenneker.Telnyx.PartnerCampaign
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.PartnerCampaign.PartnerCampaignRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.PartnerCampaign.PartnerCampaignRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

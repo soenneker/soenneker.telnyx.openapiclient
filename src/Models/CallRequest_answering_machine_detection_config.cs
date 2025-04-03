@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Optional configuration parameters to modify &apos;answering_machine_detection&apos; performance.
@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Maximum timeout threshold for overall detection.</summary>
         public int? TotalAnalysisTimeMillis { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CallRequest_answering_machine_detection_config"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config"/> and sets the default values.
         /// </summary>
         public CallRequest_answering_machine_detection_config()
         {
@@ -45,12 +45,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CallRequest_answering_machine_detection_config"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CallRequest_answering_machine_detection_config CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CallRequest_answering_machine_detection_config();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config();
         }
         /// <summary>
         /// The deserialization information for the current model

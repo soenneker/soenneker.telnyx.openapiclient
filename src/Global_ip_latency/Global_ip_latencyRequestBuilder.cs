@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Global_ip_latency
+namespace Soenneker.Telnyx.OpenApiClient.Global_ip_latency
 {
     /// <summary>
     /// Global IP Latency Metrics over time
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Global_ip_latency
     public partial class Global_ip_latencyRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Global_ip_latency
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,49 +36,49 @@ namespace Soenneker.Telnyx.Global_ip_latency
         /// <summary>
         /// Global IP Latency Metrics
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyGetResponse?> GetAsGlobal_ip_latencyGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyGetResponse?> GetAsGlobal_ip_latencyGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyGetResponse> GetAsGlobal_ip_latencyGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyGetResponse> GetAsGlobal_ip_latencyGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyGetResponse>(requestInfo, global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Global IP Latency Metrics
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsGlobal_ip_latencyGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyResponse>(requestInfo, global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Global IP Latency Metrics
@@ -87,11 +87,11 @@ namespace Soenneker.Telnyx.Global_ip_latency
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -102,11 +102,11 @@ namespace Soenneker.Telnyx.Global_ip_latency
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Global IP Latency Metrics
@@ -136,7 +136,7 @@ namespace Soenneker.Telnyx.Global_ip_latency
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Global_ip_latencyRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>
+        public partial class Global_ip_latencyRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Global_ip_latency.Global_ip_latencyRequestBuilder.Global_ip_latencyRequestBuilderGetQueryParameters>
         {
         }
     }

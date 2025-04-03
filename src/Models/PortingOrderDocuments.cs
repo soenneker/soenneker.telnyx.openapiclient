@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Can be specified directly or via the `requirement_group_id` parameter.
@@ -20,7 +20,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Returned ID of the submitted LOA via the Documents endpoint</summary>
         public Guid? Loa { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PortingOrderDocuments"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments"/> and sets the default values.
         /// </summary>
         public PortingOrderDocuments()
         {
@@ -29,12 +29,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PortingOrderDocuments"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PortingOrderDocuments CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PortingOrderDocuments();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments();
         }
         /// <summary>
         /// The deserialization information for the current model

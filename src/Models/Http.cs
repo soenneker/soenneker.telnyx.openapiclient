@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// HTTP request and response information.
@@ -18,21 +18,21 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Request details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Http_request? Request { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Http_request? Request { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Http_request Request { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Http_request Request { get; set; }
 #endif
         /// <summary>Response details, optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Http_response? Response { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Http_response? Response { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Http_response Response { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Http_response Response { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Http"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Http"/> and sets the default values.
         /// </summary>
         public Http()
         {
@@ -41,12 +41,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Http"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Http"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.Http CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Http CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.Http();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Http();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +56,8 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "request", n => { Request = n.GetObjectValue<global::Soenneker.Telnyx.Models.Http_request>(global::Soenneker.Telnyx.Models.Http_request.CreateFromDiscriminatorValue); } },
-                { "response", n => { Response = n.GetObjectValue<global::Soenneker.Telnyx.Models.Http_response>(global::Soenneker.Telnyx.Models.Http_response.CreateFromDiscriminatorValue); } },
+                { "request", n => { Request = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http_request>(global::Soenneker.Telnyx.OpenApiClient.Models.Http_request.CreateFromDiscriminatorValue); } },
+                { "response", n => { Response = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http_response>(global::Soenneker.Telnyx.OpenApiClient.Models.Http_response.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Http_request>("request", Request);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Http_response>("response", Response);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http_request>("request", Request);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http_response>("response", Response);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

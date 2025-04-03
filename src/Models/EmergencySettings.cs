@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The emergency services settings for a phone number.
@@ -26,24 +26,24 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Allows you to enable or disable emergency services on the phone number. In order to enable emergency services, you must also set an emergency_address_id.</summary>
         public bool? EmergencyEnabled { get; set; }
         /// <summary>Represents the state of the number regarding emergency activation.</summary>
-        public global::Soenneker.Telnyx.Models.EmergencySettings_emergency_status? EmergencyStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings_emergency_status? EmergencyStatus { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.EmergencySettings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings"/> and sets the default values.
         /// </summary>
         public EmergencySettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            EmergencyStatus = global::Soenneker.Telnyx.Models.EmergencySettings_emergency_status.Disabled;
+            EmergencyStatus = global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings_emergency_status.Disabled;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.EmergencySettings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.EmergencySettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.EmergencySettings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "emergency_address_id", n => { EmergencyAddressId = n.GetStringValue(); } },
                 { "emergency_enabled", n => { EmergencyEnabled = n.GetBoolValue(); } },
-                { "emergency_status", n => { EmergencyStatus = n.GetEnumValue<global::Soenneker.Telnyx.Models.EmergencySettings_emergency_status>(); } },
+                { "emergency_status", n => { EmergencyStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings_emergency_status>(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("emergency_address_id", EmergencyAddressId);
             writer.WriteBoolValue("emergency_enabled", EmergencyEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.EmergencySettings_emergency_status>("emergency_status", EmergencyStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmergencySettings_emergency_status>("emergency_status", EmergencyStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

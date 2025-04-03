@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The messaging portability status of the porting order.
@@ -22,9 +22,9 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Indicates whether the messaging port is completed.</summary>
         public bool? MessagingPortCompleted { get; set; }
         /// <summary>Indicates the messaging port status of the porting order.</summary>
-        public global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging_messaging_port_status? MessagingPortStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging_messaging_port_status? MessagingPortStatus { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging"/> and sets the default values.
         /// </summary>
         public WebhookPortingOrderMessagingChangedPayload_messaging()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Models
                 { "enable_messaging", n => { EnableMessaging = n.GetBoolValue(); } },
                 { "messaging_capable", n => { MessagingCapable = n.GetBoolValue(); } },
                 { "messaging_port_completed", n => { MessagingPortCompleted = n.GetBoolValue(); } },
-                { "messaging_port_status", n => { MessagingPortStatus = n.GetEnumValue<global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging_messaging_port_status>(); } },
+                { "messaging_port_status", n => { MessagingPortStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging_messaging_port_status>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteBoolValue("enable_messaging", EnableMessaging);
             writer.WriteBoolValue("messaging_capable", MessagingCapable);
             writer.WriteBoolValue("messaging_port_completed", MessagingPortCompleted);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging_messaging_port_status>("messaging_port_status", MessagingPortStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging_messaging_port_status>("messaging_port_status", MessagingPortStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

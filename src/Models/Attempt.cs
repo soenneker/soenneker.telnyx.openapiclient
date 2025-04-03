@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Webhook delivery attempt details.
@@ -28,17 +28,17 @@ namespace Soenneker.Telnyx.Models
         /// <summary>HTTP request and response information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Http? Http { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Http? Http { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Http Http { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Http Http { get; set; }
 #endif
         /// <summary>ISO 8601 timestamp indicating when the attempt was initiated.</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.Models.Attempt_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Attempt_status? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Attempt"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Attempt"/> and sets the default values.
         /// </summary>
         public Attempt()
         {
@@ -47,12 +47,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Attempt"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Attempt"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.Attempt CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Attempt CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.Attempt();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Attempt();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,9 +64,9 @@ namespace Soenneker.Telnyx.Models
             {
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "finished_at", n => { FinishedAt = n.GetDateTimeOffsetValue(); } },
-                { "http", n => { Http = n.GetObjectValue<global::Soenneker.Telnyx.Models.Http>(global::Soenneker.Telnyx.Models.Http.CreateFromDiscriminatorValue); } },
+                { "http", n => { Http = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http>(global::Soenneker.Telnyx.OpenApiClient.Models.Http.CreateFromDiscriminatorValue); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.Attempt_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Attempt_status>(); } },
             };
         }
         /// <summary>
@@ -78,9 +78,9 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<int?>("errors", Errors);
             writer.WriteDateTimeOffsetValue("finished_at", FinishedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Http>("http", Http);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http>("http", Http);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Attempt_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Attempt_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

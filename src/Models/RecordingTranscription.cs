@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -41,9 +41,9 @@ namespace Soenneker.Telnyx.Models
         public string RecordingId { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.Models.RecordingTranscription_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_record_type? RecordType { get; set; }
         /// <summary>The status of the recording transcription. Only `completed` has transcription text available.</summary>
-        public global::Soenneker.Telnyx.Models.RecordingTranscription_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_status? Status { get; set; }
         /// <summary>The recording&apos;s transcribed text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RecordingTranscription"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription"/> and sets the default values.
         /// </summary>
         public RecordingTranscription()
         {
@@ -70,12 +70,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RecordingTranscription"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RecordingTranscription CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RecordingTranscription();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,9 +88,9 @@ namespace Soenneker.Telnyx.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "duration_millis", n => { DurationMillis = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.RecordingTranscription_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_record_type>(); } },
                 { "recording_id", n => { RecordingId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.RecordingTranscription_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_status>(); } },
                 { "transcription_text", n => { TranscriptionText = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
@@ -106,8 +106,8 @@ namespace Soenneker.Telnyx.Models
             writer.WriteIntValue("duration_millis", DurationMillis);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("recording_id", RecordingId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RecordingTranscription_record_type>("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RecordingTranscription_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription_status>("status", Status);
             writer.WriteStringValue("transcription_text", TranscriptionText);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.Models
         public string Sid { get; set; }
 #endif
         /// <summary>The status of the streaming.</summary>
-        public global::Soenneker.Telnyx.Models.TexmlCreateCallStreamingResponseBody_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody_status? Status { get; set; }
         /// <summary>The relative URI for this streaming resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.Models
         public string Uri { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.TexmlCreateCallStreamingResponseBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody"/> and sets the default values.
         /// </summary>
         public TexmlCreateCallStreamingResponseBody()
         {
@@ -74,12 +74,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TexmlCreateCallStreamingResponseBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.TexmlCreateCallStreamingResponseBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.TexmlCreateCallStreamingResponseBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.Models
                 { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.TexmlCreateCallStreamingResponseBody_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody_status>(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("date_updated", DateUpdated);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TexmlCreateCallStreamingResponseBody_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody_status>("status", Status);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

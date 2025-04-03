@@ -5,23 +5,23 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Conferences.Item
+namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item
 {
     [Obsolete("This class is obsolete. Use Conference_GetResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Conference_Response : global::Soenneker.Telnyx.Conferences.Item.Conference_GetResponse, IParsable
+    public partial class Conference_Response : global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_GetResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Conferences.Item.Conference_Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_Response"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.Conferences.Item.Conference_Response CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Conferences.Item.Conference_Response();
+            return new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_Response();
         }
     }
 }

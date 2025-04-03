@@ -3,15 +3,15 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Sub_number_orders.Item.Cancel;
-using Soenneker.Telnyx.Sub_number_orders.Item.Requirement_group;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Cancel;
+using Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Requirement_group;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Sub_number_orders.Item
+namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \sub_number_orders\{-id}
@@ -20,17 +20,17 @@ namespace Soenneker.Telnyx.Sub_number_orders.Item
     public partial class ItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The cancel property</summary>
-        public global::Soenneker.Telnyx.Sub_number_orders.Item.Cancel.CancelRequestBuilder Cancel
+        public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Cancel.CancelRequestBuilder Cancel
         {
-            get => new global::Soenneker.Telnyx.Sub_number_orders.Item.Cancel.CancelRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Cancel.CancelRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The requirement_group property</summary>
-        public global::Soenneker.Telnyx.Sub_number_orders.Item.Requirement_group.Requirement_groupRequestBuilder Requirement_group
+        public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Requirement_group.Requirement_groupRequestBuilder Requirement_group
         {
-            get => new global::Soenneker.Telnyx.Sub_number_orders.Item.Requirement_group.Requirement_groupRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Requirement_group.Requirement_groupRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.Sub_number_orders.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -48,100 +48,100 @@ namespace Soenneker.Telnyx.Sub_number_orders.Item
         /// <summary>
         /// Get an existing sub number order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sub_number_orders.Item.GetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.GetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Sub_number_orders.Item.GetResponse?> GetAsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.GetResponse?> GetAsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Sub_number_orders.Item.GetResponse> GetAsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.GetResponse> GetAsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Sub_number_orders.Item.GetResponse>(requestInfo, global::Soenneker.Telnyx.Sub_number_orders.Item.GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.GetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get an existing sub number order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sub_number_orders.Item.Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Sub_number_orders.Item.Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Sub_number_orders.Item.Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Sub_number_orders.Item.Response>(requestInfo, global::Soenneker.Telnyx.Sub_number_orders.Item.Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates a sub number order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sub_number_orders.Item.PatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.PatchResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Sub_number_orders.Item.PatchResponse?> PatchAsPatchResponseAsync(global::Soenneker.Telnyx.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.PatchResponse?> PatchAsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Sub_number_orders.Item.PatchResponse> PatchAsPatchResponseAsync(global::Soenneker.Telnyx.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.PatchResponse> PatchAsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Sub_number_orders.Item.PatchResponse>(requestInfo, global::Soenneker.Telnyx.Sub_number_orders.Item.PatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.PatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.PatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates a sub number order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sub_number_orders.Item.Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use PatchAsPatchResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Sub_number_orders.Item.Response?> PatchAsync(global::Soenneker.Telnyx.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Response?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Sub_number_orders.Item.Response> PatchAsync(global::Soenneker.Telnyx.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Response> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Sub_number_orders.Item.Response>(requestInfo, global::Soenneker.Telnyx.Sub_number_orders.Item.Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get an existing sub number order.
@@ -150,11 +150,11 @@ namespace Soenneker.Telnyx.Sub_number_orders.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -170,11 +170,11 @@ namespace Soenneker.Telnyx.Sub_number_orders.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateSubNumberOrderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -187,11 +187,11 @@ namespace Soenneker.Telnyx.Sub_number_orders.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Get an existing sub number order.
@@ -208,7 +208,7 @@ namespace Soenneker.Telnyx.Sub_number_orders.Item
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>
+        public partial class ItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

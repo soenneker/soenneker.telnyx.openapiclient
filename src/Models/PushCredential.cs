@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -57,10 +57,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Google server key for sending push notifications. For Android only</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.PushCredential_project_account_json_file? ProjectAccountJsonFile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential_project_account_json_file? ProjectAccountJsonFile { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.PushCredential_project_account_json_file ProjectAccountJsonFile { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential_project_account_json_file ProjectAccountJsonFile { get; set; }
 #endif
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PushCredential"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential"/> and sets the default values.
         /// </summary>
         public PushCredential()
         {
@@ -96,12 +96,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PushCredential"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PushCredential CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PushCredential();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "private_key", n => { PrivateKey = n.GetStringValue(); } },
-                { "project_account_json_file", n => { ProjectAccountJsonFile = n.GetObjectValue<global::Soenneker.Telnyx.Models.PushCredential_project_account_json_file>(global::Soenneker.Telnyx.Models.PushCredential_project_account_json_file.CreateFromDiscriminatorValue); } },
+                { "project_account_json_file", n => { ProjectAccountJsonFile = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential_project_account_json_file>(global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential_project_account_json_file.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -134,7 +134,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("private_key", PrivateKey);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.PushCredential_project_account_json_file>("project_account_json_file", ProjectAccountJsonFile);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential_project_account_json_file>("project_account_json_file", ProjectAccountJsonFile);
             writer.WriteStringValue("type", Type);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

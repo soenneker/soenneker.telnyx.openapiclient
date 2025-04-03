@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The identifier of the associated Verify profile.</summary>
         public Guid? VerifyProfileId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestByPhoneNumber"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestByPhoneNumber"/> and sets the default values.
         /// </summary>
         public VerifyVerificationCodeRequestByPhoneNumber()
         {
@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestByPhoneNumber"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestByPhoneNumber"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestByPhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestByPhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.VerifyVerificationCodeRequestByPhoneNumber();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.VerifyVerificationCodeRequestByPhoneNumber();
         }
         /// <summary>
         /// The deserialization information for the current model

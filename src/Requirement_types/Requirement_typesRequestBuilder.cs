@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Requirement_types.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Requirement_types.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Requirement_types
+namespace Soenneker.Telnyx.OpenApiClient.Requirement_types
 {
     /// <summary>
     /// Builds and executes requests for operations under \requirement_types
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Requirement_types
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Requirement_typesRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.requirement_types.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.requirement_types.item collection</summary>
         /// <param name="position">Uniquely identifies the requirement_type record</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Requirement_types.Item.Requirement_typesItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Requirement_types.Item.Requirement_typesItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Item.Requirement_typesItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Item.Requirement_typesItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Requirement_types.Item.Requirement_typesItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Item.Requirement_typesItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.requirement_types.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.requirement_types.item collection</summary>
         /// <param name="position">Uniquely identifies the requirement_type record</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Requirement_types.Item.Requirement_typesItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Item.Requirement_typesItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Requirement_types.Item.Requirement_typesItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Item.Requirement_typesItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Requirement_types.Item.Requirement_typesItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Item.Requirement_typesItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Requirement_types
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,49 +62,49 @@ namespace Soenneker.Telnyx.Requirement_types
         /// <summary>
         /// List all requirement types ordered by created_at descending
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Requirement_types.Requirement_typesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Requirement_types.Requirement_typesGetResponse?> GetAsRequirement_typesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesGetResponse?> GetAsRequirement_typesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Requirement_types.Requirement_typesGetResponse> GetAsRequirement_typesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesGetResponse> GetAsRequirement_typesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Requirement_types.Requirement_typesGetResponse>(requestInfo, global::Soenneker.Telnyx.Requirement_types.Requirement_typesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all requirement types ordered by created_at descending
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Requirement_types.Requirement_typesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsRequirement_typesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Requirement_types.Requirement_typesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Requirement_types.Requirement_typesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Requirement_types.Requirement_typesResponse>(requestInfo, global::Soenneker.Telnyx.Requirement_types.Requirement_typesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all requirement types ordered by created_at descending
@@ -113,11 +113,11 @@ namespace Soenneker.Telnyx.Requirement_types
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -128,11 +128,11 @@ namespace Soenneker.Telnyx.Requirement_types
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List all requirement types ordered by created_at descending
@@ -163,14 +163,14 @@ namespace Soenneker.Telnyx.Requirement_types
 #endif
             /// <summary>Specifies the sort order for results. If you want to sort by a field in ascending order, include it as a sort parameter. If you want to sort in descending order, prepend a `-` in front of the field name.</summary>
             [QueryParameter("sort%5B%5D")]
-            public global::Soenneker.Telnyx.Requirement_types.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Requirement_types.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Requirement_typesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>
+        public partial class Requirement_typesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_types.Requirement_typesRequestBuilder.Requirement_typesRequestBuilderGetQueryParameters>
         {
         }
     }

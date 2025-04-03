@@ -2,11 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Portouts.Item.Comments
+namespace Soenneker.Telnyx.OpenApiClient.Portouts.Item.Comments
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,21 +18,21 @@ namespace Soenneker.Telnyx.Portouts.Item.Comments
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.PortoutComment>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutComment>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.PortoutComment> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutComment> Data { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Metadata? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Metadata? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Metadata Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Metadata Meta { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Portouts.Item.Comments.CommentsGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Comments.CommentsGetResponse"/> and sets the default values.
         /// </summary>
         public CommentsGetResponse()
         {
@@ -41,12 +41,12 @@ namespace Soenneker.Telnyx.Portouts.Item.Comments
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Portouts.Item.Comments.CommentsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Comments.CommentsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Portouts.Item.Comments.CommentsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Comments.CommentsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Portouts.Item.Comments.CommentsGetResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Comments.CommentsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +56,8 @@ namespace Soenneker.Telnyx.Portouts.Item.Comments
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.PortoutComment>(global::Soenneker.Telnyx.Models.PortoutComment.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.Models.Metadata>(global::Soenneker.Telnyx.Models.Metadata.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutComment>(global::Soenneker.Telnyx.OpenApiClient.Models.PortoutComment.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.Metadata.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Telnyx.Portouts.Item.Comments
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.PortoutComment>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Metadata>("meta", Meta);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutComment>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Metadata>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

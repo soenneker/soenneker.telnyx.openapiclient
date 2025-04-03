@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Porting_orders.Item.Additional_documents
+namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,9 +17,9 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Additional_documents
         /// <summary>The document identification</summary>
         public Guid? DocumentId { get; set; }
         /// <summary>The type of document being created.</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents_document_type? DocumentType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents_document_type? DocumentType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents"/> and sets the default values.
         /// </summary>
         public Additional_documentsPostRequestBody_additional_documents()
         {
@@ -28,12 +28,12 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Additional_documents
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents();
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Additional_documents
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "document_id", n => { DocumentId = n.GetGuidValue(); } },
-                { "document_type", n => { DocumentType = n.GetEnumValue<global::Soenneker.Telnyx.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents_document_type>(); } },
+                { "document_type", n => { DocumentType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents_document_type>(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Additional_documents
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("document_id", DocumentId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents_document_type>("document_type", DocumentType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents_document_type>("document_type", DocumentType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

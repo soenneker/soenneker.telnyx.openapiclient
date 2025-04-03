@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.Models
         public string Email { get; set; }
 #endif
         /// <summary>Entity type behind the brand. This is the form of business establishment.</summary>
-        public global::Soenneker.Telnyx.Models.EntityType? EntityType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EntityType? EntityType { get; set; }
         /// <summary>First name of business contact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -133,7 +133,7 @@ namespace Soenneker.Telnyx.Models
         public string State { get; set; }
 #endif
         /// <summary>(Required for public company) stock exchange.</summary>
-        public global::Soenneker.Telnyx.Models.StockExchange? StockExchange { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StockExchange? StockExchange { get; set; }
         /// <summary>(Required for public company) stock symbol.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.Models
         public string Street { get; set; }
 #endif
         /// <summary>Vertical or industry segment of the brand.</summary>
-        public global::Soenneker.Telnyx.Models.Vertical? Vertical { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Vertical? Vertical { get; set; }
         /// <summary>Webhook failover URL for brand status updates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -177,7 +177,7 @@ namespace Soenneker.Telnyx.Models
         public string Website { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CreateBrand"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateBrand"/> and sets the default values.
         /// </summary>
         public CreateBrand()
         {
@@ -186,12 +186,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CreateBrand"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateBrand"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CreateBrand CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateBrand CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CreateBrand();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateBrand();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -208,7 +208,7 @@ namespace Soenneker.Telnyx.Models
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "ein", n => { Ein = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.Models.EntityType>(); } },
+                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EntityType>(); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
                 { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
                 { "isReseller", n => { IsReseller = n.GetBoolValue(); } },
@@ -218,10 +218,10 @@ namespace Soenneker.Telnyx.Models
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "postalCode", n => { PostalCode = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
-                { "stockExchange", n => { StockExchange = n.GetEnumValue<global::Soenneker.Telnyx.Models.StockExchange>(); } },
+                { "stockExchange", n => { StockExchange = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StockExchange>(); } },
                 { "stockSymbol", n => { StockSymbol = n.GetStringValue(); } },
                 { "street", n => { Street = n.GetStringValue(); } },
-                { "vertical", n => { Vertical = n.GetEnumValue<global::Soenneker.Telnyx.Models.Vertical>(); } },
+                { "vertical", n => { Vertical = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Vertical>(); } },
                 { "webhookFailoverURL", n => { WebhookFailoverURL = n.GetStringValue(); } },
                 { "webhookURL", n => { WebhookURL = n.GetStringValue(); } },
                 { "website", n => { Website = n.GetStringValue(); } },
@@ -241,7 +241,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("ein", Ein);
             writer.WriteStringValue("email", Email);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.EntityType>("entityType", EntityType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EntityType>("entityType", EntityType);
             writer.WriteStringValue("firstName", FirstName);
             writer.WriteStringValue("ipAddress", IpAddress);
             writer.WriteBoolValue("isReseller", IsReseller);
@@ -251,10 +251,10 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("phone", Phone);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("state", State);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StockExchange>("stockExchange", StockExchange);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StockExchange>("stockExchange", StockExchange);
             writer.WriteStringValue("stockSymbol", StockSymbol);
             writer.WriteStringValue("street", Street);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Vertical>("vertical", Vertical);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Vertical>("vertical", Vertical);
             writer.WriteStringValue("webhookFailoverURL", WebhookFailoverURL);
             writer.WriteStringValue("webhookURL", WebhookURL);
             writer.WriteStringValue("website", Website);

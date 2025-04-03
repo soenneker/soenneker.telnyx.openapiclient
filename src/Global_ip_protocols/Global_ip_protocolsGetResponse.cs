@@ -2,11 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Global_ip_protocols
+namespace Soenneker.Telnyx.OpenApiClient.Global_ip_protocols
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,13 +18,13 @@ namespace Soenneker.Telnyx.Global_ip_protocols
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.Global_ip_protocols>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_protocols>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.Global_ip_protocols> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_protocols> Data { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Global_ip_protocols.Global_ip_protocolsGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_protocols.Global_ip_protocolsGetResponse"/> and sets the default values.
         /// </summary>
         public Global_ip_protocolsGetResponse()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Global_ip_protocols
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Global_ip_protocols.Global_ip_protocolsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_protocols.Global_ip_protocolsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Global_ip_protocols.Global_ip_protocolsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Global_ip_protocols.Global_ip_protocolsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Global_ip_protocols.Global_ip_protocolsGetResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Global_ip_protocols.Global_ip_protocolsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.Global_ip_protocols
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Global_ip_protocols>(global::Soenneker.Telnyx.Models.Global_ip_protocols.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_protocols>(global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_protocols.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.Global_ip_protocols
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Global_ip_protocols>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_protocols>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The webhook payload for the portout.new_comment event
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Identifies the user that added the comment.</summary>
         public Guid? UserId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.WebhookPortoutNewCommentPayload"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewCommentPayload"/> and sets the default values.
         /// </summary>
         public WebhookPortoutNewCommentPayload()
         {
@@ -39,12 +39,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.WebhookPortoutNewCommentPayload"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewCommentPayload"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.WebhookPortoutNewCommentPayload CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewCommentPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.WebhookPortoutNewCommentPayload();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewCommentPayload();
         }
         /// <summary>
         /// The deserialization information for the current model

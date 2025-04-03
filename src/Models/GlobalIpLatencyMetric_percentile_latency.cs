@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,61 +17,61 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The FiveZero property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_FiveZero? FiveZero { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_FiveZero? FiveZero { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_FiveZero FiveZero { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_FiveZero FiveZero { get; set; }
 #endif
         /// <summary>The NineNine property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_NineNine? NineNine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_NineNine? NineNine { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_NineNine NineNine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_NineNine NineNine { get; set; }
 #endif
         /// <summary>The NineZero property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_NineZero? NineZero { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_NineZero? NineZero { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_NineZero NineZero { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_NineZero NineZero { get; set; }
 #endif
         /// <summary>The OneZeroZero property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_OneZeroZero? OneZeroZero { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_OneZeroZero? OneZeroZero { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_OneZeroZero OneZeroZero { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_OneZeroZero OneZeroZero { get; set; }
 #endif
         /// <summary>The SevenFive property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_SevenFive? SevenFive { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_SevenFive? SevenFive { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_SevenFive SevenFive { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_SevenFive SevenFive { get; set; }
 #endif
         /// <summary>The TwoFive property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_TwoFive? TwoFive { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_TwoFive? TwoFive { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_TwoFive TwoFive { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_TwoFive TwoFive { get; set; }
 #endif
         /// <summary>The Zero property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_Zero? Zero { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_Zero? Zero { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_Zero Zero { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_Zero Zero { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency"/> and sets the default values.
         /// </summary>
         public GlobalIpLatencyMetric_percentile_latency()
         {
@@ -80,12 +80,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,13 +95,13 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "50", n => { FiveZero = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_FiveZero>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_FiveZero.CreateFromDiscriminatorValue); } },
-                { "99", n => { NineNine = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_NineNine>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_NineNine.CreateFromDiscriminatorValue); } },
-                { "90", n => { NineZero = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_NineZero>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_NineZero.CreateFromDiscriminatorValue); } },
-                { "100", n => { OneZeroZero = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_OneZeroZero>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_OneZeroZero.CreateFromDiscriminatorValue); } },
-                { "75", n => { SevenFive = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_SevenFive>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_SevenFive.CreateFromDiscriminatorValue); } },
-                { "25", n => { TwoFive = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_TwoFive>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_TwoFive.CreateFromDiscriminatorValue); } },
-                { "0", n => { Zero = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_Zero>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_Zero.CreateFromDiscriminatorValue); } },
+                { "50", n => { FiveZero = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_FiveZero>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_FiveZero.CreateFromDiscriminatorValue); } },
+                { "99", n => { NineNine = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_NineNine>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_NineNine.CreateFromDiscriminatorValue); } },
+                { "90", n => { NineZero = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_NineZero>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_NineZero.CreateFromDiscriminatorValue); } },
+                { "100", n => { OneZeroZero = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_OneZeroZero>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_OneZeroZero.CreateFromDiscriminatorValue); } },
+                { "75", n => { SevenFive = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_SevenFive>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_SevenFive.CreateFromDiscriminatorValue); } },
+                { "25", n => { TwoFive = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_TwoFive>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_TwoFive.CreateFromDiscriminatorValue); } },
+                { "0", n => { Zero = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_Zero>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_Zero.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -111,13 +111,13 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_FiveZero>("50", FiveZero);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_NineNine>("99", NineNine);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_NineZero>("90", NineZero);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_OneZeroZero>("100", OneZeroZero);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_SevenFive>("75", SevenFive);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_TwoFive>("25", TwoFive);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency_Zero>("0", Zero);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_FiveZero>("50", FiveZero);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_NineNine>("99", NineNine);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_NineZero>("90", NineZero);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_OneZeroZero>("100", OneZeroZero);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_SevenFive>("75", SevenFive);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_TwoFive>("25", TwoFive);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency_Zero>("0", Zero);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

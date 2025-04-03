@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.Models
         public string Carrier { get; set; }
 #endif
         /// <summary>The line-type of the receiver.</summary>
-        public global::Soenneker.Telnyx.Models.OutboundMessagePayload_to_line_type? LineType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to_line_type? LineType { get; set; }
         /// <summary>Receiving address (+E.164 formatted phone number or short code).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,9 +33,9 @@ namespace Soenneker.Telnyx.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>The delivery status of the message.</summary>
-        public global::Soenneker.Telnyx.Models.OutboundMessagePayload_to_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to_status? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.OutboundMessagePayload_to"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to"/> and sets the default values.
         /// </summary>
         public OutboundMessagePayload_to()
         {
@@ -44,12 +44,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.OutboundMessagePayload_to"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.OutboundMessagePayload_to CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.OutboundMessagePayload_to();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,9 +60,9 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "carrier", n => { Carrier = n.GetStringValue(); } },
-                { "line_type", n => { LineType = n.GetEnumValue<global::Soenneker.Telnyx.Models.OutboundMessagePayload_to_line_type>(); } },
+                { "line_type", n => { LineType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to_line_type>(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.OutboundMessagePayload_to_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to_status>(); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("carrier", Carrier);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.OutboundMessagePayload_to_line_type>("line_type", LineType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to_line_type>("line_type", LineType);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.OutboundMessagePayload_to_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

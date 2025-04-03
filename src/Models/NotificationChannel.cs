@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// A Notification Channel
@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.Models
         public string ChannelDestination { get; set; }
 #endif
         /// <summary>A Channel Type ID</summary>
-        public global::Soenneker.Telnyx.Models.NotificationChannel_channel_type_id? ChannelTypeId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel_channel_type_id? ChannelTypeId { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>A UUID.</summary>
@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.NotificationChannel"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel"/> and sets the default values.
         /// </summary>
         public NotificationChannel()
         {
@@ -55,12 +55,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.NotificationChannel"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.NotificationChannel CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.NotificationChannel();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "channel_destination", n => { ChannelDestination = n.GetStringValue(); } },
-                { "channel_type_id", n => { ChannelTypeId = n.GetEnumValue<global::Soenneker.Telnyx.Models.NotificationChannel_channel_type_id>(); } },
+                { "channel_type_id", n => { ChannelTypeId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel_channel_type_id>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "notification_profile_id", n => { NotificationProfileId = n.GetStringValue(); } },
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("channel_destination", ChannelDestination);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.NotificationChannel_channel_type_id>("channel_type_id", ChannelTypeId);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NotificationChannel_channel_type_id>("channel_type_id", ChannelTypeId);
             writer.WriteStringValue("notification_profile_id", NotificationProfileId);
             writer.WriteAdditionalData(AdditionalData);
         }

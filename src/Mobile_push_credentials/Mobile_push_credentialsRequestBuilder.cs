@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Mobile_push_credentials.Item;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Mobile_push_credentials
+namespace Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials
 {
     /// <summary>
     /// Builds and executes requests for operations under \mobile_push_credentials
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Mobile_push_credentials
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Mobile_push_credentialsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.mobile_push_credentials.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.mobile_push_credentials.item collection</summary>
         /// <param name="position">The unique identifier of a mobile push credential</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("push_credential_id", position);
-                return new global::Soenneker.Telnyx.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.mobile_push_credentials.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.mobile_push_credentials.item collection</summary>
         /// <param name="position">The unique identifier of a mobile push credential</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("push_credential_id", position);
-                return new global::Soenneker.Telnyx.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Item.WithPush_credential_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Mobile_push_credentials
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,52 +62,52 @@ namespace Soenneker.Telnyx.Mobile_push_credentials
         /// <summary>
         /// List mobile push credentials
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ListPushCredentialsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListPushCredentialsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.ListPushCredentialsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListPushCredentialsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.ListPushCredentialsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListPushCredentialsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.ListPushCredentialsResponse>(requestInfo, global::Soenneker.Telnyx.Models.ListPushCredentialsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListPushCredentialsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListPushCredentialsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new mobile push credential
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PushCredentialResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PushCredentialResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.PushCredentialResponse?> PostAsync(global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PushCredentialResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.PushCredentialResponse> PostAsync(global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PushCredentialResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.PushCredentialResponse>(requestInfo, global::Soenneker.Telnyx.Models.PushCredentialResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PushCredentialResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PushCredentialResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List mobile push credentials
@@ -116,11 +116,11 @@ namespace Soenneker.Telnyx.Mobile_push_credentials
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -136,11 +136,11 @@ namespace Soenneker.Telnyx.Mobile_push_credentials
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -153,51 +153,51 @@ namespace Soenneker.Telnyx.Mobile_push_credentials
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.Models.CreateAndroidPushCredentialRequest"/>, <see cref="global::Soenneker.Telnyx.Models.CreateIosPushCredentialRequest"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Mobile_push_credentialsPostRequestBody : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.CreateAndroidPushCredentialRequest"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.CreateAndroidPushCredentialRequest? CreateAndroidPushCredentialRequest { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest? CreateAndroidPushCredentialRequest { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.CreateAndroidPushCredentialRequest CreateAndroidPushCredentialRequest { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest CreateAndroidPushCredentialRequest { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.CreateIosPushCredentialRequest"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.CreateIosPushCredentialRequest? CreateIosPushCredentialRequest { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest? CreateIosPushCredentialRequest { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.CreateIosPushCredentialRequest CreateIosPushCredentialRequest { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest CreateIosPushCredentialRequest { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsPostRequestBody();
                 if("CreateAndroidPushCredentialRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.CreateAndroidPushCredentialRequest = new global::Soenneker.Telnyx.Models.CreateAndroidPushCredentialRequest();
+                    result.CreateAndroidPushCredentialRequest = new global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest();
                 }
                 else if("CreateIosPushCredentialRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.CreateIosPushCredentialRequest = new global::Soenneker.Telnyx.Models.CreateIosPushCredentialRequest();
+                    result.CreateIosPushCredentialRequest = new global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest();
                 }
                 return result;
             }
@@ -226,11 +226,11 @@ namespace Soenneker.Telnyx.Mobile_push_credentials
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
                 if(CreateAndroidPushCredentialRequest != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CreateAndroidPushCredentialRequest>(null, CreateAndroidPushCredentialRequest);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAndroidPushCredentialRequest>(null, CreateAndroidPushCredentialRequest);
                 }
                 else if(CreateIosPushCredentialRequest != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CreateIosPushCredentialRequest>(null, CreateIosPushCredentialRequest);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateIosPushCredentialRequest>(null, CreateIosPushCredentialRequest);
                 }
             }
         }
@@ -263,7 +263,7 @@ namespace Soenneker.Telnyx.Mobile_push_credentials
 #endif
             /// <summary>type of mobile push credentials</summary>
             [QueryParameter("filter%5Btype%5D")]
-            public global::Soenneker.Telnyx.Mobile_push_credentials.GetFilterTypeQueryParameterType? FiltertypeAsGetFilterTypeQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.GetFilterTypeQueryParameterType? FiltertypeAsGetFilterTypeQueryParameterType { get; set; }
             /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
@@ -276,7 +276,7 @@ namespace Soenneker.Telnyx.Mobile_push_credentials
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Mobile_push_credentialsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsRequestBuilderGetQueryParameters>
+        public partial class Mobile_push_credentialsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder.Mobile_push_credentialsRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

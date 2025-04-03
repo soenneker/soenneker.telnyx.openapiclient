@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -37,10 +37,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The participants property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.RoomParticipant>? Participants { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RoomParticipant>? Participants { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.RoomParticipant> Participants { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RoomParticipant> Participants { get; set; }
 #endif
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RoomSession"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RoomSession"/> and sets the default values.
         /// </summary>
         public RoomSession()
         {
@@ -70,12 +70,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RoomSession"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RoomSession"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RoomSession CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RoomSession CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RoomSession();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RoomSession();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "ended_at", n => { EndedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "participants", n => { Participants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RoomParticipant>(global::Soenneker.Telnyx.Models.RoomParticipant.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "participants", n => { Participants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RoomParticipant>(global::Soenneker.Telnyx.OpenApiClient.Models.RoomParticipant.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "room_id", n => { RoomId = n.GetGuidValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -106,7 +106,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("ended_at", EndedAt);
             writer.WriteGuidValue("id", Id);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RoomParticipant>("participants", Participants);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RoomParticipant>("participants", Participants);
             writer.WriteGuidValue("room_id", RoomId);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

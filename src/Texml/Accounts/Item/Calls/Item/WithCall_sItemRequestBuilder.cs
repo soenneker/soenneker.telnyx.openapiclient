@@ -3,19 +3,19 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Recordings;
-using Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.RecordingsJson;
-using Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec;
-using Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.SiprecJson;
-using Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Streams;
-using Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.StreamsJson;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Recordings;
+using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.RecordingsJson;
+using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec;
+using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.SiprecJson;
+using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams;
+using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.StreamsJson;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item
+namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \texml\Accounts\{account_sid}\Calls\{call_sid}
@@ -24,37 +24,37 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item
     public partial class WithCall_sItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The Recordings property</summary>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Recordings.RecordingsRequestBuilder Recordings
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Recordings.RecordingsRequestBuilder Recordings
         {
-            get => new global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Recordings.RecordingsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Recordings.RecordingsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The RecordingsJson property</summary>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.RecordingsJson.RecordingsJsonRequestBuilder RecordingsJson
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.RecordingsJson.RecordingsJsonRequestBuilder RecordingsJson
         {
-            get => new global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.RecordingsJson.RecordingsJsonRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.RecordingsJson.RecordingsJsonRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The Siprec property</summary>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec.SiprecRequestBuilder Siprec
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec.SiprecRequestBuilder Siprec
         {
-            get => new global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Siprec.SiprecRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec.SiprecRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The SiprecJson property</summary>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.SiprecJson.SiprecJsonRequestBuilder SiprecJson
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.SiprecJson.SiprecJsonRequestBuilder SiprecJson
         {
-            get => new global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.SiprecJson.SiprecJsonRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.SiprecJson.SiprecJsonRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The Streams property</summary>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Streams.StreamsRequestBuilder Streams
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams.StreamsRequestBuilder Streams
         {
-            get => new global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.Streams.StreamsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Streams.StreamsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The StreamsJson property</summary>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.StreamsJson.StreamsJsonRequestBuilder StreamsJson
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.StreamsJson.StreamsJsonRequestBuilder StreamsJson
         {
-            get => new global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.StreamsJson.StreamsJsonRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.StreamsJson.StreamsJsonRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -72,40 +72,40 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item
         /// <summary>
         /// Returns an individual call identified by its CallSid. This endpoint is eventually consistent.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CallResource"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallResource"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.CallResource?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.CallResource> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.CallResource>(requestInfo, global::Soenneker.Telnyx.Models.CallResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CallResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update TeXML call. Please note that the keys present in the payload MUST BE formatted in CamelCase as specified in the example.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CallResource"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallResource"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.CallResource?> PostAsync(global::Soenneker.Telnyx.Models.UpdateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.CallResource> PostAsync(global::Soenneker.Telnyx.Models.UpdateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.CallResource>(requestInfo, global::Soenneker.Telnyx.Models.CallResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CallResource>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CallResource.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns an individual call identified by its CallSid. This endpoint is eventually consistent.
@@ -134,11 +134,11 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.UpdateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.UpdateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -151,11 +151,11 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.WithCall_sItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

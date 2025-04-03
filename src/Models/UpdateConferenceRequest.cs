@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Models
         public string CommandId { get; set; }
 #endif
         /// <summary>Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. &quot;barge&quot; means the supervisor enters the conference as a normal participant. This is the same as &quot;none&quot;. &quot;monitor&quot; means the supervisor is muted but can hear all participants. &quot;whisper&quot; means that only the specified &quot;whisper_call_control_ids&quot; can hear the supervisor. Defaults to &quot;none&quot;.</summary>
-        public global::Soenneker.Telnyx.Models.UpdateConferenceRequest_supervisor_role? SupervisorRole { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_supervisor_role? SupervisorRole { get; set; }
         /// <summary>Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.Models
         public List<string> WhisperCallControlIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.UpdateConferenceRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest"/> and sets the default values.
         /// </summary>
         public UpdateConferenceRequest()
         {
@@ -50,12 +50,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UpdateConferenceRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.UpdateConferenceRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.UpdateConferenceRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "supervisor_role", n => { SupervisorRole = n.GetEnumValue<global::Soenneker.Telnyx.Models.UpdateConferenceRequest_supervisor_role>(); } },
+                { "supervisor_role", n => { SupervisorRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_supervisor_role>(); } },
                 { "whisper_call_control_ids", n => { WhisperCallControlIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("call_control_id", CallControlId);
             writer.WriteStringValue("command_id", CommandId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.UpdateConferenceRequest_supervisor_role>("supervisor_role", SupervisorRole);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_supervisor_role>("supervisor_role", SupervisorRole);
             writer.WriteCollectionOfPrimitiveValues<string>("whisper_call_control_ids", WhisperCallControlIds);
             writer.WriteAdditionalData(AdditionalData);
         }

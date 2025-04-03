@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The group SIMCardGroup identification. This attribute can be &lt;code&gt;null&lt;/code&gt; when it&apos;s present in an associated resource.</summary>
         public Guid? SimCardGroupId { get; set; }
         /// <summary>Status on which the SIM cards will be set after being successfully registered.</summary>
-        public global::Soenneker.Telnyx.Models.ESimPurchase_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase_status? Status { get; set; }
         /// <summary>Searchable tags associated with the SIM cards</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,22 +45,22 @@ namespace Soenneker.Telnyx.Models
         public string WhitelabelName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ESimPurchase"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase"/> and sets the default values.
         /// </summary>
         public ESimPurchase()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.Telnyx.Models.ESimPurchase_status.Enabled;
+            Status = global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase_status.Enabled;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ESimPurchase"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ESimPurchase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ESimPurchase();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.Models
                 { "amount", n => { Amount = n.GetIntValue(); } },
                 { "product", n => { Product = n.GetStringValue(); } },
                 { "sim_card_group_id", n => { SimCardGroupId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.ESimPurchase_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase_status>(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "whitelabel_name", n => { WhitelabelName = n.GetStringValue(); } },
             };
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteIntValue("amount", Amount);
             writer.WriteStringValue("product", Product);
             writer.WriteGuidValue("sim_card_group_id", SimCardGroupId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.ESimPurchase_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase_status>("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("whitelabel_name", WhitelabelName);
             writer.WriteAdditionalData(AdditionalData);

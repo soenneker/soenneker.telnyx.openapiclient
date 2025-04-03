@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry
+namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry
 {
     /// <summary>
     /// Builds and executes requests for operations under \external_connections\{id}\uploads\{ticket_id}\retry
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry
     public partial class RetryRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,39 +35,39 @@ namespace Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry
         /// <summary>
         /// If there were any errors during the upload process, this endpoint will retry the upload request. In some cases this will reattempt the existing upload request, in other cases it may create a new upload request. Please check the ticket_id in the response to determine if a new upload request was created.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryPostResponse?> PostAsRetryPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryPostResponse?> PostAsRetryPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryPostResponse> PostAsRetryPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryPostResponse> PostAsRetryPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryPostResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// If there were any errors during the upload process, this endpoint will retry the upload request. In some cases this will reattempt the existing upload request, in other cases it may create a new upload request. Please check the ticket_id in the response to determine if a new upload request was created.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PostAsRetryPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// If there were any errors during the upload process, this endpoint will retry the upload request. In some cases this will reattempt the existing upload request, in other cases it may create a new upload request. Please check the ticket_id in the response to determine if a new upload request was created.
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.External_connections.Item.Uploads.Item.Retry.RetryRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Item.Retry.RetryRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -35,18 +35,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_features? Features { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features? Features { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_features Features { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features Features { get; private set; }
 #endif
         /// <summary>High level health metrics about the number and it&apos;s messaging sending patterns.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.NumberHealthMetrics? Health { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics? Health { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.NumberHealthMetrics Health { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics Health { get; set; }
 #endif
         /// <summary>Identifies the type of resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.Models
         public string PhoneNumber { get; private set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_record_type? RecordType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_record_type? RecordType { get; private set; }
         /// <summary>The messaging traffic or use case for which the number is currently configured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.Models
         public string TrafficType { get; private set; }
 #endif
         /// <summary>The type of the phone number</summary>
-        public global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_type? Type { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_type? Type { get; private set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings"/> and sets the default values.
         /// </summary>
         public PhoneNumberWithMessagingSettings()
         {
@@ -104,12 +104,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -122,15 +122,15 @@ namespace Soenneker.Telnyx.Models
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "eligible_messaging_products", n => { EligibleMessagingProducts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "features", n => { Features = n.GetObjectValue<global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_features>(global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_features.CreateFromDiscriminatorValue); } },
-                { "health", n => { Health = n.GetObjectValue<global::Soenneker.Telnyx.Models.NumberHealthMetrics>(global::Soenneker.Telnyx.Models.NumberHealthMetrics.CreateFromDiscriminatorValue); } },
+                { "features", n => { Features = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features.CreateFromDiscriminatorValue); } },
+                { "health", n => { Health = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "messaging_product", n => { MessagingProduct = n.GetStringValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_record_type>(); } },
                 { "traffic_type", n => { TrafficType = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -141,7 +141,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.NumberHealthMetrics>("health", Health);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics>("health", Health);
             writer.WriteStringValue("messaging_product", MessagingProduct);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
             writer.WriteAdditionalData(AdditionalData);

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Telnyx-specific extensions to The Campaign Registry&apos;s `Brand` type
@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.Models
         public string AltBusinessId { get; set; }
 #endif
         /// <summary>An enumeration.</summary>
-        public global::Soenneker.Telnyx.Models.AltBusinessIdType? AltBusinessIdType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AltBusinessIdType? AltBusinessIdType { get; set; }
         /// <summary>Unique identifier assigned to the brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.Models
         public string BrandId { get; set; }
 #endif
         /// <summary>Brand relationship to the CSP</summary>
-        public global::Soenneker.Telnyx.Models.BrandRelationship? BrandRelationship { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BrandRelationship? BrandRelationship { get; set; }
         /// <summary>Business contact email.Required if `entityType` is `PUBLIC_PROFIT`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.Models
         public string Email { get; set; }
 #endif
         /// <summary>Entity type behind the brand. This is the form of business establishment.</summary>
-        public global::Soenneker.Telnyx.Models.EntityType? EntityType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EntityType? EntityType { get; set; }
         /// <summary>Failure reasons for brand</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.Models
         public string FirstName { get; set; }
 #endif
         /// <summary>The verification status of an active brand</summary>
-        public global::Soenneker.Telnyx.Models.BrandIdentityStatus? IdentityStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BrandIdentityStatus? IdentityStatus { get; set; }
         /// <summary>IP address of the browser requesting to create brand identity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -158,10 +158,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The optionalAttributes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.BrandOptionalAttributes? OptionalAttributes { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BrandOptionalAttributes? OptionalAttributes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.BrandOptionalAttributes OptionalAttributes { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BrandOptionalAttributes OptionalAttributes { get; set; }
 #endif
         /// <summary>Valid phone number in e.164 international format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -196,9 +196,9 @@ namespace Soenneker.Telnyx.Models
         public string State { get; set; }
 #endif
         /// <summary>Status of the brand</summary>
-        public global::Soenneker.Telnyx.Models.TelnyxBrand_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand_status? Status { get; set; }
         /// <summary>(Required for public company) stock exchange.</summary>
-        public global::Soenneker.Telnyx.Models.StockExchange? StockExchange { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StockExchange? StockExchange { get; set; }
         /// <summary>(Required for public company) stock symbol.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -272,7 +272,7 @@ namespace Soenneker.Telnyx.Models
         public string Website { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.TelnyxBrand"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand"/> and sets the default values.
         /// </summary>
         public TelnyxBrand()
         {
@@ -281,12 +281,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TelnyxBrand"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.TelnyxBrand CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.TelnyxBrand();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -297,9 +297,9 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "altBusinessId", n => { AltBusinessId = n.GetStringValue(); } },
-                { "altBusinessIdType", n => { AltBusinessIdType = n.GetEnumValue<global::Soenneker.Telnyx.Models.AltBusinessIdType>(); } },
+                { "altBusinessIdType", n => { AltBusinessIdType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AltBusinessIdType>(); } },
                 { "brandId", n => { BrandId = n.GetStringValue(); } },
-                { "brandRelationship", n => { BrandRelationship = n.GetEnumValue<global::Soenneker.Telnyx.Models.BrandRelationship>(); } },
+                { "brandRelationship", n => { BrandRelationship = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandRelationship>(); } },
                 { "businessContactEmail", n => { BusinessContactEmail = n.GetStringValue(); } },
                 { "city", n => { City = n.GetStringValue(); } },
                 { "companyName", n => { CompanyName = n.GetStringValue(); } },
@@ -309,22 +309,22 @@ namespace Soenneker.Telnyx.Models
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "ein", n => { Ein = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.Models.EntityType>(); } },
+                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EntityType>(); } },
                 { "failureReasons", n => { FailureReasons = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
-                { "identityStatus", n => { IdentityStatus = n.GetEnumValue<global::Soenneker.Telnyx.Models.BrandIdentityStatus>(); } },
+                { "identityStatus", n => { IdentityStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandIdentityStatus>(); } },
                 { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
                 { "isReseller", n => { IsReseller = n.GetBoolValue(); } },
                 { "lastName", n => { LastName = n.GetStringValue(); } },
                 { "mobilePhone", n => { MobilePhone = n.GetStringValue(); } },
                 { "mock", n => { Mock = n.GetBoolValue(); } },
-                { "optionalAttributes", n => { OptionalAttributes = n.GetObjectValue<global::Soenneker.Telnyx.Models.BrandOptionalAttributes>(global::Soenneker.Telnyx.Models.BrandOptionalAttributes.CreateFromDiscriminatorValue); } },
+                { "optionalAttributes", n => { OptionalAttributes = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandOptionalAttributes>(global::Soenneker.Telnyx.OpenApiClient.Models.BrandOptionalAttributes.CreateFromDiscriminatorValue); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "postalCode", n => { PostalCode = n.GetStringValue(); } },
                 { "referenceId", n => { ReferenceId = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.TelnyxBrand_status>(); } },
-                { "stockExchange", n => { StockExchange = n.GetEnumValue<global::Soenneker.Telnyx.Models.StockExchange>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand_status>(); } },
+                { "stockExchange", n => { StockExchange = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StockExchange>(); } },
                 { "stockSymbol", n => { StockSymbol = n.GetStringValue(); } },
                 { "street", n => { Street = n.GetStringValue(); } },
                 { "tcrBrandId", n => { TcrBrandId = n.GetStringValue(); } },
@@ -344,9 +344,9 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("altBusinessId", AltBusinessId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.AltBusinessIdType>("altBusinessIdType", AltBusinessIdType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AltBusinessIdType>("altBusinessIdType", AltBusinessIdType);
             writer.WriteStringValue("brandId", BrandId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BrandRelationship>("brandRelationship", BrandRelationship);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandRelationship>("brandRelationship", BrandRelationship);
             writer.WriteStringValue("businessContactEmail", BusinessContactEmail);
             writer.WriteStringValue("city", City);
             writer.WriteStringValue("companyName", CompanyName);
@@ -356,22 +356,22 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("ein", Ein);
             writer.WriteStringValue("email", Email);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.EntityType>("entityType", EntityType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EntityType>("entityType", EntityType);
             writer.WriteObjectValue<UntypedNode>("failureReasons", FailureReasons);
             writer.WriteStringValue("firstName", FirstName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BrandIdentityStatus>("identityStatus", IdentityStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandIdentityStatus>("identityStatus", IdentityStatus);
             writer.WriteStringValue("ipAddress", IpAddress);
             writer.WriteBoolValue("isReseller", IsReseller);
             writer.WriteStringValue("lastName", LastName);
             writer.WriteStringValue("mobilePhone", MobilePhone);
             writer.WriteBoolValue("mock", Mock);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.BrandOptionalAttributes>("optionalAttributes", OptionalAttributes);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandOptionalAttributes>("optionalAttributes", OptionalAttributes);
             writer.WriteStringValue("phone", Phone);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("referenceId", ReferenceId);
             writer.WriteStringValue("state", State);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TelnyxBrand_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StockExchange>("stockExchange", StockExchange);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxBrand_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StockExchange>("stockExchange", StockExchange);
             writer.WriteStringValue("stockSymbol", StockSymbol);
             writer.WriteStringValue("street", Street);
             writer.WriteStringValue("tcrBrandId", TcrBrandId);

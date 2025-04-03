@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Phone_number_blocks.Jobs;
+using Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Phone_number_blocks
+namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks
 {
     /// <summary>
     /// Builds and executes requests for operations under \phone_number_blocks
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Phone_number_blocks
     public partial class Phone_number_blocksRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The jobs property</summary>
-        public global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder Jobs
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder Jobs
         {
-            get => new global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_number_blocks.Phone_number_blocksRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Phone_number_blocksRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Phone_number_blocks
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_number_blocks.Phone_number_blocksRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Phone_number_blocksRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

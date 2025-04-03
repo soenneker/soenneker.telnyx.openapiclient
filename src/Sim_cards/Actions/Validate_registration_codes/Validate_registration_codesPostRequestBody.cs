@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Sim_cards.Actions.Validate_registration_codes
+namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Validate_registration_codes
 {
     /// <summary>
     /// The object containing the Array of SIM card registration codes.
@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.Sim_cards.Actions.Validate_registration_codes
         public List<string> RegistrationCodes { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Sim_cards.Actions.Validate_registration_codes.Validate_registration_codesPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Validate_registration_codes.Validate_registration_codesPostRequestBody"/> and sets the default values.
         /// </summary>
         public Validate_registration_codesPostRequestBody()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Sim_cards.Actions.Validate_registration_codes
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_cards.Actions.Validate_registration_codes.Validate_registration_codesPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Validate_registration_codes.Validate_registration_codesPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Sim_cards.Actions.Validate_registration_codes.Validate_registration_codesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Validate_registration_codes.Validate_registration_codesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Sim_cards.Actions.Validate_registration_codes.Validate_registration_codesPostRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Validate_registration_codes.Validate_registration_codesPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

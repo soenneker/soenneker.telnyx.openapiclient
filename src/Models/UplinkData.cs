@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,24 +17,24 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Uplink data</summary>
         public double? Amount { get; set; }
         /// <summary>Transmission unit</summary>
-        public global::Soenneker.Telnyx.Models.UplinkData_unit? Unit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData_unit? Unit { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.UplinkData"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData"/> and sets the default values.
         /// </summary>
         public UplinkData()
         {
             AdditionalData = new Dictionary<string, object>();
-            Unit = global::Soenneker.Telnyx.Models.UplinkData_unit.MB;
+            Unit = global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData_unit.MB;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UplinkData"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.UplinkData CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.UplinkData();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetDoubleValue(); } },
-                { "unit", n => { Unit = n.GetEnumValue<global::Soenneker.Telnyx.Models.UplinkData_unit>(); } },
+                { "unit", n => { Unit = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData_unit>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("amount", Amount);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.UplinkData_unit>("unit", Unit);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData_unit>("unit", Unit);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

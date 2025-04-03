@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Messsages.Rcs;
+using Soenneker.Telnyx.OpenApiClient.Messsages.Rcs;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Messsages
+namespace Soenneker.Telnyx.OpenApiClient.Messsages
 {
     /// <summary>
     /// Builds and executes requests for operations under \messsages
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Messsages
     public partial class MesssagesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The rcs property</summary>
-        public global::Soenneker.Telnyx.Messsages.Rcs.RcsRequestBuilder Rcs
+        public global::Soenneker.Telnyx.OpenApiClient.Messsages.Rcs.RcsRequestBuilder Rcs
         {
-            get => new global::Soenneker.Telnyx.Messsages.Rcs.RcsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messsages.Rcs.RcsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messsages.MesssagesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messsages.MesssagesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Messsages
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messsages.MesssagesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messsages.MesssagesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

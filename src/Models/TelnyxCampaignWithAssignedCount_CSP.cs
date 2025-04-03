@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.Models
         public string CampaignId { get; set; }
 #endif
         /// <summary>Campaign status</summary>
-        public global::Soenneker.Telnyx.Models.TelnyxCampaignWithAssignedCount_CSP_campaignStatus? CampaignStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignWithAssignedCount_CSP_campaignStatus? CampaignStatus { get; set; }
         /// <summary>Unix timestamp when campaign was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -250,7 +250,7 @@ namespace Soenneker.Telnyx.Models
         public string Status { get; set; }
 #endif
         /// <summary>Campaign submission status</summary>
-        public global::Soenneker.Telnyx.Models.TelnyxCampaignWithAssignedCount_CSP_submissionStatus? SubmissionStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignWithAssignedCount_CSP_submissionStatus? SubmissionStatus { get; set; }
         /// <summary>Does campaign responds to help keyword(s)?</summary>
         public bool? SubscriberHelp { get; set; }
         /// <summary>Does campaign require subscriber to opt-in before SMS is sent to subscriber?</summary>
@@ -325,7 +325,7 @@ namespace Soenneker.Telnyx.Models
         public string WebhookURL { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.TelnyxCampaignWithAssignedCount_CSP"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignWithAssignedCount_CSP"/> and sets the default values.
         /// </summary>
         public TelnyxCampaignWithAssignedCount_CSP()
         {
@@ -334,12 +334,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TelnyxCampaignWithAssignedCount_CSP"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignWithAssignedCount_CSP"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.TelnyxCampaignWithAssignedCount_CSP CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignWithAssignedCount_CSP CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.TelnyxCampaignWithAssignedCount_CSP();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignWithAssignedCount_CSP();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -357,7 +357,7 @@ namespace Soenneker.Telnyx.Models
                 { "brandDisplayName", n => { BrandDisplayName = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "brandId", n => { BrandId = n.GetStringValue(); } },
                 { "campaignId", n => { CampaignId = n.GetStringValue(); } },
-                { "campaignStatus", n => { CampaignStatus = n.GetEnumValue<global::Soenneker.Telnyx.Models.TelnyxCampaignWithAssignedCount_CSP_campaignStatus>(); } },
+                { "campaignStatus", n => { CampaignStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignWithAssignedCount_CSP_campaignStatus>(); } },
                 { "createDate", n => { CreateDate = n.GetStringValue(); } },
                 { "cspId", n => { CspId = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -389,7 +389,7 @@ namespace Soenneker.Telnyx.Models
                 { "sample5", n => { Sample5 = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "subUsecases", n => { SubUsecases = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "submissionStatus", n => { SubmissionStatus = n.GetEnumValue<global::Soenneker.Telnyx.Models.TelnyxCampaignWithAssignedCount_CSP_submissionStatus>(); } },
+                { "submissionStatus", n => { SubmissionStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignWithAssignedCount_CSP_submissionStatus>(); } },
                 { "subscriberHelp", n => { SubscriberHelp = n.GetBoolValue(); } },
                 { "subscriberOptin", n => { SubscriberOptin = n.GetBoolValue(); } },
                 { "subscriberOptout", n => { SubscriberOptout = n.GetBoolValue(); } },
@@ -418,7 +418,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteObjectValue<UntypedNode>("brandDisplayName", BrandDisplayName);
             writer.WriteStringValue("brandId", BrandId);
             writer.WriteStringValue("campaignId", CampaignId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TelnyxCampaignWithAssignedCount_CSP_campaignStatus>("campaignStatus", CampaignStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignWithAssignedCount_CSP_campaignStatus>("campaignStatus", CampaignStatus);
             writer.WriteStringValue("createDate", CreateDate);
             writer.WriteStringValue("cspId", CspId);
             writer.WriteStringValue("description", Description);
@@ -449,7 +449,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("sample4", Sample4);
             writer.WriteStringValue("sample5", Sample5);
             writer.WriteStringValue("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TelnyxCampaignWithAssignedCount_CSP_submissionStatus>("submissionStatus", SubmissionStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaignWithAssignedCount_CSP_submissionStatus>("submissionStatus", SubmissionStatus);
             writer.WriteBoolValue("subscriberHelp", SubscriberHelp);
             writer.WriteBoolValue("subscriberOptin", SubscriberOptin);
             writer.WriteBoolValue("subscriberOptout", SubscriberOptout);

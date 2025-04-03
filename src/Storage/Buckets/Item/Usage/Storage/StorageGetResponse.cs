@@ -2,11 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Storage.Buckets.Item.Usage.Storage
+namespace Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Storage
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,21 +18,21 @@ namespace Soenneker.Telnyx.Storage.Buckets.Item.Usage.Storage
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.BucketUsage>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.BucketUsage>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.BucketUsage> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.BucketUsage> Data { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.PaginationMetaSimple? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMetaSimple? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.PaginationMetaSimple Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMetaSimple Meta { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Usage.Storage.StorageGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Storage.StorageGetResponse"/> and sets the default values.
         /// </summary>
         public StorageGetResponse()
         {
@@ -41,12 +41,12 @@ namespace Soenneker.Telnyx.Storage.Buckets.Item.Usage.Storage
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Usage.Storage.StorageGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Storage.StorageGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Storage.Buckets.Item.Usage.Storage.StorageGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Storage.StorageGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Storage.Buckets.Item.Usage.Storage.StorageGetResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Storage.StorageGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +56,8 @@ namespace Soenneker.Telnyx.Storage.Buckets.Item.Usage.Storage
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.BucketUsage>(global::Soenneker.Telnyx.Models.BucketUsage.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.Models.PaginationMetaSimple>(global::Soenneker.Telnyx.Models.PaginationMetaSimple.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.BucketUsage>(global::Soenneker.Telnyx.OpenApiClient.Models.BucketUsage.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMetaSimple>(global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMetaSimple.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Telnyx.Storage.Buckets.Item.Usage.Storage
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.BucketUsage>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.PaginationMetaSimple>("meta", Meta);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.BucketUsage>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMetaSimple>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

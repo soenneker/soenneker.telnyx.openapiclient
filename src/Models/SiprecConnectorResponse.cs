@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,13 +17,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SiprecConnectorResponse_data? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse_data? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SiprecConnectorResponse_data Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse_data Data { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SiprecConnectorResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse"/> and sets the default values.
         /// </summary>
         public SiprecConnectorResponse()
         {
@@ -32,12 +32,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SiprecConnectorResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SiprecConnectorResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SiprecConnectorResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.Models.SiprecConnectorResponse_data>(global::Soenneker.Telnyx.Models.SiprecConnectorResponse_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse_data>(global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse_data.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SiprecConnectorResponse_data>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SiprecConnectorResponse_data>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

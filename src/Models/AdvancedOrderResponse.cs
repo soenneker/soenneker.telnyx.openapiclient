@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// An Advanced Order Response
@@ -50,10 +50,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.AdvancedOrderResponse_features?>? Features { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_features?>? Features { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.AdvancedOrderResponse_features?> Features { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_features?> Features { get; set; }
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
@@ -66,29 +66,29 @@ namespace Soenneker.Telnyx.Models
         public List<Guid?> Orders { get; set; }
 #endif
         /// <summary>The phone_number_type property</summary>
-        public global::Soenneker.Telnyx.Models.AdvancedOrderResponse_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_phone_number_type? PhoneNumberType { get; set; }
         /// <summary>The quantity property</summary>
         public int? Quantity { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.Models.AdvancedOrderResponse_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_status? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.AdvancedOrderResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse"/> and sets the default values.
         /// </summary>
         public AdvancedOrderResponse()
         {
             AdditionalData = new Dictionary<string, object>();
             CountryCode = "US";
-            PhoneNumberType = global::Soenneker.Telnyx.Models.AdvancedOrderResponse_phone_number_type.Local;
+            PhoneNumberType = global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_phone_number_type.Local;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AdvancedOrderResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.AdvancedOrderResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.AdvancedOrderResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,12 +102,12 @@ namespace Soenneker.Telnyx.Models
                 { "comments", n => { Comments = n.GetStringValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
-                { "features", n => { Features = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.Models.AdvancedOrderResponse_features>()?.AsList(); } },
+                { "features", n => { Features = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_features>()?.AsList(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "orders", n => { Orders = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.Models.AdvancedOrderResponse_phone_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_phone_number_type>(); } },
                 { "quantity", n => { Quantity = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.AdvancedOrderResponse_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_status>(); } },
             };
         }
         /// <summary>
@@ -121,12 +121,12 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("comments", Comments);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("customer_reference", CustomerReference);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.Models.AdvancedOrderResponse_features>("features", Features);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_features>("features", Features);
             writer.WriteGuidValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("orders", Orders);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.AdvancedOrderResponse_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_phone_number_type>("phone_number_type", PhoneNumberType);
             writer.WriteIntValue("quantity", Quantity);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.AdvancedOrderResponse_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

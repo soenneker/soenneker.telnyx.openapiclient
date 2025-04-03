@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// CampaignRequest object describes the campaign to be submitted via &apos;/campaignBuilder/brand/{brandId}/usecase/{usecase}&apos; operation. It is also used in operations for retrieving status of campaign request and for updating a pending request.
@@ -238,7 +238,7 @@ namespace Soenneker.Telnyx.Models
         public string WebhookURL { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CampaignRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRequest"/> and sets the default values.
         /// </summary>
         public CampaignRequest()
         {
@@ -247,12 +247,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CampaignRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CampaignRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CampaignRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CampaignRequest();
         }
         /// <summary>
         /// The deserialization information for the current model

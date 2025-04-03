@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Webhook_deliveries.Item
+namespace Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \webhook_deliveries\{id}
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Webhook_deliveries.Item
     public partial class Webhook_deliveriesItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Webhook_deliveries.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,39 +35,39 @@ namespace Soenneker.Telnyx.Webhook_deliveries.Item
         /// <summary>
         /// Provides webhook_delivery debug data, such as timestamps, delivery status and attempts.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesGetResponse?> GetAsWebhook_deliveriesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesGetResponse?> GetAsWebhook_deliveriesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesGetResponse> GetAsWebhook_deliveriesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesGetResponse> GetAsWebhook_deliveriesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesGetResponse>(requestInfo, global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Provides webhook_delivery debug data, such as timestamps, delivery status and attempts.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsWebhook_deliveriesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesResponse>(requestInfo, global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Provides webhook_delivery debug data, such as timestamps, delivery status and attempts.
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.Webhook_deliveries.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Webhook_deliveries.Item.Webhook_deliveriesItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

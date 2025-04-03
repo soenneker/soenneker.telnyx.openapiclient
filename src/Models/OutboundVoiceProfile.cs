@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The call_recording property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.OutboundCallRecording? CallRecording { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording? CallRecording { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.OutboundCallRecording CallRecording { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording CallRecording { get; set; }
 #endif
         /// <summary>Must be no more than your global concurrent call limit. Null means no limit.</summary>
         public int? ConcurrentCallLimit { get; set; }
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>Indicates the coverage of the termination regions.</summary>
-        public global::Soenneker.Telnyx.Models.ServicePlan? ServicePlan { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan? ServicePlan { get; set; }
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.Models
         public List<string> Tags { get; set; }
 #endif
         /// <summary>Specifies the type of traffic allowed in this profile.</summary>
-        public global::Soenneker.Telnyx.Models.TrafficType? TrafficType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType? TrafficType { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>Setting for how costs for outbound profile are calculated.</summary>
-        public global::Soenneker.Telnyx.Models.UsagePaymentMethod? UsagePaymentMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod? UsagePaymentMethod { get; set; }
         /// <summary>The list of destinations you want to be able to call using this outbound voice profile formatted in alpha2.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,24 +105,24 @@ namespace Soenneker.Telnyx.Models
         public List<string> WhitelistedDestinations { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.OutboundVoiceProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfile"/> and sets the default values.
         /// </summary>
         public OutboundVoiceProfile()
         {
             AdditionalData = new Dictionary<string, object>();
-            ServicePlan = global::Soenneker.Telnyx.Models.ServicePlan.Global;
-            TrafficType = global::Soenneker.Telnyx.Models.TrafficType.Conversational;
-            UsagePaymentMethod = global::Soenneker.Telnyx.Models.UsagePaymentMethod.RateDeck;
+            ServicePlan = global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan.Global;
+            TrafficType = global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType.Conversational;
+            UsagePaymentMethod = global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod.RateDeck;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.OutboundVoiceProfile"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.OutboundVoiceProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.OutboundVoiceProfile();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundVoiceProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -133,7 +133,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "billing_group_id", n => { BillingGroupId = n.GetGuidValue(); } },
-                { "call_recording", n => { CallRecording = n.GetObjectValue<global::Soenneker.Telnyx.Models.OutboundCallRecording>(global::Soenneker.Telnyx.Models.OutboundCallRecording.CreateFromDiscriminatorValue); } },
+                { "call_recording", n => { CallRecording = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording.CreateFromDiscriminatorValue); } },
                 { "concurrent_call_limit", n => { ConcurrentCallLimit = n.GetIntValue(); } },
                 { "connections_count", n => { ConnectionsCount = n.GetIntValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
@@ -144,11 +144,11 @@ namespace Soenneker.Telnyx.Models
                 { "max_destination_rate", n => { MaxDestinationRate = n.GetDoubleValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "service_plan", n => { ServicePlan = n.GetEnumValue<global::Soenneker.Telnyx.Models.ServicePlan>(); } },
+                { "service_plan", n => { ServicePlan = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan>(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "traffic_type", n => { TrafficType = n.GetEnumValue<global::Soenneker.Telnyx.Models.TrafficType>(); } },
+                { "traffic_type", n => { TrafficType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
-                { "usage_payment_method", n => { UsagePaymentMethod = n.GetEnumValue<global::Soenneker.Telnyx.Models.UsagePaymentMethod>(); } },
+                { "usage_payment_method", n => { UsagePaymentMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod>(); } },
                 { "whitelisted_destinations", n => { WhitelistedDestinations = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -160,7 +160,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("billing_group_id", BillingGroupId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.OutboundCallRecording>("call_recording", CallRecording);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording>("call_recording", CallRecording);
             writer.WriteIntValue("concurrent_call_limit", ConcurrentCallLimit);
             writer.WriteIntValue("connections_count", ConnectionsCount);
             writer.WriteStringValue("created_at", CreatedAt);
@@ -171,11 +171,11 @@ namespace Soenneker.Telnyx.Models
             writer.WriteDoubleValue("max_destination_rate", MaxDestinationRate);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.ServicePlan>("service_plan", ServicePlan);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan>("service_plan", ServicePlan);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TrafficType>("traffic_type", TrafficType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType>("traffic_type", TrafficType);
             writer.WriteStringValue("updated_at", UpdatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.UsagePaymentMethod>("usage_payment_method", UsagePaymentMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod>("usage_payment_method", UsagePaymentMethod);
             writer.WriteCollectionOfPrimitiveValues<string>("whitelisted_destinations", WhitelistedDestinations);
             writer.WriteAdditionalData(AdditionalData);
         }

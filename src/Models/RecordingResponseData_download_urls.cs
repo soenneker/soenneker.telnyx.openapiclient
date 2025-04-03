@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Links to download the recording files.
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.Models
         public string Wav { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RecordingResponseData_download_urls"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls"/> and sets the default values.
         /// </summary>
         public RecordingResponseData_download_urls()
         {
@@ -41,12 +41,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RecordingResponseData_download_urls"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RecordingResponseData_download_urls CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RecordingResponseData_download_urls();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The webhook payload for the porting_order.messaging_changed event
@@ -28,10 +28,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The messaging portability status of the porting order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging? Messaging { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging? Messaging { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging Messaging { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging Messaging { get; set; }
 #endif
         /// <summary>Identifies the support key associated with the porting order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,7 +42,7 @@ namespace Soenneker.Telnyx.Models
         public string SupportKey { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload"/> and sets the default values.
         /// </summary>
         public WebhookPortingOrderMessagingChangedPayload()
         {
@@ -51,12 +51,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "messaging", n => { Messaging = n.GetObjectValue<global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging>(global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging.CreateFromDiscriminatorValue); } },
+                { "messaging", n => { Messaging = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging.CreateFromDiscriminatorValue); } },
                 { "support_key", n => { SupportKey = n.GetStringValue(); } },
             };
         }
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.WebhookPortingOrderMessagingChangedPayload_messaging>("messaging", Messaging);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload_messaging>("messaging", Messaging);
             writer.WriteStringValue("support_key", SupportKey);
             writer.WriteAdditionalData(AdditionalData);
         }

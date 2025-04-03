@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,39 +17,39 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The global_ip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_global_ip? GlobalIp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_global_ip? GlobalIp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_global_ip GlobalIp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_global_ip GlobalIp { get; set; }
 #endif
         /// <summary>The mean_latency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_mean_latency? MeanLatency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_mean_latency? MeanLatency { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_mean_latency MeanLatency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_mean_latency MeanLatency { get; set; }
 #endif
         /// <summary>The percentile_latency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency? PercentileLatency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency? PercentileLatency { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency PercentileLatency { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency PercentileLatency { get; set; }
 #endif
         /// <summary>The prober_location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_prober_location? ProberLocation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_prober_location? ProberLocation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_prober_location ProberLocation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_prober_location ProberLocation { get; set; }
 #endif
         /// <summary>The timestamp of the metric.</summary>
         public DateTimeOffset? Timestamp { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric"/> and sets the default values.
         /// </summary>
         public GlobalIpLatencyMetric()
         {
@@ -58,12 +58,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,10 +73,10 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "global_ip", n => { GlobalIp = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_global_ip>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_global_ip.CreateFromDiscriminatorValue); } },
-                { "mean_latency", n => { MeanLatency = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_mean_latency>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_mean_latency.CreateFromDiscriminatorValue); } },
-                { "percentile_latency", n => { PercentileLatency = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency.CreateFromDiscriminatorValue); } },
-                { "prober_location", n => { ProberLocation = n.GetObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_prober_location>(global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_prober_location.CreateFromDiscriminatorValue); } },
+                { "global_ip", n => { GlobalIp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_global_ip>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_global_ip.CreateFromDiscriminatorValue); } },
+                { "mean_latency", n => { MeanLatency = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_mean_latency>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_mean_latency.CreateFromDiscriminatorValue); } },
+                { "percentile_latency", n => { PercentileLatency = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency.CreateFromDiscriminatorValue); } },
+                { "prober_location", n => { ProberLocation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_prober_location>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_prober_location.CreateFromDiscriminatorValue); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -87,10 +87,10 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_global_ip>("global_ip", GlobalIp);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_mean_latency>("mean_latency", MeanLatency);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_percentile_latency>("percentile_latency", PercentileLatency);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GlobalIpLatencyMetric_prober_location>("prober_location", ProberLocation);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_global_ip>("global_ip", GlobalIp);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_mean_latency>("mean_latency", MeanLatency);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency>("percentile_latency", PercentileLatency);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_prober_location>("prober_location", ProberLocation);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);
             writer.WriteAdditionalData(AdditionalData);
         }

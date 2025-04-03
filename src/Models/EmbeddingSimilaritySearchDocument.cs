@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Example document response from embedding service{  &quot;document_chunk&quot;: &quot;your status? This is Vanessa Bloome...&quot;,  &quot;distance&quot;: 0.18607724,  &quot;metadata&quot;: {    &quot;source&quot;: &quot;https://us-central-1.telnyxstorage.com/scripts/bee_movie_script.txt&quot;,    &quot;checksum&quot;: &quot;343054dd19bab39bbf6761a3d20f1daa&quot;,    &quot;embedding&quot;: &quot;openai/text-embedding-ada-002&quot;,    &quot;filename&quot;: &quot;bee_movie_script.txt&quot;,    &quot;certainty&quot;: 0.9069613814353943,    &quot;loader_metadata&quot;: {}  }}
@@ -28,13 +28,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.EmbeddingMetadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.EmbeddingMetadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata Metadata { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.EmbeddingSimilaritySearchDocument"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingSimilaritySearchDocument"/> and sets the default values.
         /// </summary>
         public EmbeddingSimilaritySearchDocument()
         {
@@ -43,12 +43,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.EmbeddingSimilaritySearchDocument"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingSimilaritySearchDocument"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.EmbeddingSimilaritySearchDocument CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingSimilaritySearchDocument CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.EmbeddingSimilaritySearchDocument();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingSimilaritySearchDocument();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "distance", n => { Distance = n.GetDoubleValue(); } },
                 { "document_chunk", n => { DocumentChunk = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.Models.EmbeddingMetadata>(global::Soenneker.Telnyx.Models.EmbeddingMetadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("distance", Distance);
             writer.WriteStringValue("document_chunk", DocumentChunk);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.EmbeddingMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata>("metadata", Metadata);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

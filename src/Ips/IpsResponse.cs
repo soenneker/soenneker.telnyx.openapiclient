@@ -5,23 +5,23 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Ips
+namespace Soenneker.Telnyx.OpenApiClient.Ips
 {
     [Obsolete("This class is obsolete. Use IpsGetResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class IpsResponse : global::Soenneker.Telnyx.Ips.IpsGetResponse, IParsable
+    public partial class IpsResponse : global::Soenneker.Telnyx.OpenApiClient.Ips.IpsGetResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Ips.IpsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ips.IpsResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.Ips.IpsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.Ips.IpsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Ips.IpsResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Ips.IpsResponse();
         }
     }
 }

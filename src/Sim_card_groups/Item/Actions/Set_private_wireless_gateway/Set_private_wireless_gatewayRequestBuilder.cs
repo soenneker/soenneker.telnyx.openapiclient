@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway
+namespace Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway
 {
     /// <summary>
     /// Builds and executes requests for operations under \sim_card_groups\{id}\actions\set_private_wireless_gateway
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gat
     public partial class Set_private_wireless_gatewayRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gat
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,53 +36,53 @@ namespace Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gat
         /// <summary>
         /// This action will asynchronously assign a provisioned Private Wireless Gateway to the SIM card group. Completing this operation defines that all SIM cards in the SIM card group will get their traffic controlled by the associated Private Wireless Gateway. This operation will also imply that new SIM cards assigned to a group will inherit its network definitions. If it&apos;s moved to a different group that doesn&apos;t have a Private Wireless Gateway, it&apos;ll use Telnyx&apos;s default mobile network configuration.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostResponse?> PostAsSet_private_wireless_gatewayPostResponseAsync(global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostResponse?> PostAsSet_private_wireless_gatewayPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostResponse> PostAsSet_private_wireless_gatewayPostResponseAsync(global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostResponse> PostAsSet_private_wireless_gatewayPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostResponse>(requestInfo, global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This action will asynchronously assign a provisioned Private Wireless Gateway to the SIM card group. Completing this operation defines that all SIM cards in the SIM card group will get their traffic controlled by the associated Private Wireless Gateway. This operation will also imply that new SIM cards assigned to a group will inherit its network definitions. If it&apos;s moved to a different group that doesn&apos;t have a Private Wireless Gateway, it&apos;ll use Telnyx&apos;s default mobile network configuration.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use PostAsSet_private_wireless_gatewayPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayResponse?> PostAsync(global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayResponse> PostAsync(global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayResponse>(requestInfo, global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This action will asynchronously assign a provisioned Private Wireless Gateway to the SIM card group. Completing this operation defines that all SIM cards in the SIM card group will get their traffic controlled by the associated Private Wireless Gateway. This operation will also imply that new SIM cards assigned to a group will inherit its network definitions. If it&apos;s moved to a different group that doesn&apos;t have a Private Wireless Gateway, it&apos;ll use Telnyx&apos;s default mobile network configuration.
@@ -92,11 +92,11 @@ namespace Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gat
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -109,11 +109,11 @@ namespace Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gat
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

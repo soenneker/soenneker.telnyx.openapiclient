@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.TextToSpeech.Voices
+namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices
 {
     /// <summary>
     /// Builds and executes requests for operations under \text-to-speech\voices
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.TextToSpeech.Voices
     public partial class VoicesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.TextToSpeech.Voices
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,39 +35,39 @@ namespace Soenneker.Telnyx.TextToSpeech.Voices
         /// <summary>
         /// Returns a list of voices that can be used with the text to speech commands.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesGetResponse?> GetAsVoicesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesGetResponse?> GetAsVoicesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesGetResponse> GetAsVoicesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesGetResponse> GetAsVoicesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesGetResponse>(requestInfo, global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of voices that can be used with the text to speech commands.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsVoicesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesResponse>(requestInfo, global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of voices that can be used with the text to speech commands.
@@ -76,11 +76,11 @@ namespace Soenneker.Telnyx.TextToSpeech.Voices
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.TextToSpeech.Voices
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns a list of voices that can be used with the text to speech commands.
@@ -126,14 +126,14 @@ namespace Soenneker.Telnyx.TextToSpeech.Voices
 #endif
             /// <summary>Filter voices by provider</summary>
             [QueryParameter("provider")]
-            public global::Soenneker.Telnyx.TextToSpeech.Voices.GetProviderQueryParameterType? ProviderAsGetProviderQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.GetProviderQueryParameterType? ProviderAsGetProviderQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class VoicesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>
+        public partial class VoicesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesRequestBuilder.VoicesRequestBuilderGetQueryParameters>
         {
         }
     }

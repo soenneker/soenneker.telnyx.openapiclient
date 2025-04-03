@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Room_participants.Item;
+using Soenneker.Telnyx.OpenApiClient.Room_participants.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Room_participants
+namespace Soenneker.Telnyx.OpenApiClient.Room_participants
 {
     /// <summary>
     /// Builds and executes requests for operations under \room_participants
@@ -17,33 +17,33 @@ namespace Soenneker.Telnyx.Room_participants
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Room_participantsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.room_participants.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.room_participants.item collection</summary>
         /// <param name="position">The unique identifier of a room participant.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_participants.Item.WithRoom_participant_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Room_participants.Item.WithRoom_participant_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_participants.Item.WithRoom_participant_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Room_participants.Item.WithRoom_participant_ItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("room_participant_id", position);
-                return new global::Soenneker.Telnyx.Room_participants.Item.WithRoom_participant_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Room_participants.Item.WithRoom_participant_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.room_participants.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.room_participants.item collection</summary>
         /// <param name="position">The unique identifier of a room participant.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_participants.Item.WithRoom_participant_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_participants.Item.WithRoom_participant_ItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Room_participants.Item.WithRoom_participant_ItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Room_participants.Item.WithRoom_participant_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("room_participant_id", position);
-                return new global::Soenneker.Telnyx.Room_participants.Item.WithRoom_participant_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Room_participants.Item.WithRoom_participant_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Room_participants
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -61,49 +61,49 @@ namespace Soenneker.Telnyx.Room_participants
         /// <summary>
         /// View a list of room participants.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_participants.Room_participantsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Room_participants.Room_participantsGetResponse?> GetAsRoom_participantsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsGetResponse?> GetAsRoom_participantsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Room_participants.Room_participantsGetResponse> GetAsRoom_participantsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsGetResponse> GetAsRoom_participantsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Room_participants.Room_participantsGetResponse>(requestInfo, global::Soenneker.Telnyx.Room_participants.Room_participantsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// View a list of room participants.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_participants.Room_participantsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsRoom_participantsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Room_participants.Room_participantsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Room_participants.Room_participantsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Room_participants.Room_participantsResponse>(requestInfo, global::Soenneker.Telnyx.Room_participants.Room_participantsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -114,11 +114,11 @@ namespace Soenneker.Telnyx.Room_participants
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// View a list of room participants.
@@ -185,7 +185,7 @@ namespace Soenneker.Telnyx.Room_participants
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Room_participantsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>
+        public partial class Room_participantsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_participants.Room_participantsRequestBuilder.Room_participantsRequestBuilderGetQueryParameters>
         {
         }
     }

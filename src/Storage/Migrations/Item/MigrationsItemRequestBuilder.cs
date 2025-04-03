@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Storage.Migrations.Item.Actions;
+using Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Storage.Migrations.Item
+namespace Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \storage\migrations\{id}
@@ -18,12 +18,12 @@ namespace Soenneker.Telnyx.Storage.Migrations.Item
     public partial class MigrationsItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The actions property</summary>
-        public global::Soenneker.Telnyx.Storage.Migrations.Item.Actions.ActionsRequestBuilder Actions
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions.ActionsRequestBuilder Actions
         {
-            get => new global::Soenneker.Telnyx.Storage.Migrations.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Storage.Migrations.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -41,39 +41,39 @@ namespace Soenneker.Telnyx.Storage.Migrations.Item
         /// <summary>
         /// Get a Migration
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsGetResponse?> GetAsMigrationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsGetResponse?> GetAsMigrationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsGetResponse> GetAsMigrationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsGetResponse> GetAsMigrationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsGetResponse>(requestInfo, global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get a Migration
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsMigrationsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsResponse>(requestInfo, global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -94,11 +94,11 @@ namespace Soenneker.Telnyx.Storage.Migrations.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Storage.Migrations.Item.MigrationsItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.MigrationsItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

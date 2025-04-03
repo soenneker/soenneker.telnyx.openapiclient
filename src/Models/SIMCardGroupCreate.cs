@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Upper limit on the amount of data the SIM cards, within the group, can use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SIMCardGroupCreate_data_limit? DataLimit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupCreate_data_limit? DataLimit { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SIMCardGroupCreate_data_limit DataLimit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupCreate_data_limit DataLimit { get; set; }
 #endif
         /// <summary>A user friendly name for the SIM card group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Models
         public string Name { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SIMCardGroupCreate"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupCreate"/> and sets the default values.
         /// </summary>
         public SIMCardGroupCreate()
         {
@@ -40,12 +40,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SIMCardGroupCreate"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupCreate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SIMCardGroupCreate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupCreate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SIMCardGroupCreate();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupCreate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data_limit", n => { DataLimit = n.GetObjectValue<global::Soenneker.Telnyx.Models.SIMCardGroupCreate_data_limit>(global::Soenneker.Telnyx.Models.SIMCardGroupCreate_data_limit.CreateFromDiscriminatorValue); } },
+                { "data_limit", n => { DataLimit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupCreate_data_limit>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupCreate_data_limit.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SIMCardGroupCreate_data_limit>("data_limit", DataLimit);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupCreate_data_limit>("data_limit", DataLimit);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

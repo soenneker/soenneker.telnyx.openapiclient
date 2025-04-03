@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -33,13 +33,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>IDs related to who ended the conference. It is expected for them to all be there or all be null</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Conference_ended_by? EndedBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_ended_by? EndedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Conference_ended_by EndedBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_ended_by EndedBy { get; set; }
 #endif
         /// <summary>Reason why the conference ended</summary>
-        public global::Soenneker.Telnyx.Models.Conference_end_reason? EndReason { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_end_reason? EndReason { get; set; }
         /// <summary>ISO 8601 formatted date of when the conference will expire</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.Models
         public string Name { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.Models.Conference_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_record_type? RecordType { get; set; }
         /// <summary>Region where the conference is hosted</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.Models
         public string Region { get; set; }
 #endif
         /// <summary>Status of the conference</summary>
-        public global::Soenneker.Telnyx.Models.Conference_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_status? Status { get; set; }
         /// <summary>ISO 8601 formatted date of when the conference was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Conference"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Conference"/> and sets the default values.
         /// </summary>
         public Conference()
         {
@@ -94,12 +94,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Conference"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Conference"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.Conference CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Conference CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.Conference();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Conference();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,14 +111,14 @@ namespace Soenneker.Telnyx.Models
             {
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "end_reason", n => { EndReason = n.GetEnumValue<global::Soenneker.Telnyx.Models.Conference_end_reason>(); } },
-                { "ended_by", n => { EndedBy = n.GetObjectValue<global::Soenneker.Telnyx.Models.Conference_ended_by>(global::Soenneker.Telnyx.Models.Conference_ended_by.CreateFromDiscriminatorValue); } },
+                { "end_reason", n => { EndReason = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_end_reason>(); } },
+                { "ended_by", n => { EndedBy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_ended_by>(global::Soenneker.Telnyx.OpenApiClient.Models.Conference_ended_by.CreateFromDiscriminatorValue); } },
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.Conference_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_record_type>(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.Conference_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_status>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -131,14 +131,14 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Conference_ended_by>("ended_by", EndedBy);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Conference_end_reason>("end_reason", EndReason);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_ended_by>("ended_by", EndedBy);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_end_reason>("end_reason", EndReason);
             writer.WriteStringValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Conference_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_record_type>("record_type", RecordType);
             writer.WriteStringValue("region", Region);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Conference_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_status>("status", Status);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

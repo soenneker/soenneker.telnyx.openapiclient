@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -41,10 +41,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The sessions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.RoomSession>? Sessions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RoomSession>? Sessions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.RoomSession> Sessions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RoomSession> Sessions { get; set; }
 #endif
         /// <summary>The unique (within the Telnyx account scope) name of the room.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Specifies how many seconds to wait before timing out a webhook.</summary>
         public int? WebhookTimeoutSecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Room"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Room"/> and sets the default values.
         /// </summary>
         public Room()
         {
@@ -90,12 +90,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Room"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Room"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.Room CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Room CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.Room();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Room();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "max_participants", n => { MaxParticipants = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RoomSession>(global::Soenneker.Telnyx.Models.RoomSession.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RoomSession>(global::Soenneker.Telnyx.OpenApiClient.Models.RoomSession.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "unique_name", n => { UniqueName = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
@@ -131,7 +131,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteBoolValue("enable_recording", EnableRecording);
             writer.WriteGuidValue("id", Id);
             writer.WriteIntValue("max_participants", MaxParticipants);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RoomSession>("sessions", Sessions);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RoomSession>("sessions", Sessions);
             writer.WriteStringValue("unique_name", UniqueName);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);

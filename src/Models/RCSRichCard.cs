@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,21 +17,21 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Carousel of cards.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSCarouselCard? CarouselCard { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSCarouselCard? CarouselCard { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSCarouselCard CarouselCard { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSCarouselCard CarouselCard { get; set; }
 #endif
         /// <summary>Standalone card</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSStandaloneCard? StandaloneCard { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard? StandaloneCard { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSStandaloneCard StandaloneCard { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard StandaloneCard { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RCSRichCard"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSRichCard"/> and sets the default values.
         /// </summary>
         public RCSRichCard()
         {
@@ -40,12 +40,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RCSRichCard"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSRichCard"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RCSRichCard CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RCSRichCard CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RCSRichCard();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RCSRichCard();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +55,8 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "carousel_card", n => { CarouselCard = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSCarouselCard>(global::Soenneker.Telnyx.Models.RCSCarouselCard.CreateFromDiscriminatorValue); } },
-                { "standalone_card", n => { StandaloneCard = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSStandaloneCard>(global::Soenneker.Telnyx.Models.RCSStandaloneCard.CreateFromDiscriminatorValue); } },
+                { "carousel_card", n => { CarouselCard = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCarouselCard>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSCarouselCard.CreateFromDiscriminatorValue); } },
+                { "standalone_card", n => { StandaloneCard = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSCarouselCard>("carousel_card", CarouselCard);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSStandaloneCard>("standalone_card", StandaloneCard);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCarouselCard>("carousel_card", CarouselCard);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard>("standalone_card", StandaloneCard);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

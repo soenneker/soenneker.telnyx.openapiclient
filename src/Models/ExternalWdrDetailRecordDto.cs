@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,20 +17,20 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.WirelessCost? Cost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCost? Cost { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.WirelessCost Cost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCost Cost { get; set; }
 #endif
         /// <summary>Record created time</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The downlink_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.DownlinkData? DownlinkData { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkData? DownlinkData { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.DownlinkData DownlinkData { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkData DownlinkData { get; set; }
 #endif
         /// <summary>Session duration in seconds.</summary>
         public double? DurationSeconds { get; set; }
@@ -77,10 +77,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The rate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.WirelessRate? Rate { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRate? Rate { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.WirelessRate Rate { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRate Rate { get; set; }
 #endif
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,13 +117,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The uplink_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.UplinkData? UplinkData { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData? UplinkData { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.UplinkData UplinkData { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData UplinkData { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ExternalWdrDetailRecordDto"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalWdrDetailRecordDto"/> and sets the default values.
         /// </summary>
         public ExternalWdrDetailRecordDto()
         {
@@ -132,12 +132,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ExternalWdrDetailRecordDto"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalWdrDetailRecordDto"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ExternalWdrDetailRecordDto CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ExternalWdrDetailRecordDto CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ExternalWdrDetailRecordDto();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ExternalWdrDetailRecordDto();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -147,21 +147,21 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cost", n => { Cost = n.GetObjectValue<global::Soenneker.Telnyx.Models.WirelessCost>(global::Soenneker.Telnyx.Models.WirelessCost.CreateFromDiscriminatorValue); } },
+                { "cost", n => { Cost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCost>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCost.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "downlink_data", n => { DownlinkData = n.GetObjectValue<global::Soenneker.Telnyx.Models.DownlinkData>(global::Soenneker.Telnyx.Models.DownlinkData.CreateFromDiscriminatorValue); } },
+                { "downlink_data", n => { DownlinkData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkData>(global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkData.CreateFromDiscriminatorValue); } },
                 { "duration_seconds", n => { DurationSeconds = n.GetDoubleValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "imsi", n => { Imsi = n.GetStringValue(); } },
                 { "mcc", n => { Mcc = n.GetStringValue(); } },
                 { "mnc", n => { Mnc = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "rate", n => { Rate = n.GetObjectValue<global::Soenneker.Telnyx.Models.WirelessRate>(global::Soenneker.Telnyx.Models.WirelessRate.CreateFromDiscriminatorValue); } },
+                { "rate", n => { Rate = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRate>(global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRate.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "sim_card_id", n => { SimCardId = n.GetStringValue(); } },
                 { "sim_group_id", n => { SimGroupId = n.GetStringValue(); } },
                 { "sim_group_name", n => { SimGroupName = n.GetStringValue(); } },
-                { "uplink_data", n => { UplinkData = n.GetObjectValue<global::Soenneker.Telnyx.Models.UplinkData>(global::Soenneker.Telnyx.Models.UplinkData.CreateFromDiscriminatorValue); } },
+                { "uplink_data", n => { UplinkData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData>(global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -171,21 +171,21 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.WirelessCost>("cost", Cost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessCost>("cost", Cost);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.DownlinkData>("downlink_data", DownlinkData);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DownlinkData>("downlink_data", DownlinkData);
             writer.WriteDoubleValue("duration_seconds", DurationSeconds);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("imsi", Imsi);
             writer.WriteStringValue("mcc", Mcc);
             writer.WriteStringValue("mnc", Mnc);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.WirelessRate>("rate", Rate);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WirelessRate>("rate", Rate);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("sim_card_id", SimCardId);
             writer.WriteStringValue("sim_group_id", SimGroupId);
             writer.WriteStringValue("sim_group_name", SimGroupName);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.UplinkData>("uplink_data", UplinkData);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UplinkData>("uplink_data", UplinkData);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

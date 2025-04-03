@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -49,9 +49,9 @@ namespace Soenneker.Telnyx.Models
         public string ClientState { get; set; }
 #endif
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.Models.ActiveCall_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall_record_type? RecordType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ActiveCall"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall"/> and sets the default values.
         /// </summary>
         public ActiveCall()
         {
@@ -60,12 +60,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ActiveCall"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ActiveCall CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ActiveCall();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.Models
                 { "call_leg_id", n => { CallLegId = n.GetStringValue(); } },
                 { "call_session_id", n => { CallSessionId = n.GetStringValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.ActiveCall_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall_record_type>(); } },
             };
         }
         /// <summary>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("call_leg_id", CallLegId);
             writer.WriteStringValue("call_session_id", CallSessionId);
             writer.WriteStringValue("client_state", ClientState);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.ActiveCall_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActiveCall_record_type>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item
+namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \external_connections\{id}\phone_numbers\{phone_number_id}
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item
     public partial class WithPhone_number_ItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,80 +36,80 @@ namespace Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item
         /// <summary>
         /// Return the details of a phone number associated with the given external connection.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_GetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_GetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_GetResponse?> GetAsWithPhone_number_GetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_GetResponse?> GetAsWithPhone_number_GetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_GetResponse> GetAsWithPhone_number_GetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_GetResponse> GetAsWithPhone_number_GetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_GetResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_GetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_GetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_GetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return the details of a phone number associated with the given external connection.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsWithPhone_number_GetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Asynchronously update settings of the phone number associated with the given external connection.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_PatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_PatchResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_PatchResponse?> PatchAsWithPhone_number_PatchResponseAsync(global::Soenneker.Telnyx.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_PatchResponse?> PatchAsWithPhone_number_PatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_PatchResponse> PatchAsWithPhone_number_PatchResponseAsync(global::Soenneker.Telnyx.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_PatchResponse> PatchAsWithPhone_number_PatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_PatchResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_PatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_PatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_PatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Asynchronously update settings of the phone number associated with the given external connection.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PatchAsWithPhone_number_PatchResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response?> PatchAsync(global::Soenneker.Telnyx.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response> PatchAsync(global::Soenneker.Telnyx.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Return the details of a phone number associated with the given external connection.
@@ -138,11 +138,11 @@ namespace Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionPhoneNumberRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -155,11 +155,11 @@ namespace Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_ItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_ItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.External_connections.Item.Phone_numbers.Item.WithPhone_number_ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Phone_numbers.Item.WithPhone_number_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

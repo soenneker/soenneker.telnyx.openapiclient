@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.External_connections.Item.Uploads.Refresh
+namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Refresh
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.External_connections.Item.Uploads.Refresh
         /// <summary>Describes wether or not the operation was successful</summary>
         public bool? Success { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.Uploads.Refresh.RefreshPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Refresh.RefreshPostResponse"/> and sets the default values.
         /// </summary>
         public RefreshPostResponse()
         {
@@ -26,12 +26,12 @@ namespace Soenneker.Telnyx.External_connections.Item.Uploads.Refresh
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Uploads.Refresh.RefreshPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Refresh.RefreshPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.External_connections.Item.Uploads.Refresh.RefreshPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Refresh.RefreshPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.External_connections.Item.Uploads.Refresh.RefreshPostResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.Refresh.RefreshPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

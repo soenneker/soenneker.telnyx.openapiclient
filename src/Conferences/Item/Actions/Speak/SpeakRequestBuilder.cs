@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Conferences.Item.Actions.Speak
+namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak
 {
     /// <summary>
     /// Builds and executes requests for operations under \conferences\{conference_-id}\actions\speak
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Conferences.Item.Actions.Speak
     public partial class SpeakRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Conferences.Item.Actions.Speak
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,43 +36,43 @@ namespace Soenneker.Telnyx.Conferences.Item.Actions.Speak
         /// <summary>
         /// Convert text to speech and play it to all or some participants.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakPostResponse?> PostAsSpeakPostResponseAsync(global::Soenneker.Telnyx.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakPostResponse?> PostAsSpeakPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakPostResponse> PostAsSpeakPostResponseAsync(global::Soenneker.Telnyx.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakPostResponse> PostAsSpeakPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakPostResponse>(requestInfo, global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Convert text to speech and play it to all or some participants.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PostAsSpeakPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakResponse?> PostAsync(global::Soenneker.Telnyx.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakResponse> PostAsync(global::Soenneker.Telnyx.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakResponse>(requestInfo, global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Convert text to speech and play it to all or some participants.
@@ -82,11 +82,11 @@ namespace Soenneker.Telnyx.Conferences.Item.Actions.Speak
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -99,11 +99,11 @@ namespace Soenneker.Telnyx.Conferences.Item.Actions.Speak
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Conferences.Item.Actions.Speak.SpeakRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

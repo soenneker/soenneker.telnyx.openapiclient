@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Campaign.Usecase.Cost;
+using Soenneker.Telnyx.OpenApiClient.Campaign.Usecase.Cost;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Campaign.Usecase
+namespace Soenneker.Telnyx.OpenApiClient.Campaign.Usecase
 {
     /// <summary>
     /// Builds and executes requests for operations under \campaign\usecase
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Campaign.Usecase
     public partial class UsecaseRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The cost property</summary>
-        public global::Soenneker.Telnyx.Campaign.Usecase.Cost.CostRequestBuilder Cost
+        public global::Soenneker.Telnyx.OpenApiClient.Campaign.Usecase.Cost.CostRequestBuilder Cost
         {
-            get => new global::Soenneker.Telnyx.Campaign.Usecase.Cost.CostRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Campaign.Usecase.Cost.CostRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Campaign.Usecase.UsecaseRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Campaign.Usecase.UsecaseRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Campaign.Usecase
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Campaign.Usecase.UsecaseRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Campaign.Usecase.UsecaseRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

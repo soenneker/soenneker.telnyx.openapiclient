@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The call recording settings for a phone number.
@@ -16,29 +16,29 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When using &apos;dual&apos; channels, final audio file will be stereo recorded with the first leg on channel A, and the rest on channel B.</summary>
-        public global::Soenneker.Telnyx.Models.CallRecording_inbound_call_recording_channels? InboundCallRecordingChannels { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording_inbound_call_recording_channels? InboundCallRecordingChannels { get; set; }
         /// <summary>When enabled, any inbound call to this number will be recorded.</summary>
         public bool? InboundCallRecordingEnabled { get; set; }
         /// <summary>The audio file format for calls being recorded.</summary>
-        public global::Soenneker.Telnyx.Models.CallRecording_inbound_call_recording_format? InboundCallRecordingFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording_inbound_call_recording_format? InboundCallRecordingFormat { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CallRecording"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording"/> and sets the default values.
         /// </summary>
         public CallRecording()
         {
             AdditionalData = new Dictionary<string, object>();
-            InboundCallRecordingChannels = global::Soenneker.Telnyx.Models.CallRecording_inbound_call_recording_channels.Single;
-            InboundCallRecordingFormat = global::Soenneker.Telnyx.Models.CallRecording_inbound_call_recording_format.Wav;
+            InboundCallRecordingChannels = global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording_inbound_call_recording_channels.Single;
+            InboundCallRecordingFormat = global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording_inbound_call_recording_format.Wav;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CallRecording"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CallRecording CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CallRecording();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,9 +48,9 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "inbound_call_recording_channels", n => { InboundCallRecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.Models.CallRecording_inbound_call_recording_channels>(); } },
+                { "inbound_call_recording_channels", n => { InboundCallRecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording_inbound_call_recording_channels>(); } },
                 { "inbound_call_recording_enabled", n => { InboundCallRecordingEnabled = n.GetBoolValue(); } },
-                { "inbound_call_recording_format", n => { InboundCallRecordingFormat = n.GetEnumValue<global::Soenneker.Telnyx.Models.CallRecording_inbound_call_recording_format>(); } },
+                { "inbound_call_recording_format", n => { InboundCallRecordingFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording_inbound_call_recording_format>(); } },
             };
         }
         /// <summary>
@@ -60,9 +60,9 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CallRecording_inbound_call_recording_channels>("inbound_call_recording_channels", InboundCallRecordingChannels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording_inbound_call_recording_channels>("inbound_call_recording_channels", InboundCallRecordingChannels);
             writer.WriteBoolValue("inbound_call_recording_enabled", InboundCallRecordingEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CallRecording_inbound_call_recording_format>("inbound_call_recording_format", InboundCallRecordingFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRecording_inbound_call_recording_format>("inbound_call_recording_format", InboundCallRecordingFormat);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

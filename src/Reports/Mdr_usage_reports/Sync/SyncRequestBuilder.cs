@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync
+namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync
 {
     /// <summary>
     /// Builds and executes requests for operations under \reports\mdr_usage_reports\sync
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync
     public partial class SyncRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,20 +36,20 @@ namespace Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync
         /// <summary>
         /// Generate and fetch messaging usage report synchronously. This endpoint will both generate and fetch the messaging report over a specified time period. No polling is necessary but the response may take up to a couple of minutes. 
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.MdrGetSyncUsageReportResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetSyncUsageReportResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.MdrGetSyncUsageReportResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder.SyncRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetSyncUsageReportResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder.SyncRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.MdrGetSyncUsageReportResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder.SyncRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetSyncUsageReportResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder.SyncRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.MdrGetSyncUsageReportResponse>(requestInfo, global::Soenneker.Telnyx.Models.MdrGetSyncUsageReportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetSyncUsageReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetSyncUsageReportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Generate and fetch messaging usage report synchronously. This endpoint will both generate and fetch the messaging report over a specified time period. No polling is necessary but the response may take up to a couple of minutes. 
@@ -58,11 +58,11 @@ namespace Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder.SyncRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder.SyncRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder.SyncRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder.SyncRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -73,11 +73,11 @@ namespace Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Generate and fetch messaging usage report synchronously. This endpoint will both generate and fetch the messaging report over a specified time period. No polling is necessary but the response may take up to a couple of minutes. 
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync
             public string AggregationType { get; set; }
 #endif
             [QueryParameter("aggregation_type")]
-            public global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.GetAggregation_typeQueryParameterType? AggregationTypeAsGetAggregationTypeQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.GetAggregation_typeQueryParameterType? AggregationTypeAsGetAggregationTypeQueryParameterType { get; set; }
             [QueryParameter("end_date")]
             public DateTimeOffset? EndDate { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class SyncRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder.SyncRequestBuilderGetQueryParameters>
+        public partial class SyncRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Sync.SyncRequestBuilder.SyncRequestBuilderGetQueryParameters>
         {
         }
     }

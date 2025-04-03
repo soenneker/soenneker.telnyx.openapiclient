@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.Models
         public List<string> Keywords { get; set; }
 #endif
         /// <summary>The op property</summary>
-        public global::Soenneker.Telnyx.Models.AutorespConfigSchema_op? Op { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchema_op? Op { get; set; }
         /// <summary>The resp_text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.AutorespConfigSchema"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchema"/> and sets the default values.
         /// </summary>
         public AutorespConfigSchema()
         {
@@ -62,12 +62,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AutorespConfigSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchema"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.AutorespConfigSchema CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.AutorespConfigSchema();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchema();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "keywords", n => { Keywords = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.Models.AutorespConfigSchema_op>(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchema_op>(); } },
                 { "resp_text", n => { RespText = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("keywords", Keywords);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.AutorespConfigSchema_op>("op", Op);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigSchema_op>("op", Op);
             writer.WriteStringValue("resp_text", RespText);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

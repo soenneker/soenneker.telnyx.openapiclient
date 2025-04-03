@@ -2,15 +2,15 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Storage.Buckets;
-using Soenneker.Telnyx.Storage.Migration_source_coverage;
-using Soenneker.Telnyx.Storage.Migration_sources;
-using Soenneker.Telnyx.Storage.Migrations;
+using Soenneker.Telnyx.OpenApiClient.Storage.Buckets;
+using Soenneker.Telnyx.OpenApiClient.Storage.Migration_source_coverage;
+using Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources;
+using Soenneker.Telnyx.OpenApiClient.Storage.Migrations;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Storage
+namespace Soenneker.Telnyx.OpenApiClient.Storage
 {
     /// <summary>
     /// Builds and executes requests for operations under \storage
@@ -19,27 +19,27 @@ namespace Soenneker.Telnyx.Storage
     public partial class StorageRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The buckets property</summary>
-        public global::Soenneker.Telnyx.Storage.Buckets.BucketsRequestBuilder Buckets
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.BucketsRequestBuilder Buckets
         {
-            get => new global::Soenneker.Telnyx.Storage.Buckets.BucketsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.BucketsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The migration_source_coverage property</summary>
-        public global::Soenneker.Telnyx.Storage.Migration_source_coverage.Migration_source_coverageRequestBuilder Migration_source_coverage
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Migration_source_coverage.Migration_source_coverageRequestBuilder Migration_source_coverage
         {
-            get => new global::Soenneker.Telnyx.Storage.Migration_source_coverage.Migration_source_coverageRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Migration_source_coverage.Migration_source_coverageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The migration_sources property</summary>
-        public global::Soenneker.Telnyx.Storage.Migration_sources.Migration_sourcesRequestBuilder Migration_sources
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources.Migration_sourcesRequestBuilder Migration_sources
         {
-            get => new global::Soenneker.Telnyx.Storage.Migration_sources.Migration_sourcesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Migration_sources.Migration_sourcesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The migrations property</summary>
-        public global::Soenneker.Telnyx.Storage.Migrations.MigrationsRequestBuilder Migrations
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.MigrationsRequestBuilder Migrations
         {
-            get => new global::Soenneker.Telnyx.Storage.Migrations.MigrationsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.MigrationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.StorageRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.StorageRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.Storage
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.StorageRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.StorageRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

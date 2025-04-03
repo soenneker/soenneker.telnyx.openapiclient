@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Compose and send a message to a destination predefined by chatbot.
@@ -18,21 +18,21 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Initiate the recording and sending of an audio or video message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSComposeRecordingMessage? ComposeRecordingMessage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage? ComposeRecordingMessage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSComposeRecordingMessage ComposeRecordingMessage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage ComposeRecordingMessage { get; set; }
 #endif
         /// <summary>Compose and send a text message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSComposeTextMessage? ComposeTextMessage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeTextMessage? ComposeTextMessage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSComposeTextMessage ComposeTextMessage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeTextMessage ComposeTextMessage { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RCSComposeAction"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction"/> and sets the default values.
         /// </summary>
         public RCSComposeAction()
         {
@@ -41,12 +41,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RCSComposeAction"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RCSComposeAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RCSComposeAction();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +56,8 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "compose_recording_message", n => { ComposeRecordingMessage = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSComposeRecordingMessage>(global::Soenneker.Telnyx.Models.RCSComposeRecordingMessage.CreateFromDiscriminatorValue); } },
-                { "compose_text_message", n => { ComposeTextMessage = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSComposeTextMessage>(global::Soenneker.Telnyx.Models.RCSComposeTextMessage.CreateFromDiscriminatorValue); } },
+                { "compose_recording_message", n => { ComposeRecordingMessage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage.CreateFromDiscriminatorValue); } },
+                { "compose_text_message", n => { ComposeTextMessage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeTextMessage>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeTextMessage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSComposeRecordingMessage>("compose_recording_message", ComposeRecordingMessage);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSComposeTextMessage>("compose_text_message", ComposeTextMessage);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage>("compose_recording_message", ComposeRecordingMessage);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeTextMessage>("compose_text_message", ComposeTextMessage);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

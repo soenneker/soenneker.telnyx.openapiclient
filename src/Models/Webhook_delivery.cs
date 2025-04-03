@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Record of all attempts to deliver a webhook.
@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Detailed delivery attempts, ordered by most recent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.Attempt>? Attempts { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Attempt>? Attempts { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.Attempt> Attempts { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Attempt> Attempts { get; set; }
 #endif
         /// <summary>ISO 8601 timestamp indicating when the last webhook response has been received.</summary>
         public DateTimeOffset? FinishedAt { get; set; }
@@ -38,19 +38,19 @@ namespace Soenneker.Telnyx.Models
         /// <summary>ISO 8601 timestamp indicating when the first request attempt was initiated.</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>Delivery status: &apos;delivered&apos; when successfuly delivered or &apos;failed&apos; if all attempts have failed.</summary>
-        public global::Soenneker.Telnyx.Models.Webhook_delivery_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_status? Status { get; set; }
         /// <summary>Uniquely identifies the user that owns the webhook_delivery record.</summary>
         public Guid? UserId { get; set; }
         /// <summary>Original webhook JSON data. Payload fields vary according to event type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Webhook_delivery_webhook? Webhook { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook? Webhook { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Webhook_delivery_webhook Webhook { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook Webhook { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Webhook_delivery"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery"/> and sets the default values.
         /// </summary>
         public Webhook_delivery()
         {
@@ -59,12 +59,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Webhook_delivery"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.Webhook_delivery CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.Webhook_delivery();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,14 +74,14 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attempts", n => { Attempts = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Attempt>(global::Soenneker.Telnyx.Models.Attempt.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "attempts", n => { Attempts = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Attempt>(global::Soenneker.Telnyx.OpenApiClient.Models.Attempt.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "finished_at", n => { FinishedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.Webhook_delivery_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_status>(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
-                { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.Telnyx.Models.Webhook_delivery_webhook>(global::Soenneker.Telnyx.Models.Webhook_delivery_webhook.CreateFromDiscriminatorValue); } },
+                { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook>(global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -91,14 +91,14 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Attempt>("attempts", Attempts);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Attempt>("attempts", Attempts);
             writer.WriteDateTimeOffsetValue("finished_at", FinishedAt);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Webhook_delivery_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_status>("status", Status);
             writer.WriteGuidValue("user_id", UserId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Webhook_delivery_webhook>("webhook", Webhook);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_webhook>("webhook", Webhook);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

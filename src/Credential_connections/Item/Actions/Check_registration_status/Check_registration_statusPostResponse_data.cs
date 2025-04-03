@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status
+namespace Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registratio
         public string SipUsername { get; set; }
 #endif
         /// <summary>The current registration status of your SIP connection</summary>
-        public global::Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data_status? Status { get; set; }
         /// <summary>The protocol of the SIP connection</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registratio
         public string UserAgent { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data"/> and sets the default values.
         /// </summary>
         public Check_registration_statusPostResponse_data()
         {
@@ -76,12 +76,12 @@ namespace Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registratio
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data();
+            return new global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registratio
                 { "port", n => { Port = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "sip_username", n => { SipUsername = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data_status>(); } },
                 { "transport", n => { Transport = n.GetStringValue(); } },
                 { "user_agent", n => { UserAgent = n.GetStringValue(); } },
             };
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registratio
             writer.WriteIntValue("port", Port);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("sip_username", SipUsername);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse_data_status>("status", Status);
             writer.WriteStringValue("transport", Transport);
             writer.WriteStringValue("user_agent", UserAgent);
             writer.WriteAdditionalData(AdditionalData);

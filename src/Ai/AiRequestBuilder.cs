@@ -2,19 +2,19 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Ai.Assistants;
-using Soenneker.Telnyx.Ai.Audio;
-using Soenneker.Telnyx.Ai.Chat;
-using Soenneker.Telnyx.Ai.Clusters;
-using Soenneker.Telnyx.Ai.Embeddings;
-using Soenneker.Telnyx.Ai.Fine_tuning;
-using Soenneker.Telnyx.Ai.ModelsRequests;
-using Soenneker.Telnyx.Ai.Summarize;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants;
+using Soenneker.Telnyx.OpenApiClient.Ai.Audio;
+using Soenneker.Telnyx.OpenApiClient.Ai.Chat;
+using Soenneker.Telnyx.OpenApiClient.Ai.Clusters;
+using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings;
+using Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning;
+using Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests;
+using Soenneker.Telnyx.OpenApiClient.Ai.Summarize;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Ai
+namespace Soenneker.Telnyx.OpenApiClient.Ai
 {
     /// <summary>
     /// Builds and executes requests for operations under \ai
@@ -23,47 +23,47 @@ namespace Soenneker.Telnyx.Ai
     public partial class AiRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The assistants property</summary>
-        public global::Soenneker.Telnyx.Ai.Assistants.AssistantsRequestBuilder Assistants
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.AssistantsRequestBuilder Assistants
         {
-            get => new global::Soenneker.Telnyx.Ai.Assistants.AssistantsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.AssistantsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The audio property</summary>
-        public global::Soenneker.Telnyx.Ai.Audio.AudioRequestBuilder Audio
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Audio.AudioRequestBuilder Audio
         {
-            get => new global::Soenneker.Telnyx.Ai.Audio.AudioRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Audio.AudioRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The chat property</summary>
-        public global::Soenneker.Telnyx.Ai.Chat.ChatRequestBuilder Chat
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Chat.ChatRequestBuilder Chat
         {
-            get => new global::Soenneker.Telnyx.Ai.Chat.ChatRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Chat.ChatRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The clusters property</summary>
-        public global::Soenneker.Telnyx.Ai.Clusters.ClustersRequestBuilder Clusters
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Clusters.ClustersRequestBuilder Clusters
         {
-            get => new global::Soenneker.Telnyx.Ai.Clusters.ClustersRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Clusters.ClustersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The embeddings property</summary>
-        public global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder Embeddings
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder Embeddings
         {
-            get => new global::Soenneker.Telnyx.Ai.Embeddings.EmbeddingsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.EmbeddingsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The fine_tuning property</summary>
-        public global::Soenneker.Telnyx.Ai.Fine_tuning.Fine_tuningRequestBuilder Fine_tuning
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning.Fine_tuningRequestBuilder Fine_tuning
         {
-            get => new global::Soenneker.Telnyx.Ai.Fine_tuning.Fine_tuningRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning.Fine_tuningRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The models property</summary>
-        public global::Soenneker.Telnyx.Ai.ModelsRequests.ModelsRequestBuilder Models
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests.ModelsRequestBuilder Models
         {
-            get => new global::Soenneker.Telnyx.Ai.ModelsRequests.ModelsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests.ModelsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The summarize property</summary>
-        public global::Soenneker.Telnyx.Ai.Summarize.SummarizeRequestBuilder Summarize
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Summarize.SummarizeRequestBuilder Summarize
         {
-            get => new global::Soenneker.Telnyx.Ai.Summarize.SummarizeRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Summarize.SummarizeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Ai.AiRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.AiRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.Ai
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Ai.AiRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.AiRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

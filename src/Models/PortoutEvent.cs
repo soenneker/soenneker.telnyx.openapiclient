@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,27 +17,27 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Indicates the notification methods used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.PortoutEvent_available_notification_methods?>? AvailableNotificationMethods { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent_available_notification_methods?>? AvailableNotificationMethods { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.PortoutEvent_available_notification_methods?> AvailableNotificationMethods { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent_available_notification_methods?> AvailableNotificationMethods { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Identifies the event type</summary>
-        public global::Soenneker.Telnyx.Models.PortoutEvent_event_type? EventType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent_event_type? EventType { get; set; }
         /// <summary>Uniquely identifies the event.</summary>
         public Guid? Id { get; set; }
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.PortoutEvent.PortoutEvent_payload? Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent.PortoutEvent_payload? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.PortoutEvent.PortoutEvent_payload Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent.PortoutEvent_payload Payload { get; set; }
 #endif
         /// <summary>The status of the payload generation.</summary>
-        public global::Soenneker.Telnyx.Models.PortoutEvent_payload_status? PayloadStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent_payload_status? PayloadStatus { get; set; }
         /// <summary>Identifies the port-out order associated with the event.</summary>
         public Guid? PortoutId { get; set; }
         /// <summary>Identifies the type of the resource.</summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PortoutEvent"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent"/> and sets the default values.
         /// </summary>
         public PortoutEvent()
         {
@@ -60,12 +60,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PortoutEvent"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PortoutEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PortoutEvent();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,12 +75,12 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "available_notification_methods", n => { AvailableNotificationMethods = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.Models.PortoutEvent_available_notification_methods>()?.AsList(); } },
+                { "available_notification_methods", n => { AvailableNotificationMethods = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent_available_notification_methods>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.Models.PortoutEvent_event_type>(); } },
+                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent_event_type>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.Models.PortoutEvent.PortoutEvent_payload>(global::Soenneker.Telnyx.Models.PortoutEvent.PortoutEvent_payload.CreateFromDiscriminatorValue); } },
-                { "payload_status", n => { PayloadStatus = n.GetEnumValue<global::Soenneker.Telnyx.Models.PortoutEvent_payload_status>(); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent.PortoutEvent_payload>(global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent.PortoutEvent_payload.CreateFromDiscriminatorValue); } },
+                { "payload_status", n => { PayloadStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent_payload_status>(); } },
                 { "portout_id", n => { PortoutId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -93,67 +93,67 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.Models.PortoutEvent_available_notification_methods>("available_notification_methods", AvailableNotificationMethods);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent_available_notification_methods>("available_notification_methods", AvailableNotificationMethods);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.PortoutEvent_event_type>("event_type", EventType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent_event_type>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.PortoutEvent.PortoutEvent_payload>("payload", Payload);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.PortoutEvent_payload_status>("payload_status", PayloadStatus);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent.PortoutEvent_payload>("payload", Payload);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent_payload_status>("payload_status", PayloadStatus);
             writer.WriteGuidValue("portout_id", PortoutId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.Models.WebhookPortoutFocDateChangedPayload"/>, <see cref="global::Soenneker.Telnyx.Models.WebhookPortoutNewCommentPayload"/>, <see cref="global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChangedPayload"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewCommentPayload"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PortoutEvent_payload : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.WebhookPortoutFocDateChangedPayload"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChangedPayload"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.WebhookPortoutFocDateChangedPayload? WebhookPortoutFocDateChangedPayload { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChangedPayload? WebhookPortoutFocDateChangedPayload { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.WebhookPortoutFocDateChangedPayload WebhookPortoutFocDateChangedPayload { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChangedPayload WebhookPortoutFocDateChangedPayload { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.WebhookPortoutNewCommentPayload"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewCommentPayload"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.WebhookPortoutNewCommentPayload? WebhookPortoutNewCommentPayload { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewCommentPayload? WebhookPortoutNewCommentPayload { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.WebhookPortoutNewCommentPayload WebhookPortoutNewCommentPayload { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewCommentPayload WebhookPortoutNewCommentPayload { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload? WebhookPortoutStatusChangedPayload { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload? WebhookPortoutStatusChangedPayload { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload WebhookPortoutStatusChangedPayload { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload WebhookPortoutStatusChangedPayload { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PortoutEvent.PortoutEvent_payload"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent.PortoutEvent_payload"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.Models.PortoutEvent.PortoutEvent_payload CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent.PortoutEvent_payload CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.Models.PortoutEvent.PortoutEvent_payload();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.PortoutEvent.PortoutEvent_payload();
                 if("WebhookPortoutFocDateChangedPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.WebhookPortoutFocDateChangedPayload = new global::Soenneker.Telnyx.Models.WebhookPortoutFocDateChangedPayload();
+                    result.WebhookPortoutFocDateChangedPayload = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChangedPayload();
                 }
                 else if("WebhookPortoutNewCommentPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.WebhookPortoutNewCommentPayload = new global::Soenneker.Telnyx.Models.WebhookPortoutNewCommentPayload();
+                    result.WebhookPortoutNewCommentPayload = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewCommentPayload();
                 }
                 else if("WebhookPortoutStatusChangedPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.WebhookPortoutStatusChangedPayload = new global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload();
+                    result.WebhookPortoutStatusChangedPayload = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload();
                 }
                 return result;
             }
@@ -186,15 +186,15 @@ namespace Soenneker.Telnyx.Models
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
                 if(WebhookPortoutFocDateChangedPayload != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.WebhookPortoutFocDateChangedPayload>(null, WebhookPortoutFocDateChangedPayload);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutFocDateChangedPayload>(null, WebhookPortoutFocDateChangedPayload);
                 }
                 else if(WebhookPortoutNewCommentPayload != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.WebhookPortoutNewCommentPayload>(null, WebhookPortoutNewCommentPayload);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutNewCommentPayload>(null, WebhookPortoutNewCommentPayload);
                 }
                 else if(WebhookPortoutStatusChangedPayload != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.WebhookPortoutStatusChangedPayload>(null, WebhookPortoutStatusChangedPayload);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload>(null, WebhookPortoutStatusChangedPayload);
                 }
             }
         }

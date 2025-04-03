@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send
+namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,9 +23,9 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send
         public List<string> PhoneNumbers { get; set; }
 #endif
         /// <summary>The verification_method property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody_verification_method? VerificationMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody_verification_method? VerificationMethod { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody"/> and sets the default values.
         /// </summary>
         public SendPostRequestBody()
         {
@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "verification_method", n => { VerificationMethod = n.GetEnumValue<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody_verification_method>(); } },
+                { "verification_method", n => { VerificationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody_verification_method>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("phone_numbers", PhoneNumbers);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody_verification_method>("verification_method", VerificationMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send.SendPostRequestBody_verification_method>("verification_method", VerificationMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

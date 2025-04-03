@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -43,10 +43,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The loader_metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.EmbeddingMetadata_loader_metadata? LoaderMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata_loader_metadata? LoaderMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.EmbeddingMetadata_loader_metadata LoaderMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata_loader_metadata LoaderMetadata { get; set; }
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.Models
         public string Source { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.EmbeddingMetadata"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata"/> and sets the default values.
         /// </summary>
         public EmbeddingMetadata()
         {
@@ -66,12 +66,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.EmbeddingMetadata"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.EmbeddingMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.EmbeddingMetadata();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.Models
                 { "checksum", n => { Checksum = n.GetStringValue(); } },
                 { "embedding", n => { Embedding = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
-                { "loader_metadata", n => { LoaderMetadata = n.GetObjectValue<global::Soenneker.Telnyx.Models.EmbeddingMetadata_loader_metadata>(global::Soenneker.Telnyx.Models.EmbeddingMetadata_loader_metadata.CreateFromDiscriminatorValue); } },
+                { "loader_metadata", n => { LoaderMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata_loader_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata_loader_metadata.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetStringValue(); } },
             };
         }
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("checksum", Checksum);
             writer.WriteStringValue("embedding", Embedding);
             writer.WriteStringValue("filename", Filename);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.EmbeddingMetadata_loader_metadata>("loader_metadata", LoaderMetadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingMetadata_loader_metadata>("loader_metadata", LoaderMetadata);
             writer.WriteStringValue("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Ai.Audio.Transcriptions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Audio.Transcriptions;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Ai.Audio
+namespace Soenneker.Telnyx.OpenApiClient.Ai.Audio
 {
     /// <summary>
     /// Builds and executes requests for operations under \ai\audio
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Ai.Audio
     public partial class AudioRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The transcriptions property</summary>
-        public global::Soenneker.Telnyx.Ai.Audio.Transcriptions.TranscriptionsRequestBuilder Transcriptions
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Audio.Transcriptions.TranscriptionsRequestBuilder Transcriptions
         {
-            get => new global::Soenneker.Telnyx.Ai.Audio.Transcriptions.TranscriptionsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Audio.Transcriptions.TranscriptionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Ai.Audio.AudioRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Audio.AudioRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Ai.Audio
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Ai.Audio.AudioRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Audio.AudioRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

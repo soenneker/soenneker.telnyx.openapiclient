@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels
+namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels
 {
     /// <summary>
     /// Builds and executes requests for operations under \managed_accounts\allocatable_global_outbound_channels
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels
     public partial class Allocatable_global_outbound_channelsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,49 +36,49 @@ namespace Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels
         /// <summary>
         /// Display information about allocatable global outbound channels for the current user. Only usable by account managers.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsGetResponse?> GetAsAllocatable_global_outbound_channelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsGetResponse?> GetAsAllocatable_global_outbound_channelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsGetResponse> GetAsAllocatable_global_outbound_channelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsGetResponse> GetAsAllocatable_global_outbound_channelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "403", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsGetResponse>(requestInfo, global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Display information about allocatable global outbound channels for the current user. Only usable by account managers.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 403 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsAllocatable_global_outbound_channelsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "403", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsResponse>(requestInfo, global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Display information about allocatable global outbound channels for the current user. Only usable by account managers.
@@ -102,11 +102,11 @@ namespace Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Allocatable_global_outbound_channels.Allocatable_global_outbound_channelsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

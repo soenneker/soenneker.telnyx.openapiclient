@@ -2,11 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Messages.Item
+namespace Soenneker.Telnyx.OpenApiClient.Messages.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,13 +18,13 @@ namespace Soenneker.Telnyx.Messages.Item
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse.MessagesGetResponse_data? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse.MessagesGetResponse_data? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse.MessagesGetResponse_data Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse.MessagesGetResponse_data Data { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse"/> and sets the default values.
         /// </summary>
         public MessagesGetResponse()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Messages.Item
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.Messages.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse.MessagesGetResponse_data>(global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse.MessagesGetResponse_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse.MessagesGetResponse_data>(global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse.MessagesGetResponse_data.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,48 +58,48 @@ namespace Soenneker.Telnyx.Messages.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse.MessagesGetResponse_data>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse.MessagesGetResponse_data>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.Models.InboundMessagePayload"/>, <see cref="global::Soenneker.Telnyx.Models.OutboundMessagePayload"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MessagesGetResponse_data : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.InboundMessagePayload"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.InboundMessagePayload? InboundMessagePayload { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload? InboundMessagePayload { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.InboundMessagePayload InboundMessagePayload { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload InboundMessagePayload { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.OutboundMessagePayload"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.OutboundMessagePayload? OutboundMessagePayload { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload? OutboundMessagePayload { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.OutboundMessagePayload OutboundMessagePayload { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload OutboundMessagePayload { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse.MessagesGetResponse_data"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse.MessagesGetResponse_data"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse.MessagesGetResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse.MessagesGetResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.Messages.Item.MessagesGetResponse.MessagesGetResponse_data();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesGetResponse.MessagesGetResponse_data();
                 if("InboundMessagePayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.InboundMessagePayload = new global::Soenneker.Telnyx.Models.InboundMessagePayload();
+                    result.InboundMessagePayload = new global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload();
                 }
                 else if("OutboundMessagePayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.OutboundMessagePayload = new global::Soenneker.Telnyx.Models.OutboundMessagePayload();
+                    result.OutboundMessagePayload = new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload();
                 }
                 return result;
             }
@@ -128,11 +128,11 @@ namespace Soenneker.Telnyx.Messages.Item
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
                 if(InboundMessagePayload != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.InboundMessagePayload>(null, InboundMessagePayload);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload>(null, InboundMessagePayload);
                 }
                 else if(OutboundMessagePayload != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.OutboundMessagePayload>(null, OutboundMessagePayload);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload>(null, OutboundMessagePayload);
                 }
             }
         }

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// This object represents a bulk SIM card action. It groups SIM card actions created through a bulk endpoint under a single resource for further lookup.
@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.Models
     public partial class BulkSIMCardAction : IAdditionalDataHolder, IParsable
     {
         /// <summary>The operation type. It can be one of the following: &lt;br/&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;bulk_set_public_ips&lt;/code&gt; - set a public IP for each specified SIM card.&lt;/li&gt;&lt;/ul&gt;</summary>
-        public global::Soenneker.Telnyx.Models.BulkSIMCardAction_action_type? ActionType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardAction_action_type? ActionType { get; private set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
@@ -38,10 +38,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>A JSON object representation of the bulk action payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.BulkSIMCardAction_settings? Settings { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardAction_settings? Settings { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.BulkSIMCardAction_settings Settings { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardAction_settings Settings { get; private set; }
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.BulkSIMCardAction"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardAction"/> and sets the default values.
         /// </summary>
         public BulkSIMCardAction()
         {
@@ -61,12 +61,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.BulkSIMCardAction"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.BulkSIMCardAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.BulkSIMCardAction();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,11 +76,11 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action_type", n => { ActionType = n.GetEnumValue<global::Soenneker.Telnyx.Models.BulkSIMCardAction_action_type>(); } },
+                { "action_type", n => { ActionType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardAction_action_type>(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.Models.BulkSIMCardAction_settings>(global::Soenneker.Telnyx.Models.BulkSIMCardAction_settings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardAction_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardAction_settings.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }

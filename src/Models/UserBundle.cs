@@ -6,7 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -20,10 +20,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The billing_bundle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.BillingBundleSummary? BillingBundle { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary? BillingBundle { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.BillingBundleSummary BillingBundle { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary BillingBundle { get; set; }
 #endif
         /// <summary>Date the user bundle was created.</summary>
         public Date? CreatedAt { get; set; }
@@ -32,17 +32,17 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The resources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.UserBundleResourceSchema>? Resources { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResourceSchema>? Resources { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.UserBundleResourceSchema> Resources { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResourceSchema> Resources { get; set; }
 #endif
         /// <summary>Date the user bundle was last updated.</summary>
         public Date? UpdatedAt { get; set; }
         /// <summary>The customer&apos;s ID that owns this user bundle.</summary>
         public Guid? UserId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.UserBundle"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundle"/> and sets the default values.
         /// </summary>
         public UserBundle()
         {
@@ -51,12 +51,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UserBundle"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundle"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.UserBundle CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UserBundle CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.UserBundle();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UserBundle();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,10 +67,10 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "billing_bundle", n => { BillingBundle = n.GetObjectValue<global::Soenneker.Telnyx.Models.BillingBundleSummary>(global::Soenneker.Telnyx.Models.BillingBundleSummary.CreateFromDiscriminatorValue); } },
+                { "billing_bundle", n => { BillingBundle = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "resources", n => { Resources = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.UserBundleResourceSchema>(global::Soenneker.Telnyx.Models.UserBundleResourceSchema.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "resources", n => { Resources = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResourceSchema>(global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResourceSchema.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
             };
@@ -83,10 +83,10 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.BillingBundleSummary>("billing_bundle", BillingBundle);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BillingBundleSummary>("billing_bundle", BillingBundle);
             writer.WriteDateValue("created_at", CreatedAt);
             writer.WriteGuidValue("id", Id);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.UserBundleResourceSchema>("resources", Resources);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResourceSchema>("resources", Resources);
             writer.WriteDateValue("updated_at", UpdatedAt);
             writer.WriteGuidValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);

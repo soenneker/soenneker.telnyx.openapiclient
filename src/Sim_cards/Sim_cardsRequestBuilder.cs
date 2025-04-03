@@ -3,15 +3,15 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Sim_cards.Actions;
-using Soenneker.Telnyx.Sim_cards.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions;
+using Soenneker.Telnyx.OpenApiClient.Sim_cards.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Sim_cards
+namespace Soenneker.Telnyx.OpenApiClient.Sim_cards
 {
     /// <summary>
     /// Builds and executes requests for operations under \sim_cards
@@ -20,37 +20,37 @@ namespace Soenneker.Telnyx.Sim_cards
     public partial class Sim_cardsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The actions property</summary>
-        public global::Soenneker.Telnyx.Sim_cards.Actions.ActionsRequestBuilder Actions
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.ActionsRequestBuilder Actions
         {
-            get => new global::Soenneker.Telnyx.Sim_cards.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.sim_cards.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.sim_cards.item collection</summary>
         /// <param name="position">Identifies the SIM.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_cards.Item.Sim_cardsItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Sim_cards.Item.Sim_cardsItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Sim_cardsItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Sim_cardsItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Sim_cards.Item.Sim_cardsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Sim_cardsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.sim_cards.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.sim_cards.item collection</summary>
         /// <param name="position">Identifies the SIM.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_cards.Item.Sim_cardsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Sim_cardsItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Sim_cards.Item.Sim_cardsItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Sim_cardsItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Sim_cards.Item.Sim_cardsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Sim_cardsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.Sim_cards
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -68,49 +68,49 @@ namespace Soenneker.Telnyx.Sim_cards
         /// <summary>
         /// Get all SIM cards belonging to the user that match the given filters.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_cards.Sim_cardsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Sim_cards.Sim_cardsGetResponse?> GetAsSim_cardsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsGetResponse?> GetAsSim_cardsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Sim_cards.Sim_cardsGetResponse> GetAsSim_cardsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsGetResponse> GetAsSim_cardsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Sim_cards.Sim_cardsGetResponse>(requestInfo, global::Soenneker.Telnyx.Sim_cards.Sim_cardsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all SIM cards belonging to the user that match the given filters.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_cards.Sim_cardsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsSim_cardsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Sim_cards.Sim_cardsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Sim_cards.Sim_cardsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Sim_cards.Sim_cardsResponse>(requestInfo, global::Soenneker.Telnyx.Sim_cards.Sim_cardsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all SIM cards belonging to the user that match the given filters.
@@ -119,11 +119,11 @@ namespace Soenneker.Telnyx.Sim_cards
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -134,11 +134,11 @@ namespace Soenneker.Telnyx.Sim_cards
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Get all SIM cards belonging to the user that match the given filters.
@@ -174,11 +174,11 @@ namespace Soenneker.Telnyx.Sim_cards
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.Sim_cards.GetFilterStatusQueryParameterType[]? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.GetFilterStatusQueryParameterType[]? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
 #nullable restore
 #else
             [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.Sim_cards.GetFilterStatusQueryParameterType[] FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.GetFilterStatusQueryParameterType[] FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
 #endif
             /// <summary>A list of SIM card tags to filter on.&lt;br/&gt;&lt;br/&gt; If the SIM card contains &lt;b&gt;&lt;i&gt;all&lt;/i&gt;&lt;/b&gt; of the given &lt;code&gt;tags&lt;/code&gt; they will be found.&lt;br/&gt;&lt;br/&gt;For example, if the SIM cards have the following tags: &lt;ul&gt;  &lt;li&gt;&lt;code&gt;[&apos;customers&apos;, &apos;staff&apos;, &apos;test&apos;]&lt;/code&gt;  &lt;li&gt;&lt;code&gt;[&apos;test&apos;]&lt;/code&gt;&lt;/li&gt;  &lt;li&gt;&lt;code&gt;[&apos;customers&apos;]&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;Searching for &lt;code&gt;[&apos;customers&apos;, &apos;test&apos;]&lt;/code&gt; returns only the first because it&apos;s the only one with both tags.&lt;br/&gt; Searching for &lt;code&gt;test&lt;/code&gt; returns the first two SIMs, because both of them have such tag.&lt;br/&gt; Searching for &lt;code&gt;customers&lt;/code&gt; returns the first and last SIMs.&lt;br/&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -212,14 +212,14 @@ namespace Soenneker.Telnyx.Sim_cards
 #endif
             /// <summary>Sorts SIM cards by the given field. Defaults to ascending order unless field is prefixed with a minus sign.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.Sim_cards.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Sim_cardsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>
+        public partial class Sim_cardsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder.Sim_cardsRequestBuilderGetQueryParameters>
         {
         }
     }

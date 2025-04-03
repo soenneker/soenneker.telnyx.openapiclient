@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -31,13 +31,13 @@ namespace Soenneker.Telnyx.Models
         public string CustomFileName { get; set; }
 #endif
         /// <summary>The audio file format used when storing the conference recording. Can be either `mp3` or `wav`.</summary>
-        public global::Soenneker.Telnyx.Models.StartConferenceRecordingRequest_format? Format { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format? Format { get; set; }
         /// <summary>If enabled, a beep sound will be played at the start of a recording.</summary>
         public bool? PlayBeep { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
-        public global::Soenneker.Telnyx.Models.StartConferenceRecordingRequest_trim? Trim { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_trim? Trim { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.StartConferenceRecordingRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest"/> and sets the default values.
         /// </summary>
         public StartConferenceRecordingRequest()
         {
@@ -46,12 +46,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.StartConferenceRecordingRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.StartConferenceRecordingRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.StartConferenceRecordingRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,9 +63,9 @@ namespace Soenneker.Telnyx.Models
             {
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "custom_file_name", n => { CustomFileName = n.GetStringValue(); } },
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartConferenceRecordingRequest_format>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format>(); } },
                 { "play_beep", n => { PlayBeep = n.GetBoolValue(); } },
-                { "trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartConferenceRecordingRequest_trim>(); } },
+                { "trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_trim>(); } },
             };
         }
         /// <summary>
@@ -77,9 +77,9 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("custom_file_name", CustomFileName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StartConferenceRecordingRequest_format>("format", Format);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format>("format", Format);
             writer.WriteBoolValue("play_beep", PlayBeep);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StartConferenceRecordingRequest_trim>("trim", Trim);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_trim>("trim", Trim);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

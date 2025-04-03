@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status;
+using Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Credential_connections.Item.Actions
+namespace Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions
 {
     /// <summary>
     /// Builds and executes requests for operations under \credential_connections\{id}\actions
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Credential_connections.Item.Actions
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The check_registration_status property</summary>
-        public global::Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusRequestBuilder Check_registration_status
+        public global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusRequestBuilder Check_registration_status
         {
-            get => new global::Soenneker.Telnyx.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Credential_connections.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Credential_connections.Item.Actions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Credential_connections.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

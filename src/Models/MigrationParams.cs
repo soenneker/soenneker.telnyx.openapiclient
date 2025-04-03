@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Current speed of the migration.</summary>
         public int? Speed { get; private set; }
         /// <summary>Status of the migration.</summary>
-        public global::Soenneker.Telnyx.Models.MigrationParams_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationParams_status? Status { get; private set; }
         /// <summary>Bucket name to migrate the data into. Will default to the same name as the `source_bucket_name`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.Models
         public string TargetRegion { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.MigrationParams"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MigrationParams"/> and sets the default values.
         /// </summary>
         public MigrationParams()
         {
@@ -72,12 +72,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.MigrationParams"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MigrationParams"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.MigrationParams CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.MigrationParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.MigrationParams();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.MigrationParams();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.Models
                 { "refresh", n => { Refresh = n.GetBoolValue(); } },
                 { "source_id", n => { SourceId = n.GetStringValue(); } },
                 { "speed", n => { Speed = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.MigrationParams_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationParams_status>(); } },
                 { "target_bucket_name", n => { TargetBucketName = n.GetStringValue(); } },
                 { "target_region", n => { TargetRegion = n.GetStringValue(); } },
             };

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.Models
         public string DeliveryStatusWebhookUrl { get; set; }
 #endif
         /// <summary>Logical direction of the message from the Telnyx customer&apos;s perspective. It&apos;s inbound when the Telnyx customer receives the message, or outbound otherwise</summary>
-        public global::Soenneker.Telnyx.Models.MessageDetailRecord_direction? Direction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord_direction? Direction { get; set; }
         /// <summary>Telnyx API error codes returned by the Telnyx gateway</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.Models
         public string Mcc { get; set; }
 #endif
         /// <summary>Describes the Messaging service used to send the message. Available services are: Short Message Service (SMS), Multimedia Messaging Service (MMS), and Rich Communication Services (RCS)</summary>
-        public global::Soenneker.Telnyx.Models.MessageDetailRecord_message_type? MessageType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord_message_type? MessageType { get; set; }
         /// <summary>Mobile network code. Only available for certain products, such as Global Outbound-Only from Alphanumeric Sender ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -175,7 +175,7 @@ namespace Soenneker.Telnyx.Models
         public string SourceCountryCode { get; set; }
 #endif
         /// <summary>Final status of the message after the delivery attempt</summary>
-        public global::Soenneker.Telnyx.Models.MessageDetailRecord_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord_status? Status { get; set; }
         /// <summary>Comma-separated tags assigned to the Telnyx number associated with the message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -203,7 +203,7 @@ namespace Soenneker.Telnyx.Models
         public string Uuid { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.MessageDetailRecord"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord"/> and sets the default values.
         /// </summary>
         public MessageDetailRecord()
         {
@@ -213,12 +213,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.MessageDetailRecord"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.MessageDetailRecord CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.MessageDetailRecord();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -240,11 +240,11 @@ namespace Soenneker.Telnyx.Models
                 { "delivery_status", n => { DeliveryStatus = n.GetStringValue(); } },
                 { "delivery_status_failover_url", n => { DeliveryStatusFailoverUrl = n.GetStringValue(); } },
                 { "delivery_status_webhook_url", n => { DeliveryStatusWebhookUrl = n.GetStringValue(); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.Models.MessageDetailRecord_direction>(); } },
+                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord_direction>(); } },
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "fteu", n => { Fteu = n.GetBoolValue(); } },
                 { "mcc", n => { Mcc = n.GetStringValue(); } },
-                { "message_type", n => { MessageType = n.GetEnumValue<global::Soenneker.Telnyx.Models.MessageDetailRecord_message_type>(); } },
+                { "message_type", n => { MessageType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord_message_type>(); } },
                 { "mnc", n => { Mnc = n.GetStringValue(); } },
                 { "on_net", n => { OnNet = n.GetBoolValue(); } },
                 { "parts", n => { Parts = n.GetIntValue(); } },
@@ -254,7 +254,7 @@ namespace Soenneker.Telnyx.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
                 { "source_country_code", n => { SourceCountryCode = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.MessageDetailRecord_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord_status>(); } },
                 { "tags", n => { Tags = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
@@ -280,11 +280,11 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("delivery_status", DeliveryStatus);
             writer.WriteStringValue("delivery_status_failover_url", DeliveryStatusFailoverUrl);
             writer.WriteStringValue("delivery_status_webhook_url", DeliveryStatusWebhookUrl);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.MessageDetailRecord_direction>("direction", Direction);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord_direction>("direction", Direction);
             writer.WriteCollectionOfPrimitiveValues<string>("errors", Errors);
             writer.WriteBoolValue("fteu", Fteu);
             writer.WriteStringValue("mcc", Mcc);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.MessageDetailRecord_message_type>("message_type", MessageType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord_message_type>("message_type", MessageType);
             writer.WriteStringValue("mnc", Mnc);
             writer.WriteBoolValue("on_net", OnNet);
             writer.WriteIntValue("parts", Parts);
@@ -294,7 +294,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
             writer.WriteStringValue("source_country_code", SourceCountryCode);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.MessageDetailRecord_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord_status>("status", Status);
             writer.WriteStringValue("tags", Tags);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_id", UserId);

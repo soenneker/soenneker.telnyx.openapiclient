@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -19,18 +19,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest_inbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest_inbound? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest_inbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest_inbound Inbound { get; set; }
 #endif
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest_outbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest_outbound? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest_outbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest_outbound Outbound { get; set; }
 #endif
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Specifies how many seconds to wait before timing out a webhook.</summary>
         public int? WebhookTimeoutSecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest"/> and sets the default values.
         /// </summary>
         public UpdateExternalConnectionRequest()
         {
@@ -60,12 +60,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,8 +76,8 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest_inbound>(global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest_inbound.CreateFromDiscriminatorValue); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest_outbound>(global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest_outbound.CreateFromDiscriminatorValue); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest_inbound.CreateFromDiscriminatorValue); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest_outbound.CreateFromDiscriminatorValue); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -91,8 +91,8 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest_inbound>("inbound", Inbound);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.UpdateExternalConnectionRequest_outbound>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest_inbound>("inbound", Inbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateExternalConnectionRequest_outbound>("outbound", Outbound);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

@@ -6,7 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The created_at property</summary>
         public Date? CreatedAt { get; set; }
         /// <summary>An enumeration.</summary>
-        public global::Soenneker.Telnyx.Models.BundleLimitDirection? Direction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BundleLimitDirection? Direction { get; set; }
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
         /// <summary>The limit property</summary>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The updated_at property</summary>
         public Date? UpdatedAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.BundleLimitSchema"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BundleLimitSchema"/> and sets the default values.
         /// </summary>
         public BundleLimitSchema()
         {
@@ -94,12 +94,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.BundleLimitSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BundleLimitSchema"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.BundleLimitSchema CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.BundleLimitSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.BundleLimitSchema();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.BundleLimitSchema();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.Models
                 { "country_code", n => { CountryCode = n.GetIntValue(); } },
                 { "country_iso", n => { CountryIso = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateValue(); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.Models.BundleLimitDirection>(); } },
+                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BundleLimitDirection>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
                 { "metric", n => { Metric = n.GetStringValue(); } },
@@ -136,7 +136,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteIntValue("country_code", CountryCode);
             writer.WriteStringValue("country_iso", CountryIso);
             writer.WriteDateValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BundleLimitDirection>("direction", Direction);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BundleLimitDirection>("direction", Direction);
             writer.WriteGuidValue("id", Id);
             writer.WriteIntValue("limit", Limit);
             writer.WriteStringValue("metric", Metric);

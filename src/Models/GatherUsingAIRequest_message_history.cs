@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,9 +23,9 @@ namespace Soenneker.Telnyx.Models
         public string Content { get; set; }
 #endif
         /// <summary>The role of the message sender</summary>
-        public global::Soenneker.Telnyx.Models.GatherUsingAIRequest_message_history_role? Role { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_message_history_role? Role { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.GatherUsingAIRequest_message_history"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_message_history"/> and sets the default values.
         /// </summary>
         public GatherUsingAIRequest_message_history()
         {
@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.GatherUsingAIRequest_message_history"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_message_history"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.GatherUsingAIRequest_message_history CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_message_history CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.GatherUsingAIRequest_message_history();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_message_history();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetStringValue(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.Models.GatherUsingAIRequest_message_history_role>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_message_history_role>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.GatherUsingAIRequest_message_history_role>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_message_history_role>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

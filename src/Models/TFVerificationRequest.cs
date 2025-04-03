@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The body of a tollfree verification request
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.Models
         public string IsvReseller { get; set; }
 #endif
         /// <summary>Estimated monthly volume of messages from the given phone numbers</summary>
-        public global::Soenneker.Telnyx.Models.Volume? MessageVolume { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Volume? MessageVolume { get; set; }
         /// <summary>Human-readable description of how end users will opt into receiving messages from the given phone numbers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -132,18 +132,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Images showing the opt-in workflow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.Url>? OptInWorkflowImageURLs { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Url>? OptInWorkflowImageURLs { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.Url> OptInWorkflowImageURLs { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Url> OptInWorkflowImageURLs { get; set; }
 #endif
         /// <summary>The phone numbers to request the verification of</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.TFPhoneNumber>? PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>? PhoneNumbers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.TFPhoneNumber> PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber> PhoneNumbers { get; set; }
 #endif
         /// <summary>An example of a message that will be sent from the given phone numbers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -154,7 +154,7 @@ namespace Soenneker.Telnyx.Models
         public string ProductionMessageContent { get; set; }
 #endif
         /// <summary>Machine-readable use-case for the phone numbers</summary>
-        public global::Soenneker.Telnyx.Models.UseCaseCategories? UseCase { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories? UseCase { get; set; }
         /// <summary>Human-readable summary of the desired use-case</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -172,7 +172,7 @@ namespace Soenneker.Telnyx.Models
         public string WebhookUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.TFVerificationRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest"/> and sets the default values.
         /// </summary>
         public TFVerificationRequest()
         {
@@ -181,12 +181,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TFVerificationRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.TFVerificationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.TFVerificationRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -209,12 +209,12 @@ namespace Soenneker.Telnyx.Models
                 { "businessZip", n => { BusinessZip = n.GetStringValue(); } },
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
-                { "messageVolume", n => { MessageVolume = n.GetEnumValue<global::Soenneker.Telnyx.Models.Volume>(); } },
+                { "messageVolume", n => { MessageVolume = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>(); } },
                 { "optInWorkflow", n => { OptInWorkflow = n.GetStringValue(); } },
-                { "optInWorkflowImageURLs", n => { OptInWorkflowImageURLs = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Url>(global::Soenneker.Telnyx.Models.Url.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "phoneNumbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.TFPhoneNumber>(global::Soenneker.Telnyx.Models.TFPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "optInWorkflowImageURLs", n => { OptInWorkflowImageURLs = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>(global::Soenneker.Telnyx.OpenApiClient.Models.Url.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "phoneNumbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "productionMessageContent", n => { ProductionMessageContent = n.GetStringValue(); } },
-                { "useCase", n => { UseCase = n.GetEnumValue<global::Soenneker.Telnyx.Models.UseCaseCategories>(); } },
+                { "useCase", n => { UseCase = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>(); } },
                 { "useCaseSummary", n => { UseCaseSummary = n.GetStringValue(); } },
                 { "webhookUrl", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -239,12 +239,12 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("businessZip", BusinessZip);
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteStringValue("isvReseller", IsvReseller);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Volume>("messageVolume", MessageVolume);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>("messageVolume", MessageVolume);
             writer.WriteStringValue("optInWorkflow", OptInWorkflow);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Url>("optInWorkflowImageURLs", OptInWorkflowImageURLs);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.TFPhoneNumber>("phoneNumbers", PhoneNumbers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>("optInWorkflowImageURLs", OptInWorkflowImageURLs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>("phoneNumbers", PhoneNumbers);
             writer.WriteStringValue("productionMessageContent", ProductionMessageContent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.UseCaseCategories>("useCase", UseCase);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>("useCase", UseCase);
             writer.WriteStringValue("useCaseSummary", UseCaseSummary);
             writer.WriteStringValue("webhookUrl", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

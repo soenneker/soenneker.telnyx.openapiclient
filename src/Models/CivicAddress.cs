@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -85,10 +85,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The locations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.Location>? Locations { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Location>? Locations { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.Location> Locations { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Location> Locations { get; set; }
 #endif
         /// <summary>The postal_or_zip_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -131,7 +131,7 @@ namespace Soenneker.Telnyx.Models
         public string StreetSuffix { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CivicAddress"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CivicAddress"/> and sets the default values.
         /// </summary>
         public CivicAddress()
         {
@@ -140,12 +140,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CivicAddress"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CivicAddress"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CivicAddress CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CivicAddress CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CivicAddress();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CivicAddress();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -165,7 +165,7 @@ namespace Soenneker.Telnyx.Models
                 { "house_number", n => { HouseNumber = n.GetStringValue(); } },
                 { "house_number_suffix", n => { HouseNumberSuffix = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "locations", n => { Locations = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Location>(global::Soenneker.Telnyx.Models.Location.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "locations", n => { Locations = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Location>(global::Soenneker.Telnyx.OpenApiClient.Models.Location.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "postal_or_zip_code", n => { PostalOrZipCode = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "state_or_province", n => { StateOrProvince = n.GetStringValue(); } },
@@ -190,7 +190,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("house_number", HouseNumber);
             writer.WriteStringValue("house_number_suffix", HouseNumberSuffix);
             writer.WriteGuidValue("id", Id);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Location>("locations", Locations);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Location>("locations", Locations);
             writer.WriteStringValue("postal_or_zip_code", PostalOrZipCode);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("state_or_province", StateOrProvince);

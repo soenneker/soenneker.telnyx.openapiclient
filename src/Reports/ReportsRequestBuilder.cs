@@ -2,15 +2,15 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Reports.Cdr_usage_reports;
-using Soenneker.Telnyx.Reports.Mdr_usage_reports;
-using Soenneker.Telnyx.Reports.Mdrs;
-using Soenneker.Telnyx.Reports.Wdrs;
+using Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports;
+using Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports;
+using Soenneker.Telnyx.OpenApiClient.Reports.Mdrs;
+using Soenneker.Telnyx.OpenApiClient.Reports.Wdrs;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Reports
+namespace Soenneker.Telnyx.OpenApiClient.Reports
 {
     /// <summary>
     /// Builds and executes requests for operations under \reports
@@ -19,27 +19,27 @@ namespace Soenneker.Telnyx.Reports
     public partial class ReportsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The cdr_usage_reports property</summary>
-        public global::Soenneker.Telnyx.Reports.Cdr_usage_reports.Cdr_usage_reportsRequestBuilder Cdr_usage_reports
+        public global::Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Cdr_usage_reportsRequestBuilder Cdr_usage_reports
         {
-            get => new global::Soenneker.Telnyx.Reports.Cdr_usage_reports.Cdr_usage_reportsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Reports.Cdr_usage_reports.Cdr_usage_reportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The mdr_usage_reports property</summary>
-        public global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Mdr_usage_reportsRequestBuilder Mdr_usage_reports
+        public global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Mdr_usage_reportsRequestBuilder Mdr_usage_reports
         {
-            get => new global::Soenneker.Telnyx.Reports.Mdr_usage_reports.Mdr_usage_reportsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Mdr_usage_reportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The mdrs property</summary>
-        public global::Soenneker.Telnyx.Reports.Mdrs.MdrsRequestBuilder Mdrs
+        public global::Soenneker.Telnyx.OpenApiClient.Reports.Mdrs.MdrsRequestBuilder Mdrs
         {
-            get => new global::Soenneker.Telnyx.Reports.Mdrs.MdrsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Reports.Mdrs.MdrsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The wdrs property</summary>
-        public global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder Wdrs
+        public global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder Wdrs
         {
-            get => new global::Soenneker.Telnyx.Reports.Wdrs.WdrsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Reports.Wdrs.WdrsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Reports.ReportsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.ReportsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.Reports
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Reports.ReportsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Reports.ReportsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

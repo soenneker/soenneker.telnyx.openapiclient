@@ -5,7 +5,7 @@
   "kiotaVersion": "1.24.3",
   "clientClassName": "TelnyxOpenApiClient",
   "typeAccessModifier": "Public",
-  "clientNamespaceName": "Soenneker.Telnyx",
+  "clientNamespaceName": "Soenneker.Telnyx.OpenApiClient",
   "language": "CSharp",
   "usesBackingStore": false,
   "excludeBackwardCompatible": false,

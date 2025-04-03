@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Bundle_pricing.User_bundles.Item.Resources;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.Resources;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Bundle_pricing.User_bundles.Item
+namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \bundle_pricing\user_bundles\{user_bundle_id}
@@ -19,12 +19,12 @@ namespace Soenneker.Telnyx.Bundle_pricing.User_bundles.Item
     public partial class WithUser_bundle_ItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The resources property</summary>
-        public global::Soenneker.Telnyx.Bundle_pricing.User_bundles.Item.Resources.ResourcesRequestBuilder Resources
+        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.Resources.ResourcesRequestBuilder Resources
         {
-            get => new global::Soenneker.Telnyx.Bundle_pricing.User_bundles.Item.Resources.ResourcesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.Resources.ResourcesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.Bundle_pricing.User_bundles.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -42,38 +42,38 @@ namespace Soenneker.Telnyx.Bundle_pricing.User_bundles.Item
         /// <summary>
         /// Deactivates a user bundle by its ID.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UserBundleCreateResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.UserBundleCreateResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.UserBundleCreateResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.UserBundleCreateResponse>(requestInfo, global::Soenneker.Telnyx.Models.UserBundleCreateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a user bundle by its ID.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UserBundleResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.UserBundleResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.UserBundleResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.UserBundleResponse>(requestInfo, global::Soenneker.Telnyx.Models.UserBundleResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deactivates a user bundle by its ID.
@@ -116,11 +116,11 @@ namespace Soenneker.Telnyx.Bundle_pricing.User_bundles.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

@@ -2,13 +2,13 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Bundle_pricing.Billing_bundles;
-using Soenneker.Telnyx.Bundle_pricing.User_bundles;
+using Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Billing_bundles;
+using Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Bundle_pricing
+namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing
 {
     /// <summary>
     /// Builds and executes requests for operations under \bundle_pricing
@@ -17,17 +17,17 @@ namespace Soenneker.Telnyx.Bundle_pricing
     public partial class Bundle_pricingRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The billing_bundles property</summary>
-        public global::Soenneker.Telnyx.Bundle_pricing.Billing_bundles.Billing_bundlesRequestBuilder Billing_bundles
+        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Billing_bundles.Billing_bundlesRequestBuilder Billing_bundles
         {
-            get => new global::Soenneker.Telnyx.Bundle_pricing.Billing_bundles.Billing_bundlesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Billing_bundles.Billing_bundlesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The user_bundles property</summary>
-        public global::Soenneker.Telnyx.Bundle_pricing.User_bundles.User_bundlesRequestBuilder User_bundles
+        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.User_bundlesRequestBuilder User_bundles
         {
-            get => new global::Soenneker.Telnyx.Bundle_pricing.User_bundles.User_bundlesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.User_bundlesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Bundle_pricing.Bundle_pricingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Bundle_pricingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.Bundle_pricing
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Bundle_pricing.Bundle_pricingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.Bundle_pricingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

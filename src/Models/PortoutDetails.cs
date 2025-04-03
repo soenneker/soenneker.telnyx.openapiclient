@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -163,7 +163,7 @@ namespace Soenneker.Telnyx.Models
         public string State { get; set; }
 #endif
         /// <summary>Status of portout request</summary>
-        public global::Soenneker.Telnyx.Models.PortoutDetails_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetails_status? Status { get; set; }
         /// <summary>A key to reference this port out request when contacting Telnyx customer support</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -193,7 +193,7 @@ namespace Soenneker.Telnyx.Models
         public string Zip { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PortoutDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetails"/> and sets the default values.
         /// </summary>
         public PortoutDetails()
         {
@@ -202,12 +202,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PortoutDetails"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PortoutDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PortoutDetails();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -237,7 +237,7 @@ namespace Soenneker.Telnyx.Models
                 { "service_address", n => { ServiceAddress = n.GetStringValue(); } },
                 { "spid", n => { Spid = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.PortoutDetails_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetails_status>(); } },
                 { "support_key", n => { SupportKey = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
@@ -271,7 +271,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("service_address", ServiceAddress);
             writer.WriteStringValue("spid", Spid);
             writer.WriteStringValue("state", State);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.PortoutDetails_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortoutDetails_status>("status", Status);
             writer.WriteStringValue("support_key", SupportKey);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteGuidValue("user_id", UserId);

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The count property</summary>
         public int? Count { get; set; }
         /// <summary>The coverage_type property</summary>
-        public global::Soenneker.Telnyx.Models.InventoryCoverage_coverage_type? CoverageType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_coverage_type? CoverageType { get; set; }
         /// <summary>The group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,9 +47,9 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The number_range property</summary>
         public int? NumberRange { get; set; }
         /// <summary>The number_type property</summary>
-        public global::Soenneker.Telnyx.Models.InventoryCoverage_number_type? NumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_number_type? NumberType { get; set; }
         /// <summary>The phone_number_type property</summary>
-        public global::Soenneker.Telnyx.Models.InventoryCoverage_phone_number_type? PhoneNumberType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_phone_number_type? PhoneNumberType { get; set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.InventoryCoverage"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage"/> and sets the default values.
         /// </summary>
         public InventoryCoverage()
         {
@@ -68,12 +68,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.InventoryCoverage"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.InventoryCoverage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.InventoryCoverage();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,12 +86,12 @@ namespace Soenneker.Telnyx.Models
                 { "administrative_area", n => { AdministrativeArea = n.GetStringValue(); } },
                 { "advance_requirements", n => { AdvanceRequirements = n.GetBoolValue(); } },
                 { "count", n => { Count = n.GetIntValue(); } },
-                { "coverage_type", n => { CoverageType = n.GetEnumValue<global::Soenneker.Telnyx.Models.InventoryCoverage_coverage_type>(); } },
+                { "coverage_type", n => { CoverageType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_coverage_type>(); } },
                 { "group", n => { Group = n.GetStringValue(); } },
                 { "group_type", n => { GroupType = n.GetStringValue(); } },
                 { "number_range", n => { NumberRange = n.GetIntValue(); } },
-                { "number_type", n => { NumberType = n.GetEnumValue<global::Soenneker.Telnyx.Models.InventoryCoverage_number_type>(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.Models.InventoryCoverage_phone_number_type>(); } },
+                { "number_type", n => { NumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_phone_number_type>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
         }
@@ -105,12 +105,12 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("administrative_area", AdministrativeArea);
             writer.WriteBoolValue("advance_requirements", AdvanceRequirements);
             writer.WriteIntValue("count", Count);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InventoryCoverage_coverage_type>("coverage_type", CoverageType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_coverage_type>("coverage_type", CoverageType);
             writer.WriteStringValue("group", Group);
             writer.WriteStringValue("group_type", GroupType);
             writer.WriteIntValue("number_range", NumberRange);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InventoryCoverage_number_type>("number_type", NumberType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InventoryCoverage_phone_number_type>("phone_number_type", PhoneNumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_number_type>("number_type", NumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InventoryCoverage_phone_number_type>("phone_number_type", PhoneNumberType);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }

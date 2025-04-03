@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -71,9 +71,9 @@ namespace Soenneker.Telnyx.Models
         public string StartTime { get; set; }
 #endif
         /// <summary>The status of the siprec session.</summary>
-        public global::Soenneker.Telnyx.Models.TexmlCreateSiprecSessionResponseBody_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_status? Status { get; set; }
         /// <summary>The track used for the siprec session.</summary>
-        public global::Soenneker.Telnyx.Models.TexmlCreateSiprecSessionResponseBody_track? Track { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_track? Track { get; set; }
         /// <summary>The URI of the siprec session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.Models
         public string Uri { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.TexmlCreateSiprecSessionResponseBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody"/> and sets the default values.
         /// </summary>
         public TexmlCreateSiprecSessionResponseBody()
         {
@@ -92,12 +92,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TexmlCreateSiprecSessionResponseBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.TexmlCreateSiprecSessionResponseBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.TexmlCreateSiprecSessionResponseBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,8 +114,8 @@ namespace Soenneker.Telnyx.Models
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
                 { "start_time", n => { StartTime = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.TexmlCreateSiprecSessionResponseBody_status>(); } },
-                { "track", n => { Track = n.GetEnumValue<global::Soenneker.Telnyx.Models.TexmlCreateSiprecSessionResponseBody_track>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_status>(); } },
+                { "track", n => { Track = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_track>(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -133,8 +133,8 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("error_code", ErrorCode);
             writer.WriteStringValue("sid", Sid);
             writer.WriteStringValue("start_time", StartTime);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TexmlCreateSiprecSessionResponseBody_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TexmlCreateSiprecSessionResponseBody_track>("track", Track);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateSiprecSessionResponseBody_track>("track", Track);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Verified_numbers.Item.Actions.Verify;
+using Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.Actions.Verify;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Verified_numbers.Item.Actions
+namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.Actions
 {
     /// <summary>
     /// Builds and executes requests for operations under \verified_numbers\{phone_number}\actions
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Verified_numbers.Item.Actions
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The verify property</summary>
-        public global::Soenneker.Telnyx.Verified_numbers.Item.Actions.Verify.VerifyRequestBuilder Verify
+        public global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.Actions.Verify.VerifyRequestBuilder Verify
         {
-            get => new global::Soenneker.Telnyx.Verified_numbers.Item.Actions.Verify.VerifyRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.Actions.Verify.VerifyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Verified_numbers.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Verified_numbers.Item.Actions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Verified_numbers.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Verified_numbers.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

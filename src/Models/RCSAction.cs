@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// When tapped, initiates the corresponding native action on the device.
@@ -18,26 +18,26 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Compose and send a message to a destination predefined by chatbot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSComposeAction? ComposeAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction? ComposeAction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSComposeAction ComposeAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction ComposeAction { get; set; }
 #endif
         /// <summary>Opens the user&apos;s default calendar app and starts the new calendar event flow with the agent-specified event data pre-filled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSCreateCalendarEventAction? CreateCalendarEventAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSCreateCalendarEventAction? CreateCalendarEventAction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSCreateCalendarEventAction CreateCalendarEventAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSCreateCalendarEventAction CreateCalendarEventAction { get; set; }
 #endif
         /// <summary>Opens the user&apos;s default dialer app with the agent-specified phone number filled in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSDialAction? DialAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSDialAction? DialAction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSDialAction DialAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSDialAction DialAction { get; set; }
 #endif
         /// <summary>Fallback URL to use if a client doesn&apos;t support a suggested action. Fallback URLs open in new browser windows. Maximum 2048 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,10 +50,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Opens the user&apos;s default web browser app to the specified URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSOpenUrlAction? OpenUrlAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction? OpenUrlAction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSOpenUrlAction OpenUrlAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction OpenUrlAction { get; set; }
 #endif
         /// <summary>Payload (base64 encoded) that will be sent to the agent in the user event that results when the user taps the suggested action. Maximum 2048 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,10 +66,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Opens the RCS app&apos;s location chooser so the user can pick a location to send back to the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSShareLocationAction? ShareLocationAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSShareLocationAction? ShareLocationAction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSShareLocationAction ShareLocationAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSShareLocationAction ShareLocationAction { get; set; }
 #endif
         /// <summary>Text that is shown in the suggested action. Maximum 25 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,13 +82,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Opens the user&apos;s default map app and selects the agent-specified location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSViewLocationAction? ViewLocationAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSViewLocationAction? ViewLocationAction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSViewLocationAction ViewLocationAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSViewLocationAction ViewLocationAction { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RCSAction"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSAction"/> and sets the default values.
         /// </summary>
         public RCSAction()
         {
@@ -97,12 +97,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RCSAction"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RCSAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RCSAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RCSAction();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RCSAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,15 +112,15 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "compose_action", n => { ComposeAction = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSComposeAction>(global::Soenneker.Telnyx.Models.RCSComposeAction.CreateFromDiscriminatorValue); } },
-                { "create_calendar_event_action", n => { CreateCalendarEventAction = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSCreateCalendarEventAction>(global::Soenneker.Telnyx.Models.RCSCreateCalendarEventAction.CreateFromDiscriminatorValue); } },
-                { "dial_action", n => { DialAction = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSDialAction>(global::Soenneker.Telnyx.Models.RCSDialAction.CreateFromDiscriminatorValue); } },
+                { "compose_action", n => { ComposeAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction.CreateFromDiscriminatorValue); } },
+                { "create_calendar_event_action", n => { CreateCalendarEventAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCreateCalendarEventAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSCreateCalendarEventAction.CreateFromDiscriminatorValue); } },
+                { "dial_action", n => { DialAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSDialAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSDialAction.CreateFromDiscriminatorValue); } },
                 { "fallback_url", n => { FallbackUrl = n.GetStringValue(); } },
-                { "open_url_action", n => { OpenUrlAction = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSOpenUrlAction>(global::Soenneker.Telnyx.Models.RCSOpenUrlAction.CreateFromDiscriminatorValue); } },
+                { "open_url_action", n => { OpenUrlAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction.CreateFromDiscriminatorValue); } },
                 { "postback_data", n => { PostbackData = n.GetStringValue(); } },
-                { "share_location_action", n => { ShareLocationAction = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSShareLocationAction>(global::Soenneker.Telnyx.Models.RCSShareLocationAction.CreateFromDiscriminatorValue); } },
+                { "share_location_action", n => { ShareLocationAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSShareLocationAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSShareLocationAction.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "view_location_action", n => { ViewLocationAction = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSViewLocationAction>(global::Soenneker.Telnyx.Models.RCSViewLocationAction.CreateFromDiscriminatorValue); } },
+                { "view_location_action", n => { ViewLocationAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSViewLocationAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSViewLocationAction.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -130,15 +130,15 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSComposeAction>("compose_action", ComposeAction);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSCreateCalendarEventAction>("create_calendar_event_action", CreateCalendarEventAction);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSDialAction>("dial_action", DialAction);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction>("compose_action", ComposeAction);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCreateCalendarEventAction>("create_calendar_event_action", CreateCalendarEventAction);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSDialAction>("dial_action", DialAction);
             writer.WriteStringValue("fallback_url", FallbackUrl);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSOpenUrlAction>("open_url_action", OpenUrlAction);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction>("open_url_action", OpenUrlAction);
             writer.WriteStringValue("postback_data", PostbackData);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSShareLocationAction>("share_location_action", ShareLocationAction);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSShareLocationAction>("share_location_action", ShareLocationAction);
             writer.WriteStringValue("text", Text);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSViewLocationAction>("view_location_action", ViewLocationAction);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSViewLocationAction>("view_location_action", ViewLocationAction);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

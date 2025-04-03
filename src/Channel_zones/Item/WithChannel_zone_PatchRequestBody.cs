@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Channel_zones.Item
+namespace Soenneker.Telnyx.OpenApiClient.Channel_zones.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Channel_zones.Item
         /// <summary>The channels property</summary>
         public long? Channels { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Channel_zones.Item.WithChannel_zone_PatchRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannel_zone_PatchRequestBody"/> and sets the default values.
         /// </summary>
         public WithChannel_zone_PatchRequestBody()
         {
@@ -26,12 +26,12 @@ namespace Soenneker.Telnyx.Channel_zones.Item
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Channel_zones.Item.WithChannel_zone_PatchRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannel_zone_PatchRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Channel_zones.Item.WithChannel_zone_PatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannel_zone_PatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Channel_zones.Item.WithChannel_zone_PatchRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannel_zone_PatchRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

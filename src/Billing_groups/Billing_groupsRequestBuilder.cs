@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Billing_groups.Item;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Billing_groups.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Billing_groups
+namespace Soenneker.Telnyx.OpenApiClient.Billing_groups
 {
     /// <summary>
     /// Builds and executes requests for operations under \billing_groups
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Billing_groups
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Billing_groupsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.billing_groups.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.billing_groups.item collection</summary>
         /// <param name="position">The id of the billing group</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Billing_groups.Item.Billing_groupsItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Billing_groups.Item.Billing_groupsItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Item.Billing_groupsItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Item.Billing_groupsItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Billing_groups.Item.Billing_groupsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Item.Billing_groupsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.billing_groups.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.billing_groups.item collection</summary>
         /// <param name="position">The id of the billing group</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Billing_groups.Item.Billing_groupsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Item.Billing_groupsItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Billing_groups.Item.Billing_groupsItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Item.Billing_groupsItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Billing_groups.Item.Billing_groupsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Item.Billing_groupsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Billing_groups
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,110 +62,110 @@ namespace Soenneker.Telnyx.Billing_groups
         /// <summary>
         /// List all billing groups
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Billing_groups.Billing_groupsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Billing_groups.Billing_groupsGetResponse?> GetAsBilling_groupsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsGetResponse?> GetAsBilling_groupsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Billing_groups.Billing_groupsGetResponse> GetAsBilling_groupsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsGetResponse> GetAsBilling_groupsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Billing_groups.Billing_groupsGetResponse>(requestInfo, global::Soenneker.Telnyx.Billing_groups.Billing_groupsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all billing groups
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Billing_groups.Billing_groupsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsBilling_groupsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Billing_groups.Billing_groupsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Billing_groups.Billing_groupsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Billing_groups.Billing_groupsResponse>(requestInfo, global::Soenneker.Telnyx.Billing_groups.Billing_groupsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a billing group
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Billing_groups.Billing_groupsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Billing_groups.Billing_groupsPostResponse?> PostAsBilling_groupsPostResponseAsync(global::Soenneker.Telnyx.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsPostResponse?> PostAsBilling_groupsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Billing_groups.Billing_groupsPostResponse> PostAsBilling_groupsPostResponseAsync(global::Soenneker.Telnyx.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsPostResponse> PostAsBilling_groupsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Billing_groups.Billing_groupsPostResponse>(requestInfo, global::Soenneker.Telnyx.Billing_groups.Billing_groupsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a billing group
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Billing_groups.Billing_groupsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
         [Obsolete("This method is obsolete. Use PostAsBilling_groupsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Billing_groups.Billing_groupsResponse?> PostAsync(global::Soenneker.Telnyx.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Billing_groups.Billing_groupsResponse> PostAsync(global::Soenneker.Telnyx.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Billing_groups.Billing_groupsResponse>(requestInfo, global::Soenneker.Telnyx.Billing_groups.Billing_groupsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -178,11 +178,11 @@ namespace Soenneker.Telnyx.Billing_groups
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.NewBillingGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -195,11 +195,11 @@ namespace Soenneker.Telnyx.Billing_groups
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List all billing groups
@@ -219,7 +219,7 @@ namespace Soenneker.Telnyx.Billing_groups
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Billing_groupsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>
+        public partial class Billing_groupsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder.Billing_groupsRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

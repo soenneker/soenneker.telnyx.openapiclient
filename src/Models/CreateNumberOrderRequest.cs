@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -49,13 +49,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The phone_numbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.CreateNumberOrderRequest_phone_numbers>? PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest_phone_numbers>? PhoneNumbers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.CreateNumberOrderRequest_phone_numbers> PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest_phone_numbers> PhoneNumbers { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CreateNumberOrderRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest"/> and sets the default values.
         /// </summary>
         public CreateNumberOrderRequest()
         {
@@ -64,12 +64,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CreateNumberOrderRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CreateNumberOrderRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CreateNumberOrderRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.Models
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
-                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.CreateNumberOrderRequest_phone_numbers>(global::Soenneker.Telnyx.Models.CreateNumberOrderRequest_phone_numbers.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest_phone_numbers>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest_phone_numbers.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.CreateNumberOrderRequest_phone_numbers>("phone_numbers", PhoneNumbers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateNumberOrderRequest_phone_numbers>("phone_numbers", PhoneNumbers);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

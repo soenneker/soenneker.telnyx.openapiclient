@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Item;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
+namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions
 {
     /// <summary>
     /// Builds and executes requests for operations under \porting_orders\{-id}\phone_number_extensions
@@ -17,33 +17,33 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Phone_number_extensionsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.porting_orders.item.phone_number_extensions.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.porting_orders.item.phone_number_extensions.item collection</summary>
         /// <param name="position">Identifies the phone number extension to be deleted</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.porting_orders.item.phone_number_extensions.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.porting_orders.item.phone_number_extensions.item collection</summary>
         /// <param name="position">Identifies the phone number extension to be deleted</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Item.Phone_number_extensionsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -61,80 +61,80 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
         /// <summary>
         /// Returns a list of all phone number extensions of a porting order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsGetResponse?> GetAsPhone_number_extensionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsGetResponse?> GetAsPhone_number_extensionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsGetResponse> GetAsPhone_number_extensionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsGetResponse> GetAsPhone_number_extensionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsGetResponse>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of all phone number extensions of a porting order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsPhone_number_extensionsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new phone number extension.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostResponse?> PostAsPhone_number_extensionsPostResponseAsync(global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostResponse?> PostAsPhone_number_extensionsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostResponse> PostAsPhone_number_extensionsPostResponseAsync(global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostResponse> PostAsPhone_number_extensionsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostResponse>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new phone number extension.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PostAsPhone_number_extensionsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse?> PostAsync(global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse> PostAsync(global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of all phone number extensions of a porting order.
@@ -143,11 +143,11 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -163,11 +163,11 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -180,11 +180,11 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns a list of all phone number extensions of a porting order.
@@ -237,14 +237,14 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions
 #endif
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order</summary>
             [QueryParameter("sort%5B%5D")]
-            public global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Phone_number_extensionsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>
+        public partial class Phone_number_extensionsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder.Phone_number_extensionsRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

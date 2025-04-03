@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -31,33 +31,33 @@ namespace Soenneker.Telnyx.Models
         public string ConnectorName { get; set; }
 #endif
         /// <summary>When set, custom parameters will be added as metadata (recording.session.ExtensionParameters). Otherwise, they’ll be added to sip headers.</summary>
-        public global::Soenneker.Telnyx.Models.StartSiprecRequest_include_metadata_custom_headers? IncludeMetadataCustomHeaders { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_include_metadata_custom_headers? IncludeMetadataCustomHeaders { get; set; }
         /// <summary>Controls whether to encrypt media sent to your SRS using SRTP and TLS. When set you need to configure SRS port in your connector to 5061.</summary>
-        public global::Soenneker.Telnyx.Models.StartSiprecRequest_secure? Secure { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_secure? Secure { get; set; }
         /// <summary>Sets `Session-Expires` header to the INVITE. A reinvite is sent every half the value set. Usefull for session keep alive. Minimum value is 90, set to 0 to disable.</summary>
         public int? SessionTimeoutSecs { get; set; }
         /// <summary>Specifies which track should be sent on siprec session.</summary>
-        public global::Soenneker.Telnyx.Models.StartSiprecRequest_siprec_track? SiprecTrack { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_siprec_track? SiprecTrack { get; set; }
         /// <summary>Specifies SIP transport protocol.</summary>
-        public global::Soenneker.Telnyx.Models.StartSiprecRequest_sip_transport? SipTransport { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_sip_transport? SipTransport { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.StartSiprecRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest"/> and sets the default values.
         /// </summary>
         public StartSiprecRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            SiprecTrack = global::Soenneker.Telnyx.Models.StartSiprecRequest_siprec_track.Both_tracks;
-            SipTransport = global::Soenneker.Telnyx.Models.StartSiprecRequest_sip_transport.Udp;
+            SiprecTrack = global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_siprec_track.Both_tracks;
+            SipTransport = global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_sip_transport.Udp;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.StartSiprecRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.StartSiprecRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.StartSiprecRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,11 +69,11 @@ namespace Soenneker.Telnyx.Models
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "connector_name", n => { ConnectorName = n.GetStringValue(); } },
-                { "include_metadata_custom_headers", n => { IncludeMetadataCustomHeaders = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_include_metadata_custom_headers>(); } },
-                { "secure", n => { Secure = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_secure>(); } },
+                { "include_metadata_custom_headers", n => { IncludeMetadataCustomHeaders = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_include_metadata_custom_headers>(); } },
+                { "secure", n => { Secure = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_secure>(); } },
                 { "session_timeout_secs", n => { SessionTimeoutSecs = n.GetIntValue(); } },
-                { "sip_transport", n => { SipTransport = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_sip_transport>(); } },
-                { "siprec_track", n => { SiprecTrack = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_siprec_track>(); } },
+                { "sip_transport", n => { SipTransport = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_sip_transport>(); } },
+                { "siprec_track", n => { SiprecTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_siprec_track>(); } },
             };
         }
         /// <summary>
@@ -85,11 +85,11 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("connector_name", ConnectorName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_include_metadata_custom_headers>("include_metadata_custom_headers", IncludeMetadataCustomHeaders);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_secure>("secure", Secure);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_include_metadata_custom_headers>("include_metadata_custom_headers", IncludeMetadataCustomHeaders);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_secure>("secure", Secure);
             writer.WriteIntValue("session_timeout_secs", SessionTimeoutSecs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_siprec_track>("siprec_track", SiprecTrack);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StartSiprecRequest_sip_transport>("sip_transport", SipTransport);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_siprec_track>("siprec_track", SiprecTrack);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSiprecRequest_sip_transport>("sip_transport", SipTransport);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

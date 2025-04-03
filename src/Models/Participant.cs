@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Info about the conference that the participant is in</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Participant_conference? Conference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Participant_conference? Conference { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Participant_conference Conference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Participant_conference Conference { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date of when the participant was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,11 +61,11 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Whether the participant is put on_hold.</summary>
         public bool? OnHold { get; set; }
         /// <summary>The record_type property</summary>
-        public global::Soenneker.Telnyx.Models.Participant_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Participant_record_type? RecordType { get; set; }
         /// <summary>Whether the conference will end after the participant leaves the conference.</summary>
         public bool? SoftEndConferenceOnExit { get; set; }
         /// <summary>The status of the participant with respect to the lifecycle within the conference</summary>
-        public global::Soenneker.Telnyx.Models.Participant_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Participant_status? Status { get; set; }
         /// <summary>ISO 8601 formatted date of when the participant was last updated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.Models
         public List<string> WhisperCallControlIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Participant"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Participant"/> and sets the default values.
         /// </summary>
         public Participant()
         {
@@ -92,12 +92,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Participant"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Participant"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.Participant CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Participant CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.Participant();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Participant();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,15 +109,15 @@ namespace Soenneker.Telnyx.Models
             {
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "call_leg_id", n => { CallLegId = n.GetStringValue(); } },
-                { "conference", n => { Conference = n.GetObjectValue<global::Soenneker.Telnyx.Models.Participant_conference>(global::Soenneker.Telnyx.Models.Participant_conference.CreateFromDiscriminatorValue); } },
+                { "conference", n => { Conference = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_conference>(global::Soenneker.Telnyx.OpenApiClient.Models.Participant_conference.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "end_conference_on_exit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "muted", n => { Muted = n.GetBoolValue(); } },
                 { "on_hold", n => { OnHold = n.GetBoolValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.Participant_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_record_type>(); } },
                 { "soft_end_conference_on_exit", n => { SoftEndConferenceOnExit = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.Participant_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_status>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "whisper_call_control_ids", n => { WhisperCallControlIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -131,15 +131,15 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("call_control_id", CallControlId);
             writer.WriteStringValue("call_leg_id", CallLegId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Participant_conference>("conference", Conference);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_conference>("conference", Conference);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("end_conference_on_exit", EndConferenceOnExit);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("muted", Muted);
             writer.WriteBoolValue("on_hold", OnHold);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Participant_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_record_type>("record_type", RecordType);
             writer.WriteBoolValue("soft_end_conference_on_exit", SoftEndConferenceOnExit);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.Participant_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_status>("status", Status);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteCollectionOfPrimitiveValues<string>("whisper_call_control_ids", WhisperCallControlIds);
             writer.WriteAdditionalData(AdditionalData);

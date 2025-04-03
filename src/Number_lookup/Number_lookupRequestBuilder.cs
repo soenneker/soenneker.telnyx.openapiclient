@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Number_lookup.Item;
+using Soenneker.Telnyx.OpenApiClient.Number_lookup.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Number_lookup
+namespace Soenneker.Telnyx.OpenApiClient.Number_lookup
 {
     /// <summary>
     /// Builds and executes requests for operations under \number_lookup
@@ -15,20 +15,20 @@ namespace Soenneker.Telnyx.Number_lookup
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Number_lookupRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.number_lookup.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.number_lookup.item collection</summary>
         /// <param name="position">The phone number to be looked up</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("phone_number", position);
-                return new global::Soenneker.Telnyx.Number_lookup.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Item.WithPhone_numberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Number_lookup.Number_lookupRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Number_lookupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.Number_lookup
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Number_lookup.Number_lookupRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_lookup.Number_lookupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

@@ -2,13 +2,13 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Managed_accounts.Item.Actions.Disable;
-using Soenneker.Telnyx.Managed_accounts.Item.Actions.Enable;
+using Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Actions.Disable;
+using Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Actions.Enable;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Managed_accounts.Item.Actions
+namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Actions
 {
     /// <summary>
     /// Builds and executes requests for operations under \managed_accounts\{id}\actions
@@ -17,17 +17,17 @@ namespace Soenneker.Telnyx.Managed_accounts.Item.Actions
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The disable property</summary>
-        public global::Soenneker.Telnyx.Managed_accounts.Item.Actions.Disable.DisableRequestBuilder Disable
+        public global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Actions.Disable.DisableRequestBuilder Disable
         {
-            get => new global::Soenneker.Telnyx.Managed_accounts.Item.Actions.Disable.DisableRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Actions.Disable.DisableRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The enable property</summary>
-        public global::Soenneker.Telnyx.Managed_accounts.Item.Actions.Enable.EnableRequestBuilder Enable
+        public global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Actions.Enable.EnableRequestBuilder Enable
         {
-            get => new global::Soenneker.Telnyx.Managed_accounts.Item.Actions.Enable.EnableRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Actions.Enable.EnableRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Managed_accounts.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.Managed_accounts.Item.Actions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Managed_accounts.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

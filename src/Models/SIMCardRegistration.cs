@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The group SIMCardGroup identification. This attribute can be &lt;code&gt;null&lt;/code&gt; when it&apos;s present in an associated resource.</summary>
         public Guid? SimCardGroupId { get; set; }
         /// <summary>Status on which the SIM card will be set after being successful registered.</summary>
-        public global::Soenneker.Telnyx.Models.SIMCardRegistration_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistration_status? Status { get; set; }
         /// <summary>Searchable tags associated with the SIM card</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,22 +35,22 @@ namespace Soenneker.Telnyx.Models
         public List<string> Tags { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SIMCardRegistration"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistration"/> and sets the default values.
         /// </summary>
         public SIMCardRegistration()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.Telnyx.Models.SIMCardRegistration_status.Enabled;
+            Status = global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistration_status.Enabled;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SIMCardRegistration"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SIMCardRegistration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SIMCardRegistration();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "registration_codes", n => { RegistrationCodes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "sim_card_group_id", n => { SimCardGroupId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.SIMCardRegistration_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistration_status>(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("registration_codes", RegistrationCodes);
             writer.WriteGuidValue("sim_card_group_id", SimCardGroupId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.SIMCardRegistration_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardRegistration_status>("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);
         }

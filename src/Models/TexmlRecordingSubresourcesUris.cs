@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Subresources details for a recording if available.
@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.Models
         public string Transcriptions { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.TexmlRecordingSubresourcesUris"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris"/> and sets the default values.
         /// </summary>
         public TexmlRecordingSubresourcesUris()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TexmlRecordingSubresourcesUris"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.TexmlRecordingSubresourcesUris CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.TexmlRecordingSubresourcesUris();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether a beep sound should be played when participants join and/or leave the conference.</summary>
-        public global::Soenneker.Telnyx.Models.CreateConferenceRequest_beep_enabled? BeepEnabled { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_beep_enabled? BeepEnabled { get; set; }
         /// <summary>Unique identifier and token for controlling the call</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,22 +73,22 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Whether the conference should be started on creation. If the conference isn&apos;t started all participants that join are automatically put on hold. Defaults to &quot;true&quot;.</summary>
         public bool? StartConferenceOnCreate { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CreateConferenceRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest"/> and sets the default values.
         /// </summary>
         public CreateConferenceRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            BeepEnabled = global::Soenneker.Telnyx.Models.CreateConferenceRequest_beep_enabled.Never;
+            BeepEnabled = global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_beep_enabled.Never;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CreateConferenceRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CreateConferenceRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CreateConferenceRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "beep_enabled", n => { BeepEnabled = n.GetEnumValue<global::Soenneker.Telnyx.Models.CreateConferenceRequest_beep_enabled>(); } },
+                { "beep_enabled", n => { BeepEnabled = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_beep_enabled>(); } },
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "comfort_noise", n => { ComfortNoise = n.GetBoolValue(); } },
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CreateConferenceRequest_beep_enabled>("beep_enabled", BeepEnabled);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_beep_enabled>("beep_enabled", BeepEnabled);
             writer.WriteStringValue("call_control_id", CallControlId);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteBoolValue("comfort_noise", ComfortNoise);

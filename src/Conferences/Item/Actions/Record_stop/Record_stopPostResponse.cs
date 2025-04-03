@@ -2,11 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Conferences.Item.Actions.Record_stop
+namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,13 +18,13 @@ namespace Soenneker.Telnyx.Conferences.Item.Actions.Record_stop
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.ConferenceCommandResult? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceCommandResult? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.ConferenceCommandResult Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceCommandResult Data { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Conferences.Item.Actions.Record_stop.Record_stopPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse"/> and sets the default values.
         /// </summary>
         public Record_stopPostResponse()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Conferences.Item.Actions.Record_stop
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Conferences.Item.Actions.Record_stop.Record_stopPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Conferences.Item.Actions.Record_stop.Record_stopPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Conferences.Item.Actions.Record_stop.Record_stopPostResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.Conferences.Item.Actions.Record_stop
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.Models.ConferenceCommandResult>(global::Soenneker.Telnyx.Models.ConferenceCommandResult.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceCommandResult>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceCommandResult.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.Conferences.Item.Actions.Record_stop
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ConferenceCommandResult>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceCommandResult>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

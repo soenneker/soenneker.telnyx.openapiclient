@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.Models
         public string PhoneNumber { get; private set; }
 #endif
         /// <summary>The phone number&apos;s type.</summary>
-        public global::Soenneker.Telnyx.Models.PhoneNumberDeletedDetailed_phone_number_type? PhoneNumberType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDeletedDetailed_phone_number_type? PhoneNumberType { get; private set; }
         /// <summary>ISO 8601 formatted date indicating the time the request was made to purchase the number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -131,7 +131,7 @@ namespace Soenneker.Telnyx.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>The phone number&apos;s current status.</summary>
-        public global::Soenneker.Telnyx.Models.PhoneNumberDeletedDetailed_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDeletedDetailed_status? Status { get; private set; }
         /// <summary>Indicates whether T38 Fax Gateway for inbound calls to this number.</summary>
         public bool? T38FaxGatewayEnabled { get; private set; }
         /// <summary>A list of user-assigned tags to help manage the phone number.</summary>
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PhoneNumberDeletedDetailed"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDeletedDetailed"/> and sets the default values.
         /// </summary>
         public PhoneNumberDeletedDetailed()
         {
@@ -160,12 +160,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PhoneNumberDeletedDetailed"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDeletedDetailed"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PhoneNumberDeletedDetailed CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDeletedDetailed CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PhoneNumberDeletedDetailed();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDeletedDetailed();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -191,10 +191,10 @@ namespace Soenneker.Telnyx.Models
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
                 { "messaging_profile_name", n => { MessagingProfileName = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.Models.PhoneNumberDeletedDetailed_phone_number_type>(); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDeletedDetailed_phone_number_type>(); } },
                 { "purchased_at", n => { PurchasedAt = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.PhoneNumberDeletedDetailed_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDeletedDetailed_status>(); } },
                 { "t38_fax_gateway_enabled", n => { T38FaxGatewayEnabled = n.GetBoolValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },

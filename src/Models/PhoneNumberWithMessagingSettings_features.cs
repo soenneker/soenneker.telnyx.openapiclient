@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,21 +17,21 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The set of features available for a specific messaging use case (SMS or MMS). Featurescan vary depending on the characteristics the phone number, as well as its currentproduct configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.MessagingFeatureSet? Mms { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet? Mms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.MessagingFeatureSet Mms { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet Mms { get; set; }
 #endif
         /// <summary>The set of features available for a specific messaging use case (SMS or MMS). Featurescan vary depending on the characteristics the phone number, as well as its currentproduct configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.MessagingFeatureSet? Sms { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet? Sms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.MessagingFeatureSet Sms { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet Sms { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_features"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features"/> and sets the default values.
         /// </summary>
         public PhoneNumberWithMessagingSettings_features()
         {
@@ -40,12 +40,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_features"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_features CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PhoneNumberWithMessagingSettings_features();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +55,8 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mms", n => { Mms = n.GetObjectValue<global::Soenneker.Telnyx.Models.MessagingFeatureSet>(global::Soenneker.Telnyx.Models.MessagingFeatureSet.CreateFromDiscriminatorValue); } },
-                { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Telnyx.Models.MessagingFeatureSet>(global::Soenneker.Telnyx.Models.MessagingFeatureSet.CreateFromDiscriminatorValue); } },
+                { "mms", n => { Mms = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet.CreateFromDiscriminatorValue); } },
+                { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.MessagingFeatureSet>("mms", Mms);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.MessagingFeatureSet>("sms", Sms);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet>("mms", Mms);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingFeatureSet>("sms", Sms);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

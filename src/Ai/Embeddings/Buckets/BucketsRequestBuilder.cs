@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Ai.Embeddings.Buckets.Item;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Ai.Embeddings.Buckets
+namespace Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets
 {
     /// <summary>
     /// Builds and executes requests for operations under \ai\embeddings\buckets
@@ -18,20 +18,20 @@ namespace Soenneker.Telnyx.Ai.Embeddings.Buckets
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BucketsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.ai.embeddings.buckets.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.embeddings.buckets.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Ai.Embeddings.Buckets.Item.WithBucket_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Ai.Embeddings.Buckets.Item.WithBucket_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.Item.WithBucket_nameItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.Item.WithBucket_nameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("bucket_name", position);
-                return new global::Soenneker.Telnyx.Ai.Embeddings.Buckets.Item.WithBucket_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.Item.WithBucket_nameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Ai.Embeddings.Buckets.BucketsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.BucketsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.Ai.Embeddings.Buckets
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Ai.Embeddings.Buckets.BucketsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.BucketsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -49,25 +49,25 @@ namespace Soenneker.Telnyx.Ai.Embeddings.Buckets
         /// <summary>
         /// Get all embedding buckets for a user.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UserEmbeddedBucketsData"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserEmbeddedBucketsData"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.UserEmbeddedBucketsData?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UserEmbeddedBucketsData?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.UserEmbeddedBucketsData> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UserEmbeddedBucketsData> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.UserEmbeddedBucketsData>(requestInfo, global::Soenneker.Telnyx.Models.UserEmbeddedBucketsData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UserEmbeddedBucketsData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UserEmbeddedBucketsData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all embedding buckets for a user.
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.Ai.Embeddings.Buckets
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Ai.Embeddings.Buckets.BucketsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.BucketsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Ai.Embeddings.Buckets.BucketsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.BucketsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Ai.Embeddings.Buckets.BucketsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets.BucketsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

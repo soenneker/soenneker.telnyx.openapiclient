@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.Models
         public string Sid { get; set; }
 #endif
         /// <summary>The status of the recording transcriptions. The transcription text will be available only when the status is completed.</summary>
-        public global::Soenneker.Telnyx.Models.TexmlRecordingTranscription_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscription_status? Status { get; set; }
         /// <summary>The recording&apos;s transcribed text</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.Models
         public string Uri { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.TexmlRecordingTranscription"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscription"/> and sets the default values.
         /// </summary>
         public TexmlRecordingTranscription()
         {
@@ -106,12 +106,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TexmlRecordingTranscription"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscription"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.TexmlRecordingTranscription CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscription CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.TexmlRecordingTranscription();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscription();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -129,7 +129,7 @@ namespace Soenneker.Telnyx.Models
                 { "duration", n => { Duration = n.GetStringValue(); } },
                 { "recording_sid", n => { RecordingSid = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.TexmlRecordingTranscription_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscription_status>(); } },
                 { "transcription_text", n => { TranscriptionText = n.GetStringValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("duration", Duration);
             writer.WriteStringValue("recording_sid", RecordingSid);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TexmlRecordingTranscription_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingTranscription_status>("status", Status);
             writer.WriteStringValue("transcription_text", TranscriptionText);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

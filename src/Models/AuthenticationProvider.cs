@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -41,10 +41,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The settings associated with the authentication provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.AuthenticationProvider_settings? Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings? Settings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.AuthenticationProvider_settings Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings Settings { get; set; }
 #endif
         /// <summary>The short name associated with the authentication provider. This must be unique and URL-friendly, as it&apos;s going to be part of the login URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.AuthenticationProvider"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider"/> and sets the default values.
         /// </summary>
         public AuthenticationProvider()
         {
@@ -66,12 +66,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AuthenticationProvider"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.AuthenticationProvider CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.AuthenticationProvider();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.Models.AuthenticationProvider_settings>(global::Soenneker.Telnyx.Models.AuthenticationProvider_settings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings.CreateFromDiscriminatorValue); } },
                 { "short_name", n => { ShortName = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("organization_id", OrganizationId);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.AuthenticationProvider_settings>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings>("settings", Settings);
             writer.WriteStringValue("short_name", ShortName);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

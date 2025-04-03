@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>If the credential associated with this service is active.</summary>
         public bool? CredentialActive { get; set; }
         /// <summary>The service that will be consuming this connection.</summary>
-        public global::Soenneker.Telnyx.Models.ExternalSipConnection? ExternalSipConnection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnection? ExternalSipConnection { get; set; }
         /// <summary>Uniquely identifies the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,18 +39,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.ExternalConnection_inbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.ExternalConnection_inbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound Inbound { get; set; }
 #endif
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.ExternalConnection_outbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.ExternalConnection_outbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound Outbound { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1 or v2.</summary>
-        public global::Soenneker.Telnyx.Models.ExternalConnection_webhook_api_version? WebhookApiVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_webhook_api_version? WebhookApiVersion { get; set; }
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,23 +89,23 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Specifies how many seconds to wait before timing out a webhook.</summary>
         public int? WebhookTimeoutSecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ExternalConnection"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection"/> and sets the default values.
         /// </summary>
         public ExternalConnection()
         {
             AdditionalData = new Dictionary<string, object>();
-            ExternalSipConnection = global::Soenneker.Telnyx.Models.ExternalSipConnection.Zoom;
-            WebhookApiVersion = global::Soenneker.Telnyx.Models.ExternalConnection_webhook_api_version.One;
+            ExternalSipConnection = global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnection.Zoom;
+            WebhookApiVersion = global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_webhook_api_version.One;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ExternalConnection"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ExternalConnection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ExternalConnection();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -118,13 +118,13 @@ namespace Soenneker.Telnyx.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "credential_active", n => { CredentialActive = n.GetBoolValue(); } },
-                { "external_sip_connection", n => { ExternalSipConnection = n.GetEnumValue<global::Soenneker.Telnyx.Models.ExternalSipConnection>(); } },
+                { "external_sip_connection", n => { ExternalSipConnection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnection>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.Models.ExternalConnection_inbound>(global::Soenneker.Telnyx.Models.ExternalConnection_inbound.CreateFromDiscriminatorValue); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.Models.ExternalConnection_outbound>(global::Soenneker.Telnyx.Models.ExternalConnection_outbound.CreateFromDiscriminatorValue); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound.CreateFromDiscriminatorValue); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.Models.ExternalConnection_webhook_api_version>(); } },
+                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_webhook_api_version>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -140,13 +140,13 @@ namespace Soenneker.Telnyx.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("credential_active", CredentialActive);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.ExternalSipConnection>("external_sip_connection", ExternalSipConnection);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnection>("external_sip_connection", ExternalSipConnection);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ExternalConnection_inbound>("inbound", Inbound);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ExternalConnection_outbound>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound>("inbound", Inbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound>("outbound", Outbound);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("updated_at", UpdatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.ExternalConnection_webhook_api_version>("webhook_api_version", WebhookApiVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_webhook_api_version>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

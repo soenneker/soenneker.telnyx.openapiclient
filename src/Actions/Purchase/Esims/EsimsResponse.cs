@@ -5,23 +5,23 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Actions.Purchase.Esims
+namespace Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims
 {
     [Obsolete("This class is obsolete. Use EsimsPostResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class EsimsResponse : global::Soenneker.Telnyx.Actions.Purchase.Esims.EsimsPostResponse, IParsable
+    public partial class EsimsResponse : global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsPostResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Actions.Purchase.Esims.EsimsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.Actions.Purchase.Esims.EsimsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Actions.Purchase.Esims.EsimsResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsResponse();
         }
     }
 }

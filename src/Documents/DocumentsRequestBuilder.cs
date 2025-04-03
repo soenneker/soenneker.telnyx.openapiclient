@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Documents.Item;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Documents.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Documents
+namespace Soenneker.Telnyx.OpenApiClient.Documents
 {
     /// <summary>
     /// Builds and executes requests for operations under \documents
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Documents
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DocumentsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.documents.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.documents.item collection</summary>
         /// <param name="position">Identifies the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Documents.Item.DocumentsItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Documents.Item.DocumentsItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.Item.DocumentsItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Documents.Item.DocumentsItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Documents.Item.DocumentsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Documents.Item.DocumentsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.documents.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.documents.item collection</summary>
         /// <param name="position">Identifies the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Documents.Item.DocumentsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.Item.DocumentsItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Documents.Item.DocumentsItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Documents.Item.DocumentsItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Documents.Item.DocumentsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Documents.Item.DocumentsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Documents
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,104 +62,104 @@ namespace Soenneker.Telnyx.Documents
         /// <summary>
         /// List all documents ordered by created_at descending.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Documents.DocumentsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Documents.DocumentsGetResponse?> GetAsDocumentsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsGetResponse?> GetAsDocumentsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Documents.DocumentsGetResponse> GetAsDocumentsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsGetResponse> GetAsDocumentsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Documents.DocumentsGetResponse>(requestInfo, global::Soenneker.Telnyx.Documents.DocumentsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all documents ordered by created_at descending.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Documents.DocumentsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsDocumentsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Documents.DocumentsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Documents.DocumentsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Documents.DocumentsResponse>(requestInfo, global::Soenneker.Telnyx.Documents.DocumentsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Upload a document.&lt;br /&gt;&lt;br /&gt;Uploaded files must be linked to a service within 30 minutes or they will be automatically deleted.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Documents.DocumentsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Documents.DocumentsPostResponse?> PostAsDocumentsPostResponseAsync(global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostResponse?> PostAsDocumentsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Documents.DocumentsPostResponse> PostAsDocumentsPostResponseAsync(global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostResponse> PostAsDocumentsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Documents.DocumentsPostResponse>(requestInfo, global::Soenneker.Telnyx.Documents.DocumentsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Upload a document.&lt;br /&gt;&lt;br /&gt;Uploaded files must be linked to a service within 30 minutes or they will be automatically deleted.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Documents.DocumentsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
         [Obsolete("This method is obsolete. Use PostAsDocumentsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Documents.DocumentsResponse?> PostAsync(global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Documents.DocumentsResponse> PostAsync(global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Documents.DocumentsResponse>(requestInfo, global::Soenneker.Telnyx.Documents.DocumentsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all documents ordered by created_at descending.
@@ -168,11 +168,11 @@ namespace Soenneker.Telnyx.Documents
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -188,11 +188,11 @@ namespace Soenneker.Telnyx.Documents
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -205,51 +205,51 @@ namespace Soenneker.Telnyx.Documents
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember1"/>, <see cref="global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember2"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember2"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DocumentsPostRequestBody : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember1? DocumentsPostRequestBodyMember1 { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember1? DocumentsPostRequestBodyMember1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember1 DocumentsPostRequestBodyMember1 { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember1 DocumentsPostRequestBodyMember1 { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember2"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember2? DocumentsPostRequestBodyMember2 { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember2? DocumentsPostRequestBodyMember2 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember2 DocumentsPostRequestBodyMember2 { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember2 DocumentsPostRequestBodyMember2 { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsPostRequestBody();
                 if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.DocumentsPostRequestBodyMember1 = new global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember1();
+                    result.DocumentsPostRequestBodyMember1 = new global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember1();
                 }
                 else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.DocumentsPostRequestBodyMember2 = new global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember2();
+                    result.DocumentsPostRequestBodyMember2 = new global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember2();
                 }
                 return result;
             }
@@ -278,11 +278,11 @@ namespace Soenneker.Telnyx.Documents
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
                 if(DocumentsPostRequestBodyMember1 != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember1>(null, DocumentsPostRequestBodyMember1);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember1>(null, DocumentsPostRequestBodyMember1);
                 }
                 else if(DocumentsPostRequestBodyMember2 != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Documents.DocumentsPostRequestBodyMember2>(null, DocumentsPostRequestBodyMember2);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostRequestBodyMember2>(null, DocumentsPostRequestBodyMember2);
                 }
             }
         }
@@ -361,14 +361,14 @@ namespace Soenneker.Telnyx.Documents
 #endif
             /// <summary>Specifies the sort order for results. If you want to sort by a field in ascending order, include it as a sort parameter. If you want to sort in descending order, prepend a `-` in front of the field name.</summary>
             [QueryParameter("sort%5B%5D")]
-            public global::Soenneker.Telnyx.Documents.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Documents.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class DocumentsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>
+        public partial class DocumentsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.Error>? Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Error>? Errors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.Error> Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Error> Errors { get; set; }
 #endif
         /// <summary>The phone number&apos;s ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PhoneNumberBlocksJobFailedOperation"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobFailedOperation"/> and sets the default values.
         /// </summary>
         public PhoneNumberBlocksJobFailedOperation()
         {
@@ -48,12 +48,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PhoneNumberBlocksJobFailedOperation"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobFailedOperation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PhoneNumberBlocksJobFailedOperation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobFailedOperation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PhoneNumberBlocksJobFailedOperation();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberBlocksJobFailedOperation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Error>(global::Soenneker.Telnyx.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>(global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
             };
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.Error>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>("errors", Errors);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteAdditionalData(AdditionalData);

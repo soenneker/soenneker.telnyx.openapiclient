@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -27,10 +27,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The phone_numbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.HostedNumber>? PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber>? PhoneNumbers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.HostedNumber> PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber> PhoneNumbers { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,9 +41,9 @@ namespace Soenneker.Telnyx.Models
         public string RecordType { get; private set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.Models.MessagingHostedNumberOrder_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder_status? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.MessagingHostedNumberOrder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder"/> and sets the default values.
         /// </summary>
         public MessagingHostedNumberOrder()
         {
@@ -52,12 +52,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.MessagingHostedNumberOrder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.MessagingHostedNumberOrder CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.MessagingHostedNumberOrder();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,9 +69,9 @@ namespace Soenneker.Telnyx.Models
             {
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
-                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.HostedNumber>(global::Soenneker.Telnyx.Models.HostedNumber.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.MessagingHostedNumberOrder_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder_status>(); } },
             };
         }
         /// <summary>
@@ -82,8 +82,8 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.HostedNumber>("phone_numbers", PhoneNumbers);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.MessagingHostedNumberOrder_status>("status", Status);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber>("phone_numbers", PhoneNumbers);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

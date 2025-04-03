@@ -5,23 +5,23 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Phone_numbers.Item.Actions.Bundle_status_change
+namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_status_change
 {
     [Obsolete("This class is obsolete. Use Bundle_status_changePatchResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Bundle_status_changeResponse : global::Soenneker.Telnyx.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changePatchResponse, IParsable
+    public partial class Bundle_status_changeResponse : global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changePatchResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changeResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changeResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changeResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changeResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changeResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changeResponse();
         }
     }
 }

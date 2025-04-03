@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.TextToSpeech.Voices
+namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.TextToSpeech.Voices
         public string Provider { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesGetResponse_voices"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesGetResponse_voices"/> and sets the default values.
         /// </summary>
         public VoicesGetResponse_voices()
         {
@@ -88,12 +88,12 @@ namespace Soenneker.Telnyx.TextToSpeech.Voices
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesGetResponse_voices"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesGetResponse_voices"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesGetResponse_voices CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesGetResponse_voices CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.TextToSpeech.Voices.VoicesGetResponse_voices();
+            return new global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices.VoicesGetResponse_voices();
         }
         /// <summary>
         /// The deserialization information for the current model

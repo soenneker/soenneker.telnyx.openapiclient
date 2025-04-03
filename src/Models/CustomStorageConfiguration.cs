@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -15,17 +15,17 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The backend property</summary>
-        public global::Soenneker.Telnyx.Models.CustomStorageConfiguration_backend? Backend { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration_backend? Backend { get; set; }
         /// <summary>The configuration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration? Configuration { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration? Configuration { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration Configuration { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration Configuration { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CustomStorageConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration"/> and sets the default values.
         /// </summary>
         public CustomStorageConfiguration()
         {
@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CustomStorageConfiguration"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CustomStorageConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CustomStorageConfiguration();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +49,8 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "backend", n => { Backend = n.GetEnumValue<global::Soenneker.Telnyx.Models.CustomStorageConfiguration_backend>(); } },
-                { "configuration", n => { Configuration = n.GetObjectValue<global::Soenneker.Telnyx.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration>(global::Soenneker.Telnyx.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration.CreateFromDiscriminatorValue); } },
+                { "backend", n => { Backend = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration_backend>(); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,61 +60,61 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CustomStorageConfiguration_backend>("backend", Backend);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration>("configuration", Configuration);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration_backend>("backend", Backend);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration>("configuration", Configuration);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.Models.AzureConfigurationData"/>, <see cref="global::Soenneker.Telnyx.Models.GCSConfigurationData"/>, <see cref="global::Soenneker.Telnyx.Models.S3ConfigurationData"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GCSConfigurationData"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CustomStorageConfiguration_configuration : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.AzureConfigurationData"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.AzureConfigurationData? AzureConfigurationData { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData? AzureConfigurationData { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.AzureConfigurationData AzureConfigurationData { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData AzureConfigurationData { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.GCSConfigurationData"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GCSConfigurationData"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.GCSConfigurationData? GCSConfigurationData { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GCSConfigurationData? GCSConfigurationData { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.GCSConfigurationData GCSConfigurationData { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GCSConfigurationData GCSConfigurationData { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.S3ConfigurationData"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.S3ConfigurationData? S3ConfigurationData { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData? S3ConfigurationData { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.S3ConfigurationData S3ConfigurationData { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData S3ConfigurationData { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration();
                 if("AzureConfigurationData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.AzureConfigurationData = new global::Soenneker.Telnyx.Models.AzureConfigurationData();
+                    result.AzureConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData();
                 }
                 else if("GCSConfigurationData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.GCSConfigurationData = new global::Soenneker.Telnyx.Models.GCSConfigurationData();
+                    result.GCSConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.GCSConfigurationData();
                 }
                 else if("S3ConfigurationData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.S3ConfigurationData = new global::Soenneker.Telnyx.Models.S3ConfigurationData();
+                    result.S3ConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData();
                 }
                 return result;
             }
@@ -147,15 +147,15 @@ namespace Soenneker.Telnyx.Models
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
                 if(AzureConfigurationData != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.AzureConfigurationData>(null, AzureConfigurationData);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData>(null, AzureConfigurationData);
                 }
                 else if(GCSConfigurationData != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.GCSConfigurationData>(null, GCSConfigurationData);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GCSConfigurationData>(null, GCSConfigurationData);
                 }
                 else if(S3ConfigurationData != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.S3ConfigurationData>(null, S3ConfigurationData);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData>(null, S3ConfigurationData);
                 }
             }
         }

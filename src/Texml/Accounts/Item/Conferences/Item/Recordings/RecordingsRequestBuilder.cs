@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.Recordings
+namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Recordings
 {
     /// <summary>
     /// Builds and executes requests for operations under \texml\Accounts\{account_sid}\Conferences\{conference_sid}\Recordings
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.Recordings
     public partial class RecordingsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.Recordings.RecordingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Recordings.RecordingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.Recordings
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.Recordings.RecordingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Recordings.RecordingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,20 +36,20 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.Recordings
         /// <summary>
         /// Lists conference recordings
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ConferenceRecordingResourceIndex"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndex"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.ConferenceRecordingResourceIndex?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndex?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.ConferenceRecordingResourceIndex> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndex> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.ConferenceRecordingResourceIndex>(requestInfo, global::Soenneker.Telnyx.Models.ConferenceRecordingResourceIndex.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndex>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRecordingResourceIndex.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists conference recordings
@@ -73,11 +73,11 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.Recordings
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.Recordings.RecordingsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Recordings.RecordingsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.Recordings.RecordingsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Recordings.RecordingsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Texml.Accounts.Item.Conferences.Item.Recordings.RecordingsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Recordings.RecordingsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

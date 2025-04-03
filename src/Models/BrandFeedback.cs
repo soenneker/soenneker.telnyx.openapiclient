@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -25,13 +25,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>A list of reasons why brand creation/revetting didn&apos;t go as planned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.BrandFeedbackCategory>? Category { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedbackCategory>? Category { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.BrandFeedbackCategory> Category { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedbackCategory> Category { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.BrandFeedback"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedback"/> and sets the default values.
         /// </summary>
         public BrandFeedback()
         {
@@ -40,12 +40,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.BrandFeedback"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedback"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.BrandFeedback CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedback CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.BrandFeedback();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedback();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "brandId", n => { BrandId = n.GetStringValue(); } },
-                { "category", n => { Category = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.BrandFeedbackCategory>(global::Soenneker.Telnyx.Models.BrandFeedbackCategory.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "category", n => { Category = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedbackCategory>(global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedbackCategory.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("brandId", BrandId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.BrandFeedbackCategory>("category", Category);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedbackCategory>("category", Category);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

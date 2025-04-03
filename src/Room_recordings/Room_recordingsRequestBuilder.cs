@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Room_recordings.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Room_recordings.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Room_recordings
+namespace Soenneker.Telnyx.OpenApiClient.Room_recordings
 {
     /// <summary>
     /// Builds and executes requests for operations under \room_recordings
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Room_recordings
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Room_recordingsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.room_recordings.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.room_recordings.item collection</summary>
         /// <param name="position">The unique identifier of a room recording.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("room_recording_id", position);
-                return new global::Soenneker.Telnyx.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.room_recordings.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.room_recordings.item collection</summary>
         /// <param name="position">The unique identifier of a room recording.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("room_recording_id", position);
-                return new global::Soenneker.Telnyx.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Item.WithRoom_recording_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Room_recordings
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,96 +62,96 @@ namespace Soenneker.Telnyx.Room_recordings
         /// <summary>
         /// Delete several room recordings in a bulk.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_recordings.Room_recordingsDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Room_recordings.Room_recordingsDeleteResponse?> DeleteAsRoom_recordingsDeleteResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsDeleteResponse?> DeleteAsRoom_recordingsDeleteResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Room_recordings.Room_recordingsDeleteResponse> DeleteAsRoom_recordingsDeleteResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsDeleteResponse> DeleteAsRoom_recordingsDeleteResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Room_recordings.Room_recordingsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.Room_recordings.Room_recordingsDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete several room recordings in a bulk.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_recordings.Room_recordingsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
         [Obsolete("This method is obsolete. Use DeleteAsRoom_recordingsDeleteResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Room_recordings.Room_recordingsResponse?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsResponse?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Room_recordings.Room_recordingsResponse> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsResponse> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Room_recordings.Room_recordingsResponse>(requestInfo, global::Soenneker.Telnyx.Room_recordings.Room_recordingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// View a list of room recordings.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_recordings.Room_recordingsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Room_recordings.Room_recordingsGetResponse?> GetAsRoom_recordingsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsGetResponse?> GetAsRoom_recordingsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Room_recordings.Room_recordingsGetResponse> GetAsRoom_recordingsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsGetResponse> GetAsRoom_recordingsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Room_recordings.Room_recordingsGetResponse>(requestInfo, global::Soenneker.Telnyx.Room_recordings.Room_recordingsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// View a list of room recordings.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_recordings.Room_recordingsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsRoom_recordingsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Room_recordings.Room_recordingsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Room_recordings.Room_recordingsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Room_recordings.Room_recordingsResponse>(requestInfo, global::Soenneker.Telnyx.Room_recordings.Room_recordingsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
@@ -163,11 +163,11 @@ namespace Soenneker.Telnyx.Room_recordings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -178,11 +178,11 @@ namespace Soenneker.Telnyx.Room_recordings
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Delete several room recordings in a bulk.
@@ -258,7 +258,7 @@ namespace Soenneker.Telnyx.Room_recordings
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Room_recordingsRequestBuilderDeleteRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>
+        public partial class Room_recordingsRequestBuilderDeleteRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderDeleteQueryParameters>
         {
         }
         /// <summary>
@@ -335,7 +335,7 @@ namespace Soenneker.Telnyx.Room_recordings
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Room_recordingsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>
+        public partial class Room_recordingsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_recordings.Room_recordingsRequestBuilder.Room_recordingsRequestBuilderGetQueryParameters>
         {
         }
     }

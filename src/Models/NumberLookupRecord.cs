@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,18 +17,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The caller_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CallerName? CallerName { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerName? CallerName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CallerName CallerName { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallerName CallerName { get; set; }
 #endif
         /// <summary>The carrier property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Carrier? Carrier { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Carrier? Carrier { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Carrier Carrier { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Carrier Carrier { get; set; }
 #endif
         /// <summary>Region code that matches the specific country calling code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,10 +65,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The portability property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Portability? Portability { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Portability? Portability { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Portability Portability { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Portability Portability { get; set; }
 #endif
         /// <summary>Identifies the type of record</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.NumberLookupRecord"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecord"/> and sets the default values.
         /// </summary>
         public NumberLookupRecord()
         {
@@ -88,12 +88,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.NumberLookupRecord"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecord"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.NumberLookupRecord CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecord CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.NumberLookupRecord();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumberLookupRecord();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,13 +103,13 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "caller_name", n => { CallerName = n.GetObjectValue<global::Soenneker.Telnyx.Models.CallerName>(global::Soenneker.Telnyx.Models.CallerName.CreateFromDiscriminatorValue); } },
-                { "carrier", n => { Carrier = n.GetObjectValue<global::Soenneker.Telnyx.Models.Carrier>(global::Soenneker.Telnyx.Models.Carrier.CreateFromDiscriminatorValue); } },
+                { "caller_name", n => { CallerName = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallerName>(global::Soenneker.Telnyx.OpenApiClient.Models.CallerName.CreateFromDiscriminatorValue); } },
+                { "carrier", n => { Carrier = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Carrier>(global::Soenneker.Telnyx.OpenApiClient.Models.Carrier.CreateFromDiscriminatorValue); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "fraud", n => { Fraud = n.GetStringValue(); } },
                 { "national_format", n => { NationalFormat = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "portability", n => { Portability = n.GetObjectValue<global::Soenneker.Telnyx.Models.Portability>(global::Soenneker.Telnyx.Models.Portability.CreateFromDiscriminatorValue); } },
+                { "portability", n => { Portability = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Portability>(global::Soenneker.Telnyx.OpenApiClient.Models.Portability.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
         }
@@ -120,13 +120,13 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CallerName>("caller_name", CallerName);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Carrier>("carrier", Carrier);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallerName>("caller_name", CallerName);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Carrier>("carrier", Carrier);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("fraud", Fraud);
             writer.WriteStringValue("national_format", NationalFormat);
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Portability>("portability", Portability);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Portability>("portability", Portability);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }

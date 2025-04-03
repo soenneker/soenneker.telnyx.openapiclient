@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,14 +23,14 @@ namespace Soenneker.Telnyx.Models
         public string AlternateResourceId { get; set; }
 #endif
         /// <summary>Indicates if the change was made by Telnyx on your behalf, the organization owner, a member of your organization, or in the case of managed accounts, the account manager.</summary>
-        public global::Soenneker.Telnyx.Models.AuditLog_change_made_by? ChangeMadeBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditLog_change_made_by? ChangeMadeBy { get; set; }
         /// <summary>Details of the changes made to the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.AuditEventChanges>? Changes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges>? Changes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.AuditEventChanges> Changes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges> Changes { get; set; }
 #endif
         /// <summary>The type of change that occurred.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Unique identifier for the user who made the change.</summary>
         public Guid? UserId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.AuditLog"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditLog"/> and sets the default values.
         /// </summary>
         public AuditLog()
         {
@@ -74,12 +74,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AuditLog"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditLog"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.AuditLog CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AuditLog CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.AuditLog();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AuditLog();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,9 +90,9 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "alternate_resource_id", n => { AlternateResourceId = n.GetStringValue(); } },
-                { "change_made_by", n => { ChangeMadeBy = n.GetEnumValue<global::Soenneker.Telnyx.Models.AuditLog_change_made_by>(); } },
+                { "change_made_by", n => { ChangeMadeBy = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditLog_change_made_by>(); } },
                 { "change_type", n => { ChangeType = n.GetStringValue(); } },
-                { "changes", n => { Changes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.AuditEventChanges>(global::Soenneker.Telnyx.Models.AuditEventChanges.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "changes", n => { Changes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges>(global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
@@ -109,8 +109,8 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alternate_resource_id", AlternateResourceId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.AuditLog_change_made_by>("change_made_by", ChangeMadeBy);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.AuditEventChanges>("changes", Changes);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditLog_change_made_by>("change_made_by", ChangeMadeBy);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges>("changes", Changes);
             writer.WriteStringValue("change_type", ChangeType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("id", Id);

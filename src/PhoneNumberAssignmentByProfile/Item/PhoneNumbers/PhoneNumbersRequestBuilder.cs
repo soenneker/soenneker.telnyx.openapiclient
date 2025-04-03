@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers
+namespace Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers
 {
     /// <summary>
     /// Builds and executes requests for operations under \phoneNumberAssignmentByProfile\{taskId}\phoneNumbers
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers
     public partial class PhoneNumbersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,25 +36,25 @@ namespace Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers
         /// <summary>
         /// Check the status of the individual phone number/campaign assignments associated with the supplied `taskId`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PhoneNumberStatusResponsePaginated"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatusResponsePaginated"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.PhoneNumberStatusResponsePaginated?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder.PhoneNumbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatusResponsePaginated?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder.PhoneNumbersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.PhoneNumberStatusResponsePaginated> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder.PhoneNumbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatusResponsePaginated> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder.PhoneNumbersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.PhoneNumberStatusResponsePaginated>(requestInfo, global::Soenneker.Telnyx.Models.PhoneNumberStatusResponsePaginated.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatusResponsePaginated>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberStatusResponsePaginated.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Check the status of the individual phone number/campaign assignments associated with the supplied `taskId`.
@@ -63,11 +63,11 @@ namespace Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder.PhoneNumbersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder.PhoneNumbersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder.PhoneNumbersRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder.PhoneNumbersRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -78,11 +78,11 @@ namespace Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Check the status of the individual phone number/campaign assignments associated with the supplied `taskId`.
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PhoneNumbersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder.PhoneNumbersRequestBuilderGetQueryParameters>
+        public partial class PhoneNumbersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.PhoneNumbers.PhoneNumbersRequestBuilder.PhoneNumbersRequestBuilderGetQueryParameters>
         {
         }
     }

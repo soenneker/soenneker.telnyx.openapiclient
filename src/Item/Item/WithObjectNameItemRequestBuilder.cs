@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Item.Item.Uploads;
+using Soenneker.Telnyx.OpenApiClient.Item.Item.Uploads;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Item.Item
+namespace Soenneker.Telnyx.OpenApiClient.Item.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \{bucketName}\{objectName}
@@ -18,12 +18,12 @@ namespace Soenneker.Telnyx.Item.Item
     public partial class WithObjectNameItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The uploads property</summary>
-        public global::Soenneker.Telnyx.Item.Item.Uploads.UploadsRequestBuilder Uploads
+        public global::Soenneker.Telnyx.OpenApiClient.Item.Item.Uploads.UploadsRequestBuilder Uploads
         {
-            get => new global::Soenneker.Telnyx.Item.Item.Uploads.UploadsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Item.Item.Uploads.UploadsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Item.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -63,11 +63,11 @@ namespace Soenneker.Telnyx.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -101,11 +101,11 @@ namespace Soenneker.Telnyx.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> PutAsync(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> PutAsync(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -138,11 +138,11 @@ namespace Soenneker.Telnyx.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -177,11 +177,11 @@ namespace Soenneker.Telnyx.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -194,11 +194,11 @@ namespace Soenneker.Telnyx.Item.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
@@ -229,7 +229,7 @@ namespace Soenneker.Telnyx.Item.Item
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithObjectNameItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>
+        public partial class WithObjectNameItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>
@@ -270,7 +270,7 @@ namespace Soenneker.Telnyx.Item.Item
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithObjectNameItemRequestBuilderPutRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>
+        public partial class WithObjectNameItemRequestBuilderPutRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>
         {
         }
     }

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,26 +17,26 @@ namespace Soenneker.Telnyx.Models
         /// <summary>BETA - Enable the capture and storage of RTCP messages to create QoS reports on the Telnyx Mission Control Portal.</summary>
         public bool? CaptureEnabled { get; set; }
         /// <summary>RTCP port by default is rtp+1, it can also be set to rtcp-mux</summary>
-        public global::Soenneker.Telnyx.Models.ConnectionRtcpSettings_port? Port { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings_port? Port { get; set; }
         /// <summary>RTCP reports are sent to customers based on the frequency set. Frequency is in seconds and it can be set to values from 5 to 3000 seconds.</summary>
         public int? ReportFrequencySecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ConnectionRtcpSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings"/> and sets the default values.
         /// </summary>
         public ConnectionRtcpSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            Port = global::Soenneker.Telnyx.Models.ConnectionRtcpSettings_port.Rtp_plus_1;
+            Port = global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings_port.Rtp_plus_1;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ConnectionRtcpSettings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ConnectionRtcpSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ConnectionRtcpSettings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "capture_enabled", n => { CaptureEnabled = n.GetBoolValue(); } },
-                { "port", n => { Port = n.GetEnumValue<global::Soenneker.Telnyx.Models.ConnectionRtcpSettings_port>(); } },
+                { "port", n => { Port = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings_port>(); } },
                 { "report_frequency_secs", n => { ReportFrequencySecs = n.GetIntValue(); } },
             };
         }
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("capture_enabled", CaptureEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.ConnectionRtcpSettings_port>("port", Port);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings_port>("port", Port);
             writer.WriteIntValue("report_frequency_secs", ReportFrequencySecs);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -19,13 +19,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The number of bytes sent</summary>
         public int? BytesSent { get; set; }
         /// <summary>The category of the bucket operation</summary>
-        public global::Soenneker.Telnyx.Models.BucketOps_category? Category { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps_category? Category { get; set; }
         /// <summary>The number of operations</summary>
         public int? Ops { get; set; }
         /// <summary>The number of successful operations</summary>
         public int? SuccessfulOps { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.BucketOps"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps"/> and sets the default values.
         /// </summary>
         public BucketOps()
         {
@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.BucketOps"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.BucketOps CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.BucketOps();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "bytes_received", n => { BytesReceived = n.GetIntValue(); } },
                 { "bytes_sent", n => { BytesSent = n.GetIntValue(); } },
-                { "category", n => { Category = n.GetEnumValue<global::Soenneker.Telnyx.Models.BucketOps_category>(); } },
+                { "category", n => { Category = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps_category>(); } },
                 { "ops", n => { Ops = n.GetIntValue(); } },
                 { "successful_ops", n => { SuccessfulOps = n.GetIntValue(); } },
             };
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("bytes_received", BytesReceived);
             writer.WriteIntValue("bytes_sent", BytesSent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.BucketOps_category>("category", Category);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketOps_category>("category", Category);
             writer.WriteIntValue("ops", Ops);
             writer.WriteIntValue("successful_ops", SuccessfulOps);
             writer.WriteAdditionalData(AdditionalData);

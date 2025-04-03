@@ -2,46 +2,46 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Calls.Item.Actions.Ai_assistant_start;
-using Soenneker.Telnyx.Calls.Item.Actions.Ai_assistant_stop;
-using Soenneker.Telnyx.Calls.Item.Actions.Answer;
-using Soenneker.Telnyx.Calls.Item.Actions.Bridge;
-using Soenneker.Telnyx.Calls.Item.Actions.Client_state_update;
-using Soenneker.Telnyx.Calls.Item.Actions.Enqueue;
-using Soenneker.Telnyx.Calls.Item.Actions.Fork_start;
-using Soenneker.Telnyx.Calls.Item.Actions.Fork_stop;
-using Soenneker.Telnyx.Calls.Item.Actions.Gather;
-using Soenneker.Telnyx.Calls.Item.Actions.Gather_stop;
-using Soenneker.Telnyx.Calls.Item.Actions.Gather_using_ai;
-using Soenneker.Telnyx.Calls.Item.Actions.Gather_using_audio;
-using Soenneker.Telnyx.Calls.Item.Actions.Gather_using_speak;
-using Soenneker.Telnyx.Calls.Item.Actions.Hangup;
-using Soenneker.Telnyx.Calls.Item.Actions.Leave_queue;
-using Soenneker.Telnyx.Calls.Item.Actions.Playback_start;
-using Soenneker.Telnyx.Calls.Item.Actions.Playback_stop;
-using Soenneker.Telnyx.Calls.Item.Actions.Record_pause;
-using Soenneker.Telnyx.Calls.Item.Actions.Record_resume;
-using Soenneker.Telnyx.Calls.Item.Actions.Record_start;
-using Soenneker.Telnyx.Calls.Item.Actions.Record_stop;
-using Soenneker.Telnyx.Calls.Item.Actions.Refer;
-using Soenneker.Telnyx.Calls.Item.Actions.Reject;
-using Soenneker.Telnyx.Calls.Item.Actions.Send_dtmf;
-using Soenneker.Telnyx.Calls.Item.Actions.Send_sip_info;
-using Soenneker.Telnyx.Calls.Item.Actions.Siprec_start;
-using Soenneker.Telnyx.Calls.Item.Actions.Siprec_stop;
-using Soenneker.Telnyx.Calls.Item.Actions.Speak;
-using Soenneker.Telnyx.Calls.Item.Actions.Streaming_start;
-using Soenneker.Telnyx.Calls.Item.Actions.Streaming_stop;
-using Soenneker.Telnyx.Calls.Item.Actions.Suppression_start;
-using Soenneker.Telnyx.Calls.Item.Actions.Suppression_stop;
-using Soenneker.Telnyx.Calls.Item.Actions.Transcription_start;
-using Soenneker.Telnyx.Calls.Item.Actions.Transcription_stop;
-using Soenneker.Telnyx.Calls.Item.Actions.Transfer;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Bridge;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Client_state_update;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Enqueue;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_start;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_stop;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_stop;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_speak;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Hangup;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Leave_queue;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Playback_start;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Playback_stop;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_pause;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_resume;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_start;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_stop;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Refer;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Reject;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Send_dtmf;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Send_sip_info;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Siprec_start;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Siprec_stop;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Speak;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Streaming_start;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Streaming_stop;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_start;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_stop;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_start;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_stop;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transfer;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Calls.Item.Actions
+namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions
 {
     /// <summary>
     /// Builds and executes requests for operations under \calls\{call_control_id}\actions
@@ -50,182 +50,182 @@ namespace Soenneker.Telnyx.Calls.Item.Actions
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The ai_assistant_start property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startRequestBuilder Ai_assistant_start
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startRequestBuilder Ai_assistant_start
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The ai_assistant_stop property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Ai_assistant_stop.Ai_assistant_stopRequestBuilder Ai_assistant_stop
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop.Ai_assistant_stopRequestBuilder Ai_assistant_stop
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Ai_assistant_stop.Ai_assistant_stopRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop.Ai_assistant_stopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The answer property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Answer.AnswerRequestBuilder Answer
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerRequestBuilder Answer
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Answer.AnswerRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The bridge property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Bridge.BridgeRequestBuilder Bridge
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Bridge.BridgeRequestBuilder Bridge
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Bridge.BridgeRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Bridge.BridgeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The client_state_update property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Client_state_update.Client_state_updateRequestBuilder Client_state_update
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Client_state_update.Client_state_updateRequestBuilder Client_state_update
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Client_state_update.Client_state_updateRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Client_state_update.Client_state_updateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The enqueue property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Enqueue.EnqueueRequestBuilder Enqueue
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Enqueue.EnqueueRequestBuilder Enqueue
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Enqueue.EnqueueRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Enqueue.EnqueueRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The fork_start property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Fork_start.Fork_startRequestBuilder Fork_start
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_start.Fork_startRequestBuilder Fork_start
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Fork_start.Fork_startRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_start.Fork_startRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The fork_stop property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Fork_stop.Fork_stopRequestBuilder Fork_stop
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_stop.Fork_stopRequestBuilder Fork_stop
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Fork_stop.Fork_stopRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_stop.Fork_stopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The gather property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Gather.GatherRequestBuilder Gather
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather.GatherRequestBuilder Gather
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Gather.GatherRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather.GatherRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The gather_stop property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Gather_stop.Gather_stopRequestBuilder Gather_stop
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_stop.Gather_stopRequestBuilder Gather_stop
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Gather_stop.Gather_stopRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_stop.Gather_stopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The gather_using_ai property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Gather_using_ai.Gather_using_aiRequestBuilder Gather_using_ai
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiRequestBuilder Gather_using_ai
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Gather_using_ai.Gather_using_aiRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The gather_using_audio property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Gather_using_audio.Gather_using_audioRequestBuilder Gather_using_audio
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio.Gather_using_audioRequestBuilder Gather_using_audio
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Gather_using_audio.Gather_using_audioRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_audio.Gather_using_audioRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The gather_using_speak property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Gather_using_speak.Gather_using_speakRequestBuilder Gather_using_speak
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_speak.Gather_using_speakRequestBuilder Gather_using_speak
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Gather_using_speak.Gather_using_speakRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_speak.Gather_using_speakRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The hangup property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Hangup.HangupRequestBuilder Hangup
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Hangup.HangupRequestBuilder Hangup
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Hangup.HangupRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Hangup.HangupRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The leave_queue property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Leave_queue.Leave_queueRequestBuilder Leave_queue
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Leave_queue.Leave_queueRequestBuilder Leave_queue
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Leave_queue.Leave_queueRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Leave_queue.Leave_queueRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The playback_start property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Playback_start.Playback_startRequestBuilder Playback_start
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Playback_start.Playback_startRequestBuilder Playback_start
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Playback_start.Playback_startRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Playback_start.Playback_startRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The playback_stop property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Playback_stop.Playback_stopRequestBuilder Playback_stop
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Playback_stop.Playback_stopRequestBuilder Playback_stop
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Playback_stop.Playback_stopRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Playback_stop.Playback_stopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The record_pause property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Record_pause.Record_pauseRequestBuilder Record_pause
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_pause.Record_pauseRequestBuilder Record_pause
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Record_pause.Record_pauseRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_pause.Record_pauseRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The record_resume property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Record_resume.Record_resumeRequestBuilder Record_resume
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_resume.Record_resumeRequestBuilder Record_resume
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Record_resume.Record_resumeRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_resume.Record_resumeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The record_start property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Record_start.Record_startRequestBuilder Record_start
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_start.Record_startRequestBuilder Record_start
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Record_start.Record_startRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_start.Record_startRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The record_stop property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Record_stop.Record_stopRequestBuilder Record_stop
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_stop.Record_stopRequestBuilder Record_stop
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Record_stop.Record_stopRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_stop.Record_stopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The refer property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Refer.ReferRequestBuilder Refer
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Refer.ReferRequestBuilder Refer
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Refer.ReferRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Refer.ReferRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The reject property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Reject.RejectRequestBuilder Reject
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Reject.RejectRequestBuilder Reject
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Reject.RejectRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Reject.RejectRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The send_dtmf property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Send_dtmf.Send_dtmfRequestBuilder Send_dtmf
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Send_dtmf.Send_dtmfRequestBuilder Send_dtmf
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Send_dtmf.Send_dtmfRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Send_dtmf.Send_dtmfRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The send_sip_info property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Send_sip_info.Send_sip_infoRequestBuilder Send_sip_info
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Send_sip_info.Send_sip_infoRequestBuilder Send_sip_info
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Send_sip_info.Send_sip_infoRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Send_sip_info.Send_sip_infoRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The siprec_start property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Siprec_start.Siprec_startRequestBuilder Siprec_start
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Siprec_start.Siprec_startRequestBuilder Siprec_start
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Siprec_start.Siprec_startRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Siprec_start.Siprec_startRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The siprec_stop property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Siprec_stop.Siprec_stopRequestBuilder Siprec_stop
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Siprec_stop.Siprec_stopRequestBuilder Siprec_stop
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Siprec_stop.Siprec_stopRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Siprec_stop.Siprec_stopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The speak property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Speak.SpeakRequestBuilder Speak
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Speak.SpeakRequestBuilder Speak
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Speak.SpeakRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Speak.SpeakRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The streaming_start property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Streaming_start.Streaming_startRequestBuilder Streaming_start
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Streaming_start.Streaming_startRequestBuilder Streaming_start
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Streaming_start.Streaming_startRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Streaming_start.Streaming_startRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The streaming_stop property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Streaming_stop.Streaming_stopRequestBuilder Streaming_stop
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Streaming_stop.Streaming_stopRequestBuilder Streaming_stop
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Streaming_stop.Streaming_stopRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Streaming_stop.Streaming_stopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The suppression_start property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Suppression_start.Suppression_startRequestBuilder Suppression_start
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_start.Suppression_startRequestBuilder Suppression_start
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Suppression_start.Suppression_startRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_start.Suppression_startRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The suppression_stop property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Suppression_stop.Suppression_stopRequestBuilder Suppression_stop
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_stop.Suppression_stopRequestBuilder Suppression_stop
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Suppression_stop.Suppression_stopRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_stop.Suppression_stopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The transcription_start property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Transcription_start.Transcription_startRequestBuilder Transcription_start
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_start.Transcription_startRequestBuilder Transcription_start
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Transcription_start.Transcription_startRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_start.Transcription_startRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The transcription_stop property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Transcription_stop.Transcription_stopRequestBuilder Transcription_stop
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_stop.Transcription_stopRequestBuilder Transcription_stop
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Transcription_stop.Transcription_stopRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_stop.Transcription_stopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The transfer property</summary>
-        public global::Soenneker.Telnyx.Calls.Item.Actions.Transfer.TransferRequestBuilder Transfer
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transfer.TransferRequestBuilder Transfer
         {
-            get => new global::Soenneker.Telnyx.Calls.Item.Actions.Transfer.TransferRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transfer.TransferRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Calls.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -233,7 +233,7 @@ namespace Soenneker.Telnyx.Calls.Item.Actions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Calls.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

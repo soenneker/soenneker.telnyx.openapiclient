@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.External_connections.Item.Civic_addresses.Item;
+using Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.External_connections.Item.Civic_addresses
+namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses
 {
     /// <summary>
     /// Builds and executes requests for operations under \external_connections\{id}\civic_addresses
@@ -17,33 +17,33 @@ namespace Soenneker.Telnyx.External_connections.Item.Civic_addresses
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Civic_addressesRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.external_connections.item.civic_addresses.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.civic_addresses.item collection</summary>
         /// <param name="position">Identifies a civic address or a location.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("address_id", position);
-                return new global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.external_connections.item.civic_addresses.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.civic_addresses.item collection</summary>
         /// <param name="position">Identifies a civic address or a location.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("address_id", position);
-                return new global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Item.WithAddress_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.External_connections.Item.Civic_addresses
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -61,39 +61,39 @@ namespace Soenneker.Telnyx.External_connections.Item.Civic_addresses
         /// <summary>
         /// Returns the civic addresses and locations from Microsoft Teams.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesGetResponse?> GetAsCivic_addressesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesGetResponse?> GetAsCivic_addressesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesGetResponse> GetAsCivic_addressesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesGetResponse> GetAsCivic_addressesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesGetResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the civic addresses and locations from Microsoft Teams.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsCivic_addressesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesResponse>(requestInfo, global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the civic addresses and locations from Microsoft Teams.
@@ -102,11 +102,11 @@ namespace Soenneker.Telnyx.External_connections.Item.Civic_addresses
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -117,11 +117,11 @@ namespace Soenneker.Telnyx.External_connections.Item.Civic_addresses
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns the civic addresses and locations from Microsoft Teams.
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.External_connections.Item.Civic_addresses
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Civic_addressesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>
+        public partial class Civic_addressesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_addresses.Civic_addressesRequestBuilder.Civic_addressesRequestBuilderGetQueryParameters>
         {
         }
     }

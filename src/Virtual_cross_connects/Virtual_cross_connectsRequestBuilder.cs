@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Virtual_cross_connects.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Virtual_cross_connects
+namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects
 {
     /// <summary>
     /// Builds and executes requests for operations under \virtual_cross_connects
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Virtual_cross_connects
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Virtual_cross_connectsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.virtual_cross_connects.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.virtual_cross_connects.item collection</summary>
         /// <param name="position">Identifies the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.virtual_cross_connects.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.virtual_cross_connects.item collection</summary>
         /// <param name="position">Identifies the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Item.Virtual_cross_connectsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Virtual_cross_connects
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,104 +62,104 @@ namespace Soenneker.Telnyx.Virtual_cross_connects
         /// <summary>
         /// List all Virtual Cross Connects.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsGetResponse?> GetAsVirtual_cross_connectsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsGetResponse?> GetAsVirtual_cross_connectsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsGetResponse> GetAsVirtual_cross_connectsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsGetResponse> GetAsVirtual_cross_connectsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsGetResponse>(requestInfo, global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all Virtual Cross Connects.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsVirtual_cross_connectsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsResponse>(requestInfo, global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;For AWS and GCE, you have the option of creating the primary connection first and the secondary connection later. You also have the option of disabling the primary and/or secondary connections at any time and later re-enabling them. With Azure, you do not have this option. Azure requires both the primary and secondary connections to be created at the same time and they can not be independantly disabled.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsPostResponse?> PostAsVirtual_cross_connectsPostResponseAsync(global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsPostResponse?> PostAsVirtual_cross_connectsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsPostResponse> PostAsVirtual_cross_connectsPostResponseAsync(global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsPostResponse> PostAsVirtual_cross_connectsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsPostResponse>(requestInfo, global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;For AWS and GCE, you have the option of creating the primary connection first and the secondary connection later. You also have the option of disabling the primary and/or secondary connections at any time and later re-enabling them. With Azure, you do not have this option. Azure requires both the primary and secondary connections to be created at the same time and they can not be independantly disabled.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use PostAsVirtual_cross_connectsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsResponse?> PostAsync(global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsResponse> PostAsync(global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsResponse>(requestInfo, global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all Virtual Cross Connects.
@@ -168,11 +168,11 @@ namespace Soenneker.Telnyx.Virtual_cross_connects
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -188,11 +188,11 @@ namespace Soenneker.Telnyx.Virtual_cross_connects
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -205,11 +205,11 @@ namespace Soenneker.Telnyx.Virtual_cross_connects
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List all Virtual Cross Connects.
@@ -239,7 +239,7 @@ namespace Soenneker.Telnyx.Virtual_cross_connects
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Virtual_cross_connectsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>
+        public partial class Virtual_cross_connectsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects.Virtual_cross_connectsRequestBuilder.Virtual_cross_connectsRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

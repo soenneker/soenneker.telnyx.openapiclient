@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -31,24 +31,24 @@ namespace Soenneker.Telnyx.Models
         public string CommandId { get; set; }
 #endif
         /// <summary>The direction of the audio stream to be noise suppressed.</summary>
-        public global::Soenneker.Telnyx.Models.NoiseSuppressionDirection? Direction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection? Direction { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.NoiseSuppressionStart"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart"/> and sets the default values.
         /// </summary>
         public NoiseSuppressionStart()
         {
             AdditionalData = new Dictionary<string, object>();
-            Direction = global::Soenneker.Telnyx.Models.NoiseSuppressionDirection.Inbound;
+            Direction = global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection.Inbound;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.NoiseSuppressionStart"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.NoiseSuppressionStart CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.NoiseSuppressionStart();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.Models.NoiseSuppressionDirection>(); } },
+                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.NoiseSuppressionDirection>("direction", Direction);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection>("direction", Direction);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

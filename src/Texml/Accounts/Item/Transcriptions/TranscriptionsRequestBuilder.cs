@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Texml.Accounts.Item.Transcriptions.Item;
+using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Transcriptions.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Texml.Accounts.Item.Transcriptions
+namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Transcriptions
 {
     /// <summary>
     /// Builds and executes requests for operations under \texml\Accounts\{account_sid}\Transcriptions
@@ -15,20 +15,20 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Transcriptions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TranscriptionsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.texml.Accounts.item.Transcriptions.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item.Transcriptions.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Transcriptions.Item.WithRecording_transcription_sidJsonItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Texml.Accounts.Item.Transcriptions.Item.WithRecording_transcription_sidJsonItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Transcriptions.Item.WithRecording_transcription_sidJsonItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Transcriptions.Item.WithRecording_transcription_sidJsonItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("recording_transcription_sid", position);
-                return new global::Soenneker.Telnyx.Texml.Accounts.Item.Transcriptions.Item.WithRecording_transcription_sidJsonItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Transcriptions.Item.WithRecording_transcription_sidJsonItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Transcriptions.TranscriptionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Transcriptions.TranscriptionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.Texml.Accounts.Item.Transcriptions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.Accounts.Item.Transcriptions.TranscriptionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Transcriptions.TranscriptionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

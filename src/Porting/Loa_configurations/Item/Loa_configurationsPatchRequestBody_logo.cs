@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
+namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item
 {
     /// <summary>
     /// The logo of the LOA configuration
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         /// <summary>The document identification</summary>
         public Guid? DocumentId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo"/> and sets the default values.
         /// </summary>
         public Loa_configurationsPatchRequestBody_logo()
         {
@@ -27,12 +27,12 @@ namespace Soenneker.Telnyx.Porting.Loa_configurations.Item
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo();
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsPatchRequestBody_logo();
         }
         /// <summary>
         /// The deserialization information for the current model

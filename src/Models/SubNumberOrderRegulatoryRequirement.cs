@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The field_type property</summary>
-        public global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement_field_type? FieldType { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement_field_type? FieldType { get; private set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,7 +27,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Unique id for a requirement.</summary>
         public Guid? RequirementId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement"/> and sets the default values.
         /// </summary>
         public SubNumberOrderRegulatoryRequirement()
         {
@@ -36,12 +36,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "field_type", n => { FieldType = n.GetEnumValue<global::Soenneker.Telnyx.Models.SubNumberOrderRegulatoryRequirement_field_type>(); } },
+                { "field_type", n => { FieldType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement_field_type>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirement_id", n => { RequirementId = n.GetGuidValue(); } },
             };

@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Private_wireless_gateways.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Private_wireless_gateways
+namespace Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways
 {
     /// <summary>
     /// Builds and executes requests for operations under \private_wireless_gateways
@@ -18,33 +18,33 @@ namespace Soenneker.Telnyx.Private_wireless_gateways
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Private_wireless_gatewaysRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.private_wireless_gateways.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.private_wireless_gateways.item collection</summary>
         /// <param name="position">Identifies the private wireless gateway.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.private_wireless_gateways.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.private_wireless_gateways.item collection</summary>
         /// <param name="position">Identifies the private wireless gateway.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder this[string position]
+        public global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Item.Private_wireless_gatewaysItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Private_wireless_gateways
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -62,104 +62,104 @@ namespace Soenneker.Telnyx.Private_wireless_gateways
         /// <summary>
         /// Get all Private Wireless Gateways belonging to the user.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysGetResponse?> GetAsPrivate_wireless_gatewaysGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysGetResponse?> GetAsPrivate_wireless_gatewaysGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysGetResponse> GetAsPrivate_wireless_gatewaysGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysGetResponse> GetAsPrivate_wireless_gatewaysGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysGetResponse>(requestInfo, global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all Private Wireless Gateways belonging to the user.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsPrivate_wireless_gatewaysGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysResponse>(requestInfo, global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Asynchronously create a Private Wireless Gateway for SIM cards for a previously created network. This operation may take several minutes so you can check the Private Wireless Gateway status at the section Get a Private Wireless Gateway.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostResponse?> PostAsPrivate_wireless_gatewaysPostResponseAsync(global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostResponse?> PostAsPrivate_wireless_gatewaysPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostResponse> PostAsPrivate_wireless_gatewaysPostResponseAsync(global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostResponse> PostAsPrivate_wireless_gatewaysPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostResponse>(requestInfo, global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Asynchronously create a Private Wireless Gateway for SIM cards for a previously created network. This operation may take several minutes so you can check the Private Wireless Gateway status at the section Get a Private Wireless Gateway.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use PostAsPrivate_wireless_gatewaysPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysResponse?> PostAsync(global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysResponse> PostAsync(global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysResponse>(requestInfo, global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all Private Wireless Gateways belonging to the user.
@@ -168,11 +168,11 @@ namespace Soenneker.Telnyx.Private_wireless_gateways
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -188,11 +188,11 @@ namespace Soenneker.Telnyx.Private_wireless_gateways
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -205,11 +205,11 @@ namespace Soenneker.Telnyx.Private_wireless_gateways
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Get all Private Wireless Gateways belonging to the user.
@@ -279,7 +279,7 @@ namespace Soenneker.Telnyx.Private_wireless_gateways
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Private_wireless_gatewaysRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>
+        public partial class Private_wireless_gatewaysRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder.Private_wireless_gatewaysRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

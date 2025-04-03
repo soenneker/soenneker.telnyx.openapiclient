@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Telephony_credentials.Item.Token
+namespace Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token
 {
     /// <summary>
     /// Builds and executes requests for operations under \telephony_credentials\{id}\token
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Telephony_credentials.Item.Token
     public partial class TokenRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Token.TokenRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token.TokenRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Telephony_credentials.Item.Token
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Token.TokenRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token.TokenRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -72,11 +72,11 @@ namespace Soenneker.Telnyx.Telephony_credentials.Item.Token
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Telephony_credentials.Item.Token.TokenRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token.TokenRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Telephony_credentials.Item.Token.TokenRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token.TokenRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Telephony_credentials.Item.Token.TokenRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Item.Token.TokenRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

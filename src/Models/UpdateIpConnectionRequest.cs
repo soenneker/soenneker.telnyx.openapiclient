@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
-        public global::Soenneker.Telnyx.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
         /// <summary>The uuid of the push credential for Android</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,18 +37,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout.</summary>
         public bool? DefaultOnHoldComfortNoiseEnabled { get; set; }
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
-        public global::Soenneker.Telnyx.Models.DtmfType? DtmfType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType? DtmfType { get; set; }
         /// <summary>Encode the SIP contact header sent by Telnyx to avoid issues for NAT or ALG scenarios.</summary>
         public bool? EncodeContactHeaderEnabled { get; set; }
         /// <summary>Enable use of SRTP for encryption. Cannot be set if the transport_portocol is TLS.</summary>
-        public global::Soenneker.Telnyx.Models.EncryptedMedia? EncryptedMedia { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? EncryptedMedia { get; set; }
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.InboundIp? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.InboundIp Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp Inbound { get; set; }
 #endif
         /// <summary>The uuid of the push credential for Ios</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,23 +63,23 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.OutboundIp? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.OutboundIp Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp Outbound { get; set; }
 #endif
         /// <summary>The rtcp_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.ConnectionRtcpSettings? RtcpSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings? RtcpSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.ConnectionRtcpSettings RtcpSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings RtcpSettings { get; set; }
 #endif
         /// <summary>One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.</summary>
-        public global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest_transport_protocol? TransportProtocol { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest_transport_protocol? TransportProtocol { get; set; }
         /// <summary>Determines which webhook format will be used, Telnyx API v1 or v2.</summary>
-        public global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest_webhook_api_version? WebhookApiVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest_webhook_api_version? WebhookApiVersion { get; set; }
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,25 +99,25 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Specifies how many seconds to wait before timing out a webhook.</summary>
         public int? WebhookTimeoutSecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest"/> and sets the default values.
         /// </summary>
         public UpdateIpConnectionRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AnchorsiteOverride = global::Soenneker.Telnyx.Models.AnchorsiteOverride.Latency;
-            DtmfType = global::Soenneker.Telnyx.Models.DtmfType.RFC2833;
-            TransportProtocol = global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest_transport_protocol.UDP;
-            WebhookApiVersion = global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest_webhook_api_version.One;
+            AnchorsiteOverride = global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride.Latency;
+            DtmfType = global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType.RFC2833;
+            TransportProtocol = global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest_transport_protocol.UDP;
+            WebhookApiVersion = global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest_webhook_api_version.One;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -128,20 +128,20 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.Models.AnchorsiteOverride>(); } },
+                { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
                 { "android_push_credential_id", n => { AndroidPushCredentialId = n.GetStringValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "default_on_hold_comfort_noise_enabled", n => { DefaultOnHoldComfortNoiseEnabled = n.GetBoolValue(); } },
-                { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.Models.DtmfType>(); } },
+                { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); } },
                 { "encode_contact_header_enabled", n => { EncodeContactHeaderEnabled = n.GetBoolValue(); } },
-                { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.Models.EncryptedMedia>(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.Models.InboundIp>(global::Soenneker.Telnyx.Models.InboundIp.CreateFromDiscriminatorValue); } },
+                { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp.CreateFromDiscriminatorValue); } },
                 { "ios_push_credential_id", n => { IosPushCredentialId = n.GetStringValue(); } },
                 { "onnet_t38_passthrough_enabled", n => { OnnetT38PassthroughEnabled = n.GetBoolValue(); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.Models.OutboundIp>(global::Soenneker.Telnyx.Models.OutboundIp.CreateFromDiscriminatorValue); } },
-                { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
-                { "transport_protocol", n => { TransportProtocol = n.GetEnumValue<global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest_transport_protocol>(); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest_webhook_api_version>(); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp.CreateFromDiscriminatorValue); } },
+                { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
+                { "transport_protocol", n => { TransportProtocol = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest_transport_protocol>(); } },
+                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest_webhook_api_version>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -155,20 +155,20 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("android_push_credential_id", AndroidPushCredentialId);
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.DtmfType>("dtmf_type", DtmfType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);
             writer.WriteBoolValue("encode_contact_header_enabled", EncodeContactHeaderEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.InboundIp>("inbound", Inbound);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp>("inbound", Inbound);
             writer.WriteStringValue("ios_push_credential_id", IosPushCredentialId);
             writer.WriteBoolValue("onnet_t38_passthrough_enabled", OnnetT38PassthroughEnabled);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.OutboundIp>("outbound", Outbound);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest_transport_protocol>("transport_protocol", TransportProtocol);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.UpdateIpConnectionRequest_webhook_api_version>("webhook_api_version", WebhookApiVersion);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest_transport_protocol>("transport_protocol", TransportProtocol);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateIpConnectionRequest_webhook_api_version>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

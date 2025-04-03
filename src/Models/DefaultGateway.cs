@@ -5,28 +5,28 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class DefaultGateway : global::Soenneker.Telnyx.Models.Record, IParsable
+    public partial class DefaultGateway : global::Soenneker.Telnyx.OpenApiClient.Models.Record, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Network ID.</summary>
         public Guid? NetworkId { get; private set; }
         /// <summary>The current status of the interface deployment.</summary>
-        public global::Soenneker.Telnyx.Models.InterfaceStatus? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus? Status { get; private set; }
         /// <summary>Wireguard peer ID.</summary>
         public Guid? WireguardPeerId { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.DefaultGateway"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DefaultGateway"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.Models.DefaultGateway CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.Models.DefaultGateway CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.DefaultGateway();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.DefaultGateway();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "network_id", n => { NetworkId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.InterfaceStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus>(); } },
                 { "wireguard_peer_id", n => { WireguardPeerId = n.GetGuidValue(); } },
             };
         }

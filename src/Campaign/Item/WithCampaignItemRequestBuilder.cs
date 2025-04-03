@@ -3,17 +3,17 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Campaign.Item.MnoMetadata;
-using Soenneker.Telnyx.Campaign.Item.OperationStatus;
-using Soenneker.Telnyx.Campaign.Item.Osr;
-using Soenneker.Telnyx.Campaign.Item.Sharing;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Campaign.Item.MnoMetadata;
+using Soenneker.Telnyx.OpenApiClient.Campaign.Item.OperationStatus;
+using Soenneker.Telnyx.OpenApiClient.Campaign.Item.Osr;
+using Soenneker.Telnyx.OpenApiClient.Campaign.Item.Sharing;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Campaign.Item
+namespace Soenneker.Telnyx.OpenApiClient.Campaign.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \campaign\{campaignId}
@@ -22,27 +22,27 @@ namespace Soenneker.Telnyx.Campaign.Item
     public partial class WithCampaignItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The mnoMetadata property</summary>
-        public global::Soenneker.Telnyx.Campaign.Item.MnoMetadata.MnoMetadataRequestBuilder MnoMetadata
+        public global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.MnoMetadata.MnoMetadataRequestBuilder MnoMetadata
         {
-            get => new global::Soenneker.Telnyx.Campaign.Item.MnoMetadata.MnoMetadataRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.MnoMetadata.MnoMetadataRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The operationStatus property</summary>
-        public global::Soenneker.Telnyx.Campaign.Item.OperationStatus.OperationStatusRequestBuilder OperationStatus
+        public global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.OperationStatus.OperationStatusRequestBuilder OperationStatus
         {
-            get => new global::Soenneker.Telnyx.Campaign.Item.OperationStatus.OperationStatusRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.OperationStatus.OperationStatusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The osr property</summary>
-        public global::Soenneker.Telnyx.Campaign.Item.Osr.OsrRequestBuilder Osr
+        public global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.Osr.OsrRequestBuilder Osr
         {
-            get => new global::Soenneker.Telnyx.Campaign.Item.Osr.OsrRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.Osr.OsrRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sharing property</summary>
-        public global::Soenneker.Telnyx.Campaign.Item.Sharing.SharingRequestBuilder Sharing
+        public global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.Sharing.SharingRequestBuilder Sharing
         {
-            get => new global::Soenneker.Telnyx.Campaign.Item.Sharing.SharingRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.Sharing.SharingRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Campaign.Item.WithCampaignItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.WithCampaignItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.Campaign.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Campaign.Item.WithCampaignItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.WithCampaignItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -60,73 +60,73 @@ namespace Soenneker.Telnyx.Campaign.Item
         /// <summary>
         /// Terminate a campaign. Note that once deactivated, a campaign cannot be restored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CampaignDeletionResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CampaignDeletionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.CampaignDeletionResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignDeletionResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.CampaignDeletionResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignDeletionResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.CampaignDeletionResponse>(requestInfo, global::Soenneker.Telnyx.Models.CampaignDeletionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CampaignDeletionResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CampaignDeletionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve campaign details by `campaignId`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TelnyxCampaign_CSP"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.TelnyxCampaign_CSP?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.TelnyxCampaign_CSP> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.TelnyxCampaign_CSP>(requestInfo, global::Soenneker.Telnyx.Models.TelnyxCampaign_CSP.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update a campaign&apos;s properties by `campaignId`. **Please note:** only sample messages are editable.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.TelnyxCampaign_CSP"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.TelnyxCampaign_CSP?> PutAsync(global::Soenneker.Telnyx.Models.UpdateCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP?> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.TelnyxCampaign_CSP> PutAsync(global::Soenneker.Telnyx.Models.UpdateCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.TelnyxCampaign_CSP>(requestInfo, global::Soenneker.Telnyx.Models.TelnyxCampaign_CSP.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Terminate a campaign. Note that once deactivated, a campaign cannot be restored.
@@ -174,11 +174,11 @@ namespace Soenneker.Telnyx.Campaign.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.Telnyx.Models.UpdateCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.Telnyx.Models.UpdateCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -191,11 +191,11 @@ namespace Soenneker.Telnyx.Campaign.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Campaign.Item.WithCampaignItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.WithCampaignItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Campaign.Item.WithCampaignItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.WithCampaignItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Campaign.Item.WithCampaignItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Campaign.Item.WithCampaignItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

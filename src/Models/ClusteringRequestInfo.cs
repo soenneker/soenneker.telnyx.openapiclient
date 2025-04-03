@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The min_subcluster_size property</summary>
         public int? MinSubclusterSize { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.Models.TaskStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatus? Status { get; set; }
         /// <summary>The task_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.Models
         public string TaskId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ClusteringRequestInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringRequestInfo"/> and sets the default values.
         /// </summary>
         public ClusteringRequestInfo()
         {
@@ -50,12 +50,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ClusteringRequestInfo"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringRequestInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ClusteringRequestInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringRequestInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ClusteringRequestInfo();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringRequestInfo();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.Models
                 { "finished_at", n => { FinishedAt = n.GetDateTimeOffsetValue(); } },
                 { "min_cluster_size", n => { MinClusterSize = n.GetIntValue(); } },
                 { "min_subcluster_size", n => { MinSubclusterSize = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.TaskStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatus>(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
             };
         }
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteDateTimeOffsetValue("finished_at", FinishedAt);
             writer.WriteIntValue("min_cluster_size", MinClusterSize);
             writer.WriteIntValue("min_subcluster_size", MinSubclusterSize);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TaskStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatus>("status", Status);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -59,10 +59,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The phone_numbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.PhoneNumbersJobPhoneNumber>? PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobPhoneNumber>? PhoneNumbers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.PhoneNumbersJobPhoneNumber> PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobPhoneNumber> PhoneNumbers { get; set; }
 #endif
         /// <summary>The count of phone numbers in the number order.</summary>
         public int? PhoneNumbersCount { get; private set; }
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>True if all requirements are met for every phone number, false otherwise.</summary>
         public bool? RequirementsMet { get; private set; }
         /// <summary>The status of the order.</summary>
-        public global::Soenneker.Telnyx.Models.NumberOrder_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrder_status? Status { get; private set; }
         /// <summary>The sub_number_orders_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.NumberOrder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrder"/> and sets the default values.
         /// </summary>
         public NumberOrder()
         {
@@ -104,12 +104,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.NumberOrder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrder"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.NumberOrder CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrder CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.NumberOrder();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrder();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -125,11 +125,11 @@ namespace Soenneker.Telnyx.Models
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
-                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.PhoneNumbersJobPhoneNumber>(global::Soenneker.Telnyx.Models.PhoneNumbersJobPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phone_numbers_count", n => { PhoneNumbersCount = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.NumberOrder_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrder_status>(); } },
                 { "sub_number_orders_ids", n => { SubNumberOrdersIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.PhoneNumbersJobPhoneNumber>("phone_numbers", PhoneNumbers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobPhoneNumber>("phone_numbers", PhoneNumbers);
             writer.WriteCollectionOfPrimitiveValues<string>("sub_number_orders_ids", SubNumberOrdersIds);
             writer.WriteAdditionalData(AdditionalData);
         }

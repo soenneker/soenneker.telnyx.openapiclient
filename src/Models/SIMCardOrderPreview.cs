@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -27,29 +27,29 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The shipping_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SIMCardOrderPreview_shipping_cost? ShippingCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_shipping_cost? ShippingCost { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SIMCardOrderPreview_shipping_cost ShippingCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_shipping_cost ShippingCost { get; set; }
 #endif
         /// <summary>The sim_cards_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SIMCardOrderPreview_sim_cards_cost? SimCardsCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_sim_cards_cost? SimCardsCost { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SIMCardOrderPreview_sim_cards_cost SimCardsCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_sim_cards_cost SimCardsCost { get; set; }
 #endif
         /// <summary>The total_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SIMCardOrderPreview_total_cost? TotalCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_total_cost? TotalCost { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SIMCardOrderPreview_total_cost TotalCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_total_cost TotalCost { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SIMCardOrderPreview"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview"/> and sets the default values.
         /// </summary>
         public SIMCardOrderPreview()
         {
@@ -58,12 +58,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SIMCardOrderPreview"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SIMCardOrderPreview CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SIMCardOrderPreview();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,9 +75,9 @@ namespace Soenneker.Telnyx.Models
             {
                 { "quantity", n => { Quantity = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "shipping_cost", n => { ShippingCost = n.GetObjectValue<global::Soenneker.Telnyx.Models.SIMCardOrderPreview_shipping_cost>(global::Soenneker.Telnyx.Models.SIMCardOrderPreview_shipping_cost.CreateFromDiscriminatorValue); } },
-                { "sim_cards_cost", n => { SimCardsCost = n.GetObjectValue<global::Soenneker.Telnyx.Models.SIMCardOrderPreview_sim_cards_cost>(global::Soenneker.Telnyx.Models.SIMCardOrderPreview_sim_cards_cost.CreateFromDiscriminatorValue); } },
-                { "total_cost", n => { TotalCost = n.GetObjectValue<global::Soenneker.Telnyx.Models.SIMCardOrderPreview_total_cost>(global::Soenneker.Telnyx.Models.SIMCardOrderPreview_total_cost.CreateFromDiscriminatorValue); } },
+                { "shipping_cost", n => { ShippingCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_shipping_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_shipping_cost.CreateFromDiscriminatorValue); } },
+                { "sim_cards_cost", n => { SimCardsCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_sim_cards_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_sim_cards_cost.CreateFromDiscriminatorValue); } },
+                { "total_cost", n => { TotalCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_total_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_total_cost.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -88,9 +88,9 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("quantity", Quantity);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SIMCardOrderPreview_shipping_cost>("shipping_cost", ShippingCost);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SIMCardOrderPreview_sim_cards_cost>("sim_cards_cost", SimCardsCost);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SIMCardOrderPreview_total_cost>("total_cost", TotalCost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_shipping_cost>("shipping_cost", ShippingCost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_sim_cards_cost>("sim_cards_cost", SimCardsCost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_total_cost>("total_cost", TotalCost);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

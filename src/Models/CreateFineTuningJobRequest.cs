@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The hyperparameters used for the fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest_hyperparameters? Hyperparameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters? Hyperparameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest_hyperparameters Hyperparameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters Hyperparameters { get; set; }
 #endif
         /// <summary>The base model that is being fine-tuned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.Models
         public string TrainingFile { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest"/> and sets the default values.
         /// </summary>
         public CreateFineTuningJobRequest()
         {
@@ -56,12 +56,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "hyperparameters", n => { Hyperparameters = n.GetObjectValue<global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest_hyperparameters>(global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest_hyperparameters.CreateFromDiscriminatorValue); } },
+                { "hyperparameters", n => { Hyperparameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "suffix", n => { Suffix = n.GetStringValue(); } },
                 { "training_file", n => { TrainingFile = n.GetStringValue(); } },
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest_hyperparameters>("hyperparameters", Hyperparameters);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters>("hyperparameters", Hyperparameters);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("suffix", Suffix);
             writer.WriteStringValue("training_file", TrainingFile);

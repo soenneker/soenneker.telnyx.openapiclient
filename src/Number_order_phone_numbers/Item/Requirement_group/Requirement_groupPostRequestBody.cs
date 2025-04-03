@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group
+namespace Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Requirement_group
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group
         /// <summary>The ID of the requirement group to associate</summary>
         public Guid? RequirementGroupId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupPostRequestBody"/> and sets the default values.
         /// </summary>
         public Requirement_groupPostRequestBody()
         {
@@ -26,12 +26,12 @@ namespace Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupPostRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers.Item.Requirement_group.Requirement_groupPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

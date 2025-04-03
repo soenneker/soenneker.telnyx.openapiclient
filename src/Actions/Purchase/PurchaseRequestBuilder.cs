@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Actions.Purchase.Esims;
+using Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Actions.Purchase
+namespace Soenneker.Telnyx.OpenApiClient.Actions.Purchase
 {
     /// <summary>
     /// Builds and executes requests for operations under \actions\purchase
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Actions.Purchase
     public partial class PurchaseRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The esims property</summary>
-        public global::Soenneker.Telnyx.Actions.Purchase.Esims.EsimsRequestBuilder Esims
+        public global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsRequestBuilder Esims
         {
-            get => new global::Soenneker.Telnyx.Actions.Purchase.Esims.EsimsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Actions.Purchase.PurchaseRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.PurchaseRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Actions.Purchase
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Actions.Purchase.PurchaseRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.PurchaseRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

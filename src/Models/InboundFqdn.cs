@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>This setting allows you to set the format with which the caller&apos;s number (ANI) is sent for inbound phone calls.</summary>
-        public global::Soenneker.Telnyx.Models.InboundFqdn_ani_number_format? AniNumberFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_ani_number_format? AniNumberFormat { get; set; }
         /// <summary>When set, this will limit the total number of inbound calls to phone numbers associated with this connection.</summary>
         public int? ChannelLimit { get; set; }
         /// <summary>Defines the list of codecs that Telnyx will send for inbound calls to a specific number on your portal account, in priority order. This only works when the Connection the number is assigned to uses Media Handling mode: default. OPUS and H.264 codecs are available only when using TCP or TLS transport for SIP.</summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.Models
         public string DefaultPrimaryFqdnId { get; set; }
 #endif
         /// <summary>Default routing method to be used when a number is associated with the connection. Must be one of the routing method types or null, other values are not allowed.</summary>
-        public global::Soenneker.Telnyx.Models.InboundFqdn_default_routing_method? DefaultRoutingMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_default_routing_method? DefaultRoutingMethod { get; set; }
         /// <summary>The default secondary FQDN to use for the number. Only settable if the connection isof FQDN type. Value must be the ID of an FQDN set on the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.Models
         public string DefaultTertiaryFqdnId { get; set; }
 #endif
         /// <summary>The dnis_number_format property</summary>
-        public global::Soenneker.Telnyx.Models.InboundFqdn_dnis_number_format? DnisNumberFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_dnis_number_format? DnisNumberFormat { get; set; }
         /// <summary>Generate ringback tone through 183 session progress message with early media.</summary>
         public bool? GenerateRingbackTone { get; set; }
         /// <summary>When set, inbound phone calls will receive ISUP parameters via SIP headers. (Only when available and only when using TCP or TLS transport.)</summary>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Defaults to true.</summary>
         public bool? SipCompactHeadersEnabled { get; set; }
         /// <summary>Selects which `sip_region` to receive inbound calls from. If null, the default region (US) will be used.</summary>
-        public global::Soenneker.Telnyx.Models.InboundFqdn_sip_region? SipRegion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_sip_region? SipRegion { get; set; }
         /// <summary>Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain &quot;example.sip.telnyx.com&quot; can be called from any SIP endpoint by using the SIP URI &quot;sip:@example.sip.telnyx.com&quot; where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,32 +75,32 @@ namespace Soenneker.Telnyx.Models
         public string SipSubdomain { get; set; }
 #endif
         /// <summary>This option can be enabled to receive calls from: &quot;Anyone&quot; (any SIP endpoint in the public Internet) or &quot;Only my connections&quot; (any connection assigned to the same Telnyx user).</summary>
-        public global::Soenneker.Telnyx.Models.InboundFqdn_sip_subdomain_receive_settings? SipSubdomainReceiveSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_sip_subdomain_receive_settings? SipSubdomainReceiveSettings { get; set; }
         /// <summary>Time(sec) before aborting if connection is not made.</summary>
         public int? Timeout1xxSecs { get; set; }
         /// <summary>Time(sec) before aborting if call is unanswered (min: 1, max: 600).</summary>
         public int? Timeout2xxSecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.InboundFqdn"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn"/> and sets the default values.
         /// </summary>
         public InboundFqdn()
         {
             AdditionalData = new Dictionary<string, object>();
-            AniNumberFormat = global::Soenneker.Telnyx.Models.InboundFqdn_ani_number_format.E164National;
-            DefaultRoutingMethod = global::Soenneker.Telnyx.Models.InboundFqdn_default_routing_method.Sequential;
-            DnisNumberFormat = global::Soenneker.Telnyx.Models.InboundFqdn_dnis_number_format.E164;
-            SipRegion = global::Soenneker.Telnyx.Models.InboundFqdn_sip_region.US;
-            SipSubdomainReceiveSettings = global::Soenneker.Telnyx.Models.InboundFqdn_sip_subdomain_receive_settings.From_anyone;
+            AniNumberFormat = global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_ani_number_format.E164National;
+            DefaultRoutingMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_default_routing_method.Sequential;
+            DnisNumberFormat = global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_dnis_number_format.E164;
+            SipRegion = global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_sip_region.US;
+            SipSubdomainReceiveSettings = global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_sip_subdomain_receive_settings.From_anyone;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.InboundFqdn"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.InboundFqdn CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.InboundFqdn();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -110,22 +110,22 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ani_number_format", n => { AniNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.Models.InboundFqdn_ani_number_format>(); } },
+                { "ani_number_format", n => { AniNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_ani_number_format>(); } },
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
                 { "codecs", n => { Codecs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "default_primary_fqdn_id", n => { DefaultPrimaryFqdnId = n.GetStringValue(); } },
-                { "default_routing_method", n => { DefaultRoutingMethod = n.GetEnumValue<global::Soenneker.Telnyx.Models.InboundFqdn_default_routing_method>(); } },
+                { "default_routing_method", n => { DefaultRoutingMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_default_routing_method>(); } },
                 { "default_secondary_fqdn_id", n => { DefaultSecondaryFqdnId = n.GetStringValue(); } },
                 { "default_tertiary_fqdn_id", n => { DefaultTertiaryFqdnId = n.GetStringValue(); } },
-                { "dnis_number_format", n => { DnisNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.Models.InboundFqdn_dnis_number_format>(); } },
+                { "dnis_number_format", n => { DnisNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_dnis_number_format>(); } },
                 { "generate_ringback_tone", n => { GenerateRingbackTone = n.GetBoolValue(); } },
                 { "isup_headers_enabled", n => { IsupHeadersEnabled = n.GetBoolValue(); } },
                 { "prack_enabled", n => { PrackEnabled = n.GetBoolValue(); } },
                 { "shaken_stir_enabled", n => { ShakenStirEnabled = n.GetBoolValue(); } },
                 { "sip_compact_headers_enabled", n => { SipCompactHeadersEnabled = n.GetBoolValue(); } },
-                { "sip_region", n => { SipRegion = n.GetEnumValue<global::Soenneker.Telnyx.Models.InboundFqdn_sip_region>(); } },
+                { "sip_region", n => { SipRegion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_sip_region>(); } },
                 { "sip_subdomain", n => { SipSubdomain = n.GetStringValue(); } },
-                { "sip_subdomain_receive_settings", n => { SipSubdomainReceiveSettings = n.GetEnumValue<global::Soenneker.Telnyx.Models.InboundFqdn_sip_subdomain_receive_settings>(); } },
+                { "sip_subdomain_receive_settings", n => { SipSubdomainReceiveSettings = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_sip_subdomain_receive_settings>(); } },
                 { "timeout_1xx_secs", n => { Timeout1xxSecs = n.GetIntValue(); } },
                 { "timeout_2xx_secs", n => { Timeout2xxSecs = n.GetIntValue(); } },
             };
@@ -137,22 +137,22 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InboundFqdn_ani_number_format>("ani_number_format", AniNumberFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_ani_number_format>("ani_number_format", AniNumberFormat);
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteCollectionOfPrimitiveValues<string>("codecs", Codecs);
             writer.WriteStringValue("default_primary_fqdn_id", DefaultPrimaryFqdnId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InboundFqdn_default_routing_method>("default_routing_method", DefaultRoutingMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_default_routing_method>("default_routing_method", DefaultRoutingMethod);
             writer.WriteStringValue("default_secondary_fqdn_id", DefaultSecondaryFqdnId);
             writer.WriteStringValue("default_tertiary_fqdn_id", DefaultTertiaryFqdnId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InboundFqdn_dnis_number_format>("dnis_number_format", DnisNumberFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_dnis_number_format>("dnis_number_format", DnisNumberFormat);
             writer.WriteBoolValue("generate_ringback_tone", GenerateRingbackTone);
             writer.WriteBoolValue("isup_headers_enabled", IsupHeadersEnabled);
             writer.WriteBoolValue("prack_enabled", PrackEnabled);
             writer.WriteBoolValue("shaken_stir_enabled", ShakenStirEnabled);
             writer.WriteBoolValue("sip_compact_headers_enabled", SipCompactHeadersEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InboundFqdn_sip_region>("sip_region", SipRegion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_sip_region>("sip_region", SipRegion);
             writer.WriteStringValue("sip_subdomain", SipSubdomain);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.InboundFqdn_sip_subdomain_receive_settings>("sip_subdomain_receive_settings", SipSubdomainReceiveSettings);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn_sip_subdomain_receive_settings>("sip_subdomain_receive_settings", SipSubdomainReceiveSettings);
             writer.WriteIntValue("timeout_1xx_secs", Timeout1xxSecs);
             writer.WriteIntValue("timeout_2xx_secs", Timeout2xxSecs);
             writer.WriteAdditionalData(AdditionalData);

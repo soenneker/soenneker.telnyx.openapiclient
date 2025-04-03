@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,10 +23,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Map of usecase metadata for each MNO. Key is the network ID of the MNO (e.g. 10017), Value is the mno metadata for the usecase.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.UsecaseMetadata_mnoMetadata? MnoMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata_mnoMetadata? MnoMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.UsecaseMetadata_mnoMetadata MnoMetadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata_mnoMetadata MnoMetadata { get; set; }
 #endif
         /// <summary>Campaign monthly subscription fee</summary>
         public double? MonthlyFee { get; set; }
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.Models
         public string Usecase { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.UsecaseMetadata"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata"/> and sets the default values.
         /// </summary>
         public UsecaseMetadata()
         {
@@ -50,12 +50,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UsecaseMetadata"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.UsecaseMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.UsecaseMetadata();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.Models
                 { "annualFee", n => { AnnualFee = n.GetDoubleValue(); } },
                 { "maxSubUsecases", n => { MaxSubUsecases = n.GetIntValue(); } },
                 { "minSubUsecases", n => { MinSubUsecases = n.GetIntValue(); } },
-                { "mnoMetadata", n => { MnoMetadata = n.GetObjectValue<global::Soenneker.Telnyx.Models.UsecaseMetadata_mnoMetadata>(global::Soenneker.Telnyx.Models.UsecaseMetadata_mnoMetadata.CreateFromDiscriminatorValue); } },
+                { "mnoMetadata", n => { MnoMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata_mnoMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata_mnoMetadata.CreateFromDiscriminatorValue); } },
                 { "monthlyFee", n => { MonthlyFee = n.GetDoubleValue(); } },
                 { "quarterlyFee", n => { QuarterlyFee = n.GetDoubleValue(); } },
                 { "usecase", n => { Usecase = n.GetStringValue(); } },
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteDoubleValue("annualFee", AnnualFee);
             writer.WriteIntValue("maxSubUsecases", MaxSubUsecases);
             writer.WriteIntValue("minSubUsecases", MinSubUsecases);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.UsecaseMetadata_mnoMetadata>("mnoMetadata", MnoMetadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsecaseMetadata_mnoMetadata>("mnoMetadata", MnoMetadata);
             writer.WriteDoubleValue("monthlyFee", MonthlyFee);
             writer.WriteDoubleValue("quarterlyFee", QuarterlyFee);
             writer.WriteStringValue("usecase", Usecase);

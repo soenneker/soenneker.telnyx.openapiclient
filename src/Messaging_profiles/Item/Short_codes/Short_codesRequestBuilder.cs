@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Messaging_profiles.Item.Short_codes
+namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes
 {
     /// <summary>
     /// Builds and executes requests for operations under \messaging_profiles\{-id}\short_codes
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Short_codes
     public partial class Short_codesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Short_codes
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,49 +36,49 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Short_codes
         /// <summary>
         /// List short codes associated with a messaging profile
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesGetResponse?> GetAsShort_codesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesGetResponse?> GetAsShort_codesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesGetResponse> GetAsShort_codesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesGetResponse> GetAsShort_codesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesGetResponse>(requestInfo, global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List short codes associated with a messaging profile
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsShort_codesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesResponse>(requestInfo, global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List short codes associated with a messaging profile
@@ -87,11 +87,11 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Short_codes
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -102,11 +102,11 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Short_codes
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List short codes associated with a messaging profile
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.Messaging_profiles.Item.Short_codes
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Short_codesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>
+        public partial class Short_codesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes.Short_codesRequestBuilder.Short_codesRequestBuilderGetQueryParameters>
         {
         }
     }

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Segments of the transcribed text and their corresponding details. This is only included if `response_format` is set to `verbose_json`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.AudioTranscriptionResponseSegments>? Segments { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseSegments>? Segments { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.AudioTranscriptionResponseSegments> Segments { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseSegments> Segments { get; set; }
 #endif
         /// <summary>The transcribed text for the audio file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.Models
         public string Text { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.AudioTranscriptionResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponse"/> and sets the default values.
         /// </summary>
         public AudioTranscriptionResponse()
         {
@@ -42,12 +42,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AudioTranscriptionResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.AudioTranscriptionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.AudioTranscriptionResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "duration", n => { Duration = n.GetDoubleValue(); } },
-                { "segments", n => { Segments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.AudioTranscriptionResponseSegments>(global::Soenneker.Telnyx.Models.AudioTranscriptionResponseSegments.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "segments", n => { Segments = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseSegments>(global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseSegments.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
             };
         }
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("duration", Duration);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.AudioTranscriptionResponseSegments>("segments", Segments);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AudioTranscriptionResponseSegments>("segments", Segments);
             writer.WriteStringValue("text", Text);
             writer.WriteAdditionalData(AdditionalData);
         }

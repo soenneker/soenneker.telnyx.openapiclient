@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Storage.Migrations.Item.Actions.Stop;
+using Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions.Stop;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Storage.Migrations.Item.Actions
+namespace Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions
 {
     /// <summary>
     /// Builds and executes requests for operations under \storage\migrations\{id}\actions
@@ -16,12 +16,12 @@ namespace Soenneker.Telnyx.Storage.Migrations.Item.Actions
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The stop property</summary>
-        public global::Soenneker.Telnyx.Storage.Migrations.Item.Actions.Stop.StopRequestBuilder Stop
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions.Stop.StopRequestBuilder Stop
         {
-            get => new global::Soenneker.Telnyx.Storage.Migrations.Item.Actions.Stop.StopRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions.Stop.StopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.Migrations.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.Storage.Migrations.Item.Actions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.Migrations.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -25,15 +25,15 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The clusters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.RecursiveCluster>? Clusters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster>? Clusters { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.RecursiveCluster> Clusters { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster> Clusters { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.Models.TaskStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ClusteringStatusResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringStatusResponse"/> and sets the default values.
         /// </summary>
         public ClusteringStatusResponse()
         {
@@ -42,12 +42,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ClusteringStatusResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringStatusResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ClusteringStatusResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringStatusResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ClusteringStatusResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ClusteringStatusResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,8 +58,8 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "bucket", n => { Bucket = n.GetStringValue(); } },
-                { "clusters", n => { Clusters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RecursiveCluster>(global::Soenneker.Telnyx.Models.RecursiveCluster.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.TaskStatus>(); } },
+                { "clusters", n => { Clusters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster>(global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatus>(); } },
             };
         }
         /// <summary>
@@ -70,8 +70,8 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("bucket", Bucket);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RecursiveCluster>("clusters", Clusters);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.TaskStatus>("status", Status);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecursiveCluster>("clusters", Clusters);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

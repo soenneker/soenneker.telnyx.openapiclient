@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Messaging_hosted_number_orders.Item
+namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \messaging_hosted_number_orders\{id}
@@ -19,12 +19,12 @@ namespace Soenneker.Telnyx.Messaging_hosted_number_orders.Item
     public partial class Messaging_hosted_number_ordersItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The actions property</summary>
-        public global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions.ActionsRequestBuilder Actions
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.ActionsRequestBuilder Actions
         {
-            get => new global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.Messaging_hosted_number_orders.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -42,49 +42,49 @@ namespace Soenneker.Telnyx.Messaging_hosted_number_orders.Item
         /// <summary>
         /// Retrieve a messaging hosted number order
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse?> GetAsMessaging_hosted_number_ordersGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse?> GetAsMessaging_hosted_number_ordersGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse> GetAsMessaging_hosted_number_ordersGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse> GetAsMessaging_hosted_number_ordersGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse>(requestInfo, global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a messaging hosted number order
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsMessaging_hosted_number_ordersGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersResponse>(requestInfo, global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a messaging hosted number order
@@ -108,11 +108,11 @@ namespace Soenneker.Telnyx.Messaging_hosted_number_orders.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

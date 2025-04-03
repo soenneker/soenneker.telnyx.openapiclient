@@ -2,12 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.EnumNamespace.Item;
+using Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.EnumNamespace
+namespace Soenneker.Telnyx.OpenApiClient.EnumNamespace
 {
     /// <summary>
     /// Builds and executes requests for operations under \enum
@@ -15,20 +15,20 @@ namespace Soenneker.Telnyx.EnumNamespace
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnumRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.enum.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.enum.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("endpoint", position);
-                return new global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.EnumNamespace.EnumRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.EnumRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.EnumNamespace
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.EnumNamespace.EnumRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.EnumRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

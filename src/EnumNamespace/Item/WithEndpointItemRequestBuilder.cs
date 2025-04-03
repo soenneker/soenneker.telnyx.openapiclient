@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.EnumNamespace.Item
+namespace Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \enum\{endpoint}
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.EnumNamespace.Item
     public partial class WithEndpointItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.EnumNamespace.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,49 +36,49 @@ namespace Soenneker.Telnyx.EnumNamespace.Item
         /// <summary>
         /// Get Enum
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse?> GetAsWithEndpointGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse?> GetAsWithEndpointGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse> GetAsWithEndpointGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse> GetAsWithEndpointGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse>(requestInfo, global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get Enum
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsWithEndpointGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "404", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse>(requestInfo, global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get Enum
@@ -102,61 +102,61 @@ namespace Soenneker.Telnyx.EnumNamespace.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.Models.EnumObjectResponse"/>, <see cref="global::Soenneker.Telnyx.Models.EnumPaginatedResponse"/>, List&lt;global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1&gt;
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse"/>, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithEndpointGetResponse : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.EnumObjectResponse"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.EnumObjectResponse? EnumObjectResponse { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse? EnumObjectResponse { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.EnumObjectResponse EnumObjectResponse { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse EnumObjectResponse { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.EnumPaginatedResponse"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.EnumPaginatedResponse? EnumPaginatedResponse { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse? EnumPaginatedResponse { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.EnumPaginatedResponse EnumPaginatedResponse { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse EnumPaginatedResponse { get; set; }
 #endif
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1&gt;</summary>
+            /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public List<global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1>? WithEndpointGetResponseMember1 { get; set; }
+            public List<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1>? WithEndpointGetResponseMember1 { get; set; }
 #nullable restore
 #else
-            public List<global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1> WithEndpointGetResponseMember1 { get; set; }
+            public List<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1> WithEndpointGetResponseMember1 { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointGetResponse();
                 if("EnumObjectResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.EnumObjectResponse = new global::Soenneker.Telnyx.Models.EnumObjectResponse();
+                    result.EnumObjectResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse();
                 }
                 else if("EnumPaginatedResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.EnumPaginatedResponse = new global::Soenneker.Telnyx.Models.EnumPaginatedResponse();
+                    result.EnumPaginatedResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse();
                 }
-                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1>(global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1> withEndpointGetResponseMember1Value)
+                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1>(global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1> withEndpointGetResponseMember1Value)
                 {
                     result.WithEndpointGetResponseMember1 = withEndpointGetResponseMember1Value;
                 }
@@ -187,15 +187,15 @@ namespace Soenneker.Telnyx.EnumNamespace.Item
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
                 if(EnumObjectResponse != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.EnumObjectResponse>(null, EnumObjectResponse);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse>(null, EnumObjectResponse);
                 }
                 else if(EnumPaginatedResponse != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.EnumPaginatedResponse>(null, EnumPaginatedResponse);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse>(null, EnumPaginatedResponse);
                 }
                 else if(WithEndpointGetResponseMember1 != null)
                 {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1>(null, WithEndpointGetResponseMember1);
+                    writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1>(null, WithEndpointGetResponseMember1);
                 }
             }
         }
@@ -208,54 +208,54 @@ namespace Soenneker.Telnyx.EnumNamespace.Item
         {
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.Models.EnumObjectResponse"/>, <see cref="global::Soenneker.Telnyx.Models.EnumPaginatedResponse"/>, List&lt;global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1&gt;
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse"/>, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithEndpointResponse : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.EnumObjectResponse"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.EnumObjectResponse? EnumObjectResponse { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse? EnumObjectResponse { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.EnumObjectResponse EnumObjectResponse { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse EnumObjectResponse { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.EnumPaginatedResponse"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.EnumPaginatedResponse? EnumPaginatedResponse { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse? EnumPaginatedResponse { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.EnumPaginatedResponse EnumPaginatedResponse { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse EnumPaginatedResponse { get; set; }
 #endif
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1&gt;</summary>
+            /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public List<global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1>? WithEndpointGetResponseMember1 { get; set; }
+            public List<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1>? WithEndpointGetResponseMember1 { get; set; }
 #nullable restore
 #else
-            public List<global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1> WithEndpointGetResponseMember1 { get; set; }
+            public List<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1> WithEndpointGetResponseMember1 { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.Item.WithEndpointItemRequestBuilder.WithEndpointResponse();
                 if("EnumObjectResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.EnumObjectResponse = new global::Soenneker.Telnyx.Models.EnumObjectResponse();
+                    result.EnumObjectResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse();
                 }
                 else if("EnumPaginatedResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.EnumPaginatedResponse = new global::Soenneker.Telnyx.Models.EnumPaginatedResponse();
+                    result.EnumPaginatedResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse();
                 }
-                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1>(global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1> withEndpointGetResponseMember1Value)
+                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1>(global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1> withEndpointGetResponseMember1Value)
                 {
                     result.WithEndpointGetResponseMember1 = withEndpointGetResponseMember1Value;
                 }
@@ -286,15 +286,15 @@ namespace Soenneker.Telnyx.EnumNamespace.Item
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
                 if(EnumObjectResponse != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.EnumObjectResponse>(null, EnumObjectResponse);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse>(null, EnumObjectResponse);
                 }
                 else if(EnumPaginatedResponse != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.EnumPaginatedResponse>(null, EnumPaginatedResponse);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse>(null, EnumPaginatedResponse);
                 }
                 else if(WithEndpointGetResponseMember1 != null)
                 {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.WithEndpointGetResponseMember1>(null, WithEndpointGetResponseMember1);
+                    writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpointGetResponseMember1>(null, WithEndpointGetResponseMember1);
                 }
             }
         }

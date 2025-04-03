@@ -5,23 +5,23 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Recordings
+namespace Soenneker.Telnyx.OpenApiClient.Recordings
 {
     [Obsolete("This class is obsolete. Use RecordingsGetResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class RecordingsResponse : global::Soenneker.Telnyx.Recordings.RecordingsGetResponse, IParsable
+    public partial class RecordingsResponse : global::Soenneker.Telnyx.OpenApiClient.Recordings.RecordingsGetResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Recordings.RecordingsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Recordings.RecordingsResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.Recordings.RecordingsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.Recordings.RecordingsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Recordings.RecordingsResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Recordings.RecordingsResponse();
         }
     }
 }

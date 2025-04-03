@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Models
         public string CommandId { get; set; }
 #endif
         /// <summary>The language you want spoken. This parameter is ignored when a `Polly.*` voice is specified.</summary>
-        public global::Soenneker.Telnyx.Models.SpeakRequest_language? Language { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_language? Language { get; set; }
         /// <summary>The text or SSML to be converted into speech. There is a 3,000 character limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,9 +41,9 @@ namespace Soenneker.Telnyx.Models
         public string Payload { get; set; }
 #endif
         /// <summary>The type of the provided payload. The payload can either be plain text, or Speech Synthesis Markup Language (SSML).</summary>
-        public global::Soenneker.Telnyx.Models.SpeakRequest_payload_type? PayloadType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_payload_type? PayloadType { get; set; }
         /// <summary>This parameter impacts speech quality, language options and payload types. When using `basic`, only the `en-US` language and payload type `text` are allowed.</summary>
-        public global::Soenneker.Telnyx.Models.SpeakRequest_service_level? ServiceLevel { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_service_level? ServiceLevel { get; set; }
         /// <summary>When specified, it stops the current audio being played. Specify `current` to stop the current audio being played, and to play the next file in the queue. Specify `all` to stop the current audio file being played and to also clear all audio files from the queue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,29 +63,29 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The settings associated with the voice selected</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings? VoiceSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings VoiceSettings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SpeakRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest"/> and sets the default values.
         /// </summary>
         public SpeakRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            PayloadType = global::Soenneker.Telnyx.Models.SpeakRequest_payload_type.Text;
-            ServiceLevel = global::Soenneker.Telnyx.Models.SpeakRequest_service_level.Premium;
+            PayloadType = global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_payload_type.Text;
+            ServiceLevel = global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_service_level.Premium;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SpeakRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SpeakRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SpeakRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,13 +97,13 @@ namespace Soenneker.Telnyx.Models
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.Models.SpeakRequest_language>(); } },
+                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_language>(); } },
                 { "payload", n => { Payload = n.GetStringValue(); } },
-                { "payload_type", n => { PayloadType = n.GetEnumValue<global::Soenneker.Telnyx.Models.SpeakRequest_payload_type>(); } },
-                { "service_level", n => { ServiceLevel = n.GetEnumValue<global::Soenneker.Telnyx.Models.SpeakRequest_service_level>(); } },
+                { "payload_type", n => { PayloadType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_payload_type>(); } },
+                { "service_level", n => { ServiceLevel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_service_level>(); } },
                 { "stop", n => { Stop = n.GetStringValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
-                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings>(global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings.CreateFromDiscriminatorValue); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -115,13 +115,13 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.SpeakRequest_language>("language", Language);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_language>("language", Language);
             writer.WriteStringValue("payload", Payload);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.SpeakRequest_payload_type>("payload_type", PayloadType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.SpeakRequest_service_level>("service_level", ServiceLevel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_payload_type>("payload_type", PayloadType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_service_level>("service_level", ServiceLevel);
             writer.WriteStringValue("stop", Stop);
             writer.WriteStringValue("voice", Voice);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

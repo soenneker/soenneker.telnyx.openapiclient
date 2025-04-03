@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Identifies the requirement type that meets this requirement
@@ -16,10 +16,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The acceptance criteria for the requirement type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.PortingOrderRequirementDetail_requirement_type_acceptance_criteria? AcceptanceCriteria { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type_acceptance_criteria? AcceptanceCriteria { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.PortingOrderRequirementDetail_requirement_type_acceptance_criteria AcceptanceCriteria { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type_acceptance_criteria AcceptanceCriteria { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.Models
         public string Type { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PortingOrderRequirementDetail_requirement_type"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type"/> and sets the default values.
         /// </summary>
         public PortingOrderRequirementDetail_requirement_type()
         {
@@ -73,12 +73,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PortingOrderRequirementDetail_requirement_type"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PortingOrderRequirementDetail_requirement_type CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PortingOrderRequirementDetail_requirement_type();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "acceptance_criteria", n => { AcceptanceCriteria = n.GetObjectValue<global::Soenneker.Telnyx.Models.PortingOrderRequirementDetail_requirement_type_acceptance_criteria>(global::Soenneker.Telnyx.Models.PortingOrderRequirementDetail_requirement_type_acceptance_criteria.CreateFromDiscriminatorValue); } },
+                { "acceptance_criteria", n => { AcceptanceCriteria = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type_acceptance_criteria>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type_acceptance_criteria.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "example", n => { Example = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.PortingOrderRequirementDetail_requirement_type_acceptance_criteria>("acceptance_criteria", AcceptanceCriteria);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type_acceptance_criteria>("acceptance_criteria", AcceptanceCriteria);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("example", Example);
             writer.WriteStringValue("id", Id);

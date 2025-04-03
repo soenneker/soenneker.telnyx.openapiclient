@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The `fine_tuning.job` object represents a fine-tuning job that has been created through the API.
@@ -22,10 +22,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The hyperparameters used for the fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.FineTuningJob_hyperparameters? Hyperparameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_hyperparameters? Hyperparameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.FineTuningJob_hyperparameters Hyperparameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_hyperparameters Hyperparameters { get; set; }
 #endif
         /// <summary>The name of the fine-tuned model that is being created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Models
         public string OrganizationId { get; set; }
 #endif
         /// <summary>The current status of the fine-tuning job.</summary>
-        public global::Soenneker.Telnyx.Models.FineTuningJob_status? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_status? Status { get; set; }
         /// <summary>The total number of billable tokens processed by this fine-tuning job. The value will be null if the fine-tuning job is still running.</summary>
         public int? TrainedTokens { get; set; }
         /// <summary>The storage bucket or object used for training.</summary>
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.Models
         public string TrainingFile { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.FineTuningJob"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob"/> and sets the default values.
         /// </summary>
         public FineTuningJob()
         {
@@ -73,12 +73,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.FineTuningJob"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.FineTuningJob CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.FineTuningJob();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,11 +90,11 @@ namespace Soenneker.Telnyx.Models
             {
                 { "created_at", n => { CreatedAt = n.GetIntValue(); } },
                 { "finished_at", n => { FinishedAt = n.GetIntValue(); } },
-                { "hyperparameters", n => { Hyperparameters = n.GetObjectValue<global::Soenneker.Telnyx.Models.FineTuningJob_hyperparameters>(global::Soenneker.Telnyx.Models.FineTuningJob_hyperparameters.CreateFromDiscriminatorValue); } },
+                { "hyperparameters", n => { Hyperparameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_hyperparameters>(global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_hyperparameters.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.FineTuningJob_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_status>(); } },
                 { "trained_tokens", n => { TrainedTokens = n.GetIntValue(); } },
                 { "training_file", n => { TrainingFile = n.GetStringValue(); } },
             };
@@ -108,11 +108,11 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("created_at", CreatedAt);
             writer.WriteIntValue("finished_at", FinishedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.FineTuningJob_hyperparameters>("hyperparameters", Hyperparameters);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_hyperparameters>("hyperparameters", Hyperparameters);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("organization_id", OrganizationId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.FineTuningJob_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FineTuningJob_status>("status", Status);
             writer.WriteIntValue("trained_tokens", TrainedTokens);
             writer.WriteStringValue("training_file", TrainingFile);
             writer.WriteAdditionalData(AdditionalData);

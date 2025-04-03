@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Dynamic_emergency_addresses.Item
+namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \dynamic_emergency_addresses\{id}
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Dynamic_emergency_addresses.Item
     public partial class Dynamic_emergency_addressesItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Dynamic_emergency_addresses.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,76 +35,76 @@ namespace Soenneker.Telnyx.Dynamic_emergency_addresses.Item
         /// <summary>
         /// Deletes the dynamic emergency address based on the ID provided
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesDeleteResponse?> DeleteAsDynamic_emergency_addressesDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesDeleteResponse?> DeleteAsDynamic_emergency_addressesDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesDeleteResponse> DeleteAsDynamic_emergency_addressesDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesDeleteResponse> DeleteAsDynamic_emergency_addressesDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesDeleteResponse>(requestInfo, global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes the dynamic emergency address based on the ID provided
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use DeleteAsDynamic_emergency_addressesDeleteResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse>(requestInfo, global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the dynamic emergency address based on the ID provided
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesGetResponse?> GetAsDynamic_emergency_addressesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesGetResponse?> GetAsDynamic_emergency_addressesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesGetResponse> GetAsDynamic_emergency_addressesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesGetResponse> GetAsDynamic_emergency_addressesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesGetResponse>(requestInfo, global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the dynamic emergency address based on the ID provided
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsDynamic_emergency_addressesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse>(requestInfo, global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes the dynamic emergency address based on the ID provided
@@ -147,11 +147,11 @@ namespace Soenneker.Telnyx.Dynamic_emergency_addresses.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses.Item.Dynamic_emergency_addressesItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

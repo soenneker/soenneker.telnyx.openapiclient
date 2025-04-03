@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Custom headers to be added to the SIP INVITE.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.CustomSipHeader>? CustomHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>? CustomHeaders { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.CustomSipHeader> CustomHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader> CustomHeaders { get; set; }
 #endif
         /// <summary>The SIP URI to which the call will be referred to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,13 +65,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>SIP headers to be added to the request. Currently only User-to-User header is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.SipHeader>? SipHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>? SipHeaders { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.SipHeader> SipHeaders { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader> SipHeaders { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.ReferRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReferRequest"/> and sets the default values.
         /// </summary>
         public ReferRequest()
         {
@@ -80,12 +80,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.ReferRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReferRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.ReferRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ReferRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.ReferRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ReferRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,11 +97,11 @@ namespace Soenneker.Telnyx.Models
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.CustomSipHeader>(global::Soenneker.Telnyx.Models.CustomSipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sip_address", n => { SipAddress = n.GetStringValue(); } },
                 { "sip_auth_password", n => { SipAuthPassword = n.GetStringValue(); } },
                 { "sip_auth_username", n => { SipAuthUsername = n.GetStringValue(); } },
-                { "sip_headers", n => { SipHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.SipHeader>(global::Soenneker.Telnyx.Models.SipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sip_headers", n => { SipHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -113,11 +113,11 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.CustomSipHeader>("custom_headers", CustomHeaders);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>("custom_headers", CustomHeaders);
             writer.WriteStringValue("sip_address", SipAddress);
             writer.WriteStringValue("sip_auth_password", SipAuthPassword);
             writer.WriteStringValue("sip_auth_username", SipAuthUsername);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.SipHeader>("sip_headers", SipHeaders);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>("sip_headers", SipHeaders);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

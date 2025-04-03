@@ -5,11 +5,11 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class DocServiceDocument : global::Soenneker.Telnyx.Models.DocServiceRecord, IParsable
+    public partial class DocServiceDocument : global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceRecord, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The document&apos;s content_type.</summary>
@@ -47,22 +47,22 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Indicates the document&apos;s filesize</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.DocServiceDocument_size? Size { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_size? Size { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.DocServiceDocument_size Size { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_size Size { get; private set; }
 #endif
         /// <summary>Indicates the current document reviewing status</summary>
-        public global::Soenneker.Telnyx.Models.DocServiceDocument_status? Status { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_status? Status { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.DocServiceDocument"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.Models.DocServiceDocument CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.DocServiceDocument();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,8 +76,8 @@ namespace Soenneker.Telnyx.Models
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
                 { "sha256", n => { Sha256 = n.GetStringValue(); } },
-                { "size", n => { Size = n.GetObjectValue<global::Soenneker.Telnyx.Models.DocServiceDocument_size>(global::Soenneker.Telnyx.Models.DocServiceDocument_size.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.Models.DocServiceDocument_status>(); } },
+                { "size", n => { Size = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_size>(global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_size.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_status>(); } },
             };
         }
         /// <summary>

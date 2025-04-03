@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// A JSON object representation of the action params.
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The identification of the related Private Wireless Gateway resource.</summary>
         public Guid? PrivateWirelessGatewayId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SIMCardGroupAction_settings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings"/> and sets the default values.
         /// </summary>
         public SIMCardGroupAction_settings()
         {
@@ -27,12 +27,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SIMCardGroupAction_settings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SIMCardGroupAction_settings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SIMCardGroupAction_settings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings();
         }
         /// <summary>
         /// The deserialization information for the current model

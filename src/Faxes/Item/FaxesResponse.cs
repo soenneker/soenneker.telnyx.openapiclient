@@ -5,23 +5,23 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Faxes.Item
+namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item
 {
     [Obsolete("This class is obsolete. Use FaxesGetResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class FaxesResponse : global::Soenneker.Telnyx.Faxes.Item.FaxesGetResponse, IParsable
+    public partial class FaxesResponse : global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.FaxesGetResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Faxes.Item.FaxesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.FaxesResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.Faxes.Item.FaxesResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.FaxesResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Faxes.Item.FaxesResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.FaxesResponse();
         }
     }
 }

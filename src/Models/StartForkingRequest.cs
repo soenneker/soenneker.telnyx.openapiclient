@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.Models
         public string Rx { get; set; }
 #endif
         /// <summary>Optionally specify a media type to stream. If `decrypted` selected, Telnyx will decrypt incoming SIP media before forking to the target. `rx` and `tx` are required fields if `decrypted` selected.</summary>
-        public global::Soenneker.Telnyx.Models.StartForkingRequest_stream_type? StreamType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest_stream_type? StreamType { get; set; }
         /// <summary>The network target, &lt;udp:ip_address:port&gt;, where the call&apos;s outgoing RTP media packets should be forwarded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,22 +49,22 @@ namespace Soenneker.Telnyx.Models
         public string Tx { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.StartForkingRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest"/> and sets the default values.
         /// </summary>
         public StartForkingRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            StreamType = global::Soenneker.Telnyx.Models.StartForkingRequest_stream_type.Decrypted;
+            StreamType = global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest_stream_type.Decrypted;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.StartForkingRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.StartForkingRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.StartForkingRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.Models
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "rx", n => { Rx = n.GetStringValue(); } },
-                { "stream_type", n => { StreamType = n.GetEnumValue<global::Soenneker.Telnyx.Models.StartForkingRequest_stream_type>(); } },
+                { "stream_type", n => { StreamType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest_stream_type>(); } },
                 { "tx", n => { Tx = n.GetStringValue(); } },
             };
         }
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("rx", Rx);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.StartForkingRequest_stream_type>("stream_type", StreamType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartForkingRequest_stream_type>("stream_type", StreamType);
             writer.WriteStringValue("tx", Tx);
             writer.WriteAdditionalData(AdditionalData);
         }

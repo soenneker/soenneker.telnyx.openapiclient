@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Portouts.Events.Item.Republish;
+using Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.Republish;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Portouts.Events.Item
+namespace Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \portouts\events\{id}
@@ -18,12 +18,12 @@ namespace Soenneker.Telnyx.Portouts.Events.Item
     public partial class EventsItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The republish property</summary>
-        public global::Soenneker.Telnyx.Portouts.Events.Item.Republish.RepublishRequestBuilder Republish
+        public global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.Republish.RepublishRequestBuilder Republish
         {
-            get => new global::Soenneker.Telnyx.Portouts.Events.Item.Republish.RepublishRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.Republish.RepublishRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Portouts.Events.Item.EventsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.Portouts.Events.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Portouts.Events.Item.EventsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -41,39 +41,39 @@ namespace Soenneker.Telnyx.Portouts.Events.Item
         /// <summary>
         /// Show a specific port-out event.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Portouts.Events.Item.EventsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Portouts.Events.Item.EventsGetResponse?> GetAsEventsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsGetResponse?> GetAsEventsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Portouts.Events.Item.EventsGetResponse> GetAsEventsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsGetResponse> GetAsEventsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Portouts.Events.Item.EventsGetResponse>(requestInfo, global::Soenneker.Telnyx.Portouts.Events.Item.EventsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Show a specific port-out event.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Portouts.Events.Item.EventsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsEventsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Portouts.Events.Item.EventsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Portouts.Events.Item.EventsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Portouts.Events.Item.EventsResponse>(requestInfo, global::Soenneker.Telnyx.Portouts.Events.Item.EventsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Show a specific port-out event.
@@ -97,11 +97,11 @@ namespace Soenneker.Telnyx.Portouts.Events.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Portouts.Events.Item.EventsItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Portouts.Events.Item.EventsItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Portouts.Events.Item.EventsItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Portouts.Events.Item.EventsItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

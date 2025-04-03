@@ -3,24 +3,24 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Porting_orders.Item.Actions;
-using Soenneker.Telnyx.Porting_orders.Item.Activation_jobs;
-using Soenneker.Telnyx.Porting_orders.Item.Additional_documents;
-using Soenneker.Telnyx.Porting_orders.Item.Allowed_foc_windows;
-using Soenneker.Telnyx.Porting_orders.Item.Comments;
-using Soenneker.Telnyx.Porting_orders.Item.Loa_template;
-using Soenneker.Telnyx.Porting_orders.Item.Phone_number_blocks;
-using Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions;
-using Soenneker.Telnyx.Porting_orders.Item.Requirements;
-using Soenneker.Telnyx.Porting_orders.Item.Sub_request;
-using Soenneker.Telnyx.Porting_orders.Item.Verification_codes;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Actions;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Activation_jobs;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Allowed_foc_windows;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Comments;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Loa_template;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Sub_request;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Porting_orders.Item
+namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \porting_orders\{-id}
@@ -29,62 +29,62 @@ namespace Soenneker.Telnyx.Porting_orders.Item
     public partial class ItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The actions property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Actions.ActionsRequestBuilder Actions
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Actions.ActionsRequestBuilder Actions
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The activation_jobs property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Activation_jobs.Activation_jobsRequestBuilder Activation_jobs
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Activation_jobs.Activation_jobsRequestBuilder Activation_jobs
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Activation_jobs.Activation_jobsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Activation_jobs.Activation_jobsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The additional_documents property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Additional_documents.Additional_documentsRequestBuilder Additional_documents
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsRequestBuilder Additional_documents
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Additional_documents.Additional_documentsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The allowed_foc_windows property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Allowed_foc_windows.Allowed_foc_windowsRequestBuilder Allowed_foc_windows
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Allowed_foc_windows.Allowed_foc_windowsRequestBuilder Allowed_foc_windows
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Allowed_foc_windows.Allowed_foc_windowsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Allowed_foc_windows.Allowed_foc_windowsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The comments property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Comments.CommentsRequestBuilder Comments
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Comments.CommentsRequestBuilder Comments
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Comments.CommentsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Comments.CommentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The loa_template property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Loa_template.Loa_templateRequestBuilder Loa_template
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Loa_template.Loa_templateRequestBuilder Loa_template
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Loa_template.Loa_templateRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Loa_template.Loa_templateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The phone_number_blocks property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder Phone_number_blocks
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder Phone_number_blocks
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The phone_number_extensions property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder Phone_number_extensions
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder Phone_number_extensions
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_extensions.Phone_number_extensionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The requirements property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder Requirements
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder Requirements
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Requirements.RequirementsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Requirements.RequirementsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sub_request property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Sub_request.Sub_requestRequestBuilder Sub_request
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Sub_request.Sub_requestRequestBuilder Sub_request
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Sub_request.Sub_requestRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Sub_request.Sub_requestRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The verification_codes property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder Verification_codes
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder Verification_codes
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -119,80 +119,80 @@ namespace Soenneker.Telnyx.Porting_orders.Item
         /// <summary>
         /// Retrieves the details of an existing porting order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.GetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.GetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.GetResponse?> GetAsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.GetResponse?> GetAsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.GetResponse> GetAsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.GetResponse> GetAsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.GetResponse>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.GetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.GetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.GetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the details of an existing porting order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.Response>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Edits the details of an existing porting order.Any or all of a porting orders attributes may be included in the resource object included in a PATCH request.If a request does not include all of the attributes for a resource, the system will interpret the missing attributes as if they were included with their current values. To explicitly set something to null, it must be included in the request with a null value.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.PatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.PatchResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.PatchResponse?> PatchAsPatchResponseAsync(global::Soenneker.Telnyx.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.PatchResponse?> PatchAsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.PatchResponse> PatchAsPatchResponseAsync(global::Soenneker.Telnyx.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.PatchResponse> PatchAsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.PatchResponse>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.PatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.PatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.PatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Edits the details of an existing porting order.Any or all of a porting orders attributes may be included in the resource object included in a PATCH request.If a request does not include all of the attributes for a resource, the system will interpret the missing attributes as if they were included with their current values. To explicitly set something to null, it must be included in the request with a null value.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PatchAsPatchResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Response?> PatchAsync(global::Soenneker.Telnyx.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Response?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Response> PatchAsync(global::Soenneker.Telnyx.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Response> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.Response>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes an existing porting order. This operation is restrict to porting orders in draft state.
@@ -219,11 +219,11 @@ namespace Soenneker.Telnyx.Porting_orders.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -239,11 +239,11 @@ namespace Soenneker.Telnyx.Porting_orders.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrder body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -256,11 +256,11 @@ namespace Soenneker.Telnyx.Porting_orders.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
@@ -285,7 +285,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>
+        public partial class ItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

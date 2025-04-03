@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Information about messaging porting process.
@@ -22,9 +22,9 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Indicates whether the messaging porting has been completed.</summary>
         public bool? MessagingPortCompleted { get; set; }
         /// <summary>The current status of the messaging porting.</summary>
-        public global::Soenneker.Telnyx.Models.PortingOrderMessaging_messaging_port_status? MessagingPortStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging_messaging_port_status? MessagingPortStatus { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PortingOrderMessaging"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging"/> and sets the default values.
         /// </summary>
         public PortingOrderMessaging()
         {
@@ -33,12 +33,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PortingOrderMessaging"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PortingOrderMessaging CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PortingOrderMessaging();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.Models
                 { "enable_messaging", n => { EnableMessaging = n.GetBoolValue(); } },
                 { "messaging_capable", n => { MessagingCapable = n.GetBoolValue(); } },
                 { "messaging_port_completed", n => { MessagingPortCompleted = n.GetBoolValue(); } },
-                { "messaging_port_status", n => { MessagingPortStatus = n.GetEnumValue<global::Soenneker.Telnyx.Models.PortingOrderMessaging_messaging_port_status>(); } },
+                { "messaging_port_status", n => { MessagingPortStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging_messaging_port_status>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteBoolValue("enable_messaging", EnableMessaging);
             writer.WriteBoolValue("messaging_capable", MessagingCapable);
             writer.WriteBoolValue("messaging_port_completed", MessagingPortCompleted);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.PortingOrderMessaging_messaging_port_status>("messaging_port_status", MessagingPortStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging_messaging_port_status>("messaging_port_status", MessagingPortStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The current status or failure details of the Private Wireless Gateway.
@@ -32,24 +32,24 @@ namespace Soenneker.Telnyx.Models
         public string ErrorDescription { get; private set; }
 #endif
         /// <summary>The current status or failure details of the Private Wireless Gateway. &lt;ul&gt; &lt;li&gt;&lt;code&gt;provisioning&lt;/code&gt; - the Private Wireless Gateway is being provisioned.&lt;/li&gt; &lt;li&gt;&lt;code&gt;provisioned&lt;/code&gt; - the Private Wireless Gateway was provisioned and able to receive connections.&lt;/li&gt; &lt;li&gt;&lt;code&gt;failed&lt;/code&gt; - the provisioning had failed for a reason and it requires an intervention.&lt;/li&gt; &lt;li&gt;&lt;code&gt;decommissioning&lt;/code&gt; - the Private Wireless Gateway is being removed from the network.&lt;/li&gt; &lt;/ul&gt; Transitioning between the provisioning and provisioned states may take some time.</summary>
-        public global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus_value? Value { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus_value? Value { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus"/> and sets the default values.
         /// </summary>
         public PrivateWirelessGatewayStatus()
         {
             AdditionalData = new Dictionary<string, object>();
-            Value = global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus_value.Provisioning;
+            Value = global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus_value.Provisioning;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Models
             {
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "error_description", n => { ErrorDescription = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus_value>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus_value>(); } },
             };
         }
         /// <summary>

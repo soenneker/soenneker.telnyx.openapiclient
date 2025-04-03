@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>AI Assistant configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.AIAssistantStartRequest_assistant? Assistant { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest_assistant? Assistant { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.AIAssistantStartRequest_assistant Assistant { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest_assistant Assistant { get; set; }
 #endif
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,18 +49,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Settings for handling user interruptions during assistant speech</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.InterruptionSettings? InterruptionSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings? InterruptionSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.InterruptionSettings InterruptionSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings InterruptionSettings { get; set; }
 #endif
         /// <summary>The settings associated with speech to text for the voice assistant. This is only relevant if the assistant uses a text-to-text language model. Any assistant using a model with native audio support (e.g. `fixie-ai/ultravox-v0_4`) will ignore this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.TranscriptionConfig? Transcription { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig? Transcription { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.TranscriptionConfig Transcription { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig Transcription { get; set; }
 #endif
         /// <summary>The voice to be used by the voice assistant. Currently we support ElevenLabs, Telnyx and AWS voices. **Supported Providers:**- **AWS:** Use `AWS.Polly.&lt;VoiceId&gt;` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.- **Azure:** Use `Azure.&lt;VoiceId&gt;. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-AvaMultilingualNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)- **ElevenLabs:** Use `ElevenLabs.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `ElevenLabs.BaseModel.John`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration secret under `&quot;voice_settings&quot;: {&quot;api_key_ref&quot;: &quot;&lt;secret_id&gt;&quot;}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices). - **Telnyx:** Use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,13 +73,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The settings associated with the voice selected</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings? VoiceSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings VoiceSettings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.AIAssistantStartRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest"/> and sets the default values.
         /// </summary>
         public AIAssistantStartRequest()
         {
@@ -89,12 +89,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AIAssistantStartRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.AIAssistantStartRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.AIAssistantStartRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -104,14 +104,14 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.Models.AIAssistantStartRequest_assistant>(global::Soenneker.Telnyx.Models.AIAssistantStartRequest_assistant.CreateFromDiscriminatorValue); } },
+                { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest_assistant>(global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest_assistant.CreateFromDiscriminatorValue); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
-                { "interruption_settings", n => { InterruptionSettings = n.GetObjectValue<global::Soenneker.Telnyx.Models.InterruptionSettings>(global::Soenneker.Telnyx.Models.InterruptionSettings.CreateFromDiscriminatorValue); } },
-                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.Models.TranscriptionConfig>(global::Soenneker.Telnyx.Models.TranscriptionConfig.CreateFromDiscriminatorValue); } },
+                { "interruption_settings", n => { InterruptionSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings.CreateFromDiscriminatorValue); } },
+                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig.CreateFromDiscriminatorValue); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
-                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings>(global::Soenneker.Telnyx.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings.CreateFromDiscriminatorValue); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -121,67 +121,67 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.AIAssistantStartRequest_assistant>("assistant", Assistant);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest_assistant>("assistant", Assistant);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("greeting", Greeting);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.InterruptionSettings>("interruption_settings", InterruptionSettings);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.TranscriptionConfig>("transcription", Transcription);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings>("interruption_settings", InterruptionSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig>("transcription", Transcription);
             writer.WriteStringValue("voice", Voice);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.Models.AWSVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.Models.TelnyxVoiceSettings"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AIAssistantStartRequest_voice_settings : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.AWSVoiceSettings"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.AWSVoiceSettings? AWSVoiceSettings { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings? AWSVoiceSettings { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.AWSVoiceSettings AWSVoiceSettings { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings AWSVoiceSettings { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings? ElevenLabsVoiceSettings { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings? ElevenLabsVoiceSettings { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings ElevenLabsVoiceSettings { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings ElevenLabsVoiceSettings { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.TelnyxVoiceSettings"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.Models.TelnyxVoiceSettings? TelnyxVoiceSettings { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings? TelnyxVoiceSettings { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.Models.TelnyxVoiceSettings TelnyxVoiceSettings { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings TelnyxVoiceSettings { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings();
                 if("AWSVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.AWSVoiceSettings = new global::Soenneker.Telnyx.Models.AWSVoiceSettings();
+                    result.AWSVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings();
                 }
                 else if("ElevenLabsVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.ElevenLabsVoiceSettings = new global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings();
+                    result.ElevenLabsVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings();
                 }
                 else if("TelnyxVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.TelnyxVoiceSettings = new global::Soenneker.Telnyx.Models.TelnyxVoiceSettings();
+                    result.TelnyxVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings();
                 }
                 return result;
             }
@@ -214,15 +214,15 @@ namespace Soenneker.Telnyx.Models
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
                 if(AWSVoiceSettings != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.AWSVoiceSettings>(null, AWSVoiceSettings);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings>(null, AWSVoiceSettings);
                 }
                 else if(ElevenLabsVoiceSettings != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ElevenLabsVoiceSettings>(null, ElevenLabsVoiceSettings);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>(null, ElevenLabsVoiceSettings);
                 }
                 else if(TelnyxVoiceSettings != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.Models.TelnyxVoiceSettings>(null, TelnyxVoiceSettings);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings>(null, TelnyxVoiceSettings);
                 }
             }
         }

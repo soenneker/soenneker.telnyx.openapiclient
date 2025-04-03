@@ -5,107 +5,107 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.Models.AmdDetailRecord"/>, <see cref="global::Soenneker.Telnyx.Models.ConferenceDetailRecord"/>, <see cref="global::Soenneker.Telnyx.Models.ConferenceParticipantDetailRecord"/>, <see cref="global::Soenneker.Telnyx.Models.MediaStorageDetailRecord"/>, <see cref="global::Soenneker.Telnyx.Models.MessageDetailRecord"/>, <see cref="global::Soenneker.Telnyx.Models.SimCardUsageDetailRecord"/>, <see cref="global::Soenneker.Telnyx.Models.VerifyDetailRecord"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceDetailRecord"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantDetailRecord"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageDetailRecord"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SimCardUsageDetailRecord"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DetailRecord : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.AmdDetailRecord"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.AmdDetailRecord? AmdDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord? AmdDetailRecord { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.AmdDetailRecord AmdDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord AmdDetailRecord { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.ConferenceDetailRecord"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceDetailRecord"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.ConferenceDetailRecord? ConferenceDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceDetailRecord? ConferenceDetailRecord { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.ConferenceDetailRecord ConferenceDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceDetailRecord ConferenceDetailRecord { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.ConferenceParticipantDetailRecord"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantDetailRecord"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.ConferenceParticipantDetailRecord? ConferenceParticipantDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantDetailRecord? ConferenceParticipantDetailRecord { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.ConferenceParticipantDetailRecord ConferenceParticipantDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantDetailRecord ConferenceParticipantDetailRecord { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.MediaStorageDetailRecord"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageDetailRecord"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.MediaStorageDetailRecord? MediaStorageDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageDetailRecord? MediaStorageDetailRecord { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.MediaStorageDetailRecord MediaStorageDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageDetailRecord MediaStorageDetailRecord { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.MessageDetailRecord"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.MessageDetailRecord? MessageDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord? MessageDetailRecord { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.MessageDetailRecord MessageDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord MessageDetailRecord { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.SimCardUsageDetailRecord"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SimCardUsageDetailRecord"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.SimCardUsageDetailRecord? SimCardUsageDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardUsageDetailRecord? SimCardUsageDetailRecord { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.SimCardUsageDetailRecord SimCardUsageDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardUsageDetailRecord SimCardUsageDetailRecord { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.Models.VerifyDetailRecord"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.VerifyDetailRecord? VerifyDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord? VerifyDetailRecord { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.VerifyDetailRecord VerifyDetailRecord { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord VerifyDetailRecord { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.DetailRecord"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecord"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.DetailRecord CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecord CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("record_type")?.GetStringValue();
-            var result = new global::Soenneker.Telnyx.Models.DetailRecord();
+            var result = new global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecord();
             if("AmdDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.AmdDetailRecord = new global::Soenneker.Telnyx.Models.AmdDetailRecord();
+                result.AmdDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord();
             }
             else if("ConferenceDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ConferenceDetailRecord = new global::Soenneker.Telnyx.Models.ConferenceDetailRecord();
+                result.ConferenceDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceDetailRecord();
             }
             else if("ConferenceParticipantDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ConferenceParticipantDetailRecord = new global::Soenneker.Telnyx.Models.ConferenceParticipantDetailRecord();
+                result.ConferenceParticipantDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantDetailRecord();
             }
             else if("MediaStorageDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MediaStorageDetailRecord = new global::Soenneker.Telnyx.Models.MediaStorageDetailRecord();
+                result.MediaStorageDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageDetailRecord();
             }
             else if("MessageDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MessageDetailRecord = new global::Soenneker.Telnyx.Models.MessageDetailRecord();
+                result.MessageDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord();
             }
             else if("SimCardUsageDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SimCardUsageDetailRecord = new global::Soenneker.Telnyx.Models.SimCardUsageDetailRecord();
+                result.SimCardUsageDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.SimCardUsageDetailRecord();
             }
             else if("VerifyDetailRecord".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VerifyDetailRecord = new global::Soenneker.Telnyx.Models.VerifyDetailRecord();
+                result.VerifyDetailRecord = new global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord();
             }
             return result;
         }
@@ -154,31 +154,31 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             if(AmdDetailRecord != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.Models.AmdDetailRecord>(null, AmdDetailRecord);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AmdDetailRecord>(null, AmdDetailRecord);
             }
             else if(ConferenceDetailRecord != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ConferenceDetailRecord>(null, ConferenceDetailRecord);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceDetailRecord>(null, ConferenceDetailRecord);
             }
             else if(ConferenceParticipantDetailRecord != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ConferenceParticipantDetailRecord>(null, ConferenceParticipantDetailRecord);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceParticipantDetailRecord>(null, ConferenceParticipantDetailRecord);
             }
             else if(MediaStorageDetailRecord != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.Models.MediaStorageDetailRecord>(null, MediaStorageDetailRecord);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MediaStorageDetailRecord>(null, MediaStorageDetailRecord);
             }
             else if(MessageDetailRecord != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.Models.MessageDetailRecord>(null, MessageDetailRecord);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord>(null, MessageDetailRecord);
             }
             else if(SimCardUsageDetailRecord != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.Models.SimCardUsageDetailRecord>(null, SimCardUsageDetailRecord);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardUsageDetailRecord>(null, SimCardUsageDetailRecord);
             }
             else if(VerifyDetailRecord != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.Models.VerifyDetailRecord>(null, VerifyDetailRecord);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord>(null, VerifyDetailRecord);
             }
         }
     }

@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
+namespace Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents
 {
     /// <summary>
     /// Builds and executes requests for operations under \portouts\{id}\supporting_documents
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
     public partial class Supporting_documentsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,80 +35,80 @@ namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
         /// <summary>
         /// List every supporting documents for a portout request.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsGetResponse?> GetAsSupporting_documentsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsGetResponse?> GetAsSupporting_documentsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsGetResponse> GetAsSupporting_documentsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsGetResponse> GetAsSupporting_documentsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsGetResponse>(requestInfo, global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List every supporting documents for a portout request.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsSupporting_documentsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsResponse>(requestInfo, global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a list of supporting documents on a portout request.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostResponse?> PostAsSupporting_documentsPostResponseAsync(global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostResponse?> PostAsSupporting_documentsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostResponse> PostAsSupporting_documentsPostResponseAsync(global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostResponse> PostAsSupporting_documentsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostResponse>(requestInfo, global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a list of supporting documents on a portout request.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PostAsSupporting_documentsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsResponse?> PostAsync(global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsResponse> PostAsync(global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsResponse>(requestInfo, global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List every supporting documents for a portout request.
@@ -137,11 +137,11 @@ namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -154,11 +154,11 @@ namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,9 +23,9 @@ namespace Soenneker.Telnyx.Models
         public string Name { get; set; }
 #endif
         /// <summary>The value property</summary>
-        public global::Soenneker.Telnyx.Models.CreateTeXMLSecretResult_value? Value { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateTeXMLSecretResult_value? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CreateTeXMLSecretResult"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateTeXMLSecretResult"/> and sets the default values.
         /// </summary>
         public CreateTeXMLSecretResult()
         {
@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CreateTeXMLSecretResult"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateTeXMLSecretResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CreateTeXMLSecretResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateTeXMLSecretResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CreateTeXMLSecretResult();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateTeXMLSecretResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.Models.CreateTeXMLSecretResult_value>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTeXMLSecretResult_value>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CreateTeXMLSecretResult_value>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTeXMLSecretResult_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

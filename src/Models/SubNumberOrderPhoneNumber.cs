@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -53,10 +53,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The regulatory_requirements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.SubNumberOrderPhoneNumber_regulatory_requirements>? RegulatoryRequirements { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderPhoneNumber_regulatory_requirements>? RegulatoryRequirements { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.SubNumberOrderPhoneNumber_regulatory_requirements> RegulatoryRequirements { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderPhoneNumber_regulatory_requirements> RegulatoryRequirements { get; set; }
 #endif
         /// <summary>The requirements_met property</summary>
         public bool? RequirementsMet { get; set; }
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.Models
         public string Status { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SubNumberOrderPhoneNumber"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderPhoneNumber"/> and sets the default values.
         /// </summary>
         public SubNumberOrderPhoneNumber()
         {
@@ -86,12 +86,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SubNumberOrderPhoneNumber"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderPhoneNumber"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SubNumberOrderPhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderPhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SubNumberOrderPhoneNumber();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderPhoneNumber();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.Models
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.SubNumberOrderPhoneNumber_regulatory_requirements>(global::Soenneker.Telnyx.Models.SubNumberOrderPhoneNumber_regulatory_requirements.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderPhoneNumber_regulatory_requirements>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderPhoneNumber_regulatory_requirements.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
                 { "requirements_status", n => { RequirementsStatus = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteStringValue("phone_number_type", PhoneNumberType);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.SubNumberOrderPhoneNumber_regulatory_requirements>("regulatory_requirements", RegulatoryRequirements);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderPhoneNumber_regulatory_requirements>("regulatory_requirements", RegulatoryRequirements);
             writer.WriteBoolValue("requirements_met", RequirementsMet);
             writer.WriteStringValue("requirements_status", RequirementsStatus);
             writer.WriteStringValue("status", Status);

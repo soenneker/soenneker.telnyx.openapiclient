@@ -8,7 +8,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate
+namespace Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate
 {
     /// <summary>
     /// Builds and executes requests for operations under \storage\buckets\{bucketName}\ssl_certificate
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate
     public partial class Ssl_certificateRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,117 +35,117 @@ namespace Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate
         /// <summary>
         /// Deletes an SSL certificate and its matching secret.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateDeleteResponse?> DeleteAsSsl_certificateDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateDeleteResponse?> DeleteAsSsl_certificateDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateDeleteResponse> DeleteAsSsl_certificateDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateDeleteResponse> DeleteAsSsl_certificateDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateDeleteResponse>(requestInfo, global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes an SSL certificate and its matching secret.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use DeleteAsSsl_certificateDeleteResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse>(requestInfo, global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the stored certificate detail of a bucket, if applicable.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse?> GetAsSsl_certificateGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse?> GetAsSsl_certificateGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse> GetAsSsl_certificateGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse> GetAsSsl_certificateGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse>(requestInfo, global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the stored certificate detail of a bucket, if applicable.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsSsl_certificateGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse>(requestInfo, global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Uploads an SSL certificate and its matching secret so that you can use Telnyx’s storage as your CDN.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse?> PutAsSsl_certificatePutResponseAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse?> PutAsSsl_certificatePutResponseAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse> PutAsSsl_certificatePutResponseAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse> PutAsSsl_certificatePutResponseAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse>(requestInfo, global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Uploads an SSL certificate and its matching secret so that you can use Telnyx’s storage as your CDN.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PutAsSsl_certificatePutResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse?> PutAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse?> PutAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse> PutAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse> PutAsync(MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse>(requestInfo, global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes an SSL certificate and its matching secret.
@@ -210,11 +210,11 @@ namespace Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

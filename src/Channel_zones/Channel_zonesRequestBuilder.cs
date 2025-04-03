@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Channel_zones.Item;
+using Soenneker.Telnyx.OpenApiClient.Channel_zones.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Channel_zones
+namespace Soenneker.Telnyx.OpenApiClient.Channel_zones
 {
     /// <summary>
     /// Builds and executes requests for operations under \channel_zones
@@ -17,20 +17,20 @@ namespace Soenneker.Telnyx.Channel_zones
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Channel_zonesRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.channel_zones.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.channel_zones.item collection</summary>
         /// <param name="position">Channel zone identifier</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Channel_zones.Item.WithChannel_zone_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Channel_zones.Item.WithChannel_zone_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannel_zone_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannel_zone_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("channel_zone_id", position);
-                return new global::Soenneker.Telnyx.Channel_zones.Item.WithChannel_zone_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Item.WithChannel_zone_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.Channel_zones
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -48,39 +48,39 @@ namespace Soenneker.Telnyx.Channel_zones
         /// <summary>
         /// List of channel zones with their countries
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Channel_zones.Channel_zonesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Channel_zones.Channel_zonesGetResponse?> GetAsChannel_zonesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse?> GetAsChannel_zonesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Channel_zones.Channel_zonesGetResponse> GetAsChannel_zonesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse> GetAsChannel_zonesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Channel_zones.Channel_zonesGetResponse>(requestInfo, global::Soenneker.Telnyx.Channel_zones.Channel_zonesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List of channel zones with their countries
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Channel_zones.Channel_zonesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsChannel_zonesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Channel_zones.Channel_zonesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Channel_zones.Channel_zonesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Channel_zones.Channel_zonesResponse>(requestInfo, global::Soenneker.Telnyx.Channel_zones.Channel_zonesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List of channel zones with their countries
@@ -89,11 +89,11 @@ namespace Soenneker.Telnyx.Channel_zones
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -104,11 +104,11 @@ namespace Soenneker.Telnyx.Channel_zones
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// List of channel zones with their countries
@@ -128,7 +128,7 @@ namespace Soenneker.Telnyx.Channel_zones
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Channel_zonesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>
+        public partial class Channel_zonesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder.Channel_zonesRequestBuilderGetQueryParameters>
         {
         }
     }

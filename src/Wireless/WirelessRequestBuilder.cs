@@ -2,13 +2,13 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Wireless.Detail_records_reports;
-using Soenneker.Telnyx.Wireless.Regions;
+using Soenneker.Telnyx.OpenApiClient.Wireless.Detail_records_reports;
+using Soenneker.Telnyx.OpenApiClient.Wireless.Regions;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Wireless
+namespace Soenneker.Telnyx.OpenApiClient.Wireless
 {
     /// <summary>
     /// Builds and executes requests for operations under \wireless
@@ -17,17 +17,17 @@ namespace Soenneker.Telnyx.Wireless
     public partial class WirelessRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The detail_records_reports property</summary>
-        public global::Soenneker.Telnyx.Wireless.Detail_records_reports.Detail_records_reportsRequestBuilder Detail_records_reports
+        public global::Soenneker.Telnyx.OpenApiClient.Wireless.Detail_records_reports.Detail_records_reportsRequestBuilder Detail_records_reports
         {
-            get => new global::Soenneker.Telnyx.Wireless.Detail_records_reports.Detail_records_reportsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Wireless.Detail_records_reports.Detail_records_reportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The regions property</summary>
-        public global::Soenneker.Telnyx.Wireless.Regions.RegionsRequestBuilder Regions
+        public global::Soenneker.Telnyx.OpenApiClient.Wireless.Regions.RegionsRequestBuilder Regions
         {
-            get => new global::Soenneker.Telnyx.Wireless.Regions.RegionsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Wireless.Regions.RegionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Wireless.WirelessRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Wireless.WirelessRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.Wireless
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Wireless.WirelessRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Wireless.WirelessRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

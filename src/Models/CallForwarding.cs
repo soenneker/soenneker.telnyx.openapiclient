@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The call forwarding settings for a phone number.
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Indicates if call forwarding will be enabled for this number if forwards_to and forwarding_type are filled in. Defaults to true for backwards compatibility with APIV1 use of numbers endpoints.</summary>
         public bool? CallForwardingEnabled { get; set; }
         /// <summary>Call forwarding type. &apos;forwards_to&apos; must be set for this to have an effect.</summary>
-        public global::Soenneker.Telnyx.Models.CallForwarding_forwarding_type? ForwardingType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding_forwarding_type? ForwardingType { get; set; }
         /// <summary>The phone number to which inbound calls to this number are forwarded. Inbound calls will not be forwarded if this field is left blank. If set, must be a +E.164-formatted phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.Models
         public string ForwardsTo { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CallForwarding"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding"/> and sets the default values.
         /// </summary>
         public CallForwarding()
         {
@@ -37,12 +37,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CallForwarding"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CallForwarding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CallForwarding();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "call_forwarding_enabled", n => { CallForwardingEnabled = n.GetBoolValue(); } },
-                { "forwarding_type", n => { ForwardingType = n.GetEnumValue<global::Soenneker.Telnyx.Models.CallForwarding_forwarding_type>(); } },
+                { "forwarding_type", n => { ForwardingType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding_forwarding_type>(); } },
                 { "forwards_to", n => { ForwardsTo = n.GetStringValue(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("call_forwarding_enabled", CallForwardingEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CallForwarding_forwarding_type>("forwarding_type", ForwardingType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallForwarding_forwarding_type>("forwarding_type", ForwardingType);
             writer.WriteStringValue("forwards_to", ForwardsTo);
             writer.WriteAdditionalData(AdditionalData);
         }

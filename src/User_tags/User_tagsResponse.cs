@@ -5,23 +5,23 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.User_tags
+namespace Soenneker.Telnyx.OpenApiClient.User_tags
 {
     [Obsolete("This class is obsolete. Use User_tagsGetResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class User_tagsResponse : global::Soenneker.Telnyx.User_tags.User_tagsGetResponse, IParsable
+    public partial class User_tagsResponse : global::Soenneker.Telnyx.OpenApiClient.User_tags.User_tagsGetResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.User_tags.User_tagsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.User_tags.User_tagsResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.User_tags.User_tagsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Telnyx.OpenApiClient.User_tags.User_tagsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.User_tags.User_tagsResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.User_tags.User_tagsResponse();
         }
     }
 }

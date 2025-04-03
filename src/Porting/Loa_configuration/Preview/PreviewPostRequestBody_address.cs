@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Porting.Loa_configuration.Preview
+namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview
 {
     /// <summary>
     /// The address of the company.
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.Porting.Loa_configuration.Preview
         public string ZipCode { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting.Loa_configuration.Preview.PreviewPostRequestBody_address"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview.PreviewPostRequestBody_address"/> and sets the default values.
         /// </summary>
         public PreviewPostRequestBody_address()
         {
@@ -73,12 +73,12 @@ namespace Soenneker.Telnyx.Porting.Loa_configuration.Preview
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting.Loa_configuration.Preview.PreviewPostRequestBody_address"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview.PreviewPostRequestBody_address"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Porting.Loa_configuration.Preview.PreviewPostRequestBody_address CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview.PreviewPostRequestBody_address CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Porting.Loa_configuration.Preview.PreviewPostRequestBody_address();
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview.PreviewPostRequestBody_address();
         }
         /// <summary>
         /// The deserialization information for the current model

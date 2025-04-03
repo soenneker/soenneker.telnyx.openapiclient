@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// Standalone card
@@ -18,17 +18,17 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The card_content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSCardContent? CardContent { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSCardContent? CardContent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSCardContent CardContent { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSCardContent CardContent { get; set; }
 #endif
         /// <summary>Orientation of the card.</summary>
-        public global::Soenneker.Telnyx.Models.RCSStandaloneCard_card_orientation? CardOrientation { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard_card_orientation? CardOrientation { get; set; }
         /// <summary>Image preview alignment for standalone cards with horizontal layout.</summary>
-        public global::Soenneker.Telnyx.Models.RCSStandaloneCard_thumbnail_image_alignment? ThumbnailImageAlignment { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard_thumbnail_image_alignment? ThumbnailImageAlignment { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RCSStandaloneCard"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard"/> and sets the default values.
         /// </summary>
         public RCSStandaloneCard()
         {
@@ -37,12 +37,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RCSStandaloneCard"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RCSStandaloneCard CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RCSStandaloneCard();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,9 +52,9 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "card_content", n => { CardContent = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSCardContent>(global::Soenneker.Telnyx.Models.RCSCardContent.CreateFromDiscriminatorValue); } },
-                { "card_orientation", n => { CardOrientation = n.GetEnumValue<global::Soenneker.Telnyx.Models.RCSStandaloneCard_card_orientation>(); } },
-                { "thumbnail_image_alignment", n => { ThumbnailImageAlignment = n.GetEnumValue<global::Soenneker.Telnyx.Models.RCSStandaloneCard_thumbnail_image_alignment>(); } },
+                { "card_content", n => { CardContent = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCardContent>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSCardContent.CreateFromDiscriminatorValue); } },
+                { "card_orientation", n => { CardOrientation = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard_card_orientation>(); } },
+                { "thumbnail_image_alignment", n => { ThumbnailImageAlignment = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard_thumbnail_image_alignment>(); } },
             };
         }
         /// <summary>
@@ -64,9 +64,9 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSCardContent>("card_content", CardContent);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RCSStandaloneCard_card_orientation>("card_orientation", CardOrientation);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RCSStandaloneCard_thumbnail_image_alignment>("thumbnail_image_alignment", ThumbnailImageAlignment);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCardContent>("card_content", CardContent);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard_card_orientation>("card_orientation", CardOrientation);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSStandaloneCard_thumbnail_image_alignment>("thumbnail_image_alignment", ThumbnailImageAlignment);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

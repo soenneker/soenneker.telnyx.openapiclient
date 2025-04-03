@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send;
-using Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verify;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send;
+using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verify;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes
+namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes
 {
     /// <summary>
     /// Builds and executes requests for operations under \porting_orders\{-id}\verification_codes
@@ -19,17 +19,17 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes
     public partial class Verification_codesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The send property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send.SendRequestBuilder Send
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send.SendRequestBuilder Send
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Send.SendRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Send.SendRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The verify property</summary>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verify.VerifyRequestBuilder Verify
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verify.VerifyRequestBuilder Verify
         {
-            get => new global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verify.VerifyRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verify.VerifyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -47,39 +47,39 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes
         /// <summary>
         /// Returns a list of verification codes for a porting order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesGetResponse?> GetAsVerification_codesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesGetResponse?> GetAsVerification_codesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesGetResponse> GetAsVerification_codesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesGetResponse> GetAsVerification_codesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesGetResponse>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of verification codes for a porting order.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use GetAsVerification_codesGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesResponse>(requestInfo, global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of verification codes for a porting order.
@@ -88,11 +88,11 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -103,11 +103,11 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Returns a list of verification codes for a porting order.
@@ -157,14 +157,14 @@ namespace Soenneker.Telnyx.Porting_orders.Item.Verification_codes
 #endif
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>
             [QueryParameter("sort%5B%5D")]
-            public global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Verification_codesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>
+        public partial class Verification_codesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verification_codesRequestBuilder.Verification_codesRequestBuilderGetQueryParameters>
         {
         }
     }

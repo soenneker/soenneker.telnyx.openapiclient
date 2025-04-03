@@ -3,14 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Phone_number_campaigns.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Phone_number_campaigns
+namespace Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns
 {
     /// <summary>
     /// Builds and executes requests for operations under \phone_number_campaigns
@@ -18,20 +18,20 @@ namespace Soenneker.Telnyx.Phone_number_campaigns
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Phone_number_campaignsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Soenneker.Telnyx.phone_number_campaigns.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.phone_number_campaigns.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_number_campaigns.Item.WithPhoneNumberItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Phone_number_campaigns.Item.WithPhoneNumberItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Item.WithPhoneNumberItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Item.WithPhoneNumberItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("phoneNumber", position);
-                return new global::Soenneker.Telnyx.Phone_number_campaigns.Item.WithPhoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Item.WithPhoneNumberItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_number_campaigns.Phone_number_campaignsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -39,7 +39,7 @@ namespace Soenneker.Telnyx.Phone_number_campaigns
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_number_campaigns.Phone_number_campaignsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -49,50 +49,50 @@ namespace Soenneker.Telnyx.Phone_number_campaigns
         /// <summary>
         /// Retrieve All Phone Number Campaigns
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PhoneNumberCampaignPaginated"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignPaginated"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.PhoneNumberCampaignPaginated?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_number_campaigns.Phone_number_campaignsRequestBuilder.Phone_number_campaignsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignPaginated?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder.Phone_number_campaignsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.PhoneNumberCampaignPaginated> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_number_campaigns.Phone_number_campaignsRequestBuilder.Phone_number_campaignsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignPaginated> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder.Phone_number_campaignsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.PhoneNumberCampaignPaginated>(requestInfo, global::Soenneker.Telnyx.Models.PhoneNumberCampaignPaginated.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignPaginated>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignPaginated.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create New Phone Number Campaign
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PhoneNumberCampaign"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.PhoneNumberCampaign?> PostAsync(global::Soenneker.Telnyx.Models.PhoneNumberCampaignCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.PhoneNumberCampaign> PostAsync(global::Soenneker.Telnyx.Models.PhoneNumberCampaignCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.PhoneNumberCampaign>(requestInfo, global::Soenneker.Telnyx.Models.PhoneNumberCampaign.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve All Phone Number Campaigns
@@ -101,11 +101,11 @@ namespace Soenneker.Telnyx.Phone_number_campaigns
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_number_campaigns.Phone_number_campaignsRequestBuilder.Phone_number_campaignsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder.Phone_number_campaignsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_number_campaigns.Phone_number_campaignsRequestBuilder.Phone_number_campaignsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder.Phone_number_campaignsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -121,11 +121,11 @@ namespace Soenneker.Telnyx.Phone_number_campaigns
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.PhoneNumberCampaignCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.Models.PhoneNumberCampaignCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -138,11 +138,11 @@ namespace Soenneker.Telnyx.Phone_number_campaigns
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_number_campaigns.Phone_number_campaignsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Phone_number_campaigns.Phone_number_campaignsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Phone_number_campaigns.Phone_number_campaignsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Retrieve All Phone Number Campaigns
@@ -207,14 +207,14 @@ namespace Soenneker.Telnyx.Phone_number_campaigns
 #endif
             /// <summary>Specifies the sort order for results. If not given, results are sorted by createdAt in descending order.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.Phone_number_campaigns.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Phone_number_campaignsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Phone_number_campaigns.Phone_number_campaignsRequestBuilder.Phone_number_campaignsRequestBuilderGetQueryParameters>
+        public partial class Phone_number_campaignsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder.Phone_number_campaignsRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

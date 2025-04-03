@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,9 +23,9 @@ namespace Soenneker.Telnyx.Models
         public string Reason { get; private set; }
 #endif
         /// <summary>The current status of the SIM card. It will be one of the following: &lt;br/&gt;&lt;ul&gt; &lt;li&gt;&lt;code&gt;registering&lt;/code&gt; - the card is being registered&lt;/li&gt; &lt;li&gt;&lt;code&gt;enabling&lt;/code&gt; - the card is being enabled&lt;/li&gt; &lt;li&gt;&lt;code&gt;enabled&lt;/code&gt; - the card is enabled and ready for use&lt;/li&gt; &lt;li&gt;&lt;code&gt;disabling&lt;/code&gt; - the card is being disabled&lt;/li&gt; &lt;li&gt;&lt;code&gt;disabled&lt;/code&gt; - the card has been disabled and cannot be used&lt;/li&gt; &lt;li&gt;&lt;code&gt;data_limit_exceeded&lt;/code&gt; - the card has exceeded its data consumption limit&lt;/li&gt; &lt;li&gt;&lt;code&gt;setting_standby&lt;/code&gt; - the process to set the card in stand by is in progress&lt;/li&gt; &lt;li&gt;&lt;code&gt;standby&lt;/code&gt; - the card is in stand by&lt;/li&gt;&lt;/ul&gt;Transitioning between the enabled and disabled states may take a period of time.</summary>
-        public global::Soenneker.Telnyx.Models.SIMCardStatus_value? Value { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus_value? Value { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.SIMCardStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus"/> and sets the default values.
         /// </summary>
         public SIMCardStatus()
         {
@@ -34,12 +34,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.SIMCardStatus"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.SIMCardStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.SIMCardStatus();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.Models.SIMCardStatus_value>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus_value>(); } },
             };
         }
         /// <summary>

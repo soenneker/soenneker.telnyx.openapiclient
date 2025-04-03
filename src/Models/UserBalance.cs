@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -55,9 +55,9 @@ namespace Soenneker.Telnyx.Models
         public string Pending { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
-        public global::Soenneker.Telnyx.Models.UserBalance_record_type? RecordType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance_record_type? RecordType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.UserBalance"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance"/> and sets the default values.
         /// </summary>
         public UserBalance()
         {
@@ -66,12 +66,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.UserBalance"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.UserBalance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.UserBalance();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.Models
                 { "credit_limit", n => { CreditLimit = n.GetStringValue(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
                 { "pending", n => { Pending = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.Models.UserBalance_record_type>(); } },
+                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance_record_type>(); } },
             };
         }
         /// <summary>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.Models
             writer.WriteStringValue("credit_limit", CreditLimit);
             writer.WriteStringValue("currency", Currency);
             writer.WriteStringValue("pending", Pending);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.UserBalance_record_type>("record_type", RecordType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserBalance_record_type>("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

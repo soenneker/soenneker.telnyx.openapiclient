@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// The hyperparameters used for the fine-tuning job.
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset. &apos;auto&apos; decides the optimal number of epochs based on the size of the dataset. If setting the number manually, we support any number between 1 and 50 epochs.</summary>
         public int? NEpochs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest_hyperparameters"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters"/> and sets the default values.
         /// </summary>
         public CreateFineTuningJobRequest_hyperparameters()
         {
@@ -27,12 +27,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest_hyperparameters"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest_hyperparameters CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CreateFineTuningJobRequest_hyperparameters();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters();
         }
         /// <summary>
         /// The deserialization information for the current model

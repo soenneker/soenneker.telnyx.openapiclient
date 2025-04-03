@@ -2,11 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Recording_transcriptions
+namespace Soenneker.Telnyx.OpenApiClient.Recording_transcriptions
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,21 +18,21 @@ namespace Soenneker.Telnyx.Recording_transcriptions
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.RecordingTranscription>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.RecordingTranscription> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription> Data { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CursorPaginationMeta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CursorPaginationMeta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CursorPaginationMeta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CursorPaginationMeta Meta { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Recording_transcriptions.Recording_transcriptionsGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsGetResponse"/> and sets the default values.
         /// </summary>
         public Recording_transcriptionsGetResponse()
         {
@@ -41,12 +41,12 @@ namespace Soenneker.Telnyx.Recording_transcriptions
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Recording_transcriptions.Recording_transcriptionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Recording_transcriptions.Recording_transcriptionsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Recording_transcriptions.Recording_transcriptionsGetResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +56,8 @@ namespace Soenneker.Telnyx.Recording_transcriptions
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RecordingTranscription>(global::Soenneker.Telnyx.Models.RecordingTranscription.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.Models.CursorPaginationMeta>(global::Soenneker.Telnyx.Models.CursorPaginationMeta.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription>(global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CursorPaginationMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.CursorPaginationMeta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Telnyx.Recording_transcriptions
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.RecordingTranscription>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CursorPaginationMeta>("meta", Meta);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTranscription>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CursorPaginationMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

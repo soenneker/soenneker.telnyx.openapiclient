@@ -6,7 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -30,18 +30,18 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Error_meta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Error_meta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta Meta { get; set; }
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.Error_source? SourceEscaped { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_source? SourceEscaped { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.Error_source SourceEscaped { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_source SourceEscaped { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.Models
         public string Title { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.Error"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Error"/> and sets the default values.
         /// </summary>
         public Error()
         {
@@ -61,12 +61,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.Error"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Error"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.Error CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Error CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.Error();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Error();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,8 +78,8 @@ namespace Soenneker.Telnyx.Models
             {
                 { "code", n => { Code = n.GetIntValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.Models.Error_meta>(global::Soenneker.Telnyx.Models.Error_meta.CreateFromDiscriminatorValue); } },
-                { "source", n => { SourceEscaped = n.GetObjectValue<global::Soenneker.Telnyx.Models.Error_source>(global::Soenneker.Telnyx.Models.Error_source.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta>(global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta.CreateFromDiscriminatorValue); } },
+                { "source", n => { SourceEscaped = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_source>(global::Soenneker.Telnyx.OpenApiClient.Models.Error_source.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -92,8 +92,8 @@ namespace Soenneker.Telnyx.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("code", Code);
             writer.WriteStringValue("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Error_meta>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.Error_source>("source", SourceEscaped);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_source>("source", SourceEscaped);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

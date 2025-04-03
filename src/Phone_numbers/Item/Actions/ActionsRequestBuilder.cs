@@ -2,13 +2,13 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Phone_numbers.Item.Actions.Bundle_status_change;
-using Soenneker.Telnyx.Phone_numbers.Item.Actions.Enable_emergency;
+using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_status_change;
+using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Phone_numbers.Item.Actions
+namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions
 {
     /// <summary>
     /// Builds and executes requests for operations under \phone_numbers\{-id}\actions
@@ -17,17 +17,17 @@ namespace Soenneker.Telnyx.Phone_numbers.Item.Actions
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The bundle_status_change property</summary>
-        public global::Soenneker.Telnyx.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changeRequestBuilder Bundle_status_change
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changeRequestBuilder Bundle_status_change
         {
-            get => new global::Soenneker.Telnyx.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changeRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Bundle_status_change.Bundle_status_changeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The enable_emergency property</summary>
-        public global::Soenneker.Telnyx.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyRequestBuilder Enable_emergency
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyRequestBuilder Enable_emergency
         {
-            get => new global::Soenneker.Telnyx.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_numbers.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.Phone_numbers.Item.Actions
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_numbers.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.ActionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

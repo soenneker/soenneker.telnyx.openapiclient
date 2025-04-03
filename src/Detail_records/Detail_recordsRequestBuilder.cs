@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Detail_records
+namespace Soenneker.Telnyx.OpenApiClient.Detail_records
 {
     /// <summary>
     /// Builds and executes requests for operations under \detail_records
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Detail_records
     public partial class Detail_recordsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Detail_records.Detail_recordsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Detail_records
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Detail_records.Detail_recordsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,20 +36,20 @@ namespace Soenneker.Telnyx.Detail_records
         /// <summary>
         /// Search for any detail record across the Telnyx Platform
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.DetailRecordsSearchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.DetailRecordsSearchResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.DetailRecordsSearchResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.DetailRecordsSearchResponse>(requestInfo, global::Soenneker.Telnyx.Models.DetailRecordsSearchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Search for any detail record across the Telnyx Platform
@@ -58,11 +58,11 @@ namespace Soenneker.Telnyx.Detail_records
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -73,11 +73,11 @@ namespace Soenneker.Telnyx.Detail_records
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Detail_records.Detail_recordsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Detail_records.Detail_recordsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Detail_records.Detail_recordsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Search for any detail record across the Telnyx Platform
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.Detail_records
 #endif
             /// <summary>Filter by the given user-friendly date range. You can specify one of the following enum values, or a dynamic one using this format: last_N_days.</summary>
             [QueryParameter("filter%5Bdate_range%5D")]
-            public global::Soenneker.Telnyx.Detail_records.GetFilterDate_rangeQueryParameterType? FilterdateRangeAsGetFilterDateRangeQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Detail_records.GetFilterDate_rangeQueryParameterType? FilterdateRangeAsGetFilterDateRangeQueryParameterType { get; set; }
             /// <summary>Filter by the given record type.</summary>
             [Obsolete("This property is deprecated, use FilterrecordTypeAsGetFilterRecordTypeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.Detail_records
 #endif
             /// <summary>Filter by the given record type.</summary>
             [QueryParameter("filter%5Brecord_type%5D")]
-            public global::Soenneker.Telnyx.Detail_records.GetFilterRecord_typeQueryParameterType? FilterrecordTypeAsGetFilterRecordTypeQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Detail_records.GetFilterRecord_typeQueryParameterType? FilterrecordTypeAsGetFilterRecordTypeQueryParameterType { get; set; }
             /// <summary>Page number</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.Detail_records
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Detail_recordsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>
+        public partial class Detail_recordsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>
         {
         }
     }

@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
-        public global::Soenneker.Telnyx.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
         /// <summary>The connection_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,11 +37,11 @@ namespace Soenneker.Telnyx.Models
         /// <summary>When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout.</summary>
         public bool? DefaultOnHoldComfortNoiseEnabled { get; set; }
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
-        public global::Soenneker.Telnyx.Models.DtmfType? DtmfType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType? DtmfType { get; set; }
         /// <summary>Encode the SIP contact header sent by Telnyx to avoid issues for NAT or ALG scenarios.</summary>
         public bool? EncodeContactHeaderEnabled { get; set; }
         /// <summary>Enable use of SRTP for encryption. Cannot be set if the transport_portocol is TLS.</summary>
-        public global::Soenneker.Telnyx.Models.EncryptedMedia? EncryptedMedia { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? EncryptedMedia { get; set; }
         /// <summary>Identifies the type of resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,20 +53,20 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CredentialInbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CredentialInbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound Inbound { get; set; }
 #endif
         /// <summary>Enable on-net T38 if you prefer the sender and receiver negotiating T38 directly if both are on the Telnyx network. If this is disabled, Telnyx will be able to use T38 on just one leg of the call depending on each leg&apos;s settings.</summary>
         public bool? OnnetT38PassthroughEnabled { get; set; }
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.CredentialOutbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialOutbound? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.CredentialOutbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialOutbound Outbound { get; set; }
 #endif
         /// <summary>The password to be used as part of the credentials. Must be 8 to 128 characters long.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,13 +87,13 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The rtcp_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.ConnectionRtcpSettings? RtcpSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings? RtcpSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.ConnectionRtcpSettings RtcpSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings RtcpSettings { get; set; }
 #endif
         /// <summary>This feature enables inbound SIP URI calls to your Credential Auth Connection. If enabled for all (unrestricted) then anyone who calls the SIP URI &lt;your-username&gt;@telnyx.com will be connected to your Connection. You can also choose to allow only calls that are originated on any Connections under your account (internal).</summary>
-        public global::Soenneker.Telnyx.Models.CredentialConnection_sip_uri_calling_preference? SipUriCallingPreference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_sip_uri_calling_preference? SipUriCallingPreference { get; set; }
         /// <summary>ISO-8601 formatted date indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.Models
         public string UserName { get; set; }
 #endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1 or v2.</summary>
-        public global::Soenneker.Telnyx.Models.CredentialConnection_webhook_api_version? WebhookApiVersion { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_webhook_api_version? WebhookApiVersion { get; set; }
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -131,24 +131,24 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Specifies how many seconds to wait before timing out a webhook.</summary>
         public int? WebhookTimeoutSecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.CredentialConnection"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection"/> and sets the default values.
         /// </summary>
         public CredentialConnection()
         {
             AdditionalData = new Dictionary<string, object>();
-            AnchorsiteOverride = global::Soenneker.Telnyx.Models.AnchorsiteOverride.Latency;
-            DtmfType = global::Soenneker.Telnyx.Models.DtmfType.RFC2833;
-            WebhookApiVersion = global::Soenneker.Telnyx.Models.CredentialConnection_webhook_api_version.One;
+            AnchorsiteOverride = global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride.Latency;
+            DtmfType = global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType.RFC2833;
+            WebhookApiVersion = global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_webhook_api_version.One;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.CredentialConnection"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.CredentialConnection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.CredentialConnection();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -159,24 +159,24 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.Models.AnchorsiteOverride>(); } },
+                { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "default_on_hold_comfort_noise_enabled", n => { DefaultOnHoldComfortNoiseEnabled = n.GetBoolValue(); } },
-                { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.Models.DtmfType>(); } },
+                { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); } },
                 { "encode_contact_header_enabled", n => { EncodeContactHeaderEnabled = n.GetBoolValue(); } },
-                { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.Models.EncryptedMedia>(); } },
+                { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.Models.CredentialInbound>(global::Soenneker.Telnyx.Models.CredentialInbound.CreateFromDiscriminatorValue); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound.CreateFromDiscriminatorValue); } },
                 { "onnet_t38_passthrough_enabled", n => { OnnetT38PassthroughEnabled = n.GetBoolValue(); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.Models.CredentialOutbound>(global::Soenneker.Telnyx.Models.CredentialOutbound.CreateFromDiscriminatorValue); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CredentialOutbound.CreateFromDiscriminatorValue); } },
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
-                { "sip_uri_calling_preference", n => { SipUriCallingPreference = n.GetEnumValue<global::Soenneker.Telnyx.Models.CredentialConnection_sip_uri_calling_preference>(); } },
+                { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
+                { "sip_uri_calling_preference", n => { SipUriCallingPreference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_sip_uri_calling_preference>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_name", n => { UserName = n.GetStringValue(); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.Models.CredentialConnection_webhook_api_version>(); } },
+                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_webhook_api_version>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -190,24 +190,24 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.DtmfType>("dtmf_type", DtmfType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);
             writer.WriteBoolValue("encode_contact_header_enabled", EncodeContactHeaderEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CredentialInbound>("inbound", Inbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound>("inbound", Inbound);
             writer.WriteBoolValue("onnet_t38_passthrough_enabled", OnnetT38PassthroughEnabled);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.CredentialOutbound>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialOutbound>("outbound", Outbound);
             writer.WriteStringValue("password", Password);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CredentialConnection_sip_uri_calling_preference>("sip_uri_calling_preference", SipUriCallingPreference);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_sip_uri_calling_preference>("sip_uri_calling_preference", SipUriCallingPreference);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_name", UserName);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.CredentialConnection_webhook_api_version>("webhook_api_version", WebhookApiVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_webhook_api_version>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

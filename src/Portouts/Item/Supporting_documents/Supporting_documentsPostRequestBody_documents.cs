@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
+namespace Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,9 +17,9 @@ namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
         /// <summary>Identifies the associated document</summary>
         public Guid? DocumentId { get; set; }
         /// <summary>Identifies the type of the document</summary>
-        public global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents_type? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents"/> and sets the default values.
         /// </summary>
         public Supporting_documentsPostRequestBody_documents()
         {
@@ -28,12 +28,12 @@ namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents();
+            return new global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "document_id", n => { DocumentId = n.GetGuidValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents_type>(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.Portouts.Item.Supporting_documents
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("document_id", DocumentId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.Supporting_documents.Supporting_documentsPostRequestBody_documents_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

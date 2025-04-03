@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.Models
         public string ConversationProfileId { get; set; }
 #endif
         /// <summary>Determine which Dialogflow will be used.</summary>
-        public global::Soenneker.Telnyx.Models.DialogflowConnection_dialogflow_api? DialogflowApi { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_dialogflow_api? DialogflowApi { get; set; }
         /// <summary>Which Dialogflow environment will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,28 +43,28 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The JSON map to connect your Dialoglow account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.DialogflowConnection_service_account? ServiceAccount { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_service_account? ServiceAccount { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.DialogflowConnection_service_account ServiceAccount { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_service_account ServiceAccount { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.DialogflowConnection"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection"/> and sets the default values.
         /// </summary>
         public DialogflowConnection()
         {
             AdditionalData = new Dictionary<string, object>();
-            DialogflowApi = global::Soenneker.Telnyx.Models.DialogflowConnection_dialogflow_api.Es;
+            DialogflowApi = global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_dialogflow_api.Es;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.DialogflowConnection"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.DialogflowConnection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.DialogflowConnection();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,10 +75,10 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "conversation_profile_id", n => { ConversationProfileId = n.GetStringValue(); } },
-                { "dialogflow_api", n => { DialogflowApi = n.GetEnumValue<global::Soenneker.Telnyx.Models.DialogflowConnection_dialogflow_api>(); } },
+                { "dialogflow_api", n => { DialogflowApi = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_dialogflow_api>(); } },
                 { "environment", n => { Environment = n.GetStringValue(); } },
                 { "location", n => { Location = n.GetStringValue(); } },
-                { "service_account", n => { ServiceAccount = n.GetObjectValue<global::Soenneker.Telnyx.Models.DialogflowConnection_service_account>(global::Soenneker.Telnyx.Models.DialogflowConnection_service_account.CreateFromDiscriminatorValue); } },
+                { "service_account", n => { ServiceAccount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_service_account>(global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_service_account.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -89,10 +89,10 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("conversation_profile_id", ConversationProfileId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.DialogflowConnection_dialogflow_api>("dialogflow_api", DialogflowApi);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_dialogflow_api>("dialogflow_api", DialogflowApi);
             writer.WriteStringValue("environment", Environment);
             writer.WriteStringValue("location", Location);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.DialogflowConnection_service_account>("service_account", ServiceAccount);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConnection_service_account>("service_account", ServiceAccount);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

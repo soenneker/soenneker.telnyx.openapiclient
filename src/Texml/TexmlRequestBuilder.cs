@@ -2,14 +2,14 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Texml.Accounts;
-using Soenneker.Telnyx.Texml.Calls;
-using Soenneker.Telnyx.Texml.Secrets;
+using Soenneker.Telnyx.OpenApiClient.Texml.Accounts;
+using Soenneker.Telnyx.OpenApiClient.Texml.Calls;
+using Soenneker.Telnyx.OpenApiClient.Texml.Secrets;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-namespace Soenneker.Telnyx.Texml
+namespace Soenneker.Telnyx.OpenApiClient.Texml
 {
     /// <summary>
     /// Builds and executes requests for operations under \texml
@@ -18,22 +18,22 @@ namespace Soenneker.Telnyx.Texml
     public partial class TexmlRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The Accounts property</summary>
-        public global::Soenneker.Telnyx.Texml.Accounts.AccountsRequestBuilder Accounts
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.AccountsRequestBuilder Accounts
         {
-            get => new global::Soenneker.Telnyx.Texml.Accounts.AccountsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.AccountsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The calls property</summary>
-        public global::Soenneker.Telnyx.Texml.Calls.CallsRequestBuilder Calls
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Calls.CallsRequestBuilder Calls
         {
-            get => new global::Soenneker.Telnyx.Texml.Calls.CallsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Calls.CallsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The secrets property</summary>
-        public global::Soenneker.Telnyx.Texml.Secrets.SecretsRequestBuilder Secrets
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Secrets.SecretsRequestBuilder Secrets
         {
-            get => new global::Soenneker.Telnyx.Texml.Secrets.SecretsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Secrets.SecretsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.TexmlRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.TexmlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.Texml
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Texml.TexmlRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.TexmlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>

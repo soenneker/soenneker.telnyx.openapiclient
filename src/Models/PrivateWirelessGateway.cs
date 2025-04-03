@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>A list of the resources that have been assigned to the Private Wireless Gateway.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.Models.PWGAssignedResourcesSummary>? AssignedResources { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PWGAssignedResourcesSummary>? AssignedResources { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.Models.PWGAssignedResourcesSummary> AssignedResources { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PWGAssignedResourcesSummary> AssignedResources { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,10 +69,10 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The current status or failure details of the Private Wireless Gateway.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus? Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus? Status { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus Status { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus Status { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.Models
         public string UpdatedAt { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.PrivateWirelessGateway"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGateway"/> and sets the default values.
         /// </summary>
         public PrivateWirelessGateway()
         {
@@ -92,12 +92,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.PrivateWirelessGateway"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGateway"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.PrivateWirelessGateway CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGateway CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.PrivateWirelessGateway();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGateway();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assigned_resources", n => { AssignedResources = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.Models.PWGAssignedResourcesSummary>(global::Soenneker.Telnyx.Models.PWGAssignedResourcesSummary.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "assigned_resources", n => { AssignedResources = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PWGAssignedResourcesSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.PWGAssignedResourcesSummary.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "ip_range", n => { IpRange = n.GetStringValue(); } },
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.Models
                 { "network_id", n => { NetworkId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "region_code", n => { RegionCode = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus>(global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -126,11 +126,11 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.Models.PWGAssignedResourcesSummary>("assigned_resources", AssignedResources);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PWGAssignedResourcesSummary>("assigned_resources", AssignedResources);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("network_id", NetworkId);
             writer.WriteStringValue("region_code", RegionCode);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.PrivateWirelessGatewayStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,13 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Brand.Feedback.Item
+namespace Soenneker.Telnyx.OpenApiClient.Brand.Feedback.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \brand\feedback\{brandId}
@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.Brand.Feedback.Item
     public partial class WithBrandItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Brand.Feedback.Item.WithBrandItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Brand.Feedback.Item.WithBrandItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.Brand.Feedback.Item
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Brand.Feedback.Item.WithBrandItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Brand.Feedback.Item.WithBrandItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,25 +36,25 @@ namespace Soenneker.Telnyx.Brand.Feedback.Item
         /// <summary>
         /// Get feedback about a brand by ID. This endpoint can be used after creating or revettinga brand.Possible values for `.category[].id`:* `TAX_ID` - Data mismatch related to tax id and its associated properties.* `STOCK_SYMBOL` - Non public entity registered as a public for profit entity or  the stock information mismatch.* `GOVERNMENT_ENTITY` - Non government entity registered as a government entity.  Must be a U.S. government entity.* `NONPROFIT` - Not a recognized non-profit entity. No IRS tax-exempt status  found.* `OTHERS` - Details of the data misrepresentation if any.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.BrandFeedback"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedback"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Models.BrandFeedback?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedback?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Models.BrandFeedback> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedback> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Models.BrandFeedback>(requestInfo, global::Soenneker.Telnyx.Models.BrandFeedback.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedback>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BrandFeedback.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get feedback about a brand by ID. This endpoint can be used after creating or revettinga brand.Possible values for `.category[].id`:* `TAX_ID` - Data mismatch related to tax id and its associated properties.* `STOCK_SYMBOL` - Non public entity registered as a public for profit entity or  the stock information mismatch.* `GOVERNMENT_ENTITY` - Non government entity registered as a government entity.  Must be a U.S. government entity.* `NONPROFIT` - Not a recognized non-profit entity. No IRS tax-exempt status  found.* `OTHERS` - Details of the data misrepresentation if any.
@@ -78,11 +78,11 @@ namespace Soenneker.Telnyx.Brand.Feedback.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Brand.Feedback.Item.WithBrandItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Brand.Feedback.Item.WithBrandItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Brand.Feedback.Item.WithBrandItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Brand.Feedback.Item.WithBrandItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Brand.Feedback.Item.WithBrandItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Brand.Feedback.Item.WithBrandItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

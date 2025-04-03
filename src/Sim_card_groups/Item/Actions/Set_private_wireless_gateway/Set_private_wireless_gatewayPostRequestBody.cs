@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway
+namespace Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -17,7 +17,7 @@ namespace Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gat
         /// <summary>The identification of the related Private Wireless Gateway resource.</summary>
         public Guid? PrivateWirelessGatewayId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody"/> and sets the default values.
         /// </summary>
         public Set_private_wireless_gatewayPostRequestBody()
         {
@@ -26,12 +26,12 @@ namespace Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gat
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody();
+            return new global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

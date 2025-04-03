@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
     /// A media file within a rich card.
@@ -18,15 +18,15 @@ namespace Soenneker.Telnyx.Models
         /// <summary>The content_info property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.Models.RCSContentInfo? ContentInfo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSContentInfo? ContentInfo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.Models.RCSContentInfo ContentInfo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSContentInfo ContentInfo { get; set; }
 #endif
         /// <summary>The height of the media within a rich card with a vertical layout. For a standalone card with horizontal layout, height is not customizable, and this field is ignored.</summary>
-        public global::Soenneker.Telnyx.Models.RCSMedia_height? Height { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSMedia_height? Height { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.RCSMedia"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSMedia"/> and sets the default values.
         /// </summary>
         public RCSMedia()
         {
@@ -35,12 +35,12 @@ namespace Soenneker.Telnyx.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.RCSMedia"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSMedia"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.RCSMedia CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RCSMedia CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.RCSMedia();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RCSMedia();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,8 +50,8 @@ namespace Soenneker.Telnyx.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content_info", n => { ContentInfo = n.GetObjectValue<global::Soenneker.Telnyx.Models.RCSContentInfo>(global::Soenneker.Telnyx.Models.RCSContentInfo.CreateFromDiscriminatorValue); } },
-                { "height", n => { Height = n.GetEnumValue<global::Soenneker.Telnyx.Models.RCSMedia_height>(); } },
+                { "content_info", n => { ContentInfo = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSContentInfo>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSContentInfo.CreateFromDiscriminatorValue); } },
+                { "height", n => { Height = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSMedia_height>(); } },
             };
         }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Soenneker.Telnyx.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.Models.RCSContentInfo>("content_info", ContentInfo);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.RCSMedia_height>("height", Height);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSContentInfo>("content_info", ContentInfo);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSMedia_height>("height", Height);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

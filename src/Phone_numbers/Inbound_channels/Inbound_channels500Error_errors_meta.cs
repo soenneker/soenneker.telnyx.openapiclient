@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Phone_numbers.Inbound_channels
+namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.Phone_numbers.Inbound_channels
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta"/> and sets the default values.
         /// </summary>
         public Inbound_channels500Error_errors_meta()
         {
@@ -24,12 +24,12 @@ namespace Soenneker.Telnyx.Phone_numbers.Inbound_channels
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta();
+            return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta();
         }
         /// <summary>
         /// The deserialization information for the current model

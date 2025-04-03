@@ -3,15 +3,15 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.Models;
-using Soenneker.Telnyx.Phone_number_blocks.Jobs.Delete_phone_number_block;
-using Soenneker.Telnyx.Phone_number_blocks.Jobs.Item;
+using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_number_block;
+using Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.Phone_number_blocks.Jobs
+namespace Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs
 {
     /// <summary>
     /// Builds and executes requests for operations under \phone_number_blocks\jobs
@@ -20,24 +20,24 @@ namespace Soenneker.Telnyx.Phone_number_blocks.Jobs
     public partial class JobsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The delete_phone_number_block property</summary>
-        public global::Soenneker.Telnyx.Phone_number_blocks.Jobs.Delete_phone_number_block.Delete_phone_number_blockRequestBuilder Delete_phone_number_block
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_number_block.Delete_phone_number_blockRequestBuilder Delete_phone_number_block
         {
-            get => new global::Soenneker.Telnyx.Phone_number_blocks.Jobs.Delete_phone_number_block.Delete_phone_number_blockRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Delete_phone_number_block.Delete_phone_number_blockRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.phone_number_blocks.jobs.item collection</summary>
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.phone_number_blocks.jobs.item collection</summary>
         /// <param name="position">Identifies the Phone Number Blocks Job.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_number_blocks.Jobs.Item.JobsItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.Phone_number_blocks.Jobs.Item.JobsItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Item.JobsItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Item.JobsItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.Phone_number_blocks.Jobs.Item.JobsItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.Item.JobsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.Phone_number_blocks.Jobs
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -55,49 +55,49 @@ namespace Soenneker.Telnyx.Phone_number_blocks.Jobs
         /// <summary>
         /// Lists the phone number blocks jobs
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsGetResponse?> GetAsJobsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsGetResponse?> GetAsJobsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsGetResponse> GetAsJobsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsGetResponse> GetAsJobsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsGetResponse>(requestInfo, global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists the phone number blocks jobs
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
         [Obsolete("This method is obsolete. Use GetAsJobsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsResponse>(requestInfo, global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists the phone number blocks jobs
@@ -106,11 +106,11 @@ namespace Soenneker.Telnyx.Phone_number_blocks.Jobs
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -121,11 +121,11 @@ namespace Soenneker.Telnyx.Phone_number_blocks.Jobs
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Lists the phone number blocks jobs
@@ -146,7 +146,7 @@ namespace Soenneker.Telnyx.Phone_number_blocks.Jobs
 #endif
             /// <summary>Filter the phone number blocks jobs by status.</summary>
             [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.Phone_number_blocks.Jobs.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
             /// <summary>Filter the phone number blocks jobs by type.</summary>
             [Obsolete("This property is deprecated, use FiltertypeAsGetFilterTypeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -160,7 +160,7 @@ namespace Soenneker.Telnyx.Phone_number_blocks.Jobs
 #endif
             /// <summary>Filter the phone number blocks jobs by type.</summary>
             [QueryParameter("filter%5Btype%5D")]
-            public global::Soenneker.Telnyx.Phone_number_blocks.Jobs.GetFilterTypeQueryParameterType? FiltertypeAsGetFilterTypeQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.GetFilterTypeQueryParameterType? FiltertypeAsGetFilterTypeQueryParameterType { get; set; }
             /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
@@ -180,14 +180,14 @@ namespace Soenneker.Telnyx.Phone_number_blocks.Jobs
 #endif
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.Phone_number_blocks.Jobs.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class JobsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>
+        public partial class JobsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>
         {
         }
     }

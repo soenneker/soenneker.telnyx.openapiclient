@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.Models
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -23,19 +23,19 @@ namespace Soenneker.Telnyx.Models
         public string AniOverride { get; set; }
 #endif
         /// <summary>Specifies when we should apply your ani_override setting. Only applies when ani_override is not blank.</summary>
-        public global::Soenneker.Telnyx.Models.OutboundFqdn_ani_override_type? AniOverrideType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_ani_override_type? AniOverrideType { get; set; }
         /// <summary>Forces all SIP calls originated on this connection to be \&quot;parked\&quot; instead of \&quot;bridged\&quot; to the destination specified on the URI. Parked calls will return ringback to the caller and will await for a Call Control command to define which action will be taken next.</summary>
         public bool? CallParkingEnabled { get; set; }
         /// <summary>When set, this will limit the total number of inbound calls to phone numbers associated with this connection.</summary>
         public int? ChannelLimit { get; set; }
         /// <summary>Enable use of SRTP for encryption. Cannot be set if the transport_portocol is TLS.</summary>
-        public global::Soenneker.Telnyx.Models.EncryptedMedia? EncryptedMedia { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia? EncryptedMedia { get; set; }
         /// <summary>Generate ringback tone through 183 session progress message with early media.</summary>
         public bool? GenerateRingbackTone { get; set; }
         /// <summary>When set, ringback will not wait for indication before sending ringback tone to calling party.</summary>
         public bool? InstantRingbackEnabled { get; set; }
         /// <summary>The ip_authentication_method property</summary>
-        public global::Soenneker.Telnyx.Models.OutboundFqdn_ip_authentication_method? IpAuthenticationMethod { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_ip_authentication_method? IpAuthenticationMethod { get; set; }
         /// <summary>The ip_authentication_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.Models
         public string OutboundVoiceProfileId { get; set; }
 #endif
         /// <summary>This setting only affects connections with Fax-type Outbound Voice Profiles. The setting dictates whether or not Telnyx sends a t.38 reinvite. By default, Telnyx will send the re-invite. If set to `customer`, the caller is expected to send the t.38 reinvite.</summary>
-        public global::Soenneker.Telnyx.Models.OutboundFqdn_t38_reinvite_source? T38ReinviteSource { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_t38_reinvite_source? T38ReinviteSource { get; set; }
         /// <summary>Numerical chars only, exactly 4 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,25 +75,25 @@ namespace Soenneker.Telnyx.Models
         /// <summary>Time(sec) before aborting if call is unanswered (min: 1, max: 600).</summary>
         public int? Timeout2xxSecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.Models.OutboundFqdn"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn"/> and sets the default values.
         /// </summary>
         public OutboundFqdn()
         {
             AdditionalData = new Dictionary<string, object>();
-            AniOverrideType = global::Soenneker.Telnyx.Models.OutboundFqdn_ani_override_type.Always;
-            IpAuthenticationMethod = global::Soenneker.Telnyx.Models.OutboundFqdn_ip_authentication_method.IpAuthentication;
+            AniOverrideType = global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_ani_override_type.Always;
+            IpAuthenticationMethod = global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_ip_authentication_method.IpAuthentication;
             Localization = "US";
-            T38ReinviteSource = global::Soenneker.Telnyx.Models.OutboundFqdn_t38_reinvite_source.Customer;
+            T38ReinviteSource = global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_t38_reinvite_source.Customer;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.Models.OutboundFqdn"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.Models.OutboundFqdn CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.Models.OutboundFqdn();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -104,17 +104,17 @@ namespace Soenneker.Telnyx.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ani_override", n => { AniOverride = n.GetStringValue(); } },
-                { "ani_override_type", n => { AniOverrideType = n.GetEnumValue<global::Soenneker.Telnyx.Models.OutboundFqdn_ani_override_type>(); } },
+                { "ani_override_type", n => { AniOverrideType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_ani_override_type>(); } },
                 { "call_parking_enabled", n => { CallParkingEnabled = n.GetBoolValue(); } },
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
-                { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.Models.EncryptedMedia>(); } },
+                { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); } },
                 { "generate_ringback_tone", n => { GenerateRingbackTone = n.GetBoolValue(); } },
                 { "instant_ringback_enabled", n => { InstantRingbackEnabled = n.GetBoolValue(); } },
-                { "ip_authentication_method", n => { IpAuthenticationMethod = n.GetEnumValue<global::Soenneker.Telnyx.Models.OutboundFqdn_ip_authentication_method>(); } },
+                { "ip_authentication_method", n => { IpAuthenticationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_ip_authentication_method>(); } },
                 { "ip_authentication_token", n => { IpAuthenticationToken = n.GetStringValue(); } },
                 { "localization", n => { Localization = n.GetStringValue(); } },
                 { "outbound_voice_profile_id", n => { OutboundVoiceProfileId = n.GetStringValue(); } },
-                { "t38_reinvite_source", n => { T38ReinviteSource = n.GetEnumValue<global::Soenneker.Telnyx.Models.OutboundFqdn_t38_reinvite_source>(); } },
+                { "t38_reinvite_source", n => { T38ReinviteSource = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_t38_reinvite_source>(); } },
                 { "tech_prefix", n => { TechPrefix = n.GetStringValue(); } },
                 { "timeout_1xx_secs", n => { Timeout1xxSecs = n.GetIntValue(); } },
                 { "timeout_2xx_secs", n => { Timeout2xxSecs = n.GetIntValue(); } },
@@ -128,17 +128,17 @@ namespace Soenneker.Telnyx.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("ani_override", AniOverride);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.OutboundFqdn_ani_override_type>("ani_override_type", AniOverrideType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_ani_override_type>("ani_override_type", AniOverrideType);
             writer.WriteBoolValue("call_parking_enabled", CallParkingEnabled);
             writer.WriteIntValue("channel_limit", ChannelLimit);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
             writer.WriteBoolValue("generate_ringback_tone", GenerateRingbackTone);
             writer.WriteBoolValue("instant_ringback_enabled", InstantRingbackEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.OutboundFqdn_ip_authentication_method>("ip_authentication_method", IpAuthenticationMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_ip_authentication_method>("ip_authentication_method", IpAuthenticationMethod);
             writer.WriteStringValue("ip_authentication_token", IpAuthenticationToken);
             writer.WriteStringValue("localization", Localization);
             writer.WriteStringValue("outbound_voice_profile_id", OutboundVoiceProfileId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.Models.OutboundFqdn_t38_reinvite_source>("t38_reinvite_source", T38ReinviteSource);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn_t38_reinvite_source>("t38_reinvite_source", T38ReinviteSource);
             writer.WriteStringValue("tech_prefix", TechPrefix);
             writer.WriteIntValue("timeout_1xx_secs", Timeout1xxSecs);
             writer.WriteIntValue("timeout_2xx_secs", Timeout2xxSecs);
