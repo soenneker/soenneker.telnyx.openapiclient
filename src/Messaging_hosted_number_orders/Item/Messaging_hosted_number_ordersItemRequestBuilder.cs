@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions;
+using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Validation_codes;
+using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Verification_codes;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +24,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.ActionsRequestBuilder Actions
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The validation_codes property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Validation_codes.Validation_codesRequestBuilder Validation_codes
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Validation_codes.Validation_codesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The verification_codes property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Verification_codes.Verification_codesRequestBuilder Verification_codes
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Verification_codes.Verification_codesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder"/> and sets the default values.
