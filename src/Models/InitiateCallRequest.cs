@@ -14,14 +14,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The ID of the TeXML Application.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ApplicationSid { get; set; }
-#nullable restore
-#else
-        public string ApplicationSid { get; set; }
-#endif
         /// <summary>Select whether to perform answering machine detection in the background. By default execution is blocked until Answering Machine Detection is completed.</summary>
         public bool? AsyncAmd { get; set; }
         /// <summary>URL destination for Telnyx to send AMD callback events to for the call.</summary>
@@ -187,7 +179,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ApplicationSid", n => { ApplicationSid = n.GetStringValue(); } },
                 { "AsyncAmd", n => { AsyncAmd = n.GetBoolValue(); } },
                 { "AsyncAmdStatusCallback", n => { AsyncAmdStatusCallback = n.GetStringValue(); } },
                 { "AsyncAmdStatusCallbackMethod", n => { AsyncAmdStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod>(); } },
@@ -228,7 +219,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("ApplicationSid", ApplicationSid);
             writer.WriteBoolValue("AsyncAmd", AsyncAmd);
             writer.WriteStringValue("AsyncAmdStatusCallback", AsyncAmdStatusCallback);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod>("AsyncAmdStatusCallbackMethod", AsyncAmdStatusCallbackMethod);

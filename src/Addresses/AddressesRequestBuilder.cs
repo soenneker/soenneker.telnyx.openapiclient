@@ -236,10 +236,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses
             [QueryParameter("filter%5Bused_as_emergency%5D")]
             public string FilterusedAsEmergency { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;street_address&lt;/code&gt;: sorts the result by the    &lt;code&gt;street_address&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-street_address&lt;/code&gt;: sorts the result by the    &lt;code&gt;street_address&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>

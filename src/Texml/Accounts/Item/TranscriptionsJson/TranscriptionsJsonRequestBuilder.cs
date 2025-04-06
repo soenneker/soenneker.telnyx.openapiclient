@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -38,6 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse?> GetAsTranscriptionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsJsonRequestBuilder.TranscriptionsJsonRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -48,7 +50,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns multiple recording transcription resources for an account.
@@ -56,6 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsTranscriptionsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +74,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson.TranscriptionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns multiple recording transcription resources for an account.
@@ -103,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.TranscriptionsJson
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranscriptionsJsonRequestBuilderGetQueryParameters 
         {
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Used to request the next page of results.</summary>
