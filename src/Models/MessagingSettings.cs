@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The default_messaging_profile_id property</summary>
+        /// <summary>Default Messaging Profile used for messaging exchanges with your assistant. This will be created automatically on assistant creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DefaultMessagingProfileId { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string DefaultMessagingProfileId { get; set; }
 #endif
-        /// <summary>The delivery_status_webhook_url property</summary>
+        /// <summary>The URL where webhooks related to delivery statused for assistant messages will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DeliveryStatusWebhookUrl { get; set; }

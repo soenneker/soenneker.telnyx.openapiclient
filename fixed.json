@@ -29675,6 +29675,16 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/SIMCardId"
+          },
+          {
+            "name": "report_lost",
+            "in": "query",
+            "description": "Enables deletion of disabled eSIMs that can\u0027t be uninstalled from a device. This is irreversible and the eSIM cannot be re-registered.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -45190,62 +45200,59 @@
       "Assistant": {
         "properties": {
           "id": {
-            "type": "string",
-            "title": "Id"
+            "type": "string"
           },
           "name": {
-            "type": "string",
-            "title": "Name"
+            "type": "string"
           },
           "created_at": {
             "type": "string",
-            "format": "date-time",
-            "title": "Created At"
+            "format": "date-time"
           },
           "description": {
-            "type": "string",
-            "title": "Description",
-            "default": ""
+            "type": "string"
           },
           "model": {
             "type": "string",
-            "title": "Model"
+            "description": "ID of the model to use. You can use the [Get models API](https://developers.telnyx.com/api/inference/inference-embedding/get-models-public-models-get) to see all of your available models,"
           },
           "instructions": {
             "type": "string",
-            "title": "Instructions"
+            "description": "System instructions for the assistant. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
           },
           "tools": {
+            "description": "The tools that the assistant can use. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)",
+            "type": "array",
             "items": {
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/ChatCompletionToolParam"
+                  "$ref": "#/components/schemas/BookAppointmentTool"
                 },
                 {
-                  "$ref": "#/components/schemas/Retrieval"
+                  "$ref": "#/components/schemas/CheckAvailabilityTool"
+                },
+                {
+                  "$ref": "#/components/schemas/WebhookTool"
+                },
+                {
+                  "$ref": "#/components/schemas/HangupTool"
+                },
+                {
+                  "$ref": "#/components/schemas/TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/RetrievalTool"
                 }
               ]
-            },
-            "type": "array",
-            "title": "Tools",
-            "default": [
-              {
-                "type": "retrieval",
-                "retrieval": {
-                  "bucket_ids": [
-                    "my_bucket_id_1"
-                  ]
-                }
-              }
-            ]
+            }
           },
           "greeting": {
             "type": "string",
-            "title": "Greeting"
+            "description": "Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
           },
           "llm_api_key_ref": {
             "type": "string",
-            "title": "Llm Api Key Ref"
+            "description": "This is only needed when using third-party inference providers. The \u0060identifier\u0060 for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your LLM provider\u0027s API key. Warning: Free plans are unlikely to work with this integration."
           },
           "voice_settings": {
             "$ref": "#/components/schemas/VoiceSettings"
@@ -45272,11 +45279,11 @@
           },
           "dynamic_variables_webhook_url": {
             "type": "string",
-            "title": "Dynamic Variables Webhook Url"
+            "description": "If the dynamic_variables_webhook_url is set for the assistant, we will send a request at the start of the conversation. See our [guide](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) for more information."
           },
           "dynamic_variables": {
             "type": "object",
-            "title": "Dynamic Variables"
+            "description": "Map of dynamic variables and their values"
           }
         },
         "type": "object",
@@ -45286,8 +45293,7 @@
           "created_at",
           "model",
           "instructions"
-        ],
-        "title": "Assistant"
+        ]
       },
       "AssistantDeletedResponse": {
         "properties": {
@@ -46971,7 +46977,7 @@
               "type": "string"
             },
             "type": "array",
-            "title": "Bucket Ids"
+            "description": "List of [embedded storage buckets](https://developers.telnyx.com/api/inference/inference-embedding/post-embedding) to use for retrieval-augmented generation."
           },
           "max_num_results": {
             "description": "The maximum number of results to retrieve as context for the language model.",
@@ -51526,6 +51532,12 @@
           },
           "stream_bidirectional_sampling_rate": {
             "$ref": "#/components/schemas/StreamBidirectionalSamplingRate"
+          },
+          "stream_establish_before_call_originate": {
+            "description": "Establish websocket connection before dialing the destination. This is useful for cases where the websocket connection takes a long time to establish.",
+            "type": "boolean",
+            "default": false,
+            "example": true
           },
           "send_silence_when_idle": {
             "description": "Generate silence RTP packets when no transmission available.",
@@ -56850,43 +56862,52 @@
       "CreateAssistantRequest": {
         "properties": {
           "name": {
-            "type": "string",
-            "title": "Name"
+            "type": "string"
           },
           "model": {
             "type": "string",
-            "title": "Model"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description",
-            "default": ""
+            "description": "ID of the model to use. You can use the [Get models API](https://developers.telnyx.com/api/inference/inference-embedding/get-models-public-models-get) to see all of your available models,"
           },
           "instructions": {
             "type": "string",
-            "title": "Instructions"
+            "description": "System instructions for the assistant. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
           },
           "tools": {
+            "description": "The tools that the assistant can use. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)",
+            "type": "array",
             "items": {
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/ChatCompletionToolParam"
+                  "$ref": "#/components/schemas/BookAppointmentTool"
                 },
                 {
-                  "$ref": "#/components/schemas/Retrieval"
+                  "$ref": "#/components/schemas/CheckAvailabilityTool"
+                },
+                {
+                  "$ref": "#/components/schemas/WebhookTool"
+                },
+                {
+                  "$ref": "#/components/schemas/HangupTool"
+                },
+                {
+                  "$ref": "#/components/schemas/TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/RetrievalTool"
                 }
               ]
-            },
-            "type": "array",
-            "description": "The \u0060function\u0060 tool type follows the same schema as the [OpenAI Assistants API](https://platform.openai.com/docs/api-reference/assistants/createAssistant). The \u0060retrieval\u0060 tool type is unique to Telnyx. You may pass a list of [embedded storage buckets](https://developers.telnyx.com/api/inference/inference-embedding/post-embedding) for retrieval-augmented generation."
+            }
+          },
+          "description": {
+            "type": "string"
           },
           "greeting": {
             "type": "string",
-            "title": "Greeting"
+            "description": "Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
           },
           "llm_api_key_ref": {
             "type": "string",
-            "title": "Llm Api Key Ref"
+            "description": "This is only needed when using third-party inference providers. The \u0060identifier\u0060 for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your LLM provider\u0027s API key. Warning: Free plans are unlikely to work with this integration."
           },
           "voice_settings": {
             "$ref": "#/components/schemas/VoiceSettings"
@@ -56904,19 +56925,18 @@
             "items": {
               "$ref": "#/components/schemas/EnabledFeatures"
             },
-            "type": "array",
-            "title": "Enabled Features"
+            "type": "array"
           },
           "insight_settings": {
             "$ref": "#/components/schemas/InsightSettings"
           },
           "dynamic_variables_webhook_url": {
             "type": "string",
-            "title": "Dynamic Variables Webhook Url"
+            "description": "If the dynamic_variables_webhook_url is set for the assistant, we will send a request at the start of the conversation. See our [guide](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) for more information."
           },
           "dynamic_variables": {
             "type": "object",
-            "title": "Dynamic Variables"
+            "description": "Map of dynamic variables and their default values"
           }
         },
         "type": "object",
@@ -62321,7 +62341,7 @@
           "telephony",
           "messaging"
         ],
-        "title": "EnabledFeatures",
+        "description": "If \u0060telephony\u0060 is enabled, the assistant will be able to make and receive calls. If \u0060messaging\u0060 is enabled, the assistant will be able to send and receive messages.",
         "x-enum-varnames": [
           "telephony",
           "messaging"
@@ -66038,9 +66058,6 @@
           }
         },
         "type": "object",
-        "required": [
-          "placeholderField"
-        ],
         "title": "HangupToolParams"
       },
       "HostedNumber": {
@@ -67226,11 +67243,10 @@
         "properties": {
           "insight_group_id": {
             "type": "string",
-            "title": "Insight Group Id"
+            "description": "Reference to an Insight Group. Insights in this group will be run automatically for all the assistant\u0027s conversations."
           }
         },
-        "type": "object",
-        "title": "InsightSettings"
+        "type": "object"
       },
       "IntId": {
         "title": "Int ID",
@@ -69572,15 +69588,14 @@
         "properties": {
           "default_messaging_profile_id": {
             "type": "string",
-            "title": "Default Messaging Profile Id"
+            "description": "Default Messaging Profile used for messaging exchanges with your assistant. This will be created automatically on assistant creation."
           },
           "delivery_status_webhook_url": {
             "type": "string",
-            "title": "Delivery Status Webhook Url"
+            "description": "The URL where webhooks related to delivery statused for assistant messages will be sent."
           }
         },
-        "type": "object",
-        "title": "MessagingSettings"
+        "type": "object"
       },
       "MessagingUrlDomain": {
         "type": "object",
@@ -83172,7 +83187,7 @@
         "properties": {
           "default_texml_app_id": {
             "type": "string",
-            "title": "Default Texml App Id"
+            "description": "Default Texml App used for voice calls with your assistant. This will be created automatically on assistant creation."
           }
         },
         "type": "object",
@@ -85760,11 +85775,10 @@
         "properties": {
           "model": {
             "type": "string",
-            "title": "Model"
+            "description": "The speech to text model to be used by the voice assistant.\n\n- \u0060distil-whisper/distil-large-v2\u0060 is lower latency but English-only.\n- \u0060openai/whisper-large-v3-turbo\u0060 is multi-lingual with automatic language detection but slightly higher latency."
           }
         },
-        "type": "object",
-        "title": "TranscriptionSettings"
+        "type": "object"
       },
       "TranscriptionStartRequest": {
         "type": "object",
@@ -86390,42 +86404,52 @@
       "UpdateAssistantRequest": {
         "properties": {
           "name": {
-            "type": "string",
-            "title": "Name"
+            "type": "string"
           },
           "model": {
             "type": "string",
-            "title": "Model"
-          },
-          "description": {
-            "type": "string",
-            "title": "Description"
+            "description": "ID of the model to use. You can use the [Get models API](https://developers.telnyx.com/api/inference/inference-embedding/get-models-public-models-get) to see all of your available models,"
           },
           "instructions": {
             "type": "string",
-            "title": "Instructions"
+            "description": "System instructions for the assistant. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
           },
           "tools": {
+            "description": "The tools that the assistant can use. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)",
+            "type": "array",
             "items": {
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/ChatCompletionToolParam"
+                  "$ref": "#/components/schemas/BookAppointmentTool"
                 },
                 {
-                  "$ref": "#/components/schemas/Retrieval"
+                  "$ref": "#/components/schemas/CheckAvailabilityTool"
+                },
+                {
+                  "$ref": "#/components/schemas/WebhookTool"
+                },
+                {
+                  "$ref": "#/components/schemas/HangupTool"
+                },
+                {
+                  "$ref": "#/components/schemas/TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/RetrievalTool"
                 }
-              ],
-              "type": "array",
-              "description": "The \u0060function\u0060 tool type follows the same schema as the [OpenAI Assistants API](https://platform.openai.com/docs/api-reference/assistants/createAssistant). The \u0060retrieval\u0060 tool type is unique to Telnyx. You may pass a list of [embedded storage buckets](https://developers.telnyx.com/api/inference/inference-embedding/post-embedding) for retrieval-augmented generation."
+              ]
             }
+          },
+          "description": {
+            "type": "string"
           },
           "greeting": {
             "type": "string",
-            "title": "Greeting"
+            "description": "Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
           },
           "llm_api_key_ref": {
             "type": "string",
-            "title": "Llm Api Key Ref"
+            "description": "This is only needed when using third-party inference providers. The \u0060identifier\u0060 for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your LLM provider\u0027s API key. Warning: Free plans are unlikely to work with this integration."
           },
           "voice_settings": {
             "$ref": "#/components/schemas/VoiceSettings"
@@ -86444,19 +86468,18 @@
               "$ref": "#/components/schemas/EnabledFeatures"
             },
             "type": "array",
-            "uniqueItems": true,
-            "title": "Enabled Features"
+            "uniqueItems": true
           },
           "insight_settings": {
             "$ref": "#/components/schemas/InsightSettings"
           },
           "dynamic_variables_webhook_url": {
             "type": "string",
-            "title": "Dynamic Variables Webhook Url"
+            "description": "If the dynamic_variables_webhook_url is set for the assistant, we will send a request at the start of the conversation. See our [guide](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) for more information."
           },
           "dynamic_variables": {
             "type": "object",
-            "title": "Dynamic Variables"
+            "description": "Map of dynamic variables and their default values"
           }
         },
         "type": "object",
@@ -91002,18 +91025,17 @@
         "properties": {
           "voice": {
             "type": "string",
-            "title": "Voice"
+            "description": "The voice to be used by the voice assistant. Check the full list of [available voices](https://developers.telnyx.com/api/call-control/list-text-to-speech-voices) via our voices API.\nTo use ElevenLabs, you must reference your ElevenLabs API key as an integration secret under the \u0060api_key_ref\u0060 field. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. For Telnyx voices, use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060 (e.g. Telnyx.KokoroTTS.af_heart)"
           },
           "api_key_ref": {
             "type": "string",
-            "title": "Api Key Ref"
+            "description": "The \u0060identifier\u0060 for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your ElevenLabs API key. Warning: Free plans are unlikely to work with this integration."
           }
         },
         "type": "object",
         "required": [
           "voice"
-        ],
-        "title": "VoiceSettings"
+        ]
       },
       "VoicemailPrefResponse": {
         "type": "object",

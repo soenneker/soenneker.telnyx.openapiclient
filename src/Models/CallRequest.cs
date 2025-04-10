@@ -192,6 +192,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalSamplingRate? StreamBidirectionalSamplingRate { get; set; }
         /// <summary>Specifies which call legs should receive the bidirectional stream audio.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs? StreamBidirectionalTargetLegs { get; set; }
+        /// <summary>Establish websocket connection before dialing the destination. This is useful for cases where the websocket connection takes a long time to establish.</summary>
+        public bool? StreamEstablishBeforeCallOriginate { get; set; }
         /// <summary>Specifies which track should be streamed.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_stream_track? StreamTrack { get; set; }
         /// <summary>The destination WebSocket address where the stream is going to be delivered.</summary>
@@ -316,6 +318,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "stream_bidirectional_mode", n => { StreamBidirectionalMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode>(); } },
                 { "stream_bidirectional_sampling_rate", n => { StreamBidirectionalSamplingRate = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalSamplingRate>(); } },
                 { "stream_bidirectional_target_legs", n => { StreamBidirectionalTargetLegs = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs>(); } },
+                { "stream_establish_before_call_originate", n => { StreamEstablishBeforeCallOriginate = n.GetBoolValue(); } },
                 { "stream_track", n => { StreamTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_stream_track>(); } },
                 { "stream_url", n => { StreamUrl = n.GetStringValue(); } },
                 { "supervise_call_control_id", n => { SuperviseCallControlId = n.GetStringValue(); } },
@@ -371,6 +374,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode>("stream_bidirectional_mode", StreamBidirectionalMode);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalSamplingRate>("stream_bidirectional_sampling_rate", StreamBidirectionalSamplingRate);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs>("stream_bidirectional_target_legs", StreamBidirectionalTargetLegs);
+            writer.WriteBoolValue("stream_establish_before_call_originate", StreamEstablishBeforeCallOriginate);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_stream_track>("stream_track", StreamTrack);
             writer.WriteStringValue("stream_url", StreamUrl);
             writer.WriteStringValue("supervise_call_control_id", SuperviseCallControlId);

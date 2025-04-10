@@ -9,35 +9,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class InsightSettings : IAdditionalDataHolder, IParsable
+    public partial class CheckAvailabilityTool : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Reference to an Insight Group. Insights in this group will be run automatically for all the assistant&apos;s conversations.</summary>
+        /// <summary>The check_availability property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InsightGroupId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams? CheckAvailability { get; set; }
 #nullable restore
 #else
-        public string InsightGroupId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams CheckAvailability { get; set; }
 #endif
+        /// <summary>The type property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool_type? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/> and sets the default values.
         /// </summary>
-        public InsightSettings()
+        public CheckAvailabilityTool()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +49,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "insight_group_id", n => { InsightGroupId = n.GetStringValue(); } },
+                { "check_availability", n => { CheckAvailability = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool_type>(); } },
             };
         }
         /// <summary>
@@ -57,7 +60,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("insight_group_id", InsightGroupId);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams>("check_availability", CheckAvailability);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

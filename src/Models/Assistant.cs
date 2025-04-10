@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The dynamic_variables property</summary>
+        /// <summary>Map of dynamic variables and their values</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.Assistant_dynamic_variables? DynamicVariables { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.Assistant_dynamic_variables DynamicVariables { get; set; }
 #endif
-        /// <summary>The dynamic_variables_webhook_url property</summary>
+        /// <summary>If the dynamic_variables_webhook_url is set for the assistant, we will send a request at the start of the conversation. See our [guide](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) for more information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DynamicVariablesWebhookUrl { get; set; }
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?> EnabledFeatures { get; set; }
 #endif
-        /// <summary>The greeting property</summary>
+        /// <summary>Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Greeting { get; set; }
@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings InsightSettings { get; set; }
 #endif
-        /// <summary>The instructions property</summary>
+        /// <summary>System instructions for the assistant. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Instructions { get; set; }
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Instructions { get; set; }
 #endif
-        /// <summary>The llm_api_key_ref property</summary>
+        /// <summary>This is only needed when using third-party inference providers. The `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your LLM provider&apos;s API key. Warning: Free plans are unlikely to work with this integration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LlmApiKeyRef { get; set; }
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings MessagingSettings { get; set; }
 #endif
-        /// <summary>The model property</summary>
+        /// <summary>ID of the model to use. You can use the [Get models API](https://developers.telnyx.com/api/inference/inference-embedding/get-models-public-models-get) to see all of your available models,</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
@@ -120,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings TelephonySettings { get; set; }
 #endif
-        /// <summary>The tools property</summary>
+        /// <summary>The tools that the assistant can use. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.Assistant.Assistant_tools>? Tools { get; set; }
@@ -215,26 +215,58 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Assistant_tools : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam? ChatCompletionToolParam { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool? BookAppointmentTool { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam ChatCompletionToolParam { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool BookAppointmentTool { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval? Retrieval { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool? CheckAvailabilityTool { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval Retrieval { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool CheckAvailabilityTool { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool? HangupTool { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool HangupTool { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool? RetrievalTool { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool RetrievalTool { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool? TransferTool { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool TransferTool { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool? WebhookTool { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool WebhookTool { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -246,13 +278,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.Assistant.Assistant_tools();
-                if("ChatCompletionToolParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("BookAppointmentTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.ChatCompletionToolParam = new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam();
+                    result.BookAppointmentTool = new global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool();
                 }
-                else if("Retrieval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("CheckAvailabilityTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.Retrieval = new global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval();
+                    result.CheckAvailabilityTool = new global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool();
+                }
+                else if("HangupTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.HangupTool = new global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool();
+                }
+                else if("RetrievalTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.RetrievalTool = new global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool();
+                }
+                else if("TransferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.TransferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool();
+                }
+                else if("WebhookTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WebhookTool = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool();
                 }
                 return result;
             }
@@ -262,13 +310,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(ChatCompletionToolParam != null)
+                if(BookAppointmentTool != null)
                 {
-                    return ChatCompletionToolParam.GetFieldDeserializers();
+                    return BookAppointmentTool.GetFieldDeserializers();
                 }
-                else if(Retrieval != null)
+                else if(CheckAvailabilityTool != null)
                 {
-                    return Retrieval.GetFieldDeserializers();
+                    return CheckAvailabilityTool.GetFieldDeserializers();
+                }
+                else if(HangupTool != null)
+                {
+                    return HangupTool.GetFieldDeserializers();
+                }
+                else if(RetrievalTool != null)
+                {
+                    return RetrievalTool.GetFieldDeserializers();
+                }
+                else if(TransferTool != null)
+                {
+                    return TransferTool.GetFieldDeserializers();
+                }
+                else if(WebhookTool != null)
+                {
+                    return WebhookTool.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -279,13 +343,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
-                if(ChatCompletionToolParam != null)
+                if(BookAppointmentTool != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam>(null, ChatCompletionToolParam);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool>(null, BookAppointmentTool);
                 }
-                else if(Retrieval != null)
+                else if(CheckAvailabilityTool != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval>(null, Retrieval);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool>(null, CheckAvailabilityTool);
+                }
+                else if(HangupTool != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool>(null, HangupTool);
+                }
+                else if(RetrievalTool != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool>(null, RetrievalTool);
+                }
+                else if(TransferTool != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool>(null, TransferTool);
+                }
+                else if(WebhookTool != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool>(null, WebhookTool);
                 }
             }
         }

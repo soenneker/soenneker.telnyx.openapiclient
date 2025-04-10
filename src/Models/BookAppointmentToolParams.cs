@@ -9,12 +9,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class VoiceSettings : IAdditionalDataHolder, IParsable
+    public partial class BookAppointmentToolParams : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your ElevenLabs API key. Warning: Free plans are unlikely to work with this integration.</summary>
+        /// <summary>Reference to an integration secret that contains your Cal.com API key. You would pass the `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your Cal.com API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ApiKeyRef { get; set; }
@@ -22,30 +22,40 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ApiKeyRef { get; set; }
 #endif
-        /// <summary>The voice to be used by the voice assistant. Check the full list of [available voices](https://developers.telnyx.com/api/call-control/list-text-to-speech-voices) via our voices API.To use ElevenLabs, you must reference your ElevenLabs API key as an integration secret under the `api_key_ref` field. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. For Telnyx voices, use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;` (e.g. Telnyx.KokoroTTS.af_heart)</summary>
+        /// <summary>The name of the attendee [cal.com](https://cal.com/docs/api-reference/v2/bookings/create-a-booking#body-attendee-name). If not provided, the assistant will ask for the attendee&apos;s name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Voice { get; set; }
+        public string? AttendeeName { get; set; }
 #nullable restore
 #else
-        public string Voice { get; set; }
+        public string AttendeeName { get; set; }
 #endif
+        /// <summary>The timezone of the attendee [cal.com](https://cal.com/docs/api-reference/v2/bookings/create-a-booking#body-attendee-timezone). If not provided, the assistant will ask for the attendee&apos;s timezone.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AttendeeTimezone { get; set; }
+#nullable restore
+#else
+        public string AttendeeTimezone { get; set; }
+#endif
+        /// <summary>Event Type ID for which slots are being fetched. [cal.com](https://cal.com/docs/api-reference/v2/bookings/create-a-booking#body-event-type-id)</summary>
+        public int? EventTypeId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams"/> and sets the default values.
         /// </summary>
-        public VoiceSettings()
+        public BookAppointmentToolParams()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +66,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
-                { "voice", n => { Voice = n.GetStringValue(); } },
+                { "attendee_name", n => { AttendeeName = n.GetStringValue(); } },
+                { "attendee_timezone", n => { AttendeeTimezone = n.GetStringValue(); } },
+                { "event_type_id", n => { EventTypeId = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -67,7 +79,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
-            writer.WriteStringValue("voice", Voice);
+            writer.WriteStringValue("attendee_name", AttendeeName);
+            writer.WriteStringValue("attendee_timezone", AttendeeTimezone);
+            writer.WriteIntValue("event_type_id", EventTypeId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
