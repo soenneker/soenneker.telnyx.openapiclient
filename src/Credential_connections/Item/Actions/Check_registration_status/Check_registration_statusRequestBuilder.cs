@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Che
         {
         }
         /// <summary>
-        /// Updates the registration_status for a credential connection, this endpoint also updates the `registration_status` and `registration_status_updated_at` fields in the credential connection
+        /// Checks the registration_status for a credential connection, (`registration_status`) as well as the timestamp for the last SIP registration event (`registration_status_updated_at`)
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Che
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the registration_status for a credential connection, this endpoint also updates the `registration_status` and `registration_status_updated_at` fields in the credential connection
+        /// Checks the registration_status for a credential connection, (`registration_status`) as well as the timestamp for the last SIP registration event (`registration_status_updated_at`)
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Che
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Credential_connections.Item.Actions.Check_registration_status.Check_registration_statusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the registration_status for a credential connection, this endpoint also updates the `registration_status` and `registration_status_updated_at` fields in the credential connection
+        /// Checks the registration_status for a credential connection, (`registration_status`) as well as the timestamp for the last SIP registration event (`registration_status_updated_at`)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

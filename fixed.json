@@ -10028,8 +10028,8 @@
     },
     "/credential_connections/{id}/actions/check_registration_status": {
       "post": {
-        "description": "Updates the registration_status for a credential connection, this endpoint also updates the \u0060registration_status\u0060 and \u0060registration_status_updated_at\u0060 fields in the credential connection",
-        "summary": "Update a credential connection registration status",
+        "description": "Checks the registration_status for a credential connection, (\u0060registration_status\u0060) as well as the timestamp for the last SIP registration event (\u0060registration_status_updated_at\u0060)",
+        "summary": "Check a Credential Connection Registration Status",
         "operationId": "CheckRegistrationStatus",
         "tags": [
           "Credential Connections"
