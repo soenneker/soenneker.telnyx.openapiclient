@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.OpenApiClient.Models;
 using Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls;
 using System.Collections.Generic;
 using System.IO;
@@ -45,7 +44,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameGetResponse?> GetAsWithQueue_nameGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -56,11 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve an existing call queue
@@ -68,7 +62,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsWithQueue_nameGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,11 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.WithQueue_nameResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve an existing call queue

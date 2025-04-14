@@ -3,8 +3,8 @@
   "info": {
     "version": "2.0.0",
     "title": "Telnyx API",
-    "x-endpoint-cost": "light",
     "description": "SIP trunking, SMS, MMS, Call Control and Telephony Data Services.",
+    "x-endpoint-cost": "light",
     "license": {
       "name": "MIT"
     },
@@ -35499,11 +35499,12 @@
       },
       "ConnectionId": {
         "name": "connection_id",
-        "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+        "description": "Telnyx connection id",
         "in": "path",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "example": "1293384261075731461"
         }
       },
       "CreatedAtGtFilter": {
@@ -35972,7 +35973,8 @@
         "description": "If present, connections with \u003Ccode\u003Econnection_name\u003C/code\u003E containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
         "schema": {
           "type": "string",
-          "default": null
+          "default": null,
+          "example": "My Connection"
         }
       },
       "FilterCostByAmount": {
@@ -36667,7 +36669,7 @@
       "PageNumber": {
         "name": "page[number]",
         "in": "query",
-        "description": "The page number to load.",
+        "description": "The page number to load",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -36677,7 +36679,7 @@
       "PageSize": {
         "name": "page[size]",
         "in": "query",
-        "description": "The size of the page.",
+        "description": "The size of the page",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -36900,16 +36902,15 @@
       "Sort": {
         "name": "sort",
         "in": "query",
+        "description": "Set the order of the results by the creation date.",
         "required": false,
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the \u003Ccode\u003E -\u003C/code\u003E prefix.\u003Cbr/\u003E\u003Cbr/\u003E\nThat is: \u003Cul\u003E\n  \u003Cli\u003E\n    \u003Ccode\u003Eemail\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Eemail\u003C/code\u003E field in ascending order.\n  \u003C/li\u003E\n\n  \u003Cli\u003E\n    \u003Ccode\u003E-email\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Eemail\u003C/code\u003E field in descending order.\n  \u003C/li\u003E\n\u003C/ul\u003E \u003Cbr/\u003E If not given, results are sorted by \u003Ccode\u003Ecreated_at\u003C/code\u003E in descending order.",
         "schema": {
           "type": "string",
           "enum": [
-            "created_at",
-            "email"
+            "asc",
+            "desc"
           ],
-          "example": "email",
-          "default": "created_at"
+          "example": "desc"
         }
       },
       "SortAddress": {
@@ -36933,21 +36934,22 @@
       "SortApplication": {
         "name": "sort",
         "in": "query",
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the \u003Ccode\u003E -\u003C/code\u003E prefix.\u003Cbr/\u003E\u003Cbr/\u003E\nThat is: \u003Cul\u003E\n  \u003Cli\u003E\n    \u003Ccode\u003Efriendly_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Efriendly_name\u003C/code\u003E field in ascending order.\n  \u003C/li\u003E\n\n  \u003Cli\u003E\n    \u003Ccode\u003E-friendly_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Efriendly_name\u003C/code\u003E field in descending order.\n  \u003C/li\u003E\n\u003C/ul\u003E \u003Cbr/\u003E If not given, results are sorted by \u003Ccode\u003Ecreated_at\u003C/code\u003E in descending order.",
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the \u003Ccode\u003E -\u003C/code\u003E prefix.\u003Cbr/\u003E\u003Cbr/\u003E\nThat is: \u003Cul\u003E\n  \u003Cli\u003E\n    \u003Ccode\u003Eapplication_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Eapplication_name\u003C/code\u003E field in ascending order.\n  \u003C/li\u003E\n\n  \u003Cli\u003E\n    \u003Ccode\u003E-application_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Eapplication_name\u003C/code\u003E field in descending order.\n  \u003C/li\u003E\n\u003C/ul\u003E \u003Cbr/\u003E If not given, results are sorted by \u003Ccode\u003Ecreated_at\u003C/code\u003E in descending order.",
         "schema": {
           "type": "string",
           "enum": [
             "created_at",
-            "friendly_name",
+            "application_name",
             "active"
           ],
-          "example": "friendly_name",
+          "example": "application_name",
           "default": "created_at"
         }
       },
       "SortConnection": {
         "name": "sort",
         "in": "query",
+        "required": false,
         "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the \u003Ccode\u003E -\u003C/code\u003E prefix.\u003Cbr/\u003E\u003Cbr/\u003E\nThat is: \u003Cul\u003E\n  \u003Cli\u003E\n    \u003Ccode\u003Econnection_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Econnection_name\u003C/code\u003E field in ascending order.\n  \u003C/li\u003E\n\n  \u003Cli\u003E\n    \u003Ccode\u003E-connection_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Econnection_name\u003C/code\u003E field in descending order.\n  \u003C/li\u003E\n\u003C/ul\u003E \u003Cbr/\u003E If not given, results are sorted by \u003Ccode\u003Ecreated_at\u003C/code\u003E in descending order.",
         "schema": {
           "type": "string",
@@ -37013,23 +37015,21 @@
         "example": "2023-05-22"
       },
       "Status": {
-        "name": "filter[status][eq]",
+        "name": "Status",
         "in": "query",
-        "description": "The status of a notification setting",
+        "required": false,
+        "description": "Filters calls by status.",
         "schema": {
           "type": "string",
           "enum": [
-            "enabled",
-            "enable-received",
-            "enable-pending",
-            "enable-submtited",
-            "delete-received",
-            "delete-pending",
-            "delete-submitted",
-            "deleted"
-          ],
-          "example": "enable-received"
-        }
+            "canceled",
+            "completed",
+            "failed",
+            "busy",
+            "no-answer"
+          ]
+        },
+        "example": "no-answer"
       },
       "StatusEqFilter": {
         "name": "filter[status][eq]",
@@ -39119,7 +39119,19 @@
         }
       },
       "ForbiddenResponse": {
-        "description": "Unauthorized response. Happens when the current user is not authorized to access the endpoint."
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Errors"
+            },
+            "examples": {
+              "Not authorized": {
+                "$ref": "#/components/examples/NotAuthorized"
+              }
+            }
+          }
+        }
       },
       "FqdnConnectionResponse": {
         "description": "Successful response with details about an FQDN connection.",
@@ -40046,13 +40058,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "title": "Initiate TeXML Call Response",
-              "properties": {
-                "data": {
-                  "$ref": "#/components/schemas/InitiateCallResult"
-                }
-              }
+              "$ref": "#/components/schemas/InitiateCallResult"
             }
           }
         }
@@ -41957,33 +41963,7 @@
         }
       },
       "NotFoundResponse": {
-        "description": "The requested resource doesn\u0027t exist.",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/ErrorResponse"
-            },
-            "examples": {
-              "notFound": {
-                "value": {
-                  "errors": [
-                    {
-                      "code": "10005",
-                      "title": "Resource not found",
-                      "detail": "The requested resource or URL could not be found.",
-                      "meta": {
-                        "url": "https://developers.telnyx.com/docs/overview/errors/10005"
-                      },
-                      "source": {
-                        "pointer": "/"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
+        "description": "Fax does not exist"
       },
       "NumberBlockOrderResponse": {
         "description": "Successful response with details about a number block order.",
@@ -43426,7 +43406,7 @@
         }
       },
       "UnauthorizedResponse": {
-        "description": "Unauthenticated response. Happens when the current user cannot be authenticated."
+        "description": "Unauthorized"
       },
       "UnexpectedErrorResponse": {
         "description": "An unexpected error occurred.",
@@ -56240,7 +56220,7 @@
             ]
           },
           "voice": {
-            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-AvaMultilingualNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
+            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). For long-form engine, append \u0060-LongForm\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Danielle-LongForm\u0060). For generative engine, the latest provided by AWS Polly, append \u0060-Generative\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Danielle-Generative\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
             "type": "string",
             "example": "Telnyx.KokoroTTS.af"
           },
@@ -59934,10 +59914,10 @@
         }
       },
       "CreatedAt": {
-        "title": "Created At",
         "type": "string",
-        "description": "ISO 8601 formatted date indicating when the resource was created.",
-        "example": "2020-02-02T22:25:27.521Z"
+        "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+        "readOnly": true,
+        "example": "2018-02-02T22:25:27.521Z"
       },
       "CreatedUserBundlesResponse": {
         "title": "CreatedUserBundlesResponse",
@@ -60437,15 +60417,19 @@
           "cursors": {
             "$ref": "#/components/schemas/Cursor"
           },
+          "total_items": {
+            "type": "integer",
+            "example": 50
+          },
           "next": {
             "type": "string",
             "description": "Path to next page.",
-            "example": "/v2/recording_transcriptions?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/connections/1234567890/active_calls?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           },
           "previous": {
             "type": "string",
             "description": "Path to previous page.",
-            "example": "/v2/recording_transcriptions?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/connections/1234567890/active_calls?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           }
         }
       },
@@ -62444,14 +62428,15 @@
         "example": "{\u0022page\u0022: 1, \u0022records\u0022: [{\u0022isin\u0022: \u0022US68243Q1067\u0022, \u0022iso2\u0022: \u0022US\u0022, \u0022symbol\u0022: \u0022FLWS\u0022, \u0022exchange\u0022: \u0022NASDAQ\u0022, \u0022displayName\u0022: \u00221-800 FLOWERS.COM, Inc.\u0022}, {\u0022isin\u0022: \u0022US88025U1097\u0022, \u0022iso2\u0022: \u0022US\u0022, \u0022symbol\u0022: \u0022TXG\u0022, \u0022exchange\u0022: \u0022NASDAQ\u0022, \u0022displayName\u0022: \u002210X GENOMICS INC CLASS A\u0022}], \u0022totalRecords\u0022: 2}"
       },
       "Error": {
+        "type": "object",
         "required": [
           "code",
           "title"
         ],
         "properties": {
           "code": {
-            "type": "string",
-            "format": "int"
+            "type": "integer",
+            "format": "int32"
           },
           "title": {
             "type": "string"
@@ -62469,13 +62454,13 @@
               },
               "parameter": {
                 "description": "Indicates which query parameter caused the error.",
-                "type": "string",
-                "example": "\u002B15617819942"
+                "type": "string"
               }
             }
           },
           "meta": {
-            "type": "object"
+            "type": "object",
+            "properties": {}
           }
         }
       },
@@ -62545,6 +62530,7 @@
         }
       },
       "Errors": {
+        "type": "object",
         "properties": {
           "errors": {
             "type": "array",
@@ -64544,7 +64530,7 @@
             ]
           },
           "voice": {
-            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-AvaMultilingualNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
+            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). For long-form engine, append \u0060-LongForm\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Danielle-LongForm\u0060). For generative engine, the latest provided by AWS Polly, append \u0060-Generative\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Danielle-Generative\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
             "type": "string",
             "example": "Telnyx.KokoroTTS.af"
           },
@@ -65995,17 +65981,17 @@
         ]
       },
       "HTTPValidationError": {
-        "title": "HTTPValidationError",
-        "type": "object",
         "properties": {
           "detail": {
-            "title": "Detail",
-            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ValidationError"
-            }
+            },
+            "type": "array",
+            "title": "Detail"
           }
-        }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
       },
       "HangupRequest": {
         "type": "object",
@@ -66106,9 +66092,8 @@
       "Id": {
         "type": "string",
         "format": "uuid",
-        "description": "Identifies the resource.",
-        "readOnly": true,
-        "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+        "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
+        "description": "Identifies the type of resource."
       },
       "ImportExternalVetting": {
         "title": "ImportExternalVetting",
@@ -66946,9 +66931,14 @@
         "title": "Initiate Call Request",
         "required": [
           "To",
-          "From"
+          "From",
+          "ApplicationSid"
         ],
         "properties": {
+          "ApplicationSid": {
+            "description": "The ID of the TeXML Application.",
+            "type": "string"
+          },
           "To": {
             "description": "The phone number of the called party. Phone numbers are formatted with a \u0060\u002B\u0060 and country code.",
             "example": "\u002B16175551212",
@@ -69655,34 +69645,36 @@
         }
       },
       "Metadata": {
-        "type": "object",
-        "title": "Metadata",
         "properties": {
-          "total_pages": {
-            "type": "number",
-            "description": "Total number of pages based on pagination settings",
-            "example": 13,
-            "format": "double"
-          },
-          "total_results": {
-            "type": "number",
-            "description": "Total number of results",
-            "example": 13,
-            "format": "double"
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "example": 25
           },
           "page_number": {
-            "type": "number",
-            "description": "Current Page based on pagination settings (included when defaults are used.)",
-            "example": 3,
-            "format": "double"
+            "type": "integer",
+            "title": "Page Number",
+            "example": 1
           },
-          "page_size": {
-            "type": "number",
-            "description": "Number of results to return per page based on pagination settings (included when defaults are used.)",
-            "example": 1,
-            "format": "double"
+          "total_pages": {
+            "type": "integer",
+            "title": "Total Pages",
+            "example": 10
+          },
+          "total_results": {
+            "type": "integer",
+            "title": "Total Items",
+            "example": 250
           }
-        }
+        },
+        "required": [
+          "page_size",
+          "page_number",
+          "total_pages",
+          "total_results"
+        ],
+        "type": "object",
+        "title": "Metadata"
       },
       "MigrationParams": {
         "type": "object",
@@ -72325,27 +72317,19 @@
         "properties": {
           "page_number": {
             "type": "integer",
-            "example": [
-              2
-            ]
+            "example": 2
           },
           "page_size": {
             "type": "integer",
-            "example": [
-              25
-            ]
+            "example": 25
           },
           "total_pages": {
             "type": "integer",
-            "example": [
-              3
-            ]
+            "example": 3
           },
           "total_results": {
             "type": "integer",
-            "example": [
-              55
-            ]
+            "example": 55
           }
         }
       },
@@ -77431,6 +77415,9 @@
           },
           "agent_message": {
             "$ref": "#/components/schemas/RCSAgentMessage"
+          },
+          "sms_fallback": {
+            "$ref": "#/components/schemas/SMSFallback"
           }
         }
       },
@@ -77696,12 +77683,13 @@
       },
       "RecordType": {
         "type": "string",
-        "description": "Identifies record type.",
+        "example": "event",
         "enum": [
-          "custom_storage_credentials"
+          "event"
         ],
+        "description": "Identifies the type of the resource.",
         "x-enum-varnames": [
-          "customstoragecredentials"
+          "event"
         ]
       },
       "RecordingResponse": {
@@ -78602,28 +78590,33 @@
         }
       },
       "ResourceNotFoundError": {
-        "type": "object",
-        "title": "Resource not found",
-        "example": {
-          "errors": [
-            {
-              "detail": "Resource not found"
-            }
-          ]
-        },
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "detail": {
-                  "type": "string"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GenericError"
+          },
+          {
+            "properties": {
+              "code": {
+                "example": "10005"
+              },
+              "title": {
+                "example": "Resource not found"
+              },
+              "detail": {
+                "example": "The requested resource or URL could not be found."
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://developers.telnyx.com/docs/overview/errors/10005"
+                  }
                 }
               }
             }
           }
-        }
+        ]
       },
       "ResumeConferenceRecordingRequest": {
         "type": "object",
@@ -80224,6 +80217,21 @@
           }
         }
       },
+      "SMSFallback": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Phone number in \u002BE.164 format",
+            "example": "\u002B13125551234"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text (maximum 3072 characters)",
+            "example": "Hello world!"
+          }
+        }
+      },
       "SSLCertificate": {
         "type": "object",
         "properties": {
@@ -81556,7 +81564,7 @@
             "example": "current"
           },
           "voice": {
-            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-AvaMultilingualNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
+            "description": "Specifies the voice used in speech synthesis.\n\n- Define voices using the format \u0060\u003CProvider\u003E.\u003CModel\u003E.\u003CVoiceId\u003E\u0060. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). For long-form engine, append \u0060-LongForm\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Danielle-LongForm\u0060). For generative engine, the latest provided by AWS Polly, append \u0060-Generative\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Danielle-Generative\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_identifier\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060\n\nFor service_level basic, you may define the gender of the speaker (male or female).",
             "type": "string",
             "example": "Telnyx.KokoroTTS.af"
           },
@@ -85755,7 +85763,7 @@
         "description": "The settings associated with speech to text for the voice assistant. This is only relevant if the assistant uses a text-to-text language model. Any assistant using a model with native audio support (e.g. \u0060fixie-ai/ultravox-v0_4\u0060) will ignore this field.",
         "properties": {
           "model": {
-            "description": "The speech to text model to be used by the voice assistant.\n\n- \u0060distil-whisper/distil-large-v2\u0060 is lower latency but English-only.\n- \u0060openai/whisper-large-v3-turbo\u0060 is multi-lingual with automatic language detection but slightly higher latency.\n- \u0060google\u0060 is a multi-lingual option, please describe the language in the \u0060language\u0060 field.",
+            "description": "The speech to text model to be used by the voice assistant.\n\n- \u0060distil-whisper/distil-large-v2\u0060 is lower latency but English-only\n- \u0060openai/whisper-large-v3-turbo\u0060 is multi-lingual with automatic language detection but slightly higher latency\n- \u0060google\u0060 is a multi-lingual option, please describe the language in the \u0060language\u0060 field.",
             "type": "string",
             "default": "distil-whisper/distil-large-v2",
             "example": "distil-whisper/distil-large-v2"
@@ -86325,39 +86333,42 @@
         ]
       },
       "UnprocessableEntityError": {
-        "required": [
-          "code",
-          "title"
-        ],
-        "properties": {
-          "code": {
-            "type": "string",
-            "format": "int"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GenericError"
           },
-          "title": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          },
-          "source": {
-            "type": "object",
+          {
             "properties": {
-              "pointer": {
-                "description": "JSON pointer (RFC6901) to the offending entity.",
-                "type": "string",
-                "format": "json-pointer"
+              "code": {
+                "example": "10002"
               },
-              "parameter": {
-                "description": "Indicates which query parameter caused the error.",
-                "type": "string"
+              "title": {
+                "example": "Invalid phone number"
+              },
+              "detail": {
+                "example": "The phone number is invalid."
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "pointer": {
+                    "type": "string",
+                    "example": "/phone_numbers"
+                  }
+                }
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://developers.telnyx.com/docs/overview/errors/10002"
+                  }
+                }
               }
             }
-          },
-          "meta": {
-            "type": "object"
           }
-        }
+        ]
       },
       "UnusedUserBundlesResponse": {
         "title": "UnusedUserBundlesResponse",
@@ -87077,35 +87088,60 @@
         }
       },
       "UpdateConferenceRequest": {
+        "required": [
+          "call_control_id",
+          "supervisor_role"
+        ],
         "type": "object",
         "title": "Update Conference Request",
         "properties": {
-          "Status": {
-            "description": "The new status of the resource. Specifying \u0060completed\u0060 will end the conference and hang up all participants.",
-            "example": "completed",
+          "call_control_id": {
+            "description": "Unique identifier and token for controlling the call",
+            "example": "v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQczRrZvZakpWxBlpw48KyZQ==",
             "type": "string"
           },
-          "AnnounceUrl": {
-            "description": "The URL we should call to announce something into the conference. The URL may return an MP3 file, a WAV file, or a TwiML document that contains \u0060\u003CPlay\u003E\u0060, \u0060\u003CSay\u003E\u0060, \u0060\u003CPause\u003E\u0060, or \u0060\u003CRedirect\u003E\u0060 verbs.",
-            "example": "https://www.example.com/announce.xml",
+          "command_id": {
+            "description": "Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same \u0060command_id\u0060 as one that has already been executed.",
+            "example": "891510ac-f3e4-11e8-af5b-de00688a4901",
             "type": "string"
           },
-          "AnnounceMethod": {
-            "description": "The HTTP method used to call the \u0060AnnounceUrl\u0060. Defaults to \u0060POST\u0060.",
-            "example": "GET",
+          "supervisor_role": {
+            "description": "Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. \u0022barge\u0022 means the supervisor enters the conference as a normal participant. This is the same as \u0022none\u0022. \u0022monitor\u0022 means the supervisor is muted but can hear all participants. \u0022whisper\u0022 means that only the specified \u0022whisper_call_control_ids\u0022 can hear the supervisor. Defaults to \u0022none\u0022.",
+            "example": "whisper",
             "type": "string",
             "enum": [
-              "GET",
-              "POST"
+              "barge",
+              "monitor",
+              "none",
+              "whisper"
             ],
             "x-enum-varnames": [
-              "GET",
-              "POST"
+              "barge",
+              "monitor",
+              "none",
+              "whisper"
             ]
+          },
+          "whisper_call_control_ids": {
+            "description": "Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.",
+            "example": [
+              "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
+              "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "example": {
-          "Status": "completed"
+          "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
+          "supervisor_role": "whisper",
+          "whisper_call_control_ids": [
+            "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
+            "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
+          ]
         }
       },
       "UpdateCredentialConnectionRequest": {
@@ -88664,10 +88700,10 @@
         }
       },
       "UpdatedAt": {
-        "title": "Updated At",
         "type": "string",
-        "description": "ISO 8601 formatted date indicating when the resource was updated.",
-        "example": "2020-02-03T22:25:27.521Z"
+        "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+        "readOnly": true,
+        "example": "2018-02-02T22:25:27.521Z"
       },
       "UplinkData": {
         "type": "object",
@@ -89736,17 +89772,8 @@
         ]
       },
       "ValidationError": {
-        "title": "ValidationError",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
-        "type": "object",
         "properties": {
           "loc": {
-            "title": "Location",
-            "type": "array",
             "items": {
               "anyOf": [
                 {
@@ -89756,17 +89783,26 @@
                   "type": "integer"
                 }
               ]
-            }
+            },
+            "type": "array",
+            "title": "Location"
           },
           "msg": {
-            "title": "Message",
-            "type": "string"
+            "type": "string",
+            "title": "Message"
           },
           "type": {
-            "title": "Error Type",
-            "type": "string"
+            "type": "string",
+            "title": "Error Type"
           }
-        }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
       },
       "Verification": {
         "title": "Verification",
@@ -91016,7 +91052,7 @@
         ]
       },
       "VoiceConfig": {
-        "description": "The voice to be used by the voice assistant. Currently we support ElevenLabs, Telnyx and AWS voices.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-AvaMultilingualNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.BaseModel.John\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration secret under \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_id\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060",
+        "description": "The voice to be used by the voice assistant. Currently we support ElevenLabs, Telnyx and AWS voices.\n\n **Supported Providers:**\n- **AWS:** Use \u0060AWS.Polly.\u003CVoiceId\u003E\u0060 (e.g., \u0060AWS.Polly.Joanna\u0060). For neural voices, which provide more realistic, human-like speech, append \u0060-Neural\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Joanna-Neural\u0060). For long-form engine, append \u0060-LongForm\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Danielle-LongForm\u0060). For generative engine, the latest provided by AWS Polly, append \u0060-Generative\u0060 to the \u0060VoiceId\u0060 (e.g., \u0060AWS.Polly.Danielle-Generative\u0060). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use \u0060Azure.\u003CVoiceId\u003E. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use \u0060ElevenLabs.\u003CModelId\u003E.\u003CVoiceId\u003E\u0060 (e.g., \u0060ElevenLabs.BaseModel.John\u0060). The \u0060ModelId\u0060 part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration secret under \u0060\u0022voice_settings\u0022: {\u0022api_key_ref\u0022: \u0022\u003Csecret_id\u003E\u0022}\u0060. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use \u0060Telnyx.\u003Cmodel_id\u003E.\u003Cvoice_id\u003E\u0060",
         "type": "string",
         "default": "Telnyx.KokoroTTS.af",
         "example": "Telnyx.KokoroTTS.af"

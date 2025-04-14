@@ -38,6 +38,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MessagingProfileId { get; set; }
 #endif
+        /// <summary>The sms_fallback property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SMSFallback? SmsFallback { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SMSFallback SmsFallback { get; set; }
+#endif
         /// <summary>Phone number in +E.164 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,6 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "agent_id", n => { AgentId = n.GetStringValue(); } },
                 { "agent_message", n => { AgentMessage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSAgentMessage>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSAgentMessage.CreateFromDiscriminatorValue); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
+                { "sms_fallback", n => { SmsFallback = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SMSFallback>(global::Soenneker.Telnyx.OpenApiClient.Models.SMSFallback.CreateFromDiscriminatorValue); } },
                 { "to", n => { To = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSMessage_type>(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -99,6 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("agent_id", AgentId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSAgentMessage>("agent_message", AgentMessage);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SMSFallback>("sms_fallback", SmsFallback);
             writer.WriteStringValue("to", To);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSMessage_type>("type", Type);
             writer.WriteStringValue("webhook_url", WebhookUrl);

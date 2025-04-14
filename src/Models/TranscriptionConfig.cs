@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The speech to text model to be used by the voice assistant.- `distil-whisper/distil-large-v2` is lower latency but English-only.- `openai/whisper-large-v3-turbo` is multi-lingual with automatic language detection but slightly higher latency.- `google` is a multi-lingual option, please describe the language in the `language` field.</summary>
+        /// <summary>The speech to text model to be used by the voice assistant.- `distil-whisper/distil-large-v2` is lower latency but English-only- `openai/whisper-large-v3-turbo` is multi-lingual with automatic language detection but slightly higher latency- `google` is a multi-lingual option, please describe the language in the `language` field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
