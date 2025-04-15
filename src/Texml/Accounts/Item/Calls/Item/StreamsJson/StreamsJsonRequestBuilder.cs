@@ -40,6 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.StreamsJ
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -51,7 +52,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.StreamsJ
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Starts streaming media from a call to a specific WebSocket address.

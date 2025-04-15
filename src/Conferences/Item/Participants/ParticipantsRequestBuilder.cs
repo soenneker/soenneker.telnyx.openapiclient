@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -38,6 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse?> GetAsParticipantsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsRequestBuilder.ParticipantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -48,7 +50,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists conference participants
@@ -56,6 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsParticipantsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +74,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists conference participants
@@ -112,10 +123,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
             /// <summary>If present, participants will be filtered to those who are whispering or are not</summary>
             [QueryParameter("filter%5Bwhispering%5D")]
             public bool? Filterwhispering { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

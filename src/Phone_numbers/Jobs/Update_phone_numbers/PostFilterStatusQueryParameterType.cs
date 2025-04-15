@@ -8,17 +8,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
     public enum PostFilterStatusQueryParameterType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "purchase_pending")]
+        [EnumMember(Value = "purchase-pending")]
         #pragma warning disable CS1591
-        Purchase_pending,
+        PurchasePending,
         #pragma warning restore CS1591
-        [EnumMember(Value = "purchase_failed")]
+        [EnumMember(Value = "purchase-failed")]
         #pragma warning disable CS1591
-        Purchase_failed,
+        PurchaseFailed,
         #pragma warning restore CS1591
-        [EnumMember(Value = "port_pending")]
+        [EnumMember(Value = "port-pending")]
         #pragma warning disable CS1591
-        Port_pending,
+        PortPending,
         #pragma warning restore CS1591
         [EnumMember(Value = "active")]
         #pragma warning disable CS1591
@@ -28,21 +28,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
         #pragma warning disable CS1591
         Deleted,
         #pragma warning restore CS1591
-        [EnumMember(Value = "port_failed")]
+        [EnumMember(Value = "port-failed")]
         #pragma warning disable CS1591
-        Port_failed,
+        PortFailed,
         #pragma warning restore CS1591
-        [EnumMember(Value = "emergency_only")]
+        [EnumMember(Value = "emergency-only")]
         #pragma warning disable CS1591
-        Emergency_only,
+        EmergencyOnly,
         #pragma warning restore CS1591
-        [EnumMember(Value = "ported_out")]
+        [EnumMember(Value = "ported-out")]
         #pragma warning disable CS1591
-        Ported_out,
+        PortedOut,
         #pragma warning restore CS1591
-        [EnumMember(Value = "port_out_pending")]
+        [EnumMember(Value = "port-out-pending")]
         #pragma warning disable CS1591
-        Port_out_pending,
+        PortOutPending,
         #pragma warning restore CS1591
     }
 }

@@ -199,10 +199,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers
             [QueryParameter("filter%5Bsupport_key%5D%5Bin%5D%5B%5D")]
             public string[] FiltersupportKeyin { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }
