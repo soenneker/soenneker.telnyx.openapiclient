@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Indicates whether to enable or disable HD Voice on each phone number. HD Voice is a paid feature and may not be available for all phone numbers, more details about it can be found in the Telnyx support documentation.</summary>
         public bool? HdVoiceEnabled { get; set; }
-        /// <summary>Array of phone number ids and/or phone numbers in E164 format to update</summary>
+        /// <summary>Array of phone number ids and/or phone numbers in E164 format to update. This parameter is required if no filter parameters are provided. If you want to update specific numbers rather than all numbers matching a filter, you must use this parameter. Each item must be either a valid phone number ID or a phone number in E164 format (e.g., &apos;+13127367254&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? PhoneNumbers { get; set; }

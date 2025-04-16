@@ -1933,7 +1933,7 @@
           {
             "name": "name",
             "in": "query",
-            "description": "Filter by conversation Name (e.g. name=like.Voice%)",
+            "description": "Filter by conversation Name (e.g. \u0060name=like.Voice%\u0060)",
             "required": false,
             "schema": {
               "type": "string"
@@ -1942,7 +1942,7 @@
           {
             "name": "created_at",
             "in": "query",
-            "description": "Filter by creation datetime (e.g., created_at=gte.2025-01-01)",
+            "description": "Filter by creation datetime (e.g., \u0060created_at=gte.2025-01-01\u0060)",
             "required": false,
             "schema": {
               "type": "string"
@@ -1951,7 +1951,7 @@
           {
             "name": "last_message_at",
             "in": "query",
-            "description": "Filter by last message datetime (e.g., last_message_at=lte.2025-06-01)",
+            "description": "Filter by last message datetime (e.g., \u0060last_message_at=lte.2025-06-01\u0060)",
             "required": false,
             "schema": {
               "type": "string"
@@ -1960,7 +1960,7 @@
           {
             "name": "metadata-\u003Eassistant_id",
             "in": "query",
-            "description": "Filter by assistant ID (e.g., metadata-\u003Eassistant_id=eq.assistant-123)",
+            "description": "Filter by assistant ID (e.g., \u0060metadata-\u003Eassistant_id=eq.assistant-123\u0060)",
             "required": false,
             "schema": {
               "type": "string"
@@ -1969,7 +1969,7 @@
           {
             "name": "metadata-\u003Etelnyx_agent_target",
             "in": "query",
-            "description": "Filter by the phone number, SIP URI, or other identifier for the agent (e.g., metadata-\u003Etelnyx_agent_target=eq.\u002B13128675309)",
+            "description": "Filter by the phone number, SIP URI, or other identifier for the agent (e.g., \u0060metadata-\u003Etelnyx_agent_target=eq.\u002B13128675309\u0060)",
             "required": false,
             "schema": {
               "type": "string"
@@ -1978,7 +1978,7 @@
           {
             "name": "metadata-\u003Etelnyx_end_user_target",
             "in": "query",
-            "description": "Filter by the phone number, SIP URI, or other identifier for the end user (e.g., metadata-\u003Etelnyx_end_user_target=eq.\u002B13128675309)",
+            "description": "Filter by the phone number, SIP URI, or other identifier for the end user (e.g., \u0060metadata-\u003Etelnyx_end_user_target=eq.\u002B13128675309\u0060)",
             "required": false,
             "schema": {
               "type": "string"
@@ -1987,7 +1987,7 @@
           {
             "name": "metadata-\u003Etelnyx_conversation_channel",
             "in": "query",
-            "description": "Filter by conversation channel (e.g., metadata-\u003Etelnyx_conversation_channel=eq.phone_call)",
+            "description": "Filter by conversation channel (e.g., \u0060metadata-\u003Etelnyx_conversation_channel=eq.phone_call\u0060)",
             "required": false,
             "schema": {
               "type": "string"
@@ -1996,7 +1996,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Limit the number of returned conversations (e.g., limit=10)",
+            "description": "Limit the number of returned conversations (e.g., \u0060limit=10\u0060)",
             "required": false,
             "schema": {
               "type": "integer",
@@ -2006,7 +2006,7 @@
           {
             "name": "order",
             "in": "query",
-            "description": "Order the results by specific fields (e.g., order=created_at.desc or order=last_message_at.asc)",
+            "description": "Order the results by specific fields (e.g., \u0060order=created_at.desc\u0060 or \u0060order=last_message_at.asc\u0060)",
             "required": false,
             "schema": {
               "type": "string"
@@ -2015,7 +2015,7 @@
           {
             "name": "or",
             "in": "query",
-            "description": "Apply OR conditions using PostgREST syntax (e.g., or=(created_at.gte.2025-04-01,last_message_at.gte.2025-04-01))",
+            "description": "Apply OR conditions using PostgREST syntax (e.g., \u0060or=(created_at.gte.2025-04-01,last_message_at.gte.2025-04-01)\u0060)",
             "required": false,
             "schema": {
               "type": "string"
@@ -18575,7 +18575,6 @@
           "numberOrderStatusUpdate": {
             "{$request.body#/webhook_url}": {
               "post": {
-                "summary": "Request a number order status update",
                 "requestBody": {
                   "required": true,
                   "content": {
@@ -21198,7 +21197,7 @@
       "post": {
         "x-latency-category": "background",
         "summary": "Update a batch of numbers",
-        "description": "Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted.",
+        "description": "Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted. IMPORTANT: You must either specify filters (using the filter parameters) or specific phone numbers (using the phone_numbers parameter in the request body). If you specify filters, ALL phone numbers that match the given filters (up to 1000 at a time) will be updated. If you want to update only specific numbers, you must use the phone_numbers parameter in the request body. When using the phone_numbers parameter, ensure you follow the correct format as shown in the example (either phone number IDs or phone numbers in E164 format).",
         "operationId": "CreateUpdatePhoneNumbersJob",
         "tags": [
           "Bulk Phone Number Operations"
@@ -74377,7 +74376,7 @@
         "properties": {
           "phone_numbers": {
             "type": "array",
-            "description": "Array of phone number ids and/or phone numbers in E164 format to update",
+            "description": "Array of phone number ids and/or phone numbers in E164 format to update. This parameter is required if no filter parameters are provided. If you want to update specific numbers rather than all numbers matching a filter, you must use this parameter. Each item must be either a valid phone number ID or a phone number in E164 format (e.g., \u0027\u002B13127367254\u0027).",
             "items": {
               "type": "string"
             }

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
         {
         }
         /// <summary>
-        /// Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted.
+        /// Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted. IMPORTANT: You must either specify filters (using the filter parameters) or specific phone numbers (using the phone_numbers parameter in the request body). If you specify filters, ALL phone numbers that match the given filters (up to 1000 at a time) will be updated. If you want to update only specific numbers, you must use the phone_numbers parameter in the request body. When using the phone_numbers parameter, ensure you follow the correct format as shown in the example (either phone number IDs or phone numbers in E164 format).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted.
+        /// Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted. IMPORTANT: You must either specify filters (using the filter parameters) or specific phone numbers (using the phone_numbers parameter in the request body). If you specify filters, ALL phone numbers that match the given filters (up to 1000 at a time) will be updated. If you want to update only specific numbers, you must use the phone_numbers parameter in the request body. When using the phone_numbers parameter, ensure you follow the correct format as shown in the example (either phone number IDs or phone numbers in E164 format).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted.
+        /// Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted. IMPORTANT: You must either specify filters (using the filter parameters) or specific phone numbers (using the phone_numbers parameter in the request body). If you specify filters, ALL phone numbers that match the given filters (up to 1000 at a time) will be updated. If you want to update only specific numbers, you must use the phone_numbers parameter in the request body. When using the phone_numbers parameter, ensure you follow the correct format as shown in the example (either phone number IDs or phone numbers in E164 format).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
             return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted.
+        /// Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted. IMPORTANT: You must either specify filters (using the filter parameters) or specific phone numbers (using the phone_numbers parameter in the request body). If you specify filters, ALL phone numbers that match the given filters (up to 1000 at a time) will be updated. If you want to update only specific numbers, you must use the phone_numbers parameter in the request body. When using the phone_numbers parameter, ensure you follow the correct format as shown in the example (either phone number IDs or phone numbers in E164 format).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Update_phone_numbersRequestBuilderPostQueryParameters 

@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConversationsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter by creation datetime (e.g., created_at=gte.2025-01-01)</summary>
+            /// <summary>Filter by creation datetime (e.g., `created_at=gte.2025-01-01`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("created_at")]
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
             [QueryParameter("id")]
             public string Id { get; set; }
 #endif
-            /// <summary>Filter by last message datetime (e.g., last_message_at=lte.2025-06-01)</summary>
+            /// <summary>Filter by last message datetime (e.g., `last_message_at=lte.2025-06-01`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("last_message_at")]
@@ -120,10 +120,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
             [QueryParameter("last_message_at")]
             public string LastMessageAt { get; set; }
 #endif
-            /// <summary>Limit the number of returned conversations (e.g., limit=10)</summary>
+            /// <summary>Limit the number of returned conversations (e.g., `limit=10`)</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>Filter by assistant ID (e.g., metadata-&gt;assistant_id=eq.assistant-123)</summary>
+            /// <summary>Filter by assistant ID (e.g., `metadata-&gt;assistant_id=eq.assistant-123`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("metadata%2D%3Eassistant_id")]
@@ -133,7 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
             [QueryParameter("metadata%2D%3Eassistant_id")]
             public string MetadataassistantId { get; set; }
 #endif
-            /// <summary>Filter by the phone number, SIP URI, or other identifier for the agent (e.g., metadata-&gt;telnyx_agent_target=eq.+13128675309)</summary>
+            /// <summary>Filter by the phone number, SIP URI, or other identifier for the agent (e.g., `metadata-&gt;telnyx_agent_target=eq.+13128675309`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("metadata%2D%3Etelnyx_agent_target")]
@@ -143,7 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
             [QueryParameter("metadata%2D%3Etelnyx_agent_target")]
             public string MetadatatelnyxAgentTarget { get; set; }
 #endif
-            /// <summary>Filter by conversation channel (e.g., metadata-&gt;telnyx_conversation_channel=eq.phone_call)</summary>
+            /// <summary>Filter by conversation channel (e.g., `metadata-&gt;telnyx_conversation_channel=eq.phone_call`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("metadata%2D%3Etelnyx_conversation_channel")]
@@ -153,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
             [QueryParameter("metadata%2D%3Etelnyx_conversation_channel")]
             public string MetadatatelnyxConversationChannel { get; set; }
 #endif
-            /// <summary>Filter by the phone number, SIP URI, or other identifier for the end user (e.g., metadata-&gt;telnyx_end_user_target=eq.+13128675309)</summary>
+            /// <summary>Filter by the phone number, SIP URI, or other identifier for the end user (e.g., `metadata-&gt;telnyx_end_user_target=eq.+13128675309`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("metadata%2D%3Etelnyx_end_user_target")]
@@ -163,7 +163,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
             [QueryParameter("metadata%2D%3Etelnyx_end_user_target")]
             public string MetadatatelnyxEndUserTarget { get; set; }
 #endif
-            /// <summary>Filter by conversation Name (e.g. name=like.Voice%)</summary>
+            /// <summary>Filter by conversation Name (e.g. `name=like.Voice%`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("name")]
@@ -173,7 +173,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
             [QueryParameter("name")]
             public string Name { get; set; }
 #endif
-            /// <summary>Apply OR conditions using PostgREST syntax (e.g., or=(created_at.gte.2025-04-01,last_message_at.gte.2025-04-01))</summary>
+            /// <summary>Apply OR conditions using PostgREST syntax (e.g., `or=(created_at.gte.2025-04-01,last_message_at.gte.2025-04-01)`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("or")]
@@ -183,7 +183,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
             [QueryParameter("or")]
             public string Or { get; set; }
 #endif
-            /// <summary>Order the results by specific fields (e.g., order=created_at.desc or order=last_message_at.asc)</summary>
+            /// <summary>Order the results by specific fields (e.g., `order=created_at.desc` or `order=last_message_at.asc`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("order")]
