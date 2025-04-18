@@ -271,10 +271,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings
             /// <summary>The status of a notification setting</summary>
             [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.Notification_settings.GetFilterStatusEqQueryParameterType? FilterstatuseqAsGetFilterStatusEqQueryParameterType { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

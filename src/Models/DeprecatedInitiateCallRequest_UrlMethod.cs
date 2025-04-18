@@ -3,9 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
+    /// <summary>HTTP request type used for `Url`. The default value is inherited from TeXML Application setting.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum UpdateConferenceRequest_AnnounceMethod
+    public enum DeprecatedInitiateCallRequest_UrlMethod
     {
         [EnumMember(Value = "GET")]
         #pragma warning disable CS1591
