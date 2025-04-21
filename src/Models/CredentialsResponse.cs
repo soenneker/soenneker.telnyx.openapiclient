@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration Data { get; set; }
 #endif
-        /// <summary>Identifies the type of the resource.</summary>
+        /// <summary>Identifies record type.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.RecordType? RecordType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CredentialsResponse"/> and sets the default values.

@@ -15,9 +15,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Does message content controlled by affiliate marketing other than the brand?This field is deprecated.</summary>
-        [Obsolete("")]
-        public bool? AffiliateMarketing { get; set; }
         /// <summary>Age gated content in campaign.</summary>
         public bool? AgeGated { get; set; }
         /// <summary>Campaign subscription auto-renewal status.</summary>
@@ -348,7 +345,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "affiliateMarketing", n => { AffiliateMarketing = n.GetBoolValue(); } },
                 { "ageGated", n => { AgeGated = n.GetBoolValue(); } },
                 { "autoRenewal", n => { AutoRenewal = n.GetBoolValue(); } },
                 { "billedDate", n => { BilledDate = n.GetStringValue(); } },
@@ -408,7 +404,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("affiliateMarketing", AffiliateMarketing);
             writer.WriteBoolValue("ageGated", AgeGated);
             writer.WriteBoolValue("autoRenewal", AutoRenewal);
             writer.WriteStringValue("billedDate", BilledDate);
