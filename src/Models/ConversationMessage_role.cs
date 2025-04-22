@@ -3,17 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
+    /// <summary>The role of the message sender.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum UpdateConferenceRequest_AnnounceMethod
+    public enum ConversationMessage_role
     {
-        [EnumMember(Value = "GET")]
+        [EnumMember(Value = "user")]
         #pragma warning disable CS1591
-        GET,
+        User,
         #pragma warning restore CS1591
-        [EnumMember(Value = "POST")]
+        [EnumMember(Value = "assistant")]
         #pragma warning disable CS1591
-        POST,
+        Assistant,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "tool")]
+        #pragma warning disable CS1591
+        Tool,
         #pragma warning restore CS1591
     }
 }

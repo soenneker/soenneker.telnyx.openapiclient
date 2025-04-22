@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,12 +18,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.conversations.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.WithConversation_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.WithConversation_ItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("conversation_id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.WithConversation_ItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.ConversationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConversationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations{?created_at*,id*,last_message_at*,limit*,metadata%2D%3Eassistant_id*,metadata%2D%3Etelnyx_agent_target*,metadata%2D%3Etelnyx_conversation_channel*,metadata%2D%3Etelnyx_end_user_target*,name*,or*,order*}", pathParameters)
+        public ConversationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations{?created_at*,id*,last_message_at*,limit*,metadata%2D%3Eassistant_id*,metadata%2D%3Ecall_control_id*,metadata%2D%3Etelnyx_agent_target*,metadata%2D%3Etelnyx_conversation_channel*,metadata%2D%3Etelnyx_end_user_target*,name*,or*,order*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConversationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations{?created_at*,id*,last_message_at*,limit*,metadata%2D%3Eassistant_id*,metadata%2D%3Etelnyx_agent_target*,metadata%2D%3Etelnyx_conversation_channel*,metadata%2D%3Etelnyx_end_user_target*,name*,or*,order*}", rawUrl)
+        public ConversationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/conversations{?created_at*,id*,last_message_at*,limit*,metadata%2D%3Eassistant_id*,metadata%2D%3Ecall_control_id*,metadata%2D%3Etelnyx_agent_target*,metadata%2D%3Etelnyx_conversation_channel*,metadata%2D%3Etelnyx_end_user_target*,name*,or*,order*}", rawUrl)
         {
         }
         /// <summary>
@@ -132,6 +145,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
 #else
             [QueryParameter("metadata%2D%3Eassistant_id")]
             public string MetadataassistantId { get; set; }
+#endif
+            /// <summary>Filter by call control ID (e.g., `metadata-&gt;call_control_id=eq.v3:123`)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("metadata%2D%3Ecall_control_id")]
+            public string? MetadatacallControlId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("metadata%2D%3Ecall_control_id")]
+            public string MetadatacallControlId { get; set; }
 #endif
             /// <summary>Filter by the phone number, SIP URI, or other identifier for the agent (e.g., `metadata-&gt;telnyx_agent_target=eq.+13128675309`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
