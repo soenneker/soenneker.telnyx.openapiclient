@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop
         {
         }
         /// <summary>
-        /// **BETA** - Stop an AI assistant on the call.
+        /// Stop an AI assistant on the call.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop.Ai_assistant_stopPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop.Ai_assistant_stopPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop.Ai_assistant_stopPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// **BETA** - Stop an AI assistant on the call.
+        /// Stop an AI assistant on the call.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop.Ai_assistant_stopResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop.Ai_assistant_stopResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop.Ai_assistant_stopResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// **BETA** - Stop an AI assistant on the call.
+        /// Stop an AI assistant on the call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
