@@ -171,10 +171,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions
             /// <summary>Filter by action type.</summary>
             [QueryParameter("filter%5Btype%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.Sim_card_group_actions.GetFilterTypeQueryParameterType? FiltertypeAsGetFilterTypeQueryParameterType { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

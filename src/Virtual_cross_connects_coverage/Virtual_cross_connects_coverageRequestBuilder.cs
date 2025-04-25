@@ -181,10 +181,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage
             /// <summary>The available bandwidth to filter on.</summary>
             [QueryParameter("filters%5Bavailable_bandwidth%5D%5Bcontains%5D")]
             public int? FiltersavailableBandwidthcontains { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }
