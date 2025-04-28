@@ -38,8 +38,6 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 // Use a null authentication provider since we're setting headers manually
 var requestAdapter = new HttpClientRequestAdapter(null, httpClient: httpClient);
 
-var apiClient = new YourKiotaGeneratedClient(requestAdapter);
-
 // Create a Telnyx API client instance
 var client = new TelnyxOpenApiClient(requestAdapter);
 ```
