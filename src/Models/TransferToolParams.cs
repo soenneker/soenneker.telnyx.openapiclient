@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Custom headers to be added to the SIP INVITE for the transfer command.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolParams_custom_headers>? CustomHeaders { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolParams_custom_headers> CustomHeaders { get; set; }
+#endif
         /// <summary>Number or SIP URI placing the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,6 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolParams_custom_headers>(global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolParams_custom_headers.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "targets", n => { Targets = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolParams_targets>(global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolParams_targets.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -66,6 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolParams_custom_headers>("custom_headers", CustomHeaders);
             writer.WriteStringValue("from", From);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TransferToolParams_targets>("targets", Targets);
             writer.WriteAdditionalData(AdditionalData);
