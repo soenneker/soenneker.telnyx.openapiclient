@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Inbound_channels500Error_errors : IAdditionalDataHolder, IParsable
+    public partial class Inbound_channels5XXError_errors : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,18 +33,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors_meta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors_meta Meta { get; set; }
 #endif
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_source? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors_source? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_source Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors_source Source { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,21 +55,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels
         public string Title { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors"/> and sets the default values.
         /// </summary>
-        public Inbound_channels500Error_errors()
+        public Inbound_channels5XXError_errors()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors();
+            return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,8 +81,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta>(global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_source>(global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_source.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors_meta>(global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors_meta.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors_source>(global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors_source.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -95,8 +95,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_meta>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels500Error_errors_source>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors_meta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channels5XXError_errors_source>("source", Source);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

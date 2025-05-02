@@ -3,8 +3,8 @@
   "info": {
     "version": "2.0.0",
     "title": "Telnyx API",
-    "description": "SIP trunking, SMS, MMS, Call Control and Telephony Data Services.",
     "x-endpoint-cost": "light",
+    "description": "SIP trunking, SMS, MMS, Call Control and Telephony Data Services.",
     "license": {
       "name": "MIT"
     },
@@ -109,10 +109,6 @@
       "description": "Campaign operations"
     },
     {
-      "name": "Channel zones",
-      "description": "Channel zones"
-    },
-    {
       "name": "Chat",
       "description": "Generate text with LLMs"
     },
@@ -215,10 +211,6 @@
     {
       "name": "IPs",
       "description": "IP operations"
-    },
-    {
-      "name": "Inbound Channels",
-      "description": "Inbound channels operations"
     },
     {
       "name": "Integration Secrets",
@@ -471,6 +463,10 @@
     {
       "name": "Virtual Cross Connects",
       "description": "Virtual Cross Connect operations"
+    },
+    {
+      "name": "Voice Channels",
+      "description": "Voice Channels"
     },
     {
       "name": "Voicemail",
@@ -8387,11 +8383,11 @@
     },
     "/channel_zones": {
       "get": {
-        "summary": "Get list of channel zones",
-        "description": "List of channel zones with their countries",
+        "summary": "List your inbound channels for non-US zones",
+        "description": "Returns the non-US inbound channels for your account. Inbound channels allow you to use Channel Billing for calls to your Telnyx phone numbers. Please check the Telnyx Support Articles section for full information and examples of how to utilize Channel Billing.",
         "operationId": "GetChannelZones",
         "tags": [
-          "ChannelZones"
+          "Voice Channels"
         ],
         "parameters": [
           {
@@ -8410,37 +8406,20 @@
       }
     },
     "/channel_zones/{channel_zone_id}": {
-      "get": {
-        "summary": "Get a specific channel zone",
-        "description": "Get a specific channel zone",
-        "operationId": "GetChannelZone",
-        "tags": [
-          "ChannelZones"
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/GetGcbChannelZoneRequestResponse"
-          },
-          "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
-          }
-        },
-        "x-latency-category": "interactive"
-      },
       "parameters": [
         {
           "$ref": "#/components/parameters/GcbChannelZoneId"
         }
       ],
-      "patch": {
-        "summary": "Patch a channel zone",
-        "description": "Change the amount of reserved channels at a given channel zone",
+      "put": {
+        "summary": "Update inbound channels for non-US Zones",
+        "description": "Modify the number of reserved non-US inbound channels for a specified channel zone. The update applies to all sub-users within the organization.",
         "operationId": "PatchChannelZone",
         "tags": [
-          "ChannelZones"
+          "Voice Channels"
         ],
         "requestBody": {
-          "description": "Quantity of reserved channels",
+          "description": "Quantity of reserved channels and organizational update option",
           "content": {
             "application/json": {
               "schema": {
@@ -8448,9 +8427,13 @@
                 "properties": {
                   "channels": {
                     "type": "integer",
-                    "format": "int64"
+                    "format": "int64",
+                    "description": "The number of reserved channels"
                   }
-                }
+                },
+                "required": [
+                  "channels"
+                ]
               }
             }
           },
@@ -8467,100 +8450,6 @@
         "x-codegen-request-body-name": "body",
         "x-latency-category": "interactive"
       }
-    },
-    "/channel_zones/{channel_zone_id}/channel_zone_phone_numbers": {
-      "get": {
-        "summary": "Get the list of phone numbers assigned to a channel zone",
-        "description": "Retrieve the assigned phone numbers in a channel zone. Phone numbers assigned to a channel zone can receive concurrent calls up to the quantity reserved in that channel zone. Additional concurrent calls are rejected with a busy signal.",
-        "operationId": "GetPhoneNumbers",
-        "tags": [
-          "ChannelZones"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/GetGcbPhoneNumbersRequestResponse"
-          }
-        },
-        "x-latency-category": "interactive"
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/GcbChannelZoneId"
-        }
-      ],
-      "post": {
-        "summary": "Assign a phone number to a channel zone",
-        "description": "You should own the phone number being assigned to the channel zone. Remember that you should reserve channels in this channel zone, otherwise you won\u0027t be able to receive incoming calls.",
-        "operationId": "AssignPhoneNumber",
-        "tags": [
-          "ChannelZones"
-        ],
-        "requestBody": {
-          "description": "Phone number to assign to the channel zone. The phone number should be in E.164 format.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "phone_number"
-                ],
-                "type": "object",
-                "properties": {
-                  "phone_number": {
-                    "type": "string",
-                    "format": "\u002BE.164",
-                    "example": "\u002B15554441234"
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/PostGcbPhoneNumberRequestResponse"
-          },
-          "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
-          }
-        },
-        "x-codegen-request-body-name": "body",
-        "x-latency-category": "interactive"
-      }
-    },
-    "/channel_zones/{channel_zone_id}/channel_zone_phone_numbers/{phone_number}": {
-      "delete": {
-        "summary": "Unassign a phone number from a channel zone",
-        "operationId": "UnassignPhoneNumber",
-        "tags": [
-          "ChannelZones"
-        ],
-        "responses": {
-          "200": {
-            "description": "The phone number is successfully deleted"
-          },
-          "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
-          }
-        },
-        "x-latency-category": "interactive"
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/GcbChannelZoneId"
-        },
-        {
-          "$ref": "#/components/parameters/GcbPhoneNumber"
-        }
-      ]
     },
     "/comments": {
       "get": {
@@ -15079,6 +14968,30 @@
         "x-latency-category": "responsive"
       }
     },
+    "/list/{user_id}": {
+      "get": {
+        "summary": "List your numbers using inbound channels",
+        "description": "Retrieve a list of phone numbers associated with inbound channels, grouped by Zone. You can optionally provide a Zone ID to filter the numbers within a specific Zone. Returns all of the Voice Channel Zones, including US.",
+        "operationId": "GetNumbersChannelZones",
+        "tags": [
+          "Voice Channels"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/UserId"
+          },
+          {
+            "$ref": "#/components/parameters/GcbChannelNumberZoneId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetGcbNumbersResponse"
+          }
+        },
+        "x-latency-category": "interactive"
+      }
+    },
     "/managed_accounts": {
       "get": {
         "summary": "Lists accounts managed by the current user.",
@@ -20844,14 +20757,13 @@
     },
     "/phone_numbers/inbound_channels": {
       "get": {
-        "summary": "List your inbound channels",
-        "deprecated": false,
-        "description": "Returns the inbound channels for your account. Inbound channels allows you to use Channel Billing for calls to your Telnyx phone numbers. Please check the Telnyx Support Articles section for full information and example of how to utilize Channel Billing.",
+        "summary": "List your inbound channels for US Zone",
+        "description": "Returns the US Zone inbound channels for your account. Inbound channels allows you to use Channel Billing for calls to your Telnyx phone numbers. Please check the Telnyx Support Articles section for full information and examples of how to utilize Channel Billing.",
         "operationId": "ListInboundChannels",
         "tags": [
-          "Inbound Channels"
+          "Voice Channels"
         ],
-        "parameters": [],
+        "x-endpoint-cost": "medium",
         "responses": {
           "200": {
             "description": "Inbound Channels Response",
@@ -20866,74 +20778,43 @@
                         "channels": {
                           "type": "integer",
                           "description": "The current number of concurrent channels set for the account",
-                          "example": [
-                            7
-                          ]
+                          "example": 7
                         },
                         "record_type": {
                           "description": "Identifies the type of the response",
                           "type": "string",
-                          "example": [
-                            "inbound_channels"
-                          ]
+                          "example": "inbound_channels"
                         }
                       }
                     }
                   }
                 }
               }
-            },
-            "headers": {}
+            }
           },
           "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                }
-              }
-            },
-            "headers": {}
+            "description": "Unauthorized"
           },
           "404": {
-            "description": "Resource not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                }
-              }
-            },
-            "headers": {}
+            "description": "Resource not found"
           },
           "422": {
-            "description": "Unprocessable entity. Check message field in response for details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                }
-              }
-            },
-            "headers": {}
+            "description": "Unprocessable entity. Check message field in response for details."
           }
         },
-        "x-latency-category": "responsive"
+        "x-latency-category": "interactive"
       },
       "patch": {
-        "summary": "Update inbound channels",
-        "deprecated": false,
-        "description": "Update the inbound channels for the account",
+        "summary": "Update inbound channels for US Zone",
         "operationId": "UpdateOutboundChannels",
+        "description": "Update the number of Zone US channels for your account. This allows your account to handle multiple simultaneous inbound calls. Use this endpoint to increase or decrease your capacity based on expected call volume.",
         "tags": [
-          "Inbound Channels"
+          "Voice Channels"
         ],
-        "parameters": [],
+        "x-endpoint-cost": "medium",
         "requestBody": {
+          "description": "Inbound channels update",
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -20945,9 +20826,7 @@
                   "channels": {
                     "type": "integer",
                     "description": "The new number of concurrent channels for the account",
-                    "example": [
-                      7
-                    ]
+                    "example": 7
                   }
                 }
               }
@@ -20968,26 +20847,21 @@
                         "channels": {
                           "type": "integer",
                           "description": "The number of channels set for the account",
-                          "example": [
-                            7
-                          ]
+                          "example": 7
                         },
                         "record_type": {
                           "description": "Identifies the type of the response",
                           "type": "string",
-                          "example": [
-                            "inbound_channels"
-                          ]
+                          "example": "inbound_channels"
                         }
                       }
                     }
                   }
                 }
               }
-            },
-            "headers": {}
+            }
           },
-          "500": {
+          "default": {
             "description": "Unexpected error",
             "content": {
               "application/json": {
@@ -21026,22 +20900,18 @@
                             }
                           },
                           "meta": {
-                            "type": "object",
-                            "properties": {}
+                            "type": "object"
                           }
-                        },
-                        "type": "object"
+                        }
                       }
                     }
-                  },
-                  "type": "object"
+                  }
                 }
               }
-            },
-            "headers": {}
+            }
           }
         },
-        "x-latency-category": "responsive"
+        "x-latency-category": "interactive"
       }
     },
     "/phone_numbers/jobs": {
@@ -35781,12 +35651,11 @@
       },
       "ConnectionId": {
         "name": "connection_id",
-        "description": "Telnyx connection id",
+        "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
         "in": "path",
         "required": true,
         "schema": {
-          "type": "string",
-          "example": "1293384261075731461"
+          "type": "string"
         }
       },
       "CreatedAtGtFilter": {
@@ -36255,8 +36124,7 @@
         "description": "If present, connections with \u003Ccode\u003Econnection_name\u003C/code\u003E containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
         "schema": {
           "type": "string",
-          "default": null,
-          "example": "My Connection"
+          "default": null
         }
       },
       "FilterCostByAmount": {
@@ -36722,6 +36590,15 @@
         },
         "example": "\u002B1312345678"
       },
+      "GcbChannelNumberZoneId": {
+        "name": "channel_zone_id",
+        "in": "query",
+        "description": "Channel zone identifier",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
       "GcbChannelZoneId": {
         "name": "channel_zone_id",
         "in": "path",
@@ -36951,7 +36828,7 @@
       "PageNumber": {
         "name": "page[number]",
         "in": "query",
-        "description": "The page number to load",
+        "description": "The page number to load.",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -36961,7 +36838,7 @@
       "PageSize": {
         "name": "page[size]",
         "in": "query",
-        "description": "The size of the page",
+        "description": "The size of the page.",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -37195,15 +37072,16 @@
       "Sort": {
         "name": "sort",
         "in": "query",
-        "description": "Set the order of the results by the creation date.",
         "required": false,
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the \u003Ccode\u003E -\u003C/code\u003E prefix.\u003Cbr/\u003E\u003Cbr/\u003E\nThat is: \u003Cul\u003E\n  \u003Cli\u003E\n    \u003Ccode\u003Eemail\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Eemail\u003C/code\u003E field in ascending order.\n  \u003C/li\u003E\n\n  \u003Cli\u003E\n    \u003Ccode\u003E-email\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Eemail\u003C/code\u003E field in descending order.\n  \u003C/li\u003E\n\u003C/ul\u003E \u003Cbr/\u003E If not given, results are sorted by \u003Ccode\u003Ecreated_at\u003C/code\u003E in descending order.",
         "schema": {
           "type": "string",
           "enum": [
-            "asc",
-            "desc"
+            "created_at",
+            "email"
           ],
-          "example": "desc"
+          "example": "email",
+          "default": "created_at"
         }
       },
       "SortAddress": {
@@ -37227,22 +37105,21 @@
       "SortApplication": {
         "name": "sort",
         "in": "query",
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the \u003Ccode\u003E -\u003C/code\u003E prefix.\u003Cbr/\u003E\u003Cbr/\u003E\nThat is: \u003Cul\u003E\n  \u003Cli\u003E\n    \u003Ccode\u003Eapplication_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Eapplication_name\u003C/code\u003E field in ascending order.\n  \u003C/li\u003E\n\n  \u003Cli\u003E\n    \u003Ccode\u003E-application_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Eapplication_name\u003C/code\u003E field in descending order.\n  \u003C/li\u003E\n\u003C/ul\u003E \u003Cbr/\u003E If not given, results are sorted by \u003Ccode\u003Ecreated_at\u003C/code\u003E in descending order.",
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the \u003Ccode\u003E -\u003C/code\u003E prefix.\u003Cbr/\u003E\u003Cbr/\u003E\nThat is: \u003Cul\u003E\n  \u003Cli\u003E\n    \u003Ccode\u003Efriendly_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Efriendly_name\u003C/code\u003E field in ascending order.\n  \u003C/li\u003E\n\n  \u003Cli\u003E\n    \u003Ccode\u003E-friendly_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Efriendly_name\u003C/code\u003E field in descending order.\n  \u003C/li\u003E\n\u003C/ul\u003E \u003Cbr/\u003E If not given, results are sorted by \u003Ccode\u003Ecreated_at\u003C/code\u003E in descending order.",
         "schema": {
           "type": "string",
           "enum": [
             "created_at",
-            "application_name",
+            "friendly_name",
             "active"
           ],
-          "example": "application_name",
+          "example": "friendly_name",
           "default": "created_at"
         }
       },
       "SortConnection": {
         "name": "sort",
         "in": "query",
-        "required": false,
         "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the \u003Ccode\u003E -\u003C/code\u003E prefix.\u003Cbr/\u003E\u003Cbr/\u003E\nThat is: \u003Cul\u003E\n  \u003Cli\u003E\n    \u003Ccode\u003Econnection_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Econnection_name\u003C/code\u003E field in ascending order.\n  \u003C/li\u003E\n\n  \u003Cli\u003E\n    \u003Ccode\u003E-connection_name\u003C/code\u003E: sorts the result by the\n    \u003Ccode\u003Econnection_name\u003C/code\u003E field in descending order.\n  \u003C/li\u003E\n\u003C/ul\u003E \u003Cbr/\u003E If not given, results are sorted by \u003Ccode\u003Ecreated_at\u003C/code\u003E in descending order.",
         "schema": {
           "type": "string",
@@ -37308,23 +37185,21 @@
         "example": "2023-05-22"
       },
       "Status": {
-        "name": "filter[status][eq]",
+        "name": "Status",
         "in": "query",
-        "description": "The status of a notification setting",
+        "required": false,
+        "description": "Filters calls by status.",
         "schema": {
           "type": "string",
           "enum": [
-            "enabled",
-            "enable-received",
-            "enable-pending",
-            "enable-submtited",
-            "delete-received",
-            "delete-pending",
-            "delete-submitted",
-            "deleted"
-          ],
-          "example": "enable-received"
-        }
+            "canceled",
+            "completed",
+            "failed",
+            "busy",
+            "no-answer"
+          ]
+        },
+        "example": "no-answer"
       },
       "StatusEqFilter": {
         "name": "filter[status][eq]",
@@ -37422,6 +37297,15 @@
         },
         "name": "user_bundle_id",
         "in": "path"
+      },
+      "UserId": {
+        "name": "user_id",
+        "in": "path",
+        "description": "User identifier",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
       },
       "address_id": {
         "name": "address_id",
@@ -39430,19 +39314,7 @@
         }
       },
       "ForbiddenResponse": {
-        "description": "Forbidden",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Errors"
-            },
-            "examples": {
-              "Not authorized": {
-                "$ref": "#/components/examples/NotAuthorized"
-              }
-            }
-          }
-        }
+        "description": "Unauthorized response. Happens when the current user is not authorized to access the endpoint."
       },
       "FqdnConnectionResponse": {
         "description": "Successful response with details about an FQDN connection.",
@@ -39817,6 +39689,57 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/GcbChannelZone"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/PaginationMeta"
+                }
+              }
+            }
+          }
+        }
+      },
+      "GetGcbNumbersResponse": {
+        "description": "A list of numbers using GCB, grouped by channel zone",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "zone_name": {
+                        "type": "string",
+                        "example": "Euro channel zone"
+                      },
+                      "zone_id": {
+                        "type": "string",
+                        "example": "1653e6a1-4bfd-4857-97c6-6a51e1c34477"
+                      },
+                      "number_of_channels": {
+                        "type": "integer",
+                        "example": 7
+                      },
+                      "numbers": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "string",
+                              "example": "\u002B15554441234"
+                            },
+                            "country": {
+                              "type": "string",
+                              "example": "FR"
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 },
                 "meta": {
@@ -42274,7 +42197,14 @@
         }
       },
       "NotFoundResponse": {
-        "description": "Fax does not exist"
+        "description": "Resource not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ResourceNotFoundError"
+            }
+          }
+        }
       },
       "NotFoundResponseApp": {
         "description": "The requested resource doesn\u0027t exist.",
@@ -43746,7 +43676,7 @@
         }
       },
       "UnauthorizedResponse": {
-        "description": "Unauthorized"
+        "description": "Unauthenticated response. Happens when the current user cannot be authenticated."
       },
       "UnexpectedErrorResponse": {
         "description": "An unexpected error occurred.",
@@ -60474,10 +60404,10 @@
         }
       },
       "CreatedAt": {
+        "title": "Created At",
         "type": "string",
-        "description": "ISO 8601 formatted date-time indicating when the resource was created.",
-        "readOnly": true,
-        "example": "2018-02-02T22:25:27.521Z"
+        "description": "ISO 8601 formatted date indicating when the resource was created.",
+        "example": "2020-02-02T22:25:27.521Z"
       },
       "CreatedUserBundlesResponse": {
         "title": "CreatedUserBundlesResponse",
@@ -60977,19 +60907,15 @@
           "cursors": {
             "$ref": "#/components/schemas/Cursor"
           },
-          "total_items": {
-            "type": "integer",
-            "example": 50
-          },
           "next": {
             "type": "string",
             "description": "Path to next page.",
-            "example": "/v2/connections/1234567890/active_calls?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/recording_transcriptions?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           },
           "previous": {
             "type": "string",
             "description": "Path to previous page.",
-            "example": "/v2/connections/1234567890/active_calls?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/recording_transcriptions?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           }
         }
       },
@@ -63346,15 +63272,14 @@
         "example": "{\u0022page\u0022: 1, \u0022records\u0022: [{\u0022isin\u0022: \u0022US68243Q1067\u0022, \u0022iso2\u0022: \u0022US\u0022, \u0022symbol\u0022: \u0022FLWS\u0022, \u0022exchange\u0022: \u0022NASDAQ\u0022, \u0022displayName\u0022: \u00221-800 FLOWERS.COM, Inc.\u0022}, {\u0022isin\u0022: \u0022US88025U1097\u0022, \u0022iso2\u0022: \u0022US\u0022, \u0022symbol\u0022: \u0022TXG\u0022, \u0022exchange\u0022: \u0022NASDAQ\u0022, \u0022displayName\u0022: \u002210X GENOMICS INC CLASS A\u0022}], \u0022totalRecords\u0022: 2}"
       },
       "Error": {
-        "type": "object",
         "required": [
           "code",
           "title"
         ],
         "properties": {
           "code": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "int"
           },
           "title": {
             "type": "string"
@@ -63372,13 +63297,13 @@
               },
               "parameter": {
                 "description": "Indicates which query parameter caused the error.",
-                "type": "string"
+                "type": "string",
+                "example": "\u002B15617819942"
               }
             }
           },
           "meta": {
-            "type": "object",
-            "properties": {}
+            "type": "object"
           }
         }
       },
@@ -63448,7 +63373,6 @@
         }
       },
       "Errors": {
-        "type": "object",
         "properties": {
           "errors": {
             "type": "array",
@@ -66899,17 +66823,17 @@
         ]
       },
       "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
         "properties": {
           "detail": {
+            "title": "Detail",
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ValidationError"
-            },
-            "type": "array",
-            "title": "Detail"
+            }
           }
-        },
-        "type": "object",
-        "title": "HTTPValidationError"
+        }
       },
       "HangupRequest": {
         "type": "object",
@@ -67010,8 +66934,9 @@
       "Id": {
         "type": "string",
         "format": "uuid",
-        "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
-        "description": "Identifies the type of resource."
+        "description": "Identifies the resource.",
+        "readOnly": true,
+        "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
       },
       "ImportExternalVetting": {
         "title": "ImportExternalVetting",
@@ -70563,36 +70488,34 @@
         }
       },
       "Metadata": {
+        "type": "object",
+        "title": "Metadata",
         "properties": {
-          "page_size": {
-            "type": "integer",
-            "title": "Page Size",
-            "example": 25
-          },
-          "page_number": {
-            "type": "integer",
-            "title": "Page Number",
-            "example": 1
-          },
           "total_pages": {
-            "type": "integer",
-            "title": "Total Pages",
-            "example": 10
+            "type": "number",
+            "description": "Total number of pages based on pagination settings",
+            "example": 13,
+            "format": "double"
           },
           "total_results": {
-            "type": "integer",
-            "title": "Total Items",
-            "example": 250
+            "type": "number",
+            "description": "Total number of results",
+            "example": 13,
+            "format": "double"
+          },
+          "page_number": {
+            "type": "number",
+            "description": "Current Page based on pagination settings (included when defaults are used.)",
+            "example": 3,
+            "format": "double"
+          },
+          "page_size": {
+            "type": "number",
+            "description": "Number of results to return per page based on pagination settings (included when defaults are used.)",
+            "example": 1,
+            "format": "double"
           }
-        },
-        "required": [
-          "page_size",
-          "page_number",
-          "total_pages",
-          "total_results"
-        ],
-        "type": "object",
-        "title": "Metadata"
+        }
       },
       "MigrationParams": {
         "type": "object",
@@ -73235,19 +73158,27 @@
         "properties": {
           "page_number": {
             "type": "integer",
-            "example": 2
+            "example": [
+              2
+            ]
           },
           "page_size": {
             "type": "integer",
-            "example": 25
+            "example": [
+              25
+            ]
           },
           "total_pages": {
             "type": "integer",
-            "example": 3
+            "example": [
+              3
+            ]
           },
           "total_results": {
             "type": "integer",
-            "example": 55
+            "example": [
+              55
+            ]
           }
         }
       },
@@ -78601,13 +78532,12 @@
       },
       "RecordType": {
         "type": "string",
-        "example": "event",
+        "description": "Identifies record type.",
         "enum": [
-          "event"
+          "custom_storage_credentials"
         ],
-        "description": "Identifies the type of the resource.",
         "x-enum-varnames": [
-          "event"
+          "customstoragecredentials"
         ]
       },
       "RecordingResponse": {
@@ -79508,33 +79438,28 @@
         }
       },
       "ResourceNotFoundError": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GenericError"
-          },
-          {
-            "properties": {
-              "code": {
-                "example": "10005"
-              },
-              "title": {
-                "example": "Resource not found"
-              },
-              "detail": {
-                "example": "The requested resource or URL could not be found."
-              },
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "url": {
-                    "type": "string",
-                    "example": "https://developers.telnyx.com/docs/overview/errors/10005"
-                  }
+        "type": "object",
+        "title": "Resource not found",
+        "example": {
+          "errors": [
+            {
+              "detail": "Resource not found"
+            }
+          ]
+        },
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "string"
                 }
               }
             }
           }
-        ]
+        }
       },
       "ResumeConferenceRecordingRequest": {
         "type": "object",
@@ -87255,42 +87180,39 @@
         ]
       },
       "UnprocessableEntityError": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GenericError"
+        "required": [
+          "code",
+          "title"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "format": "int"
           },
-          {
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
             "properties": {
-              "code": {
-                "example": "10002"
+              "pointer": {
+                "description": "JSON pointer (RFC6901) to the offending entity.",
+                "type": "string",
+                "format": "json-pointer"
               },
-              "title": {
-                "example": "Invalid phone number"
-              },
-              "detail": {
-                "example": "The phone number is invalid."
-              },
-              "source": {
-                "type": "object",
-                "properties": {
-                  "pointer": {
-                    "type": "string",
-                    "example": "/phone_numbers"
-                  }
-                }
-              },
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "url": {
-                    "type": "string",
-                    "example": "https://developers.telnyx.com/docs/overview/errors/10002"
-                  }
-                }
+              "parameter": {
+                "description": "Indicates which query parameter caused the error.",
+                "type": "string"
               }
             }
+          },
+          "meta": {
+            "type": "object"
           }
-        ]
+        }
       },
       "UnusedUserBundlesResponse": {
         "title": "UnusedUserBundlesResponse",
@@ -87987,60 +87909,35 @@
         }
       },
       "UpdateConferenceRequest": {
-        "required": [
-          "call_control_id",
-          "supervisor_role"
-        ],
         "type": "object",
         "title": "Update Conference Request",
         "properties": {
-          "call_control_id": {
-            "description": "Unique identifier and token for controlling the call",
-            "example": "v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQczRrZvZakpWxBlpw48KyZQ==",
+          "Status": {
+            "description": "The new status of the resource. Specifying \u0060completed\u0060 will end the conference and hang up all participants.",
+            "example": "completed",
             "type": "string"
           },
-          "command_id": {
-            "description": "Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same \u0060command_id\u0060 as one that has already been executed.",
-            "example": "891510ac-f3e4-11e8-af5b-de00688a4901",
+          "AnnounceUrl": {
+            "description": "The URL we should call to announce something into the conference. The URL may return an MP3 file, a WAV file, or a TwiML document that contains \u0060\u003CPlay\u003E\u0060, \u0060\u003CSay\u003E\u0060, \u0060\u003CPause\u003E\u0060, or \u0060\u003CRedirect\u003E\u0060 verbs.",
+            "example": "https://www.example.com/announce.xml",
             "type": "string"
           },
-          "supervisor_role": {
-            "description": "Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. \u0022barge\u0022 means the supervisor enters the conference as a normal participant. This is the same as \u0022none\u0022. \u0022monitor\u0022 means the supervisor is muted but can hear all participants. \u0022whisper\u0022 means that only the specified \u0022whisper_call_control_ids\u0022 can hear the supervisor. Defaults to \u0022none\u0022.",
-            "example": "whisper",
+          "AnnounceMethod": {
+            "description": "The HTTP method used to call the \u0060AnnounceUrl\u0060. Defaults to \u0060POST\u0060.",
+            "example": "GET",
             "type": "string",
             "enum": [
-              "barge",
-              "monitor",
-              "none",
-              "whisper"
+              "GET",
+              "POST"
             ],
             "x-enum-varnames": [
-              "barge",
-              "monitor",
-              "none",
-              "whisper"
+              "GET",
+              "POST"
             ]
-          },
-          "whisper_call_control_ids": {
-            "description": "Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.",
-            "example": [
-              "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
-              "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
-            ],
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           }
         },
         "example": {
-          "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
-          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
-          "supervisor_role": "whisper",
-          "whisper_call_control_ids": [
-            "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
-            "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
-          ]
+          "Status": "completed"
         }
       },
       "UpdateCredentialConnectionRequest": {
@@ -89599,10 +89496,10 @@
         }
       },
       "UpdatedAt": {
+        "title": "Updated At",
         "type": "string",
-        "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
-        "readOnly": true,
-        "example": "2018-02-02T22:25:27.521Z"
+        "description": "ISO 8601 formatted date indicating when the resource was updated.",
+        "example": "2020-02-03T22:25:27.521Z"
       },
       "UplinkData": {
         "type": "object",
@@ -90671,8 +90568,17 @@
         ]
       },
       "ValidationError": {
+        "title": "ValidationError",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "type": "object",
         "properties": {
           "loc": {
+            "title": "Location",
+            "type": "array",
             "items": {
               "anyOf": [
                 {
@@ -90682,26 +90588,17 @@
                   "type": "integer"
                 }
               ]
-            },
-            "type": "array",
-            "title": "Location"
+            }
           },
           "msg": {
-            "type": "string",
-            "title": "Message"
+            "title": "Message",
+            "type": "string"
           },
           "type": {
-            "type": "string",
-            "title": "Error Type"
+            "title": "Error Type",
+            "type": "string"
           }
-        },
-        "type": "object",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
-        "title": "ValidationError"
+        }
       },
       "Verification": {
         "title": "Verification",

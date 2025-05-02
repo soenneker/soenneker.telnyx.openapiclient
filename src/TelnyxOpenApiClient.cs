@@ -63,6 +63,7 @@ using Soenneker.Telnyx.OpenApiClient.Ip_connections;
 using Soenneker.Telnyx.OpenApiClient.Ips;
 using Soenneker.Telnyx.OpenApiClient.Item;
 using Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports;
+using Soenneker.Telnyx.OpenApiClient.List;
 using Soenneker.Telnyx.OpenApiClient.Managed_accounts;
 using Soenneker.Telnyx.OpenApiClient.Media;
 using Soenneker.Telnyx.OpenApiClient.Messages;
@@ -435,6 +436,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsRequestBuilder Ledger_billing_group_reports
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The list property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.List.ListRequestBuilder List
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.List.ListRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The managed_accounts property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Managed_accountsRequestBuilder Managed_accounts

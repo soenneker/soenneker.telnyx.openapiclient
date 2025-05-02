@@ -250,10 +250,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_reservations
             [QueryParameter("filter%5Bstatus%5D")]
             public string Filterstatus { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

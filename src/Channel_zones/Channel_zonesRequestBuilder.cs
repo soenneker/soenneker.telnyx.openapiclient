@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Channel_zones
         {
         }
         /// <summary>
-        /// List of channel zones with their countries
+        /// Returns the non-US inbound channels for your account. Inbound channels allow you to use Channel Billing for calls to your Telnyx phone numbers. Please check the Telnyx Support Articles section for full information and examples of how to utilize Channel Billing.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Channel_zones
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List of channel zones with their countries
+        /// Returns the non-US inbound channels for your account. Inbound channels allow you to use Channel Billing for calls to your Telnyx phone numbers. Please check the Telnyx Support Articles section for full information and examples of how to utilize Channel Billing.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Channel_zones
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List of channel zones with their countries
+        /// Returns the non-US inbound channels for your account. Inbound channels allow you to use Channel Billing for calls to your Telnyx phone numbers. Please check the Telnyx Support Articles section for full information and examples of how to utilize Channel Billing.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -111,15 +111,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Channel_zones
             return new global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List of channel zones with their countries
+        /// Returns the non-US inbound channels for your account. Inbound channels allow you to use Channel Billing for calls to your Telnyx phone numbers. Please check the Telnyx Support Articles section for full information and examples of how to utilize Channel Billing.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Channel_zonesRequestBuilderGetQueryParameters 
         {
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }
