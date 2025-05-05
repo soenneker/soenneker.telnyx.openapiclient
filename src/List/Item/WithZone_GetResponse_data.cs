@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.List.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class WithUser_GetResponse_data : IAdditionalDataHolder, IParsable
+    public partial class WithZone_GetResponse_data : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.List.Item
         /// <summary>The numbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_GetResponse_data_numbers>? Numbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_GetResponse_data_numbers>? Numbers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_GetResponse_data_numbers> Numbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_GetResponse_data_numbers> Numbers { get; set; }
 #endif
         /// <summary>The zone_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,21 +41,21 @@ namespace Soenneker.Telnyx.OpenApiClient.List.Item
         public string ZoneName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_GetResponse_data"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_GetResponse_data"/> and sets the default values.
         /// </summary>
-        public WithUser_GetResponse_data()
+        public WithZone_GetResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_GetResponse_data"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_GetResponse_data"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_GetResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_GetResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_GetResponse_data();
+            return new global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_GetResponse_data();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.List.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "number_of_channels", n => { NumberOfChannels = n.GetIntValue(); } },
-                { "numbers", n => { Numbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_GetResponse_data_numbers>(global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_GetResponse_data_numbers.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "numbers", n => { Numbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_GetResponse_data_numbers>(global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_GetResponse_data_numbers.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "zone_id", n => { ZoneId = n.GetStringValue(); } },
                 { "zone_name", n => { ZoneName = n.GetStringValue(); } },
             };
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.List.Item
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("number_of_channels", NumberOfChannels);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_GetResponse_data_numbers>("numbers", Numbers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_GetResponse_data_numbers>("numbers", Numbers);
             writer.WriteStringValue("zone_id", ZoneId);
             writer.WriteStringValue("zone_name", ZoneName);
             writer.WriteAdditionalData(AdditionalData);

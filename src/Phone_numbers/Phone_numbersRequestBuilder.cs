@@ -5,7 +5,6 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads;
-using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging;
@@ -28,11 +27,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
         public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder Csv_downloads
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The inbound_channels property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder Inbound_channels
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Inbound_channels.Inbound_channelsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The jobs property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.JobsRequestBuilder Jobs
@@ -329,10 +323,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
             /// <summary>Filter by usage_payment_method.</summary>
             [QueryParameter("filter%5Bvoice%2Eusage_payment_method%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.GetFilterVoiceUsage_payment_methodQueryParameterType? FiltervoiceUsagePaymentMethodAsGetFilterVoiceUsagePaymentMethodQueryParameterType { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>

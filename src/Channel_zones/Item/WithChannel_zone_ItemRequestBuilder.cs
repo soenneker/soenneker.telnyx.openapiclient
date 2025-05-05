@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Channel_zones.Item
         {
         }
         /// <summary>
-        /// Modify the number of reserved non-US inbound channels for a specified channel zone. The update applies to all sub-users within the organization.
+        /// Update the number of Voice Channels for the Non-US Zones. This allows your account to handle multiple simultaneous inbound calls to Non-US numbers. Use this endpoint to increase or decrease your capacity based on expected call volume.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GcbChannelZone"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Channel_zones.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GcbChannelZone>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GcbChannelZone.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Modify the number of reserved non-US inbound channels for a specified channel zone. The update applies to all sub-users within the organization.
+        /// Update the number of Voice Channels for the Non-US Zones. This allows your account to handle multiple simultaneous inbound calls to Non-US numbers. Use this endpoint to increase or decrease your capacity based on expected call volume.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

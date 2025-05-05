@@ -16,15 +16,15 @@ namespace Soenneker.Telnyx.OpenApiClient.List
     public partial class ListRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.list.item collection</summary>
-        /// <param name="position">User identifier</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_ItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("user_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.List.Item.WithUser_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("zone_id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.List.Item.WithZone_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
