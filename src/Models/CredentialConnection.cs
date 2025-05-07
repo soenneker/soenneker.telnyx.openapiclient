@@ -94,6 +94,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>This feature enables inbound SIP URI calls to your Credential Auth Connection. If enabled for all (unrestricted) then anyone who calls the SIP URI &lt;your-username&gt;@telnyx.com will be connected to your Connection. You can also choose to allow only calls that are originated on any Connections under your account (internal).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_sip_uri_calling_preference? SipUriCallingPreference { get; set; }
+        /// <summary>Tags associated with the connection.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>ISO-8601 formatted date indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -174,6 +182,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
                 { "sip_uri_calling_preference", n => { SipUriCallingPreference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_sip_uri_calling_preference>(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_name", n => { UserName = n.GetStringValue(); } },
                 { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_webhook_api_version>(); } },
@@ -205,6 +214,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_sip_uri_calling_preference>("sip_uri_calling_preference", SipUriCallingPreference);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_name", UserName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialConnection_webhook_api_version>("webhook_api_version", WebhookApiVersion);

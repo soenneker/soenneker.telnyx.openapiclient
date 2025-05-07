@@ -84,6 +84,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings RtcpSettings { get; set; }
 #endif
+        /// <summary>Tags associated with the connection.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.IpConnection_transport_protocol? TransportProtocol { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
@@ -157,6 +165,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "transport_protocol", n => { TransportProtocol = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.IpConnection_transport_protocol>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.IpConnection_webhook_api_version>(); } },
@@ -186,6 +195,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundIp>("outbound", Outbound);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.IpConnection_transport_protocol>("transport_protocol", TransportProtocol);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.IpConnection_webhook_api_version>("webhook_api_version", WebhookApiVersion);

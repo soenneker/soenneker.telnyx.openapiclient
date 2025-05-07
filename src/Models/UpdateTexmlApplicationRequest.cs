@@ -58,6 +58,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>HTTP request method Telnyx should use when requesting the status_callback URL.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplicationRequest_status_callback_method? StatusCallbackMethod { get; set; }
+        /// <summary>Tags associated with the Texml Application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>URL to which Telnyx will deliver your XML Translator webhooks if we get an error response from your voice_url.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,6 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplicationRequest_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplicationRequest_outbound.CreateFromDiscriminatorValue); } },
                 { "status_callback", n => { StatusCallback = n.GetStringValue(); } },
                 { "status_callback_method", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplicationRequest_status_callback_method>(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "voice_fallback_url", n => { VoiceFallbackUrl = n.GetStringValue(); } },
                 { "voice_method", n => { VoiceMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplicationRequest_voice_method>(); } },
                 { "voice_url", n => { VoiceUrl = n.GetStringValue(); } },
@@ -137,6 +146,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplicationRequest_outbound>("outbound", Outbound);
             writer.WriteStringValue("status_callback", StatusCallback);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplicationRequest_status_callback_method>("status_callback_method", StatusCallbackMethod);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("voice_fallback_url", VoiceFallbackUrl);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplicationRequest_voice_method>("voice_method", VoiceMethod);
             writer.WriteStringValue("voice_url", VoiceUrl);

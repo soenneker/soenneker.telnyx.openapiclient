@@ -48,6 +48,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound Outbound { get; set; }
 #endif
+        /// <summary>Tags assigned to the Call Control Application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1 or v2.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallControlApplicationRequest_webhook_api_version? WebhookApiVersion { get; set; }
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
@@ -104,6 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "first_command_timeout_secs", n => { FirstCommandTimeoutSecs = n.GetIntValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound.CreateFromDiscriminatorValue); } },
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound.CreateFromDiscriminatorValue); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallControlApplicationRequest_webhook_api_version>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
@@ -125,6 +134,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("first_command_timeout_secs", FirstCommandTimeoutSecs);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound>("inbound", Inbound);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound>("outbound", Outbound);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallControlApplicationRequest_webhook_api_version>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);

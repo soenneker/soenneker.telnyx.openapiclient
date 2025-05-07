@@ -12195,6 +12195,9 @@
             "$ref": "#/components/parameters/FilterPhoneNumberContains"
           },
           {
+            "$ref": "#/components/parameters/FilterPhoneNumber"
+          },
+          {
             "$ref": "#/components/parameters/FilterCivicAddressId"
           },
           {
@@ -48519,6 +48522,13 @@
             "example": 10,
             "default": 30
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags assigned to the Call Control Application."
+          },
           "id": {
             "type": "string",
             "format": "int64",
@@ -53936,7 +53946,7 @@
           },
           "description": {
             "type": "string",
-            "example": "Austin Office"
+            "example": "Texas Office"
           },
           "house_number": {
             "type": "string",
@@ -56795,6 +56805,17 @@
           },
           "outbound_voice_profile_id": {
             "$ref": "#/components/schemas/OutboundVoiceProfileId"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
           }
         },
         "example": {
@@ -57942,6 +57963,17 @@
             "default": null,
             "nullable": true
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "rtcp_settings": {
             "$ref": "#/components/schemas/ConnectionRtcpSettings"
           },
@@ -58014,6 +58046,17 @@
           },
           "external_sip_connection": {
             "$ref": "#/components/schemas/ExternalSipConnectionZoomOnly"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
           },
           "webhook_event_url": {
             "type": "string",
@@ -58162,6 +58205,18 @@
           "webhook_timeout_secs": {
             "$ref": "#/components/schemas/WebhookTimeoutSecs"
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the Fax Application.",
+            "example": [
+              "tag1",
+              "tag2"
+            ],
+            "default": []
+          },
           "inbound": {
             "type": "object",
             "properties": {
@@ -58215,6 +58270,10 @@
           "webhook_event_url": "https://example.com",
           "webhook_event_failover_url": "https://failover.example.com",
           "webhook_timeout_secs": 25,
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "inbound": {
             "channel_limit": 10,
             "sip_subdomain": "example",
@@ -58311,6 +58370,17 @@
             "default": false,
             "description": "Enable on-net T38 if you prefer the sender and receiver negotiating T38 directly if both are on the Telnyx network. If this is disabled, Telnyx will be able to use T38 on just one leg of the call depending on each leg\u0027s settings."
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "ios_push_credential_id": {
             "$ref": "#/components/schemas/ConnectionIosPushCredentialId"
           },
@@ -58355,6 +58425,10 @@
           "webhook_event_failover_url": "https://failover.example.com",
           "webhook_api_version": "1",
           "webhook_timeout_secs": 25,
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "rtcp_settings": {
             "port": "rtcp-mux",
             "capture_enabled": true,
@@ -58837,6 +58911,17 @@
             "default": null,
             "nullable": true
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "rtcp_settings": {
             "$ref": "#/components/schemas/ConnectionRtcpSettings"
           },
@@ -58863,6 +58948,10 @@
           "webhook_event_failover_url": "https://failover.example.com",
           "webhook_api_version": "1",
           "webhook_timeout_secs": 25,
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "rtcp_settings": {
             "port": "rtcp-mux",
             "capture_enabled": true,
@@ -60004,6 +60093,17 @@
           "first_command_timeout_secs": {
             "$ref": "#/components/schemas/FirstCommandTimeoutSecs"
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the Texml Application.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "voice_url": {
             "type": "string",
             "description": "URL to which Telnyx will deliver your XML Translator webhooks.",
@@ -60116,6 +60216,10 @@
           "voice_method": "get",
           "status_callback": "https://example.com",
           "status_callback_method": "get",
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "inbound": {
             "channel_limit": 10,
             "shaken_stir_enabled": true,
@@ -60555,6 +60659,17 @@
             "default": null,
             "nullable": true
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "rtcp_settings": {
             "$ref": "#/components/schemas/ConnectionRtcpSettings"
           },
@@ -60587,6 +60702,10 @@
           "webhook_event_failover_url": "https://failover.example.com",
           "webhook_api_version": "1",
           "webhook_timeout_secs": 25,
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "rtcp_settings": {
             "port": "rtp\u002B1",
             "capture_enabled": true,
@@ -63544,6 +63663,17 @@
           "external_sip_connection": {
             "$ref": "#/components/schemas/ExternalSipConnection"
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "webhook_event_url": {
             "type": "string",
             "format": "url",
@@ -64007,6 +64137,18 @@
           },
           "webhook_timeout_secs": {
             "$ref": "#/components/schemas/WebhookTimeoutSecs"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the Fax Application.",
+            "example": [
+              "tag1",
+              "tag2"
+            ],
+            "default": []
           },
           "inbound": {
             "type": "object",
@@ -64871,6 +65013,17 @@
             "type": "integer",
             "description": "The time to live for the TXT record associated with the FQDN connection."
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "webhook_event_url": {
             "$ref": "#/components/schemas/WebhookEventUrl"
           },
@@ -64917,6 +65070,10 @@
           "webhook_event_failover_url": "https://failover.example.com",
           "webhook_api_version": "1",
           "webhook_timeout_secs": 25,
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "rtcp_settings": {
             "port": "rtcp-mux",
             "capture_enabled": true,
@@ -68485,6 +68642,17 @@
             "description": "ISO 8601 formatted date indicating when the resource was updated.",
             "example": "2018-02-02T22:25:27.521Z"
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "inbound": {
             "$ref": "#/components/schemas/InboundIp"
           },
@@ -68515,6 +68683,10 @@
             "capture_enabled": true,
             "report_frequency_secs": 10
           },
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "created_at": "2018-02-02T22:25:27.521Z",
           "updated_at": "2018-02-02T22:25:27.521Z",
           "inbound": {
@@ -85507,6 +85679,17 @@
               "post"
             ]
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the Texml Application.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "inbound": {
             "type": "object",
             "properties": {
@@ -85579,6 +85762,10 @@
           "voice_method": "get",
           "status_callback": "https://example.com",
           "status_callback_method": "get",
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "inbound": {
             "channel_limit": 10,
             "shaken_stir_enabled": true,
@@ -85775,6 +85962,11 @@
           "ConnectorName": {
             "description": "The name of the connector to use for the SIPREC session.",
             "example": "my_connector",
+            "type": "string"
+          },
+          "Name": {
+            "description": "Name of the SIPREC session. May be used to stop the SIPREC session from TeXML instruction.",
+            "example": "my_siprec_session",
             "type": "string"
           },
           "Track": {
@@ -87620,6 +87812,17 @@
             "example": 10,
             "default": 30
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags assigned to the Call Control Application.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "inbound": {
             "$ref": "#/components/schemas/CallControlApplicationInbound"
           },
@@ -88081,6 +88284,17 @@
             "default": null,
             "nullable": true
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "rtcp_settings": {
             "$ref": "#/components/schemas/ConnectionRtcpSettings"
           },
@@ -88109,6 +88323,10 @@
           "webhook_event_failover_url": "https://failover.example.com",
           "webhook_api_version": "1",
           "webhook_timeout_secs": 25,
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "rtcp_settings": {
             "port": "rtcp-mux",
             "capture_enabled": true,
@@ -88174,6 +88392,17 @@
             "example": "https://failover.example.com",
             "nullable": true,
             "default": ""
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
           },
           "webhook_timeout_secs": {
             "type": "integer",
@@ -88246,6 +88475,17 @@
           "fax_email_recipient": {
             "$ref": "#/components/schemas/FaxEmailRecipient"
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the Fax Application.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "inbound": {
             "type": "object",
             "properties": {
@@ -88299,6 +88539,10 @@
           "webhook_event_url": "https://example.com",
           "webhook_event_failover_url": "https://failover.example.com",
           "webhook_timeout_secs": 25,
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "inbound": {
             "channel_limit": 10,
             "sip_subdomain": "example",
@@ -88347,6 +88591,17 @@
             "default": false,
             "description": "Enable on-net T38 if you prefer that the sender and receiver negotiate T38 directly when both are on the Telnyx network. If this is disabled, Telnyx will be able to use T38 on just one leg of the call according to each leg\u0027s settings."
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "ios_push_credential_id": {
             "$ref": "#/components/schemas/ConnectionIosPushCredentialId"
           },
@@ -88391,6 +88646,10 @@
           "webhook_event_failover_url": "https://failover.example.com",
           "webhook_api_version": "1",
           "webhook_timeout_secs": 25,
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "rtcp_settings": {
             "port": "rtcp-mux",
             "capture_enabled": true,
@@ -88542,6 +88801,17 @@
             "default": null,
             "nullable": true
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the connection.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "rtcp_settings": {
             "$ref": "#/components/schemas/ConnectionRtcpSettings"
           },
@@ -88568,6 +88838,10 @@
           "webhook_event_failover_url": "https://failover.example.com",
           "webhook_api_version": "1",
           "webhook_timeout_secs": 25,
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "rtcp_settings": {
             "port": "rtcp-mux",
             "capture_enabled": true,
@@ -89340,6 +89614,17 @@
               "post"
             ]
           },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the Texml Application.",
+            "example": [
+              "tag1",
+              "tag2"
+            ]
+          },
           "inbound": {
             "type": "object",
             "properties": {
@@ -89404,6 +89689,10 @@
           "voice_method": "get",
           "status_callback": "https://example.com",
           "status_callback_method": "get",
+          "tags": [
+            "tag1",
+            "tag2"
+          ],
           "inbound": {
             "channel_limit": 10,
             "shaken_stir_enabled": true,

@@ -108,6 +108,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? RtpPassCodecsOnStreamChange { get; set; }
         /// <summary>Indicates whether normalized timestamps should be sent.</summary>
         public bool? SendNormalizedTimestamps { get; set; }
+        /// <summary>Tags associated with the connection.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>Indicates whether third-party control is enabled.</summary>
         public bool? ThirdPartyControlEnabled { get; set; }
         /// <summary>One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.</summary>
@@ -218,6 +226,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
                 { "rtp_pass_codecs_on_stream_change", n => { RtpPassCodecsOnStreamChange = n.GetBoolValue(); } },
                 { "send_normalized_timestamps", n => { SendNormalizedTimestamps = n.GetBoolValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "third_party_control_enabled", n => { ThirdPartyControlEnabled = n.GetBoolValue(); } },
                 { "transport_protocol", n => { TransportProtocol = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol>(); } },
                 { "txt_name", n => { TxtName = n.GetStringValue(); } },
@@ -260,6 +269,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
             writer.WriteBoolValue("rtp_pass_codecs_on_stream_change", RtpPassCodecsOnStreamChange);
             writer.WriteBoolValue("send_normalized_timestamps", SendNormalizedTimestamps);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteBoolValue("third_party_control_enabled", ThirdPartyControlEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol>("transport_protocol", TransportProtocol);
             writer.WriteStringValue("txt_name", TxtName);

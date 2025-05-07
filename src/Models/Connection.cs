@@ -58,6 +58,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RecordType { get; set; }
 #endif
+        /// <summary>Tags associated with the connection.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,6 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "outbound_voice_profile_id", n => { OutboundVoiceProfileId = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Connection_webhook_api_version>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
@@ -138,6 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("outbound_voice_profile_id", OutboundVoiceProfileId);
             writer.WriteStringValue("record_type", RecordType);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Connection_webhook_api_version>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);

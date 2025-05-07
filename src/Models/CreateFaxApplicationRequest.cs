@@ -42,6 +42,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest_outbound Outbound { get; set; }
 #endif
+        /// <summary>Tags associated with the Fax Application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,6 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "application_name", n => { ApplicationName = n.GetStringValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest_inbound.CreateFromDiscriminatorValue); } },
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest_outbound.CreateFromDiscriminatorValue); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -108,6 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("application_name", ApplicationName);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest_inbound>("inbound", Inbound);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest_outbound>("outbound", Outbound);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

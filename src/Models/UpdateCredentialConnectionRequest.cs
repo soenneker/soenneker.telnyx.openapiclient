@@ -86,6 +86,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>This feature enables inbound SIP URI calls to your Credential Auth Connection. If enabled for all (unrestricted) then anyone who calls the SIP URI &lt;your-username&gt;@telnyx.com will be connected to your Connection. You can also choose to allow only calls that are originated on any Connections under your account (internal).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCredentialConnectionRequest_sip_uri_calling_preference? SipUriCallingPreference { get; set; }
+        /// <summary>Tags associated with the connection.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>The user name to be used as part of the credentials. Must be 4-32 characters long and alphanumeric values only (no spaces or special characters).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -157,6 +165,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
                 { "sip_uri_calling_preference", n => { SipUriCallingPreference = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCredentialConnectionRequest_sip_uri_calling_preference>(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "user_name", n => { UserName = n.GetStringValue(); } },
                 { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCredentialConnectionRequest_webhook_api_version>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
@@ -186,6 +195,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("password", Password);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCredentialConnectionRequest_sip_uri_calling_preference>("sip_uri_calling_preference", SipUriCallingPreference);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("user_name", UserName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCredentialConnectionRequest_webhook_api_version>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);

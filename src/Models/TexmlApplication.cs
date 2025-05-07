@@ -82,6 +82,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>HTTP request method Telnyx should use when requesting the status_callback URL.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_status_callback_method? StatusCallbackMethod { get; set; }
+        /// <summary>Tags associated with the Texml Application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -150,6 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "status_callback", n => { StatusCallback = n.GetStringValue(); } },
                 { "status_callback_method", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_status_callback_method>(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "voice_fallback_url", n => { VoiceFallbackUrl = n.GetStringValue(); } },
                 { "voice_method", n => { VoiceMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_voice_method>(); } },
@@ -175,6 +184,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("status_callback", StatusCallback);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_status_callback_method>("status_callback_method", StatusCallbackMethod);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("voice_fallback_url", VoiceFallbackUrl);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_voice_method>("voice_method", VoiceMethod);
             writer.WriteStringValue("voice_url", VoiceUrl);
