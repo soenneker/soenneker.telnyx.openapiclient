@@ -2393,6 +2393,49 @@
         "x-latency-category": "responsive"
       }
     },
+    "/ai/embeddings/url": {
+      "post": {
+        "tags": [
+          "Embeddings"
+        ],
+        "summary": "Embed URL content",
+        "description": "Embed website content from a specified URL, including child pages up to 5 levels deep within the same domain. The process crawls and loads content from the main URL and its linked pages into a Telnyx Cloud Storage bucket. As soon as each webpage is added to the bucket, its content is immediately processed for embeddings, that can be used for [similarity search](https://developers.telnyx.com/api/inference/inference-embedding/post-embedding-similarity-search) and [clustering](https://developers.telnyx.com/docs/inference/clusters).",
+        "operationId": "PostEmbeddingUrl",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmbeddingUrlRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmbeddingResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
     "/ai/embeddings/{task_id}": {
       "get": {
         "tags": [
@@ -15130,10 +15173,26 @@
         "x-latency-category": "responsive"
       }
     },
-    "/list/{zone_id}": {
+    "/list": {
       "get": {
-        "summary": "List Numbers using Channel Billing",
-        "description": "Retrieve a list of phone numbers using Channel Billing, grouped by Zone. You can optionally provide a Zone ID to filter the numbers within a specific Zone. ",
+        "summary": "List All Numbers using Channel Billing",
+        "description": "Retrieve a list of all phone numbers using Channel Billing, grouped by Zone.",
+        "operationId": "GetAllNumbersChannelZones",
+        "tags": [
+          "Voice Channels"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetGcbNumbersResponse"
+          }
+        },
+        "x-latency-category": "interactive"
+      }
+    },
+    "/list/{channel_zone_id}": {
+      "get": {
+        "summary": "List Numbers using Channel Billing for a specific Zone",
+        "description": "Retrieve a list of phone numbers using Channel Billing for a specific Zone.",
         "operationId": "GetNumbersChannelZones",
         "tags": [
           "Voice Channels"
@@ -36596,7 +36655,7 @@
         "name": "channel_zone_id",
         "in": "path",
         "description": "Channel zone identifier",
-        "required": false,
+        "required": true,
         "schema": {
           "type": "string"
         }
@@ -63197,6 +63256,25 @@
           "data"
         ],
         "title": "EmbeddingSimilaritySearchResponse"
+      },
+      "EmbeddingUrlRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "URL",
+            "description": "The URL of the webpage to embed"
+          },
+          "bucket_name": {
+            "type": "string",
+            "title": "Bucket Name",
+            "description": "Name of the bucket to store the embeddings. If not provided, a new bucket will be created."
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "EmbeddingUrlRequest"
       },
       "EmbeddingsBucketFiles": {
         "properties": {

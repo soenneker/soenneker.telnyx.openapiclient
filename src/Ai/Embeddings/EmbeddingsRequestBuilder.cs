@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Buckets;
 using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Item;
 using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.SimilaritySearch;
+using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Url;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -29,6 +30,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Embeddings
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.SimilaritySearch.SimilaritySearchRequestBuilder SimilaritySearch
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.SimilaritySearch.SimilaritySearchRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The url property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Url.UrlRequestBuilder Url
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Embeddings.Url.UrlRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.embeddings.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
