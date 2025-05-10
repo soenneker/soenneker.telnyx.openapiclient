@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Csv_downloadsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/csv_downloads{?page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Csv_downloadsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/csv_downloads{?csv_format*,filter%5Bbilling_group_id%5D*,filter%5Bconnection_id%5D*,filter%5Bcustomer_reference%5D*,filter%5Bemergency_address_id%5D*,filter%5Bhas_bundle%5D*,filter%5Bphone_number%5D*,filter%5Bstatus%5D*,filter%5Btag%5D*,filter%5Bvoice%2Econnection_name%5D%5Bcontains%5D*,filter%5Bvoice%2Eusage_payment_method%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Csv_downloadsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/csv_downloads{?page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Csv_downloadsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/csv_downloads{?csv_format*,filter%5Bbilling_group_id%5D*,filter%5Bconnection_id%5D*,filter%5Bcustomer_reference%5D*,filter%5Bemergency_address_id%5D*,filter%5Bhas_bundle%5D*,filter%5Bphone_number%5D*,filter%5Bstatus%5D*,filter%5Btag%5D*,filter%5Bvoice%2Econnection_name%5D%5Bcontains%5D*,filter%5Bvoice%2Eusage_payment_method%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -102,11 +102,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsPostResponse?> PostAsCsv_downloadsPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsPostResponse?> PostAsCsv_downloadsPostResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder.Csv_downloadsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsPostResponse> PostAsCsv_downloadsPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsPostResponse> PostAsCsv_downloadsPostResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder.Csv_downloadsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -126,11 +126,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         [Obsolete("This method is obsolete. Use PostAsCsv_downloadsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsResponse?> PostAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder.Csv_downloadsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsResponse> PostAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder.Csv_downloadsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -166,11 +166,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder.Csv_downloadsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder.Csv_downloadsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
@@ -193,10 +193,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Csv_downloadsRequestBuilderGetQueryParameters 
         {
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }
@@ -209,11 +209,140 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         {
         }
         /// <summary>
+        /// Create a CSV download
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Csv_downloadsRequestBuilderPostQueryParameters 
+        {
+            /// <summary>Which format to use when generating the CSV file. The default for backwards compatibility is &apos;V1&apos;</summary>
+            [Obsolete("This property is deprecated, use CsvFormatAsPostCsvFormatQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("csv_format")]
+            public string? CsvFormat { get; set; }
+#nullable restore
+#else
+            [QueryParameter("csv_format")]
+            public string CsvFormat { get; set; }
+#endif
+            /// <summary>Which format to use when generating the CSV file. The default for backwards compatibility is &apos;V1&apos;</summary>
+            [QueryParameter("csv_format")]
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.PostCsv_formatQueryParameterType? CsvFormatAsPostCsvFormatQueryParameterType { get; set; }
+            /// <summary>Filter by the billing_group_id associated with phone numbers. To filter to only phone numbers that have no billing group associated them, set the value of this filter to the string &apos;null&apos;.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bbilling_group_id%5D")]
+            public string? FilterbillingGroupId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bbilling_group_id%5D")]
+            public string FilterbillingGroupId { get; set; }
+#endif
+            /// <summary>Filter by connection_id.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bconnection_id%5D")]
+            public string? FilterconnectionId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bconnection_id%5D")]
+            public string FilterconnectionId { get; set; }
+#endif
+            /// <summary>Filter numbers via the customer_reference set.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bcustomer_reference%5D")]
+            public string? FiltercustomerReference { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bcustomer_reference%5D")]
+            public string FiltercustomerReference { get; set; }
+#endif
+            /// <summary>Filter by the emergency_address_id associated with phone numbers. To filter only phone numbers that have no emergency address associated with them, set the value of this filter to the string &apos;null&apos;.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bemergency_address_id%5D")]
+            public string? FilteremergencyAddressId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bemergency_address_id%5D")]
+            public string FilteremergencyAddressId { get; set; }
+#endif
+            /// <summary>Filter by phone number that have bundles.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bhas_bundle%5D")]
+            public string? FilterhasBundle { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bhas_bundle%5D")]
+            public string FilterhasBundle { get; set; }
+#endif
+            /// <summary>Filter by phone number. Requires at least three digits.             Non-numerical characters will result in no values being returned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bphone_number%5D")]
+            public string? FilterphoneNumber { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bphone_number%5D")]
+            public string FilterphoneNumber { get; set; }
+#endif
+            /// <summary>Filter by phone number status.</summary>
+            [Obsolete("This property is deprecated, use FilterstatusAsPostFilterStatusQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bstatus%5D")]
+            public string? Filterstatus { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bstatus%5D")]
+            public string Filterstatus { get; set; }
+#endif
+            /// <summary>Filter by phone number status.</summary>
+            [QueryParameter("filter%5Bstatus%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.PostFilterStatusQueryParameterType? FilterstatusAsPostFilterStatusQueryParameterType { get; set; }
+            /// <summary>Filter by phone number tags.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Btag%5D")]
+            public string? Filtertag { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Btag%5D")]
+            public string Filtertag { get; set; }
+#endif
+            /// <summary>Filter contains connection name. Requires at least three characters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bvoice%2Econnection_name%5D%5Bcontains%5D")]
+            public string? FiltervoiceConnectionNamecontains { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bvoice%2Econnection_name%5D%5Bcontains%5D")]
+            public string FiltervoiceConnectionNamecontains { get; set; }
+#endif
+            /// <summary>Filter by usage_payment_method.</summary>
+            [Obsolete("This property is deprecated, use FiltervoiceUsagePaymentMethodAsPostFilterVoiceUsagePaymentMethodQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bvoice%2Eusage_payment_method%5D")]
+            public string? FiltervoiceUsagePaymentMethod { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bvoice%2Eusage_payment_method%5D")]
+            public string FiltervoiceUsagePaymentMethod { get; set; }
+#endif
+            /// <summary>Filter by usage_payment_method.</summary>
+            [QueryParameter("filter%5Bvoice%2Eusage_payment_method%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.PostFilterVoiceUsage_payment_methodQueryParameterType? FiltervoiceUsagePaymentMethodAsPostFilterVoiceUsagePaymentMethodQueryParameterType { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Csv_downloadsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class Csv_downloadsRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder.Csv_downloadsRequestBuilderPostQueryParameters>
         {
         }
     }

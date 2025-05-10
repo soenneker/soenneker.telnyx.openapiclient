@@ -213,10 +213,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Webhook_deliveries
             [QueryParameter("filter%5Bwebhook%5D%5Bcontains%5D")]
             public string Filterwebhookcontains { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }
