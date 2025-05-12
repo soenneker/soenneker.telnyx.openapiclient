@@ -9,43 +9,33 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class EmbeddingUrlRequest : IAdditionalDataHolder, IParsable
+    public partial class TranscriptionEngineBConfig : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Name of the bucket to store the embeddings. This bucket must already exist.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BucketName { get; set; }
-#nullable restore
-#else
-        public string BucketName { get; set; }
-#endif
-        /// <summary>The URL of the webpage to embed</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Url { get; set; }
-#nullable restore
-#else
-        public string Url { get; set; }
-#endif
+        /// <summary>Language to use for speech recognition</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage? Language { get; set; }
+        /// <summary>The model to use for transcription.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_model? TranscriptionModel { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingUrlRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig"/> and sets the default values.
         /// </summary>
-        public EmbeddingUrlRequest()
+        public TranscriptionEngineBConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            Language = global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage.En;
+            TranscriptionModel = global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_model.OpenaiWhisperTiny;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingUrlRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingUrlRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingUrlRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +45,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "bucket_name", n => { BucketName = n.GetStringValue(); } },
-                { "url", n => { Url = n.GetStringValue(); } },
+                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage>(); } },
+                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_model>(); } },
             };
         }
         /// <summary>
@@ -66,8 +56,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("bucket_name", BucketName);
-            writer.WriteStringValue("url", Url);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage>("language", Language);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_model>("transcription_model", TranscriptionModel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

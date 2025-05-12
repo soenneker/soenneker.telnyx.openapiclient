@@ -5307,7 +5307,7 @@
     "/calls/{call_control_id}/actions/ai_assistant_start": {
       "post": {
         "summary": "Start AI Assistant",
-        "description": "Start an AI assistant on the call.",
+        "description": "Start an AI assistant on the call.\n\n**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-start-ai-assistant#callbacks) below):**\n\n- `call.conversation_insights.generated`\n",
         "operationId": "CallStartAIAssistant",
         "tags": [
           "Call Commands"
@@ -5334,6 +5334,29 @@
           },
           "default": {
             "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "callbacks": {
+          "callConversationInsightsGenerated": {
+            "{$request.body#/webhook_url}": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/callConversationInsightsGeneratedEvent"
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "The server must return an HTTP 200, otherwise we will reattempt delivery at the failover webhook URL."
+                  }
+                }
+              }
+            }
           }
         },
         "x-latency-category": "interactive"
@@ -44539,6 +44562,11 @@
               "openai_api_key_ref": {
                 "type": "string",
                 "description": "Reference to the OpenAI API key. Required only when using OpenAI models"
+              },
+              "instructions": {
+                "description": "The system instructions that the voice assistant uses during the start assistant command. This will overwrite the instructions set in the assistant configuration.",
+                "type": "string",
+                "example": "You are a friendly voice assistant."
               }
             }
           },
@@ -47187,6 +47215,18 @@
             "minLength": 1,
             "maxLength": 40,
             "example": "my_recording_file_name"
+          },
+          "mute_dtmf": {
+            "description": "When enabled, DTMF tones are not passed to the call participant. The webhooks containing the DTMF information will be sent.",
+            "type": "string",
+            "enum": [
+              "none",
+              "both",
+              "self",
+              "opposite"
+            ],
+            "default": "none",
+            "example": "opposite"
           }
         },
         "example": {
@@ -51373,7 +51413,8 @@
             "type": "string",
             "enum": [
               "disabled",
-              "SRTP"
+              "SRTP",
+              "DTLS"
             ]
           },
           "sip_auth_username": {
@@ -62077,12 +62118,13 @@
           "bucket_name": {
             "type": "string",
             "title": "Bucket Name",
-            "description": "Name of the bucket to store the embeddings. If not provided, a new bucket will be created."
+            "description": "Name of the bucket to store the embeddings. This bucket must already exist."
           }
         },
         "type": "object",
         "required": [
-          "url"
+          "url",
+          "bucket_name"
         ],
         "title": "EmbeddingUrlRequest"
       },
@@ -83697,10 +83739,127 @@
         "description": "The settings associated with speech to text for the voice assistant. This is only relevant if the assistant uses a text-to-text language model. Any assistant using a model with native audio support (e.g. `fixie-ai/ultravox-v0_4`) will ignore this field.",
         "properties": {
           "model": {
-            "description": "The speech to text model to be used by the voice assistant.\n\n- `distil-whisper/distil-large-v2` is lower latency but English-only\n- `openai/whisper-large-v3-turbo` is multi-lingual with automatic language detection but slightly higher latency\n- `google` is a multi-lingual option, please describe the language in the `language` field.",
+            "description": "The speech to text model to be used by the voice assistant.\n\n- `distil-whisper/distil-large-v2` is lower latency but English-only.\n- `openai/whisper-large-v3-turbo` is multi-lingual with automatic language detection but slightly higher latency.\n- `google` is a multi-lingual option, please describe the language in the `language` field.",
             "type": "string",
             "default": "distil-whisper/distil-large-v2",
             "example": "distil-whisper/distil-large-v2"
+          }
+        }
+      },
+      "TranscriptionEngineAConfig": {
+        "type": "object",
+        "title": "Transcription engine A config",
+        "properties": {
+          "language": {
+            "$ref": "#/components/schemas/GoogleTranscriptionLanguage"
+          },
+          "interim_results": {
+            "type": "boolean",
+            "description": "Whether to send also interim results. If set to false, only final results will be sent.",
+            "default": false,
+            "example": true
+          },
+          "enable_speaker_diarization": {
+            "type": "boolean",
+            "description": "Enables speaker diarization.",
+            "default": false,
+            "example": true
+          },
+          "min_speaker_count": {
+            "description": "Defines minimum number of speakers in the conversation.",
+            "type": "integer",
+            "example": 4,
+            "default": 2,
+            "format": "int32"
+          },
+          "max_speaker_count": {
+            "description": "Defines maximum number of speakers in the conversation.",
+            "type": "integer",
+            "example": 4,
+            "default": 6,
+            "format": "int32"
+          },
+          "profanity_filter": {
+            "description": "Enables profanity_filter.",
+            "type": "boolean",
+            "default": false,
+            "example": true
+          },
+          "use_enhanced": {
+            "description": "Enables enhanced transcription, this works for models `phone_call` and `video`.",
+            "type": "boolean",
+            "default": false,
+            "example": true
+          },
+          "model": {
+            "description": "The model to use for transcription.",
+            "type": "string",
+            "enum": [
+              "latest_long",
+              "latest_short",
+              "command_and_search",
+              "phone_call",
+              "video",
+              "default",
+              "medical_conversation",
+              "medical_dictation"
+            ]
+          },
+          "hints": {
+            "description": "Hints to improve transcription accuracy.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "example": [
+              "Telnyx"
+            ]
+          },
+          "speech_context": {
+            "description": "Speech context to improve transcription accuracy.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "phrases": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": [],
+                  "example": [
+                    "Telnyx"
+                  ]
+                },
+                "boost": {
+                  "type": "number",
+                  "description": "Boost factor for the speech context.",
+                  "default": 1.0,
+                  "minimum": 0.0,
+                  "maximum": 20.0,
+                  "example": 1.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "TranscriptionEngineBConfig": {
+        "type": "object",
+        "title": "Transcription engine B config",
+        "properties": {
+          "language": {
+            "$ref": "#/components/schemas/TelnyxTranscriptionLanguage"
+          },
+          "transcription_model": {
+            "description": "The model to use for transcription.",
+            "type": "string",
+            "enum": [
+              "openai/whisper-tiny",
+              "openai/whisper-large-v3-turbo"
+            ],
+            "default": "openai/whisper-tiny"
           }
         }
       },
@@ -83736,48 +83895,22 @@
             "default": "A",
             "example": "A"
           },
-          "language": {
+          "transcription_engine_config": {
             "oneOf": [
               {
-                "$ref": "#/components/schemas/GoogleTranscriptionLanguage"
+                "$ref": "#/components/schemas/TranscriptionEngineAConfig"
               },
               {
-                "$ref": "#/components/schemas/TelnyxTranscriptionLanguage"
+                "$ref": "#/components/schemas/TranscriptionEngineBConfig"
               }
             ],
             "discriminator": {
               "propertyName": "transcription_engine",
               "mapping": {
-                "A": "#/components/schemas/GoogleTranscriptionLanguage",
-                "B": "#/components/schemas/TelnyxTranscriptionLanguage"
+                "A": "#/components/schemas/TranscriptionEngineAConfig",
+                "B": "#/components/schemas/TranscriptionEngineBConfig"
               }
             }
-          },
-          "interim_results": {
-            "type": "boolean",
-            "description": "Whether to send also interim results. If set to false, only final results will be sent. Applies to `google` engine only.",
-            "default": false,
-            "example": true
-          },
-          "enable_speaker_diarization": {
-            "type": "boolean",
-            "description": "Enables speaker diarization. Applies to `google` engine only.",
-            "default": false,
-            "example": true
-          },
-          "min_speaker_count": {
-            "description": "Defines minimum number of speakers in the conversation. Applies to `google` engine only.",
-            "type": "integer",
-            "example": 4,
-            "default": 2,
-            "format": "int32"
-          },
-          "max_speaker_count": {
-            "description": "Defines maximum number of speakers in the conversation. Applies to `google` engine only.",
-            "type": "integer",
-            "example": 4,
-            "default": 6,
-            "format": "int32"
           },
           "client_state": {
             "description": "Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.",
@@ -84051,7 +84184,8 @@
             "type": "string",
             "enum": [
               "disabled",
-              "SRTP"
+              "SRTP",
+              "DTLS"
             ]
           },
           "sip_auth_username": {
@@ -84104,6 +84238,18 @@
               "GET"
             ],
             "example": "GET"
+          },
+          "mute_dtmf": {
+            "description": "When enabled, DTMF tones are not passed to the call participant. The webhooks containing the DTMF information will be sent.",
+            "type": "string",
+            "enum": [
+              "none",
+              "both",
+              "self",
+              "opposite"
+            ],
+            "default": "none",
+            "example": "opposite"
           }
         }
       },
@@ -88775,7 +88921,7 @@
         ]
       },
       "VoiceConfig": {
-        "description": "The voice to be used by the voice assistant. Currently we support ElevenLabs, Telnyx and AWS voices.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). For long-form engine, append `-LongForm` to the `VoiceId` (e.g., `AWS.Polly.Danielle-LongForm`). For generative engine, the latest provided by AWS Polly, append `-Generative` to the `VoiceId` (e.g., `AWS.Polly.Danielle-Generative`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.BaseModel.John`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration secret under `\"voice_settings\": {\"api_key_ref\": \"<secret_id>\"}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`",
+        "description": "The voice to be used by the voice assistant. Currently we support ElevenLabs, Telnyx and AWS voices.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). For long-form engine, append `-LongForm` to the `VoiceId` (e.g., `AWS.Polly.Danielle-LongForm`). For generative engine, the latest provided by AWS Polly, append `-Generative` to the `VoiceId` (e.g., `AWS.Polly.Danielle-Generative`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.BaseModel.John`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration secret under `\"voice_settings\": {\"api_key_ref\": \"<secret_id>\"}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`",
         "type": "string",
         "default": "Telnyx.KokoroTTS.af",
         "example": "Telnyx.KokoroTTS.af"
@@ -89899,6 +90045,140 @@
         "type": "string",
         "description": "The business name associated with the address. An address must have either a first last name or a business name.",
         "example": "Toy-O'Kon"
+      },
+      "callConversationInsightsGenerated": {
+        "type": "object",
+        "title": "Call Conversation Insights Generated",
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "example": "event",
+            "enum": [
+              "event"
+            ],
+            "description": "Identifies the type of the resource."
+          },
+          "event_type": {
+            "type": "string",
+            "example": "call.conversation_insights.generated",
+            "enum": [
+              "call.conversation_insights.generated"
+            ],
+            "description": "The type of event being delivered."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
+            "description": "Identifies the type of resource."
+          },
+          "occurred_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2018-02-02T22:25:27.521992Z",
+            "description": "ISO 8601 datetime of when the event occurred."
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "call_control_id": {
+                "type": "string",
+                "example": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+                "description": "Call ID used to issue commands via Call Control API."
+              },
+              "connection_id": {
+                "type": "string",
+                "example": "7267xxxxxxxxxxxxxx",
+                "description": "Call Control App ID (formerly Telnyx connection ID) used in the call."
+              },
+              "call_leg_id": {
+                "type": "string",
+                "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1",
+                "description": "ID that is unique to the call and can be used to correlate webhook events."
+              },
+              "call_session_id": {
+                "type": "string",
+                "example": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1",
+                "description": "ID that is unique to the call session and can be used to correlate webhook events. Call session is a group of related call legs that logically belong to the same phone call, e.g. an inbound and outbound leg of a transferred call."
+              },
+              "client_state": {
+                "type": "string",
+                "example": "aGF2ZSBhIG5pY2UgZGF5ID1d",
+                "description": "State received from a command."
+              },
+              "calling_party_type": {
+                "type": "string",
+                "example": "pstn",
+                "enum": [
+                  "pstn",
+                  "sip"
+                ],
+                "description": "The type of calling party connection."
+              },
+              "insight_group_id": {
+                "type": "string",
+                "example": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1",
+                "description": "ID that is unique to the insight group being generated for the call."
+              },
+              "results": {
+                "type": "array",
+                "description": "Array of insight results being generated for the call.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "insight_id": {
+                      "type": "string",
+                      "example": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1",
+                      "description": "ID that is unique to the insight result being generated for the call."
+                    },
+                    "result": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "description": "The result of the insight."
+                        },
+                        {
+                          "type": "string",
+                          "description": "The result of the insight."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "record_type": "event",
+          "event_type": "call.conversation_insights.generated",
+          "id": "898e96ef-be63-45aa-9e7d-01332bff9a97",
+          "occurred_at": "2025-02-19T17:02:49.371454Z",
+          "payload": {
+            "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+            "connection_id": "7267xxxxxxxxxxxxxx",
+            "call_leg_id": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1",
+            "call_session_id": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1",
+            "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
+            "calling_party_type": "pstn",
+            "insight_group_id": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1",
+            "results": [
+              {
+                "insight_id": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1",
+                "result": "The user inquired about the menu at Ember & Oak. The menu offers various options, including vegetarian, vegan, and gluten-free dishes, as well as a children's menu. The restaurant also has a daily happy hour from 4 PM to 6 PM and offers takeaway and delivery services. The user found the information helpful but had to leave without making any further decisions or requests. No specific preferences or goals were expressed beyond inquiring about the menu."
+              }
+            ]
+          }
+        }
+      },
+      "callConversationInsightsGeneratedEvent": {
+        "type": "object",
+        "title": "Call Conversation Insights Generated Event",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/callConversationInsightsGenerated"
+          }
+        }
       },
       "callRecordingError": {
         "type": "object",

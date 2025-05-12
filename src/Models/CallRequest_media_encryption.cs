@@ -15,5 +15,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         SRTP,
         #pragma warning restore CS1591
+        [EnumMember(Value = "DTLS")]
+        #pragma warning disable CS1591
+        DTLS,
+        #pragma warning restore CS1591
     }
 }

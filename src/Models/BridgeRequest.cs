@@ -38,6 +38,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CommandId { get; set; }
 #endif
+        /// <summary>When enabled, DTMF tones are not passed to the call participant. The webhooks containing the DTMF information will be sent.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_mute_dtmf? MuteDtmf { get; set; }
         /// <summary>Specifies behavior after the bridge ends (i.e. the opposite leg either hangs up or is transferred). If supplied with the value `self`, the current leg will be parked after unbridge. If not set, the default behavior is to hang up the leg.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -96,6 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public BridgeRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            MuteDtmf = global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_mute_dtmf.None;
             RecordChannels = global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_channels.Dual;
             RecordFormat = global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_format.Mp3;
             RecordTrack = global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_record_track.Both;
@@ -122,6 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
+                { "mute_dtmf", n => { MuteDtmf = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_mute_dtmf>(); } },
                 { "park_after_unbridge", n => { ParkAfterUnbridge = n.GetStringValue(); } },
                 { "play_ringtone", n => { PlayRingtone = n.GetBoolValue(); } },
                 { "queue", n => { Queue = n.GetStringValue(); } },
@@ -148,6 +152,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("call_control_id", CallControlId);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BridgeRequest_mute_dtmf>("mute_dtmf", MuteDtmf);
             writer.WriteStringValue("park_after_unbridge", ParkAfterUnbridge);
             writer.WriteBoolValue("play_ringtone", PlayRingtone);
             writer.WriteStringValue("queue", Queue);

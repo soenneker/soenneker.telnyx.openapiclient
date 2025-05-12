@@ -23,6 +23,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>The system instructions that the voice assistant uses during the start assistant command. This will overwrite the instructions set in the assistant configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Instructions { get; set; }
+#nullable restore
+#else
+        public string Instructions { get; set; }
+#endif
         /// <summary>Reference to the OpenAI API key. Required only when using OpenAI models</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "openai_api_key_ref", n => { OpenaiApiKeyRef = n.GetStringValue(); } },
             };
         }
@@ -68,6 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("instructions", Instructions);
             writer.WriteStringValue("openai_api_key_ref", OpenaiApiKeyRef);
             writer.WriteAdditionalData(AdditionalData);
         }
