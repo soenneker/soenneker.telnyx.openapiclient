@@ -3,8 +3,8 @@
   "info": {
     "version": "2.0.0",
     "title": "Telnyx API",
-    "x-endpoint-cost": "light",
     "description": "SIP trunking, SMS, MMS, Call Control and Telephony Data Services.",
+    "x-endpoint-cost": "light",
     "license": {
       "name": "MIT"
     },
@@ -1503,6 +1503,256 @@
             "content": {
               "application/json": {
                 "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
+    "/ai/assistants/{assistant_id}/scheduled_events": {
+      "get": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "List scheduled events",
+        "description": "Get scheduled events for an assistant with pagination and filtering",
+        "operationId": "get_scheduled_events",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Page[Size]"
+            }
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page[Number]"
+            }
+          },
+          {
+            "name": "from_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "title": "From Date"
+            }
+          },
+          {
+            "name": "to_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "title": "To Date"
+            }
+          },
+          {
+            "name": "conversation_channel",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/ConversationChannelType",
+              "title": "Conversation Channel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedScheduledEventList"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      },
+      "post": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Create a scheduled event",
+        "description": "Create a scheduled event for an assistant",
+        "operationId": "create_scheduled_event",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateScheduledEventRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledEventResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
+    "/ai/assistants/{assistant_id}/scheduled_events/{event_id}": {
+      "delete": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Delete a scheduled event",
+        "description": "If the event is pending, this will cancel the event. Otherwise, this will simply remove the record of the event.",
+        "operationId": "delete_scheduled_event",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          },
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      },
+      "get": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Get a scheduled event",
+        "description": "Retrieve a scheduled event by event ID",
+        "operationId": "get_scheduled_event",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          },
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScheduledEventResponse"
+                }
               }
             }
           },
@@ -35855,11 +36105,12 @@
       },
       "ConnectionId": {
         "name": "connection_id",
-        "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+        "description": "Telnyx connection id",
         "in": "path",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "example": "1293384261075731461"
         }
       },
       "CreatedAtGtFilter": {
@@ -36348,7 +36599,8 @@
         "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
         "schema": {
           "type": "string",
-          "default": null
+          "default": null,
+          "example": "My Connection"
         }
       },
       "FilterCostByAmount": {
@@ -37052,7 +37304,7 @@
       "PageNumber": {
         "name": "page[number]",
         "in": "query",
-        "description": "The page number to load.",
+        "description": "The page number to load",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -37062,7 +37314,7 @@
       "PageSize": {
         "name": "page[size]",
         "in": "query",
-        "description": "The size of the page.",
+        "description": "The size of the page",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -37296,16 +37548,15 @@
       "Sort": {
         "name": "sort",
         "in": "query",
+        "description": "Set the order of the results by the creation date.",
         "required": false,
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>email</code>: sorts the result by the\n    <code>email</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-email</code>: sorts the result by the\n    <code>email</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
           "enum": [
-            "created_at",
-            "email"
+            "asc",
+            "desc"
           ],
-          "example": "email",
-          "default": "created_at"
+          "example": "desc"
         }
       },
       "SortAddress": {
@@ -37329,21 +37580,22 @@
       "SortApplication": {
         "name": "sort",
         "in": "query",
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>application_name</code>: sorts the result by the\n    <code>application_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-application_name</code>: sorts the result by the\n    <code>application_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
           "enum": [
             "created_at",
-            "friendly_name",
+            "application_name",
             "active"
           ],
-          "example": "friendly_name",
+          "example": "application_name",
           "default": "created_at"
         }
       },
       "SortConnection": {
         "name": "sort",
         "in": "query",
+        "required": false,
         "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>connection_name</code>: sorts the result by the\n    <code>connection_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-connection_name</code>: sorts the result by the\n    <code>connection_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
@@ -37429,21 +37681,23 @@
         "example": "2023-05-22"
       },
       "Status": {
-        "name": "Status",
+        "name": "filter[status][eq]",
         "in": "query",
-        "required": false,
-        "description": "Filters calls by status.",
+        "description": "The status of a notification setting",
         "schema": {
           "type": "string",
           "enum": [
-            "canceled",
-            "completed",
-            "failed",
-            "busy",
-            "no-answer"
-          ]
-        },
-        "example": "no-answer"
+            "enabled",
+            "enable-received",
+            "enable-pending",
+            "enable-submtited",
+            "delete-received",
+            "delete-pending",
+            "delete-submitted",
+            "deleted"
+          ],
+          "example": "enable-received"
+        }
       },
       "StatusEqFilter": {
         "name": "filter[status][eq]",
@@ -39558,7 +39812,19 @@
         }
       },
       "ForbiddenResponse": {
-        "description": "Unauthorized response. Happens when the current user is not authorized to access the endpoint."
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Errors"
+            },
+            "examples": {
+              "Not authorized": {
+                "$ref": "#/components/examples/NotAuthorized"
+              }
+            }
+          }
+        }
       },
       "FqdnConnectionResponse": {
         "description": "Successful response with details about an FQDN connection.",
@@ -42441,14 +42707,7 @@
         }
       },
       "NotFoundResponse": {
-        "description": "Resource not found",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/ResourceNotFoundError"
-            }
-          }
-        }
+        "description": "Fax does not exist"
       },
       "NotFoundResponseApp": {
         "description": "The requested resource doesn't exist.",
@@ -43920,7 +44179,7 @@
         }
       },
       "UnauthorizedResponse": {
-        "description": "Unauthenticated response. Happens when the current user cannot be authenticated."
+        "description": "Unauthorized"
       },
       "UnexpectedErrorResponse": {
         "description": "An unexpected error occurred.",
@@ -45672,6 +45931,9 @@
           },
           "insight_settings": {
             "$ref": "#/components/schemas/InsightSettings"
+          },
+          "privacy_settings": {
+            "$ref": "#/components/schemas/PrivacySettings"
           },
           "dynamic_variables_webhook_url": {
             "type": "string",
@@ -56274,6 +56536,14 @@
           "last_message_at"
         ]
       },
+      "ConversationChannelType": {
+        "type": "string",
+        "enum": [
+          "phone_call",
+          "sms_chat"
+        ],
+        "title": "ConversationChannelType"
+      },
       "ConversationInsight": {
         "type": "object",
         "required": [
@@ -56715,6 +56985,9 @@
           },
           "insight_settings": {
             "$ref": "#/components/schemas/InsightSettings"
+          },
+          "privacy_settings": {
+            "$ref": "#/components/schemas/PrivacySettings"
           },
           "dynamic_variables_webhook_url": {
             "type": "string",
@@ -59119,6 +59392,60 @@
           }
         }
       },
+      "CreateScheduledEventRequest": {
+        "properties": {
+          "telnyx_conversation_channel": {
+            "$ref": "#/components/schemas/ConversationChannelType"
+          },
+          "telnyx_end_user_target": {
+            "type": "string",
+            "description": "The phone number, SIP URI, to schedule the call or text to.",
+            "title": "Telnyx End User Target"
+          },
+          "telnyx_agent_target": {
+            "type": "string",
+            "description": "The phone number, SIP URI, to schedule the call or text from.",
+            "title": "Telnyx Agent Target"
+          },
+          "scheduled_at_fixed_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The datetime at which the event should be scheduled. Formatted as ISO 8601.",
+            "example": "2025-04-15T13:07:28.764Z",
+            "title": "Scheduled At Fixed Datetime"
+          },
+          "text": {
+            "type": "string",
+            "description": "Required for sms scheduled events. The text to be sent to the end user."
+          },
+          "conversation_metadata": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            "type": "object",
+            "description": "Metadata associated with the conversation. Telnyx provides several pieces of metadata, but customers can also add their own.",
+            "title": "Conversation Metadata"
+          }
+        },
+        "type": "object",
+        "required": [
+          "telnyx_conversation_channel",
+          "telnyx_end_user_target",
+          "telnyx_agent_target",
+          "scheduled_at_fixed_datetime"
+        ],
+        "title": "CreateScheduledEventRequest"
+      },
       "CreateShortCodeMessageRequest": {
         "type": "object",
         "required": [
@@ -59673,10 +60000,10 @@
         }
       },
       "CreatedAt": {
-        "title": "Created At",
         "type": "string",
-        "description": "ISO 8601 formatted date indicating when the resource was created.",
-        "example": "2020-02-02T22:25:27.521Z"
+        "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+        "readOnly": true,
+        "example": "2018-02-02T22:25:27.521Z"
       },
       "CreatedUserBundlesResponse": {
         "title": "CreatedUserBundlesResponse",
@@ -60151,15 +60478,19 @@
           "cursors": {
             "$ref": "#/components/schemas/Cursor"
           },
+          "total_items": {
+            "type": "integer",
+            "example": 50
+          },
           "next": {
             "type": "string",
             "description": "Path to next page.",
-            "example": "/v2/recording_transcriptions?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/connections/1234567890/active_calls?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           },
           "previous": {
             "type": "string",
             "description": "Path to previous page.",
-            "example": "/v2/recording_transcriptions?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/connections/1234567890/active_calls?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           }
         }
       },
@@ -62311,14 +62642,15 @@
         "example": "{\"page\": 1, \"records\": [{\"isin\": \"US68243Q1067\", \"iso2\": \"US\", \"symbol\": \"FLWS\", \"exchange\": \"NASDAQ\", \"displayName\": \"1-800 FLOWERS.COM, Inc.\"}, {\"isin\": \"US88025U1097\", \"iso2\": \"US\", \"symbol\": \"TXG\", \"exchange\": \"NASDAQ\", \"displayName\": \"10X GENOMICS INC CLASS A\"}], \"totalRecords\": 2}"
       },
       "Error": {
+        "type": "object",
         "required": [
           "code",
           "title"
         ],
         "properties": {
           "code": {
-            "type": "string",
-            "format": "int"
+            "type": "integer",
+            "format": "int32"
           },
           "title": {
             "type": "string"
@@ -62336,13 +62668,13 @@
               },
               "parameter": {
                 "description": "Indicates which query parameter caused the error.",
-                "type": "string",
-                "example": "+15617819942"
+                "type": "string"
               }
             }
           },
           "meta": {
-            "type": "object"
+            "type": "object",
+            "properties": {}
           }
         }
       },
@@ -62412,6 +62744,7 @@
         }
       },
       "Errors": {
+        "type": "object",
         "properties": {
           "errors": {
             "type": "array",
@@ -62420,6 +62753,16 @@
             }
           }
         }
+      },
+      "EventStatus": {
+        "type": "string",
+        "enum": [
+          "pending",
+          "in_progress",
+          "completed",
+          "failed"
+        ],
+        "title": "EventStatus"
       },
       "ExportPortingOrdersCSVReport": {
         "description": "The parameters for generating a porting orders CSV report.",
@@ -65522,17 +65865,17 @@
         ]
       },
       "HTTPValidationError": {
-        "title": "HTTPValidationError",
-        "type": "object",
         "properties": {
           "detail": {
-            "title": "Detail",
-            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ValidationError"
-            }
+            },
+            "type": "array",
+            "title": "Detail"
           }
-        }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
       },
       "HangupRequest": {
         "type": "object",
@@ -65624,9 +65967,8 @@
       "Id": {
         "type": "string",
         "format": "uuid",
-        "description": "Identifies the resource.",
-        "readOnly": true,
-        "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+        "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
+        "description": "Identifies the type of resource."
       },
       "ImportExternalVetting": {
         "title": "ImportExternalVetting",
@@ -68905,34 +69247,36 @@
         }
       },
       "Metadata": {
-        "type": "object",
-        "title": "Metadata",
         "properties": {
-          "total_pages": {
-            "type": "number",
-            "description": "Total number of pages based on pagination settings",
-            "example": 13,
-            "format": "double"
-          },
-          "total_results": {
-            "type": "number",
-            "description": "Total number of results",
-            "example": 13,
-            "format": "double"
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "example": 25
           },
           "page_number": {
-            "type": "number",
-            "description": "Current Page based on pagination settings (included when defaults are used.)",
-            "example": 3,
-            "format": "double"
+            "type": "integer",
+            "title": "Page Number",
+            "example": 1
           },
-          "page_size": {
-            "type": "number",
-            "description": "Number of results to return per page based on pagination settings (included when defaults are used.)",
-            "example": 1,
-            "format": "double"
+          "total_pages": {
+            "type": "integer",
+            "title": "Total Pages",
+            "example": 10
+          },
+          "total_results": {
+            "type": "integer",
+            "title": "Total Items",
+            "example": 250
           }
-        }
+        },
+        "required": [
+          "page_size",
+          "page_number",
+          "total_pages",
+          "total_results"
+        ],
+        "type": "object",
+        "title": "Metadata"
       },
       "MigrationParams": {
         "type": "object",
@@ -71310,6 +71654,33 @@
           }
         }
       },
+      "PaginatedScheduledEventList": {
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "data": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/ScheduledPhoneCallEventResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/ScheduledSmsEventResponse"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Data"
+          }
+        },
+        "type": "object",
+        "required": [
+          "meta",
+          "data"
+        ],
+        "title": "PaginatedScheduledEventList"
+      },
       "PaginatedUserBundlesResponse": {
         "title": "PaginatedUserBundlesResponse",
         "required": [
@@ -71403,27 +71774,19 @@
         "properties": {
           "page_number": {
             "type": "integer",
-            "example": [
-              2
-            ]
+            "example": 2
           },
           "page_size": {
             "type": "integer",
-            "example": [
-              25
-            ]
+            "example": 25
           },
           "total_pages": {
             "type": "integer",
-            "example": [
-              3
-            ]
+            "example": 3
           },
           "total_results": {
             "type": "integer",
-            "example": [
-              55
-            ]
+            "example": 55
           }
         }
       },
@@ -72399,7 +72762,8 @@
           "purchased_at": "2019-10-23T18:10:00.000Z",
           "created_at": "2019-10-23T18:10:00.000Z",
           "updated_at": "2019-10-24T18:10:00.000Z",
-          "hd_voice_enabled": true
+          "hd_voice_enabled": true,
+          "source_type": "number_order"
         },
         "properties": {
           "id": {
@@ -72563,6 +72927,16 @@
             ],
             "default": "disabled",
             "description": "The inbound_call_screening setting is a phone number configuration option variable that allows users to configure their settings to block or flag fraudulent calls. It can be set to disabled, reject_calls, or flag_calls. This feature has an additional per-number monthly cost associated with it."
+          },
+          "source_type": {
+            "type": "string",
+            "description": "Indicates if the phone number was purchased or ported in. For some numbers this information may not be available.",
+            "enum": [
+              "number_order",
+              "port_request"
+            ],
+            "nullable": true,
+            "readOnly": true
           }
         }
       },
@@ -75297,6 +75671,15 @@
           }
         }
       },
+      "PrivacySettings": {
+        "properties": {
+          "data_retention": {
+            "type": "boolean",
+            "description": "If true, conversation history and insights will be stored. If false, they will not be stored. This in\u2011tool toggle governs solely the retention of conversation history and insights via the AI assistant. It has no effect on any separate recording, transcription, or storage configuration that you have set at the account, number, or application level. All such external settings remain in force regardless of your selection here."
+          }
+        },
+        "type": "object"
+      },
       "PrivateWirelessGateway": {
         "type": "object",
         "properties": {
@@ -76364,10 +76747,11 @@
       },
       "RecordType": {
         "type": "string",
-        "description": "Identifies record type.",
+        "example": "event",
         "enum": [
-          "custom_storage_credentials"
-        ]
+          "event"
+        ],
+        "description": "Identifies the type of the resource."
       },
       "RecordingResponse": {
         "type": "object",
@@ -77202,28 +77586,33 @@
         }
       },
       "ResourceNotFoundError": {
-        "type": "object",
-        "title": "Resource not found",
-        "example": {
-          "errors": [
-            {
-              "detail": "Resource not found"
-            }
-          ]
-        },
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "detail": {
-                  "type": "string"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GenericError"
+          },
+          {
+            "properties": {
+              "code": {
+                "example": "10005"
+              },
+              "title": {
+                "example": "Resource not found"
+              },
+              "detail": {
+                "example": "The requested resource or URL could not be found."
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://developers.telnyx.com/docs/overview/errors/10005"
+                  }
                 }
               }
             }
           }
-        }
+        ]
       },
       "ResumeConferenceRecordingRequest": {
         "type": "object",
@@ -78817,6 +79206,193 @@
             ]
           }
         }
+      },
+      "ScheduledEventResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ScheduledPhoneCallEventResponse"
+          },
+          {
+            "$ref": "#/components/schemas/ScheduledSmsEventResponse"
+          }
+        ],
+        "title": "ScheduledEventResponse",
+        "description": "Union type for different scheduled event response types"
+      },
+      "ScheduledPhoneCallEventResponse": {
+        "properties": {
+          "telnyx_conversation_channel": {
+            "$ref": "#/components/schemas/ConversationChannelType"
+          },
+          "telnyx_end_user_target": {
+            "type": "string",
+            "title": "Telnyx End User Target"
+          },
+          "telnyx_agent_target": {
+            "type": "string",
+            "title": "Telnyx Agent Target"
+          },
+          "scheduled_at_fixed_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Scheduled At Fixed Datetime"
+          },
+          "assistant_id": {
+            "type": "string",
+            "title": "Assistant Id"
+          },
+          "retry_count": {
+            "type": "integer",
+            "title": "Retry Count",
+            "default": 0
+          },
+          "retry_attempts": {
+            "type": "integer",
+            "title": "Retry Attempts"
+          },
+          "scheduled_event_id": {
+            "type": "string",
+            "title": "Scheduled Event Id"
+          },
+          "conversation_id": {
+            "type": "string",
+            "title": "Conversation Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventStatus"
+              }
+            ],
+            "default": "pending"
+          },
+          "conversation_metadata": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Conversation Metadata"
+          },
+          "errors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Errors"
+          }
+        },
+        "type": "object",
+        "required": [
+          "telnyx_conversation_channel",
+          "telnyx_end_user_target",
+          "telnyx_agent_target",
+          "scheduled_at_fixed_datetime",
+          "assistant_id"
+        ],
+        "title": "ScheduledPhoneCallEventResponse"
+      },
+      "ScheduledSmsEventResponse": {
+        "properties": {
+          "telnyx_conversation_channel": {
+            "$ref": "#/components/schemas/ConversationChannelType"
+          },
+          "telnyx_end_user_target": {
+            "type": "string",
+            "title": "Telnyx End User Target"
+          },
+          "telnyx_agent_target": {
+            "type": "string",
+            "title": "Telnyx Agent Target"
+          },
+          "scheduled_at_fixed_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Scheduled At Fixed Datetime"
+          },
+          "assistant_id": {
+            "type": "string",
+            "title": "Assistant Id"
+          },
+          "retry_count": {
+            "type": "integer",
+            "title": "Retry Count",
+            "default": 0
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "scheduled_event_id": {
+            "type": "string",
+            "title": "Scheduled Event Id"
+          },
+          "conversation_id": {
+            "type": "string",
+            "title": "Conversation Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventStatus"
+              }
+            ],
+            "default": "pending"
+          },
+          "conversation_metadata": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Conversation Metadata"
+          },
+          "errors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Errors"
+          }
+        },
+        "type": "object",
+        "required": [
+          "telnyx_conversation_channel",
+          "telnyx_end_user_target",
+          "telnyx_agent_target",
+          "scheduled_at_fixed_datetime",
+          "assistant_id",
+          "text"
+        ],
+        "title": "ScheduledSmsEventResponse"
       },
       "SearchedSIMCardGroup": {
         "title": "SIMCardGroup",
@@ -84397,39 +84973,42 @@
         ]
       },
       "UnprocessableEntityError": {
-        "required": [
-          "code",
-          "title"
-        ],
-        "properties": {
-          "code": {
-            "type": "string",
-            "format": "int"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GenericError"
           },
-          "title": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          },
-          "source": {
-            "type": "object",
+          {
             "properties": {
-              "pointer": {
-                "description": "JSON pointer (RFC6901) to the offending entity.",
-                "type": "string",
-                "format": "json-pointer"
+              "code": {
+                "example": "10002"
               },
-              "parameter": {
-                "description": "Indicates which query parameter caused the error.",
-                "type": "string"
+              "title": {
+                "example": "Invalid phone number"
+              },
+              "detail": {
+                "example": "The phone number is invalid."
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "pointer": {
+                    "type": "string",
+                    "example": "/phone_numbers"
+                  }
+                }
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://developers.telnyx.com/docs/overview/errors/10002"
+                  }
+                }
               }
             }
-          },
-          "meta": {
-            "type": "object"
           }
-        }
+        ]
       },
       "UnusedUserBundlesResponse": {
         "title": "UnusedUserBundlesResponse",
@@ -84521,6 +85100,9 @@
           },
           "insight_settings": {
             "$ref": "#/components/schemas/InsightSettings"
+          },
+          "privacy_settings": {
+            "$ref": "#/components/schemas/PrivacySettings"
           },
           "dynamic_variables_webhook_url": {
             "type": "string",
@@ -85102,31 +85684,54 @@
         }
       },
       "UpdateConferenceRequest": {
+        "required": [
+          "call_control_id",
+          "supervisor_role"
+        ],
         "type": "object",
         "title": "Update Conference Request",
         "properties": {
-          "Status": {
-            "description": "The new status of the resource. Specifying `completed` will end the conference and hang up all participants.",
-            "example": "completed",
+          "call_control_id": {
+            "description": "Unique identifier and token for controlling the call",
+            "example": "v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQczRrZvZakpWxBlpw48KyZQ==",
             "type": "string"
           },
-          "AnnounceUrl": {
-            "description": "The URL we should call to announce something into the conference. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `<Play>`, `<Say>`, `<Pause>`, or `<Redirect>` verbs.",
-            "example": "https://www.example.com/announce.xml",
+          "command_id": {
+            "description": "Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same `command_id` as one that has already been executed.",
+            "example": "891510ac-f3e4-11e8-af5b-de00688a4901",
             "type": "string"
           },
-          "AnnounceMethod": {
-            "description": "The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.",
-            "example": "GET",
+          "supervisor_role": {
+            "description": "Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. \"barge\" means the supervisor enters the conference as a normal participant. This is the same as \"none\". \"monitor\" means the supervisor is muted but can hear all participants. \"whisper\" means that only the specified \"whisper_call_control_ids\" can hear the supervisor. Defaults to \"none\".",
+            "example": "whisper",
             "type": "string",
             "enum": [
-              "GET",
-              "POST"
+              "barge",
+              "monitor",
+              "none",
+              "whisper"
             ]
+          },
+          "whisper_call_control_ids": {
+            "description": "Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.",
+            "example": [
+              "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
+              "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "example": {
-          "Status": "completed"
+          "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
+          "supervisor_role": "whisper",
+          "whisper_call_control_ids": [
+            "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
+            "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
+          ]
         }
       },
       "UpdateCredentialConnectionRequest": {
@@ -86720,10 +87325,10 @@
         }
       },
       "UpdatedAt": {
-        "title": "Updated At",
         "type": "string",
-        "description": "ISO 8601 formatted date indicating when the resource was updated.",
-        "example": "2020-02-03T22:25:27.521Z"
+        "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+        "readOnly": true,
+        "example": "2018-02-02T22:25:27.521Z"
       },
       "UplinkData": {
         "type": "object",
@@ -87710,17 +88315,8 @@
         ]
       },
       "ValidationError": {
-        "title": "ValidationError",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
-        "type": "object",
         "properties": {
           "loc": {
-            "title": "Location",
-            "type": "array",
             "items": {
               "anyOf": [
                 {
@@ -87730,17 +88326,26 @@
                   "type": "integer"
                 }
               ]
-            }
+            },
+            "type": "array",
+            "title": "Location"
           },
           "msg": {
-            "title": "Message",
-            "type": "string"
+            "type": "string",
+            "title": "Message"
           },
           "type": {
-            "title": "Error Type",
-            "type": "string"
+            "type": "string",
+            "title": "Error Type"
           }
-        }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
       },
       "Verification": {
         "title": "Verification",

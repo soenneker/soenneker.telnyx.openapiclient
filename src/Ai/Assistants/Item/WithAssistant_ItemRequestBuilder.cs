@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Texml;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithAssistant_ItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The scheduled_events property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Scheduled_eventsRequestBuilder Scheduled_events
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Scheduled_eventsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The texml property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Texml.TexmlRequestBuilder Texml
         {

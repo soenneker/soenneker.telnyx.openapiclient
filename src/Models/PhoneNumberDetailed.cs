@@ -142,6 +142,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RecordType { get; private set; }
 #endif
+        /// <summary>Indicates if the phone number was purchased or ported in. For some numbers this information may not be available.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_source_type? SourceType { get; private set; }
         /// <summary>The phone number&apos;s current status.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_status? Status { get; private set; }
         /// <summary>Indicates whether T38 Fax Gateway for inbound calls to this number.</summary>
@@ -202,6 +204,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_phone_number_type>(); } },
                 { "purchased_at", n => { PurchasedAt = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
+                { "source_type", n => { SourceType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_source_type>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_status>(); } },
                 { "t38_fax_gateway_enabled", n => { T38FaxGatewayEnabled = n.GetBoolValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

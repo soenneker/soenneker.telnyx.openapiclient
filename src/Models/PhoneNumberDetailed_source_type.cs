@@ -3,17 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
+    /// <summary>Indicates if the phone number was purchased or ported in. For some numbers this information may not be available.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum UpdateConferenceRequest_AnnounceMethod
+    public enum PhoneNumberDetailed_source_type
     {
-        [EnumMember(Value = "GET")]
+        [EnumMember(Value = "number_order")]
         #pragma warning disable CS1591
-        GET,
+        Number_order,
         #pragma warning restore CS1591
-        [EnumMember(Value = "POST")]
+        [EnumMember(Value = "port_request")]
         #pragma warning disable CS1591
-        POST,
+        Port_request,
         #pragma warning restore CS1591
     }
 }
