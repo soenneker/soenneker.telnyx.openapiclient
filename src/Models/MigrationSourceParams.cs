@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Id { get; private set; }
 #endif
-        /// <summary>Cloud provider from which to migrate data.</summary>
+        /// <summary>Cloud provider from which to migrate data. Use &apos;telnyx&apos; if you want to migrate data from one Telnyx bucket to another.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams_provider? Provider { get; set; }
         /// <summary>The provider_auth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,6 +39,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams_provider_auth ProviderAuth { get; set; }
+#endif
+        /// <summary>For intra-Telnyx buckets migration, specify the source bucket region in this field.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SourceRegion { get; set; }
+#nullable restore
+#else
+        public string SourceRegion { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams"/> and sets the default values.
@@ -69,6 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams_provider>(); } },
                 { "provider_auth", n => { ProviderAuth = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams_provider_auth>(global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams_provider_auth.CreateFromDiscriminatorValue); } },
+                { "source_region", n => { SourceRegion = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -81,6 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("bucket_name", BucketName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams_provider>("provider", Provider);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MigrationSourceParams_provider_auth>("provider_auth", ProviderAuth);
+            writer.WriteStringValue("source_region", SourceRegion);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

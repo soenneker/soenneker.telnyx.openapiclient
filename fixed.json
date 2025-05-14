@@ -71420,23 +71420,29 @@
           "provider": {
             "type": "string",
             "enum": [
-              "aws"
+              "aws",
+              "telnyx"
             ],
-            "description": "Cloud provider from which to migrate data.",
+            "description": "Cloud provider from which to migrate data. Use \u0027telnyx\u0027 if you want to migrate data from one Telnyx bucket to another.",
             "x-enum-varnames": [
-              "aws"
+              "aws",
+              "telnyx"
             ]
+          },
+          "source_region": {
+            "type": "string",
+            "description": "For intra-Telnyx buckets migration, specify the source bucket region in this field."
           },
           "provider_auth": {
             "type": "object",
             "properties": {
               "access_key": {
                 "type": "string",
-                "description": "AWS Access Key."
+                "description": "AWS Access Key. For Telnyx-to-Telnyx migrations, use your Telnyx API key here."
               },
               "secret_access_key": {
                 "type": "string",
-                "description": "AWS Secret Access Key."
+                "description": "AWS Secret Access Key. For Telnyx-to-Telnyx migrations, use your Telnyx API key here as well."
               }
             }
           },

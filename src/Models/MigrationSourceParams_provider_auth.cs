@@ -12,7 +12,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class MigrationSourceParams_provider_auth : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>AWS Access Key.</summary>
+        /// <summary>AWS Access Key. For Telnyx-to-Telnyx migrations, use your Telnyx API key here.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AccessKey { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>AWS Secret Access Key.</summary>
+        /// <summary>AWS Secret Access Key. For Telnyx-to-Telnyx migrations, use your Telnyx API key here as well.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SecretAccessKey { get; set; }
