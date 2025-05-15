@@ -3,21 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The status of the phone number in the order.</summary>
+    /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum PhoneNumber_status
+    public enum UpdateConferenceRequest_AnnounceMethod
     {
-        [EnumMember(Value = "pending")]
+        [EnumMember(Value = "GET")]
         #pragma warning disable CS1591
-        Pending,
+        GET,
         #pragma warning restore CS1591
-        [EnumMember(Value = "success")]
+        [EnumMember(Value = "POST")]
         #pragma warning disable CS1591
-        Success,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "failure")]
-        #pragma warning disable CS1591
-        Failure,
+        POST,
         #pragma warning restore CS1591
     }
 }

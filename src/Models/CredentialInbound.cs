@@ -41,13 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Time(sec) before aborting if connection is not made.</summary>
         public int? Timeout1xxSecs { get; set; }
         /// <summary>Time(sec) before aborting if call is unanswered (min: 1, max: 600).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Timeout2xxSecs { get; set; }
-#nullable restore
-#else
-        public string Timeout2xxSecs { get; set; }
-#endif
+        public int? Timeout2xxSecs { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound"/> and sets the default values.
         /// </summary>
@@ -56,7 +50,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             AniNumberFormat = global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_ani_number_format.E164National;
             DnisNumberFormat = global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_dnis_number_format.E164;
-            Timeout2xxSecs = "90";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -86,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "shaken_stir_enabled", n => { ShakenStirEnabled = n.GetBoolValue(); } },
                 { "sip_compact_headers_enabled", n => { SipCompactHeadersEnabled = n.GetBoolValue(); } },
                 { "timeout_1xx_secs", n => { Timeout1xxSecs = n.GetIntValue(); } },
-                { "timeout_2xx_secs", n => { Timeout2xxSecs = n.GetStringValue(); } },
+                { "timeout_2xx_secs", n => { Timeout2xxSecs = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -106,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("shaken_stir_enabled", ShakenStirEnabled);
             writer.WriteBoolValue("sip_compact_headers_enabled", SipCompactHeadersEnabled);
             writer.WriteIntValue("timeout_1xx_secs", Timeout1xxSecs);
-            writer.WriteStringValue("timeout_2xx_secs", Timeout2xxSecs);
+            writer.WriteIntValue("timeout_2xx_secs", Timeout2xxSecs);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

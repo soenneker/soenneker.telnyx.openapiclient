@@ -15,9 +15,5 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         IntfloatMultilingualE5Large,
         #pragma warning restore CS1591
-        [EnumMember(Value = "sentence-transformers/all-mpnet-base-v2")]
-        #pragma warning disable CS1591
-        SentenceTransformersAllMpnetBaseV2,
-        #pragma warning restore CS1591
     }
 }

@@ -59,10 +59,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The phone_numbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber>? PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber>? PhoneNumbers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber> PhoneNumbers { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber> PhoneNumbers { get; set; }
 #endif
         /// <summary>The count of phone numbers in the number order.</summary>
         public int? PhoneNumbersCount { get; private set; }
@@ -125,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
-                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phone_numbers_count", n => { PhoneNumbersCount = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumber>("phone_numbers", PhoneNumbers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.NumberOrderPhoneNumber>("phone_numbers", PhoneNumbers);
             writer.WriteCollectionOfPrimitiveValues<string>("sub_number_orders_ids", SubNumberOrdersIds);
             writer.WriteAdditionalData(AdditionalData);
         }

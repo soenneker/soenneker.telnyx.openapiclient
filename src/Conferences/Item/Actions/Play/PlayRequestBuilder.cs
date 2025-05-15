@@ -40,6 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play.PlayPostResponse?> PostAsPlayPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ConferencePlayRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -51,7 +52,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play.PlayPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play.PlayPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play.PlayPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play.PlayPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Play audio to all or some participants on a conference call.
@@ -60,6 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use PostAsPlayPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,7 +78,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play.PlayResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play.PlayResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play.PlayResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Play.PlayResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Play audio to all or some participants on a conference call.

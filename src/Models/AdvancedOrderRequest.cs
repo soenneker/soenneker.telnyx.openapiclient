@@ -55,13 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_features?> Features { get; set; }
 #endif
         /// <summary>The phone_number_type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? PhoneNumberType { get; set; }
-#nullable restore
-#else
-        public UntypedNode PhoneNumberType { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type? PhoneNumberType { get; set; }
         /// <summary>The quantity property</summary>
         public int? Quantity { get; set; }
         /// <summary>
@@ -71,6 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             CountryCode = "US";
+            PhoneNumberType = global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type.Local;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -95,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "features", n => { Features = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_features>()?.AsList(); } },
-                { "phone_number_type", n => { PhoneNumberType = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type>(); } },
                 { "quantity", n => { Quantity = n.GetIntValue(); } },
             };
         }
@@ -111,7 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_features>("features", Features);
-            writer.WriteObjectValue<UntypedNode>("phone_number_type", PhoneNumberType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type>("phone_number_type", PhoneNumberType);
             writer.WriteIntValue("quantity", Quantity);
             writer.WriteAdditionalData(AdditionalData);
         }
