@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The bucket property</summary>
+        /// <summary>The name of the bucket that contains the file to be summarized.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Bucket { get; set; }
@@ -22,13 +22,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Bucket { get; set; }
 #endif
-        /// <summary>The filename property</summary>
+        /// <summary>The name of the file to be summarized.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Filename { get; set; }
 #nullable restore
 #else
         public string Filename { get; set; }
+#endif
+        /// <summary>A system prompt to guide the summary generation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SystemPrompt { get; set; }
+#nullable restore
+#else
+        public string SystemPrompt { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SummaryRequest"/> and sets the default values.
@@ -57,6 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "bucket", n => { Bucket = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
+                { "system_prompt", n => { SystemPrompt = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -68,6 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("bucket", Bucket);
             writer.WriteStringValue("filename", Filename);
+            writer.WriteStringValue("system_prompt", SystemPrompt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
