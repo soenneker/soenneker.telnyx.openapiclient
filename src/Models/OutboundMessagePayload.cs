@@ -24,6 +24,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost Cost { get; set; }
 #endif
+        /// <summary>Detailed breakdown of the message cost components.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost_breakdown? CostBreakdown { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost_breakdown CostBreakdown { get; set; }
+#endif
         /// <summary>The direction of the message. Inbound messages are sent to you whereas outbound messages are sent from you.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_direction? Direction { get; set; }
         /// <summary>Encoding scheme used for the message body.</summary>
@@ -94,6 +102,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> Tags { get; set; }
 #endif
+        /// <summary>Indicates whether the TCR campaign is billable.</summary>
+        public bool? TcrCampaignBillable { get; set; }
+        /// <summary>The Campaign Registry (TCR) campaign ID associated with the message.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TcrCampaignId { get; set; }
+#nullable restore
+#else
+        public string TcrCampaignId { get; set; }
+#endif
+        /// <summary>The registration status of the TCR campaign.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TcrCampaignRegistered { get; set; }
+#nullable restore
+#else
+        public string TcrCampaignRegistered { get; set; }
+#endif
         /// <summary>Message body (i.e., content) as a non-empty string.**Required for SMS**</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -157,6 +183,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "cost", n => { Cost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost.CreateFromDiscriminatorValue); } },
+                { "cost_breakdown", n => { CostBreakdown = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost_breakdown>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost_breakdown.CreateFromDiscriminatorValue); } },
                 { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_direction>(); } },
                 { "encoding", n => { Encoding = n.GetStringValue(); } },
                 { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>(global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -171,6 +198,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "tcr_campaign_billable", n => { TcrCampaignBillable = n.GetBoolValue(); } },
+                { "tcr_campaign_id", n => { TcrCampaignId = n.GetStringValue(); } },
+                { "tcr_campaign_registered", n => { TcrCampaignRegistered = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_type>(); } },
@@ -188,6 +218,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost>("cost", Cost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost_breakdown>("cost_breakdown", CostBreakdown);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_direction>("direction", Direction);
             writer.WriteStringValue("encoding", Encoding);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>("errors", Errors);
@@ -202,6 +233,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
             writer.WriteStringValue("subject", Subject);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteBoolValue("tcr_campaign_billable", TcrCampaignBillable);
+            writer.WriteStringValue("tcr_campaign_id", TcrCampaignId);
+            writer.WriteStringValue("tcr_campaign_registered", TcrCampaignRegistered);
             writer.WriteStringValue("text", Text);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to>("to", To);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_type>("type", Type);
