@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PortoutsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts{?filter%5Bcarrier_name%5D*,filter%5Bfoc_date%5D*,filter%5Binserted_at%5D%5Bgte%5D*,filter%5Binserted_at%5D%5Blte%5D*,filter%5Bphone_number%5D*,filter%5Bported_out_at%5D%5Bgte%5D*,filter%5Bported_out_at%5D%5Blte%5D*,filter%5Bspid%5D*,filter%5Bstatus%5D*,filter%5Bstatus_in%5D*,filter%5Bsupport_key%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public PortoutsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts{?filter%5Bcarrier_name%5D*,filter%5Bfoc_date%5D*,filter%5Binserted_at%5D%5Bgte%5D*,filter%5Binserted_at%5D%5Blte%5D*,filter%5Bphone_number%5D*,filter%5Bpon%5D*,filter%5Bported_out_at%5D%5Bgte%5D*,filter%5Bported_out_at%5D%5Blte%5D*,filter%5Bspid%5D*,filter%5Bstatus%5D*,filter%5Bstatus_in%5D*,filter%5Bsupport_key%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PortoutsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts{?filter%5Bcarrier_name%5D*,filter%5Bfoc_date%5D*,filter%5Binserted_at%5D%5Bgte%5D*,filter%5Binserted_at%5D%5Blte%5D*,filter%5Bphone_number%5D*,filter%5Bported_out_at%5D%5Bgte%5D*,filter%5Bported_out_at%5D%5Blte%5D*,filter%5Bspid%5D*,filter%5Bstatus%5D*,filter%5Bstatus_in%5D*,filter%5Bsupport_key%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public PortoutsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts{?filter%5Bcarrier_name%5D*,filter%5Bfoc_date%5D*,filter%5Binserted_at%5D%5Bgte%5D*,filter%5Binserted_at%5D%5Blte%5D*,filter%5Bphone_number%5D*,filter%5Bpon%5D*,filter%5Bported_out_at%5D%5Bgte%5D*,filter%5Bported_out_at%5D%5Blte%5D*,filter%5Bspid%5D*,filter%5Bstatus%5D*,filter%5Bstatus_in%5D*,filter%5Bsupport_key%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -175,6 +175,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
 #else
             [QueryParameter("filter%5Bphone_number%5D")]
             public string FilterphoneNumber { get; set; }
+#endif
+            /// <summary>Filter by Port Order Number (PON).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bpon%5D")]
+            public string? Filterpon { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bpon%5D")]
+            public string Filterpon { get; set; }
 #endif
             /// <summary>Filter by ported_out_at date greater than or equal.</summary>
             [QueryParameter("filter%5Bported_out_at%5D%5Bgte%5D")]
