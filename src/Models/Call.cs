@@ -48,10 +48,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ClientState { get; set; }
 #endif
+        /// <summary>ISO 8601 formatted date indicating when the call ended. Only present when the call is not alive</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EndTime { get; set; }
+#nullable restore
+#else
+        public string EndTime { get; set; }
+#endif
         /// <summary>Indicates whether the call is alive or not. For Dial command it will always be `false` (dialing is asynchronous).</summary>
         public bool? IsAlive { get; set; }
         /// <summary>The record_type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Call_record_type? RecordType { get; set; }
+        /// <summary>ISO 8601 formatted date indicating when the call started</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StartTime { get; set; }
+#nullable restore
+#else
+        public string StartTime { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call"/> and sets the default values.
         /// </summary>
@@ -82,8 +98,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_leg_id", n => { CallLegId = n.GetStringValue(); } },
                 { "call_session_id", n => { CallSessionId = n.GetStringValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
+                { "end_time", n => { EndTime = n.GetStringValue(); } },
                 { "is_alive", n => { IsAlive = n.GetBoolValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Call_record_type>(); } },
+                { "start_time", n => { StartTime = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -98,8 +116,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("call_leg_id", CallLegId);
             writer.WriteStringValue("call_session_id", CallSessionId);
             writer.WriteStringValue("client_state", ClientState);
+            writer.WriteStringValue("end_time", EndTime);
             writer.WriteBoolValue("is_alive", IsAlive);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Call_record_type>("record_type", RecordType);
+            writer.WriteStringValue("start_time", StartTime);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

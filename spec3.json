@@ -26272,6 +26272,115 @@
         "x-latency-category": "interactive"
       }
     },
+    "/rcs_agents": {
+      "get": {
+        "summary": "List all RCS agents",
+        "tags": [
+          "RCS messaging"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful reponse with the list of RCS agents",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RCSAgentsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
+    "/rcs_agents/{id}": {
+      "get": {
+        "summary": "Retrieve an RCS agent",
+        "tags": [
+          "RCS messaging"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "RCS agent ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with the RCS agent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RCSAgentResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      },
+      "patch": {
+        "summary": "Modify an RCS agent",
+        "tags": [
+          "RCS messaging"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "RCS agent ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RCSAgentUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with the updated RCS agent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RCSAgentResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
     "/recording_transcriptions": {
       "get": {
         "summary": "List all recording transcriptions",
@@ -48237,6 +48346,8 @@
           "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
           "is_alive": false,
           "call_duration": 50,
+          "start_time": "2019-01-23T18:10:02.574Z",
+          "end_time": "2019-01-23T18:11:52.574Z",
           "record_type": "call"
         },
         "properties": {
@@ -48276,6 +48387,16 @@
             "description": "Indicates the duration of the call in seconds",
             "type": "integer",
             "example": 50
+          },
+          "start_time": {
+            "description": "ISO 8601 formatted date indicating when the call started",
+            "type": "string",
+            "example": "2019-01-23T18:10:02.574Z"
+          },
+          "end_time": {
+            "description": "ISO 8601 formatted date indicating when the call ended. Only present when the call is not alive",
+            "type": "string",
+            "example": "2019-01-23T18:11:52.574Z"
           }
         }
       },
@@ -53146,7 +53267,9 @@
           "is_alive": false,
           "call_duration": 50,
           "record_type": "call",
-          "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
+          "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a",
+          "start_time": "2019-01-23T18:10:02.574Z",
+          "end_time": "2019-01-23T18:11:52.574Z"
         },
         "properties": {
           "record_type": {
@@ -53191,6 +53314,16 @@
             "format": "uuid",
             "example": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a",
             "description": "The ID of the recording. Only present when the record parameter is set to record-from-answer."
+          },
+          "start_time": {
+            "description": "ISO 8601 formatted date indicating when the call started",
+            "type": "string",
+            "example": "2019-01-23T18:10:02.574Z"
+          },
+          "end_time": {
+            "description": "ISO 8601 formatted date indicating when the call ended. Only present when the call is not alive",
+            "type": "string",
+            "example": "2019-01-23T18:11:52.574Z"
           }
         }
       },
@@ -68290,6 +68423,33 @@
           }
         ]
       },
+      "MMSFallback": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Phone number in +E.164 format",
+            "example": "+13125551234"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Subject of the message",
+            "example": "Test Message"
+          },
+          "media_urls": {
+            "type": "array",
+            "description": "List of media URLs",
+            "items": {
+              "type": "string"
+            }
+          },
+          "text": {
+            "type": "string",
+            "description": "Text",
+            "example": "Hello world!"
+          }
+        }
+      },
       "ManagedAccount": {
         "type": "object",
         "title": "ManagedAccount",
@@ -76611,6 +76771,64 @@
           }
         }
       },
+      "RCSAgent": {
+        "type": "object",
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "description": "RCS Agent ID",
+            "example": "TestAgent"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "User ID associated with the RCS Agent",
+            "example": "2ecf295b-36c6-4d43-ad05-71eb1e560518"
+          },
+          "profile_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Messaging profile ID associated with the RCS Agent",
+            "example": "4001932a-b8a3-42fc-9389-021be6388909",
+            "nullable": true
+          },
+          "webhook_url": {
+            "type": "string",
+            "format": "url",
+            "description": "URL to receive RCS events",
+            "nullable": true,
+            "example": "http://example.com"
+          },
+          "webhook_failover_url": {
+            "type": "string",
+            "format": "url",
+            "description": "Failover URL to receive RCS events",
+            "nullable": true,
+            "example": "http://example.com"
+          },
+          "agent_name": {
+            "type": "string",
+            "description": "Human readable agent name",
+            "example": "Test Agent"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Specifies whether the agent is enabled",
+            "example": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time when the resource was created",
+            "example": "2024-01-01T12:00:00.000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time when the resource was updated",
+            "example": "2024-01-01T12:00:00.000Z"
+          }
+        }
+      },
       "RCSAgentMessage": {
         "type": "object",
         "properties": {
@@ -76630,6 +76848,59 @@
             "type": "string",
             "description": "Duration in seconds ending with 's'",
             "example": "10.5s"
+          }
+        }
+      },
+      "RCSAgentResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/RCSAgent"
+          }
+        }
+      },
+      "RCSAgentUpdate": {
+        "type": "object",
+        "properties": {
+          "profile_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Messaging profile ID associated with the RCS Agent",
+            "example": "4001932a-b8a3-42fc-9389-021be6388909",
+            "nullable": true
+          },
+          "webhook_url": {
+            "type": "string",
+            "format": "url",
+            "description": "URL to receive RCS events",
+            "nullable": true,
+            "example": "http://example.com"
+          },
+          "webhook_failover_url": {
+            "type": "string",
+            "format": "url",
+            "description": "Failover URL to receive RCS events",
+            "nullable": true,
+            "example": "http://example.com"
+          },
+          "agent_name": {
+            "type": "string",
+            "description": "Human readable agent name",
+            "example": "Test Agent"
+          }
+        }
+      },
+      "RCSAgentsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RCSAgent"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -76935,6 +77206,9 @@
           },
           "sms_fallback": {
             "$ref": "#/components/schemas/SMSFallback"
+          },
+          "mms_fallback": {
+            "$ref": "#/components/schemas/MMSFallback"
           }
         }
       },
