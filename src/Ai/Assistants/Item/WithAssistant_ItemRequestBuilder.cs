@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Texml;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -28,6 +29,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Texml.TexmlRequestBuilder Texml
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Texml.TexmlRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tools property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.ToolsRequestBuilder Tools
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.ToolsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder"/> and sets the default values.

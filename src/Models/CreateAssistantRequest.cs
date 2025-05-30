@@ -211,7 +211,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Assistants : IComposedTypeWrapper, IParsable
@@ -255,6 +255,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool RetrievalTool { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool? SIPReferTool { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool SIPReferTool { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -302,6 +310,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.RetrievalTool = new global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool();
                 }
+                else if("SIPReferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.SIPReferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool();
+                }
                 else if("TransferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.TransferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool();
@@ -337,6 +349,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if(RetrievalTool != null)
                 {
                     return RetrievalTool.GetFieldDeserializers();
+                }
+                else if(SIPReferTool != null)
+                {
+                    return SIPReferTool.GetFieldDeserializers();
                 }
                 else if(TransferTool != null)
                 {
@@ -374,6 +390,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if(RetrievalTool != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool>(null, RetrievalTool);
+                }
+                else if(SIPReferTool != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool>(null, SIPReferTool);
                 }
                 else if(TransferTool != null)
                 {

@@ -1814,6 +1814,68 @@
         "x-latency-category": "responsive"
       }
     },
+    "/ai/assistants/{assistant_id}/tools/{tool_id}/test": {
+      "post": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Test Assistant Tool",
+        "description": "Test a webhook tool for an assistant",
+        "operationId": "test_assistant_tool_public_assistants__assistant_id__tools__tool_id__test_post",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          },
+          {
+            "name": "tool_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Tool Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestWebhookToolRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestWebhookToolResponseData"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
     "/ai/audio/transcriptions": {
       "post": {
         "tags": [
@@ -5746,7 +5808,7 @@
     "/calls/{call_control_id}/actions/ai_assistant_start": {
       "post": {
         "summary": "Start AI Assistant",
-        "description": "Start an AI assistant on the call.\n\n**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-start-ai-assistant#callbacks) below):**\n\n- \u0060call.conversation_insights.generated\u0060\n",
+        "description": "Start an AI assistant on the call.\n\n**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-start-ai-assistant#callbacks) below):**\n\n- \u0060call.conversation.ended\u0060\n- \u0060call.conversation_insights.generated\u0060\n",
         "operationId": "CallStartAIAssistant",
         "tags": [
           "Call Commands"
@@ -5776,6 +5838,27 @@
           }
         },
         "callbacks": {
+          "callConversationEnded": {
+            "{$request.body#/webhook_url}": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/callConversationEndedEvent"
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "The server must return an HTTP 200, otherwise we will reattempt delivery at the failover webhook URL."
+                  }
+                }
+              }
+            }
+          },
           "callConversationInsightsGenerated": {
             "{$request.body#/webhook_url}": {
               "post": {
@@ -6407,7 +6490,7 @@
     "/calls/{call_control_id}/actions/gather_using_ai": {
       "post": {
         "summary": "Gather using AI",
-        "description": "Gather parameters defined in the request payload using a voice assistant.\n\n You can pass parameters described as a JSON Schema object and the voice assistant will attempt to gather these informations. \n\n**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-gather-using-ai#callbacks) below):**\n\n- \u0060call.ai_gather.ended\u0060\n- \u0060call.ai_gather.partial_results\u0060 (if \u0060send_partial_results\u0060 is set to \u0060true\u0060)\n- \u0060call.ai_gather.message_history_updated\u0060 (if \u0060send_message_history_updates\u0060 is set to \u0060true\u0060)\n",
+        "description": "Gather parameters defined in the request payload using a voice assistant.\n\n You can pass parameters described as a JSON Schema object and the voice assistant will attempt to gather these informations. \n\n**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-gather-using-ai#callbacks) below):**\n\n- \u0060call.ai_gather.ended\u0060\n- \u0060call.conversation.ended\u0060\n- \u0060call.ai_gather.partial_results\u0060 (if \u0060send_partial_results\u0060 is set to \u0060true\u0060)\n- \u0060call.ai_gather.message_history_updated\u0060 (if \u0060send_message_history_updates\u0060 is set to \u0060true\u0060)\n",
         "operationId": "callGatherUsingAI",
         "tags": [
           "Call Commands"
@@ -6446,6 +6529,27 @@
                     "application/json": {
                       "schema": {
                         "$ref": "#/components/schemas/CallAIGatherEndedEvent"
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "The server must return an HTTP 200, otherwise we will reattempt delivery at the failover webhook URL."
+                  }
+                }
+              }
+            }
+          },
+          "callConversationEnded": {
+            "{$request.body#/webhook_url}": {
+              "post": {
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/callConversationEndedEvent"
                       }
                     }
                   }
@@ -46445,6 +46549,41 @@
           "instructions"
         ]
       },
+      "AssistantChatReq": {
+        "properties": {
+          "content": {
+            "type": "string",
+            "title": "Content"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "conversation_id": {
+            "type": "string",
+            "title": "Conversation Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "content",
+          "conversation_id"
+        ],
+        "title": "AssistantChatReq"
+      },
+      "AssistantChatResponse": {
+        "properties": {
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "content"
+        ],
+        "title": "AssistantChatResponse"
+      },
       "AssistantDeletedResponse": {
         "properties": {
           "id": {
@@ -46485,6 +46624,9 @@
             },
             {
               "$ref": "#/components/schemas/TransferTool"
+            },
+            {
+              "$ref": "#/components/schemas/SIPReferTool"
             },
             {
               "$ref": "#/components/schemas/DTMFTool"
@@ -82608,6 +82750,108 @@
           }
         }
       },
+      "SIPReferTool": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "refer"
+            ],
+            "x-enum-varnames": [
+              "refer"
+            ]
+          },
+          "refer": {
+            "$ref": "#/components/schemas/SIPReferToolParams"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "refer"
+        ],
+        "title": "SIPReferTool"
+      },
+      "SIPReferToolParams": {
+        "properties": {
+          "targets": {
+            "type": "array",
+            "description": "The different possible targets of the SIP refer. The assistant will be able to choose one of the targets to refer the call to.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the target.",
+                  "example": "Support"
+                },
+                "sip_address": {
+                  "type": "string",
+                  "description": "The SIP URI to which the call will be referred.",
+                  "example": "sip:username@sip.non-telnyx-address.com"
+                },
+                "sip_auth_username": {
+                  "type": "string",
+                  "description": "SIP Authentication username used for SIP challenges."
+                },
+                "sip_auth_password": {
+                  "type": "string",
+                  "description": "SIP Authentication password used for SIP challenges."
+                }
+              },
+              "required": [
+                "name",
+                "sip_address"
+              ]
+            }
+          },
+          "sip_headers": {
+            "description": "SIP headers to be added to the SIP REFER. Currently only User-to-User and Diversion headers are supported.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "User-to-User",
+                    "Diversion"
+                  ],
+                  "x-enum-varnames": [
+                    "UsertoUser",
+                    "Diversion"
+                  ]
+                },
+                "value": {
+                  "description": "The value of the header. Note that we support mustache templating for the value. For example you can use \u0060{{#integration_secret}}test-secret{{/integration_secret}}\u0060 to pass the value of the integration secret.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "custom_headers": {
+            "description": "Custom headers to be added to the SIP REFER.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The value of the header. Note that we support mustache templating for the value. For example you can use \u0060{{#integration_secret}}test-secret{{/integration_secret}}\u0060 to pass the value of the integration secret.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "targets"
+        ],
+        "title": "SIPReferToolParams"
+      },
       "SMSFallback": {
         "type": "object",
         "properties": {
@@ -87156,6 +87400,65 @@
             "maximum": 2.0
           }
         }
+      },
+      "TestWebhookToolRequest": {
+        "properties": {
+          "arguments": {
+            "type": "object",
+            "title": "Arguments",
+            "description": "Key-value arguments to use for the webhook test"
+          }
+        },
+        "type": "object",
+        "title": "TestWebhookToolRequest",
+        "description": "Request model for testing a webhook tool"
+      },
+      "TestWebhookToolResponse": {
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "Success"
+          },
+          "status_code": {
+            "type": "integer",
+            "title": "Status Code"
+          },
+          "content_type": {
+            "type": "string",
+            "title": "Content Type"
+          },
+          "response": {
+            "type": "string",
+            "title": "Response"
+          },
+          "request": {
+            "type": "object",
+            "title": "Request"
+          }
+        },
+        "type": "object",
+        "required": [
+          "success",
+          "status_code",
+          "content_type",
+          "response",
+          "request"
+        ],
+        "title": "TestWebhookToolResponse",
+        "description": "Response model for webhook tool test results"
+      },
+      "TestWebhookToolResponseData": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TestWebhookToolResponse"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "TestWebhookToolResponseData",
+        "description": "Response model for webhook tool test results"
       },
       "TexmlApplication": {
         "type": "object",
@@ -95055,6 +95358,179 @@
         "type": "string",
         "description": "The business name associated with the address. An address must have either a first last name or a business name.",
         "example": "Toy-O\u0027Kon"
+      },
+      "callConversationEnded": {
+        "type": "object",
+        "title": "Call Conversation Ended",
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "example": "event",
+            "enum": [
+              "event"
+            ],
+            "description": "Identifies the type of the resource.",
+            "x-enum-varnames": [
+              "event"
+            ]
+          },
+          "event_type": {
+            "type": "string",
+            "example": "call.conversation.ended",
+            "enum": [
+              "call.conversation.ended"
+            ],
+            "description": "The type of event being delivered.",
+            "x-enum-varnames": [
+              "callconversationended"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
+            "description": "Unique identifier for the event."
+          },
+          "occurred_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2018-02-02T22:25:27.521992Z",
+            "description": "ISO 8601 datetime of when the event occurred."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-05-29T13:35:38.927621Z",
+            "description": "Timestamp when the event was created in the system."
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "assistant_id": {
+                "type": "string",
+                "example": "assistant-d9082b56-ba2d-4ad1-a50c-58661eb1463d",
+                "description": "Unique identifier of the assistant involved in the call."
+              },
+              "call_control_id": {
+                "type": "string",
+                "example": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+                "description": "Call ID used to issue commands via Call Control API."
+              },
+              "connection_id": {
+                "type": "string",
+                "example": "7267xxxxxxxxxxxxxx",
+                "description": "Call Control App ID (formerly Telnyx connection ID) used in the call."
+              },
+              "call_leg_id": {
+                "type": "string",
+                "example": "cc29cce6-3c91-11f0-a8e5-02420aef3d20",
+                "description": "ID that is unique to the call leg."
+              },
+              "call_session_id": {
+                "type": "string",
+                "example": "cc29c8d6-3c91-11f0-aa7c-02420aef3d20",
+                "description": "ID that is unique to the call session (group of related call legs)."
+              },
+              "client_state": {
+                "type": "string",
+                "example": "g3QAAAACbQAAAAtkYXRhX2NlbnRlcm0AAAADY2gxbQAAAApkZXBsb3ltZW50bQAAAARiYXNl",
+                "description": "Base64-encoded state received from a command."
+              },
+              "calling_party_type": {
+                "type": "string",
+                "example": "sip",
+                "enum": [
+                  "pstn",
+                  "sip"
+                ],
+                "description": "The type of calling party connection.",
+                "x-enum-varnames": [
+                  "pstn",
+                  "sip"
+                ]
+              },
+              "conversation_id": {
+                "type": "string",
+                "example": "0424805b-adc1-4ff8-9f95-e1de6883ecbe",
+                "description": "ID unique to the conversation or insight group generated for the call."
+              },
+              "duration_sec": {
+                "type": "integer",
+                "example": 3,
+                "description": "Duration of the conversation in seconds."
+              },
+              "from": {
+                "type": "string",
+                "example": "\u002B13124287921",
+                "description": "The caller\u0027s number or identifier."
+              },
+              "to": {
+                "type": "string",
+                "example": "jamesw@assistant-d9082b56-ba2d-4ad1-a50c-58661eb1463d.sip.telnyx.com",
+                "description": "The callee\u0027s number or SIP address."
+              },
+              "llm_model": {
+                "type": "string",
+                "example": "openai/gpt-4o",
+                "description": "The large language model used during the conversation."
+              },
+              "stt_model": {
+                "type": "string",
+                "example": "distil-whisper/distil-large-v2",
+                "description": "The speech-to-text model used in the conversation."
+              },
+              "tts_provider": {
+                "type": "string",
+                "example": "telnyx",
+                "description": "The text-to-speech provider used in the call."
+              },
+              "tts_model_id": {
+                "type": "string",
+                "example": "Natural",
+                "description": "The model ID used for text-to-speech synthesis."
+              },
+              "tts_voice_id": {
+                "type": "string",
+                "example": "Marissa",
+                "description": "Voice ID used for TTS."
+              }
+            }
+          }
+        },
+        "example": {
+          "record_type": "event",
+          "event_type": "call.conversation.ended",
+          "id": "eb8775a6-634f-48b0-b177-d5465a8a8e9f",
+          "occurred_at": "2025-05-29T13:35:38.817785Z",
+          "created_at": "2025-05-29T13:35:38.927621Z",
+          "payload": {
+            "assistant_id": "assistant-d9082b56-ba2d-4ad1-a50c-58661eb1463d",
+            "call_control_id": "v3:HDR1vQHx697hpP9xZ0bhlbUOWPFPDtPcxw-nuSMuC6mGVpb0euoklQ",
+            "call_leg_id": "cc29cce6-3c91-11f0-a8e5-02420aef3d20",
+            "call_session_id": "cc29c8d6-3c91-11f0-aa7c-02420aef3d20",
+            "calling_party_type": "sip",
+            "client_state": "g3QAAAACbQAAAAtkYXRhX2NlbnRlcm0AAAADY2gxbQAAAApkZXBsb3ltZW50bQAAAARiYXNl",
+            "connection_id": "2694492062593582591",
+            "conversation_id": "0424805b-adc1-4ff8-9f95-e1de6883ecbe",
+            "duration_sec": 3,
+            "from": "\u002B13124287921",
+            "to": "jamesw@assistant-d9082b56-ba2d-4ad1-a50c-58661eb1463d.sip.telnyx.com",
+            "llm_model": "openai/gpt-4o",
+            "stt_model": "distil-whisper/distil-large-v2",
+            "tts_model_id": "Natural",
+            "tts_provider": "telnyx",
+            "tts_voice_id": "Marissa"
+          }
+        }
+      },
+      "callConversationEndedEvent": {
+        "type": "object",
+        "title": "Call Conversation Ended Event",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/callConversationEnded"
+          }
+        }
       },
       "callConversationInsightsGenerated": {
         "type": "object",
