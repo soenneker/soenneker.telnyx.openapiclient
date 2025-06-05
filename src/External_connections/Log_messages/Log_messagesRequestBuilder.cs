@@ -146,10 +146,10 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Log_messages
             [QueryParameter("filter%5Btelephone_number%5D%5Beq%5D")]
             public string FiltertelephoneNumbereq { get; set; }
 #endif
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

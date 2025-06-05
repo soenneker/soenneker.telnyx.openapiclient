@@ -192,6 +192,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalSamplingRate? StreamBidirectionalSamplingRate { get; set; }
         /// <summary>Specifies which call legs should receive the bidirectional stream audio.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs? StreamBidirectionalTargetLegs { get; set; }
+        /// <summary>Specifies the codec to be used for the streamed audio. When set to &apos;default&apos; or when transcoding is not possible, the codec from the call will be used. Currently, transcoding is only supported between PCMU and PCMA codecs.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec? StreamCodec { get; set; }
         /// <summary>Establish websocket connection before dialing the destination. This is useful for cases where the websocket connection takes a long time to establish.</summary>
         public bool? StreamEstablishBeforeCallOriginate { get; set; }
         /// <summary>Specifies which track should be streamed.</summary>
@@ -261,6 +263,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             StreamBidirectionalCodec = global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec.PCMU;
             StreamBidirectionalMode = global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode.Mp3;
             StreamBidirectionalTargetLegs = global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs.Opposite;
+            StreamCodec = global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec.Default;
             StreamTrack = global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_stream_track.Inbound_track;
             SupervisorRole = global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_supervisor_role.Barge;
             WebhookUrlMethod = global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_url_method.POST;
@@ -318,6 +321,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "stream_bidirectional_mode", n => { StreamBidirectionalMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode>(); } },
                 { "stream_bidirectional_sampling_rate", n => { StreamBidirectionalSamplingRate = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalSamplingRate>(); } },
                 { "stream_bidirectional_target_legs", n => { StreamBidirectionalTargetLegs = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs>(); } },
+                { "stream_codec", n => { StreamCodec = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec>(); } },
                 { "stream_establish_before_call_originate", n => { StreamEstablishBeforeCallOriginate = n.GetBoolValue(); } },
                 { "stream_track", n => { StreamTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_stream_track>(); } },
                 { "stream_url", n => { StreamUrl = n.GetStringValue(); } },
@@ -374,6 +378,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode>("stream_bidirectional_mode", StreamBidirectionalMode);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalSamplingRate>("stream_bidirectional_sampling_rate", StreamBidirectionalSamplingRate);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs>("stream_bidirectional_target_legs", StreamBidirectionalTargetLegs);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec>("stream_codec", StreamCodec);
             writer.WriteBoolValue("stream_establish_before_call_originate", StreamEstablishBeforeCallOriginate);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_stream_track>("stream_track", StreamTrack);
             writer.WriteStringValue("stream_url", StreamUrl);

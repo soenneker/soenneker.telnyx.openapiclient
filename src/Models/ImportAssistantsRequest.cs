@@ -9,35 +9,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ResourceNotFoundError_errors : IAdditionalDataHolder, IParsable
+    public partial class ImportAssistantsRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The detail property</summary>
+        /// <summary>Integration secret pointer that refers to the API key for the external provider. This should be an identifier for an integration secret created via /v2/integration_secrets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Detail { get; set; }
+        public string? ApiKeyRef { get; set; }
 #nullable restore
 #else
-        public string Detail { get; set; }
+        public string ApiKeyRef { get; set; }
 #endif
+        /// <summary>The external provider to import assistants from.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest_provider? Provider { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError_errors"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest"/> and sets the default values.
         /// </summary>
-        public ResourceNotFoundError_errors()
+        public ImportAssistantsRequest()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError_errors"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError_errors CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError_errors();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +49,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "detail", n => { Detail = n.GetStringValue(); } },
+                { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest_provider>(); } },
             };
         }
         /// <summary>
@@ -57,7 +60,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("detail", Detail);
+            writer.WriteStringValue("api_key_ref", ApiKeyRef);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest_provider>("provider", Provider);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

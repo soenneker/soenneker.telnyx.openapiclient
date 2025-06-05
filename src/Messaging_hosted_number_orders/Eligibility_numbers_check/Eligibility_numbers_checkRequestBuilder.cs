@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibil
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Eligibility_numbers_checkRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_hosted_number_orders/eligibility_numbers_check?phone_numbers={phone_numbers}", pathParameters)
+        public Eligibility_numbers_checkRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_hosted_number_orders/eligibility_numbers_check", pathParameters)
         {
         }
         /// <summary>
@@ -30,27 +30,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibil
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Eligibility_numbers_checkRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_hosted_number_orders/eligibility_numbers_check?phone_numbers={phone_numbers}", rawUrl)
+        public Eligibility_numbers_checkRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_hosted_number_orders/eligibility_numbers_check", rawUrl)
         {
         }
         /// <summary>
         /// Check eligibility of phone numbers for hosted messaging
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibility_numbers_check.Eligibility_numbers_checkRequestBuilder.Eligibility_numbers_checkRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibility_numbers_check.Eligibility_numbers_checkRequestBuilder.Eligibility_numbers_checkRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            _ = body ?? throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
@@ -62,19 +64,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibil
         /// Check eligibility of phone numbers for hosted messaging
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibility_numbers_check.Eligibility_numbers_checkRequestBuilder.Eligibility_numbers_checkRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibility_numbers_check.Eligibility_numbers_checkRequestBuilder.Eligibility_numbers_checkRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            _ = body ?? throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>
@@ -87,28 +92,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibil
             return new global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibility_numbers_check.Eligibility_numbers_checkRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Check eligibility of phone numbers for hosted messaging
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Eligibility_numbers_checkRequestBuilderGetQueryParameters 
-        {
-            /// <summary>Comma-separated list of phone numbers to check eligibility</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("phone_numbers")]
-            public string? PhoneNumbers { get; set; }
-#nullable restore
-#else
-            [QueryParameter("phone_numbers")]
-            public string PhoneNumbers { get; set; }
-#endif
-        }
-        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Eligibility_numbers_checkRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibility_numbers_check.Eligibility_numbers_checkRequestBuilder.Eligibility_numbers_checkRequestBuilderGetQueryParameters>
+        public partial class Eligibility_numbers_checkRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
         }
     }

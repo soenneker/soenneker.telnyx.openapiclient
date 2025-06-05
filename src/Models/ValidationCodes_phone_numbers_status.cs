@@ -16,5 +16,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Rejected,
         #pragma warning restore CS1591
+        [EnumMember(Value = "already_verified")]
+        #pragma warning disable CS1591
+        Already_verified,
+        #pragma warning restore CS1591
     }
 }

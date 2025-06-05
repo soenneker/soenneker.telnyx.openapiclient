@@ -64,6 +64,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>The import_metadata property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadata? ImportMetadata { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadata ImportMetadata { get; set; }
+#endif
         /// <summary>The insight_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -184,6 +192,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "enabled_features", n => { EnabledFeatures = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures>()?.AsList(); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "import_metadata", n => { ImportMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadata.CreateFromDiscriminatorValue); } },
                 { "insight_settings", n => { InsightSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "llm_api_key_ref", n => { LlmApiKeyRef = n.GetStringValue(); } },
@@ -211,6 +220,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures>("enabled_features", EnabledFeatures);
             writer.WriteStringValue("greeting", Greeting);
             writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportMetadata>("import_metadata", ImportMetadata);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings>("insight_settings", InsightSettings);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteStringValue("llm_api_key_ref", LlmApiKeyRef);
