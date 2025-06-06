@@ -18,13 +18,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
-        /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
+        /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get; private set; }
+        public string? CreatedAt { get; set; }
 #nullable restore
 #else
-        public string CreatedAt { get; private set; }
+        public string CreatedAt { get; set; }
 #endif
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType? DtmfType { get; set; }
@@ -90,13 +90,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> Tags { get; set; }
 #endif
-        /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
+        /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpdatedAt { get; private set; }
+        public string? UpdatedAt { get; set; }
 #nullable restore
 #else
-        public string UpdatedAt { get; private set; }
+        public string UpdatedAt { get; set; }
 #endif
         /// <summary>URL to which Telnyx will deliver your XML Translator webhooks if we get an error response from your voice_url.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -174,6 +174,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
+            writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);
             writer.WriteBoolValue("first_command_timeout", FirstCommandTimeout);
             writer.WriteIntValue("first_command_timeout_secs", FirstCommandTimeoutSecs);
@@ -185,6 +186,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("status_callback", StatusCallback);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_status_callback_method>("status_callback_method", StatusCallbackMethod);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("voice_fallback_url", VoiceFallbackUrl);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_voice_method>("voice_method", VoiceMethod);
             writer.WriteStringValue("voice_url", VoiceUrl);
