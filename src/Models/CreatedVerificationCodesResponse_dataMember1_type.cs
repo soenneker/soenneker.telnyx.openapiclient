@@ -5,7 +5,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>Type of verification method used</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum CreatedVerificationCodesResponse_created_verification_codes_type
+    public enum CreatedVerificationCodesResponse_dataMember1_type
     {
         [EnumMember(Value = "sms")]
         #pragma warning disable CS1591
