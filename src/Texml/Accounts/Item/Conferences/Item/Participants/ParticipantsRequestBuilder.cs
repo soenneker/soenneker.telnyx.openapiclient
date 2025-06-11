@@ -19,15 +19,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Pa
     public partial class ParticipantsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.texml.Accounts.item.Conferences.item.Participants.item collection</summary>
-        /// <param name="position">The CallSid that identifies the call to update.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Participants.Item.WithCall_sItemRequestBuilder"/></returns>
-        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Participants.Item.WithCall_sItemRequestBuilder this[string position]
+        /// <param name="position">CallSid or Label of the Participant to update.</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Participants.Item.WithCall_sid_or_participant_labelItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Participants.Item.WithCall_sid_or_participant_labelItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("call_sid", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Participants.Item.WithCall_sItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("call_sid_or_participant_label", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.Item.Participants.Item.WithCall_sid_or_participant_labelItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

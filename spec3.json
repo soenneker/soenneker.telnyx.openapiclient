@@ -32963,7 +32963,7 @@
         }
       }
     },
-    "/texml/Accounts/{account_sid}/Conferences/{conference_sid}/Participants/{call_sid}": {
+    "/texml/Accounts/{account_sid}/Conferences/{conference_sid}/Participants/{call_sid_or_participant_label}": {
       "delete": {
         "summary": "Delete a conference participant",
         "description": "Deletes a conference participant",
@@ -32980,7 +32980,7 @@
             "$ref": "#/components/parameters/ConferenceSid"
           },
           {
-            "$ref": "#/components/parameters/CallSid"
+            "$ref": "#/components/parameters/CallSidOrParticipantLabel"
           }
         ],
         "responses": {
@@ -33008,7 +33008,7 @@
             "$ref": "#/components/parameters/ConferenceSid"
           },
           {
-            "$ref": "#/components/parameters/CallSid"
+            "$ref": "#/components/parameters/CallSidOrParticipantLabel"
           }
         ],
         "responses": {
@@ -33036,7 +33036,7 @@
             "$ref": "#/components/parameters/ConferenceSid"
           },
           {
-            "$ref": "#/components/parameters/CallSid"
+            "$ref": "#/components/parameters/CallSidOrParticipantLabel"
           }
         ],
         "requestBody": {
@@ -36615,6 +36615,15 @@
         "in": "path",
         "required": true,
         "description": "The CallSid that identifies the call to update.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "CallSidOrParticipantLabel": {
+        "name": "call_sid_or_participant_label",
+        "in": "path",
+        "required": true,
+        "description": "CallSid or Label of the Participant to update.",
         "schema": {
           "type": "string"
         }
@@ -67830,6 +67839,9 @@
               "both"
             ]
           },
+          "SendRecordingUrl": {
+            "$ref": "#/components/schemas/SendRecordingUrl"
+          },
           "SipAuthPassword": {
             "description": "The password to use for SIP authentication.",
             "example": "1234",
@@ -80823,6 +80835,12 @@
           }
         }
       },
+      "SendRecordingUrl": {
+        "type": "boolean",
+        "description": "Whether to send RecordingUrl in webhooks.",
+        "example": false,
+        "default": true
+      },
       "SendSIPInfoRequest": {
         "type": "object",
         "title": "Send SIP Info Request",
@@ -84735,6 +84753,9 @@
           },
           "RecordingTrack": {
             "$ref": "#/components/schemas/RecordingTrack"
+          },
+          "SendRecordingUrl": {
+            "$ref": "#/components/schemas/SendRecordingUrl"
           }
         }
       },

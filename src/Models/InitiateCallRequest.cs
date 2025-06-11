@@ -108,6 +108,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? RecordingTimeout { get; set; }
         /// <summary>The audio track to record for the call. The default is `both`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingTrack? RecordingTrack { get; set; }
+        /// <summary>Whether to send RecordingUrl in webhooks.</summary>
+        public bool? SendRecordingUrl { get; set; }
         /// <summary>The password to use for SIP authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -210,6 +212,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "RecordingStatusCallbackMethod", n => { RecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingStatusCallbackMethod>(); } },
                 { "RecordingTimeout", n => { RecordingTimeout = n.GetIntValue(); } },
                 { "RecordingTrack", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingTrack>(); } },
+                { "SendRecordingUrl", n => { SendRecordingUrl = n.GetBoolValue(); } },
                 { "SipAuthPassword", n => { SipAuthPassword = n.GetStringValue(); } },
                 { "SipAuthUsername", n => { SipAuthUsername = n.GetStringValue(); } },
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
@@ -251,6 +254,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
             writer.WriteIntValue("RecordingTimeout", RecordingTimeout);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingTrack>("RecordingTrack", RecordingTrack);
+            writer.WriteBoolValue("SendRecordingUrl", SendRecordingUrl);
             writer.WriteStringValue("SipAuthPassword", SipAuthPassword);
             writer.WriteStringValue("SipAuthUsername", SipAuthUsername);
             writer.WriteStringValue("StatusCallback", StatusCallback);

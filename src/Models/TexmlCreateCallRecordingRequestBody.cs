@@ -38,6 +38,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? RecordingStatusCallbackMethod { get; set; }
         /// <summary>The audio track to record for the call. The default is `both`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack? RecordingTrack { get; set; }
+        /// <summary>Whether to send RecordingUrl in webhooks.</summary>
+        public bool? SendRecordingUrl { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallRecordingRequestBody"/> and sets the default values.
         /// </summary>
@@ -71,6 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "RecordingStatusCallbackEvent", n => { RecordingStatusCallbackEvent = n.GetStringValue(); } },
                 { "RecordingStatusCallbackMethod", n => { RecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>(); } },
                 { "RecordingTrack", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>(); } },
+                { "SendRecordingUrl", n => { SendRecordingUrl = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -86,6 +89,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("RecordingStatusCallbackEvent", RecordingStatusCallbackEvent);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>("RecordingTrack", RecordingTrack);
+            writer.WriteBoolValue("SendRecordingUrl", SendRecordingUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
