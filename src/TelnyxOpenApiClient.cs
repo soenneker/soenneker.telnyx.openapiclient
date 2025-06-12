@@ -136,6 +136,7 @@ using Soenneker.Telnyx.OpenApiClient.Sim_cards;
 using Soenneker.Telnyx.OpenApiClient.Siprec_connectors;
 using Soenneker.Telnyx.OpenApiClient.Storage;
 using Soenneker.Telnyx.OpenApiClient.Sub_number_orders;
+using Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report;
 using Soenneker.Telnyx.OpenApiClient.Telephony_credentials;
 using Soenneker.Telnyx.OpenApiClient.Texml;
 using Soenneker.Telnyx.OpenApiClient.Texml_applications;
@@ -804,6 +805,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Sub_number_ordersRequestBuilder Sub_number_orders
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Sub_number_ordersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sub_number_orders_report property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportRequestBuilder Sub_number_orders_report
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The telephony_credentials property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Telephony_credentialsRequestBuilder Telephony_credentials

@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents.Item.Download
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "*/*");
+            requestInfo.Headers.TryAdd("Accept", "*/*, application/json");
             return requestInfo;
         }
         /// <summary>
