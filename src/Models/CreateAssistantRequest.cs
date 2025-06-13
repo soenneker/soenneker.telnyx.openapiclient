@@ -211,27 +211,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Assistants : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool? BookAppointmentTool { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool BookAppointmentTool { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool? CheckAvailabilityTool { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool CheckAvailabilityTool { get; set; }
-#endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -239,6 +223,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool DTMFTool { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool? HandoffTool { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool HandoffTool { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -290,17 +282,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest.Assistants();
-                if("BookAppointmentTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.BookAppointmentTool = new global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool();
-                }
-                else if("CheckAvailabilityTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.CheckAvailabilityTool = new global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool();
-                }
-                else if("DTMFTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("DTMFTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.DTMFTool = new global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool();
+                }
+                else if("HandoffTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.HandoffTool = new global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool();
                 }
                 else if("HangupTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
@@ -330,17 +318,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(BookAppointmentTool != null)
-                {
-                    return BookAppointmentTool.GetFieldDeserializers();
-                }
-                else if(CheckAvailabilityTool != null)
-                {
-                    return CheckAvailabilityTool.GetFieldDeserializers();
-                }
-                else if(DTMFTool != null)
+                if(DTMFTool != null)
                 {
                     return DTMFTool.GetFieldDeserializers();
+                }
+                else if(HandoffTool != null)
+                {
+                    return HandoffTool.GetFieldDeserializers();
                 }
                 else if(HangupTool != null)
                 {
@@ -371,17 +355,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
-                if(BookAppointmentTool != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool>(null, BookAppointmentTool);
-                }
-                else if(CheckAvailabilityTool != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool>(null, CheckAvailabilityTool);
-                }
-                else if(DTMFTool != null)
+                if(DTMFTool != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool>(null, DTMFTool);
+                }
+                else if(HandoffTool != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool>(null, HandoffTool);
                 }
                 else if(HangupTool != null)
                 {

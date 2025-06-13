@@ -30,6 +30,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Voice { get; set; }
 #endif
+        /// <summary>The speed of the voice in the range [0.25, 2.0]. 1.0 is deafult speed. Larger numbers make the voice faster, smaller numbers make it slower. This is only applicable for Telnyx Natural voices.</summary>
+        public double? VoiceSpeed { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings"/> and sets the default values.
         /// </summary>
@@ -57,6 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
+                { "voice_speed", n => { VoiceSpeed = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -68,6 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteStringValue("voice", Voice);
+            writer.WriteDoubleValue("voice_speed", VoiceSpeed);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

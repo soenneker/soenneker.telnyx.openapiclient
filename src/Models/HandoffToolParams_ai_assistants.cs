@@ -9,37 +9,43 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class BookAppointmentTool : IAdditionalDataHolder, IParsable
+    public partial class HandoffToolParams_ai_assistants : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The book_appointment property</summary>
+        /// <summary>The ID of the assistant to hand off to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams? BookAppointment { get; set; }
+        public string? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams BookAppointment { get; set; }
+        public string Id { get; set; }
 #endif
-        /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool_type? Type { get; set; }
+        /// <summary>Helpful name for giving context on when to handoff to the assistant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants"/> and sets the default values.
         /// </summary>
-        public BookAppointmentTool()
+        public HandoffToolParams_ai_assistants()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +55,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "book_appointment", n => { BookAppointment = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool_type>(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -60,8 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentToolParams>("book_appointment", BookAppointment);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool_type>("type", Type);
+            writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -5,12 +5,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum BookAppointmentTool_type
+    public enum HandoffTool_type
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "book_appointment")]
+        [EnumMember(Value = "handoff")]
         #pragma warning disable CS1591
-        Book_appointment,
+        Handoff,
         #pragma warning restore CS1591
     }
 }

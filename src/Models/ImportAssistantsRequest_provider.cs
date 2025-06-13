@@ -11,5 +11,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Elevenlabs,
         #pragma warning restore CS1591
+        [EnumMember(Value = "vapi")]
+        #pragma warning disable CS1591
+        Vapi,
+        #pragma warning restore CS1591
     }
 }

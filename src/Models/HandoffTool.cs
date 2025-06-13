@@ -7,39 +7,40 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// The handoff tool allows the assistant to hand off control of the conversation to another AI assistant. By default, this will happen transparently to the end user.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class CheckAvailabilityTool : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class HandoffTool : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The check_availability property</summary>
+        /// <summary>The handoff property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams? CheckAvailability { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams? Handoff { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams CheckAvailability { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams Handoff { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool_type? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/> and sets the default values.
         /// </summary>
-        public CheckAvailabilityTool()
+        public HandoffTool()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +50,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "check_availability", n => { CheckAvailability = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool_type>(); } },
+                { "handoff", n => { Handoff = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool_type>(); } },
             };
         }
         /// <summary>
@@ -60,8 +61,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityToolParams>("check_availability", CheckAvailability);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool_type>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams>("handoff", Handoff);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
