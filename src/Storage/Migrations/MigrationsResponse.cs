@@ -7,10 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Storage.Migrations
 {
-    [Obsolete("This class is obsolete. Use MigrationsGetResponse instead.")]
+    [Obsolete("This class is obsolete. Use MigrationsPostResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MigrationsResponse : global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.MigrationsGetResponse, IParsable
+    public partial class MigrationsResponse : global::Soenneker.Telnyx.OpenApiClient.Storage.Migrations.MigrationsPostResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

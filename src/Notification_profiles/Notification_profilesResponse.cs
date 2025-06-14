@@ -7,10 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Notification_profiles
 {
-    [Obsolete("This class is obsolete. Use Notification_profilesGetResponse instead.")]
+    [Obsolete("This class is obsolete. Use Notification_profilesPostResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Notification_profilesResponse : global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Notification_profilesGetResponse, IParsable
+    public partial class Notification_profilesResponse : global::Soenneker.Telnyx.OpenApiClient.Notification_profiles.Notification_profilesPostResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

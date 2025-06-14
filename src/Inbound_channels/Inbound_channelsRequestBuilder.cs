@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,94 +36,45 @@ namespace Soenneker.Telnyx.OpenApiClient.Inbound_channels
         /// <summary>
         /// Returns the US Zone voice channels for your account. voice channels allows you to use Channel Billing for calls to your Telnyx phone numbers. Please check the &lt;a href=&quot;https://support.telnyx.com/en/articles/8428806-global-channel-billing&quot;&gt;Telnyx Support Articles&lt;/a&gt; section for full information and examples of how to utilize Channel Billing.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListInboundChannels_200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsGetResponse?> GetAsInbound_channelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListInboundChannels_200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsGetResponse> GetAsInbound_channelsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListInboundChannels_200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns the US Zone voice channels for your account. voice channels allows you to use Channel Billing for calls to your Telnyx phone numbers. Please check the &lt;a href=&quot;https://support.telnyx.com/en/articles/8428806-global-channel-billing&quot;&gt;Telnyx Support Articles&lt;/a&gt; section for full information and examples of how to utilize Channel Billing.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsInbound_channelsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListInboundChannels_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListInboundChannels_200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the number of Voice Channels for the US Zone. This allows your account to handle multiple simultaneous inbound calls to US numbers. Use this endpoint to increase or decrease your capacity based on expected call volume.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels_200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channels4XXError">When receiving a 4XX status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channels5XXError">When receiving a 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels_default">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchResponse?> PatchAsInbound_channelsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels_200?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchResponse> PatchAsInbound_channelsPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels_200> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channels4XXError.CreateFromDiscriminatorValue },
-                { "5XX", global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channels5XXError.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels_default.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Update the number of Voice Channels for the US Zone. This allows your account to handle multiple simultaneous inbound calls to US numbers. Use this endpoint to increase or decrease your capacity based on expected call volume.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channels4XXError">When receiving a 4XX status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channels5XXError">When receiving a 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PatchAsInbound_channelsPatchResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channels4XXError.CreateFromDiscriminatorValue },
-                { "5XX", global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channels5XXError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the US Zone voice channels for your account. voice channels allows you to use Channel Billing for calls to your Telnyx phone numbers. Please check the &lt;a href=&quot;https://support.telnyx.com/en/articles/8428806-global-channel-billing&quot;&gt;Telnyx Support Articles&lt;/a&gt; section for full information and examples of how to utilize Channel Billing.
@@ -151,11 +103,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Inbound_channels
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateOutboundChannels body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

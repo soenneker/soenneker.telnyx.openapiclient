@@ -49,18 +49,18 @@ namespace Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile
         /// <summary>
         /// This endpoint allows you to link all phone numbers associated with a Messaging Profile to a campaign. **Please note:** if you want to assign phone numbers to a campaign that you did not create with Telnyx 10DLC services, this endpoint allows that provided that you&apos;ve shared the campaign with Telnyx. In this case, only provide the parameter, `tcrCampaignId`, and not `campaignId`. In all other cases (where the campaign you&apos;re assigning was created with Telnyx 10DLC services), only provide `campaignId`, not `tcrCampaignId`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfilePostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PostAssignMessagingProfileToCampaign_202"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfilePostResponse?> PostAsPhoneNumberAssignmentByProfilePostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PostAssignMessagingProfileToCampaign_202?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfilePostResponse> PostAsPhoneNumberAssignmentByProfilePostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PostAssignMessagingProfileToCampaign_202> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -69,33 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile
             {
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfilePostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfilePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// This endpoint allows you to link all phone numbers associated with a Messaging Profile to a campaign. **Please note:** if you want to assign phone numbers to a campaign that you did not create with Telnyx 10DLC services, this endpoint allows that provided that you&apos;ve shared the campaign with Telnyx. In this case, only provide the parameter, `tcrCampaignId`, and not `campaignId`. In all other cases (where the campaign you&apos;re assigning was created with Telnyx 10DLC services), only provide `campaignId`, not `tcrCampaignId`.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfileResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsPhoneNumberAssignmentByProfilePostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfileResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfileResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfileResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfileResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PostAssignMessagingProfileToCampaign_202>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PostAssignMessagingProfileToCampaign_202.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This endpoint allows you to link all phone numbers associated with a Messaging Profile to a campaign. **Please note:** if you want to assign phone numbers to a campaign that you did not create with Telnyx 10DLC services, this endpoint allows that provided that you&apos;ve shared the campaign with Telnyx. In this case, only provide the parameter, `tcrCampaignId`, and not `campaignId`. In all other cases (where the campaign you&apos;re assigning was created with Telnyx 10DLC services), only provide `campaignId`, not `tcrCampaignId`.
@@ -129,126 +103,12 @@ namespace Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile
             return new global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PhoneNumberAssignmentByProfilePostResponse : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse? AssignProfileToCampaignResponse { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse AssignProfileToCampaignResponse { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage? SettingsDataErrorMessage { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage SettingsDataErrorMessage { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfilePostResponse"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfilePostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfilePostResponse();
-                result.AssignProfileToCampaignResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse();
-                result.SettingsDataErrorMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AssignProfileToCampaignResponse != null || SettingsDataErrorMessage != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AssignProfileToCampaignResponse, SettingsDataErrorMessage);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse>(null, AssignProfileToCampaignResponse, SettingsDataErrorMessage);
-            }
-        }
-        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PhoneNumberAssignmentByProfileRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PhoneNumberAssignmentByProfileResponse : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse? AssignProfileToCampaignResponse { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse AssignProfileToCampaignResponse { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage? SettingsDataErrorMessage { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage SettingsDataErrorMessage { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfileResponse"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfileResponse CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder.PhoneNumberAssignmentByProfileResponse();
-                result.AssignProfileToCampaignResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse();
-                result.SettingsDataErrorMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.SettingsDataErrorMessage();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(AssignProfileToCampaignResponse != null || SettingsDataErrorMessage != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AssignProfileToCampaignResponse, SettingsDataErrorMessage);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssignProfileToCampaignResponse>(null, AssignProfileToCampaignResponse, SettingsDataErrorMessage);
-            }
         }
     }
 }

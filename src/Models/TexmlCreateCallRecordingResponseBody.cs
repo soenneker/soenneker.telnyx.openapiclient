@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CallSid { get; set; }
 #endif
         /// <summary>The channels property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TwimlRecordingChannels? Channels { get; set; }
+        public int? Channels { get; set; }
         /// <summary>The conference_sid property</summary>
         public Guid? ConferenceSid { get; set; }
         /// <summary>The date_created property</summary>
@@ -137,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "account_sid", n => { AccountSid = n.GetStringValue(); } },
                 { "call_sid", n => { CallSid = n.GetStringValue(); } },
-                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TwimlRecordingChannels>(); } },
+                { "channels", n => { Channels = n.GetIntValue(); } },
                 { "conference_sid", n => { ConferenceSid = n.GetGuidValue(); } },
                 { "date_created", n => { DateCreated = n.GetStringValue(); } },
                 { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
@@ -161,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account_sid", AccountSid);
             writer.WriteStringValue("call_sid", CallSid);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TwimlRecordingChannels>("channels", Channels);
+            writer.WriteIntValue("channels", Channels);
             writer.WriteGuidValue("conference_sid", ConferenceSid);
             writer.WriteStringValue("date_created", DateCreated);
             writer.WriteStringValue("date_updated", DateUpdated);

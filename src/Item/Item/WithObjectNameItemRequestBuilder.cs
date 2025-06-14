@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.OpenApiClient.Item.Item.Uploads;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,11 +17,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Item.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithObjectNameItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The uploads property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Item.Item.Uploads.UploadsRequestBuilder Uploads
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Item.Item.Uploads.UploadsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -76,42 +71,40 @@ namespace Soenneker.Telnyx.OpenApiClient.Item.Item
         /// <summary>
         /// Retrieves metadata from an object without returning the object itself.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HeadObject_200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> HeadAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.HeadObject_200?> HeadAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> HeadAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.HeadObject_200> HeadAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToHeadRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.HeadObject_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.HeadObject_200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Add an object to a bucket.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
-        /// <param name="body">Binary request body</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PutObject_200"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="contentType">The request body content type.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PutObject_200?> PutAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.PutObject_200> PutAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            if(string.IsNullOrEmpty(contentType)) throw new ArgumentNullException(nameof(contentType));
-            var requestInfo = ToPutRequestInformation(body, contentType, requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PutObject_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PutObject_200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete an object from a given bucket.
@@ -129,6 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Item.Item
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -147,7 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Item.Item
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "*/*");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -166,29 +160,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Item.Item
 #endif
             var requestInfo = new RequestInformation(Method.HEAD, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
         /// Add an object to a bucket.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Binary request body</param>
-        /// <param name="contentType">The request body content type.</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(Stream body, string contentType, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
-            if(string.IsNullOrEmpty(contentType)) throw new ArgumentNullException(nameof(contentType));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.SetStreamContent(body, contentType);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetStreamContent(body, "application/json");
             return requestInfo;
         }
         /// <summary>

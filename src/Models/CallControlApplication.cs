@@ -66,6 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The record_type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_record_type? RecordType { get; set; }
+        /// <summary>When enabled, DTMF digits entered by users will be redacted in debug logs to protect PII data entered through IVR interactions.</summary>
+        public bool? RedactDtmfDebugLogging { get; set; }
         /// <summary>Tags assigned to the Call Control Application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -142,6 +144,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound.CreateFromDiscriminatorValue); } },
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_record_type>(); } },
+                { "redact_dtmf_debug_logging", n => { RedactDtmfDebugLogging = n.GetBoolValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_webhook_api_version>(); } },
@@ -168,6 +171,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound>("inbound", Inbound);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationOutbound>("outbound", Outbound);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_record_type>("record_type", RecordType);
+            writer.WriteBoolValue("redact_dtmf_debug_logging", RedactDtmfDebugLogging);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_webhook_api_version>("webhook_api_version", WebhookApiVersion);

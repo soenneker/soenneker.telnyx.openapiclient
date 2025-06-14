@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Notification_settingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notification_settings{?filter%5Bassociated_record_type%5D%5Beq%5D*,filter%5Bnotification_channel%5D%5Beq%5D*,filter%5Bnotification_event_condition_id%5D%5Beq%5D*,filter%5Bnotification_profile_id%5D%5Beq%5D*,filter%5Bstatus%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Notification_settingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notification_settings{?Status*,filter%5Bassociated_record_type%5D%5Beq%5D*,filter%5Bnotification_channel%5D%5Beq%5D*,filter%5Bnotification_event_condition_id%5D%5Beq%5D*,filter%5Bnotification_profile_id%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,23 +56,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Notification_settingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notification_settings{?filter%5Bassociated_record_type%5D%5Beq%5D*,filter%5Bnotification_channel%5D%5Beq%5D*,filter%5Bnotification_event_condition_id%5D%5Beq%5D*,filter%5Bnotification_profile_id%5D%5Beq%5D*,filter%5Bstatus%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Notification_settingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notification_settings{?Status*,filter%5Bassociated_record_type%5D%5Beq%5D*,filter%5Bnotification_channel%5D%5Beq%5D*,filter%5Bnotification_event_condition_id%5D%5Beq%5D*,filter%5Bnotification_profile_id%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
         {
         }
         /// <summary>
         /// List notification settings.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationSettings_200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsGetResponse?> GetAsNotification_settingsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsRequestBuilder.Notification_settingsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationSettings_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsRequestBuilder.Notification_settingsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsGetResponse> GetAsNotification_settingsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsRequestBuilder.Notification_settingsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationSettings_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsRequestBuilder.Notification_settingsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -80,31 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings
             {
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// List notification settings.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsNotification_settingsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsRequestBuilder.Notification_settingsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsRequestBuilder.Notification_settingsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Notification_settings.Notification_settingsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationSettings_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListNotificationSettings_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Add a notification setting.
@@ -257,26 +233,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_settings
             [QueryParameter("filter%5Bnotification_profile_id%5D%5Beq%5D")]
             public string FilternotificationProfileIdeq { get; set; }
 #endif
-            /// <summary>The status of a notification setting</summary>
-            [Obsolete("This property is deprecated, use FilterstatuseqAsGetFilterStatusEqQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public string? Filterstatuseq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public string Filterstatuseq { get; set; }
-#endif
-            /// <summary>The status of a notification setting</summary>
-            [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Notification_settings.GetFilterStatusEqQueryParameterType? FilterstatuseqAsGetFilterStatusEqQueryParameterType { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
+            /// <summary>Filters calls by status.</summary>
+            [Obsolete("This property is deprecated, use StatusAsGetStatusQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? Status { get; set; }
+#nullable restore
+#else
+            public string Status { get; set; }
+#endif
+            /// <summary>Filters calls by status.</summary>
+            [QueryParameter("Status")]
+            public global::Soenneker.Telnyx.OpenApiClient.Notification_settings.GetStatusQueryParameterType? StatusAsGetStatusQueryParameterType { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

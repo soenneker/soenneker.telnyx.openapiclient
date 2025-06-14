@@ -22,8 +22,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Reason { get; private set; }
 #endif
-        /// <summary>The current status of the SIM card. It will be one of the following: &lt;br/&gt;&lt;ul&gt; &lt;li&gt;&lt;code&gt;registering&lt;/code&gt; - the card is being registered&lt;/li&gt; &lt;li&gt;&lt;code&gt;enabling&lt;/code&gt; - the card is being enabled&lt;/li&gt; &lt;li&gt;&lt;code&gt;enabled&lt;/code&gt; - the card is enabled and ready for use&lt;/li&gt; &lt;li&gt;&lt;code&gt;disabling&lt;/code&gt; - the card is being disabled&lt;/li&gt; &lt;li&gt;&lt;code&gt;disabled&lt;/code&gt; - the card has been disabled and cannot be used&lt;/li&gt; &lt;li&gt;&lt;code&gt;data_limit_exceeded&lt;/code&gt; - the card has exceeded its data consumption limit&lt;/li&gt; &lt;li&gt;&lt;code&gt;setting_standby&lt;/code&gt; - the process to set the card in stand by is in progress&lt;/li&gt; &lt;li&gt;&lt;code&gt;standby&lt;/code&gt; - the card is in stand by&lt;/li&gt;&lt;/ul&gt;Transitioning between the enabled and disabled states may take a period of time.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus_value? Value { get; private set; }
+        /// <summary>The value property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus_value? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus"/> and sets the default values.
         /// </summary>
@@ -60,6 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

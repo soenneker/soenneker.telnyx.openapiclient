@@ -89,10 +89,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The settings associated with the voice selected</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings? VoiceSettings { get; set; }
+        public UntypedNode? VoiceSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings VoiceSettings { get; set; }
+        public UntypedNode VoiceSettings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingSpeakRequest"/> and sets the default values.
@@ -138,7 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "timeout_millis", n => { TimeoutMillis = n.GetIntValue(); } },
                 { "valid_digits", n => { ValidDigits = n.GetStringValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
-                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings.CreateFromDiscriminatorValue); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -163,7 +163,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("timeout_millis", TimeoutMillis);
             writer.WriteStringValue("valid_digits", ValidDigits);
             writer.WriteStringValue("voice", Voice);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<UntypedNode>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

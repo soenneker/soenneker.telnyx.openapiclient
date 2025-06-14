@@ -23,13 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<Guid?> Exclude { get; set; }
 #endif
         /// <summary>Either a list of participant id to perform the action on, or the keyword &quot;all&quot; to perform the action on all participant.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Participants { get; set; }
-#nullable restore
-#else
-        public List<string> Participants { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants? Participants { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest"/> and sets the default values.
         /// </summary>
@@ -56,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "exclude", n => { Exclude = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "participants", n => { Participants = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "participants", n => { Participants = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants>(); } },
             };
         }
         /// <summary>
@@ -67,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<Guid?>("exclude", Exclude);
-            writer.WriteCollectionOfPrimitiveValues<string>("participants", Participants);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants>("participants", Participants);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

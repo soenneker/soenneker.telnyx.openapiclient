@@ -7,10 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers
 {
-    [Obsolete("This class is obsolete. Use Authentication_providersGetResponse instead.")]
+    [Obsolete("This class is obsolete. Use Authentication_providersPostResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Authentication_providersResponse : global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersGetResponse, IParsable
+    public partial class Authentication_providersResponse : global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersPostResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

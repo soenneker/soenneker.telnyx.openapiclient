@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -104,11 +105,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_document
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostResponse?> PostAsAdditional_documentsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostResponse?> PostAsAdditional_documentsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAdditionalDocuments body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostResponse> PostAsAdditional_documentsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostResponse> PostAsAdditional_documentsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAdditionalDocuments body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -125,11 +126,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_document
         [Obsolete("This method is obsolete. Use PostAsAdditional_documentsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAdditionalDocuments body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAdditionalDocuments body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -163,11 +164,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_document
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAdditionalDocuments body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAdditionalDocuments body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -227,10 +228,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_document
             [QueryParameter("filter%5Bdocument_type%5D%5Bin%5D%5B%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.GetFilterDocument_typeInQueryParameterType[] FilterdocumentTypeinAsGetFilterDocumentTypeInQueryParameterType { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>

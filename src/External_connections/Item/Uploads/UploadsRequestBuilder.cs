@@ -111,43 +111,22 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads
         /// <summary>
         /// Creates a new Upload request to Microsoft teams with the included phone numbers. Only one of civic_address_id or location_id must be provided, not both. The maximum allowed phone numbers for the numbers_ids array is 1000.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUpload_202"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsPostResponse?> PostAsUploadsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUpload_202?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsPostResponse> PostAsUploadsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUpload_202> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new Upload request to Microsoft teams with the included phone numbers. Only one of civic_address_id or location_id must be provided, not both. The maximum allowed phone numbers for the numbers_ids array is 1000.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsUploadsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.UploadsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUpload_202>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUpload_202.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your Upload requests for the given external connection.
@@ -252,10 +231,10 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads
             [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads.GetFilterStatusEqQueryParameterType[] FilterstatuseqAsGetFilterStatusEqQueryParameterType { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

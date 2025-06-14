@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_allowed_ports
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_allowed_ports>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPAllowedPort>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_allowed_ports> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPAllowedPort> Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_allowed_ports.Global_ip_allowed_portsGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_allowed_ports
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_allowed_ports>(global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_allowed_ports.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPAllowedPort>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPAllowedPort.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_allowed_ports
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_allowed_ports>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPAllowedPort>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

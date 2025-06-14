@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_check_types
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_health_check_types>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_health_check_types> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType> Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_check_types.Global_ip_health_check_typesGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_check_types
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_health_check_types>(global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_health_check_types.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_check_types
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_health_check_types>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

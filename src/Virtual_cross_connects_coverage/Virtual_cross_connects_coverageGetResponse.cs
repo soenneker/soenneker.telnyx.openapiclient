@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Virtual_cross_connects_coverage>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCoverage>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Virtual_cross_connects_coverage> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCoverage> Data { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Virtual_cross_connects_coverage>(global::Soenneker.Telnyx.OpenApiClient.Models.Virtual_cross_connects_coverage.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCoverage>(global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCoverage.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Virtual_cross_connects_coverage>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCoverage>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }

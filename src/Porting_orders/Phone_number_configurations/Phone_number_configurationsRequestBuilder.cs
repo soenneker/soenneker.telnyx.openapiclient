@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -78,11 +79,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurati
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostResponse?> PostAsPhone_number_configurationsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostResponse?> PostAsPhone_number_configurationsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePhoneNumberConfigurations body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostResponse> PostAsPhone_number_configurationsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostResponse> PostAsPhone_number_configurationsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePhoneNumberConfigurations body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -99,11 +100,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurati
         [Obsolete("This method is obsolete. Use PostAsPhone_number_configurationsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePhoneNumberConfigurations body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePhoneNumberConfigurations body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -137,11 +138,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurati
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePhoneNumberConfigurations body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePhoneNumberConfigurations body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -240,10 +241,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurati
             [QueryParameter("filter%5Buser_bundle_id%5D%5Bin%5D%5B%5D")]
             public Guid?[] FilteruserBundleIdin { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>

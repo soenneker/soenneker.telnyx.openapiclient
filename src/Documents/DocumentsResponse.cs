@@ -7,10 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Documents
 {
-    [Obsolete("This class is obsolete. Use DocumentsGetResponse instead.")]
+    [Obsolete("This class is obsolete. Use DocumentsPostResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class DocumentsResponse : global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsGetResponse, IParsable
+    public partial class DocumentsResponse : global::Soenneker.Telnyx.OpenApiClient.Documents.DocumentsPostResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

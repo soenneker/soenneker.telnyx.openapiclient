@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_protocols
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_protocols>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPProtocol>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_protocols> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPProtocol> Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_protocols.Global_ip_protocolsGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_protocols
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_protocols>(global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_protocols.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPProtocol>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPProtocol.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_protocols
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Global_ip_protocols>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPProtocol>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Wireguard_peers.Item.Config
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;charset=utf-8;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
             return requestInfo;
         }
         /// <summary>

@@ -7,10 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Billing_groups
 {
-    [Obsolete("This class is obsolete. Use Billing_groupsGetResponse instead.")]
+    [Obsolete("This class is obsolete. Use Billing_groupsPostResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Billing_groupsResponse : global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsGetResponse, IParsable
+    public partial class Billing_groupsResponse : global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsPostResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

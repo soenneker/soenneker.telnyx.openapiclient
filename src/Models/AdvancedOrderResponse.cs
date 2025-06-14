@@ -78,7 +78,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             CountryCode = "US";
-            PhoneNumberType = global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderResponse_phone_number_type.Local;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

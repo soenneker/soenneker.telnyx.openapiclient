@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,39 +36,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api
         /// <summary>
         /// Returns the detail on API usage on a bucket of a particular time period, group by method category.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetStorageAPIUsage_200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiGetResponse?> GetAsApiGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiRequestBuilder.ApiRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetStorageAPIUsage_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiRequestBuilder.ApiRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiGetResponse> GetAsApiGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiRequestBuilder.ApiRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.GetStorageAPIUsage_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiRequestBuilder.ApiRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns the detail on API usage on a bucket of a particular time period, group by method category.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsApiGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiRequestBuilder.ApiRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiRequestBuilder.ApiRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api.ApiResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetStorageAPIUsage_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetStorageAPIUsage_200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the detail on API usage on a bucket of a particular time period, group by method category.

@@ -97,10 +97,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The `function` tool type follows the same schema as the [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat). The `retrieval` tool type is unique to Telnyx. You may pass a list of [embedded storage buckets](https://developers.telnyx.com/api/inference/inference-embedding/post-embedding) for retrieval-augmented generation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools>? Tools { get; set; }
+        public UntypedNode? Tools { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools> Tools { get; set; }
+        public UntypedNode Tools { get; set; }
 #endif
         /// <summary>This is used with `logprobs`. An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability.</summary>
         public int? TopLogprobs { get; set; }
@@ -153,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "tool_choice", n => { ToolChoice = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_tool_choice>(); } },
-                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tools", n => { Tools = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "top_logprobs", n => { TopLogprobs = n.GetIntValue(); } },
                 { "top_p", n => { TopP = n.GetDoubleValue(); } },
                 { "use_beam_search", n => { UseBeamSearch = n.GetBoolValue(); } },
@@ -185,86 +185,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("stream", Stream);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_tool_choice>("tool_choice", ToolChoice);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools>("tools", Tools);
+            writer.WriteObjectValue<UntypedNode>("tools", Tools);
             writer.WriteIntValue("top_logprobs", TopLogprobs);
             writer.WriteDoubleValue("top_p", TopP);
             writer.WriteBoolValue("use_beam_search", UseBeamSearch);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ChatCompletionRequest_tools : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam? ChatCompletionToolParam { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam ChatCompletionToolParam { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval? Retrieval { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval Retrieval { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest.ChatCompletionRequest_tools();
-                if("ChatCompletionToolParam".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ChatCompletionToolParam = new global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam();
-                }
-                else if("Retrieval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.Retrieval = new global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ChatCompletionToolParam != null)
-                {
-                    return ChatCompletionToolParam.GetFieldDeserializers();
-                }
-                else if(Retrieval != null)
-                {
-                    return Retrieval.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                _ = writer ?? throw new ArgumentNullException(nameof(writer));
-                if(ChatCompletionToolParam != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionToolParam>(null, ChatCompletionToolParam);
-                }
-                else if(Retrieval != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval>(null, Retrieval);
-                }
-            }
         }
     }
 }
