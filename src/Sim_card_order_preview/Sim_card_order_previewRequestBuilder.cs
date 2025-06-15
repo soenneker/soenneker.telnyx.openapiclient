@@ -43,11 +43,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview.Sim_card_order_previewPostResponse?> PostAsSim_card_order_previewPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Payload body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview.Sim_card_order_previewPostResponse?> PostAsSim_card_order_previewPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Model body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview.Sim_card_order_previewPostResponse> PostAsSim_card_order_previewPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Payload body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview.Sim_card_order_previewPostResponse> PostAsSim_card_order_previewPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Model body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -69,11 +69,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview
         [Obsolete("This method is obsolete. Use PostAsSim_card_order_previewPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview.Sim_card_order_previewResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Payload body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview.Sim_card_order_previewResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Model body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview.Sim_card_order_previewResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Payload body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview.Sim_card_order_previewResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Model body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -92,11 +92,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Payload body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Model body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Payload body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.PreviewSimCardOrders_Model body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

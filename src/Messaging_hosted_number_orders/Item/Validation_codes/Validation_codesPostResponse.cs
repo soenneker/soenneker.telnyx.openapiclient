@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Val
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodes? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodes_Model? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodes Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodes_Model Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Validation_codes.Validation_codesPostResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Val
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodes>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodes.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodes_Model>(global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodes_Model.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Val
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodes>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationCodes_Model>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

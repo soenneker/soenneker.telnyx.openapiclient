@@ -134,10 +134,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The optInWorkflowImageURLs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Url>? OptInWorkflowImageURLs { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Url_Model>? OptInWorkflowImageURLs { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Url> OptInWorkflowImageURLs { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Url_Model> OptInWorkflowImageURLs { get; set; }
 #endif
         /// <summary>The phoneNumbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -225,7 +225,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
                 { "messageVolume", n => { MessageVolume = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>(); } },
                 { "optInWorkflow", n => { OptInWorkflow = n.GetStringValue(); } },
-                { "optInWorkflowImageURLs", n => { OptInWorkflowImageURLs = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>(global::Soenneker.Telnyx.OpenApiClient.Models.Url.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "optInWorkflowImageURLs", n => { OptInWorkflowImageURLs = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url_Model>(global::Soenneker.Telnyx.OpenApiClient.Models.Url_Model.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phoneNumbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "productionMessageContent", n => { ProductionMessageContent = n.GetStringValue(); } },
                 { "useCase", n => { UseCase = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>(); } },
@@ -258,7 +258,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("isvReseller", IsvReseller);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>("messageVolume", MessageVolume);
             writer.WriteStringValue("optInWorkflow", OptInWorkflow);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>("optInWorkflowImageURLs", OptInWorkflowImageURLs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url_Model>("optInWorkflowImageURLs", OptInWorkflowImageURLs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>("phoneNumbers", PhoneNumbers);
             writer.WriteStringValue("productionMessageContent", ProductionMessageContent);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>("useCase", UseCase);
