@@ -14,40 +14,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The available throughput in Megabits per Second (Mbps) for your Virtual Cross Connect.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<double?>? AvailableBandwidth { get; set; }
-#nullable restore
-#else
-        public List<double?> AvailableBandwidth { get; set; }
-#endif
-        /// <summary>The Virtual Private Cloud with which you would like to establish a cross connect.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCoverage_cloud_provider? CloudProvider { get; set; }
-        /// <summary>The region where your Virtual Private Cloud hosts are located. Should be identical to how the cloud provider names region, i.e. us-east-1 for AWS but Frankfurt for Azure</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CloudProviderRegion { get; set; }
-#nullable restore
-#else
-        public string CloudProviderRegion { get; set; }
-#endif
-        /// <summary>The location property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Location? Location { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Location Location { get; set; }
-#endif
-        /// <summary>Identifies the type of the resource.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RecordType { get; private set; }
-#nullable restore
-#else
-        public string RecordType { get; private set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCoverage"/> and sets the default values.
         /// </summary>
@@ -73,11 +39,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "available_bandwidth", n => { AvailableBandwidth = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
-                { "cloud_provider", n => { CloudProvider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCoverage_cloud_provider>(); } },
-                { "cloud_provider_region", n => { CloudProviderRegion = n.GetStringValue(); } },
-                { "location", n => { Location = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Location>(global::Soenneker.Telnyx.OpenApiClient.Models.Location.CreateFromDiscriminatorValue); } },
-                { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -87,10 +48,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<double?>("available_bandwidth", AvailableBandwidth);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCoverage_cloud_provider>("cloud_provider", CloudProvider);
-            writer.WriteStringValue("cloud_provider_region", CloudProviderRegion);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Location>("location", Location);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

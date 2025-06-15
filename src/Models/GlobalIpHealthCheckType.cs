@@ -14,30 +14,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Global IP Health check params.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType_health_check_params? HealthCheckParams { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType_health_check_params HealthCheckParams { get; set; }
-#endif
-        /// <summary>Global IP Health check type.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? HealthCheckType { get; set; }
-#nullable restore
-#else
-        public string HealthCheckType { get; set; }
-#endif
-        /// <summary>Identifies the type of the resource.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RecordType { get; private set; }
-#nullable restore
-#else
-        public string RecordType { get; private set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType"/> and sets the default values.
         /// </summary>
@@ -63,9 +39,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "health_check_params", n => { HealthCheckParams = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType_health_check_params>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType_health_check_params.CreateFromDiscriminatorValue); } },
-                { "health_check_type", n => { HealthCheckType = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -75,8 +48,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpHealthCheckType_health_check_params>("health_check_params", HealthCheckParams);
-            writer.WriteStringValue("health_check_type", HealthCheckType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

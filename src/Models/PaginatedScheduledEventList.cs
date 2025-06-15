@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList.PaginatedScheduledEventList_data>? Data { get; set; }
 #nullable restore
 #else
-        public UntypedNode Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList.PaginatedScheduledEventList_data> Data { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList.PaginatedScheduledEventList_data>(global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList.PaginatedScheduledEventList_data.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Meta>(global::Soenneker.Telnyx.OpenApiClient.Models.Meta.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,9 +66,66 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList.PaginatedScheduledEventList_data>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class PaginatedScheduledEventList_data : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse? ScheduledPhoneCallEventResponse { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse ScheduledPhoneCallEventResponse { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse? ScheduledSmsEventResponse { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse ScheduledSmsEventResponse { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList.PaginatedScheduledEventList_data"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList.PaginatedScheduledEventList_data CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedScheduledEventList.PaginatedScheduledEventList_data();
+                result.ScheduledPhoneCallEventResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse();
+                result.ScheduledSmsEventResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ScheduledPhoneCallEventResponse != null || ScheduledSmsEventResponse != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ScheduledPhoneCallEventResponse, ScheduledSmsEventResponse);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse>(null, ScheduledPhoneCallEventResponse, ScheduledSmsEventResponse);
+            }
         }
     }
 }

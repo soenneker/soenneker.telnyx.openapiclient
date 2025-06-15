@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The loc property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Loc { get; set; }
+        public List<string>? Loc { get; set; }
 #nullable restore
 #else
-        public UntypedNode Loc { get; set; }
+        public List<string> Loc { get; set; }
 #endif
         /// <summary>The msg property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "loc", n => { Loc = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "loc", n => { Loc = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "msg", n => { Msg = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("loc", Loc);
+            writer.WriteCollectionOfPrimitiveValues<string>("loc", Loc);
             writer.WriteStringValue("msg", Msg);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

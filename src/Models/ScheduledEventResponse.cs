@@ -8,28 +8,27 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Union type for different scheduled event response types
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ScheduledEventResponse : IAdditionalDataHolder, IParsable
+    public partial class ScheduledEventResponse : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Union discriminator</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse? ScheduledPhoneCallEventResponse { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse ScheduledPhoneCallEventResponse { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledEventResponse"/> and sets the default values.
-        /// </summary>
-        public ScheduledEventResponse()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse? ScheduledSmsEventResponse { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse ScheduledSmsEventResponse { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -38,7 +37,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledEventResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledEventResponse();
+            var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledEventResponse();
+            result.ScheduledPhoneCallEventResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse();
+            result.ScheduledSmsEventResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,10 +48,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ScheduledPhoneCallEventResponse != null || ScheduledSmsEventResponse != null)
             {
-                { "type", n => { Type = n.GetStringValue(); } },
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ScheduledPhoneCallEventResponse, ScheduledSmsEventResponse);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -58,8 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse>(null, ScheduledPhoneCallEventResponse, ScheduledSmsEventResponse);
         }
     }
 }

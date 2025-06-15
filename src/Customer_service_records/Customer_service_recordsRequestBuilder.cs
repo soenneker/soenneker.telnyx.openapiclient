@@ -124,11 +124,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostResponse?> PostAsCustomer_service_recordsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateCustomerServiceRecord body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostResponse?> PostAsCustomer_service_recordsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostResponse> PostAsCustomer_service_recordsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateCustomerServiceRecord body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostResponse> PostAsCustomer_service_recordsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -156,11 +156,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
         [Obsolete("This method is obsolete. Use PostAsCustomer_service_recordsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateCustomerServiceRecord body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateCustomerServiceRecord body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -201,11 +201,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateCustomerServiceRecord body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.CreateCustomerServiceRecord body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

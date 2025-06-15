@@ -14,30 +14,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The IP address assigned for your side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value can not be patched once the VXC has bene provisioned.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PrimaryCloudIp { get; set; }
-#nullable restore
-#else
-        public string PrimaryCloudIp { get; set; }
-#endif
-        /// <summary>Indicates whether the primary circuit is enabled. Setting this to `false` will disable the circuit.</summary>
-        public bool? PrimaryEnabled { get; set; }
-        /// <summary>Whether the primary BGP route is being announced.</summary>
-        public bool? PrimaryRoutingAnnouncement { get; set; }
-        /// <summary>The IP address assigned for your side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value can not be patched once the VXC has bene provisioned.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SecondaryCloudIp { get; set; }
-#nullable restore
-#else
-        public string SecondaryCloudIp { get; set; }
-#endif
-        /// <summary>Indicates whether the secondary circuit is enabled. Setting this to `false` will disable the circuit.</summary>
-        public bool? SecondaryEnabled { get; set; }
-        /// <summary>Whether the secondary BGP route is being announced.</summary>
-        public bool? SecondaryRoutingAnnouncement { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectPatch"/> and sets the default values.
         /// </summary>
@@ -63,12 +39,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "primary_cloud_ip", n => { PrimaryCloudIp = n.GetStringValue(); } },
-                { "primary_enabled", n => { PrimaryEnabled = n.GetBoolValue(); } },
-                { "primary_routing_announcement", n => { PrimaryRoutingAnnouncement = n.GetBoolValue(); } },
-                { "secondary_cloud_ip", n => { SecondaryCloudIp = n.GetStringValue(); } },
-                { "secondary_enabled", n => { SecondaryEnabled = n.GetBoolValue(); } },
-                { "secondary_routing_announcement", n => { SecondaryRoutingAnnouncement = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -78,12 +48,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("primary_cloud_ip", PrimaryCloudIp);
-            writer.WriteBoolValue("primary_enabled", PrimaryEnabled);
-            writer.WriteBoolValue("primary_routing_announcement", PrimaryRoutingAnnouncement);
-            writer.WriteStringValue("secondary_cloud_ip", SecondaryCloudIp);
-            writer.WriteBoolValue("secondary_enabled", SecondaryEnabled);
-            writer.WriteBoolValue("secondary_routing_announcement", SecondaryRoutingAnnouncement);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

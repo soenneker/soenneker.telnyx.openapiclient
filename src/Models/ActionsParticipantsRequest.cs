@@ -23,7 +23,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<Guid?> Exclude { get; set; }
 #endif
         /// <summary>Either a list of participant id to perform the action on, or the keyword &quot;all&quot; to perform the action on all participant.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants? Participants { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest.ActionsParticipantsRequest_participants? Participants { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest.ActionsParticipantsRequest_participants Participants { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest"/> and sets the default values.
         /// </summary>
@@ -50,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "exclude", n => { Exclude = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "participants", n => { Participants = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants>(); } },
+                { "participants", n => { Participants = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest.ActionsParticipantsRequest_participants>(global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest.ActionsParticipantsRequest_participants.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -61,8 +67,75 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<Guid?>("exclude", Exclude);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants>("participants", Participants);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest.ActionsParticipantsRequest_participants>("participants", Participants);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>, List&lt;Guid&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ActionsParticipantsRequest_participants : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type List&lt;Guid&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<Guid?>? Guid { get; set; }
+#nullable restore
+#else
+            public List<Guid?> Guid { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest.ActionsParticipantsRequest_participants"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest.ActionsParticipantsRequest_participants CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest.ActionsParticipantsRequest_participants();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else if(parseNode.GetCollectionOfPrimitiveValues<Guid?>()?.AsList() is List<Guid> guidValue)
+                {
+                    result.Guid = guidValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else if(Guid != null)
+                {
+                    writer.WriteCollectionOfPrimitiveValues<Guid?>(null, Guid);
+                }
+            }
         }
     }
 }

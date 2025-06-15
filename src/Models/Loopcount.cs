@@ -7,28 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch_B2"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class Loopcount : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class Loopcount : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Union discriminator</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch? LoopcountBranch { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch LoopcountBranch { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount"/> and sets the default values.
-        /// </summary>
-        public Loopcount()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch_B2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch_B2? LoopcountBranchB2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch_B2 LoopcountBranchB2 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,7 +37,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount();
+            if("loopcount_branch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.LoopcountBranch = new global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch();
+            }
+            else if("loopcount_branch_b2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.LoopcountBranchB2 = new global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch_B2();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,10 +55,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(LoopcountBranch != null)
             {
-                { "type", n => { Type = n.GetStringValue(); } },
-            };
+                return LoopcountBranch.GetFieldDeserializers();
+            }
+            else if(LoopcountBranchB2 != null)
+            {
+                return LoopcountBranchB2.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -57,8 +72,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            if(LoopcountBranch != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch>(null, LoopcountBranch);
+            }
+            else if(LoopcountBranchB2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_branch_B2>(null, LoopcountBranchB2);
+            }
         }
     }
 }

@@ -63,10 +63,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The settings associated with the voice selected</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings? VoiceSettings { get; set; }
 #nullable restore
 #else
-        public UntypedNode VoiceSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings VoiceSettings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest"/> and sets the default values.
@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "service_level", n => { ServiceLevel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_service_level>(); } },
                 { "stop", n => { Stop = n.GetStringValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
-                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_service_level>("service_level", ServiceLevel);
             writer.WriteStringValue("stop", Stop);
             writer.WriteStringValue("voice", Voice);
-            writer.WriteObjectValue<UntypedNode>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

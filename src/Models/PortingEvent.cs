@@ -31,10 +31,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent.PortingEvent_payload? Payload { get; set; }
 #nullable restore
 #else
-        public UntypedNode Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent.PortingEvent_payload Payload { get; set; }
 #endif
         /// <summary>The status of the payload generation.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent_payload_status? PayloadStatus { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent_event_type>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent.PortingEvent_payload>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent.PortingEvent_payload.CreateFromDiscriminatorValue); } },
                 { "payload_status", n => { PayloadStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent_payload_status>(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
@@ -97,11 +97,146 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent_event_type>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<UntypedNode>("payload", Payload);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent.PortingEvent_payload>("payload", Payload);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent_payload_status>("payload_status", PayloadStatus);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderDeletedPayload"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderSplitPayload"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderStatusChangedPayload"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class PortingEvent_payload : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderDeletedPayload"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderDeletedPayload? WebhookPortingOrderDeletedPayload { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderDeletedPayload WebhookPortingOrderDeletedPayload { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload? WebhookPortingOrderMessagingChangedPayload { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload WebhookPortingOrderMessagingChangedPayload { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload? WebhookPortingOrderNewCommentPayload { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload WebhookPortingOrderNewCommentPayload { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderSplitPayload"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderSplitPayload? WebhookPortingOrderSplitPayload { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderSplitPayload WebhookPortingOrderSplitPayload { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderStatusChangedPayload"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderStatusChangedPayload? WebhookPortingOrderStatusChangedPayload { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderStatusChangedPayload WebhookPortingOrderStatusChangedPayload { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent.PortingEvent_payload"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent.PortingEvent_payload CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.PortingEvent.PortingEvent_payload();
+                if("WebhookPortingOrderDeletedPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WebhookPortingOrderDeletedPayload = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderDeletedPayload();
+                }
+                else if("WebhookPortingOrderMessagingChangedPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WebhookPortingOrderMessagingChangedPayload = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload();
+                }
+                else if("WebhookPortingOrderNewCommentPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WebhookPortingOrderNewCommentPayload = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload();
+                }
+                else if("WebhookPortingOrderSplitPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WebhookPortingOrderSplitPayload = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderSplitPayload();
+                }
+                else if("WebhookPortingOrderStatusChangedPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WebhookPortingOrderStatusChangedPayload = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderStatusChangedPayload();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(WebhookPortingOrderDeletedPayload != null)
+                {
+                    return WebhookPortingOrderDeletedPayload.GetFieldDeserializers();
+                }
+                else if(WebhookPortingOrderMessagingChangedPayload != null)
+                {
+                    return WebhookPortingOrderMessagingChangedPayload.GetFieldDeserializers();
+                }
+                else if(WebhookPortingOrderNewCommentPayload != null)
+                {
+                    return WebhookPortingOrderNewCommentPayload.GetFieldDeserializers();
+                }
+                else if(WebhookPortingOrderSplitPayload != null)
+                {
+                    return WebhookPortingOrderSplitPayload.GetFieldDeserializers();
+                }
+                else if(WebhookPortingOrderStatusChangedPayload != null)
+                {
+                    return WebhookPortingOrderStatusChangedPayload.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                _ = writer ?? throw new ArgumentNullException(nameof(writer));
+                if(WebhookPortingOrderDeletedPayload != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderDeletedPayload>(null, WebhookPortingOrderDeletedPayload);
+                }
+                else if(WebhookPortingOrderMessagingChangedPayload != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderMessagingChangedPayload>(null, WebhookPortingOrderMessagingChangedPayload);
+                }
+                else if(WebhookPortingOrderNewCommentPayload != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderNewCommentPayload>(null, WebhookPortingOrderNewCommentPayload);
+                }
+                else if(WebhookPortingOrderSplitPayload != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderSplitPayload>(null, WebhookPortingOrderSplitPayload);
+                }
+                else if(WebhookPortingOrderStatusChangedPayload != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortingOrderStatusChangedPayload>(null, WebhookPortingOrderStatusChangedPayload);
+                }
+            }
         }
     }
 }
