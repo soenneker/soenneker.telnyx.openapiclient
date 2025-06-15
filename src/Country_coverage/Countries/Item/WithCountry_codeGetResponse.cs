@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_Model? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_Model Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item.WithCountry_codeGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_Model>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_Model.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Country_coverage.Countries.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_Model>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

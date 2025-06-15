@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Regulatory_requirements
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements_Model>? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements_Model> Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements> Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Regulatory_requirements.Regulatory_requirementsGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Regulatory_requirements
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements_Model>(global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements_Model.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements>(global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Regulatory_requirements
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements_Model>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegulatoryRequirements>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_Model? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_Model Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportPostResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_Model>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_Model.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_Model>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

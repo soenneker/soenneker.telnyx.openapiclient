@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_Model? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_Model Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview.Sim_card_order_previewPostResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_Model>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_Model.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_Model>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

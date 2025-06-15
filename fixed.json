@@ -367,7 +367,7 @@
           "IP Ranges"
         ],
         "summary": "Delete access IP ranges",
-        "operationId": "Deleteb3e6a7c4ade44fd58fbd069af8fa2dc3",
+        "operationId": "Deleteeabf1c1f7e2b40798ddee4a31ced0e43",
         "parameters": [
           {
             "name": "access_ip_range_id",
@@ -998,6 +998,16 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/update_assistant_public_assistants__assistant_id__post_200"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -1182,6 +1192,16 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/delete_scheduled_event_200"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -1425,6 +1445,16 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chat_public_chat_completions_post_200"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -1652,6 +1682,16 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fetch_cluster_image_by_task_id_public_text_clusters__task_id__image_get_200"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -3873,6 +3913,16 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteBrand_200"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -4004,7 +4054,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResendBrand2faEmail_201"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -4033,6 +4085,16 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListExternalVettings_200"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -4074,6 +4136,16 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostOrderExternalVetting_200"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -4159,6 +4231,16 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RevetBrand_200"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -7667,6 +7749,16 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcceptCampaign_200"
+                }
+              }
+            }
+          },
           "422": {
             "description": "Validation Error",
             "content": {
@@ -9986,14 +10078,7 @@
           }
         ],
         "requestBody": {
-          "description": "Creates new credentials resource for the specified connection_id.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomStorageConfiguration"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreateCredentialsRequest"
         },
         "responses": {
           "200": {
@@ -10018,14 +10103,7 @@
           }
         ],
         "requestBody": {
-          "description": "Creates new credentials resource for the specified connection_id.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomStorageConfiguration"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreateCredentialsRequest"
         },
         "responses": {
           "200": {
@@ -10112,13 +10190,7 @@
         "description": "Create a new customer service record for the provided phone number.",
         "operationId": "CreateCustomerServiceRecord",
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCustomerServiceRecord"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreateCustomerServiceRecord"
         },
         "responses": {
           "201": {
@@ -10181,13 +10253,7 @@
         "description": "Verify the coverage for a list of phone numbers.",
         "operationId": "VerifyPhoneNumberCoverage",
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/VerifyPhoneNumberCoverage"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/VerifyCustomerServiceRecordPhoneNumberCoverage"
         },
         "responses": {
           "201": {
@@ -10480,14 +10546,7 @@
           }
         ],
         "requestBody": {
-          "description": "The params expected to create/update a Dialogflow Connection for given connection_id.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DialogflowConnection"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/DialogflowConnectionRequest"
         },
         "responses": {
           "201": {
@@ -10512,14 +10571,7 @@
           }
         ],
         "requestBody": {
-          "description": "The params expected to create/update a Dialogflow Connection for given connection_id.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DialogflowConnection"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/DialogflowConnectionRequest"
         },
         "responses": {
           "200": {
@@ -12287,12 +12339,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SendFaxRequest"
+                "$ref": "#/components/schemas/SendFaxRequest_application_json"
               }
             },
             "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/SendFaxMultipartRequest"
+                "$ref": "#/components/schemas/SendFaxMultipartRequest_multipart_form_data"
               }
             }
           }
@@ -14729,12 +14781,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UploadMediaRequest"
+                "$ref": "#/components/schemas/UploadMediaRequest_application_json"
               }
             },
             "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/UploadMediaMultipartRequest"
+                "$ref": "#/components/schemas/UploadMediaMultipartRequest_multipart_form_data"
               }
             }
           }
@@ -14809,12 +14861,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateMediaRequest"
+                "$ref": "#/components/schemas/UpdateMediaRequest_application_json"
               }
             },
             "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateMediaMultipartRequest"
+                "$ref": "#/components/schemas/UpdateMediaMultipartRequest_multipart_form_data"
               }
             }
           }
@@ -16135,6 +16187,16 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteAutorespConfig_200"
+                }
+              }
+            }
+          },
           "default": {
             "$ref": "#/components/responses/GenericErrorResponse"
           }
@@ -16405,6 +16467,16 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteVerificationRequest_200"
+                }
+              }
+            }
+          },
           "default": {
             "$ref": "#/components/responses/GenericErrorResponse"
           }
@@ -16526,7 +16598,7 @@
           "RCS messaging"
         ],
         "summary": "Send an RCS message",
-        "operationId": "Posta9bc117989aa4e9fb11c47c3bde99f69",
+        "operationId": "Postff99fb6cef834cdb948d2babe716e234",
         "requestBody": {
           "description": "RCS message body",
           "content": {
@@ -19661,7 +19733,11 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "example": [
+                    "US",
+                    "CA"
+                  ]
                 }
               ]
             }
@@ -20706,7 +20782,11 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "example": [
+                    "US",
+                    "CA"
+                  ]
                 }
               ]
             }
@@ -21499,7 +21579,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/republishPortingEvent_201"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -21517,13 +21599,7 @@
         "description": "Preview the LOA template that would be generated without need to create LOA configuration.",
         "operationId": "PreviewLoaConfigurationParams",
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PreviewLoaConfigurationParams"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreatePortingLOAConfiguration"
         },
         "responses": {
           "200": {
@@ -21564,13 +21640,7 @@
         "description": "Create a LOA configuration.",
         "operationId": "CreateLoaConfiguration",
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PreviewLoaConfigurationParams"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreatePortingLOAConfiguration"
         },
         "responses": {
           "201": {
@@ -21606,7 +21676,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteLoaConfiguration_204"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -21660,13 +21732,7 @@
           }
         ],
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PreviewLoaConfigurationParams"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreatePortingLOAConfiguration"
         },
         "responses": {
           "200": {
@@ -21760,13 +21826,7 @@
         "description": "Generate reports about porting operations.",
         "operationId": "CreatePortingReport",
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreatePortingReport"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreatePortingReport"
         },
         "responses": {
           "201": {
@@ -22050,7 +22110,10 @@
                   "submitted"
                 ],
                 "type": "string",
-                "example": "in-process"
+                "example": [
+                  "in-process",
+                  "submitted"
+                ]
               }
             }
           },
@@ -22129,14 +22192,7 @@
         "description": "Creates a list of phone number configurations.",
         "operationId": "CreatePhoneNumberConfigurations",
         "requestBody": {
-          "description": "A list of phone number configuration parameters",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreatePhoneNumberConfigurations"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreatePortingPhoneNumberConfigurations"
         },
         "responses": {
           "201": {
@@ -22165,7 +22221,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeletePortingOrder_204"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -22301,13 +22359,7 @@
           }
         ],
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SharePortingOrder"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/SharePortingOrder"
         },
         "responses": {
           "201": {
@@ -22383,13 +22435,7 @@
           }
         ],
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdatePortingOrdersActivationJob"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/UpdatePortingOrdersActivationJob"
         },
         "responses": {
           "200": {
@@ -22484,14 +22530,7 @@
           }
         ],
         "requestBody": {
-          "description": "A list of additional document parameters",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAdditionalDocuments"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreatePortingAdditionalDocuments"
         },
         "responses": {
           "201": {
@@ -22530,7 +22569,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteAdditionalDocument_204"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -22763,14 +22804,7 @@
           }
         ],
         "requestBody": {
-          "description": "A list of phone numbers to send the verification codes to and the method to send them by",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SendPortingVerificationCodes"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/SendPortingVerificationCodes"
         },
         "responses": {
           "201": {
@@ -22778,7 +22812,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SendPortingVerificationCodes_201"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -22801,14 +22837,7 @@
           }
         ],
         "requestBody": {
-          "description": "A list of phone numbers and their verification codes",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/VerifyPortingVerificationCodes"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/VerifyPortingVerificationCodes"
         },
         "responses": {
           "200": {
@@ -22890,13 +22919,7 @@
           }
         ],
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/createPortingPhoneNumberBlock"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreatePortingPhoneNumberBlock"
         },
         "responses": {
           "201": {
@@ -23036,13 +23059,7 @@
           }
         ],
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/createPortingPhoneNumberExtension"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreatePortingPhoneNumberExtension"
         },
         "responses": {
           "201": {
@@ -23430,7 +23447,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/republishPortoutEvent_201"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -23475,7 +23494,11 @@
               "type": "array",
               "items": {
                 "type": "integer"
-              }
+              },
+              "example": [
+                1002,
+                1003
+              ]
             }
           }
         ],
@@ -23543,13 +23566,7 @@
         "description": "Generate reports about port-out operations.",
         "operationId": "CreatePortoutReport",
         "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreatePortoutReport"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/CreatePortoutReport"
         },
         "responses": {
           "201": {
@@ -24160,7 +24177,7 @@
           "RCS messaging"
         ],
         "summary": "List all RCS agents",
-        "operationId": "Get87ed23506f5448cf91eac8284f55ecb7",
+        "operationId": "Getb9caf725d3e7474fae50323c19fe8499",
         "parameters": [
           {
             "$ref": "#/components/parameters/PageNumber"
@@ -24193,7 +24210,7 @@
           "RCS messaging"
         ],
         "summary": "Retrieve an RCS agent",
-        "operationId": "Getffd01f0401f94d55a7618fa719f21717",
+        "operationId": "Get0a96c56928384890914e2861c7c0e90e",
         "parameters": [
           {
             "name": "id",
@@ -24227,7 +24244,7 @@
           "RCS messaging"
         ],
         "summary": "Modify an RCS agent",
-        "operationId": "Patch42bd9a689deb43ef85ae1ec1d83f873a",
+        "operationId": "Patchd66f30ebfadb4ea39f1771bdcf6c6934",
         "parameters": [
           {
             "name": "id",
@@ -24441,14 +24458,7 @@
         "description": "Permanently deletes a list of call recordings.",
         "operationId": "DeleteRecordings",
         "requestBody": {
-          "description": "Deletes recordings for the given list of IDs.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteRecordings"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/DeleteRecordingsRequest"
         },
         "responses": {
           "default": {
@@ -28136,7 +28146,12 @@
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "example": [
+                "personal",
+                "customers",
+                "active-customers"
+              ]
             }
           },
           {
@@ -28585,14 +28600,7 @@
         "description": "Creates a new SIPREC connector configuration.",
         "operationId": "createSiprecConnector",
         "requestBody": {
-          "description": "The parameters required to create or update a SIPREC connector.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SiprecConnector"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/SiprecConnectorRequest"
         },
         "responses": {
           "201": {
@@ -28660,14 +28668,7 @@
           }
         ],
         "requestBody": {
-          "description": "The parameters required to create or update a SIPREC connector.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SiprecConnector"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/SiprecConnectorRequest"
         },
         "responses": {
           "200": {
@@ -29951,14 +29952,7 @@
           }
         ],
         "requestBody": {
-          "description": "Starts call recording on a call.",
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/TexmlCreateCallRecordingRequestBody"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/TexmlCreateCallRecordingRequest"
         },
         "responses": {
           "200": {
@@ -29992,14 +29986,7 @@
           }
         ],
         "requestBody": {
-          "description": "Update call recording on a call.",
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/TexmlUpdateCallRecordingRequestBody"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/TexmlUpdateCallRecordingRequest"
         },
         "responses": {
           "200": {
@@ -30030,14 +30017,7 @@
           }
         ],
         "requestBody": {
-          "description": "Starts a SIPREC session.",
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/TexmlCreateSiprecSessionRequestBody"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/TexmlCreateSiprecSessionRequest"
         },
         "responses": {
           "200": {
@@ -30071,14 +30051,7 @@
           }
         ],
         "requestBody": {
-          "description": "Updates a SIPREC session.",
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/TexmlUpdateSiprecSessionRequestBody"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/TexmlUpdateSiprecSessionRequest"
         },
         "responses": {
           "200": {
@@ -30109,14 +30082,7 @@
           }
         ],
         "requestBody": {
-          "description": "Start streaming media from a call",
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/TexmlCreateCallStreamingRequestBody"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/TexmlCreateCallStreamingRequest"
         },
         "responses": {
           "200": {
@@ -30150,14 +30116,7 @@
           }
         ],
         "requestBody": {
-          "description": "Update streaming",
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/TexmlUpdateCallStreamingRequestBody"
-              }
-            }
-          }
+          "$ref": "#/components/requestBodies/TexmlUpdateCallStreamingRequest"
         },
         "responses": {
           "200": {
@@ -33058,7 +33017,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteBucket_204"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -33092,6 +33053,9 @@
             "name": "list-type",
             "in": "query",
             "schema": {
+              "enum": [
+                2
+              ],
               "type": "integer"
             }
           }
@@ -33137,7 +33101,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HeadBucket_200"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -33171,6 +33137,9 @@
             "required": true,
             "allowEmptyValue": true,
             "schema": {
+              "enum": [
+                true
+              ],
               "type": "boolean"
             }
           }
@@ -33284,7 +33253,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteObject_204"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -33381,7 +33352,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HeadObject_200"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -33456,7 +33429,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PutObject_200"
+                  "title": "DefaultResponse",
+                  "type": "object",
+                  "description": "Default response schema"
                 }
               }
             }
@@ -33498,6 +33473,17 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/TelnyxVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/AWSVoiceSettings"
+              }
+            ],
             "description": "The settings associated with the voice selected"
           },
           "greeting": {
@@ -33721,11 +33707,23 @@
           }
         }
       },
-      "GetRequirementGroups_200": {
-        "title": "GetRequirementGroups_200",
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/RequirementGroup"
+      "ValidateRegistrationCodes": {
+        "title": "ValidateRegistrationCodes",
+        "type": "object",
+        "properties": {
+          "registration_codes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "The object containing the Array of SIM card registration codes.",
+        "example": {
+          "registration_codes": [
+            "123456780",
+            "1231231230"
+          ]
         }
       },
       "ActionsParticipantsRequest": {
@@ -33740,6 +33738,14 @@
                 ],
                 "type": "string",
                 "example": "all"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "7b61621f-62e0-4aad-ab11-9fd19e272e73"
+                }
               }
             ],
             "description": "Either a list of participant id to perform the action on, or the keyword \"all\" to perform the action on all participant."
@@ -34478,13 +34484,24 @@
           "send_silence_when_idle": true
         }
       },
-      "DeleteRecordings": {
-        "title": "DeleteRecordings",
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "List of call recording IDs to delete."
+      "SetPublicIPsBulk": {
+        "title": "SetPublicIPsBulk",
+        "required": [
+          "sim_card_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "sim_card_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Identifies the resource.",
+              "format": "uuid",
+              "readOnly": true,
+              "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            }
+          }
+        }
       },
       "AssignProfileToCampaignRequest": {
         "title": "AssignProfileToCampaignRequest",
@@ -34725,7 +34742,31 @@
       "AssistantTools": {
         "title": "AssistantTools",
         "type": "array",
-        "items": { },
+        "items": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/WebhookTool"
+            },
+            {
+              "$ref": "#/components/schemas/RetrievalTool"
+            },
+            {
+              "$ref": "#/components/schemas/HandoffTool"
+            },
+            {
+              "$ref": "#/components/schemas/HangupTool"
+            },
+            {
+              "$ref": "#/components/schemas/TransferTool"
+            },
+            {
+              "$ref": "#/components/schemas/SIPReferTool"
+            },
+            {
+              "$ref": "#/components/schemas/DTMFTool"
+            }
+          ]
+        },
         "description": "The tools that the assistant can use. These may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
       },
       "AssistantsListData": {
@@ -34854,12 +34895,48 @@
           },
           "to": {
             "type": "object",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "object"
+              },
+              {
+                "type": "array",
+                "items": { }
+              }
+            ],
             "description": "The new value of the field. Can be any JSON type.",
             "nullable": true,
             "example": 12345
           },
           "from": {
             "type": "object",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "object"
+              },
+              {
+                "type": "array",
+                "items": { }
+              }
+            ],
             "description": "The previous value of the field. Can be any JSON type.",
             "nullable": true,
             "example": 54321
@@ -35463,86 +35540,87 @@
         ],
         "type": "string"
       },
-      "CreatePrivateWirelessGateway": {
-        "title": "CreatePrivateWirelessGateway",
+      "PreviewSimCardOrders": {
+        "title": "PreviewSimCardOrders",
         "required": [
-          "network_id",
-          "name"
+          "quantity",
+          "address_id"
         ],
         "type": "object",
         "properties": {
-          "network_id": {
+          "quantity": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
+            "example": 21
+          },
+          "address_id": {
             "type": "string",
-            "description": "The identification of the related network resource.",
+            "description": "Uniquely identifies the address for the order.",
+            "format": "int64",
+            "example": "1293384261075731499"
+          }
+        }
+      },
+      "SetPrivateWirelessGatewayForSimCardGroup": {
+        "title": "SetPrivateWirelessGatewayForSimCardGroup",
+        "required": [
+          "private_wireless_gateway_id"
+        ],
+        "type": "object",
+        "properties": {
+          "private_wireless_gateway_id": {
+            "type": "string",
+            "description": "The identification of the related Private Wireless Gateway resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          }
+        }
+      },
+      "PostSimCardDataUsageNotification": {
+        "title": "PostSimCardDataUsageNotification",
+        "required": [
+          "sim_card_id",
+          "threshold"
+        ],
+        "type": "object",
+        "properties": {
+          "sim_card_id": {
+            "type": "string",
+            "description": "The identification UUID of the related SIM card resource.",
             "format": "uuid",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
-          "name": {
-            "type": "string",
-            "description": "The private wireless gateway name.",
-            "example": "My private wireless gateway"
-          },
-          "region_code": {
-            "type": "string",
-            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
-            "example": "dc2"
-          }
-        }
-      },
-      "UpdatePortoutStatus": {
-        "title": "UpdatePortoutStatus",
-        "type": "object",
-        "properties": {
-          "reason": {
-            "type": "string",
-            "description": "Provide a reason if rejecting the port out request",
-            "example": "I do not recognize this transaction"
-          }
-        }
-      },
-      "PostPortRequestSupportingDocuments": {
-        "title": "PostPortRequestSupportingDocuments",
-        "type": "object",
-        "properties": {
-          "documents": {
-            "maxItems": 10,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "required": [
-                "type",
-                "document_id"
-              ],
-              "type": "object",
-              "properties": {
-                "type": {
-                  "enum": [
-                    "loa",
-                    "invoice"
-                  ],
-                  "type": "string",
-                  "description": "Identifies the type of the document",
-                  "example": "loa"
-                },
-                "document_id": {
-                  "type": "string",
-                  "description": "Identifies the associated document",
-                  "format": "uuid",
-                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-                }
+          "threshold": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "format": "decimal",
+                "example": "2048.1"
+              },
+              "unit": {
+                "enum": [
+                  "MB",
+                  "GB"
+                ],
+                "type": "string",
+                "example": "MB"
               }
             },
-            "description": "List of supporting documents parameters"
+            "description": "Data usage threshold that will trigger the notification."
           }
         }
       },
-      "PostPortRequestComment": {
-        "title": "PostPortRequestComment",
+      "ListRequirements_200": {
+        "title": "ListRequirements_200",
         "type": "object",
         "properties": {
-          "body": {
-            "type": "string",
-            "description": "Comment to post on this portout request"
+          "data": {
+            "$ref": "#/components/schemas/DocReqsRequirementList"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -36266,25 +36344,17 @@
           "park_after_unbridge": "self"
         }
       },
-      "CreatePortoutReport": {
-        "title": "CreatePortoutReport",
-        "required": [
-          "report_type",
-          "params"
-        ],
+      "ListRequirementTypes_200": {
+        "title": "ListRequirementTypes_200",
         "type": "object",
         "properties": {
-          "report_type": {
-            "enum": [
-              "export_portouts_csv"
-            ],
-            "type": "string",
-            "description": "Identifies the type of report",
-            "example": "export_portouts_csv"
+          "data": {
+            "$ref": "#/components/schemas/DocReqsRequirementTypeList"
           },
-          "params": { }
-        },
-        "description": "The parameters for generating a new port-out related report."
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
       },
       "BucketAPIUsageResponse": {
         "title": "BucketAPIUsageResponse",
@@ -37661,13 +37731,34 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "republishPortoutEvent_201": {
-        "title": "DefaultResponse",
+      "UpdateRequirementGroup": {
+        "title": "UpdateRequirementGroup",
         "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
+        "properties": {
+          "customer_reference": {
+            "type": "string",
+            "description": "Reference for the customer",
+            "example": "0002"
+          },
+          "regulatory_requirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "requirement_id": {
+                  "type": "string",
+                  "description": "Unique identifier for the regulatory requirement",
+                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
+                },
+                "field_value": {
+                  "type": "string",
+                  "description": "New value for the regulatory requirement",
+                  "example": "new requirement value"
+                }
+              }
+            }
+          }
+        }
       },
       "CallCost": {
         "title": "Call Cost Received Event",
@@ -40129,6 +40220,19 @@
         "type": "object",
         "properties": {
           "to": {
+            "oneOf": [
+              {
+                "type": "string",
+                "example": "+18005550100 or sip:username@sip.telnyx.com"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": "[\"+18005550100\", \"sip:username@sip.telnyx.com\"]"
+              }
+            ],
             "description": "The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings"
           },
           "from": {
@@ -42233,7 +42337,16 @@
           },
           "tools": {
             "type": "array",
-            "items": { },
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ChatCompletionToolParam"
+                },
+                {
+                  "$ref": "#/components/schemas/Retrieval"
+                }
+              ]
+            },
             "description": "The `function` tool type follows the same schema as the [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat). The `retrieval` tool type is unique to Telnyx. You may pass a list of [embedded storage buckets](https://developers.telnyx.com/api/inference/inference-embedding/post-embedding) for retrieval-augmented generation."
           },
           "tool_choice": {
@@ -42338,7 +42451,40 @@
         ],
         "type": "object",
         "properties": {
-          "content": { },
+          "content": {
+            "oneOf": [
+              {
+                "title": "Content String",
+                "type": "string"
+              },
+              {
+                "title": "Text and Image Array",
+                "type": "array",
+                "items": {
+                  "required": [
+                    "type"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "enum": [
+                        "text",
+                        "image_url"
+                      ],
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "image_url": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            ]
+          },
           "role": {
             "enum": [
               "system",
@@ -44745,62 +44891,56 @@
           "uri": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Conferences.json?Page=0&PageSize=1"
         }
       },
-      "createPortingPhoneNumberExtension": {
-        "title": "createPortingPhoneNumberExtension",
+      "CreateRequirementGroup": {
+        "title": "CreateRequirementGroup",
         "required": [
-          "porting_phone_number_id",
-          "extension_range",
-          "activation_ranges"
+          "country_code",
+          "phone_number_type",
+          "action"
         ],
         "type": "object",
         "properties": {
-          "porting_phone_number_id": {
+          "country_code": {
             "type": "string",
-            "description": "Identifies the porting phone number associated with this porting phone number extension.",
-            "format": "uuid",
-            "example": "f24151b6-3389-41d3-8747-7dd8c681e5e2"
+            "description": "ISO alpha 2 country code",
+            "example": "US"
           },
-          "extension_range": {
-            "required": [
-              "start_at",
-              "end_at"
+          "phone_number_type": {
+            "enum": [
+              "local",
+              "toll_free",
+              "mobile",
+              "national",
+              "shared_cost"
             ],
-            "type": "object",
-            "properties": {
-              "start_at": {
-                "type": "integer",
-                "description": "Specifies the start of the extension range for this porting phone number extension.",
-                "example": 1
-              },
-              "end_at": {
-                "type": "integer",
-                "description": "Specifies the end of the extension range for this porting phone number extension.",
-                "example": 10
-              }
-            }
+            "type": "string",
+            "example": "local"
           },
-          "activation_ranges": {
+          "action": {
+            "enum": [
+              "ordering",
+              "porting"
+            ],
+            "type": "string",
+            "example": "ordering"
+          },
+          "customer_reference": {
+            "type": "string",
+            "example": "My Requirement Group"
+          },
+          "regulatory_requirements": {
             "type": "array",
             "items": {
-              "required": [
-                "start_at",
-                "end_at"
-              ],
               "type": "object",
               "properties": {
-                "start_at": {
-                  "type": "integer",
-                  "description": "Specifies the start of the activation range. Must be greater or equal the start of the extension range.",
-                  "example": 1
+                "requirement_id": {
+                  "type": "string"
                 },
-                "end_at": {
-                  "type": "integer",
-                  "description": "Specifies the end of the activation range. It must be no more than the end of the extension range.",
-                  "example": 10
+                "field_value": {
+                  "type": "string"
                 }
               }
-            },
-            "description": "Specifies the activation ranges for this porting phone number extension. The activation range must be within the extension range and should not overlap with other activation ranges."
+            }
           }
         }
       },
@@ -44915,6 +45055,11 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+              }
+            ],
             "description": "The settings associated with the voice selected"
           },
           "language": {
@@ -45188,178 +45333,107 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "createPortingPhoneNumberBlock": {
-        "title": "createPortingPhoneNumberBlock",
+      "GetRequirementGroups_200": {
+        "title": "GetRequirementGroups_200",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RequirementGroup"
+        }
+      },
+      "CreatePrivateWirelessGateway": {
+        "title": "CreatePrivateWirelessGateway",
         "required": [
-          "phone_number_range",
-          "activation_ranges"
+          "network_id",
+          "name"
         ],
         "type": "object",
         "properties": {
-          "phone_number_range": {
-            "required": [
-              "start_at",
-              "end_at"
-            ],
-            "type": "object",
-            "properties": {
-              "start_at": {
-                "pattern": "^\\+\\d{7,15}$",
-                "type": "string",
-                "description": "Specifies the start of the phone number range for this porting phone number block.",
-                "example": "+4930244999901"
-              },
-              "end_at": {
-                "pattern": "^\\+\\d{7,15}$",
-                "type": "string",
-                "description": "Specifies the end of the phone number range for this porting phone number block.",
-                "example": "+4930244999910"
-              }
-            }
+          "network_id": {
+            "type": "string",
+            "description": "The identification of the related network resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
-          "activation_ranges": {
+          "name": {
+            "type": "string",
+            "description": "The private wireless gateway name.",
+            "example": "My private wireless gateway"
+          },
+          "region_code": {
+            "type": "string",
+            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
+            "example": "dc2"
+          }
+        }
+      },
+      "UpdatePortoutStatus": {
+        "title": "UpdatePortoutStatus",
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "description": "Provide a reason if rejecting the port out request",
+            "example": "I do not recognize this transaction"
+          }
+        }
+      },
+      "PostPortRequestSupportingDocuments": {
+        "title": "PostPortRequestSupportingDocuments",
+        "type": "object",
+        "properties": {
+          "documents": {
+            "maxItems": 10,
+            "minItems": 1,
             "type": "array",
             "items": {
               "required": [
-                "start_at",
-                "end_at"
+                "type",
+                "document_id"
               ],
               "type": "object",
               "properties": {
-                "start_at": {
-                  "pattern": "^\\+\\d{7,15}$",
-                  "type": "string",
-                  "description": "Specifies the start of the activation range. Must be greater or equal the start of the extension range.",
-                  "example": "+4930244999901"
-                },
-                "end_at": {
-                  "pattern": "^\\+\\d{7,15}$",
-                  "type": "string",
-                  "description": "Specifies the end of the activation range. It must be no more than the end of the extension range.",
-                  "example": "+4930244999910"
-                }
-              }
-            },
-            "description": "Specifies the activation ranges for this porting phone number block. The activation range must be within the block range and should not overlap with other activation ranges."
-          }
-        }
-      },
-      "VerifyPortingVerificationCodes": {
-        "title": "VerifyPortingVerificationCodes",
-        "type": "object",
-        "properties": {
-          "verification_codes": {
-            "maxItems": 100,
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "phone_number": {
-                  "type": "string"
-                },
-                "code": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "example": {
-          "verification_codes": [
-            {
-              "phone_number": "+61424000001",
-              "code": "12345"
-            },
-            {
-              "phone_number": "+61424000002",
-              "code": "54321"
-            }
-          ]
-        }
-      },
-      "SendPortingVerificationCodes_201": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
-      },
-      "SendPortingVerificationCodes": {
-        "title": "SendPortingVerificationCodes",
-        "type": "object",
-        "properties": {
-          "phone_numbers": {
-            "maxItems": 100,
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "verification_method": {
-            "enum": [
-              "sms",
-              "call"
-            ],
-            "type": "string"
-          }
-        },
-        "example": {
-          "phone_numbers": [
-            "+61424000001",
-            "+61424000002"
-          ],
-          "verification_method": "sms"
-        }
-      },
-      "DeleteAdditionalDocument_204": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
-      },
-      "CreateAdditionalDocuments": {
-        "title": "CreateAdditionalDocuments",
-        "type": "object",
-        "properties": {
-          "additional_documents": {
-            "maxItems": 100,
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "document_type": {
+                "type": {
                   "enum": [
                     "loa",
-                    "invoice",
-                    "csr",
-                    "other"
+                    "invoice"
                   ],
                   "type": "string",
-                  "description": "The type of document being created."
+                  "description": "Identifies the type of the document",
+                  "example": "loa"
                 },
                 "document_id": {
                   "type": "string",
-                  "description": "The document identification",
-                  "format": "uuid"
+                  "description": "Identifies the associated document",
+                  "format": "uuid",
+                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
                 }
               }
-            }
-          }
-        },
-        "example": {
-          "additional_documents": [
-            {
-              "document_id": "22771a52-c43a-4539-80db-9dd9ec36e237",
-              "document_type": "loa"
             },
-            {
-              "document_id": "d91474e6-4ebc-4ec1-b379-c596eeb405d6",
-              "document_type": "invoice"
-            }
-          ]
+            "description": "List of supporting documents parameters"
+          }
+        }
+      },
+      "PostPortRequestComment": {
+        "title": "PostPortRequestComment",
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Comment to post on this portout request"
+          }
+        }
+      },
+      "PostPortabilityCheck": {
+        "title": "PostPortabilityCheck",
+        "type": "object",
+        "properties": {
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The list of +E.164 formatted phone numbers to check for portability"
+          }
         }
       },
       "ConnectionRtcpSettings": {
@@ -48452,7 +48526,19 @@
           "conversation_metadata": {
             "title": "Conversation Metadata",
             "type": "object",
-            "additionalProperties": { },
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
             "description": "Metadata associated with the conversation. Telnyx provides several pieces of metadata, but customers can also add their own."
           }
         }
@@ -49067,15 +49153,32 @@
           }
         }
       },
-      "UpdatePortingOrdersActivationJob": {
-        "title": "UpdatePortingOrdersActivationJob",
+      "PostAssignMessagingProfileToCampaign_202": {
+        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
+        "required": [
+          "type"
+        ],
         "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
+          },
+          {
+            "$ref": "#/components/schemas/SettingsDataErrorMessage"
+          }
+        ],
         "properties": {
-          "activate_at": {
+          "type": {
+            "title": "type",
             "type": "string",
-            "description": "The desired activation time. The activation time should be between any of the activation windows.",
-            "format": "date-time",
-            "example": "2019-01-01T00:00:00.0000000+00:00"
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
+            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
           }
         }
       },
@@ -49103,35 +49206,67 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": { }
+            "items": {
+              "oneOf": [
+                {
+                  "required": [
+                    "phone_number",
+                    "verification_code_id",
+                    "type"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "phone_number": {
+                      "type": "string",
+                      "description": "Phone number for which the verification code was created",
+                      "format": "+E.164"
+                    },
+                    "verification_code_id": {
+                      "type": "string",
+                      "description": "Unique identifier for the verification code",
+                      "format": "uuid"
+                    },
+                    "type": {
+                      "enum": [
+                        "sms",
+                        "call",
+                        "flashcall"
+                      ],
+                      "type": "string",
+                      "description": "Type of verification method used"
+                    }
+                  },
+                  "description": "Successful verification code creation response"
+                },
+                {
+                  "required": [
+                    "phone_number",
+                    "error"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "phone_number": {
+                      "type": "string",
+                      "description": "Phone number for which the verification code creation failed",
+                      "format": "+E.164"
+                    },
+                    "error": {
+                      "type": "string",
+                      "description": "Error message describing why the verification code creation failed"
+                    }
+                  },
+                  "description": "Failed verification code creation response"
+                }
+              ]
+            }
           }
         }
       },
-      "SharePortingOrder": {
-        "title": "SharePortingOrder",
+      "GetPartnerCampaignSharingStatus_200": {
+        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
         "type": "object",
-        "properties": {
-          "expires_in_seconds": {
-            "maximum": 172800,
-            "minimum": 1,
-            "type": "integer",
-            "description": "The number of seconds the token will be valid for"
-          },
-          "permissions": {
-            "enum": [
-              "porting_order.document.read",
-              "porting_order.document.update"
-            ],
-            "type": "string",
-            "description": "The permissions the token will have"
-          }
-        },
-        "example": {
-          "expires_in_seconds": 3600,
-          "permissions": [
-            "porting_order.document.read",
-            "porting_order.document.update"
-          ]
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CampaignSharingStatus"
         }
       },
       "CredentialConnection": {
@@ -49495,13 +49630,21 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "DeletePortingOrder_204": {
-        "title": "DefaultResponse",
+      "OperatorConnectRefresh_202": {
+        "title": "Operator Connect Refresh Response",
         "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "description": "A message describing the result of the operation",
+            "example": "Operator connect refresh started"
+          }
+        }
       },
       "CredentialsResponse": {
         "title": "CredentialsResponse",
@@ -49642,7 +49785,19 @@
             "type": "string",
             "example": "gcs"
           },
-          "configuration": { }
+          "configuration": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GCSConfigurationData"
+              },
+              {
+                "$ref": "#/components/schemas/S3ConfigurationData"
+              },
+              {
+                "$ref": "#/components/schemas/AzureConfigurationData"
+              }
+            ]
+          }
         }
       },
       "CustomerServiceRecord": {
@@ -49966,34 +50121,19 @@
           }
         }
       },
-      "CreatePhoneNumberConfigurations": {
-        "title": "CreatePhoneNumberConfigurations",
+      "OperatorConnectRefresh_200": {
+        "title": "Operator Connect Refresh Response",
         "type": "object",
         "properties": {
-          "phone_number_configurations": {
-            "maxItems": 20,
-            "type": "array",
-            "items": {
-              "required": [
-                "porting_phone_number_id",
-                "user_bundle_id"
-              ],
-              "type": "object",
-              "properties": {
-                "porting_phone_number_id": {
-                  "type": "string",
-                  "description": "Identifies the porting phone number to be configured.",
-                  "format": "uuid",
-                  "example": "927f4687-318c-44bc-9f2f-22a5898143a4"
-                },
-                "user_bundle_id": {
-                  "type": "string",
-                  "description": "Identifies the user bundle to be associated with the porting phone number.",
-                  "format": "uuid",
-                  "example": "ff901545-3e27-462a-ba9d-2b34654cab82"
-                }
-              }
-            }
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "description": "A message describing the result of the operation",
+            "example": "Operator connect refresh already in progress"
           }
         }
       },
@@ -50038,15 +50178,7 @@
         "title": "DeleteObjectsRequest",
         "type": "array",
         "items": {
-          "type": "object",
-          "properties": {
-            "Key": {
-              "type": "string"
-            }
-          },
-          "xml": {
-            "name": "Object"
-          }
+          "$ref": "#/components/schemas/DeleteObjectsRequest_item"
         },
         "xml": {
           "name": "Delete",
@@ -50294,17 +50426,32 @@
       "DetailRecord": {
         "title": "DetailRecord",
         "required": [
-          "record_type",
-          "type"
+          "record_type"
         ],
         "type": "object",
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/MessageDetailRecord"
+          },
+          {
+            "$ref": "#/components/schemas/ConferenceDetailRecord"
+          },
+          {
+            "$ref": "#/components/schemas/ConferenceParticipantDetailRecord"
+          },
+          {
+            "$ref": "#/components/schemas/AmdDetailRecord"
+          },
+          {
+            "$ref": "#/components/schemas/VerifyDetailRecord"
+          },
+          {
+            "$ref": "#/components/schemas/SimCardUsageDetailRecord"
+          },
+          {
+            "$ref": "#/components/schemas/MediaStorageDetailRecord"
           }
-        },
+        ],
         "description": "An object following one of the schemas published in https://developers.telnyx.com/docs/api/v2/detail-records",
         "discriminator": {
           "propertyName": "record_type",
@@ -51760,7 +51907,16 @@
       "EnumListResponse": {
         "title": "EnumListResponse",
         "type": "array",
-        "items": { },
+        "items": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
         "example": "[\"BASIC_ACCOUNT\", \"SMALL_ACCOUNT\", \"MEDIUM_ACCOUNT\", \"LARGE_ACCOUNT\", \"KEY_ACCOUNT\"]"
       },
       "EnumObjectResponse": {
@@ -52739,25 +52895,33 @@
           }
         }
       },
-      "CreatePortingReport": {
-        "title": "CreatePortingReport",
-        "required": [
-          "report_type",
-          "params"
-        ],
+      "PostNumbersFeatures_200": {
+        "title": "PostNumbersFeatures_200",
         "type": "object",
         "properties": {
-          "report_type": {
-            "enum": [
-              "export_porting_orders_csv"
-            ],
-            "type": "string",
-            "description": "Identifies the type of report",
-            "example": "export_porting_orders_csv"
-          },
-          "params": { }
-        },
-        "description": "The parameters for generating a new porting related report."
+          "data": {
+            "type": "array",
+            "items": {
+              "required": [
+                "phone_number",
+                "features"
+              ],
+              "type": "object",
+              "properties": {
+                "phone_number": {
+                  "type": "string",
+                  "format": "phone"
+                },
+                "features": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "FaxFailed": {
         "title": "FaxFailed",
@@ -52868,13 +53032,21 @@
           }
         }
       },
-      "DeleteLoaConfiguration_204": {
-        "title": "DefaultResponse",
+      "PostNumbersFeatures": {
+        "title": "PostNumbersFeatures",
+        "required": [
+          "phone_numbers"
+        ],
         "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
+        "properties": {
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "phone"
+            }
+          }
+        }
       },
       "FaxMediaProcessed": {
         "title": "FaxMediaProcessed",
@@ -53282,119 +53454,34 @@
           }
         }
       },
-      "PreviewLoaConfigurationParams": {
-        "title": "PreviewLoaConfigurationParams",
+      "updateNumberOrderPhoneNumberRequirementGroup": {
+        "title": "updateNumberOrderPhoneNumberRequirementGroup",
         "required": [
-          "name",
-          "logo",
-          "company_name",
-          "address",
-          "contact"
+          "requirement_group_id"
         ],
         "type": "object",
         "properties": {
-          "name": {
+          "requirement_group_id": {
             "type": "string",
-            "description": "The name of the LOA configuration",
-            "example": "My LOA Configuration"
-          },
-          "logo": {
-            "required": [
-              "document_id"
-            ],
-            "type": "object",
-            "properties": {
-              "document_id": {
-                "type": "string",
-                "description": "The document identification",
-                "format": "uuid"
-              }
-            },
-            "description": "The logo of the LOA configuration"
-          },
-          "company_name": {
-            "type": "string",
-            "description": "The name of the company",
-            "example": "Telnyx"
-          },
-          "address": {
-            "required": [
-              "street_address",
-              "locality",
-              "administrative_area",
-              "postal_code",
-              "country_code"
-            ],
-            "type": "object",
-            "properties": {
-              "street_address": {
-                "type": "string",
-                "description": "The street address of the company",
-                "example": "600 Congress Avenue"
-              },
-              "extended_address": {
-                "type": "string",
-                "description": "The extended address of the company",
-                "example": "14th Floor"
-              },
-              "city": {
-                "type": "string",
-                "description": "The locality of the company",
-                "example": "Austin"
-              },
-              "state": {
-                "pattern": "^[A-Z]{2}$",
-                "type": "string",
-                "description": "The administrative area of the company",
-                "example": "TX"
-              },
-              "zip_code": {
-                "pattern": "^[0-9]{5}(?:-[0-9]{4})?$",
-                "type": "string",
-                "description": "The postal code of the company",
-                "example": "78701"
-              },
-              "country_code": {
-                "pattern": "^[A-Z]{2}$",
-                "type": "string",
-                "description": "The country code of the company",
-                "example": "US"
-              }
-            },
-            "description": "The address of the company."
-          },
-          "contact": {
-            "required": [
-              "email",
-              "phone_number"
-            ],
-            "type": "object",
-            "properties": {
-              "email": {
-                "type": "string",
-                "description": "The email address of the contact",
-                "format": "email",
-                "example": "testing@telnyx.com"
-              },
-              "phone_number": {
-                "pattern": "^\\+\\d{11,15}$",
-                "type": "string",
-                "description": "The phone number of the contact",
-                "example": "+12003270001"
-              }
-            },
-            "description": "The contact information of the company."
+            "description": "The ID of the requirement group to associate",
+            "format": "uuid"
           }
-        },
-        "description": "The parameters for creating a new LOA configuration."
+        }
       },
-      "republishPortingEvent_201": {
-        "title": "DefaultResponse",
+      "ListNotificationSettings_200": {
+        "title": "ListNotificationSettings_200",
         "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationSetting"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
       },
       "ForbiddenError": {
         "title": "ForbiddenError",
@@ -53728,16 +53815,18 @@
         "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.",
         "default": "UDP"
       },
-      "PostPortabilityCheck": {
-        "title": "PostPortabilityCheck",
+      "FindNotificationsProfiles_200": {
+        "title": "FindNotificationsProfiles_200",
         "type": "object",
         "properties": {
-          "phone_numbers": {
+          "data": {
             "type": "array",
             "items": {
-              "type": "string"
-            },
-            "description": "The list of +E.164 formatted phone numbers to check for portability"
+              "$ref": "#/components/schemas/NotificationProfile"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -53900,6 +53989,17 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/TelnyxVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/AWSVoiceSettings"
+              }
+            ],
             "description": "The settings associated with the voice selected"
           },
           "greeting": {
@@ -54136,6 +54236,11 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+              }
+            ],
             "description": "The settings associated with the voice selected"
           },
           "language": {
@@ -54437,42 +54542,48 @@
       "GlobalIPAllowedPort": {
         "title": "GlobalIPAllowedPort",
         "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Identifies the resource.",
-            "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource.",
-            "readOnly": true,
-            "example": "global_ip_allowed_port"
-          },
-          "protocol_code": {
-            "type": "string",
-            "description": "The Global IP Protocol code.",
-            "readOnly": true,
-            "example": "tcp"
-          },
-          "name": {
-            "type": "string",
-            "description": "A name for the Global IP ports range.",
-            "example": "TCP Registered"
-          },
-          "first_port": {
-            "type": "integer",
-            "description": "First port of a range.",
-            "example": 1024
-          },
-          "last_port": {
-            "type": "integer",
-            "description": "Last port of a range.",
-            "example": 49151
+        "allOf": [
+          {
+            "title": "Global IP Allowed Port Range",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Identifies the resource.",
+                "format": "uuid",
+                "readOnly": true,
+                "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the resource.",
+                "readOnly": true,
+                "example": "global_ip_allowed_port"
+              },
+              "protocol_code": {
+                "type": "string",
+                "description": "The Global IP Protocol code.",
+                "readOnly": true,
+                "example": "tcp"
+              },
+              "name": {
+                "type": "string",
+                "description": "A name for the Global IP ports range.",
+                "example": "TCP Registered"
+              },
+              "first_port": {
+                "type": "integer",
+                "description": "First port of a range.",
+                "example": 1024
+              },
+              "last_port": {
+                "type": "integer",
+                "description": "Last port of a range.",
+                "example": 49151
+              }
+            }
           }
-        }
+        ]
       },
       "GlobalIPHealthCheck": {
         "title": "GlobalIPHealthCheck",
@@ -54517,25 +54628,31 @@
       "GlobalIPProtocol": {
         "title": "GlobalIPProtocol",
         "type": "object",
-        "properties": {
-          "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource.",
-            "readOnly": true,
-            "example": "global_ip_protocol"
-          },
-          "code": {
-            "type": "string",
-            "description": "The Global IP Protocol code.",
-            "readOnly": true,
-            "example": "tcp"
-          },
-          "name": {
-            "type": "string",
-            "description": "A name for Global IP Protocol.",
-            "example": "TCP"
+        "allOf": [
+          {
+            "title": "Global IP Protocol",
+            "type": "object",
+            "properties": {
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the resource.",
+                "readOnly": true,
+                "example": "global_ip_protocol"
+              },
+              "code": {
+                "type": "string",
+                "description": "The Global IP Protocol code.",
+                "readOnly": true,
+                "example": "tcp"
+              },
+              "name": {
+                "type": "string",
+                "description": "A name for Global IP Protocol.",
+                "example": "TCP"
+              }
+            }
           }
-        }
+        ]
       },
       "GlobalIpAssignment": {
         "title": "GlobalIpAssignment",
@@ -54778,29 +54895,35 @@
       "GlobalIpHealthCheckType": {
         "title": "GlobalIpHealthCheckType",
         "type": "object",
-        "properties": {
-          "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource.",
-            "readOnly": true,
-            "example": "global_ip_health_check_type"
-          },
-          "health_check_type": {
-            "type": "string",
-            "description": "Global IP Health check type.",
-            "example": "http_status_2xx"
-          },
-          "health_check_params": {
+        "allOf": [
+          {
+            "title": "Global IP Health Check Type",
             "type": "object",
-            "description": "Global IP Health check params.",
-            "example": {
+            "properties": {
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the resource.",
+                "readOnly": true,
+                "example": "global_ip_health_check_type"
+              },
+              "health_check_type": {
+                "type": "string",
+                "description": "Global IP Health check type.",
+                "example": "http_status_2xx"
+              },
               "health_check_params": {
-                "path": "str",
-                "port": "int"
+                "type": "object",
+                "description": "Global IP Health check params.",
+                "example": {
+                  "health_check_params": {
+                    "path": "str",
+                    "port": "int"
+                  }
+                }
               }
             }
           }
-        }
+        ]
       },
       "GlobalIpLatencyMetric": {
         "title": "GlobalIpLatencyMetric",
@@ -55429,24 +55552,18 @@
           }
         }
       },
-      "PostAssignMessagingProfileToCampaign_202": {
-        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
-        "required": [
-          "type"
-        ],
+      "FindNotificationsEvents_200": {
+        "title": "FindNotificationsEvents_200",
         "type": "object",
         "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
-            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationEvent"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -56576,11 +56693,19 @@
           }
         }
       },
-      "GetPartnerCampaignSharingStatus_200": {
-        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
+      "FindNotificationsEventsConditions_200": {
+        "title": "FindNotificationsEventsConditions_200",
         "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/CampaignSharingStatus"
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationEventCondition"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
         }
       },
       "IntegrationSecret": {
@@ -57518,6 +57643,14 @@
           "type"
         ],
         "type": "object",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          }
+        ],
         "properties": {
           "type": {
             "title": "type",
@@ -58140,19 +58273,18 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "OperatorConnectRefresh_202": {
-        "title": "Operator Connect Refresh Response",
+      "ListNotificationChannels_200": {
+        "title": "ListNotificationChannels_200",
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful",
-            "example": true
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationChannel"
+            }
           },
-          "message": {
-            "type": "string",
-            "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh started"
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -58278,19 +58410,32 @@
           }
         }
       },
-      "OperatorConnectRefresh_200": {
-        "title": "Operator Connect Refresh Response",
+      "CreatePushCredential": {
+        "title": "CreatePushCredential",
+        "required": [
+          "type"
+        ],
         "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful",
-            "example": true
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateIosPushCredentialRequest"
           },
-          "message": {
+          {
+            "$ref": "#/components/schemas/CreateAndroidPushCredentialRequest"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
             "type": "string",
-            "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh already in progress"
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CreateIosPushCredentialRequest": "#/components/schemas/CreateIosPushCredentialRequest",
+            "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
           }
         }
       },
@@ -59311,32 +59456,11 @@
           }
         }
       },
-      "PostNumbersFeatures_200": {
-        "title": "PostNumbersFeatures_200",
+      "DeleteVerificationRequest_200": {
+        "title": "DeleteVerificationRequest_200",
         "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "required": [
-                "phone_number",
-                "features"
-              ],
-              "type": "object",
-              "properties": {
-                "phone_number": {
-                  "type": "string",
-                  "format": "phone"
-                },
-                "features": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "Network": {
@@ -60633,20 +60757,11 @@
           }
         }
       },
-      "PostNumbersFeatures": {
-        "title": "PostNumbersFeatures",
-        "required": [
-          "phone_numbers"
-        ],
+      "DeleteAutorespConfig_200": {
+        "title": "DeleteAutorespConfig_200",
         "type": "object",
-        "properties": {
-          "phone_numbers": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "phone"
-            }
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "OutboundCallRecording": {
@@ -61500,17 +61615,19 @@
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
       },
-      "updateNumberOrderPhoneNumberRequirementGroup": {
-        "title": "updateNumberOrderPhoneNumberRequirementGroup",
-        "required": [
-          "requirement_group_id"
-        ],
+      "GetMessage_200": {
+        "title": "GetMessage_200",
         "type": "object",
         "properties": {
-          "requirement_group_id": {
-            "type": "string",
-            "description": "The ID of the requirement group to associate",
-            "format": "uuid"
+          "data": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutboundMessagePayload"
+              },
+              {
+                "$ref": "#/components/schemas/InboundMessagePayload"
+              }
+            ]
           }
         }
       },
@@ -61567,7 +61684,16 @@
           "data": {
             "title": "Data",
             "type": "array",
-            "items": { }
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/ScheduledPhoneCallEventResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/ScheduledSmsEventResponse"
+                }
+              ]
+            }
           }
         }
       },
@@ -63432,18 +63558,15 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
-      "ListNotificationSettings_200": {
-        "title": "ListNotificationSettings_200",
+      "EnableManagedAccount": {
+        "title": "EnableManagedAccount",
         "type": "object",
         "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationSetting"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+          "reenable_all_connections": {
+            "type": "boolean",
+            "description": "When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.",
+            "default": false,
+            "example": true
           }
         }
       },
@@ -63784,7 +63907,25 @@
             "description": "The status of the payload generation.",
             "example": "created"
           },
-          "payload": { },
+          "payload": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/WebhookPortingOrderDeletedPayload"
+              },
+              {
+                "$ref": "#/components/schemas/WebhookPortingOrderMessagingChangedPayload"
+              },
+              {
+                "$ref": "#/components/schemas/WebhookPortingOrderStatusChangedPayload"
+              },
+              {
+                "$ref": "#/components/schemas/WebhookPortingOrderNewCommentPayload"
+              },
+              {
+                "$ref": "#/components/schemas/WebhookPortingOrderSplitPayload"
+              }
+            ]
+          },
           "record_type": {
             "type": "string",
             "description": "Identifies the type of the resource.",
@@ -65003,7 +65144,13 @@
             "description": "The current status of the report generation.",
             "example": "completed"
           },
-          "params": { },
+          "params": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ExportPortingOrdersCSVReport"
+              }
+            ]
+          },
           "document_id": {
             "type": "string",
             "description": "Identifies the document that was uploaded when report was generated. This field is only populated when the report is under completed status.",
@@ -65326,7 +65473,19 @@
             "description": "The status of the payload generation.",
             "example": "created"
           },
-          "payload": { },
+          "payload": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/WebhookPortoutStatusChangedPayload"
+              },
+              {
+                "$ref": "#/components/schemas/WebhookPortoutNewCommentPayload"
+              },
+              {
+                "$ref": "#/components/schemas/WebhookPortoutFocDateChangedPayload"
+              }
+            ]
+          },
           "record_type": {
             "type": "string",
             "description": "Identifies the type of the resource.",
@@ -65392,7 +65551,13 @@
             "description": "The current status of the report generation.",
             "example": "completed"
           },
-          "params": { },
+          "params": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ExportPortoutsCSVReport"
+              }
+            ]
+          },
           "document_id": {
             "type": "string",
             "description": "Identifies the document that was uploaded when report was generated. This field is only populated when the report is under completed status.",
@@ -66814,18 +66979,47 @@
         "type": "string",
         "description": "Defines how the recording was created."
       },
-      "FindNotificationsProfiles_200": {
-        "title": "FindNotificationsProfiles_200",
+      "UpdateOutboundChannels_default": {
+        "title": "UpdateOutboundChannels_default",
         "type": "object",
         "properties": {
-          "data": {
+          "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationProfile"
+              "required": [
+                "code",
+                "title"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "format": "int"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "detail": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "pointer": {
+                      "type": "string",
+                      "description": "JSON pointer (RFC6901) to the offending entity.",
+                      "format": "json-pointer"
+                    },
+                    "parameter": {
+                      "type": "string",
+                      "description": "Indicates which query parameter caused the error."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object"
+                }
+              }
             }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -69234,6 +69428,14 @@
           "type"
         ],
         "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ScheduledPhoneCallEventResponse"
+          },
+          {
+            "$ref": "#/components/schemas/ScheduledSmsEventResponse"
+          }
+        ],
         "properties": {
           "type": {
             "title": "type",
@@ -69314,7 +69516,19 @@
           "conversation_metadata": {
             "title": "Conversation Metadata",
             "type": "object",
-            "additionalProperties": { }
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            }
           },
           "errors": {
             "title": "Errors",
@@ -69390,7 +69604,19 @@
           "conversation_metadata": {
             "title": "Conversation Metadata",
             "type": "object",
-            "additionalProperties": { }
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            }
           },
           "errors": {
             "title": "Errors",
@@ -69511,7 +69737,7 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
-      "SendFaxMultipartRequest": {
+      "SendFaxMultipartRequest_multipart_form_data": {
         "title": "Send fax multipart request",
         "required": [
           "connection_id",
@@ -69566,7 +69792,7 @@
           }
         }
       },
-      "SendFaxRequest": {
+      "SendFaxRequest_application_json": {
         "title": "Send fax request",
         "required": [
           "connection_id",
@@ -69649,18 +69875,24 @@
           }
         }
       },
-      "FindNotificationsEvents_200": {
-        "title": "FindNotificationsEvents_200",
+      "UpdateOutboundChannels_200": {
+        "title": "UpdateOutboundChannels_200",
         "type": "object",
         "properties": {
           "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationEvent"
+            "type": "object",
+            "properties": {
+              "channels": {
+                "type": "integer",
+                "description": "The number of channels set for the account",
+                "example": 7
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the response",
+                "example": "inbound_channels"
+              }
             }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -70635,6 +70867,11 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+              }
+            ],
             "description": "The settings associated with the voice selected"
           },
           "language": {
@@ -71204,33 +71441,38 @@
           "stream_id": "1edb94f9-7ef0-4150-b502-e0ebadfd9491"
         }
       },
-      "FindNotificationsEventsConditions_200": {
-        "title": "FindNotificationsEventsConditions_200",
+      "UpdateOutboundChannels": {
+        "title": "UpdateOutboundChannels",
+        "required": [
+          "channels"
+        ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationEventCondition"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+          "channels": {
+            "type": "integer",
+            "description": "The new number of concurrent channels for the account",
+            "example": 7
           }
         }
       },
-      "ListNotificationChannels_200": {
-        "title": "ListNotificationChannels_200",
+      "ListInboundChannels_200": {
+        "title": "ListInboundChannels_200",
         "type": "object",
         "properties": {
           "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationChannel"
+            "type": "object",
+            "properties": {
+              "channels": {
+                "type": "integer",
+                "description": "The current number of concurrent channels set for the account",
+                "example": 7
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the response",
+                "example": "inbound_channels"
+              }
             }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -71290,24 +71532,13 @@
         "default": "default",
         "example": "PCMA"
       },
-      "CreatePushCredential": {
-        "title": "CreatePushCredential",
-        "required": [
-          "type"
-        ],
+      "RefreshExternalConnectionUploads_200": {
+        "title": "Create Upload request Response",
         "type": "object",
         "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CreateIosPushCredentialRequest": "#/components/schemas/CreateIosPushCredentialRequest",
-            "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
           }
         }
       },
@@ -71821,11 +72052,19 @@
         "type": "string",
         "description": "Supported models to vectorize and embed documents."
       },
-      "GetMessage_200": {
-        "title": "GetMessage_200",
+      "CreateExternalConnectionUpload_202": {
+        "title": "Create Upload request Response",
         "type": "object",
         "properties": {
-          "data": { }
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
+          },
+          "ticket_id": {
+            "type": "string",
+            "description": "Ticket id of the upload request",
+            "format": "uuid"
+          }
         }
       },
       "TFPhoneNumber": {
@@ -74037,15 +74276,17 @@
           }
         }
       },
-      "EnableManagedAccount": {
-        "title": "EnableManagedAccount",
+      "updateLocation": {
+        "title": "updateLocation",
+        "required": [
+          "static_emergency_address_id"
+        ],
         "type": "object",
         "properties": {
-          "reenable_all_connections": {
-            "type": "boolean",
-            "description": "When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.",
-            "default": false,
-            "example": true
+          "static_emergency_address_id": {
+            "type": "string",
+            "description": "A new static emergency address ID to update the location with",
+            "format": "uuid"
           }
         }
       },
@@ -74176,47 +74417,13 @@
           }
         }
       },
-      "UpdateOutboundChannels_default": {
-        "title": "UpdateOutboundChannels_default",
+      "DeleteExternalConnectionLogMessage_200": {
+        "title": "Dismiss request was successful",
         "type": "object",
         "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "required": [
-                "code",
-                "title"
-              ],
-              "properties": {
-                "code": {
-                  "type": "string",
-                  "format": "int"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "detail": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "object",
-                  "properties": {
-                    "pointer": {
-                      "type": "string",
-                      "description": "JSON pointer (RFC6901) to the offending entity.",
-                      "format": "json-pointer"
-                    },
-                    "parameter": {
-                      "type": "string",
-                      "description": "Indicates which query parameter caused the error."
-                    }
-                  }
-                },
-                "meta": {
-                  "type": "object"
-                }
-              }
-            }
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
           }
         }
       },
@@ -74231,59 +74438,60 @@
         "default": "dual",
         "example": "single"
       },
-      "UpdateOutboundChannels_200": {
-        "title": "UpdateOutboundChannels_200",
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "channels": {
-                "type": "integer",
-                "description": "The number of channels set for the account",
-                "example": 7
-              },
-              "record_type": {
-                "type": "string",
-                "description": "Identifies the type of the response",
-                "example": "inbound_channels"
-              }
-            }
-          }
-        }
-      },
-      "UpdateOutboundChannels": {
-        "title": "UpdateOutboundChannels",
+      "GetEnumEndpoint_200": {
+        "title": "GetEnumEndpoint_200",
         "required": [
-          "channels"
+          "type"
         ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/EnumListResponse"
+          },
+          {
+            "$ref": "#/components/schemas/EnumObjectResponse"
+          },
+          {
+            "$ref": "#/components/schemas/EnumPaginatedResponse"
+          }
+        ],
         "properties": {
-          "channels": {
-            "type": "integer",
-            "description": "The new number of concurrent channels for the account",
-            "example": 7
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "EnumListResponse": "#/components/schemas/EnumListResponse",
+            "EnumObjectResponse": "#/components/schemas/EnumObjectResponse",
+            "EnumPaginatedResponse": "#/components/schemas/EnumPaginatedResponse"
           }
         }
       },
-      "ListInboundChannels_200": {
-        "title": "ListInboundChannels_200",
+      "DownloadDocument_200": {
+        "title": "DownloadDocument_200",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "CreateDocument_RequestBody_form_data": {
+        "title": "CreateDocument_RequestBody_form_data",
         "type": "object",
         "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "channels": {
-                "type": "integer",
-                "description": "The current number of concurrent channels set for the account",
-                "example": 7
-              },
-              "record_type": {
-                "type": "string",
-                "description": "Identifies the type of the response",
-                "example": "inbound_channels"
-              }
-            }
+          "file": {
+            "type": "string",
+            "description": "The file you are uploading.",
+            "format": "binary",
+            "example": ""
+          },
+          "customer_reference": {
+            "type": "string",
+            "description": "Optional reference string for customer tracking.",
+            "example": "MY REF 001"
           }
         }
       },
@@ -74375,28 +74583,49 @@
           }
         }
       },
-      "RefreshExternalConnectionUploads_200": {
-        "title": "Create Upload request Response",
+      "CreateDocument": {
+        "title": "CreateDocument",
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
+          "url": {
+            "type": "string",
+            "description": "If the file is already hosted publicly, you can provide a URL and have the documents service fetch it for you.",
+            "nullable": true,
+            "example": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+          },
+          "filename": {
+            "type": "string",
+            "description": "The filename of the document.",
+            "nullable": true,
+            "example": "test-document.pdf"
+          },
+          "customer_reference": {
+            "type": "string",
+            "description": "Optional reference string for customer tracking.",
+            "nullable": true,
+            "example": "MY REF 001"
+          },
+          "file": {
+            "type": "string",
+            "description": "The Base64 encoded contents of the file you are uploading.",
+            "format": "byte",
+            "nullable": true,
+            "example": "[Base64 encoded content]"
           }
         }
       },
-      "CreateExternalConnectionUpload_202": {
-        "title": "Create Upload request Response",
+      "ListDocuments_200": {
+        "title": "ListDocuments_200",
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocServiceDocument"
+            }
           },
-          "ticket_id": {
-            "type": "string",
-            "description": "Ticket id of the upload request",
-            "format": "uuid"
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -74411,17 +74640,18 @@
         "default": "POST",
         "example": "GET"
       },
-      "updateLocation": {
-        "title": "updateLocation",
-        "required": [
-          "static_emergency_address_id"
-        ],
+      "ListDocumentLinks_200": {
+        "title": "ListDocumentLinks_200",
         "type": "object",
         "properties": {
-          "static_emergency_address_id": {
-            "type": "string",
-            "description": "A new static emergency address ID to update the location with",
-            "format": "uuid"
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocServiceDocumentLink"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -74654,22 +74884,34 @@
           }
         }
       },
-      "DeleteExternalConnectionLogMessage_200": {
-        "title": "Dismiss request was successful",
+      "PatchChannelZone": {
+        "title": "PatchChannelZone",
+        "required": [
+          "channels"
+        ],
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
+          "channels": {
+            "type": "integer",
+            "description": "The number of reserved channels",
+            "format": "int64"
           }
         }
       },
-      "GetEnumEndpoint_200": {
-        "title": "GetEnumEndpoint_200",
+      "PostCampaign_200": {
+        "title": "Response Submit Campaign Public Campaignbuilder Post",
         "required": [
           "type"
         ],
         "type": "object",
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/TelnyxCampaign_CSP"
+          }
+        ],
         "properties": {
           "type": {
             "title": "type",
@@ -74680,9 +74922,7 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "EnumListResponse": "#/components/schemas/EnumListResponse",
-            "EnumObjectResponse": "#/components/schemas/EnumObjectResponse",
-            "EnumPaginatedResponse": "#/components/schemas/EnumPaginatedResponse"
+            "TelnyxCampaign_CSP": "#/components/schemas/TelnyxCampaign_CSP"
           }
         }
       },
@@ -74968,6 +75208,14 @@
             "example": "A"
           },
           "transcription_engine_config": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranscriptionEngineAConfig"
+              },
+              {
+                "$ref": "#/components/schemas/TranscriptionEngineBConfig"
+              }
+            ],
             "discriminator": {
               "propertyName": "transcription_engine",
               "mapping": {
@@ -75376,8 +75624,8 @@
         "default": 2,
         "example": 1
       },
-      "DownloadDocument_200": {
-        "title": "DownloadDocument_200",
+      "GetCampaignOsrAttributes_200": {
+        "title": "Response Get My Osr Campaign Attributes Public Campaign  Campaignid  Osr Attributes Get",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -77013,7 +77261,7 @@
           "managed_account_allow_custom_pricing": true
         }
       },
-      "UpdateMediaMultipartRequest": {
+      "UpdateMediaMultipartRequest_multipart_form_data": {
         "title": "Upload media multipart request",
         "type": "object",
         "properties": {
@@ -77033,7 +77281,7 @@
           "ttl_secs": 86400
         }
       },
-      "UpdateMediaRequest": {
+      "UpdateMediaRequest_application_json": {
         "title": "Upload media request",
         "type": "object",
         "properties": {
@@ -77878,21 +78126,11 @@
           }
         }
       },
-      "CreateDocument_RequestBody_form_data": {
-        "title": "CreateDocument_RequestBody_form_data",
+      "GetCampaignOperationStatus_200": {
+        "title": "Response Get My Campaign Operation Status Public Campaign  Campaignid  Operationstatus Get",
         "type": "object",
-        "properties": {
-          "file": {
-            "type": "string",
-            "description": "The file you are uploading.",
-            "format": "binary",
-            "example": ""
-          },
-          "customer_reference": {
-            "type": "string",
-            "description": "Optional reference string for customer tracking.",
-            "example": "MY REF 001"
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "UplinkData": {
@@ -77998,7 +78236,7 @@
           "bill": "bill example"
         }
       },
-      "UploadMediaMultipartRequest": {
+      "UploadMediaMultipartRequest_multipart_form_data": {
         "title": "Upload media multipart request",
         "required": [
           "media"
@@ -78027,7 +78265,7 @@
           "media_name": "my-file"
         }
       },
-      "UploadMediaRequest": {
+      "UploadMediaRequest_application_json": {
         "title": "Upload media request",
         "required": [
           "media_url"
@@ -78725,21 +78963,11 @@
           }
         }
       },
-      "CreateDocument": {
-        "title": "CreateDocument",
-        "required": [
-          "type"
-        ],
+      "AcceptCampaign_200": {
+        "title": "AcceptCampaign_200",
         "type": "object",
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type"
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "UserRequirement": {
@@ -78975,7 +79203,16 @@
           "loc": {
             "title": "Location",
             "type": "array",
-            "items": { }
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
           },
           "msg": {
             "title": "Message",
@@ -79981,7 +80218,8 @@
               },
               "secondary_cloud_account_id": {
                 "type": "string",
-                "description": "The identifier for your Virtual Private Cloud. The number will be different based upon your Cloud provider.<br /><br />This attribute is only necessary for GCE."
+                "description": "The identifier for your Virtual Private Cloud. The number will be different based upon your Cloud provider.<br /><br />This attribute is only necessary for GCE.",
+                "example": ""
               },
               "secondary_telnyx_ip": {
                 "type": "string",
@@ -80022,39 +80260,51 @@
       "VirtualCrossConnectCoverage": {
         "title": "VirtualCrossConnectCoverage",
         "type": "object",
-        "properties": {
-          "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource.",
-            "readOnly": true,
-            "example": "virtual_cross_connects_coverage"
-          },
-          "location": {
-            "$ref": "#/components/schemas/Location"
-          },
-          "cloud_provider": {
-            "enum": [
-              "aws",
-              "azure",
-              "gce"
-            ],
-            "type": "string",
-            "description": "The Virtual Private Cloud with which you would like to establish a cross connect.",
-            "example": "aws"
-          },
-          "cloud_provider_region": {
-            "type": "string",
-            "description": "The region where your Virtual Private Cloud hosts are located. Should be identical to how the cloud provider names region, i.e. us-east-1 for AWS but Frankfurt for Azure",
-            "example": "us-east-1"
-          },
-          "available_bandwidth": {
-            "type": "array",
-            "items": {
-              "type": "number"
-            },
-            "description": "The available throughput in Megabits per Second (Mbps) for your Virtual Cross Connect."
+        "allOf": [
+          {
+            "title": "VirtualCrossConnectCoverage",
+            "type": "object",
+            "properties": {
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the resource.",
+                "readOnly": true,
+                "example": "virtual_cross_connects_coverage"
+              },
+              "location": {
+                "$ref": "#/components/schemas/Location"
+              },
+              "cloud_provider": {
+                "enum": [
+                  "aws",
+                  "azure",
+                  "gce"
+                ],
+                "type": "string",
+                "description": "The Virtual Private Cloud with which you would like to establish a cross connect.",
+                "example": "aws"
+              },
+              "cloud_provider_region": {
+                "type": "string",
+                "description": "The region where your Virtual Private Cloud hosts are located. Should be identical to how the cloud provider names region, i.e. us-east-1 for AWS but Frankfurt for Azure",
+                "example": "us-east-1"
+              },
+              "available_bandwidth": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "description": "The available throughput in Megabits per Second (Mbps) for your Virtual Cross Connect.",
+                "example": [
+                  50,
+                  100,
+                  200,
+                  500
+                ]
+              }
+            }
           }
-        }
+        ]
       },
       "VirtualCrossConnectCreate": {
         "title": "VirtualCrossConnectCreate",
@@ -80083,54 +80333,52 @@
       "VirtualCrossConnectPatch": {
         "title": "VirtualCrossConnectPatch",
         "type": "object",
-        "properties": {
-          "primary_enabled": {
-            "type": "boolean",
-            "description": "Indicates whether the primary circuit is enabled. Setting this to `false` will disable the circuit.",
-            "example": true
-          },
-          "primary_routing_announcement": {
-            "type": "boolean",
-            "description": "Whether the primary BGP route is being announced.",
-            "example": false
-          },
-          "primary_cloud_ip": {
-            "type": "string",
-            "description": "The IP address assigned for your side of the Virtual Cross Connect.<br /><br />If none is provided, one will be generated for you.<br /><br />This value can not be patched once the VXC has bene provisioned.",
-            "format": "ipv4",
-            "example": "169.254.0.2"
-          },
-          "secondary_enabled": {
-            "type": "boolean",
-            "description": "Indicates whether the secondary circuit is enabled. Setting this to `false` will disable the circuit.",
-            "example": true
-          },
-          "secondary_routing_announcement": {
-            "type": "boolean",
-            "description": "Whether the secondary BGP route is being announced.",
-            "example": false
-          },
-          "secondary_cloud_ip": {
-            "type": "string",
-            "description": "The IP address assigned for your side of the Virtual Cross Connect.<br /><br />If none is provided, one will be generated for you.<br /><br />This value can not be patched once the VXC has bene provisioned.",
-            "format": "ipv4",
-            "example": "169.254.0.4"
-          }
-        }
-      },
-      "ListDocuments_200": {
-        "title": "ListDocuments_200",
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DocServiceDocument"
+        "allOf": [
+          {
+            "title": "VirtualCrossConnectPatch",
+            "type": "object",
+            "properties": {
+              "primary_enabled": {
+                "type": "boolean",
+                "description": "Indicates whether the primary circuit is enabled. Setting this to `false` will disable the circuit.",
+                "example": true
+              },
+              "primary_routing_announcement": {
+                "type": "boolean",
+                "description": "Whether the primary BGP route is being announced.",
+                "example": false
+              },
+              "primary_cloud_ip": {
+                "type": "string",
+                "description": "The IP address assigned for your side of the Virtual Cross Connect.<br /><br />If none is provided, one will be generated for you.<br /><br />This value can not be patched once the VXC has bene provisioned.",
+                "format": "ipv4",
+                "example": "169.254.0.2"
+              },
+              "secondary_enabled": {
+                "type": "boolean",
+                "description": "Indicates whether the secondary circuit is enabled. Setting this to `false` will disable the circuit.",
+                "example": true
+              },
+              "secondary_routing_announcement": {
+                "type": "boolean",
+                "description": "Whether the secondary BGP route is being announced.",
+                "example": false
+              },
+              "secondary_cloud_ip": {
+                "type": "string",
+                "description": "The IP address assigned for your side of the Virtual Cross Connect.<br /><br />If none is provided, one will be generated for you.<br /><br />This value can not be patched once the VXC has bene provisioned.",
+                "format": "ipv4",
+                "example": "169.254.0.4"
+              }
             }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
           }
+        ]
+      },
+      "RevetBrand_200": {
+        "title": "RevetBrand_200",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "VoiceSettings": {
@@ -80296,38 +80544,18 @@
         "default": "1",
         "example": "1"
       },
-      "ListDocumentLinks_200": {
-        "title": "ListDocumentLinks_200",
+      "PostOrderExternalVetting_200": {
+        "title": "PostOrderExternalVetting_200",
         "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DocServiceDocumentLink"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
-      "VerifyPhoneNumberCoverage": {
-        "title": "VerifyPhoneNumberCoverage",
-        "required": [
-          "phone_numbers"
-        ],
+      "ListExternalVettings_200": {
+        "title": "ListExternalVettings_200",
         "type": "object",
-        "properties": {
-          "phone_numbers": {
-            "type": "array",
-            "items": {
-              "pattern": "^\\+1\\d{10}$",
-              "type": "string",
-              "description": "A valid US phone number in E164 format.",
-              "example": "+1234567890"
-            },
-            "description": "The phone numbers list to be verified."
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "WebhookPortingOrderDeletedPayload": {
@@ -80671,27 +80899,11 @@
         },
         "description": "The webhook payload for the portout.status_changed event"
       },
-      "CreateCustomerServiceRecord": {
-        "title": "CreateCustomerServiceRecord",
-        "required": [
-          "phone_number"
-        ],
+      "DeleteBrand_200": {
+        "title": "DeleteBrand_200",
         "type": "object",
-        "properties": {
-          "phone_number": {
-            "pattern": "^\\+1\\d{10}$",
-            "type": "string",
-            "description": "A valid US phone number in E164 format.",
-            "example": "+1234567890"
-          },
-          "webhook_url": {
-            "type": "string",
-            "description": "Callback URL to receive webhook notifications.",
-            "example": "https://example.com/webhook"
-          },
-          "additional_data": {
-            "$ref": "#/components/schemas/CustomerServiceRecordAdditionalData"
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "WebhookTool": {
@@ -81181,42 +81393,30 @@
           }
         }
       },
-      "PatchChannelZone": {
-        "title": "PatchChannelZone",
-        "required": [
-          "channels"
-        ],
+      "ListBillingGroups_200": {
+        "title": "ListBillingGroups_200",
         "type": "object",
         "properties": {
-          "channels": {
-            "type": "integer",
-            "description": "The number of reserved channels",
-            "format": "int64"
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BillingGroup"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
-      "PostCampaign_200": {
-        "title": "Response Submit Campaign Public Campaignbuilder Post",
-        "required": [
-          "type"
-        ],
+      "UpdateAuthenticationProvider_422": {
+        "title": "UpdateAuthenticationProvider_422",
         "type": "object",
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "TelnyxCampaign_CSP": "#/components/schemas/TelnyxCampaign_CSP"
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
-      "GetCampaignOsrAttributes_200": {
-        "title": "Response Get My Osr Campaign Attributes Public Campaign  Campaignid  Osr Attributes Get",
+      "UpdateAuthenticationProvider_404": {
+        "title": "UpdateAuthenticationProvider_404",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -81256,20 +81456,19 @@
         },
         "description": "Webhook delivery attempt details."
       },
-      "GetCampaignOperationStatus_200": {
-        "title": "Response Get My Campaign Operation Status Public Campaign  Campaignid  Operationstatus Get",
+      "UpdateAuthenticationProvider_401": {
+        "title": "UpdateAuthenticationProvider_401",
         "type": "object",
         "additionalProperties": {
           "type": "object"
         }
       },
-      "ResendBrand2faEmail_201": {
-        "title": "DefaultResponse",
+      "GetAuthenticationProvider_422": {
+        "title": "GetAuthenticationProvider_422",
         "type": "object",
         "additionalProperties": {
           "type": "object"
-        },
-        "description": "Default response schema"
+        }
       },
       "callConversationEnded": {
         "title": "Call Conversation Ended",
@@ -81518,7 +81717,18 @@
                       "description": "ID that is unique to the insight result being generated for the call.",
                       "example": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1"
                     },
-                    "result": { }
+                    "result": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "description": "The result of the insight."
+                        },
+                        {
+                          "type": "string",
+                          "description": "The result of the insight."
+                        }
+                      ]
+                    }
                   }
                 },
                 "description": "Array of insight results being generated for the call."
@@ -81777,37 +81987,29 @@
           }
         }
       },
-      "ListBillingGroups_200": {
-        "title": "ListBillingGroups_200",
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BillingGroup"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
-          }
-        }
-      },
-      "UpdateAuthenticationProvider_422": {
-        "title": "UpdateAuthenticationProvider_422",
+      "GetAuthenticationProvider_404": {
+        "title": "GetAuthenticationProvider_404",
         "type": "object",
         "additionalProperties": {
           "type": "object"
         }
       },
-      "UpdateAuthenticationProvider_404": {
-        "title": "UpdateAuthenticationProvider_404",
+      "GetAuthenticationProvider_401": {
+        "title": "GetAuthenticationProvider_401",
         "type": "object",
         "additionalProperties": {
           "type": "object"
         }
       },
-      "UpdateAuthenticationProvider_401": {
-        "title": "UpdateAuthenticationProvider_401",
+      "DeleteAuthenticationProvider_422": {
+        "title": "DeleteAuthenticationProvider_422",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "DeleteAuthenticationProvider_404": {
+        "title": "DeleteAuthenticationProvider_404",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -81861,41 +82063,6 @@
         },
         "description": "List of headers, limited to 10kB."
       },
-      "GetAuthenticationProvider_422": {
-        "title": "GetAuthenticationProvider_422",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
-      "GetAuthenticationProvider_404": {
-        "title": "GetAuthenticationProvider_404",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
-      "GetAuthenticationProvider_401": {
-        "title": "GetAuthenticationProvider_401",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
-      "DeleteAuthenticationProvider_422": {
-        "title": "DeleteAuthenticationProvider_422",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
-      "DeleteAuthenticationProvider_404": {
-        "title": "DeleteAuthenticationProvider_404",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
       "DeleteAuthenticationProvider_401": {
         "title": "DeleteAuthenticationProvider_401",
         "type": "object",
@@ -81905,6 +82072,49 @@
       },
       "CreateAuthenticationProvider_422": {
         "title": "CreateAuthenticationProvider_422",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "FindAuthenticationProviders_404": {
+        "title": "FindAuthenticationProviders_404",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "FindAuthenticationProviders_401": {
+        "title": "FindAuthenticationProviders_401",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "FindAuthenticationProviders_400": {
+        "title": "FindAuthenticationProviders_400",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "FindAuthenticationProviders_200": {
+        "title": "FindAuthenticationProviders_200",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthenticationProvider"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
+      },
+      "fetch_cluster_image_by_task_id_public_text_clusters__task_id__image_get_200": {
+        "title": "fetch_cluster_image_by_task_id_public_text_clusters__task_id__image_get_200",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -81951,45 +82161,42 @@
         },
         "description": "The settings associated with the authentication provider."
       },
-      "FindAuthenticationProviders_404": {
-        "title": "FindAuthenticationProviders_404",
+      "chat_public_chat_completions_post_200": {
+        "title": "chat_public_chat_completions_post_200",
         "type": "object",
         "additionalProperties": {
           "type": "object"
-        }
-      },
-      "FindAuthenticationProviders_401": {
-        "title": "FindAuthenticationProviders_401",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
-      "FindAuthenticationProviders_400": {
-        "title": "FindAuthenticationProviders_400",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
-      "FindAuthenticationProviders_200": {
-        "title": "FindAuthenticationProviders_200",
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AuthenticationProvider"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
-          }
         }
       },
       "get_assistant_texml_public_assistants__assistant_id__texml_get_200": {
         "title": "get_assistant_texml_public_assistants__assistant_id__texml_get_200",
         "type": "string"
+      },
+      "delete_scheduled_event_200": {
+        "title": "delete_scheduled_event_200",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "update_assistant_public_assistants__assistant_id__post_200": {
+        "title": "update_assistant_public_assistants__assistant_id__post_200",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "DeleteObjectsRequest_item": {
+        "title": "DeleteObjectsRequest_item",
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "Object"
+        }
       },
       "webhook_delivery": {
         "title": "webhook_delivery",
@@ -82084,222 +82291,6 @@
           }
         },
         "description": "Record of all attempts to deliver a webhook."
-      },
-      "CreateRequirementGroup": {
-        "title": "CreateRequirementGroup",
-        "required": [
-          "country_code",
-          "phone_number_type",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "country_code": {
-            "type": "string",
-            "description": "ISO alpha 2 country code",
-            "example": "US"
-          },
-          "phone_number_type": {
-            "enum": [
-              "local",
-              "toll_free",
-              "mobile",
-              "national",
-              "shared_cost"
-            ],
-            "type": "string",
-            "example": "local"
-          },
-          "action": {
-            "enum": [
-              "ordering",
-              "porting"
-            ],
-            "type": "string",
-            "example": "ordering"
-          },
-          "customer_reference": {
-            "type": "string",
-            "example": "My Requirement Group"
-          },
-          "regulatory_requirements": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "requirement_id": {
-                  "type": "string"
-                },
-                "field_value": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "UpdateRequirementGroup": {
-        "title": "UpdateRequirementGroup",
-        "type": "object",
-        "properties": {
-          "customer_reference": {
-            "type": "string",
-            "description": "Reference for the customer",
-            "example": "0002"
-          },
-          "regulatory_requirements": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "requirement_id": {
-                  "type": "string",
-                  "description": "Unique identifier for the regulatory requirement",
-                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
-                },
-                "field_value": {
-                  "type": "string",
-                  "description": "New value for the regulatory requirement",
-                  "example": "new requirement value"
-                }
-              }
-            }
-          }
-        }
-      },
-      "ListRequirementTypes_200": {
-        "title": "ListRequirementTypes_200",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/DocReqsRequirementTypeList"
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
-          }
-        }
-      },
-      "ListRequirements_200": {
-        "title": "ListRequirements_200",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/DocReqsRequirementList"
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
-          }
-        }
-      },
-      "PostSimCardDataUsageNotification": {
-        "title": "PostSimCardDataUsageNotification",
-        "required": [
-          "sim_card_id",
-          "threshold"
-        ],
-        "type": "object",
-        "properties": {
-          "sim_card_id": {
-            "type": "string",
-            "description": "The identification UUID of the related SIM card resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "threshold": {
-            "type": "object",
-            "properties": {
-              "amount": {
-                "type": "string",
-                "format": "decimal",
-                "example": "2048.1"
-              },
-              "unit": {
-                "enum": [
-                  "MB",
-                  "GB"
-                ],
-                "type": "string",
-                "example": "MB"
-              }
-            },
-            "description": "Data usage threshold that will trigger the notification."
-          }
-        }
-      },
-      "SetPrivateWirelessGatewayForSimCardGroup": {
-        "title": "SetPrivateWirelessGatewayForSimCardGroup",
-        "required": [
-          "private_wireless_gateway_id"
-        ],
-        "type": "object",
-        "properties": {
-          "private_wireless_gateway_id": {
-            "type": "string",
-            "description": "The identification of the related Private Wireless Gateway resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          }
-        }
-      },
-      "PreviewSimCardOrders": {
-        "title": "PreviewSimCardOrders",
-        "required": [
-          "quantity",
-          "address_id"
-        ],
-        "type": "object",
-        "properties": {
-          "quantity": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
-            "example": 21
-          },
-          "address_id": {
-            "type": "string",
-            "description": "Uniquely identifies the address for the order.",
-            "format": "int64",
-            "example": "1293384261075731499"
-          }
-        }
-      },
-      "SetPublicIPsBulk": {
-        "title": "SetPublicIPsBulk",
-        "required": [
-          "sim_card_ids"
-        ],
-        "type": "object",
-        "properties": {
-          "sim_card_ids": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "Identifies the resource.",
-              "format": "uuid",
-              "readOnly": true,
-              "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-            }
-          }
-        }
-      },
-      "ValidateRegistrationCodes": {
-        "title": "ValidateRegistrationCodes",
-        "type": "object",
-        "properties": {
-          "registration_codes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "description": "The object containing the Array of SIM card registration codes.",
-        "example": {
-          "registration_codes": [
-            "123456780",
-            "1231231230"
-          ]
-        }
       },
       "AddStorageSSLCertificate": {
         "title": "AddStorageSSLCertificate",
@@ -82604,22 +82595,6 @@
           }
         }
       },
-      "DeleteBucket_204": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
-      },
-      "HeadBucket_200": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
-      },
       "CreateBucket_409": {
         "title": "CreateBucket_409",
         "type": "string",
@@ -82627,39 +82602,15 @@
           "name": "BucketAlreadyExists"
         }
       },
-      "DeleteObject_204": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
-      },
       "GetObject_200": {
         "title": "GetObject_200",
         "type": "string",
         "format": "binary"
       },
-      "HeadObject_200": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
-      },
       "PutObject": {
         "title": "PutObject",
         "type": "string",
         "format": "binary"
-      },
-      "PutObject_200": {
-        "title": "DefaultResponse",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        },
-        "description": "Default response schema"
       },
       "CreateTeXMLSecretResult_value": {
         "title": "CreateTeXMLSecretResult_value",
@@ -89606,7 +89557,13 @@
           "items": {
             "type": "string",
             "description": "The ISO 3166-1 alpha-2 country code (2 characters)"
-          }
+          },
+          "example": [
+            "US",
+            "CA",
+            "MX",
+            "BR"
+          ]
         }
       },
       "FilterCountryIso": {
@@ -89879,7 +89836,11 @@
               "unknown"
             ],
             "type": "string"
-          }
+          },
+          "example": [
+            "pending",
+            "in_progress"
+          ]
         }
       },
       "FilterResourceId": {
@@ -89969,7 +89930,11 @@
               "error"
             ],
             "type": "string"
-          }
+          },
+          "example": [
+            "pending_upload",
+            "pending"
+          ]
         }
       },
       "FilterUsedAsEmergency": {
@@ -90926,7 +90891,26 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/CreateCustomerServiceRecord"
+              "required": [
+                "phone_number"
+              ],
+              "type": "object",
+              "properties": {
+                "phone_number": {
+                  "pattern": "^\\+1\\d{10}$",
+                  "type": "string",
+                  "description": "A valid US phone number in E164 format.",
+                  "example": "+1234567890"
+                },
+                "webhook_url": {
+                  "type": "string",
+                  "description": "Callback URL to receive webhook notifications.",
+                  "example": "https://example.com/webhook"
+                },
+                "additional_data": {
+                  "$ref": "#/components/schemas/CustomerServiceRecordAdditionalData"
+                }
+              }
             }
           }
         },
@@ -90937,7 +90921,45 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/CreateAdditionalDocuments"
+              "type": "object",
+              "properties": {
+                "additional_documents": {
+                  "maxItems": 100,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "document_type": {
+                        "enum": [
+                          "loa",
+                          "invoice",
+                          "csr",
+                          "other"
+                        ],
+                        "type": "string",
+                        "description": "The type of document being created."
+                      },
+                      "document_id": {
+                        "type": "string",
+                        "description": "The document identification",
+                        "format": "uuid"
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "additional_documents": [
+                  {
+                    "document_id": "22771a52-c43a-4539-80db-9dd9ec36e237",
+                    "document_type": "loa"
+                  },
+                  {
+                    "document_id": "d91474e6-4ebc-4ec1-b379-c596eeb405d6",
+                    "document_type": "invoice"
+                  }
+                ]
+              }
             }
           }
         },
@@ -90947,7 +90969,109 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/PreviewLoaConfigurationParams"
+              "required": [
+                "name",
+                "logo",
+                "company_name",
+                "address",
+                "contact"
+              ],
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the LOA configuration",
+                  "example": "My LOA Configuration"
+                },
+                "logo": {
+                  "required": [
+                    "document_id"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "document_id": {
+                      "type": "string",
+                      "description": "The document identification",
+                      "format": "uuid"
+                    }
+                  },
+                  "description": "The logo of the LOA configuration"
+                },
+                "company_name": {
+                  "type": "string",
+                  "description": "The name of the company",
+                  "example": "Telnyx"
+                },
+                "address": {
+                  "required": [
+                    "street_address",
+                    "locality",
+                    "administrative_area",
+                    "postal_code",
+                    "country_code"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "street_address": {
+                      "type": "string",
+                      "description": "The street address of the company",
+                      "example": "600 Congress Avenue"
+                    },
+                    "extended_address": {
+                      "type": "string",
+                      "description": "The extended address of the company",
+                      "example": "14th Floor"
+                    },
+                    "city": {
+                      "type": "string",
+                      "description": "The locality of the company",
+                      "example": "Austin"
+                    },
+                    "state": {
+                      "pattern": "^[A-Z]{2}$",
+                      "type": "string",
+                      "description": "The administrative area of the company",
+                      "example": "TX"
+                    },
+                    "zip_code": {
+                      "pattern": "^[0-9]{5}(?:-[0-9]{4})?$",
+                      "type": "string",
+                      "description": "The postal code of the company",
+                      "example": "78701"
+                    },
+                    "country_code": {
+                      "pattern": "^[A-Z]{2}$",
+                      "type": "string",
+                      "description": "The country code of the company",
+                      "example": "US"
+                    }
+                  },
+                  "description": "The address of the company."
+                },
+                "contact": {
+                  "required": [
+                    "email",
+                    "phone_number"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "description": "The email address of the contact",
+                      "format": "email",
+                      "example": "testing@telnyx.com"
+                    },
+                    "phone_number": {
+                      "pattern": "^\\+\\d{11,15}$",
+                      "type": "string",
+                      "description": "The phone number of the contact",
+                      "example": "+12003270001"
+                    }
+                  },
+                  "description": "The contact information of the company."
+                }
+              },
+              "description": "The parameters for creating a new LOA configuration."
             }
           }
         },
@@ -90957,7 +91081,59 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/createPortingPhoneNumberBlock"
+              "required": [
+                "phone_number_range",
+                "activation_ranges"
+              ],
+              "type": "object",
+              "properties": {
+                "phone_number_range": {
+                  "required": [
+                    "start_at",
+                    "end_at"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "start_at": {
+                      "pattern": "^\\+\\d{7,15}$",
+                      "type": "string",
+                      "description": "Specifies the start of the phone number range for this porting phone number block.",
+                      "example": "+4930244999901"
+                    },
+                    "end_at": {
+                      "pattern": "^\\+\\d{7,15}$",
+                      "type": "string",
+                      "description": "Specifies the end of the phone number range for this porting phone number block.",
+                      "example": "+4930244999910"
+                    }
+                  }
+                },
+                "activation_ranges": {
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "start_at",
+                      "end_at"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "start_at": {
+                        "pattern": "^\\+\\d{7,15}$",
+                        "type": "string",
+                        "description": "Specifies the start of the activation range. Must be greater or equal the start of the extension range.",
+                        "example": "+4930244999901"
+                      },
+                      "end_at": {
+                        "pattern": "^\\+\\d{7,15}$",
+                        "type": "string",
+                        "description": "Specifies the end of the activation range. It must be no more than the end of the extension range.",
+                        "example": "+4930244999910"
+                      }
+                    }
+                  },
+                  "description": "Specifies the activation ranges for this porting phone number block. The activation range must be within the block range and should not overlap with other activation ranges."
+                }
+              }
             }
           }
         },
@@ -90968,7 +91144,34 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/CreatePhoneNumberConfigurations"
+              "type": "object",
+              "properties": {
+                "phone_number_configurations": {
+                  "maxItems": 20,
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "porting_phone_number_id",
+                      "user_bundle_id"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "porting_phone_number_id": {
+                        "type": "string",
+                        "description": "Identifies the porting phone number to be configured.",
+                        "format": "uuid",
+                        "example": "927f4687-318c-44bc-9f2f-22a5898143a4"
+                      },
+                      "user_bundle_id": {
+                        "type": "string",
+                        "description": "Identifies the user bundle to be associated with the porting phone number.",
+                        "format": "uuid",
+                        "example": "ff901545-3e27-462a-ba9d-2b34654cab82"
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         },
@@ -90978,7 +91181,62 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/createPortingPhoneNumberExtension"
+              "required": [
+                "porting_phone_number_id",
+                "extension_range",
+                "activation_ranges"
+              ],
+              "type": "object",
+              "properties": {
+                "porting_phone_number_id": {
+                  "type": "string",
+                  "description": "Identifies the porting phone number associated with this porting phone number extension.",
+                  "format": "uuid",
+                  "example": "f24151b6-3389-41d3-8747-7dd8c681e5e2"
+                },
+                "extension_range": {
+                  "required": [
+                    "start_at",
+                    "end_at"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "start_at": {
+                      "type": "integer",
+                      "description": "Specifies the start of the extension range for this porting phone number extension.",
+                      "example": 1
+                    },
+                    "end_at": {
+                      "type": "integer",
+                      "description": "Specifies the end of the extension range for this porting phone number extension.",
+                      "example": 10
+                    }
+                  }
+                },
+                "activation_ranges": {
+                  "type": "array",
+                  "items": {
+                    "required": [
+                      "start_at",
+                      "end_at"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "start_at": {
+                        "type": "integer",
+                        "description": "Specifies the start of the activation range. Must be greater or equal the start of the extension range.",
+                        "example": 1
+                      },
+                      "end_at": {
+                        "type": "integer",
+                        "description": "Specifies the end of the activation range. It must be no more than the end of the extension range.",
+                        "example": 10
+                      }
+                    }
+                  },
+                  "description": "Specifies the activation ranges for this porting phone number extension. The activation range must be within the extension range and should not overlap with other activation ranges."
+                }
+              }
             }
           }
         },
@@ -90988,7 +91246,29 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/CreatePortingReport"
+              "required": [
+                "report_type",
+                "params"
+              ],
+              "type": "object",
+              "properties": {
+                "report_type": {
+                  "enum": [
+                    "export_porting_orders_csv"
+                  ],
+                  "type": "string",
+                  "description": "Identifies the type of report",
+                  "example": "export_porting_orders_csv"
+                },
+                "params": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ExportPortingOrdersCSVReport"
+                    }
+                  ]
+                }
+              },
+              "description": "The parameters for generating a new porting related report."
             }
           }
         },
@@ -90998,7 +91278,29 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/CreatePortoutReport"
+              "required": [
+                "report_type",
+                "params"
+              ],
+              "type": "object",
+              "properties": {
+                "report_type": {
+                  "enum": [
+                    "export_portouts_csv"
+                  ],
+                  "type": "string",
+                  "description": "Identifies the type of report",
+                  "example": "export_portouts_csv"
+                },
+                "params": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ExportPortoutsCSVReport"
+                    }
+                  ]
+                }
+              },
+              "description": "The parameters for generating a new port-out related report."
             }
           }
         },
@@ -91009,7 +91311,11 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/DeleteRecordings"
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "List of call recording IDs to delete."
             }
           }
         },
@@ -91031,7 +91337,30 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/SendPortingVerificationCodes"
+              "type": "object",
+              "properties": {
+                "phone_numbers": {
+                  "maxItems": 100,
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "verification_method": {
+                  "enum": [
+                    "sms",
+                    "call"
+                  ],
+                  "type": "string"
+                }
+              },
+              "example": {
+                "phone_numbers": [
+                  "+61424000001",
+                  "+61424000002"
+                ],
+                "verification_method": "sms"
+              }
             }
           }
         }
@@ -91040,7 +91369,30 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/SharePortingOrder"
+              "type": "object",
+              "properties": {
+                "expires_in_seconds": {
+                  "maximum": 172800,
+                  "minimum": 1,
+                  "type": "integer",
+                  "description": "The number of seconds the token will be valid for"
+                },
+                "permissions": {
+                  "enum": [
+                    "porting_order.document.read",
+                    "porting_order.document.update"
+                  ],
+                  "type": "string",
+                  "description": "The permissions the token will have"
+                }
+              },
+              "example": {
+                "expires_in_seconds": 3600,
+                "permissions": [
+                  "porting_order.document.read",
+                  "porting_order.document.update"
+                ]
+              }
             }
           }
         },
@@ -91121,7 +91473,15 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/UpdatePortingOrdersActivationJob"
+              "type": "object",
+              "properties": {
+                "activate_at": {
+                  "type": "string",
+                  "description": "The desired activation time. The activation time should be between any of the activation windows.",
+                  "format": "date-time",
+                  "example": "2019-01-01T00:00:00.0000000+00:00"
+                }
+              }
             }
           }
         },
@@ -91131,7 +91491,22 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/VerifyPhoneNumberCoverage"
+              "required": [
+                "phone_numbers"
+              ],
+              "type": "object",
+              "properties": {
+                "phone_numbers": {
+                  "type": "array",
+                  "items": {
+                    "pattern": "^\\+1\\d{10}$",
+                    "type": "string",
+                    "description": "A valid US phone number in E164 format.",
+                    "example": "+1234567890"
+                  },
+                  "description": "The phone numbers list to be verified."
+                }
+              }
             }
           }
         },
@@ -91142,7 +91517,36 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/VerifyPortingVerificationCodes"
+              "type": "object",
+              "properties": {
+                "verification_codes": {
+                  "maxItems": 100,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "phone_number": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "verification_codes": [
+                  {
+                    "phone_number": "+61424000001",
+                    "code": "12345"
+                  },
+                  {
+                    "phone_number": "+61424000002",
+                    "code": "54321"
+                  }
+                ]
+              }
             }
           }
         },

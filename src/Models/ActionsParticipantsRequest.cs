@@ -106,7 +106,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.String = stringValue;
                 }
-                else if(parseNode.GetCollectionOfPrimitiveValues<Guid?>()?.AsList() is List<Guid> guidValue)
+                else if(parseNode.GetCollectionOfPrimitiveValues<Guid?>()?.AsList() is List<Guid?> guidValue)
                 {
                     result.Guid = guidValue;
                 }
