@@ -9,46 +9,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class NoiseSuppressionStart : IAdditionalDataHolder, IParsable
+    public partial class UpdateMediaRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
+        /// <summary>The URL where the media to be stored in Telnyx network is currently hosted. The maximum allowed size is 20 MB.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientState { get; set; }
+        public string? MediaUrl { get; set; }
 #nullable restore
 #else
-        public string ClientState { get; set; }
+        public string MediaUrl { get; set; }
 #endif
-        /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CommandId { get; set; }
-#nullable restore
-#else
-        public string CommandId { get; set; }
-#endif
-        /// <summary>The direction of the audio stream to be noise suppressed.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection? Direction { get; set; }
+        /// <summary>The number of seconds after which the media resource will be deleted, defaults to 2 days. The maximum allowed vale is 630720000, which translates to 20 years.</summary>
+        public int? TtlSecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest"/> and sets the default values.
         /// </summary>
-        public NoiseSuppressionStart()
+        public UpdateMediaRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            Direction = global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection.Inbound;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStart();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,9 +49,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "client_state", n => { ClientState = n.GetStringValue(); } },
-                { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection>(); } },
+                { "media_url", n => { MediaUrl = n.GetStringValue(); } },
+                { "ttl_secs", n => { TtlSecs = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -70,9 +60,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("client_state", ClientState);
-            writer.WriteStringValue("command_id", CommandId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection>("direction", Direction);
+            writer.WriteStringValue("media_url", MediaUrl);
+            writer.WriteIntValue("ttl_secs", TtlSecs);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

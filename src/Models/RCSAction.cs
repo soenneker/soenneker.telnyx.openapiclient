@@ -15,14 +15,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Compose and send a message to a destination predefined by chatbot.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction? ComposeAction { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction ComposeAction { get; set; }
-#endif
         /// <summary>Opens the user&apos;s default calendar app and starts the new calendar event flow with the agent-specified event data pre-filled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -112,7 +104,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "compose_action", n => { ComposeAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction.CreateFromDiscriminatorValue); } },
                 { "create_calendar_event_action", n => { CreateCalendarEventAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCreateCalendarEventAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSCreateCalendarEventAction.CreateFromDiscriminatorValue); } },
                 { "dial_action", n => { DialAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSDialAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSDialAction.CreateFromDiscriminatorValue); } },
                 { "fallback_url", n => { FallbackUrl = n.GetStringValue(); } },
@@ -130,7 +121,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeAction>("compose_action", ComposeAction);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCreateCalendarEventAction>("create_calendar_event_action", CreateCalendarEventAction);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSDialAction>("dial_action", DialAction);
             writer.WriteStringValue("fallback_url", FallbackUrl);

@@ -7,40 +7,37 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>
-    /// Initiate the recording and sending of an audio or video message.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class RCSComposeRecordingMessage : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class CreatePortingOrderCommentBody : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>phone number in +E.164 format</summary>
+        /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumber { get; set; }
+        public string? Body { get; set; }
 #nullable restore
 #else
-        public string PhoneNumber { get; set; }
+        public string Body { get; set; }
 #endif
-        /// <summary>The type of the recording action.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage_type? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrderCommentBody"/> and sets the default values.
         /// </summary>
-        public RCSComposeRecordingMessage()
+        public CreatePortingOrderCommentBody()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrderCommentBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrderCommentBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrderCommentBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,8 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage_type>(); } },
+                { "body", n => { Body = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -61,8 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSComposeRecordingMessage_type>("type", Type);
+            writer.WriteStringValue("body", Body);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

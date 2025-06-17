@@ -9,7 +9,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SendFaxRequest_application_json : IAdditionalDataHolder, IParsable
+    public partial class SendFaxRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The flag to enable monochrome, true black and white fax results.</summary>
         public bool? Monochrome { get; set; }
         /// <summary>The format for the preview file in case the `store_preview` is `true`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_application_json_preview_format? PreviewFormat { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_preview_format? PreviewFormat { get; set; }
         /// <summary>The quality of the fax. The `ultra` settings provides the highest quality available, but also present longer fax processing times. `ultra_light` is best suited for images, wihle `ultra_dark` is best suited for text.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Quality? Quality { get; set; }
         /// <summary>Should fax media be stored on temporary URL. It does not support media_name, they can&apos;t be submitted together.</summary>
@@ -91,23 +91,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string WebhookUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_application_json"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest"/> and sets the default values.
         /// </summary>
-        public SendFaxRequest_application_json()
+        public SendFaxRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            PreviewFormat = global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_application_json_preview_format.Tiff;
+            PreviewFormat = global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_preview_format.Tiff;
             Quality = global::Soenneker.Telnyx.OpenApiClient.Models.Quality.High;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_application_json"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_application_json CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_application_json();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "media_name", n => { MediaName = n.GetStringValue(); } },
                 { "media_url", n => { MediaUrl = n.GetStringValue(); } },
                 { "monochrome", n => { Monochrome = n.GetBoolValue(); } },
-                { "preview_format", n => { PreviewFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_application_json_preview_format>(); } },
+                { "preview_format", n => { PreviewFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_preview_format>(); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Quality>(); } },
                 { "store_media", n => { StoreMedia = n.GetBoolValue(); } },
                 { "store_preview", n => { StorePreview = n.GetBoolValue(); } },
@@ -147,7 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("media_name", MediaName);
             writer.WriteStringValue("media_url", MediaUrl);
             writer.WriteBoolValue("monochrome", Monochrome);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_application_json_preview_format>("preview_format", PreviewFormat);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_preview_format>("preview_format", PreviewFormat);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Quality>("quality", Quality);
             writer.WriteBoolValue("store_media", StoreMedia);
             writer.WriteBoolValue("store_preview", StorePreview);

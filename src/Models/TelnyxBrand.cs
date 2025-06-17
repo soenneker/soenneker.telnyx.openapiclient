@@ -109,14 +109,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Entity type behind the brand. This is the form of business establishment.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.EntityType? EntityType { get; set; }
-        /// <summary>Failure reasons for brand</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? FailureReasons { get; set; }
-#nullable restore
-#else
-        public UntypedNode FailureReasons { get; set; }
-#endif
         /// <summary>First name of business contact.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -310,7 +302,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "ein", n => { Ein = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EntityType>(); } },
-                { "failureReasons", n => { FailureReasons = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
                 { "identityStatus", n => { IdentityStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandIdentityStatus>(); } },
                 { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
@@ -357,7 +348,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("ein", Ein);
             writer.WriteStringValue("email", Email);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EntityType>("entityType", EntityType);
-            writer.WriteObjectValue<UntypedNode>("failureReasons", FailureReasons);
             writer.WriteStringValue("firstName", FirstName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandIdentityStatus>("identityStatus", IdentityStatus);
             writer.WriteStringValue("ipAddress", IpAddress);

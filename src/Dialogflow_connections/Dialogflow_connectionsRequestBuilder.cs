@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dialogflow_connections
     public partial class Dialogflow_connectionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.dialogflow_connections.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Telnyx connection id</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Dialogflow_connections.Item.WithConnection_ItemRequestBuilder this[string position]
         {

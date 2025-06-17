@@ -5,7 +5,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>The format for the preview file in case the `store_preview` is `true`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum SendFaxRequest_application_json_preview_format
+    public enum SendFaxRequest_preview_format
     {
         [EnumMember(Value = "pdf")]
         #pragma warning disable CS1591

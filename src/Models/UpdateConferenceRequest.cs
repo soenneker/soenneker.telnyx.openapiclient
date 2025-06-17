@@ -14,23 +14,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_AnnounceMethod? AnnounceMethod { get; set; }
-        /// <summary>The URL we should call to announce something into the conference. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `&lt;Play&gt;`, `&lt;Say&gt;`, `&lt;Pause&gt;`, or `&lt;Redirect&gt;` verbs.</summary>
+        /// <summary>Unique identifier and token for controlling the call</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AnnounceUrl { get; set; }
+        public string? CallControlId { get; set; }
 #nullable restore
 #else
-        public string AnnounceUrl { get; set; }
+        public string CallControlId { get; set; }
 #endif
-        /// <summary>The new status of the resource. Specifying `completed` will end the conference and hang up all participants.</summary>
+        /// <summary>Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same `command_id` as one that has already been executed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? CommandId { get; set; }
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string CommandId { get; set; }
+#endif
+        /// <summary>Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. &quot;barge&quot; means the supervisor enters the conference as a normal participant. This is the same as &quot;none&quot;. &quot;monitor&quot; means the supervisor is muted but can hear all participants. &quot;whisper&quot; means that only the specified &quot;whisper_call_control_ids&quot; can hear the supervisor. Defaults to &quot;none&quot;.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_supervisor_role? SupervisorRole { get; set; }
+        /// <summary>Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? WhisperCallControlIds { get; set; }
+#nullable restore
+#else
+        public List<string> WhisperCallControlIds { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest"/> and sets the default values.
@@ -57,9 +65,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "AnnounceMethod", n => { AnnounceMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_AnnounceMethod>(); } },
-                { "AnnounceUrl", n => { AnnounceUrl = n.GetStringValue(); } },
-                { "Status", n => { Status = n.GetStringValue(); } },
+                { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
+                { "command_id", n => { CommandId = n.GetStringValue(); } },
+                { "supervisor_role", n => { SupervisorRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_supervisor_role>(); } },
+                { "whisper_call_control_ids", n => { WhisperCallControlIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -69,9 +78,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_AnnounceMethod>("AnnounceMethod", AnnounceMethod);
-            writer.WriteStringValue("AnnounceUrl", AnnounceUrl);
-            writer.WriteStringValue("Status", Status);
+            writer.WriteStringValue("call_control_id", CallControlId);
+            writer.WriteStringValue("command_id", CommandId);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceRequest_supervisor_role>("supervisor_role", SupervisorRole);
+            writer.WriteCollectionOfPrimitiveValues<string>("whisper_call_control_ids", WhisperCallControlIds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

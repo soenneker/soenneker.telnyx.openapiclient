@@ -9,11 +9,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class UpdateMediaRequest_application_json : IAdditionalDataHolder, IParsable
+    public partial class UploadMediaRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The unique identifier of a file.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MediaName { get; set; }
+#nullable restore
+#else
+        public string MediaName { get; set; }
+#endif
         /// <summary>The URL where the media to be stored in Telnyx network is currently hosted. The maximum allowed size is 20 MB.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,21 +33,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The number of seconds after which the media resource will be deleted, defaults to 2 days. The maximum allowed vale is 630720000, which translates to 20 years.</summary>
         public int? TtlSecs { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest_application_json"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UploadMediaRequest"/> and sets the default values.
         /// </summary>
-        public UpdateMediaRequest_application_json()
+        public UploadMediaRequest()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest_application_json"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UploadMediaRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest_application_json CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.UploadMediaRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.UpdateMediaRequest_application_json();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.UploadMediaRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,6 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "media_name", n => { MediaName = n.GetStringValue(); } },
                 { "media_url", n => { MediaUrl = n.GetStringValue(); } },
                 { "ttl_secs", n => { TtlSecs = n.GetIntValue(); } },
             };
@@ -60,6 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("media_name", MediaName);
             writer.WriteStringValue("media_url", MediaUrl);
             writer.WriteIntValue("ttl_secs", TtlSecs);
             writer.WriteAdditionalData(AdditionalData);

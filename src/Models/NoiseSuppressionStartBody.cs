@@ -9,59 +9,46 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CreateDocument : IAdditionalDataHolder, IParsable
+    public partial class NoiseSuppressionStartBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Optional reference string for customer tracking.</summary>
+        /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomerReference { get; set; }
+        public string? ClientState { get; set; }
 #nullable restore
 #else
-        public string CustomerReference { get; set; }
+        public string ClientState { get; set; }
 #endif
-        /// <summary>The Base64 encoded contents of the file you are uploading.</summary>
+        /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public byte[]? File { get; set; }
+        public string? CommandId { get; set; }
 #nullable restore
 #else
-        public byte[] File { get; set; }
+        public string CommandId { get; set; }
 #endif
-        /// <summary>The filename of the document.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Filename { get; set; }
-#nullable restore
-#else
-        public string Filename { get; set; }
-#endif
-        /// <summary>If the file is already hosted publicly, you can provide a URL and have the documents service fetch it for you.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Url { get; set; }
-#nullable restore
-#else
-        public string Url { get; set; }
-#endif
+        /// <summary>The direction of the audio stream to be noise suppressed.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection? Direction { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateDocument"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStartBody"/> and sets the default values.
         /// </summary>
-        public CreateDocument()
+        public NoiseSuppressionStartBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            Direction = global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection.Inbound;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateDocument"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStartBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateDocument CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStartBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateDocument();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStartBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,10 +58,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
-                { "file", n => { File = n.GetByteArrayValue(); } },
-                { "filename", n => { Filename = n.GetStringValue(); } },
-                { "url", n => { Url = n.GetStringValue(); } },
+                { "client_state", n => { ClientState = n.GetStringValue(); } },
+                { "command_id", n => { CommandId = n.GetStringValue(); } },
+                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection>(); } },
             };
         }
         /// <summary>
@@ -84,10 +70,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("customer_reference", CustomerReference);
-            writer.WriteByteArrayValue("file", File);
-            writer.WriteStringValue("filename", Filename);
-            writer.WriteStringValue("url", Url);
+            writer.WriteStringValue("client_state", ClientState);
+            writer.WriteStringValue("command_id", CommandId);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection>("direction", Direction);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
