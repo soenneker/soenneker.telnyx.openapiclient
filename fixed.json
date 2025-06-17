@@ -367,7 +367,7 @@
           "IP Ranges"
         ],
         "summary": "Delete access IP ranges",
-        "operationId": "Delete4544f34d902e483db9821700845a9bc7",
+        "operationId": "Deletefea5272dc9f042e38024c3737975492b",
         "parameters": [
           {
             "name": "access_ip_range_id",
@@ -18645,7 +18645,7 @@
           "RCS messaging"
         ],
         "summary": "Send an RCS message",
-        "operationId": "Post77f4fdfe96114a71ae25ad20340438fa",
+        "operationId": "Postbe31173c769240dc8e7ee90323e07da9",
         "requestBody": {
           "description": "RCS message body",
           "content": {
@@ -27554,7 +27554,7 @@
           "RCS messaging"
         ],
         "summary": "List all RCS agents",
-        "operationId": "Get4dc022869496494bb586d06e744c4395",
+        "operationId": "Get6a066e18a77c4f18b5b4deab4d71f129",
         "parameters": [
           {
             "name": "page[number]",
@@ -27602,7 +27602,7 @@
           "RCS messaging"
         ],
         "summary": "Retrieve an RCS agent",
-        "operationId": "Get541cc93837e946579fd553aae321daeb",
+        "operationId": "Get069a6879a4c94b2a953e75aca3bed84f",
         "parameters": [
           {
             "name": "id",
@@ -27636,7 +27636,7 @@
           "RCS messaging"
         ],
         "summary": "Modify an RCS agent",
-        "operationId": "Patchf32c468451884844ace2db82935414da",
+        "operationId": "Patchf120425d2e1b4b1bbe613237484151c8",
         "parameters": [
           {
             "name": "id",
