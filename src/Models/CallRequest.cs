@@ -34,6 +34,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Use this field to set the Billing Group ID for the call. Must be a valid and existing Billing Group ID.</summary>
         public Guid? BillingGroupId { get; set; }
+        /// <summary>Indicates the intent to bridge this call with the call specified in link_to. When bridge_intent is true, link_to becomes required and the from number will be overwritten by the from number from the linked call.</summary>
+        public bool? BridgeIntent { get; set; }
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -290,6 +292,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "answering_machine_detection_config", n => { AnsweringMachineDetectionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config.CreateFromDiscriminatorValue); } },
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
                 { "billing_group_id", n => { BillingGroupId = n.GetGuidValue(); } },
+                { "bridge_intent", n => { BridgeIntent = n.GetBoolValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "conference_config", n => { ConferenceConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config.CreateFromDiscriminatorValue); } },
@@ -347,6 +350,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config>("answering_machine_detection_config", AnsweringMachineDetectionConfig);
             writer.WriteStringValue("audio_url", AudioUrl);
             writer.WriteGuidValue("billing_group_id", BillingGroupId);
+            writer.WriteBoolValue("bridge_intent", BridgeIntent);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config>("conference_config", ConferenceConfig);

@@ -3,6 +3,8 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups;
+using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Insights;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -18,6 +20,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The insightGroups property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.InsightGroupsRequestBuilder InsightGroups
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.InsightGroups.InsightGroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The insights property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Insights.InsightsRequestBuilder Insights
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Insights.InsightsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.conversations.item collection</summary>
         /// <param name="position">The ID of the conversation to delete</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.WithConversation_ItemRequestBuilder"/></returns>
