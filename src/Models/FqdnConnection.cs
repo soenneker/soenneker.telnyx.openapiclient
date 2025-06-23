@@ -30,13 +30,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConnectionName { get; set; }
 #endif
-        /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
+        /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get; set; }
+        public string? CreatedAt { get; private set; }
 #nullable restore
 #else
-        public string CreatedAt { get; set; }
+        public string CreatedAt { get; private set; }
 #endif
         /// <summary>When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout.</summary>
         public bool? DefaultOnHoldComfortNoiseEnabled { get; set; }
@@ -138,13 +138,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string TxtValue { get; set; }
 #endif
-        /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
+        /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpdatedAt { get; set; }
+        public string? UpdatedAt { get; private set; }
 #nullable restore
 #else
-        public string UpdatedAt { get; set; }
+        public string UpdatedAt { get; private set; }
 #endif
         /// <summary>The username for the FQDN connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -252,7 +252,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteBoolValue("call_cost_enabled", CallCostEnabled);
             writer.WriteStringValue("connection_name", ConnectionName);
-            writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);
             writer.WriteBoolValue("encode_contact_header_enabled", EncodeContactHeaderEnabled);
@@ -276,7 +275,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("txt_name", TxtName);
             writer.WriteIntValue("txt_ttl", TxtTtl);
             writer.WriteStringValue("txt_value", TxtValue);
-            writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_name", UserName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookApiVersion>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);

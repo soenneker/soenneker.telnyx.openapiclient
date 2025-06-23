@@ -203,10 +203,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Notification_channels
             /// <summary>Filter by the id of a channel type</summary>
             [QueryParameter("filter%5Bchannel_type_id%5D%5Beq%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.Notification_channels.GetFilterChannel_type_idEqQueryParameterType? FilterchannelTypeIdeqAsGetFilterChannelTypeIdEqQueryParameterType { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }
