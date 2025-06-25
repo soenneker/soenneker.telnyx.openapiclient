@@ -68,6 +68,7 @@ using Soenneker.Telnyx.OpenApiClient.List;
 using Soenneker.Telnyx.OpenApiClient.Managed_accounts;
 using Soenneker.Telnyx.OpenApiClient.Media;
 using Soenneker.Telnyx.OpenApiClient.Messages;
+using Soenneker.Telnyx.OpenApiClient.Messaging;
 using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders;
 using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers;
 using Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates;
@@ -465,6 +466,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesRequestBuilder Messages
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messages.MessagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The messaging property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging.MessagingRequestBuilder Messaging
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging.MessagingRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The messaging_hosted_number_orders property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Messaging_hosted_number_ordersRequestBuilder Messaging_hosted_number_orders

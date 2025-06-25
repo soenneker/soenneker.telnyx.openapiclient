@@ -17683,6 +17683,97 @@
         "x-latency-category": "responsive"
       }
     },
+    "/messaging/rcs/capabilities/{agent_id}/{phone_number}": {
+      "get": {
+        "tags": [
+          "RCS messaging"
+        ],
+        "summary": "List RCS capabilities of a phone number",
+        "operationId": "get_messaging_rcs_capabilities_agent_id_phone_number",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "description": "RCS agent ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phone_number",
+            "in": "path",
+            "description": "Phone number in E164 format",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RCSCapabilitiesSingle"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
+    "/messaging/rcs/test_number_invite/{id}/{phone_number}": {
+      "put": {
+        "tags": [
+          "RCS messaging"
+        ],
+        "summary": "Invite a test number to an RCS agent",
+        "description": "Adds a test phone number to an RCS agent for testing purposes.",
+        "operationId": "put_messaging_rcs_test_number_invite_id_phone_number",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "RCS agent ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phone_number",
+            "in": "path",
+            "description": "Phone number in E164 format to invite for testing",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Test number successfully invited to RCS agent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RCSTestNumberInviteResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
     "/messaging_hosted_number_orders": {
       "get": {
         "tags": [
@@ -72033,11 +72124,6 @@
             "format": "url",
             "nullable": true,
             "example": "http://example.com"
-          },
-          "agent_name": {
-            "type": "string",
-            "description": "Human readable agent name",
-            "example": "Test Agent"
           }
         }
       },
@@ -72053,6 +72139,47 @@
           },
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
+      },
+      "RCSCapabilitiesSingle": {
+        "title": "RCSCapabilitiesSingle",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "record_type": {
+                "enum": [
+                  "rcs.capabilities"
+                ],
+                "type": "string",
+                "description": "Identifies the type of the resource",
+                "example": "rcs.capabilities"
+              },
+              "phone_number": {
+                "type": "string",
+                "description": "Phone number",
+                "example": "+13125551234"
+              },
+              "agent_id": {
+                "type": "string",
+                "description": "RCS agent ID",
+                "example": "TestAgent"
+              },
+              "agent_name": {
+                "type": "string",
+                "description": "RCS agent name",
+                "example": "Testing agent"
+              },
+              "features": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of RCS capabilities"
+              }
+            }
           }
         }
       },
@@ -72537,6 +72664,43 @@
           },
           "action": {
             "$ref": "#/components/schemas/RCSAction"
+          }
+        }
+      },
+      "RCSTestNumberInviteResponse": {
+        "title": "RCSTestNumberInviteResponse",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "record_type": {
+                "enum": [
+                  "rcs.test_number_invite"
+                ],
+                "type": "string",
+                "description": "Identifies the type of the resource",
+                "example": "rcs.test_number_invite"
+              },
+              "agent_id": {
+                "type": "string",
+                "description": "RCS agent ID",
+                "example": "TestAgent"
+              },
+              "phone_number": {
+                "type": "string",
+                "description": "Phone number that was invited for testing",
+                "example": "+13125551234"
+              },
+              "status": {
+                "type": "string",
+                "description": "Status of the test number invitation",
+                "example": "PENDING"
+              }
+            }
           }
         }
       },
