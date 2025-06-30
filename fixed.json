@@ -8513,6 +8513,46 @@
         "x-latency-category": "interactive"
       }
     },
+    "/calls/{call_control_id}/actions/switch_supervisor_role": {
+      "post": {
+        "tags": [
+          "Call Commands"
+        ],
+        "summary": "Switch supervisor role",
+        "description": "Switch the supervisor role for a bridged call. This allows switching between different supervisor modes during an active call",
+        "operationId": "SwitchSupervisorRole",
+        "parameters": [
+          {
+            "name": "call_control_id",
+            "in": "path",
+            "description": "Unique identifier and token for controlling the call",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Switch supervisor role request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchSupervisorRoleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CallControlCommandResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "interactive"
+      }
+    },
     "/calls/{call_control_id}/actions/transcription_start": {
       "post": {
         "tags": [
@@ -77967,6 +78007,28 @@
         ],
         "type": "string",
         "description": "Supported models to vectorize and embed documents."
+      },
+      "SwitchSupervisorRoleRequest": {
+        "title": "Switch Supervisor Role Request",
+        "required": [
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "enum": [
+              "barge",
+              "whisper",
+              "monitor"
+            ],
+            "type": "string",
+            "description": "The supervisor role to switch to. 'barge' allows speaking to both parties, 'whisper' allows speaking to caller only, 'monitor' allows listening only.",
+            "example": "barge"
+          }
+        },
+        "example": {
+          "role": "barge"
+        }
       },
       "DownloadDocument_200": {
         "title": "DownloadDocument_200",

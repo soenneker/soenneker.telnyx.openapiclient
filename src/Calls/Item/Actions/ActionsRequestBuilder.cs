@@ -34,6 +34,7 @@ using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Streaming_start;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Streaming_stop;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_start;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_stop;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Switch_supervisor_role;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_start;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_stop;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transfer;
@@ -208,6 +209,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_stop.Suppression_stopRequestBuilder Suppression_stop
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Suppression_stop.Suppression_stopRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The switch_supervisor_role property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Switch_supervisor_role.Switch_supervisor_roleRequestBuilder Switch_supervisor_role
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Switch_supervisor_role.Switch_supervisor_roleRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The transcription_start property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_start.Transcription_startRequestBuilder Transcription_start
