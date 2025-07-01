@@ -31688,6 +31688,32 @@
         "x-latency-category": "responsive"
       }
     },
+    "/seti/black_box_test_results": {
+      "get": {
+        "tags": [
+          "SETI Observability"
+        ],
+        "summary": "Retrieve Black Box Test Results",
+        "description": "Returns the results of the various black box tests",
+        "operationId": "GetBlackBoxTestResults",
+        "parameters": [
+          {
+            "name": "filter[product]",
+            "in": "query",
+            "description": "Filter results for a specific product.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BlackBoxTestResultsResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
     "/short_codes": {
       "get": {
         "tags": [
@@ -41567,6 +41593,47 @@
           "created_at": "2019-10-15T10:07:15.5270000+00:00",
           "updated_at": "2019-10-15T10:07:15.5270000+00:00",
           "deleted_at": null
+        }
+      },
+      "BlackBoxTestResult": {
+        "title": "BlackBoxTestResult",
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "example": "black_box_test"
+          },
+          "id": {
+            "type": "string",
+            "description": "The name of the black box test.",
+            "example": "msg_overview_outbound_sms"
+          },
+          "result": {
+            "type": "number",
+            "description": "The average result of the black box test over the last hour.",
+            "example": 0.999
+          }
+        }
+      },
+      "BlackBoxTestResultSet": {
+        "title": "BlackBoxTestResultSet",
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "example": "black_box_test_result"
+          },
+          "product": {
+            "type": "string",
+            "description": "The product associated with the black box test group.",
+            "example": "cloud_storage"
+          },
+          "black_box_tests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BlackBoxTestResult"
+            }
+          }
         }
       },
       "BookAppointmentTool": {
@@ -88843,6 +88910,24 @@
           }
         }
       },
+      "BlackBoxTestResultsResponse": {
+        "description": "A list of black box test results.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlackBoxTestResultSet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "BulkDeleteRoomRecordingsResponse": {
         "description": "Successful response for Bulk Delete Room recordings requests",
         "content": {
@@ -98028,6 +98113,10 @@
     {
       "name": "Rooms Client Tokens",
       "description": "Rooms Client Tokens operations."
+    },
+    {
+      "name": "SETI Observability",
+      "description": "Observability into Telnyx platform stability and performance."
     },
     {
       "name": "SIM Card Actions",

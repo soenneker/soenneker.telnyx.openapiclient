@@ -126,6 +126,7 @@ using Soenneker.Telnyx.OpenApiClient.Room_participants;
 using Soenneker.Telnyx.OpenApiClient.Room_recordings;
 using Soenneker.Telnyx.OpenApiClient.Room_sessions;
 using Soenneker.Telnyx.OpenApiClient.Rooms;
+using Soenneker.Telnyx.OpenApiClient.Seti;
 using Soenneker.Telnyx.OpenApiClient.Short_codes;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_actions;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications;
@@ -756,6 +757,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder Rooms
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The seti property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Seti.SetiRequestBuilder Seti
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Seti.SetiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The short_codes property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Short_codes.Short_codesRequestBuilder Short_codes
