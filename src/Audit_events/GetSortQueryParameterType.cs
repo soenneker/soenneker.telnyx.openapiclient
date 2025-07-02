@@ -8,13 +8,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Audit_events
     public enum GetSortQueryParameterType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "asc")]
+        [EnumMember(Value = "created_at")]
         #pragma warning disable CS1591
-        Asc,
+        Created_at,
         #pragma warning restore CS1591
-        [EnumMember(Value = "desc")]
+        [EnumMember(Value = "email")]
         #pragma warning disable CS1591
-        Desc,
+        Email,
         #pragma warning restore CS1591
     }
 }

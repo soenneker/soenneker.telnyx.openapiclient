@@ -40,6 +40,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MessagingProfileId { get; set; }
 #endif
+        /// <summary>ISO 8601 formatted date indicating when to send the message - accurate up till a minute.</summary>
+        public DateTimeOffset? SendAt { get; set; }
         /// <summary>Subject of multimedia message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,6 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "from", n => { From = n.GetStringValue(); } },
                 { "media_urls", n => { MediaUrls = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
+                { "send_at", n => { SendAt = n.GetDateTimeOffsetValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
@@ -133,6 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("from", From);
             writer.WriteCollectionOfPrimitiveValues<string>("media_urls", MediaUrls);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
+            writer.WriteDateTimeOffsetValue("send_at", SendAt);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("text", Text);
             writer.WriteStringValue("to", To);

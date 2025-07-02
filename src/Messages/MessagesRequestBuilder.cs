@@ -7,6 +7,7 @@ using Soenneker.Telnyx.OpenApiClient.Messages.Group_mms;
 using Soenneker.Telnyx.OpenApiClient.Messages.Item;
 using Soenneker.Telnyx.OpenApiClient.Messages.Long_code;
 using Soenneker.Telnyx.OpenApiClient.Messages.Number_pool;
+using Soenneker.Telnyx.OpenApiClient.Messages.Schedule;
 using Soenneker.Telnyx.OpenApiClient.Messages.Short_code;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -37,13 +38,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Number_pool.Number_poolRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The schedule property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Schedule.ScheduleRequestBuilder Schedule
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Schedule.ScheduleRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The short_code property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Short_code.Short_codeRequestBuilder Short_code
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Short_code.Short_codeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messages.item collection</summary>
-        /// <param name="position">The id of the message</param>
+        /// <param name="position">The id of the message to cancel</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder this[Guid position]
         {
@@ -55,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages
             }
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messages.item collection</summary>
-        /// <param name="position">The id of the message</param>
+        /// <param name="position">The id of the message to cancel</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder this[string position]

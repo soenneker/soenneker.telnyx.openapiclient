@@ -34,6 +34,33 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Item
         {
         }
         /// <summary>
+        /// Cancel a scheduled message that has not yet been sent. Only messages with `status=scheduled` and `send_at` more than a minute from now can be cancelled.
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Note: This API endpoint can only retrieve messages that are no older than 10 days since their creation. If you require messages older than this, please generate an [MDR report.](https://developers.telnyx.com/api/v1/mission-control/add-mdr-request)
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetMessage_200"/></returns>
@@ -55,6 +82,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Item
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.GetMessage_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.GetMessage_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Cancel a scheduled message that has not yet been sent. Only messages with `status=scheduled` and `send_at` more than a minute from now can be cancelled.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
         }
         /// <summary>
         /// Note: This API endpoint can only retrieve messages that are no older than 10 days since their creation. If you require messages older than this, please generate an [MDR report.](https://developers.telnyx.com/api/v1/mission-control/add-mdr-request)
@@ -83,6 +129,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages.Item
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Messages.Item.MessagesItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class MessagesItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        {
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
