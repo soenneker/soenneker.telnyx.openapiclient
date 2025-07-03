@@ -72,6 +72,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string FocDate { get; set; }
 #endif
+        /// <summary>Indicates whether messaging services should be maintained with Telnyx after the port out completes</summary>
+        public bool? HostMessaging { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -225,6 +227,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "current_carrier", n => { CurrentCarrier = n.GetStringValue(); } },
                 { "end_user_name", n => { EndUserName = n.GetStringValue(); } },
                 { "foc_date", n => { FocDate = n.GetStringValue(); } },
+                { "host_messaging", n => { HostMessaging = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inserted_at", n => { InsertedAt = n.GetStringValue(); } },
                 { "lsr", n => { Lsr = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -260,6 +263,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("current_carrier", CurrentCarrier);
             writer.WriteStringValue("end_user_name", EndUserName);
             writer.WriteStringValue("foc_date", FocDate);
+            writer.WriteBoolValue("host_messaging", HostMessaging);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("inserted_at", InsertedAt);
             writer.WriteCollectionOfPrimitiveValues<string>("lsr", Lsr);

@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Import;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Import.ImportRequestBuilder Import
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Import.ImportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tests property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestsRequestBuilder Tests
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ai.assistants.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
