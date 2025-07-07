@@ -3,9 +3,11 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Clone;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Texml;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +22,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithAssistant_ItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The clone property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Clone.CloneRequestBuilder Clone
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Clone.CloneRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The scheduled_events property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Scheduled_eventsRequestBuilder Scheduled_events
         {
@@ -34,6 +41,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.ToolsRequestBuilder Tools
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools.ToolsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The versions property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.VersionsRequestBuilder Versions
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.VersionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.WithAssistant_ItemRequestBuilder"/> and sets the default values.
@@ -107,11 +119,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Update_assistant_public_assistants__assistant_id__post_200?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Update_assistant_public_assistants__assistant_id__post_200?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotion body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Update_assistant_public_assistants__assistant_id__post_200> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Update_assistant_public_assistants__assistant_id__post_200> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotion body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -168,11 +180,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotion body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequestWithPromotion body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

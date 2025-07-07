@@ -60,19 +60,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestSuites.Item.Run
         /// Executes all tests within a specific test suite as a batch operation
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResponse&gt;</returns>
+        /// <param name="body">Request model for triggering test suite runs.Optional request body for the trigger test suite runs endpoint.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResponse>?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResponse>?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TriggerTestSuiteRunsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResponse>> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunResponse>> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TriggerTestSuiteRunsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
+            _ = body ?? throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
@@ -103,19 +105,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestSuites.Item.Run
         /// Executes all tests within a specific test suite as a batch operation
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">Request model for triggering test suite runs.Optional request body for the trigger test suite runs endpoint.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TriggerTestSuiteRunsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.TriggerTestSuiteRunsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
+            _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

@@ -1673,6 +1673,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TriggerTestSuiteRunsRequest",
+                "title": "Request"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Returns array of created test runs for all tests in the suite",
@@ -1937,6 +1947,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TriggerTestRunRequest",
+                "title": "Request"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Returns the created test run with execution details and status",
@@ -2160,7 +2180,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateAssistantRequest"
+                "$ref": "#/components/schemas/UpdateAssistantRequestWithPromotion"
               }
             }
           }
@@ -2171,6 +2191,50 @@
             "content": {
               "application/json": {
                 "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
+    "/ai/assistants/{assistant_id}/clone": {
+      "post": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Clone Assistant",
+        "description": "Clone an existing assistant, excluding telephony and messaging settings.",
+        "operationId": "clone_assistant_public_assistants__assistant_id__clone_post",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Assistant"
+                }
               }
             }
           },
@@ -2526,6 +2590,210 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TestWebhookToolResponseData"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
+    "/ai/assistants/{assistant_id}/versions": {
+      "get": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Get all versions of an assistant",
+        "description": "Retrieves all versions of a specific assistant with complete configuration and metadata",
+        "operationId": "get_assistant_versions_public_assistants__assistant_id__versions_get",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns list of assistant versions ordered by creation date (newest first)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssistantsListData"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
+    "/ai/assistants/{assistant_id}/versions/{version_id}": {
+      "delete": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Delete a specific assistant version",
+        "description": "Permanently removes a specific version of an assistant. Can not delete main version",
+        "operationId": "delete_assistant_version_public_assistants__assistant_id__versions__version_id__delete",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          },
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returns HTTP 204 No Content on successful deletion"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      },
+      "post": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Update a specific assistant version",
+        "description": "Updates the configuration of a specific assistant version. Can not update main version",
+        "operationId": "update_assistant_version_public_assistants__assistant_id__versions__version_id__post",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          },
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAssistantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the updated assistant version configuration",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Assistant"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
+    "/ai/assistants/{assistant_id}/versions/{version_id}/promote": {
+      "post": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Promote an assistant version to main",
+        "description": "Promotes a specific version to be the main/current version of the assistant",
+        "operationId": "promote_assistant_version_public_assistants__assistant_id__versions__version_id__promote_post",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          },
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the promoted assistant configuration",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Assistant"
                 }
               }
             }
@@ -89291,6 +89559,32 @@
         ],
         "title": "TransferToolParams"
       },
+      "TriggerTestRunRequest": {
+        "properties": {
+          "destination_version_id": {
+            "type": "string",
+            "title": "Destination Version Id",
+            "description": "Optional assistant version ID to use for this test run. If provided, the version must exist or a 400 error will be returned. If not provided, test will run on main version",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "type": "object",
+        "title": "TriggerTestRunRequest",
+        "description": "Request model for triggering a single test run.\n\nOptional request body for the trigger test run endpoint."
+      },
+      "TriggerTestSuiteRunsRequest": {
+        "properties": {
+          "destination_version_id": {
+            "type": "string",
+            "title": "Destination Version Id",
+            "description": "Optional assistant version ID to use for all test runs in this suite. If provided, the version must exist or a 400 error will be returned. If not provided, test will run on main version",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          }
+        },
+        "type": "object",
+        "title": "TriggerTestSuiteRunsRequest",
+        "description": "Request model for triggering test suite runs.\n\nOptional request body for the trigger test suite runs endpoint."
+      },
       "TwimlRecordingChannels": {
         "type": "integer",
         "enum": [
@@ -89508,6 +89802,22 @@
         },
         "type": "object",
         "title": "UpdateAssistantRequest"
+      },
+      "UpdateAssistantRequestWithPromotion": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UpdateAssistantRequest"
+          },
+          {
+            "properties": {
+              "promote_to_main": {
+                "type": "boolean",
+                "default": true,
+                "description": "Indicates whether the assistant should be promoted to the main version. Defaults to true."
+              }
+            }
+          }
+        ]
       },
       "UpdateAssistantTestRequest": {
         "properties": {
