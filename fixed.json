@@ -42347,6 +42347,9 @@
       },
       "UpdatePortoutStatus": {
         "title": "UpdatePortoutStatus",
+        "required": [
+          "reason"
+        ],
         "type": "object",
         "properties": {
           "reason": {
