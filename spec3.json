@@ -2208,6 +2208,60 @@
         "x-latency-category": "responsive"
       }
     },
+    "/ai/assistants/{assistant_id}/chat": {
+      "post": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Assistant Chat",
+        "description": "This endpoint allows a client to send a chat message to a specific AI Assistant. The assistant processes the message and returns a relevant reply based on the current conversation context.",
+        "operationId": "assistant_chat_public_assistants__assistant_id__chat_post",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assistant Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssistantChatReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssistantChatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
     "/ai/assistants/{assistant_id}/clone": {
       "post": {
         "tags": [
@@ -18808,39 +18862,6 @@
         "x-latency-category": "responsive"
       }
     },
-    "/messaging_profile_metrics": {
-      "get": {
-        "summary": "List messaging profile metrics",
-        "operationId": "ListProfileMetrics",
-        "tags": [
-          "Messaging Profiles"
-        ],
-        "x-group-parameters": "true",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/MessagingProfileMetric"
-          },
-          {
-            "$ref": "#/components/parameters/MessagingProfileMetricTimeFrame"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/ListMessagingProfileMetrics"
-          },
-          "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
-          }
-        },
-        "x-latency-category": "responsive"
-      }
-    },
     "/messaging_profiles": {
       "get": {
         "summary": "List messaging profiles",
@@ -19042,33 +19063,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/MessagingProfileResponse"
-          },
-          "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
-          }
-        },
-        "x-latency-category": "responsive"
-      }
-    },
-    "/messaging_profiles/{id}/metrics": {
-      "get": {
-        "summary": "Retrieve messaging profile metrics",
-        "operationId": "GetMessagingProfileMetrics",
-        "tags": [
-          "Messaging Profiles"
-        ],
-        "x-group-parameters": "true",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/MessagingProfileId"
-          },
-          {
-            "$ref": "#/components/parameters/MessagingProfileMetricTimeFrame"
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/RetrieveMessagingProfileMetrics"
           },
           "default": {
             "$ref": "#/components/responses/GenericErrorResponse"
@@ -39619,34 +39613,6 @@
           "format": "uuid"
         }
       },
-      "MessagingProfileMetric": {
-        "name": "id",
-        "in": "query",
-        "description": "The id of the messaging profile(s) to retrieve",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "format": "uuid"
-        }
-      },
-      "MessagingProfileMetricTimeFrame": {
-        "name": "time_frame",
-        "in": "query",
-        "description": "The timeframe for which you'd like to retrieve metrics.",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "default": "24h",
-          "enum": [
-            "1h",
-            "3h",
-            "24h",
-            "3d",
-            "7d",
-            "30d"
-          ]
-        }
-      },
       "NameFilter": {
         "name": "filter[name][contains]",
         "in": "query",
@@ -43905,28 +43871,6 @@
           }
         }
       },
-      "ListMessagingProfileMetrics": {
-        "description": "Successful response with a list of messaging profile metrics.",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "title": "List Messaging Profile Metrics Response",
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/MessagingProfileHighLevelMetrics"
-                  }
-                },
-                "meta": {
-                  "$ref": "#/components/schemas/PaginationMeta"
-                }
-              }
-            }
-          }
-        }
-      },
       "ListMessagingProfilePhoneNumbersResponse": {
         "description": "Successful response with a list of messaging profile phone numbers.",
         "content": {
@@ -45832,22 +45776,6 @@
               "properties": {
                 "data": {
                   "$ref": "#/components/schemas/CallWithRecordingId"
-                }
-              }
-            }
-          }
-        }
-      },
-      "RetrieveMessagingProfileMetrics": {
-        "description": "Successful response with details about a messaging profile's metrics.",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "title": "Retrieve Messaging Profile Metrics Response",
-              "properties": {
-                "data": {
-                  "$ref": "#/components/schemas/MessagingProfileDetailedMetrics"
                 }
               }
             }
@@ -48446,15 +48374,21 @@
         "properties": {
           "content": {
             "type": "string",
-            "title": "Content"
+            "title": "Content",
+            "description": "The message content sent by the client to the assistant",
+            "example": "Tell me a joke about cats"
           },
           "name": {
             "type": "string",
-            "title": "Name"
+            "title": "Name",
+            "description": "The optional display name of the user sending the message",
+            "example": "Charlie"
           },
           "conversation_id": {
             "type": "string",
-            "title": "Conversation Id"
+            "title": "Conversation Id",
+            "description": "A unique identifier for the conversation thread, used to maintain context",
+            "example": "42b20469-1215-4a9a-8964-c36f66b406f4"
           }
         },
         "type": "object",
@@ -48468,7 +48402,9 @@
         "properties": {
           "content": {
             "type": "string",
-            "title": "Content"
+            "title": "Content",
+            "description": "The assistant's generated response based on the input message and context.",
+            "example": "Why did the cat sit on the computer? Because it wanted to keep an eye on the mouse!"
           }
         },
         "type": "object",
@@ -69072,6 +69008,14 @@
       },
       "HandoffToolParams": {
         "properties": {
+          "voice_mode": {
+            "type": "string",
+            "enum": [
+              "unified",
+              "distinct"
+            ],
+            "description": "With the unified voice mode all assistants share the same voice, making the handoff transparent to the user. With the distinct voice mode all assistants retain their voice configuration, providing the experience of a conference call with a team of assistants."
+          },
           "ai_assistants": {
             "type": "array",
             "description": "List of possible assistants that can receive a handoff.",

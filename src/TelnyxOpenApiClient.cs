@@ -73,7 +73,6 @@ using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders;
 using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers;
 using Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates;
 using Soenneker.Telnyx.OpenApiClient.Messaging_optouts;
-using Soenneker.Telnyx.OpenApiClient.Messaging_profile_metrics;
 using Soenneker.Telnyx.OpenApiClient.Messaging_profiles;
 using Soenneker.Telnyx.OpenApiClient.Messaging_tollfree;
 using Soenneker.Telnyx.OpenApiClient.Messaging_url_domains;
@@ -492,11 +491,6 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_optouts.Messaging_optoutsRequestBuilder Messaging_optouts
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_optouts.Messaging_optoutsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The messaging_profile_metrics property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profile_metrics.Messaging_profile_metricsRequestBuilder Messaging_profile_metrics
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_profile_metrics.Messaging_profile_metricsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The messaging_profiles property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Messaging_profilesRequestBuilder Messaging_profiles

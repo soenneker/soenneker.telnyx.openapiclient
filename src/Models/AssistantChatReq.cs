@@ -9,33 +9,51 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MessagingProfileHighLevelMetrics_outbound : IAdditionalDataHolder, IParsable
+    public partial class AssistantChatReq : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The number of outbound messages successfully delivered.</summary>
-        public double? Delivered { get; private set; }
-        /// <summary>The ratio of messages sent that resulted in errors.</summary>
-        public double? ErrorRatio { get; private set; }
-        /// <summary>The number of outbound messages sent.</summary>
-        public double? Sent { get; private set; }
+        /// <summary>The message content sent by the client to the assistant</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Content { get; set; }
+#nullable restore
+#else
+        public string Content { get; set; }
+#endif
+        /// <summary>A unique identifier for the conversation thread, used to maintain context</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConversationId { get; set; }
+#nullable restore
+#else
+        public string ConversationId { get; set; }
+#endif
+        /// <summary>The optional display name of the user sending the message</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileHighLevelMetrics_outbound"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantChatReq"/> and sets the default values.
         /// </summary>
-        public MessagingProfileHighLevelMetrics_outbound()
+        public AssistantChatReq()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileHighLevelMetrics_outbound"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantChatReq"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileHighLevelMetrics_outbound CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AssistantChatReq CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileHighLevelMetrics_outbound();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AssistantChatReq();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,9 +63,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "delivered", n => { Delivered = n.GetDoubleValue(); } },
-                { "error_ratio", n => { ErrorRatio = n.GetDoubleValue(); } },
-                { "sent", n => { Sent = n.GetDoubleValue(); } },
+                { "content", n => { Content = n.GetStringValue(); } },
+                { "conversation_id", n => { ConversationId = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,6 +75,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("content", Content);
+            writer.WriteStringValue("conversation_id", ConversationId);
+            writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

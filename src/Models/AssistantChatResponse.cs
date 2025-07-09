@@ -2,43 +2,42 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MetricsGetResponse : IAdditionalDataHolder, IParsable
+    public partial class AssistantChatResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The data property</summary>
+        /// <summary>The assistant&apos;s generated response based on the input message and context.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileDetailedMetrics? Data { get; set; }
+        public string? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileDetailedMetrics Data { get; set; }
+        public string Content { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics.MetricsGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantChatResponse"/> and sets the default values.
         /// </summary>
-        public MetricsGetResponse()
+        public AssistantChatResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics.MetricsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantChatResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics.MetricsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AssistantChatResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics.MetricsGetResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AssistantChatResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileDetailedMetrics>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileDetailedMetrics.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfileDetailedMetrics>("data", Data);
+            writer.WriteStringValue("content", Content);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

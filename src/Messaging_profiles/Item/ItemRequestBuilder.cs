@@ -4,7 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs;
-using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics;
 using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes;
 using Soenneker.Telnyx.OpenApiClient.Models;
@@ -25,11 +24,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder Autoresp_configs
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The metrics property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics.MetricsRequestBuilder Metrics
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics.MetricsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The phone_numbers property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Phone_numbers.Phone_numbersRequestBuilder Phone_numbers

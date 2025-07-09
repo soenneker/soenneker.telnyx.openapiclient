@@ -22,6 +22,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants> AiAssistants { get; set; }
 #endif
+        /// <summary>With the unified voice mode all assistants share the same voice, making the handoff transparent to the user. With the distinct voice mode all assistants retain their voice configuration, providing the experience of a conference call with a team of assistants.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_voice_mode? VoiceMode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams"/> and sets the default values.
         /// </summary>
@@ -48,6 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ai_assistants", n => { AiAssistants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants>(global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "voice_mode", n => { VoiceMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_voice_mode>(); } },
             };
         }
         /// <summary>
@@ -58,6 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_ai_assistants>("ai_assistants", AiAssistants);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.HandoffToolParams_voice_mode>("voice_mode", VoiceMode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
