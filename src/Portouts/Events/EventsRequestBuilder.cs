@@ -152,10 +152,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Events
             /// <summary>Filter by port-out order ID.</summary>
             [QueryParameter("filter%5Bportout_id%5D")]
             public Guid? FilterportoutId { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

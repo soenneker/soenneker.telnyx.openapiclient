@@ -343,10 +343,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
             /// <summary>Include the first 50 phone number objects in the results</summary>
             [QueryParameter("include_phone_numbers")]
             public bool? IncludePhoneNumbers { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>
