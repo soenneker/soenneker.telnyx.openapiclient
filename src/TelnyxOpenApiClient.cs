@@ -60,6 +60,7 @@ using Soenneker.Telnyx.OpenApiClient.Global_ips;
 using Soenneker.Telnyx.OpenApiClient.Inbound_channels;
 using Soenneker.Telnyx.OpenApiClient.Integration_secrets;
 using Soenneker.Telnyx.OpenApiClient.Inventory_coverage;
+using Soenneker.Telnyx.OpenApiClient.Invoices;
 using Soenneker.Telnyx.OpenApiClient.Ip_connections;
 using Soenneker.Telnyx.OpenApiClient.Ips;
 using Soenneker.Telnyx.OpenApiClient.Item;
@@ -431,6 +432,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Inventory_coverage.Inventory_coverageRequestBuilder Inventory_coverage
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Inventory_coverage.Inventory_coverageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The invoices property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Invoices.InvoicesRequestBuilder Invoices
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Invoices.InvoicesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The ip_connections property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ip_connections.Ip_connectionsRequestBuilder Ip_connections

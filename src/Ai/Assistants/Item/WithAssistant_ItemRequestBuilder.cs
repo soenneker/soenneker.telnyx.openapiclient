@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.CanaryDeploys;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Clone;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events;
@@ -23,6 +24,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithAssistant_ItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The canaryDeploys property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.CanaryDeploys.CanaryDeploysRequestBuilder CanaryDeploys
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.CanaryDeploys.CanaryDeploysRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The chat property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat.ChatRequestBuilder Chat
         {
