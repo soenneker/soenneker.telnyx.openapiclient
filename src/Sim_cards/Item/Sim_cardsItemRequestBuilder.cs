@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Sim_cardsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sim_cards/{id}{?include_sim_card_group*,report_lost*}", pathParameters)
+        public Sim_cardsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sim_cards/{id}{?include_pin_puk_codes*,include_sim_card_group*,report_lost*}", pathParameters)
         {
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Sim_cardsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sim_cards/{id}{?include_sim_card_group*,report_lost*}", rawUrl)
+        public Sim_cardsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sim_cards/{id}{?include_pin_puk_codes*,include_sim_card_group*,report_lost*}", rawUrl)
         {
         }
         /// <summary>
@@ -301,6 +301,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Sim_cardsItemRequestBuilderGetQueryParameters 
         {
+            /// <summary>When set to true, includes the PIN and PUK codes in the response. These codes are used for SIM card security and unlocking purposes. Available for both physical SIM cards and eSIMs.</summary>
+            [QueryParameter("include_pin_puk_codes")]
+            public bool? IncludePinPukCodes { get; set; }
             /// <summary>It includes the associated SIM card group object in the response when present.</summary>
             [QueryParameter("include_sim_card_group")]
             public bool? IncludeSimCardGroup { get; set; }

@@ -2400,8 +2400,8 @@
         "tags": [
           "Assistants"
         ],
-        "summary": "Assistant Chat",
-        "description": "This endpoint allows a client to send a chat message to a specific AI Assistant. The assistant processes the message and returns a relevant reply based on the current conversation context.",
+        "summary": "Assistant Chat (BETA)",
+        "description": "This endpoint allows a client to send a chat message to a specific AI Assistant. The assistant processes the message and returns a relevant reply based on the current conversation context. Refer to the Conversation API to [create a conversation](https://developers.telnyx.com/api/inference/inference-embedding/create-new-conversation-public-conversations-post), [filter existing conversations](https://developers.telnyx.com/api/inference/inference-embedding/get-conversations-public-conversations-get), [fetch messages for a conversation](https://developers.telnyx.com/api/inference/inference-embedding/get-conversations-public-conversation-id-messages-get), and [manually add messages to a conversation](https://developers.telnyx.com/api/inference/inference-embedding/add-new-message).",
         "operationId": "assistant_chat_public_assistants__assistant_id__chat_post",
         "parameters": [
           {
@@ -4407,6 +4407,59 @@
                 "schema": {
                   "$ref": "#/components/schemas/ConversationMessageListData"
                 }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      },
+      "post": {
+        "tags": [
+          "Conversations"
+        ],
+        "summary": "Create Message",
+        "description": "Add a new message to the conversation. Used to insert a new messages to a conversation manually ( without using chat endpoint )",
+        "operationId": "add_new_message",
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "The ID of the conversation",
+              "title": "Conversation Id"
+            },
+            "description": "The ID of the conversation"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMsgReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
               }
             }
           },
@@ -32966,6 +33019,16 @@
           },
           {
             "$ref": "#/components/parameters/IncludeSIMCardGroup"
+          },
+          {
+            "name": "include_pin_puk_codes",
+            "in": "query",
+            "description": "When set to true, includes the PIN and PUK codes in the response. These codes are used for SIM card security and unlocking purposes. Available for both physical SIM cards and eSIMs.",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -62061,6 +62124,87 @@
           ]
         }
       },
+      "CreateMsgReq": {
+        "properties": {
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content",
+            "default": ""
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "tool_choice": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "title": "Tool Choice"
+          },
+          "tool_calls": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Tool Calls"
+          },
+          "tool_call_id": {
+            "type": "string",
+            "title": "Tool Call Id"
+          },
+          "sent_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Sent At"
+          },
+          "metadata": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "boolean"
+                      }
+                    ]
+                  },
+                  "type": "array"
+                }
+              ]
+            },
+            "title": "Metadata"
+          }
+        },
+        "type": "object",
+        "required": [
+          "role"
+        ],
+        "title": "CreateMsgReq"
+      },
       "CreateNumberBlockOrderRequest": {
         "required": [
           "starting_number",
@@ -83007,6 +83151,18 @@
             "readOnly": true,
             "description": "Indicates whether the device is actively connected to a network and able to run data.",
             "example": "connected"
+          },
+          "pin": {
+            "type": "string",
+            "description": "The Personal Identification Number (PIN) for the SIM card. This is a 4-digit code used to protect the SIM card from unauthorized use. Only available when include_pin_puk_codes=true is set in the request.",
+            "example": "1234",
+            "readOnly": true
+          },
+          "puk": {
+            "type": "string",
+            "description": "The Personal Unblocking Key (PUK) for the SIM card. This is an 8-digit code used to unlock the SIM card if the PIN is entered incorrectly multiple times. Only available when include_pin_puk_codes=true is set in the request.",
+            "example": "12345678",
+            "readOnly": true
           }
         }
       },

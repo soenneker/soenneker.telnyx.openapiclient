@@ -1885,8 +1885,8 @@
         "tags": [
           "Assistants"
         ],
-        "summary": "Assistant Chat",
-        "description": "This endpoint allows a client to send a chat message to a specific AI Assistant. The assistant processes the message and returns a relevant reply based on the current conversation context.",
+        "summary": "Assistant Chat (BETA)",
+        "description": "This endpoint allows a client to send a chat message to a specific AI Assistant. The assistant processes the message and returns a relevant reply based on the current conversation context. Refer to the Conversation API to [create a conversation](https://developers.telnyx.com/api/inference/inference-embedding/create-new-conversation-public-conversations-post), [filter existing conversations](https://developers.telnyx.com/api/inference/inference-embedding/get-conversations-public-conversations-get), [fetch messages for a conversation](https://developers.telnyx.com/api/inference/inference-embedding/get-conversations-public-conversation-id-messages-get), and [manually add messages to a conversation](https://developers.telnyx.com/api/inference/inference-embedding/add-new-message).",
         "operationId": "assistant_chat_public_assistants__assistant_id__chat_post",
         "parameters": [
           {
@@ -3848,6 +3848,60 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ConversationMessageListData"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      },
+      "post": {
+        "tags": [
+          "Conversations"
+        ],
+        "summary": "Create Message",
+        "description": "Add a new message to the conversation. Used to insert a new messages to a conversation manually ( without using chat endpoint )",
+        "operationId": "add_new_message",
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "description": "The ID of the conversation",
+            "required": true,
+            "schema": {
+              "title": "Conversation Id",
+              "type": "string",
+              "description": "The ID of the conversation",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMsgReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/add_new_message_200"
                 }
               }
             }
@@ -34203,6 +34257,15 @@
               "default": false,
               "example": true
             }
+          },
+          {
+            "name": "include_pin_puk_codes",
+            "in": "query",
+            "description": "When set to true, includes the PIN and PUK codes in the response. These codes are used for SIM card security and unlocking purposes. Available for both physical SIM cards and eSIMs.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -40548,14 +40611,42 @@
           }
         }
       },
-      "UpdateRequirementGroup": {
-        "title": "UpdateRequirementGroup",
+      "CreateRequirementGroup": {
+        "title": "CreateRequirementGroup",
+        "required": [
+          "country_code",
+          "phone_number_type",
+          "action"
+        ],
         "type": "object",
         "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "ISO alpha 2 country code",
+            "example": "US"
+          },
+          "phone_number_type": {
+            "enum": [
+              "local",
+              "toll_free",
+              "mobile",
+              "national",
+              "shared_cost"
+            ],
+            "type": "string",
+            "example": "local"
+          },
+          "action": {
+            "enum": [
+              "ordering",
+              "porting"
+            ],
+            "type": "string",
+            "example": "ordering"
+          },
           "customer_reference": {
             "type": "string",
-            "description": "Reference for the customer",
-            "example": "0002"
+            "example": "My Requirement Group"
           },
           "regulatory_requirements": {
             "type": "array",
@@ -40563,14 +40654,10 @@
               "type": "object",
               "properties": {
                 "requirement_id": {
-                  "type": "string",
-                  "description": "Unique identifier for the regulatory requirement",
-                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
+                  "type": "string"
                 },
                 "field_value": {
-                  "type": "string",
-                  "description": "New value for the regulatory requirement",
-                  "example": "new requirement value"
+                  "type": "string"
                 }
               }
             }
@@ -41335,57 +41422,11 @@
           "send_silence_when_idle": true
         }
       },
-      "CreateRequirementGroup": {
-        "title": "CreateRequirementGroup",
-        "required": [
-          "country_code",
-          "phone_number_type",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "country_code": {
-            "type": "string",
-            "description": "ISO alpha 2 country code",
-            "example": "US"
-          },
-          "phone_number_type": {
-            "enum": [
-              "local",
-              "toll_free",
-              "mobile",
-              "national",
-              "shared_cost"
-            ],
-            "type": "string",
-            "example": "local"
-          },
-          "action": {
-            "enum": [
-              "ordering",
-              "porting"
-            ],
-            "type": "string",
-            "example": "ordering"
-          },
-          "customer_reference": {
-            "type": "string",
-            "example": "My Requirement Group"
-          },
-          "regulatory_requirements": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "requirement_id": {
-                  "type": "string"
-                },
-                "field_value": {
-                  "type": "string"
-                }
-              }
-            }
-          }
+      "GetRequirementGroups_200": {
+        "title": "GetRequirementGroups_200",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RequirementGroup"
         }
       },
       "AssignProfileToCampaignRequest": {
@@ -42523,13 +42564,6 @@
         ],
         "type": "string"
       },
-      "GetRequirementGroups_200": {
-        "title": "GetRequirementGroups_200",
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/RequirementGroup"
-        }
-      },
       "CreatePrivateWirelessGateway": {
         "title": "CreatePrivateWirelessGateway",
         "required": [
@@ -42609,6 +42643,16 @@
               }
             },
             "description": "List of supporting documents parameters"
+          }
+        }
+      },
+      "PostPortRequestComment": {
+        "title": "PostPortRequestComment",
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Comment to post on this portout request"
           }
         }
       },
@@ -43373,13 +43417,16 @@
           "park_after_unbridge": "self"
         }
       },
-      "PostPortRequestComment": {
-        "title": "PostPortRequestComment",
+      "PostPortabilityCheck": {
+        "title": "PostPortabilityCheck",
         "type": "object",
         "properties": {
-          "body": {
-            "type": "string",
-            "description": "Comment to post on this portout request"
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The list of +E.164 formatted phone numbers to check for portability"
           }
         }
       },
@@ -44756,16 +44803,32 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "PostPortabilityCheck": {
-        "title": "PostPortabilityCheck",
+      "PostAssignMessagingProfileToCampaign_202": {
+        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
+        "required": [
+          "type"
+        ],
         "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
+          },
+          {
+            "$ref": "#/components/schemas/SettingsDataErrorMessage"
+          }
+        ],
         "properties": {
-          "phone_numbers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The list of +E.164 formatted phone numbers to check for portability"
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
+            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
           }
         }
       },
@@ -51959,33 +52022,11 @@
           "uri": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Conferences.json?Page=0&PageSize=1"
         }
       },
-      "PostAssignMessagingProfileToCampaign_202": {
-        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
-        "required": [
-          "type"
-        ],
+      "GetPartnerCampaignSharingStatus_200": {
+        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
         "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
-          },
-          {
-            "$ref": "#/components/schemas/SettingsDataErrorMessage"
-          }
-        ],
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
-            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
-          }
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CampaignSharingStatus"
         }
       },
       "ConferenceSpeakEnded": {
@@ -52377,13 +52418,6 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "GetPartnerCampaignSharingStatus_200": {
-        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/CampaignSharingStatus"
-        }
-      },
       "OperatorConnectRefresh_202": {
         "title": "Operator Connect Refresh Response",
         "type": "object",
@@ -52471,6 +52505,21 @@
             "type": "string",
             "description": "The ID of the requirement group to associate",
             "format": "uuid"
+          }
+        }
+      },
+      "ListNotificationSettings_200": {
+        "title": "ListNotificationSettings_200",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationSetting"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -55051,6 +55100,86 @@
           ]
         }
       },
+      "CreateMsgReq": {
+        "title": "CreateMsgReq",
+        "required": [
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "title": "Role",
+            "type": "string"
+          },
+          "content": {
+            "title": "Content",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "tool_choice": {
+            "title": "Tool Choice",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "tool_calls": {
+            "title": "Tool Calls",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "tool_call_id": {
+            "title": "Tool Call Id",
+            "type": "string"
+          },
+          "sent_at": {
+            "title": "Sent At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "metadata": {
+            "title": "Metadata",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "boolean"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
       "CreateNumberBlockOrderRequest": {
         "title": "CreateNumberBlockOrderRequest",
         "required": [
@@ -56370,14 +56499,14 @@
           }
         }
       },
-      "ListNotificationSettings_200": {
-        "title": "ListNotificationSettings_200",
+      "FindNotificationsProfiles_200": {
+        "title": "FindNotificationsProfiles_200",
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationSetting"
+              "$ref": "#/components/schemas/NotificationProfile"
             }
           },
           "meta": {
@@ -56465,14 +56594,14 @@
           }
         }
       },
-      "FindNotificationsProfiles_200": {
-        "title": "FindNotificationsProfiles_200",
+      "FindNotificationsEvents_200": {
+        "title": "FindNotificationsEvents_200",
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationProfile"
+              "$ref": "#/components/schemas/NotificationEvent"
             }
           },
           "meta": {
@@ -56841,14 +56970,14 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "FindNotificationsEvents_200": {
-        "title": "FindNotificationsEvents_200",
+      "FindNotificationsEventsConditions_200": {
+        "title": "FindNotificationsEventsConditions_200",
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEvent"
+              "$ref": "#/components/schemas/NotificationEventCondition"
             }
           },
           "meta": {
@@ -57335,14 +57464,14 @@
           }
         }
       },
-      "FindNotificationsEventsConditions_200": {
-        "title": "FindNotificationsEventsConditions_200",
+      "ListNotificationChannels_200": {
+        "title": "ListNotificationChannels_200",
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEventCondition"
+              "$ref": "#/components/schemas/NotificationChannel"
             }
           },
           "meta": {
@@ -60112,18 +60241,31 @@
           }
         }
       },
-      "ListNotificationChannels_200": {
-        "title": "ListNotificationChannels_200",
+      "CreatePushCredential": {
+        "title": "CreatePushCredential",
+        "required": [
+          "type"
+        ],
         "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationChannel"
-            }
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateIosPushCredentialRequest"
           },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+          {
+            "$ref": "#/components/schemas/CreateAndroidPushCredentialRequest"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CreateIosPushCredentialRequest": "#/components/schemas/CreateIosPushCredentialRequest",
+            "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
           }
         }
       },
@@ -60235,32 +60377,11 @@
           }
         }
       },
-      "CreatePushCredential": {
-        "title": "CreatePushCredential",
-        "required": [
-          "type"
-        ],
+      "DeleteVerificationRequest_200": {
+        "title": "DeleteVerificationRequest_200",
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateIosPushCredentialRequest"
-          },
-          {
-            "$ref": "#/components/schemas/CreateAndroidPushCredentialRequest"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CreateIosPushCredentialRequest": "#/components/schemas/CreateIosPushCredentialRequest",
-            "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "FaxMediaProcessed": {
@@ -60666,18 +60787,27 @@
           }
         }
       },
-      "DeleteVerificationRequest_200": {
-        "title": "DeleteVerificationRequest_200",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
       "DeleteAutorespConfig_200": {
         "title": "DeleteAutorespConfig_200",
         "type": "object",
         "additionalProperties": {
           "type": "object"
+        }
+      },
+      "GetMessage_200": {
+        "title": "GetMessage_200",
+        "type": "object",
+        "properties": {
+          "data": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutboundMessagePayload"
+              },
+              {
+                "$ref": "#/components/schemas/InboundMessagePayload"
+              }
+            ]
+          }
         }
       },
       "ForbiddenError": {
@@ -61012,19 +61142,15 @@
         "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.",
         "default": "UDP"
       },
-      "GetMessage_200": {
-        "title": "GetMessage_200",
+      "EnableManagedAccount": {
+        "title": "EnableManagedAccount",
         "type": "object",
         "properties": {
-          "data": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/OutboundMessagePayload"
-              },
-              {
-                "$ref": "#/components/schemas/InboundMessagePayload"
-              }
-            ]
+          "reenable_all_connections": {
+            "type": "boolean",
+            "description": "When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.",
+            "default": false,
+            "example": true
           }
         }
       },
@@ -62798,15 +62924,36 @@
           }
         }
       },
-      "EnableManagedAccount": {
-        "title": "EnableManagedAccount",
+      "get_invoices_200": {
+        "title": "get_invoices_200",
         "type": "object",
         "properties": {
-          "reenable_all_connections": {
-            "type": "boolean",
-            "description": "When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.",
-            "default": false,
-            "example": true
+          "meta": {
+            "type": "object",
+            "properties": {
+              "total_results": {
+                "type": "integer",
+                "example": 20
+              },
+              "total_pages": {
+                "type": "integer",
+                "example": 1
+              },
+              "page_number": {
+                "type": "integer",
+                "example": 1
+              },
+              "page_size": {
+                "type": "integer",
+                "example": 20
+              }
+            }
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Invoice"
+            }
           }
         }
       },
@@ -64150,35 +64297,46 @@
           }
         }
       },
-      "get_invoices_200": {
-        "title": "get_invoices_200",
+      "UpdateOutboundChannels_default": {
+        "title": "UpdateOutboundChannels_default",
         "type": "object",
         "properties": {
-          "meta": {
-            "type": "object",
-            "properties": {
-              "total_results": {
-                "type": "integer",
-                "example": 20
-              },
-              "total_pages": {
-                "type": "integer",
-                "example": 1
-              },
-              "page_number": {
-                "type": "integer",
-                "example": 1
-              },
-              "page_size": {
-                "type": "integer",
-                "example": 20
-              }
-            }
-          },
-          "data": {
+          "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Invoice"
+              "required": [
+                "code",
+                "title"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "format": "int"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "detail": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "pointer": {
+                      "type": "string",
+                      "description": "JSON pointer (RFC6901) to the offending entity.",
+                      "format": "json-pointer"
+                    },
+                    "parameter": {
+                      "type": "string",
+                      "description": "Indicates which query parameter caused the error."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object"
+                }
+              }
             }
           }
         }
@@ -65827,45 +65985,22 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "UpdateOutboundChannels_default": {
-        "title": "UpdateOutboundChannels_default",
+      "UpdateOutboundChannels_200": {
+        "title": "UpdateOutboundChannels_200",
         "type": "object",
         "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "required": [
-                "code",
-                "title"
-              ],
-              "properties": {
-                "code": {
-                  "type": "string",
-                  "format": "int"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "detail": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "object",
-                  "properties": {
-                    "pointer": {
-                      "type": "string",
-                      "description": "JSON pointer (RFC6901) to the offending entity.",
-                      "format": "json-pointer"
-                    },
-                    "parameter": {
-                      "type": "string",
-                      "description": "Indicates which query parameter caused the error."
-                    }
-                  }
-                },
-                "meta": {
-                  "type": "object"
-                }
+          "data": {
+            "type": "object",
+            "properties": {
+              "channels": {
+                "type": "integer",
+                "description": "The number of channels set for the account",
+                "example": 7
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the response",
+                "example": "inbound_channels"
               }
             }
           }
@@ -65993,24 +66128,17 @@
           }
         }
       },
-      "UpdateOutboundChannels_200": {
-        "title": "UpdateOutboundChannels_200",
+      "UpdateOutboundChannels": {
+        "title": "UpdateOutboundChannels",
+        "required": [
+          "channels"
+        ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "channels": {
-                "type": "integer",
-                "description": "The number of channels set for the account",
-                "example": 7
-              },
-              "record_type": {
-                "type": "string",
-                "description": "Identifies the type of the response",
-                "example": "inbound_channels"
-              }
-            }
+          "channels": {
+            "type": "integer",
+            "description": "The new number of concurrent channels for the account",
+            "example": 7
           }
         }
       },
@@ -67033,17 +67161,24 @@
           }
         }
       },
-      "UpdateOutboundChannels": {
-        "title": "UpdateOutboundChannels",
-        "required": [
-          "channels"
-        ],
+      "ListInboundChannels_200": {
+        "title": "ListInboundChannels_200",
         "type": "object",
         "properties": {
-          "channels": {
-            "type": "integer",
-            "description": "The new number of concurrent channels for the account",
-            "example": 7
+          "data": {
+            "type": "object",
+            "properties": {
+              "channels": {
+                "type": "integer",
+                "description": "The current number of concurrent channels set for the account",
+                "example": 7
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the response",
+                "example": "inbound_channels"
+              }
+            }
           }
         }
       },
@@ -68341,24 +68476,13 @@
           }
         }
       },
-      "ListInboundChannels_200": {
-        "title": "ListInboundChannels_200",
+      "RefreshExternalConnectionUploads_200": {
+        "title": "Create Upload request Response",
         "type": "object",
         "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "channels": {
-                "type": "integer",
-                "description": "The current number of concurrent channels set for the account",
-                "example": 7
-              },
-              "record_type": {
-                "type": "string",
-                "description": "Identifies the type of the response",
-                "example": "inbound_channels"
-              }
-            }
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
           }
         }
       },
@@ -69534,13 +69658,18 @@
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
       },
-      "RefreshExternalConnectionUploads_200": {
+      "CreateExternalConnectionUpload_202": {
         "title": "Create Upload request Response",
         "type": "object",
         "properties": {
           "success": {
             "type": "boolean",
             "description": "Describes wether or not the operation was successful"
+          },
+          "ticket_id": {
+            "type": "string",
+            "description": "Ticket id of the upload request",
+            "format": "uuid"
           }
         }
       },
@@ -71524,17 +71653,16 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
-      "CreateExternalConnectionUpload_202": {
-        "title": "Create Upload request Response",
+      "updateLocation": {
+        "title": "updateLocation",
+        "required": [
+          "static_emergency_address_id"
+        ],
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
-          },
-          "ticket_id": {
+          "static_emergency_address_id": {
             "type": "string",
-            "description": "Ticket id of the upload request",
+            "description": "A new static emergency address ID to update the location with",
             "format": "uuid"
           }
         }
@@ -75012,17 +75140,13 @@
         "type": "string",
         "description": "Defines how the recording was created."
       },
-      "updateLocation": {
-        "title": "updateLocation",
-        "required": [
-          "static_emergency_address_id"
-        ],
+      "DeleteExternalConnectionLogMessage_200": {
+        "title": "Dismiss request was successful",
         "type": "object",
         "properties": {
-          "static_emergency_address_id": {
-            "type": "string",
-            "description": "A new static emergency address ID to update the location with",
-            "format": "uuid"
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
           }
         }
       },
@@ -76563,6 +76687,18 @@
             "description": "Indicates whether the device is actively connected to a network and able to run data.",
             "readOnly": true,
             "example": "connected"
+          },
+          "pin": {
+            "type": "string",
+            "description": "The Personal Identification Number (PIN) for the SIM card. This is a 4-digit code used to protect the SIM card from unauthorized use. Only available when include_pin_puk_codes=true is set in the request.",
+            "readOnly": true,
+            "example": "1234"
+          },
+          "puk": {
+            "type": "string",
+            "description": "The Personal Unblocking Key (PUK) for the SIM card. This is an 8-digit code used to unlock the SIM card if the PIN is entered incorrectly multiple times. Only available when include_pin_puk_codes=true is set in the request.",
+            "readOnly": true,
+            "example": "12345678"
           }
         }
       },
@@ -77884,13 +78020,35 @@
           }
         }
       },
-      "DeleteExternalConnectionLogMessage_200": {
-        "title": "Dismiss request was successful",
+      "GetEnumEndpoint_200": {
+        "title": "GetEnumEndpoint_200",
+        "required": [
+          "type"
+        ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/EnumListResponse"
+          },
+          {
+            "$ref": "#/components/schemas/EnumObjectResponse"
+          },
+          {
+            "$ref": "#/components/schemas/EnumPaginatedResponse"
+          }
+        ],
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "EnumListResponse": "#/components/schemas/EnumListResponse",
+            "EnumObjectResponse": "#/components/schemas/EnumObjectResponse",
+            "EnumPaginatedResponse": "#/components/schemas/EnumPaginatedResponse"
           }
         }
       },
@@ -79439,43 +79597,26 @@
           "stream_id": "1edb94f9-7ef0-4150-b502-e0ebadfd9491"
         }
       },
-      "GetEnumEndpoint_200": {
-        "title": "GetEnumEndpoint_200",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/EnumListResponse"
-          },
-          {
-            "$ref": "#/components/schemas/EnumObjectResponse"
-          },
-          {
-            "$ref": "#/components/schemas/EnumPaginatedResponse"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "EnumListResponse": "#/components/schemas/EnumListResponse",
-            "EnumObjectResponse": "#/components/schemas/EnumObjectResponse",
-            "EnumPaginatedResponse": "#/components/schemas/EnumPaginatedResponse"
-          }
-        }
-      },
       "DownloadDocument_200": {
         "title": "DownloadDocument_200",
         "type": "object",
         "additionalProperties": {
           "type": "object"
+        }
+      },
+      "ListDocuments_200": {
+        "title": "ListDocuments_200",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocServiceDocument"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
         }
       },
       "StreamBidirectionalCodec": {
@@ -79534,14 +79675,14 @@
         "default": "default",
         "example": "PCMA"
       },
-      "ListDocuments_200": {
-        "title": "ListDocuments_200",
+      "ListDocumentLinks_200": {
+        "title": "ListDocumentLinks_200",
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DocServiceDocument"
+              "$ref": "#/components/schemas/DocServiceDocumentLink"
             }
           },
           "meta": {
@@ -80081,18 +80222,17 @@
           "role": "barge"
         }
       },
-      "ListDocumentLinks_200": {
-        "title": "ListDocumentLinks_200",
+      "PatchChannelZone": {
+        "title": "PatchChannelZone",
+        "required": [
+          "channels"
+        ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DocServiceDocumentLink"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+          "channels": {
+            "type": "integer",
+            "description": "The number of reserved channels",
+            "format": "int64"
           }
         }
       },
@@ -82451,17 +82591,31 @@
           }
         }
       },
-      "PatchChannelZone": {
-        "title": "PatchChannelZone",
+      "PostCampaign_200": {
+        "title": "Response Submit Campaign Public Campaignbuilder Post",
         "required": [
-          "channels"
+          "type"
         ],
         "type": "object",
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/TelnyxCampaign_CSP"
+          }
+        ],
         "properties": {
-          "channels": {
-            "type": "integer",
-            "description": "The number of reserved channels",
-            "format": "int64"
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "TelnyxCampaign_CSP": "#/components/schemas/TelnyxCampaign_CSP"
           }
         }
       },
@@ -82592,32 +82746,11 @@
           }
         }
       },
-      "PostCampaign_200": {
-        "title": "Response Submit Campaign Public Campaignbuilder Post",
-        "required": [
-          "type"
-        ],
+      "GetCampaignOsrAttributes_200": {
+        "title": "Response Get My Osr Campaign Attributes Public Campaign  Campaignid  Osr Attributes Get",
         "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/TelnyxCampaign_CSP"
-          }
-        ],
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "TelnyxCampaign_CSP": "#/components/schemas/TelnyxCampaign_CSP"
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "TexmlRecordingChannels": {
@@ -82631,13 +82764,6 @@
         "default": "dual",
         "example": "single"
       },
-      "GetCampaignOsrAttributes_200": {
-        "title": "Response Get My Osr Campaign Attributes Public Campaign  Campaignid  Osr Attributes Get",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
       "GetCampaignOperationStatus_200": {
         "title": "Response Get My Campaign Operation Status Public Campaign  Campaignid  Operationstatus Get",
         "type": "object",
@@ -82647,6 +82773,13 @@
       },
       "AcceptCampaign_200": {
         "title": "AcceptCampaign_200",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "RevetBrand_200": {
+        "title": "RevetBrand_200",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -82740,15 +82873,15 @@
           }
         }
       },
-      "RevetBrand_200": {
-        "title": "RevetBrand_200",
+      "PostOrderExternalVetting_200": {
+        "title": "PostOrderExternalVetting_200",
         "type": "object",
         "additionalProperties": {
           "type": "object"
         }
       },
-      "PostOrderExternalVetting_200": {
-        "title": "PostOrderExternalVetting_200",
+      "ListExternalVettings_200": {
+        "title": "ListExternalVettings_200",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -82765,8 +82898,8 @@
         "default": "POST",
         "example": "GET"
       },
-      "ListExternalVettings_200": {
-        "title": "ListExternalVettings_200",
+      "DeleteBrand_200": {
+        "title": "DeleteBrand_200",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -83001,13 +83134,6 @@
           }
         }
       },
-      "DeleteBrand_200": {
-        "title": "DeleteBrand_200",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
       "ListBillingGroups_200": {
         "title": "ListBillingGroups_200",
         "type": "object",
@@ -83021,6 +83147,13 @@
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
           }
+        }
+      },
+      "UpdateAuthenticationProvider_422": {
+        "title": "UpdateAuthenticationProvider_422",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "TrafficType": {
@@ -83747,8 +83880,8 @@
         "default": 2,
         "example": 1
       },
-      "UpdateAuthenticationProvider_422": {
-        "title": "UpdateAuthenticationProvider_422",
+      "UpdateAuthenticationProvider_404": {
+        "title": "UpdateAuthenticationProvider_404",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -86362,8 +86495,8 @@
           }
         }
       },
-      "UpdateAuthenticationProvider_404": {
-        "title": "UpdateAuthenticationProvider_404",
+      "UpdateAuthenticationProvider_401": {
+        "title": "UpdateAuthenticationProvider_401",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -87199,8 +87332,8 @@
           }
         }
       },
-      "UpdateAuthenticationProvider_401": {
-        "title": "UpdateAuthenticationProvider_401",
+      "GetAuthenticationProvider_422": {
+        "title": "GetAuthenticationProvider_422",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -88635,8 +88768,8 @@
           }
         ]
       },
-      "GetAuthenticationProvider_422": {
-        "title": "GetAuthenticationProvider_422",
+      "GetAuthenticationProvider_404": {
+        "title": "GetAuthenticationProvider_404",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -88805,15 +88938,15 @@
         "default": "1",
         "example": "1"
       },
-      "GetAuthenticationProvider_404": {
-        "title": "GetAuthenticationProvider_404",
+      "GetAuthenticationProvider_401": {
+        "title": "GetAuthenticationProvider_401",
         "type": "object",
         "additionalProperties": {
           "type": "object"
         }
       },
-      "GetAuthenticationProvider_401": {
-        "title": "GetAuthenticationProvider_401",
+      "DeleteAuthenticationProvider_422": {
+        "title": "DeleteAuthenticationProvider_422",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -89160,8 +89293,8 @@
         },
         "description": "The webhook payload for the portout.status_changed event"
       },
-      "DeleteAuthenticationProvider_422": {
-        "title": "DeleteAuthenticationProvider_422",
+      "DeleteAuthenticationProvider_404": {
+        "title": "DeleteAuthenticationProvider_404",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -89654,13 +89787,6 @@
           }
         }
       },
-      "DeleteAuthenticationProvider_404": {
-        "title": "DeleteAuthenticationProvider_404",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
       "DeleteAuthenticationProvider_401": {
         "title": "DeleteAuthenticationProvider_401",
         "type": "object",
@@ -89670,6 +89796,13 @@
       },
       "CreateAuthenticationProvider_422": {
         "title": "CreateAuthenticationProvider_422",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "FindAuthenticationProviders_404": {
+        "title": "FindAuthenticationProviders_404",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -89709,15 +89842,15 @@
         },
         "description": "Webhook delivery attempt details."
       },
-      "FindAuthenticationProviders_404": {
-        "title": "FindAuthenticationProviders_404",
+      "FindAuthenticationProviders_401": {
+        "title": "FindAuthenticationProviders_401",
         "type": "object",
         "additionalProperties": {
           "type": "object"
         }
       },
-      "FindAuthenticationProviders_401": {
-        "title": "FindAuthenticationProviders_401",
+      "FindAuthenticationProviders_400": {
+        "title": "FindAuthenticationProviders_400",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -90240,13 +90373,6 @@
           }
         }
       },
-      "FindAuthenticationProviders_400": {
-        "title": "FindAuthenticationProviders_400",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
       "FindAuthenticationProviders_200": {
         "title": "FindAuthenticationProviders_200",
         "type": "object",
@@ -90260,6 +90386,13 @@
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
           }
+        }
+      },
+      "add_new_message_200": {
+        "title": "add_new_message_200",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "delete_insight_by_id_200": {
@@ -90616,6 +90749,35 @@
           }
         },
         "description": "Record of all attempts to deliver a webhook."
+      },
+      "UpdateRequirementGroup": {
+        "title": "UpdateRequirementGroup",
+        "type": "object",
+        "properties": {
+          "customer_reference": {
+            "type": "string",
+            "description": "Reference for the customer",
+            "example": "0002"
+          },
+          "regulatory_requirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "requirement_id": {
+                  "type": "string",
+                  "description": "Unique identifier for the regulatory requirement",
+                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
+                },
+                "field_value": {
+                  "type": "string",
+                  "description": "New value for the regulatory requirement",
+                  "example": "new requirement value"
+                }
+              }
+            }
+          }
+        }
       },
       "ListRequirementTypes_200": {
         "title": "ListRequirementTypes_200",
