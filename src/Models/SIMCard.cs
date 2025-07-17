@@ -124,21 +124,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Msisdn { get; private set; }
 #endif
-        /// <summary>The Personal Identification Number (PIN) for the SIM card. This is a 4-digit code used to protect the SIM card from unauthorized use. Only available when include_pin_puk_codes=true is set in the request.</summary>
+        /// <summary>PIN and PUK codes for the SIM card. Only available when include_pin_puk_codes=true is set in the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Pin { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_pin_puk_codes? PinPukCodes { get; private set; }
 #nullable restore
 #else
-        public string Pin { get; private set; }
-#endif
-        /// <summary>The Personal Unblocking Key (PUK) for the SIM card. This is an 8-digit code used to unlock the SIM card if the PIN is entered incorrectly multiple times. Only available when include_pin_puk_codes=true is set in the request.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Puk { get; private set; }
-#nullable restore
-#else
-        public string Puk { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_pin_puk_codes PinPukCodes { get; private set; }
 #endif
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -217,8 +209,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "ipv6", n => { Ipv6 = n.GetStringValue(); } },
                 { "live_data_session", n => { LiveDataSession = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_live_data_session>(); } },
                 { "msisdn", n => { Msisdn = n.GetStringValue(); } },
-                { "pin", n => { Pin = n.GetStringValue(); } },
-                { "puk", n => { Puk = n.GetStringValue(); } },
+                { "pin_puk_codes", n => { PinPukCodes = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_pin_puk_codes>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_pin_puk_codes.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "sim_card_group_id", n => { SimCardGroupId = n.GetGuidValue(); } },
                 { "status", n => { Status = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus.CreateFromDiscriminatorValue); } },

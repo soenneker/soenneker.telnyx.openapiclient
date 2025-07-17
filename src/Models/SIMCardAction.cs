@@ -17,16 +17,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardAction_action_type? ActionType { get; private set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
+        /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get; private set; }
+        public string? CreatedAt { get; set; }
 #nullable restore
 #else
-        public string CreatedAt { get; private set; }
+        public string CreatedAt { get; set; }
 #endif
-        /// <summary>Identifies the type of resource.</summary>
-        public Guid? Id { get; set; }
+        /// <summary>Identifies the resource.</summary>
+        public Guid? Id { get; private set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,13 +53,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardAction_status Status { get; set; }
 #endif
-        /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
+        /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UpdatedAt { get; private set; }
+        public string? UpdatedAt { get; set; }
 #nullable restore
 #else
-        public string UpdatedAt { get; private set; }
+        public string UpdatedAt { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardAction"/> and sets the default values.
@@ -103,8 +103,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("id", Id);
+            writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardAction_status>("status", Status);
+            writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
