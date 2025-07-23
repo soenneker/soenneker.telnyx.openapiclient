@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Custom_storage_credentials
     public partial class Custom_storage_credentialsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.custom_storage_credentials.item collection</summary>
-        /// <param name="position">Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.</param>
+        /// <param name="position">Telnyx connection id</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Custom_storage_credentials.Item.WithConnection_ItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Custom_storage_credentials.Item.WithConnection_ItemRequestBuilder this[string position]
         {

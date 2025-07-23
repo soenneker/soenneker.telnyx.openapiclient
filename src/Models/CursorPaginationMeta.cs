@@ -38,6 +38,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Previous { get; set; }
 #endif
+        /// <summary>The total_items property</summary>
+        public int? TotalItems { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CursorPaginationMeta"/> and sets the default values.
         /// </summary>
@@ -66,6 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "cursors", n => { Cursors = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Cursor>(global::Soenneker.Telnyx.OpenApiClient.Models.Cursor.CreateFromDiscriminatorValue); } },
                 { "next", n => { Next = n.GetStringValue(); } },
                 { "previous", n => { Previous = n.GetStringValue(); } },
+                { "total_items", n => { TotalItems = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -78,6 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Cursor>("cursors", Cursors);
             writer.WriteStringValue("next", Next);
             writer.WriteStringValue("previous", Previous);
+            writer.WriteIntValue("total_items", TotalItems);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

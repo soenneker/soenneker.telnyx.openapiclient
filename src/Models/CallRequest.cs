@@ -36,6 +36,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Guid? BillingGroupId { get; set; }
         /// <summary>Indicates the intent to bridge this call with the call specified in link_to. When bridge_intent is true, link_to becomes required and the from number will be overwritten by the from number from the linked call.</summary>
         public bool? BridgeIntent { get; set; }
+        /// <summary>Whether to automatically bridge answered call to the call specified in link_to. When bridge_on_answer is true, link_to becomes required.</summary>
+        public bool? BridgeOnAnswer { get; set; }
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -293,6 +295,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
                 { "billing_group_id", n => { BillingGroupId = n.GetGuidValue(); } },
                 { "bridge_intent", n => { BridgeIntent = n.GetBoolValue(); } },
+                { "bridge_on_answer", n => { BridgeOnAnswer = n.GetBoolValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "conference_config", n => { ConferenceConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config.CreateFromDiscriminatorValue); } },
@@ -351,6 +354,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("audio_url", AudioUrl);
             writer.WriteGuidValue("billing_group_id", BillingGroupId);
             writer.WriteBoolValue("bridge_intent", BridgeIntent);
+            writer.WriteBoolValue("bridge_on_answer", BridgeOnAnswer);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config>("conference_config", ConferenceConfig);

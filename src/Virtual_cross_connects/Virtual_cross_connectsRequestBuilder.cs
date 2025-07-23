@@ -227,10 +227,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects
             [QueryParameter("filter%5Bnetwork_id%5D")]
             public string FilternetworkId { get; set; }
 #endif
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }
