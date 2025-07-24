@@ -2414,6 +2414,64 @@
         },
         "x-latency-category": "responsive"
       },
+      "get": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Get a specific assistant version",
+        "description": "Retrieves a specific version of an assistant by assistant_id and version_id",
+        "operationId": "get_assistant_version_public_assistants__assistant_id__versions__version_id__get",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Assistant Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Version Id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_mcp_servers",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the specific assistant version configuration",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Assistant"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-latency-category": "responsive"
+      },
       "post": {
         "tags": [
           "Assistants"
@@ -2481,7 +2539,7 @@
           "Assistants"
         ],
         "summary": "Promote an assistant version to main",
-        "description": "Promotes a specific version to be the main/current version of the assistant",
+        "description": "Promotes a specific version to be the main/current version of the assistant. This will delete any existing canary deploy configuration and send all live production traffic to this version.",
         "operationId": "promote_assistant_version_public_assistants__assistant_id__versions__version_id__promote_post",
         "parameters": [
           {
@@ -7278,7 +7336,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/CallControlCommandResponse"
+            "$ref": "#/components/responses/CallControlCommandResponseWithConversationId"
           },
           "default": {
             "$ref": "#/components/responses/GenericErrorResponse"
@@ -8009,7 +8067,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/CallControlCommandResponse"
+            "$ref": "#/components/responses/CallControlCommandResponseWithConversationId"
           },
           "default": {
             "$ref": "#/components/responses/GenericErrorResponse"
@@ -10711,6 +10769,63 @@
           }
         }
       ]
+    },
+    "/charges_summary": {
+      "get": {
+        "summary": "Get monthly charges summary",
+        "description": "Retrieve a summary of monthly charges for a specified date range. The date range cannot exceed 31 days to prevent large queries that could cause timeouts.",
+        "operationId": "get_charges_summary",
+        "parameters": [
+          {
+            "name": "start_date",
+            "in": "query",
+            "description": "Start date for the charges summary in ISO date format (YYYY-MM-DD)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2025-05-01"
+            }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "description": "End date for the charges summary in ISO date format (YYYY-MM-DD). The interval between start_date and end_date cannot exceed 31 days.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2025-06-01"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Monthly charges summary",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonthlyChargesSummaryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid date range or parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
     },
     "/comments": {
       "get": {
@@ -40974,6 +41089,33 @@
           }
         }
       },
+      "AdjustmentLine": {
+        "title": "AdjustmentLine",
+        "required": [
+          "amount",
+          "description",
+          "event_date"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string",
+            "description": "Adjustment amount as decimal string",
+            "example": "-10.00"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the adjustment",
+            "example": "Credit for service outage"
+          },
+          "event_date": {
+            "type": "string",
+            "description": "Date when the adjustment occurred",
+            "format": "date",
+            "example": "2025-05-15"
+          }
+        }
+      },
       "AdvancedOrderRequest": {
         "title": "AdvancedOrderRequest",
         "type": "object",
@@ -44781,6 +44923,26 @@
         },
         "example": {
           "result": "ok"
+        }
+      },
+      "CallControlCommandResultWithConversationId": {
+        "title": "Call Control Command Result With Conversation ID",
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string",
+            "example": "ok"
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "The ID of the conversation created by the command.",
+            "format": "uuid",
+            "example": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
+          }
+        },
+        "example": {
+          "result": "ok",
+          "conversation_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
       "CallControlCommandResultWithRecordingId": {
@@ -50014,6 +50176,42 @@
             "format": "datetime",
             "readOnly": true,
             "example": "2018-01-01T00:00:00.000000Z"
+          }
+        }
+      },
+      "ComparativeLine": {
+        "title": "ComparativeLine",
+        "required": [
+          "type",
+          "name",
+          "alias",
+          "new_this_month",
+          "existing_this_month"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "comparative"
+            ],
+            "type": "string",
+            "example": "comparative"
+          },
+          "name": {
+            "type": "string",
+            "description": "Service name",
+            "example": "Local DIDs"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Service alias",
+            "example": "local"
+          },
+          "new_this_month": {
+            "$ref": "#/components/schemas/MonthDetail"
+          },
+          "existing_this_month": {
+            "$ref": "#/components/schemas/MonthDetail"
           }
         }
       },
@@ -67189,6 +67387,44 @@
           }
         }
       },
+      "MonthDetail": {
+        "title": "MonthDetail",
+        "required": [
+          "quantity",
+          "mrc"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "integer",
+            "description": "Number of items",
+            "example": 10
+          },
+          "mrc": {
+            "type": "string",
+            "description": "Monthly recurring charge amount as decimal string",
+            "example": "25.50"
+          },
+          "otc": {
+            "type": "string",
+            "description": "One-time charge amount as decimal string",
+            "nullable": true,
+            "example": "5.00"
+          }
+        }
+      },
+      "MonthlyChargesSummaryResponse": {
+        "title": "MonthlyChargesSummaryResponse",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SummaryAndTotal"
+          }
+        }
+      },
       "Network": {
         "title": "Network",
         "type": "object",
@@ -78453,6 +78689,46 @@
           }
         }
       },
+      "SimpleLine": {
+        "title": "SimpleLine",
+        "required": [
+          "type",
+          "name",
+          "alias",
+          "quantity",
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "simple"
+            ],
+            "type": "string",
+            "example": "simple"
+          },
+          "name": {
+            "type": "string",
+            "description": "Service name",
+            "example": "Port Out"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Service alias",
+            "example": "port_out"
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Number of items",
+            "example": 100
+          },
+          "amount": {
+            "type": "string",
+            "description": "Total amount as decimal string",
+            "example": "15.75"
+          }
+        }
+      },
       "SimpleSIMCard": {
         "title": "SIMCard",
         "type": "object",
@@ -80159,6 +80435,108 @@
           "user_id": "0d7ef697-df19-413a-b724-56b0539f5397",
           "updated_at": "2025-06-11T13:21:45.7532600+00:00",
           "id": "cada7e84-122b-4b47-bc66-58c7c3becd40"
+        }
+      },
+      "Summary": {
+        "title": "Summary",
+        "required": [
+          "lines",
+          "adjustments"
+        ],
+        "type": "object",
+        "properties": {
+          "lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SummaryLine"
+            },
+            "description": "List of charge summary lines"
+          },
+          "adjustments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AdjustmentLine"
+            },
+            "description": "List of billing adjustments"
+          }
+        }
+      },
+      "SummaryAndTotal": {
+        "title": "SummaryAndTotal",
+        "required": [
+          "user_id",
+          "start_date",
+          "end_date",
+          "user_email",
+          "currency",
+          "summary",
+          "total"
+        ],
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User identifier",
+            "example": "0db0b4aa-a83d-4d4f-ad9b-3ba7c1ac2ce8"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Start date of the summary period",
+            "format": "date",
+            "example": "2025-05-01"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "End date of the summary period",
+            "format": "date",
+            "example": "2025-06-01"
+          },
+          "user_email": {
+            "type": "string",
+            "description": "User email address",
+            "format": "email",
+            "example": "user@example.com"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency code",
+            "example": "USD"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/Summary"
+          },
+          "total": {
+            "$ref": "#/components/schemas/TotalSummary"
+          }
+        }
+      },
+      "SummaryLine": {
+        "title": "SummaryLine",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ComparativeLine"
+          },
+          {
+            "$ref": "#/components/schemas/SimpleLine"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ComparativeLine": "#/components/schemas/ComparativeLine",
+            "SimpleLine": "#/components/schemas/SimpleLine"
+          }
         }
       },
       "SummaryRequest": {
@@ -83182,6 +83560,56 @@
           "type": "object"
         }
       },
+      "TotalSummary": {
+        "title": "TotalSummary",
+        "required": [
+          "new_mrc",
+          "new_otc",
+          "existing_mrc",
+          "other",
+          "credits",
+          "ledger_adjustments",
+          "grand_total"
+        ],
+        "type": "object",
+        "properties": {
+          "new_mrc": {
+            "type": "string",
+            "description": "Total new monthly recurring charges as decimal string",
+            "example": "50.00"
+          },
+          "new_otc": {
+            "type": "string",
+            "description": "Total new one-time charges as decimal string",
+            "example": "25.00"
+          },
+          "existing_mrc": {
+            "type": "string",
+            "description": "Total existing monthly recurring charges as decimal string",
+            "example": "100.00"
+          },
+          "other": {
+            "type": "string",
+            "description": "Other charges as decimal string",
+            "example": "10.00"
+          },
+          "credits": {
+            "type": "string",
+            "description": "Total credits as decimal string",
+            "example": "-5.00"
+          },
+          "ledger_adjustments": {
+            "type": "string",
+            "description": "Ledger adjustments as decimal string",
+            "example": "0.00"
+          },
+          "grand_total": {
+            "type": "string",
+            "description": "Grand total of all charges as decimal string",
+            "example": "180.00"
+          }
+        }
+      },
       "TrafficType": {
         "title": "TrafficType",
         "enum": [
@@ -83576,6 +84004,11 @@
             "format": "int32",
             "default": 14400,
             "example": 600
+          },
+          "park_after_unbridge": {
+            "type": "string",
+            "description": "Specifies behavior after the bridge ends (i.e. the opposite leg either hangs up or is transferred). If supplied with the value `self`, the current leg will be parked after unbridge. If not set, the default behavior is to hang up the leg.",
+            "example": "self"
           },
           "answering_machine_detection": {
             "enum": [
@@ -91551,6 +91984,22 @@
               "properties": {
                 "data": {
                   "$ref": "#/components/schemas/CallControlCommandResult"
+                }
+              }
+            }
+          }
+        }
+      },
+      "CallControlCommandResponseWithConversationId": {
+        "description": "Successful response upon making a call control command that includes conversation_id.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "title": "Call Control Command Response With Conversation ID",
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/CallControlCommandResultWithConversationId"
                 }
               }
             }
@@ -100427,6 +100876,10 @@
     {
       "name": "Mobile Network Operators",
       "description": "Mobile network operators operations"
+    },
+    {
+      "name": "Monthly Charges",
+      "description": "Monthly Charges Report"
     },
     {
       "name": "Networks",

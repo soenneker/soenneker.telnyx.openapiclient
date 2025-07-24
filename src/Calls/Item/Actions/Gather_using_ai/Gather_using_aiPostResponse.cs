@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResult? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResultWithConversationId? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResult Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResultWithConversationId Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiPostResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResult>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResult.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResultWithConversationId>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResultWithConversationId.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResult>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResultWithConversationId>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

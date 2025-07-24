@@ -86,6 +86,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>When enabled, DTMF tones are not passed to the call participant. The webhooks containing the DTMF information will be sent.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf? MuteDtmf { get; set; }
+        /// <summary>Specifies behavior after the bridge ends (i.e. the opposite leg either hangs up or is transferred). If supplied with the value `self`, the current leg will be parked after unbridge. If not set, the default behavior is to hang up the leg.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParkAfterUnbridge { get; set; }
+#nullable restore
+#else
+        public string ParkAfterUnbridge { get; set; }
+#endif
         /// <summary>SIP Authentication password used for SIP challenges.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -192,6 +200,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "media_encryption", n => { MediaEncryption = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_media_encryption>(); } },
                 { "media_name", n => { MediaName = n.GetStringValue(); } },
                 { "mute_dtmf", n => { MuteDtmf = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf>(); } },
+                { "park_after_unbridge", n => { ParkAfterUnbridge = n.GetStringValue(); } },
                 { "sip_auth_password", n => { SipAuthPassword = n.GetStringValue(); } },
                 { "sip_auth_username", n => { SipAuthUsername = n.GetStringValue(); } },
                 { "sip_headers", n => { SipHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -224,6 +233,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_media_encryption>("media_encryption", MediaEncryption);
             writer.WriteStringValue("media_name", MediaName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf>("mute_dtmf", MuteDtmf);
+            writer.WriteStringValue("park_after_unbridge", ParkAfterUnbridge);
             writer.WriteStringValue("sip_auth_password", SipAuthPassword);
             writer.WriteStringValue("sip_auth_username", SipAuthUsername);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>("sip_headers", SipHeaders);

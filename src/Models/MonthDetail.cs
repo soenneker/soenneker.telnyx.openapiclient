@@ -2,43 +2,52 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Ai_assistant_startPostResponse : IAdditionalDataHolder, IParsable
+    public partial class MonthDetail : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The data property</summary>
+        /// <summary>Monthly recurring charge amount as decimal string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResultWithConversationId? Data { get; set; }
+        public string? Mrc { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResultWithConversationId Data { get; set; }
+        public string Mrc { get; set; }
 #endif
+        /// <summary>One-time charge amount as decimal string</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Otc { get; set; }
+#nullable restore
+#else
+        public string Otc { get; set; }
+#endif
+        /// <summary>Number of items</summary>
+        public int? Quantity { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail"/> and sets the default values.
         /// </summary>
-        public Ai_assistant_startPostResponse()
+        public MonthDetail()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startPostResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.MonthDetail();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +57,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResultWithConversationId>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResultWithConversationId.CreateFromDiscriminatorValue); } },
+                { "mrc", n => { Mrc = n.GetStringValue(); } },
+                { "otc", n => { Otc = n.GetStringValue(); } },
+                { "quantity", n => { Quantity = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +69,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlCommandResultWithConversationId>("data", Data);
+            writer.WriteStringValue("mrc", Mrc);
+            writer.WriteStringValue("otc", Otc);
+            writer.WriteIntValue("quantity", Quantity);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
