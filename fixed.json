@@ -455,7 +455,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -465,7 +465,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -4565,7 +4565,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -4575,7 +4575,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -4606,14 +4606,15 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Set the order of the results by the creation date.",
+            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>email</code>: sorts the result by the\n    <code>email</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-email</code>: sorts the result by the\n    <code>email</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
             "schema": {
               "enum": [
-                "asc",
-                "desc"
+                "created_at",
+                "email"
               ],
               "type": "string",
-              "example": "desc"
+              "default": "created_at",
+              "example": "email"
             }
           }
         ],
@@ -6185,7 +6186,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -6195,7 +6196,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -6284,7 +6285,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -6294,7 +6295,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -6400,7 +6401,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -6410,7 +6411,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -6643,7 +6644,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -6653,7 +6654,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -6982,7 +6983,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -6992,7 +6993,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -10702,7 +10703,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -10712,7 +10713,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -10987,7 +10988,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -10997,7 +10998,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -11203,7 +11204,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -11213,7 +11214,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -12191,7 +12192,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -12201,7 +12202,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -12215,8 +12216,7 @@
             "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
             "schema": {
               "type": "string",
-              "default": null,
-              "example": "My Connection"
+              "default": null
             }
           },
           {
@@ -12276,11 +12276,10 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Telnyx connection id",
+            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
             "required": true,
             "schema": {
-              "type": "string",
-              "example": "1293384261075731461"
+              "type": "string"
             }
           },
           {
@@ -12426,7 +12425,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -12436,7 +12435,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -12450,8 +12449,7 @@
             "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
             "schema": {
               "type": "string",
-              "default": null,
-              "example": "My Connection"
+              "default": null
             }
           },
           {
@@ -12707,11 +12705,10 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Telnyx connection id",
+            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
             "required": true,
             "schema": {
-              "type": "string",
-              "example": "1293384261075731461"
+              "type": "string"
             }
           }
         ],
@@ -12733,11 +12730,10 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Telnyx connection id",
+            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
             "required": true,
             "schema": {
-              "type": "string",
-              "example": "1293384261075731461"
+              "type": "string"
             }
           }
         ],
@@ -12762,11 +12758,10 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Telnyx connection id",
+            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
             "required": true,
             "schema": {
-              "type": "string",
-              "example": "1293384261075731461"
+              "type": "string"
             }
           }
         ],
@@ -12794,11 +12789,10 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Telnyx connection id",
+            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
             "required": true,
             "schema": {
-              "type": "string",
-              "example": "1293384261075731461"
+              "type": "string"
             }
           }
         ],
@@ -12828,7 +12822,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -12838,7 +12832,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -13278,11 +13272,10 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Telnyx connection id",
+            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
             "required": true,
             "schema": {
-              "type": "string",
-              "example": "1293384261075731461"
+              "type": "string"
             }
           }
         ],
@@ -13304,11 +13297,10 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Telnyx connection id",
+            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
             "required": true,
             "schema": {
-              "type": "string",
-              "example": "1293384261075731461"
+              "type": "string"
             }
           }
         ],
@@ -13333,11 +13325,10 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Telnyx connection id",
+            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
             "required": true,
             "schema": {
-              "type": "string",
-              "example": "1293384261075731461"
+              "type": "string"
             }
           }
         ],
@@ -13365,11 +13356,10 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Telnyx connection id",
+            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
             "required": true,
             "schema": {
-              "type": "string",
-              "example": "1293384261075731461"
+              "type": "string"
             }
           }
         ],
@@ -13888,7 +13878,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -13898,7 +13888,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -14025,7 +14015,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -14035,7 +14025,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -14202,7 +14192,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -14212,7 +14202,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -14226,8 +14216,7 @@
             "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
             "schema": {
               "type": "string",
-              "default": null,
-              "example": "My Connection"
+              "default": null
             }
           },
           {
@@ -14320,7 +14309,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -14330,7 +14319,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -14723,7 +14712,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -14733,7 +14722,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -14898,7 +14887,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -14908,7 +14897,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -15051,7 +15040,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -15061,7 +15050,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -15340,7 +15329,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -15350,7 +15339,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -15380,16 +15369,16 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>application_name</code>: sorts the result by the\n    <code>application_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-application_name</code>: sorts the result by the\n    <code>application_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
             "schema": {
               "enum": [
                 "created_at",
-                "application_name",
+                "friendly_name",
                 "active"
               ],
               "type": "string",
               "default": "created_at",
-              "example": "application_name"
+              "example": "friendly_name"
             }
           }
         ],
@@ -15962,7 +15951,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -15972,7 +15961,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -15986,8 +15975,7 @@
             "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
             "schema": {
               "type": "string",
-              "default": null,
-              "example": "My Connection"
+              "default": null
             }
           },
           {
@@ -16225,7 +16213,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -16235,7 +16223,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -16544,7 +16532,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -16554,7 +16542,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -16792,7 +16780,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -16802,7 +16790,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -17042,7 +17030,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -17052,7 +17040,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -17643,7 +17631,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -17653,7 +17641,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -17667,8 +17655,7 @@
             "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
             "schema": {
               "type": "string",
-              "default": null,
-              "example": "My Connection"
+              "default": null
             }
           },
           {
@@ -17885,7 +17872,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -17895,7 +17882,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -18267,7 +18254,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -18277,7 +18264,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -18324,14 +18311,15 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Set the order of the results by the creation date.",
+            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>email</code>: sorts the result by the\n    <code>email</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-email</code>: sorts the result by the\n    <code>email</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
             "schema": {
               "enum": [
-                "asc",
-                "desc"
+                "created_at",
+                "email"
               ],
               "type": "string",
-              "example": "desc"
+              "default": "created_at",
+              "example": "email"
             }
           },
           {
@@ -19000,6 +18988,61 @@
         "x-latency-category": "responsive"
       }
     },
+    "/messages/rcs/deeplinks/{agent_id}": {
+      "get": {
+        "tags": [
+          "RCS messaging"
+        ],
+        "summary": "Generate RCS deeplink",
+        "description": "Generate a deeplink URL that can be used to start an RCS conversation with a specific agent.",
+        "operationId": "get_messages_rcs_deeplinks_agent_id",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "description": "RCS agent ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phone_number",
+            "in": "query",
+            "description": "Phone number in E164 format (URL encoded)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "%2B18445550001"
+          },
+          {
+            "name": "body",
+            "in": "query",
+            "description": "Pre-filled message body (URL encoded)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "hello%20world"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with deeplink URL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RCSDeeplinkResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
     "/messages/schedule": {
       "post": {
         "tags": [
@@ -19300,7 +19343,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -19310,7 +19353,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -19713,7 +19756,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -19723,7 +19766,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -19778,7 +19821,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -19788,7 +19831,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -20020,7 +20063,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -20030,7 +20073,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -20072,7 +20115,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -20082,7 +20125,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -20710,7 +20753,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -20720,7 +20763,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -20788,7 +20831,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -20798,7 +20841,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -20924,7 +20967,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -20935,7 +20978,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21151,7 +21194,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21161,7 +21204,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21237,7 +21280,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21247,7 +21290,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21530,7 +21573,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21540,7 +21583,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21598,7 +21641,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21608,7 +21651,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21836,7 +21879,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21846,7 +21889,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21898,7 +21941,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21908,7 +21951,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21947,7 +21990,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21957,7 +22000,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -22170,7 +22213,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -22180,7 +22223,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -22229,23 +22272,20 @@
             }
           },
           {
-            "name": "filter[status][eq]",
+            "name": "Status",
             "in": "query",
-            "description": "The status of a notification setting",
+            "description": "Filters calls by status.",
             "schema": {
               "enum": [
-                "enabled",
-                "enable-received",
-                "enable-pending",
-                "enable-submtited",
-                "delete-received",
-                "delete-pending",
-                "delete-submitted",
-                "deleted"
+                "canceled",
+                "completed",
+                "failed",
+                "busy",
+                "no-answer"
               ],
-              "type": "string",
-              "example": "enable-received"
-            }
+              "type": "string"
+            },
+            "example": "no-answer"
           }
         ],
         "responses": {
@@ -22466,7 +22506,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -22476,7 +22516,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -22829,7 +22869,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -22839,7 +22879,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -23007,7 +23047,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -23017,7 +23057,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -23205,7 +23245,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -23215,7 +23255,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -23313,7 +23353,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -23323,7 +23363,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -23979,7 +24019,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -23989,7 +24029,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -24359,7 +24399,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -24369,7 +24409,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -24589,7 +24629,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -24599,7 +24639,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -24813,7 +24853,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -24823,7 +24863,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -25407,7 +25447,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -25417,7 +25457,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -25450,7 +25490,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -25460,7 +25500,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -25698,7 +25738,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -25708,7 +25748,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -26290,7 +26330,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -26300,7 +26340,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -26461,7 +26501,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -26471,7 +26511,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -26637,7 +26677,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -26647,7 +26687,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -26746,7 +26786,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -26756,7 +26796,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -26985,7 +27025,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -26995,7 +27035,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -27401,7 +27441,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -27411,7 +27451,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -27527,7 +27567,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -27537,7 +27577,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -27726,7 +27766,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -27736,7 +27776,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -27848,7 +27888,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -27858,7 +27898,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -27925,7 +27965,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -27935,7 +27975,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28122,7 +28162,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28132,7 +28172,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28292,7 +28332,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28302,7 +28342,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28398,7 +28438,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28408,7 +28448,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28664,7 +28704,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28674,7 +28714,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28703,7 +28743,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28713,7 +28753,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28903,7 +28943,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28913,7 +28953,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -29216,7 +29256,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -29226,7 +29266,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -29400,7 +29440,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -29410,7 +29450,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -29581,7 +29621,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -29591,7 +29631,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -29661,7 +29701,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -29671,7 +29711,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -29944,7 +29984,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -29954,7 +29994,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -31338,7 +31378,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -31349,7 +31389,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -31574,7 +31614,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -31585,7 +31625,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -31781,7 +31821,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -31792,7 +31832,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -31957,7 +31997,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -31968,7 +32008,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -32174,7 +32214,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -32185,7 +32225,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -32515,7 +32555,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -32526,7 +32566,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -32633,7 +32673,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -32644,7 +32684,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33019,7 +33059,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -33030,7 +33070,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33084,7 +33124,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33094,7 +33134,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -33204,7 +33244,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33214,7 +33254,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -33329,7 +33369,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33339,7 +33379,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -33511,7 +33551,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33521,7 +33561,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -33622,7 +33662,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33632,7 +33672,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -34033,7 +34073,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -34043,7 +34083,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -34136,7 +34176,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -34146,7 +34186,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -34713,7 +34753,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -34723,7 +34763,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -35767,7 +35807,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -35777,7 +35817,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -36010,7 +36050,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -36045,23 +36085,20 @@
             "example": "+1312345678"
           },
           {
-            "name": "filter[status][eq]",
+            "name": "Status",
             "in": "query",
-            "description": "The status of a notification setting",
+            "description": "Filters calls by status.",
             "schema": {
               "enum": [
-                "enabled",
-                "enable-received",
-                "enable-pending",
-                "enable-submtited",
-                "delete-received",
-                "delete-pending",
-                "delete-submitted",
-                "deleted"
+                "canceled",
+                "completed",
+                "failed",
+                "busy",
+                "no-answer"
               ],
-              "type": "string",
-              "example": "enable-received"
-            }
+              "type": "string"
+            },
+            "example": "no-answer"
           },
           {
             "name": "StartTime",
@@ -36606,7 +36643,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -37240,7 +37277,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -37457,7 +37494,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -37497,16 +37534,16 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>application_name</code>: sorts the result by the\n    <code>application_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-application_name</code>: sorts the result by the\n    <code>application_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
             "schema": {
               "enum": [
                 "created_at",
-                "application_name",
+                "friendly_name",
                 "active"
               ],
               "type": "string",
               "default": "created_at",
-              "example": "application_name"
+              "example": "friendly_name"
             }
           }
         ],
@@ -38120,7 +38157,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -38130,7 +38167,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39022,7 +39059,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39032,7 +39069,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39206,7 +39243,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39216,7 +39253,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39394,7 +39431,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39404,7 +39441,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39474,7 +39511,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39484,7 +39521,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39616,7 +39653,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39626,7 +39663,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39840,7 +39877,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load",
+            "description": "The page number to load.",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39850,7 +39887,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page",
+            "description": "The size of the page.",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -43801,9 +43838,10 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Identifies the type of resource.",
+            "description": "Identifies the resource.",
             "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "record_type": {
             "type": "string",
@@ -43825,16 +43863,16 @@
             "readOnly": true
           },
           "created_at": {
+            "title": "Created At",
             "type": "string",
-            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
-            "readOnly": true,
-            "example": "2018-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "example": "2020-02-02T22:25:27.521Z"
           },
           "updated_at": {
+            "title": "Updated At",
             "type": "string",
-            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
-            "readOnly": true,
-            "example": "2018-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "example": "2020-02-03T22:25:27.521Z"
           }
         },
         "description": "This object represents a bulk SIM card action. It groups SIM card actions created through a bulk endpoint under a single resource for further lookup."
@@ -43845,9 +43883,10 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Identifies the type of resource.",
+            "description": "Identifies the resource.",
             "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "record_type": {
             "type": "string",
@@ -43875,16 +43914,16 @@
             }
           },
           "created_at": {
+            "title": "Created At",
             "type": "string",
-            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
-            "readOnly": true,
-            "example": "2018-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "example": "2020-02-02T22:25:27.521Z"
           },
           "updated_at": {
+            "title": "Updated At",
             "type": "string",
-            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
-            "readOnly": true,
-            "example": "2018-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "example": "2020-02-03T22:25:27.521Z"
           }
         }
       },
@@ -57276,19 +57315,15 @@
           "cursors": {
             "$ref": "#/components/schemas/Cursor"
           },
-          "total_items": {
-            "type": "integer",
-            "example": 50
-          },
           "next": {
             "type": "string",
             "description": "Path to next page.",
-            "example": "/v2/connections/1234567890/active_calls?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/recording_transcriptions?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           },
           "previous": {
             "type": "string",
             "description": "Path to previous page.",
-            "example": "/v2/connections/1234567890/active_calls?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/recording_transcriptions?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           }
         }
       },
@@ -59498,8 +59533,8 @@
         "type": "object",
         "properties": {
           "code": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "int"
           },
           "title": {
             "type": "string"
@@ -59517,7 +59552,8 @@
               },
               "parameter": {
                 "type": "string",
-                "description": "Indicates which query parameter caused the error."
+                "description": "Indicates which query parameter caused the error.",
+                "example": "+15617819942"
               }
             }
           },
@@ -60079,9 +60115,10 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the type of resource.",
+            "description": "Identifies the resource.",
             "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "connection_id": {
             "type": "string",
@@ -60343,9 +60380,10 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the type of resource.",
+            "description": "Identifies the resource.",
             "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "event_type": {
             "enum": [
@@ -60483,9 +60521,10 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the type of resource.",
+            "description": "Identifies the resource.",
             "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "event_type": {
             "enum": [
@@ -60598,9 +60637,10 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the type of resource.",
+            "description": "Identifies the resource.",
             "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "event_type": {
             "enum": [
@@ -60698,9 +60738,10 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the type of resource.",
+            "description": "Identifies the resource.",
             "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "event_type": {
             "enum": [
@@ -60798,9 +60839,10 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the type of resource.",
+            "description": "Identifies the resource.",
             "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "event_type": {
             "enum": [
@@ -61254,16 +61296,16 @@
             "$ref": "#/components/schemas/ConnectionRtcpSettings"
           },
           "created_at": {
+            "title": "Created At",
             "type": "string",
-            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
-            "readOnly": true,
-            "example": "2018-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "example": "2020-02-02T22:25:27.521Z"
           },
           "updated_at": {
+            "title": "Updated At",
             "type": "string",
-            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
-            "readOnly": true,
-            "example": "2018-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "example": "2020-02-03T22:25:27.521Z"
           },
           "inbound": {
             "$ref": "#/components/schemas/InboundFqdn"
@@ -67008,33 +67050,31 @@
       },
       "Metadata": {
         "title": "Metadata",
-        "required": [
-          "page_size",
-          "page_number",
-          "total_pages",
-          "total_results"
-        ],
         "type": "object",
         "properties": {
-          "page_size": {
-            "title": "Page Size",
-            "type": "integer",
-            "example": 25
-          },
-          "page_number": {
-            "title": "Page Number",
-            "type": "integer",
-            "example": 1
-          },
           "total_pages": {
-            "title": "Total Pages",
-            "type": "integer",
-            "example": 10
+            "type": "number",
+            "description": "Total number of pages based on pagination settings",
+            "format": "double",
+            "example": 13
           },
           "total_results": {
-            "title": "Total Items",
-            "type": "integer",
-            "example": 250
+            "type": "number",
+            "description": "Total number of results",
+            "format": "double",
+            "example": 13
+          },
+          "page_number": {
+            "type": "number",
+            "description": "Current Page based on pagination settings (included when defaults are used.)",
+            "format": "double",
+            "example": 3
+          },
+          "page_size": {
+            "type": "number",
+            "description": "Number of results to return per page based on pagination settings (included when defaults are used.)",
+            "format": "double",
+            "example": 1
           }
         }
       },
@@ -70125,20 +70165,16 @@
         "type": "object",
         "properties": {
           "page_number": {
-            "type": "integer",
-            "example": 2
+            "type": "integer"
           },
           "page_size": {
-            "type": "integer",
-            "example": 25
+            "type": "integer"
           },
           "total_pages": {
-            "type": "integer",
-            "example": 3
+            "type": "integer"
           },
           "total_results": {
-            "type": "integer",
-            "example": 55
+            "type": "integer"
           }
         }
       },
@@ -74818,6 +74854,28 @@
         },
         "description": "Opens the user's default calendar app and starts the new calendar event flow with the agent-specified event data pre-filled."
       },
+      "RCSDeeplinkResponse": {
+        "title": "RCSDeeplinkResponse",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "required": [
+              "url"
+            ],
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "The generated deeplink URL",
+                "example": "sms:+18445550001?service_id=my_agent_id%40rbm.goog&body=hello%20world"
+              }
+            }
+          }
+        }
+      },
       "RCSDialAction": {
         "title": "RCSDialAction",
         "required": [
@@ -75250,11 +75308,10 @@
       "RecordType": {
         "title": "RecordType",
         "enum": [
-          "event"
+          "custom_storage_credentials"
         ],
         "type": "string",
-        "description": "Identifies the type of the resource.",
-        "example": "event"
+        "description": "Identifies record type."
       },
       "RecordingResponse": {
         "title": "RecordingResponse",
@@ -76099,35 +76156,28 @@
         }
       },
       "ResourceNotFoundError": {
-        "title": "ResourceNotFoundError",
+        "title": "Resource not found",
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GenericError"
-          },
-          {
-            "properties": {
-              "code": {
-                "example": "10005"
-              },
-              "title": {
-                "example": "Resource not found"
-              },
-              "detail": {
-                "example": "The requested resource or URL could not be found."
-              },
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "url": {
-                    "type": "string",
-                    "example": "https://developers.telnyx.com/docs/overview/errors/10005"
-                  }
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "string"
                 }
               }
             }
           }
-        ]
+        },
+        "example": {
+          "errors": [
+            {
+              "detail": "Resource not found"
+            }
+          ]
+        }
       },
       "ResumeConferenceRecordingRequest": {
         "title": "Pause Recording Request",
@@ -76970,9 +77020,10 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Identifies the type of resource.",
+            "description": "Identifies the resource.",
             "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "record_type": {
             "type": "string",
@@ -77028,16 +77079,16 @@
             "readOnly": true
           },
           "created_at": {
+            "title": "Created At",
             "type": "string",
-            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
-            "readOnly": true,
-            "example": "2018-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "example": "2020-02-02T22:25:27.521Z"
           },
           "updated_at": {
+            "title": "Updated At",
             "type": "string",
-            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
-            "readOnly": true,
-            "example": "2018-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "example": "2020-02-03T22:25:27.521Z"
           }
         },
         "description": "This object represents a SIM card action. It allows tracking the current status of an operation that impacts the SIM card."
@@ -82604,16 +82655,16 @@
             }
           },
           "created_at": {
+            "title": "Created At",
             "type": "string",
-            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
-            "readOnly": true,
-            "example": "2018-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "example": "2020-02-02T22:25:27.521Z"
           },
           "updated_at": {
+            "title": "Updated At",
             "type": "string",
-            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
-            "readOnly": true,
-            "example": "2018-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "example": "2020-02-03T22:25:27.521Z"
           }
         },
         "example": {
@@ -84410,43 +84461,40 @@
       },
       "UnprocessableEntityError": {
         "title": "UnprocessableEntityError",
+        "required": [
+          "code",
+          "title"
+        ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GenericError"
+        "properties": {
+          "code": {
+            "type": "string",
+            "format": "int"
           },
-          {
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
             "properties": {
-              "code": {
-                "example": "10002"
+              "pointer": {
+                "type": "string",
+                "description": "JSON pointer (RFC6901) to the offending entity.",
+                "format": "json-pointer"
               },
-              "title": {
-                "example": "Invalid phone number"
-              },
-              "detail": {
-                "example": "The phone number is invalid."
-              },
-              "source": {
-                "type": "object",
-                "properties": {
-                  "pointer": {
-                    "type": "string",
-                    "example": "/phone_numbers"
-                  }
-                }
-              },
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "url": {
-                    "type": "string",
-                    "example": "https://developers.telnyx.com/docs/overview/errors/10002"
-                  }
-                }
+              "parameter": {
+                "type": "string",
+                "description": "Indicates which query parameter caused the error."
               }
             }
+          },
+          "meta": {
+            "type": "object"
           }
-        ]
+        }
       },
       "UnusedUserBundlesResponse": {
         "title": "UnusedUserBundlesResponse",
@@ -85223,49 +85271,30 @@
       },
       "UpdateConferenceRequest": {
         "title": "Update Conference Request",
-        "required": [
-          "call_control_id",
-          "supervisor_role"
-        ],
         "type": "object",
         "properties": {
-          "call_control_id": {
+          "Status": {
             "type": "string",
-            "description": "Unique identifier and token for controlling the call",
-            "example": "v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQczRrZvZakpWxBlpw48KyZQ=="
+            "description": "The new status of the resource. Specifying `completed` will end the conference and hang up all participants.",
+            "example": "completed"
           },
-          "command_id": {
+          "AnnounceUrl": {
             "type": "string",
-            "description": "Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same `command_id` as one that has already been executed.",
-            "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+            "description": "The URL we should call to announce something into the conference. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `<Play>`, `<Say>`, `<Pause>`, or `<Redirect>` verbs.",
+            "example": "https://www.example.com/announce.xml"
           },
-          "supervisor_role": {
+          "AnnounceMethod": {
             "enum": [
-              "barge",
-              "monitor",
-              "none",
-              "whisper"
+              "GET",
+              "POST"
             ],
             "type": "string",
-            "description": "Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. \"barge\" means the supervisor enters the conference as a normal participant. This is the same as \"none\". \"monitor\" means the supervisor is muted but can hear all participants. \"whisper\" means that only the specified \"whisper_call_control_ids\" can hear the supervisor. Defaults to \"none\".",
-            "example": "whisper"
-          },
-          "whisper_call_control_ids": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only."
+            "description": "The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.",
+            "example": "GET"
           }
         },
         "example": {
-          "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
-          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
-          "supervisor_role": "whisper",
-          "whisper_call_control_ids": [
-            "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
-            "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
-          ]
+          "Status": "completed"
         }
       },
       "UpdateConversationRequest": {
@@ -91345,9 +91374,10 @@
             "type": "array",
             "items": {
               "type": "string",
-              "description": "Identifies the type of resource.",
+              "description": "Identifies the resource.",
               "format": "uuid",
-              "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+              "readOnly": true,
+              "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
             }
           }
         }
@@ -93044,19 +93074,7 @@
         }
       },
       "ForbiddenResponse": {
-        "description": "Forbidden",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Errors"
-            },
-            "examples": {
-              "Not authorized": {
-                "$ref": "#/components/examples/NotAuthorized"
-              }
-            }
-          }
-        }
+        "description": "Unauthorized response. Happens when the current user is not authorized to access the endpoint."
       },
       "FqdnConnectionResponse": {
         "description": "Successful response with details about an FQDN connection.",
@@ -95932,7 +95950,14 @@
         }
       },
       "NotFoundResponse": {
-        "description": "Fax does not exist"
+        "description": "Resource not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ResourceNotFoundError"
+            }
+          }
+        }
       },
       "NotFoundResponseApp": {
         "description": "The requested resource doesn't exist.",
@@ -97401,7 +97426,7 @@
         }
       },
       "UnauthorizedResponse": {
-        "description": "Unauthorized"
+        "description": "Unauthenticated response. Happens when the current user cannot be authenticated."
       },
       "UnexpectedErrorResponse": {
         "description": "An unexpected error occurred.",
@@ -98149,11 +98174,10 @@
       "ConnectionId": {
         "name": "connection_id",
         "in": "path",
-        "description": "Telnyx connection id",
+        "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
         "required": true,
         "schema": {
-          "type": "string",
-          "example": "1293384261075731461"
+          "type": "string"
         }
       },
       "CreatedAtGtFilter": {
@@ -98623,8 +98647,7 @@
         "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
         "schema": {
           "type": "string",
-          "default": null,
-          "example": "My Connection"
+          "default": null
         }
       },
       "FilterCostByAmount": {
@@ -99279,7 +99302,7 @@
       "PageNumber": {
         "name": "page[number]",
         "in": "query",
-        "description": "The page number to load",
+        "description": "The page number to load.",
         "schema": {
           "minimum": 1,
           "type": "integer",
@@ -99289,7 +99312,7 @@
       "PageSize": {
         "name": "page[size]",
         "in": "query",
-        "description": "The size of the page",
+        "description": "The size of the page.",
         "schema": {
           "maximum": 250,
           "minimum": 1,
@@ -99529,14 +99552,15 @@
       "Sort": {
         "name": "sort",
         "in": "query",
-        "description": "Set the order of the results by the creation date.",
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>email</code>: sorts the result by the\n    <code>email</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-email</code>: sorts the result by the\n    <code>email</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "enum": [
-            "asc",
-            "desc"
+            "created_at",
+            "email"
           ],
           "type": "string",
-          "example": "desc"
+          "default": "created_at",
+          "example": "email"
         }
       },
       "SortAddress": {
@@ -99559,16 +99583,16 @@
       "SortApplication": {
         "name": "sort",
         "in": "query",
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>application_name</code>: sorts the result by the\n    <code>application_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-application_name</code>: sorts the result by the\n    <code>application_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "enum": [
             "created_at",
-            "application_name",
+            "friendly_name",
             "active"
           ],
           "type": "string",
           "default": "created_at",
-          "example": "application_name"
+          "example": "friendly_name"
         }
       },
       "SortConnection": {
@@ -99655,23 +99679,20 @@
         "example": "2023-05-22"
       },
       "Status": {
-        "name": "filter[status][eq]",
+        "name": "Status",
         "in": "query",
-        "description": "The status of a notification setting",
+        "description": "Filters calls by status.",
         "schema": {
           "enum": [
-            "enabled",
-            "enable-received",
-            "enable-pending",
-            "enable-submtited",
-            "delete-received",
-            "delete-pending",
-            "delete-submitted",
-            "deleted"
+            "canceled",
+            "completed",
+            "failed",
+            "busy",
+            "no-answer"
           ],
-          "type": "string",
-          "example": "enable-received"
-        }
+          "type": "string"
+        },
+        "example": "no-answer"
       },
       "StatusEqFilter": {
         "name": "filter[status][eq]",

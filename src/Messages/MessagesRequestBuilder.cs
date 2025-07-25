@@ -7,6 +7,7 @@ using Soenneker.Telnyx.OpenApiClient.Messages.Group_mms;
 using Soenneker.Telnyx.OpenApiClient.Messages.Item;
 using Soenneker.Telnyx.OpenApiClient.Messages.Long_code;
 using Soenneker.Telnyx.OpenApiClient.Messages.Number_pool;
+using Soenneker.Telnyx.OpenApiClient.Messages.Rcs;
 using Soenneker.Telnyx.OpenApiClient.Messages.Schedule;
 using Soenneker.Telnyx.OpenApiClient.Messages.Short_code;
 using Soenneker.Telnyx.OpenApiClient.Models;
@@ -37,6 +38,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Number_pool.Number_poolRequestBuilder Number_pool
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Number_pool.Number_poolRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The rcs property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs.RcsRequestBuilder Rcs
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Rcs.RcsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The schedule property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Schedule.ScheduleRequestBuilder Schedule
