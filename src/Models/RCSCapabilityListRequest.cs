@@ -9,12 +9,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class RCSCapabilitiesSingle_data : IAdditionalDataHolder, IParsable
+    public partial class RCSCapabilityListRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>RCS agent ID</summary>
+        /// <summary>RCS Agent ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AgentId { get; set; }
@@ -22,48 +22,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AgentId { get; set; }
 #endif
-        /// <summary>RCS agent name</summary>
+        /// <summary>List of phone numbers to check</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AgentName { get; set; }
+        public List<string>? PhoneNumbers { get; set; }
 #nullable restore
 #else
-        public string AgentName { get; set; }
+        public List<string> PhoneNumbers { get; set; }
 #endif
-        /// <summary>List of RCS capabilities</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Features { get; set; }
-#nullable restore
-#else
-        public List<string> Features { get; set; }
-#endif
-        /// <summary>Phone number</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PhoneNumber { get; set; }
-#nullable restore
-#else
-        public string PhoneNumber { get; set; }
-#endif
-        /// <summary>Identifies the type of the resource</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesSingle_data_record_type? RecordType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesSingle_data"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilityListRequest"/> and sets the default values.
         /// </summary>
-        public RCSCapabilitiesSingle_data()
+        public RCSCapabilityListRequest()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesSingle_data"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilityListRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesSingle_data CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilityListRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesSingle_data();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilityListRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,10 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "agent_id", n => { AgentId = n.GetStringValue(); } },
-                { "agent_name", n => { AgentName = n.GetStringValue(); } },
-                { "features", n => { Features = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesSingle_data_record_type>(); } },
+                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -88,10 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("agent_id", AgentId);
-            writer.WriteStringValue("agent_name", AgentName);
-            writer.WriteCollectionOfPrimitiveValues<string>("features", Features);
-            writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesSingle_data_record_type>("record_type", RecordType);
+            writer.WriteCollectionOfPrimitiveValues<string>("phone_numbers", PhoneNumbers);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
