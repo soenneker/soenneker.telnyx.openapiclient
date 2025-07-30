@@ -11,6 +11,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Both,
         #pragma warning restore CS1591
+        [EnumMember(Value = "branded_calling")]
+        #pragma warning disable CS1591
+        Branded_calling,
+        #pragma warning restore CS1591
         [EnumMember(Value = "ordering")]
         #pragma warning disable CS1591
         Ordering,

@@ -31241,6 +31241,7 @@
             "description": "Filters requirements to those applying to a specific action.",
             "schema": {
               "enum": [
+                "branded_calling",
                 "ordering",
                 "porting"
               ],
@@ -58565,6 +58566,7 @@
           "action": {
             "enum": [
               "both",
+              "branded_calling",
               "ordering",
               "porting"
             ],
