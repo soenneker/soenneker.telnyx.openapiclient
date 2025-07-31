@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Models;
+using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Actions;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs;
@@ -23,6 +24,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Phone_numbersRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The actions property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Actions.ActionsRequestBuilder Actions
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The csv_downloads property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.Csv_downloadsRequestBuilder Csv_downloads
         {
@@ -323,10 +329,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
             /// <summary>Filter by usage_payment_method.</summary>
             [QueryParameter("filter%5Bvoice%2Eusage_payment_method%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.GetFilterVoiceUsage_payment_methodQueryParameterType? FiltervoiceUsagePaymentMethodAsGetFilterVoiceUsagePaymentMethodQueryParameterType { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>

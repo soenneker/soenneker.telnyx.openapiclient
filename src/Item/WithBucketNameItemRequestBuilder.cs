@@ -192,7 +192,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Item
 #endif
             var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/{bucketName}{?list%2Dtype*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/xml");
+            requestInfo.Headers.TryAdd("Accept", "application/xml");
             return requestInfo;
         }
         /// <summary>
@@ -232,7 +232,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Item
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/{bucketName}?delete={delete}", PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/xml");
+            requestInfo.Headers.TryAdd("Accept", "application/xml");
             requestInfo.SetStreamContent(body, "text/xml");
             return requestInfo;
         }

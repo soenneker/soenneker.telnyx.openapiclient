@@ -974,7 +974,7 @@ namespace Soenneker.Telnyx.OpenApiClient
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/xml");
+            requestInfo.Headers.TryAdd("Accept", "application/xml");
             return requestInfo;
         }
         /// <summary>
