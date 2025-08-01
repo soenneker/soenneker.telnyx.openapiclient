@@ -204,10 +204,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
             /// <summary>If present, conferences will be filtered by status.</summary>
             [QueryParameter("filter%5Bstatus%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.Conferences.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

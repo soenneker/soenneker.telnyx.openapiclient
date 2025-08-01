@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Charges_summary
         {
         }
         /// <summary>
-        /// Retrieve a summary of monthly charges for a specified date range. The date range cannot exceed 31 days to prevent large queries that could cause timeouts.
+        /// Retrieve a summary of monthly charges for a specified date range. The date range cannot exceed 31 days.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MonthlyChargesSummaryResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Charges_summary
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MonthlyChargesSummaryResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MonthlyChargesSummaryResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve a summary of monthly charges for a specified date range. The date range cannot exceed 31 days to prevent large queries that could cause timeouts.
+        /// Retrieve a summary of monthly charges for a specified date range. The date range cannot exceed 31 days.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -87,12 +87,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Charges_summary
             return new global::Soenneker.Telnyx.OpenApiClient.Charges_summary.Charges_summaryRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve a summary of monthly charges for a specified date range. The date range cannot exceed 31 days to prevent large queries that could cause timeouts.
+        /// Retrieve a summary of monthly charges for a specified date range. The date range cannot exceed 31 days.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Charges_summaryRequestBuilderGetQueryParameters 
         {
-            /// <summary>End date for the charges summary in ISO date format (YYYY-MM-DD). The interval between start_date and end_date cannot exceed 31 days.</summary>
+            /// <summary>End date for the charges summary in ISO date format (YYYY-MM-DD). The date is exclusive, data for the end_date itself is not included in the report. The interval between start_date and end_date cannot exceed 31 days.</summary>
             [QueryParameter("end_date")]
             public Date? EndDate { get; set; }
             /// <summary>Start date for the charges summary in ISO date format (YYYY-MM-DD)</summary>

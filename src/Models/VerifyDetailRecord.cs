@@ -15,13 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The created_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; set; }
-#nullable restore
-#else
-        public string CreatedAt { get; set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Telnyx account currency used to describe monetary values, including billing costs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,13 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>The updated_at property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The verification_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
                 { "delivery_status", n => { DeliveryStatus = n.GetStringValue(); } },
                 { "destination_phone_number", n => { DestinationPhoneNumber = n.GetStringValue(); } },
@@ -136,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "rate", n => { Rate = n.GetStringValue(); } },
                 { "rate_measured_in", n => { RateMeasuredIn = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "verification_status", n => { VerificationStatus = n.GetStringValue(); } },
                 { "verify_channel_id", n => { VerifyChannelId = n.GetGuidValue(); } },
                 { "verify_channel_type", n => { VerifyChannelType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord_verify_channel_type>(); } },
@@ -151,7 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("created_at", CreatedAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("currency", Currency);
             writer.WriteStringValue("delivery_status", DeliveryStatus);
             writer.WriteStringValue("destination_phone_number", DestinationPhoneNumber);
@@ -159,7 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("rate", Rate);
             writer.WriteStringValue("rate_measured_in", RateMeasuredIn);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteStringValue("updated_at", UpdatedAt);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("verification_status", VerificationStatus);
             writer.WriteGuidValue("verify_channel_id", VerifyChannelId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyDetailRecord_verify_channel_type>("verify_channel_type", VerifyChannelType);

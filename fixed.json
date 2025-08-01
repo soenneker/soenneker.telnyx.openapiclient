@@ -455,7 +455,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -465,7 +465,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -4565,7 +4565,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -4575,7 +4575,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -4606,15 +4606,14 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>email</code>: sorts the result by the\n    <code>email</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-email</code>: sorts the result by the\n    <code>email</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+            "description": "Set the order of the results by the creation date.",
             "schema": {
               "enum": [
-                "created_at",
-                "email"
+                "asc",
+                "desc"
               ],
               "type": "string",
-              "default": "created_at",
-              "example": "email"
+              "example": "desc"
             }
           }
         ],
@@ -6186,7 +6185,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -6196,7 +6195,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -6285,7 +6284,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -6295,7 +6294,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -6401,7 +6400,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -6411,7 +6410,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -6644,7 +6643,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -6654,7 +6653,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -6983,7 +6982,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -6993,7 +6992,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -10703,7 +10702,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -10713,7 +10712,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -10771,10 +10770,85 @@
         }
       ]
     },
+    "/charges_breakdown": {
+      "get": {
+        "summary": "Get monthly charges breakdown",
+        "description": "Retrieve a detailed breakdown of monthly charges for phone numbers in a specified date range. The date range cannot exceed 31 days.",
+        "operationId": "get_charges_breakdown",
+        "parameters": [
+          {
+            "name": "start_date",
+            "in": "query",
+            "description": "Start date for the charges breakdown in ISO date format (YYYY-MM-DD)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2025-05-01"
+            }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "description": "End date for the charges breakdown in ISO date format (YYYY-MM-DD). If not provided, defaults to start_date + 1 month. The date is exclusive, data for the end_date itself is not included in the report. The interval between start_date and end_date cannot exceed 31 days.",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2025-06-01"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Response format",
+            "schema": {
+              "enum": [
+                "json",
+                "csv"
+              ],
+              "type": "string",
+              "default": "json",
+              "example": "json"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Monthly charges breakdown",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonthlyChargesBreakdownResponse"
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "$ref": "#/components/schemas/get_charges_breakdown_200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid date range or parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Errors"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
     "/charges_summary": {
       "get": {
         "summary": "Get monthly charges summary",
-        "description": "Retrieve a summary of monthly charges for a specified date range. The date range cannot exceed 31 days to prevent large queries that could cause timeouts.",
+        "description": "Retrieve a summary of monthly charges for a specified date range. The date range cannot exceed 31 days.",
         "operationId": "get_charges_summary",
         "parameters": [
           {
@@ -10791,7 +10865,7 @@
           {
             "name": "end_date",
             "in": "query",
-            "description": "End date for the charges summary in ISO date format (YYYY-MM-DD). The interval between start_date and end_date cannot exceed 31 days.",
+            "description": "End date for the charges summary in ISO date format (YYYY-MM-DD). The date is exclusive, data for the end_date itself is not included in the report. The interval between start_date and end_date cannot exceed 31 days.",
             "required": true,
             "schema": {
               "type": "string",
@@ -10988,7 +11062,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -10998,7 +11072,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -11204,7 +11278,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -11214,7 +11288,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -12192,7 +12266,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -12202,7 +12276,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -12216,7 +12290,8 @@
             "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
             "schema": {
               "type": "string",
-              "default": null
+              "default": null,
+              "example": "My Connection"
             }
           },
           {
@@ -12276,10 +12351,11 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+            "description": "Telnyx connection id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1293384261075731461"
             }
           },
           {
@@ -12425,7 +12501,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -12435,7 +12511,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -12449,7 +12525,8 @@
             "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
             "schema": {
               "type": "string",
-              "default": null
+              "default": null,
+              "example": "My Connection"
             }
           },
           {
@@ -12705,10 +12782,11 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+            "description": "Telnyx connection id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1293384261075731461"
             }
           }
         ],
@@ -12730,10 +12808,11 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+            "description": "Telnyx connection id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1293384261075731461"
             }
           }
         ],
@@ -12758,10 +12837,11 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+            "description": "Telnyx connection id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1293384261075731461"
             }
           }
         ],
@@ -12789,10 +12869,11 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+            "description": "Telnyx connection id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1293384261075731461"
             }
           }
         ],
@@ -12822,7 +12903,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -12832,7 +12913,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -13272,10 +13353,11 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+            "description": "Telnyx connection id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1293384261075731461"
             }
           }
         ],
@@ -13297,10 +13379,11 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+            "description": "Telnyx connection id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1293384261075731461"
             }
           }
         ],
@@ -13325,10 +13408,11 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+            "description": "Telnyx connection id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1293384261075731461"
             }
           }
         ],
@@ -13356,10 +13440,11 @@
           {
             "name": "connection_id",
             "in": "path",
-            "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+            "description": "Telnyx connection id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "1293384261075731461"
             }
           }
         ],
@@ -13878,7 +13963,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -13888,7 +13973,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -14015,7 +14100,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -14025,7 +14110,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -14192,7 +14277,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -14202,7 +14287,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -14216,7 +14301,8 @@
             "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
             "schema": {
               "type": "string",
-              "default": null
+              "default": null,
+              "example": "My Connection"
             }
           },
           {
@@ -14309,7 +14395,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -14319,7 +14405,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -14712,7 +14798,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -14722,7 +14808,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -14887,7 +14973,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -14897,7 +14983,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -15040,7 +15126,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -15050,7 +15136,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -15329,7 +15415,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -15339,7 +15425,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -15369,16 +15455,16 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>application_name</code>: sorts the result by the\n    <code>application_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-application_name</code>: sorts the result by the\n    <code>application_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
             "schema": {
               "enum": [
                 "created_at",
-                "friendly_name",
+                "application_name",
                 "active"
               ],
               "type": "string",
               "default": "created_at",
-              "example": "friendly_name"
+              "example": "application_name"
             }
           }
         ],
@@ -15951,7 +16037,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -15961,7 +16047,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -15975,7 +16061,8 @@
             "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
             "schema": {
               "type": "string",
-              "default": null
+              "default": null,
+              "example": "My Connection"
             }
           },
           {
@@ -16213,7 +16300,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -16223,7 +16310,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -16532,7 +16619,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -16542,7 +16629,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -16780,7 +16867,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -16790,7 +16877,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -17030,7 +17117,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -17040,7 +17127,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -17631,7 +17718,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -17641,7 +17728,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -17655,7 +17742,8 @@
             "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
             "schema": {
               "type": "string",
-              "default": null
+              "default": null,
+              "example": "My Connection"
             }
           },
           {
@@ -17872,7 +17960,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -17882,7 +17970,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -18254,7 +18342,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -18264,7 +18352,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -18311,15 +18399,14 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>email</code>: sorts the result by the\n    <code>email</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-email</code>: sorts the result by the\n    <code>email</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+            "description": "Set the order of the results by the creation date.",
             "schema": {
               "enum": [
-                "created_at",
-                "email"
+                "asc",
+                "desc"
               ],
               "type": "string",
-              "default": "created_at",
-              "example": "email"
+              "example": "desc"
             }
           },
           {
@@ -19377,7 +19464,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -19387,7 +19474,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -19790,7 +19877,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -19800,7 +19887,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -19855,7 +19942,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -19865,7 +19952,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -20097,7 +20184,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -20107,7 +20194,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -20149,7 +20236,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -20159,7 +20246,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -20787,7 +20874,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -20797,7 +20884,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -20865,7 +20952,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -20875,7 +20962,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21001,7 +21088,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21012,7 +21099,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21228,7 +21315,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21238,7 +21325,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21314,7 +21401,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21324,7 +21411,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21607,7 +21694,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21617,7 +21704,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21675,7 +21762,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21685,7 +21772,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21913,7 +22000,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21923,7 +22010,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -21975,7 +22062,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -21985,7 +22072,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -22024,7 +22111,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -22034,7 +22121,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -22247,7 +22334,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -22257,7 +22344,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -22306,20 +22393,23 @@
             }
           },
           {
-            "name": "Status",
+            "name": "filter[status][eq]",
             "in": "query",
-            "description": "Filters calls by status.",
+            "description": "The status of a notification setting",
             "schema": {
               "enum": [
-                "canceled",
-                "completed",
-                "failed",
-                "busy",
-                "no-answer"
+                "enabled",
+                "enable-received",
+                "enable-pending",
+                "enable-submtited",
+                "delete-received",
+                "delete-pending",
+                "delete-submitted",
+                "deleted"
               ],
-              "type": "string"
-            },
-            "example": "no-answer"
+              "type": "string",
+              "example": "enable-received"
+            }
           }
         ],
         "responses": {
@@ -22540,7 +22630,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -22550,7 +22640,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -22903,7 +22993,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -22913,7 +23003,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -23081,7 +23171,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -23091,7 +23181,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -23279,7 +23369,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -23289,7 +23379,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -23387,7 +23477,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -23397,7 +23487,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -24053,7 +24143,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -24063,7 +24153,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -24433,7 +24523,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -24443,7 +24533,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -24715,7 +24805,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -24725,7 +24815,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -24939,7 +25029,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -24949,7 +25039,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -25533,7 +25623,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -25543,7 +25633,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -25576,7 +25666,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -25586,7 +25676,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -25824,7 +25914,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -25834,7 +25924,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -26416,7 +26506,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -26426,7 +26516,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -26587,7 +26677,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -26597,7 +26687,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -26763,7 +26853,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -26773,7 +26863,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -26872,7 +26962,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -26882,7 +26972,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -27111,7 +27201,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -27121,7 +27211,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -27527,7 +27617,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -27537,7 +27627,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -27653,7 +27743,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -27663,7 +27753,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -27852,7 +27942,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -27862,7 +27952,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -27974,7 +28064,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -27984,7 +28074,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28051,7 +28141,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28061,7 +28151,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28248,7 +28338,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28258,7 +28348,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28418,7 +28508,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28428,7 +28518,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28524,7 +28614,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28534,7 +28624,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28790,7 +28880,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28800,7 +28890,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -28829,7 +28919,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -28839,7 +28929,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -29029,7 +29119,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -29039,7 +29129,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -29342,7 +29432,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -29352,7 +29442,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -29526,7 +29616,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -29536,7 +29626,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -29707,7 +29797,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -29717,7 +29807,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -29787,7 +29877,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -29797,7 +29887,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -30070,7 +30160,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -30080,7 +30170,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -31465,7 +31555,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -31476,7 +31566,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -31701,7 +31791,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -31712,7 +31802,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -31908,7 +31998,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -31919,7 +32009,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -32084,7 +32174,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -32095,7 +32185,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -32301,7 +32391,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -32312,7 +32402,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -32642,7 +32732,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -32653,7 +32743,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -32760,7 +32850,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -32771,7 +32861,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33146,7 +33236,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -33157,7 +33247,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33211,7 +33301,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33221,7 +33311,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -33331,7 +33421,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33341,7 +33431,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -33456,7 +33546,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33466,7 +33556,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -33638,7 +33728,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33648,7 +33738,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -33749,7 +33839,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -33759,7 +33849,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -34160,7 +34250,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -34170,7 +34260,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -34263,7 +34353,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -34273,7 +34363,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -34840,7 +34930,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -34850,7 +34940,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -35894,7 +35984,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -35904,7 +35994,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -36137,7 +36227,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -36172,20 +36262,23 @@
             "example": "+1312345678"
           },
           {
-            "name": "Status",
+            "name": "filter[status][eq]",
             "in": "query",
-            "description": "Filters calls by status.",
+            "description": "The status of a notification setting",
             "schema": {
               "enum": [
-                "canceled",
-                "completed",
-                "failed",
-                "busy",
-                "no-answer"
+                "enabled",
+                "enable-received",
+                "enable-pending",
+                "enable-submtited",
+                "delete-received",
+                "delete-pending",
+                "delete-submitted",
+                "deleted"
               ],
-              "type": "string"
-            },
-            "example": "no-answer"
+              "type": "string",
+              "example": "enable-received"
+            }
           },
           {
             "name": "StartTime",
@@ -36730,7 +36823,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -37364,7 +37457,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -37581,7 +37674,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -37621,16 +37714,16 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+            "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>application_name</code>: sorts the result by the\n    <code>application_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-application_name</code>: sorts the result by the\n    <code>application_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
             "schema": {
               "enum": [
                 "created_at",
-                "friendly_name",
+                "application_name",
                 "active"
               ],
               "type": "string",
               "default": "created_at",
-              "example": "friendly_name"
+              "example": "application_name"
             }
           }
         ],
@@ -38244,7 +38337,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -38254,7 +38347,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39146,7 +39239,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39156,7 +39249,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39330,7 +39423,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39340,7 +39433,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39518,7 +39611,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39528,7 +39621,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39598,7 +39691,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39608,7 +39701,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39740,7 +39833,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39750,7 +39843,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -39964,7 +40057,7 @@
           {
             "name": "page[number]",
             "in": "query",
-            "description": "The page number to load.",
+            "description": "The page number to load",
             "schema": {
               "minimum": 1,
               "type": "integer",
@@ -39974,7 +40067,7 @@
           {
             "name": "page[size]",
             "in": "query",
-            "description": "The size of the page.",
+            "description": "The size of the page",
             "schema": {
               "maximum": 250,
               "minimum": 1,
@@ -40850,57 +40943,11 @@
           }
         }
       },
-      "CreateRequirementGroup": {
-        "title": "CreateRequirementGroup",
-        "required": [
-          "country_code",
-          "phone_number_type",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "country_code": {
-            "type": "string",
-            "description": "ISO alpha 2 country code",
-            "example": "US"
-          },
-          "phone_number_type": {
-            "enum": [
-              "local",
-              "toll_free",
-              "mobile",
-              "national",
-              "shared_cost"
-            ],
-            "type": "string",
-            "example": "local"
-          },
-          "action": {
-            "enum": [
-              "ordering",
-              "porting"
-            ],
-            "type": "string",
-            "example": "ordering"
-          },
-          "customer_reference": {
-            "type": "string",
-            "example": "My Requirement Group"
-          },
-          "regulatory_requirements": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "requirement_id": {
-                  "type": "string"
-                },
-                "field_value": {
-                  "type": "string"
-                }
-              }
-            }
-          }
+      "GetRequirementGroups_200": {
+        "title": "GetRequirementGroups_200",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RequirementGroup"
         }
       },
       "ActionsParticipantsRequest": {
@@ -41688,11 +41735,30 @@
           "send_silence_when_idle": true
         }
       },
-      "GetRequirementGroups_200": {
-        "title": "GetRequirementGroups_200",
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/RequirementGroup"
+      "CreatePrivateWirelessGateway": {
+        "title": "CreatePrivateWirelessGateway",
+        "required": [
+          "network_id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "network_id": {
+            "type": "string",
+            "description": "The identification of the related network resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "name": {
+            "type": "string",
+            "description": "The private wireless gateway name.",
+            "example": "My private wireless gateway"
+          },
+          "region_code": {
+            "type": "string",
+            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
+            "example": "dc2"
+          }
         }
       },
       "AssignProfileToCampaignRequest": {
@@ -42830,32 +42896,6 @@
         ],
         "type": "string"
       },
-      "CreatePrivateWirelessGateway": {
-        "title": "CreatePrivateWirelessGateway",
-        "required": [
-          "network_id",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "network_id": {
-            "type": "string",
-            "description": "The identification of the related network resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "name": {
-            "type": "string",
-            "description": "The private wireless gateway name.",
-            "example": "My private wireless gateway"
-          },
-          "region_code": {
-            "type": "string",
-            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
-            "example": "dc2"
-          }
-        }
-      },
       "UpdatePortoutStatus": {
         "title": "UpdatePortoutStatus",
         "required": [
@@ -42919,6 +42959,19 @@
           "body": {
             "type": "string",
             "description": "Comment to post on this portout request"
+          }
+        }
+      },
+      "PostPortabilityCheck": {
+        "title": "PostPortabilityCheck",
+        "type": "object",
+        "properties": {
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The list of +E.164 formatted phone numbers to check for portability"
           }
         }
       },
@@ -43498,6 +43551,55 @@
         },
         "description": "Brand relationship to the CSP."
       },
+      "BreakdownData": {
+        "title": "BreakdownData",
+        "required": [
+          "user_id",
+          "start_date",
+          "end_date",
+          "user_email",
+          "currency",
+          "results"
+        ],
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User identifier",
+            "example": "0db0b4aa-a83d-4d4f-ad9b-3ba7c1ac2ce8"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Start date of the breakdown period",
+            "format": "date",
+            "example": "2025-05-01"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "End date of the breakdown period",
+            "format": "date",
+            "example": "2025-06-01"
+          },
+          "user_email": {
+            "type": "string",
+            "description": "User email address",
+            "format": "email",
+            "example": "user@example.com"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency code",
+            "example": "USD"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NumberBreakdownResult"
+            },
+            "description": "List of phone number charge breakdowns"
+          }
+        }
+      },
       "BridgeRequest": {
         "title": "Bridge Request",
         "required": [
@@ -43683,16 +43785,32 @@
           "park_after_unbridge": "self"
         }
       },
-      "PostPortabilityCheck": {
-        "title": "PostPortabilityCheck",
+      "PostAssignMessagingProfileToCampaign_202": {
+        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
+        "required": [
+          "type"
+        ],
         "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
+          },
+          {
+            "$ref": "#/components/schemas/SettingsDataErrorMessage"
+          }
+        ],
         "properties": {
-          "phone_numbers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The list of +E.164 formatted phone numbers to check for portability"
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
+            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
           }
         }
       },
@@ -43925,10 +44043,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Identifies the resource.",
+            "description": "Identifies the type of resource.",
             "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
           },
           "record_type": {
             "type": "string",
@@ -43950,16 +44067,16 @@
             "readOnly": true
           },
           "created_at": {
-            "title": "Created At",
             "type": "string",
-            "description": "ISO 8601 formatted date indicating when the resource was created.",
-            "example": "2020-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           },
           "updated_at": {
-            "title": "Updated At",
             "type": "string",
-            "description": "ISO 8601 formatted date indicating when the resource was updated.",
-            "example": "2020-02-03T22:25:27.521Z"
+            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           }
         },
         "description": "This object represents a bulk SIM card action. It groups SIM card actions created through a bulk endpoint under a single resource for further lookup."
@@ -43970,10 +44087,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Identifies the resource.",
+            "description": "Identifies the type of resource.",
             "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
           },
           "record_type": {
             "type": "string",
@@ -44001,16 +44117,16 @@
             }
           },
           "created_at": {
-            "title": "Created At",
             "type": "string",
-            "description": "ISO 8601 formatted date indicating when the resource was created.",
-            "example": "2020-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           },
           "updated_at": {
-            "title": "Updated At",
             "type": "string",
-            "description": "ISO 8601 formatted date indicating when the resource was updated.",
-            "example": "2020-02-03T22:25:27.521Z"
+            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           }
         }
       },
@@ -45091,33 +45207,11 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "PostAssignMessagingProfileToCampaign_202": {
-        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
-        "required": [
-          "type"
-        ],
+      "GetPartnerCampaignSharingStatus_200": {
+        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
         "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
-          },
-          {
-            "$ref": "#/components/schemas/SettingsDataErrorMessage"
-          }
-        ],
-        "properties": {
-          "type": {
-            "title": "type",
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
-            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
-          }
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CampaignSharingStatus"
         }
       },
       "CallCost": {
@@ -52353,11 +52447,20 @@
           "uri": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Conferences.json?Page=0&PageSize=1"
         }
       },
-      "GetPartnerCampaignSharingStatus_200": {
-        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
+      "OperatorConnectRefresh_202": {
+        "title": "Operator Connect Refresh Response",
         "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/CampaignSharingStatus"
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "description": "A message describing the result of the operation",
+            "example": "Operator connect refresh started"
+          }
         }
       },
       "ConferenceSpeakEnded": {
@@ -52749,22 +52852,6 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "OperatorConnectRefresh_202": {
-        "title": "Operator Connect Refresh Response",
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful",
-            "example": true
-          },
-          "message": {
-            "type": "string",
-            "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh started"
-          }
-        }
-      },
       "OperatorConnectRefresh_200": {
         "title": "Operator Connect Refresh Response",
         "type": "object",
@@ -52847,6 +52934,21 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/NotificationSetting"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
+      },
+      "FindNotificationsProfiles_200": {
+        "title": "FindNotificationsProfiles_200",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationProfile"
             }
           },
           "meta": {
@@ -56717,9 +56819,6 @@
       },
       "CreateVerifyProfileCallRequest": {
         "title": "CreateVerifyProfileCallRequest",
-        "required": [
-          "name"
-        ],
         "type": "object",
         "properties": {
           "messaging_template_id": {
@@ -56759,9 +56858,6 @@
       },
       "CreateVerifyProfileFlashcallRequest": {
         "title": "CreateVerifyProfileFlashcallRequest",
-        "required": [
-          "name"
-        ],
         "type": "object",
         "properties": {
           "whitelisted_destinations": {
@@ -56830,14 +56926,14 @@
           }
         }
       },
-      "FindNotificationsProfiles_200": {
-        "title": "FindNotificationsProfiles_200",
+      "FindNotificationsEvents_200": {
+        "title": "FindNotificationsEvents_200",
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationProfile"
+              "$ref": "#/components/schemas/NotificationEvent"
             }
           },
           "meta": {
@@ -56925,14 +57021,14 @@
           }
         }
       },
-      "FindNotificationsEvents_200": {
-        "title": "FindNotificationsEvents_200",
+      "FindNotificationsEventsConditions_200": {
+        "title": "FindNotificationsEventsConditions_200",
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEvent"
+              "$ref": "#/components/schemas/NotificationEventCondition"
             }
           },
           "meta": {
@@ -57301,14 +57397,14 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "FindNotificationsEventsConditions_200": {
-        "title": "FindNotificationsEventsConditions_200",
+      "ListNotificationChannels_200": {
+        "title": "ListNotificationChannels_200",
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEventCondition"
+              "$ref": "#/components/schemas/NotificationChannel"
             }
           },
           "meta": {
@@ -57402,15 +57498,19 @@
           "cursors": {
             "$ref": "#/components/schemas/Cursor"
           },
+          "total_items": {
+            "type": "integer",
+            "example": 50
+          },
           "next": {
             "type": "string",
             "description": "Path to next page.",
-            "example": "/v2/recording_transcriptions?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/connections/1234567890/active_calls?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           },
           "previous": {
             "type": "string",
             "description": "Path to previous page.",
-            "example": "/v2/recording_transcriptions?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/connections/1234567890/active_calls?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           }
         }
       },
@@ -57791,18 +57891,31 @@
           }
         }
       },
-      "ListNotificationChannels_200": {
-        "title": "ListNotificationChannels_200",
+      "CreatePushCredential": {
+        "title": "CreatePushCredential",
+        "required": [
+          "type"
+        ],
         "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationChannel"
-            }
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateIosPushCredentialRequest"
           },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+          {
+            "$ref": "#/components/schemas/CreateAndroidPushCredentialRequest"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CreateIosPushCredentialRequest": "#/components/schemas/CreateIosPushCredentialRequest",
+            "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
           }
         }
       },
@@ -59621,8 +59734,8 @@
         "type": "object",
         "properties": {
           "code": {
-            "type": "string",
-            "format": "int"
+            "type": "integer",
+            "format": "int32"
           },
           "title": {
             "type": "string"
@@ -59640,8 +59753,7 @@
               },
               "parameter": {
                 "type": "string",
-                "description": "Indicates which query parameter caused the error.",
-                "example": "+15617819942"
+                "description": "Indicates which query parameter caused the error."
               }
             }
           },
@@ -60203,10 +60315,9 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the resource.",
+            "description": "Identifies the type of resource.",
             "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
           },
           "connection_id": {
             "type": "string",
@@ -60468,10 +60579,9 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the resource.",
+            "description": "Identifies the type of resource.",
             "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
           },
           "event_type": {
             "enum": [
@@ -60572,32 +60682,11 @@
           }
         }
       },
-      "CreatePushCredential": {
-        "title": "CreatePushCredential",
-        "required": [
-          "type"
-        ],
+      "DeleteVerificationRequest_200": {
+        "title": "DeleteVerificationRequest_200",
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateIosPushCredentialRequest"
-          },
-          {
-            "$ref": "#/components/schemas/CreateAndroidPushCredentialRequest"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CreateIosPushCredentialRequest": "#/components/schemas/CreateIosPushCredentialRequest",
-            "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "FaxFailed": {
@@ -60609,10 +60698,9 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the resource.",
+            "description": "Identifies the type of resource.",
             "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
           },
           "event_type": {
             "enum": [
@@ -60709,8 +60797,8 @@
           }
         }
       },
-      "DeleteVerificationRequest_200": {
-        "title": "DeleteVerificationRequest_200",
+      "DeleteAutorespConfig_200": {
+        "title": "DeleteAutorespConfig_200",
         "type": "object",
         "additionalProperties": {
           "type": "object"
@@ -60725,10 +60813,9 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the resource.",
+            "description": "Identifies the type of resource.",
             "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
           },
           "event_type": {
             "enum": [
@@ -60826,10 +60913,9 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the resource.",
+            "description": "Identifies the type of resource.",
             "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
           },
           "event_type": {
             "enum": [
@@ -60927,10 +61013,9 @@
           },
           "id": {
             "type": "string",
-            "description": "Identifies the resource.",
+            "description": "Identifies the type of resource.",
             "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
           },
           "event_type": {
             "enum": [
@@ -61122,13 +61207,6 @@
           }
         }
       },
-      "DeleteAutorespConfig_200": {
-        "title": "DeleteAutorespConfig_200",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
       "GetMessage_200": {
         "title": "GetMessage_200",
         "type": "object",
@@ -61142,6 +61220,18 @@
                 "$ref": "#/components/schemas/InboundMessagePayload"
               }
             ]
+          }
+        }
+      },
+      "EnableManagedAccount": {
+        "title": "EnableManagedAccount",
+        "type": "object",
+        "properties": {
+          "reenable_all_connections": {
+            "type": "boolean",
+            "description": "When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.",
+            "default": false,
+            "example": true
           }
         }
       },
@@ -61384,16 +61474,16 @@
             "$ref": "#/components/schemas/ConnectionRtcpSettings"
           },
           "created_at": {
-            "title": "Created At",
             "type": "string",
-            "description": "ISO 8601 formatted date indicating when the resource was created.",
-            "example": "2020-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           },
           "updated_at": {
-            "title": "Updated At",
             "type": "string",
-            "description": "ISO 8601 formatted date indicating when the resource was updated.",
-            "example": "2020-02-03T22:25:27.521Z"
+            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           },
           "inbound": {
             "$ref": "#/components/schemas/InboundFqdn"
@@ -61477,15 +61567,36 @@
         "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.",
         "default": "UDP"
       },
-      "EnableManagedAccount": {
-        "title": "EnableManagedAccount",
+      "get_invoices_200": {
+        "title": "get_invoices_200",
         "type": "object",
         "properties": {
-          "reenable_all_connections": {
-            "type": "boolean",
-            "description": "When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.",
-            "default": false,
-            "example": true
+          "meta": {
+            "type": "object",
+            "properties": {
+              "total_results": {
+                "type": "integer",
+                "example": 20
+              },
+              "total_pages": {
+                "type": "integer",
+                "example": 1
+              },
+              "page_number": {
+                "type": "integer",
+                "example": 1
+              },
+              "page_size": {
+                "type": "integer",
+                "example": 20
+              }
+            }
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Invoice"
+            }
           }
         }
       },
@@ -62491,9 +62602,11 @@
             "type": "object",
             "properties": {
               "global_ip_id": {
+                "type": "string",
                 "readOnly": true
               },
               "wireguard_peer_id": {
+                "type": "string",
                 "readOnly": true
               }
             }
@@ -63259,35 +63372,46 @@
           }
         }
       },
-      "get_invoices_200": {
-        "title": "get_invoices_200",
+      "UpdateOutboundChannels_default": {
+        "title": "UpdateOutboundChannels_default",
         "type": "object",
         "properties": {
-          "meta": {
-            "type": "object",
-            "properties": {
-              "total_results": {
-                "type": "integer",
-                "example": 20
-              },
-              "total_pages": {
-                "type": "integer",
-                "example": 1
-              },
-              "page_number": {
-                "type": "integer",
-                "example": 1
-              },
-              "page_size": {
-                "type": "integer",
-                "example": 20
-              }
-            }
-          },
-          "data": {
+          "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Invoice"
+              "required": [
+                "code",
+                "title"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "format": "int"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "detail": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "pointer": {
+                      "type": "string",
+                      "description": "JSON pointer (RFC6901) to the offending entity.",
+                      "format": "json-pointer"
+                    },
+                    "parameter": {
+                      "type": "string",
+                      "description": "Indicates which query parameter caused the error."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object"
+                }
+              }
             }
           }
         }
@@ -64632,45 +64756,22 @@
           }
         }
       },
-      "UpdateOutboundChannels_default": {
-        "title": "UpdateOutboundChannels_default",
+      "UpdateOutboundChannels_200": {
+        "title": "UpdateOutboundChannels_200",
         "type": "object",
         "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "required": [
-                "code",
-                "title"
-              ],
-              "properties": {
-                "code": {
-                  "type": "string",
-                  "format": "int"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "detail": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "object",
-                  "properties": {
-                    "pointer": {
-                      "type": "string",
-                      "description": "JSON pointer (RFC6901) to the offending entity.",
-                      "format": "json-pointer"
-                    },
-                    "parameter": {
-                      "type": "string",
-                      "description": "Indicates which query parameter caused the error."
-                    }
-                  }
-                },
-                "meta": {
-                  "type": "object"
-                }
+          "data": {
+            "type": "object",
+            "properties": {
+              "channels": {
+                "type": "integer",
+                "description": "The number of channels set for the account",
+                "example": 7
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the response",
+                "example": "inbound_channels"
               }
             }
           }
@@ -66320,24 +66421,17 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "UpdateOutboundChannels_200": {
-        "title": "UpdateOutboundChannels_200",
+      "UpdateOutboundChannels": {
+        "title": "UpdateOutboundChannels",
+        "required": [
+          "channels"
+        ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "channels": {
-                "type": "integer",
-                "description": "The number of channels set for the account",
-                "example": 7
-              },
-              "record_type": {
-                "type": "string",
-                "description": "Identifies the type of the response",
-                "example": "inbound_channels"
-              }
-            }
+          "channels": {
+            "type": "integer",
+            "description": "The new number of concurrent channels for the account",
+            "example": 7
           }
         }
       },
@@ -66463,17 +66557,24 @@
           }
         }
       },
-      "UpdateOutboundChannels": {
-        "title": "UpdateOutboundChannels",
-        "required": [
-          "channels"
-        ],
+      "ListInboundChannels_200": {
+        "title": "ListInboundChannels_200",
         "type": "object",
         "properties": {
-          "channels": {
-            "type": "integer",
-            "description": "The new number of concurrent channels for the account",
-            "example": 7
+          "data": {
+            "type": "object",
+            "properties": {
+              "channels": {
+                "type": "integer",
+                "description": "The current number of concurrent channels set for the account",
+                "example": 7
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the response",
+                "example": "inbound_channels"
+              }
+            }
           }
         }
       },
@@ -67138,31 +67239,33 @@
       },
       "Metadata": {
         "title": "Metadata",
+        "required": [
+          "page_size",
+          "page_number",
+          "total_pages",
+          "total_results"
+        ],
         "type": "object",
         "properties": {
-          "total_pages": {
-            "type": "number",
-            "description": "Total number of pages based on pagination settings",
-            "format": "double",
-            "example": 13
-          },
-          "total_results": {
-            "type": "number",
-            "description": "Total number of results",
-            "format": "double",
-            "example": 13
+          "page_size": {
+            "title": "Page Size",
+            "type": "integer",
+            "example": 25
           },
           "page_number": {
-            "type": "number",
-            "description": "Current Page based on pagination settings (included when defaults are used.)",
-            "format": "double",
-            "example": 3
-          },
-          "page_size": {
-            "type": "number",
-            "description": "Number of results to return per page based on pagination settings (included when defaults are used.)",
-            "format": "double",
+            "title": "Page Number",
+            "type": "integer",
             "example": 1
+          },
+          "total_pages": {
+            "title": "Total Pages",
+            "type": "integer",
+            "example": 10
+          },
+          "total_results": {
+            "title": "Total Items",
+            "type": "integer",
+            "example": 250
           }
         }
       },
@@ -67494,24 +67597,13 @@
           }
         }
       },
-      "ListInboundChannels_200": {
-        "title": "ListInboundChannels_200",
+      "RefreshExternalConnectionUploads_200": {
+        "title": "Create Upload request Response",
         "type": "object",
         "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "channels": {
-                "type": "integer",
-                "description": "The current number of concurrent channels set for the account",
-                "example": 7
-              },
-              "record_type": {
-                "type": "string",
-                "description": "Identifies the type of the response",
-                "example": "inbound_channels"
-              }
-            }
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
           }
         }
       },
@@ -67538,6 +67630,18 @@
             "description": "One-time charge amount as decimal string",
             "nullable": true,
             "example": "5.00"
+          }
+        }
+      },
+      "MonthlyChargesBreakdownResponse": {
+        "title": "MonthlyChargesBreakdownResponse",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BreakdownData"
           }
         }
       },
@@ -68225,6 +68329,47 @@
           "requirements_met": true
         }
       },
+      "NumberBreakdownResult": {
+        "title": "NumberBreakdownResult",
+        "required": [
+          "tn",
+          "charge_type",
+          "service_owner_user_id",
+          "service_owner_email",
+          "services"
+        ],
+        "type": "object",
+        "properties": {
+          "tn": {
+            "type": "string",
+            "description": "Phone number",
+            "example": "+15551234567"
+          },
+          "charge_type": {
+            "type": "string",
+            "description": "Type of charge for the number",
+            "example": "local"
+          },
+          "service_owner_user_id": {
+            "type": "string",
+            "description": "User ID of the service owner",
+            "example": "0db0b4aa-a83d-4d4f-ad9b-3ba7c1ac2ce8"
+          },
+          "service_owner_email": {
+            "type": "string",
+            "description": "Email address of the service owner",
+            "format": "email",
+            "example": "user@example.com"
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServiceDetail"
+            },
+            "description": "List of services associated with this number"
+          }
+        }
+      },
       "NumberHealthMetrics": {
         "title": "NumberHealthMetrics",
         "required": [
@@ -68862,13 +69007,18 @@
           }
         }
       },
-      "RefreshExternalConnectionUploads_200": {
+      "CreateExternalConnectionUpload_202": {
         "title": "Create Upload request Response",
         "type": "object",
         "properties": {
           "success": {
             "type": "boolean",
             "description": "Describes wether or not the operation was successful"
+          },
+          "ticket_id": {
+            "type": "string",
+            "description": "Ticket id of the upload request",
+            "format": "uuid"
           }
         }
       },
@@ -70044,17 +70194,16 @@
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
       },
-      "CreateExternalConnectionUpload_202": {
-        "title": "Create Upload request Response",
+      "updateLocation": {
+        "title": "updateLocation",
+        "required": [
+          "static_emergency_address_id"
+        ],
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
-          },
-          "ticket_id": {
+          "static_emergency_address_id": {
             "type": "string",
-            "description": "Ticket id of the upload request",
+            "description": "A new static emergency address ID to update the location with",
             "format": "uuid"
           }
         }
@@ -70268,16 +70417,20 @@
         "type": "object",
         "properties": {
           "page_number": {
-            "type": "integer"
+            "type": "integer",
+            "example": 2
           },
           "page_size": {
-            "type": "integer"
+            "type": "integer",
+            "example": 25
           },
           "total_pages": {
-            "type": "integer"
+            "type": "integer",
+            "example": 3
           },
           "total_results": {
-            "type": "integer"
+            "type": "integer",
+            "example": 55
           }
         }
       },
@@ -72097,17 +72250,13 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
-      "updateLocation": {
-        "title": "updateLocation",
-        "required": [
-          "static_emergency_address_id"
-        ],
+      "DeleteExternalConnectionLogMessage_200": {
+        "title": "Dismiss request was successful",
         "type": "object",
         "properties": {
-          "static_emergency_address_id": {
-            "type": "string",
-            "description": "A new static emergency address ID to update the location with",
-            "format": "uuid"
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
           }
         }
       },
@@ -74336,10 +74485,6 @@
           },
           {
             "title": "PublicInternetGatewayCreate",
-            "required": [
-              "network_id",
-              "region"
-            ],
             "type": "object"
           }
         ]
@@ -75512,10 +75657,11 @@
       "RecordType": {
         "title": "RecordType",
         "enum": [
-          "custom_storage_credentials"
+          "event"
         ],
         "type": "string",
-        "description": "Identifies record type."
+        "description": "Identifies the type of the resource.",
+        "example": "event"
       },
       "RecordingResponse": {
         "title": "RecordingResponse",
@@ -75644,13 +75790,35 @@
         "type": "string",
         "description": "Defines how the recording was created."
       },
-      "DeleteExternalConnectionLogMessage_200": {
-        "title": "Dismiss request was successful",
+      "GetEnumEndpoint_200": {
+        "title": "GetEnumEndpoint_200",
+        "required": [
+          "type"
+        ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/EnumListResponse"
+          },
+          {
+            "$ref": "#/components/schemas/EnumObjectResponse"
+          },
+          {
+            "$ref": "#/components/schemas/EnumPaginatedResponse"
+          }
+        ],
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "EnumListResponse": "#/components/schemas/EnumListResponse",
+            "EnumObjectResponse": "#/components/schemas/EnumObjectResponse",
+            "EnumPaginatedResponse": "#/components/schemas/EnumPaginatedResponse"
           }
         }
       },
@@ -76360,28 +76528,35 @@
         }
       },
       "ResourceNotFoundError": {
-        "title": "Resource not found",
+        "title": "ResourceNotFoundError",
         "type": "object",
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "detail": {
-                  "type": "string"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GenericError"
+          },
+          {
+            "properties": {
+              "code": {
+                "example": "10005"
+              },
+              "title": {
+                "example": "Resource not found"
+              },
+              "detail": {
+                "example": "The requested resource or URL could not be found."
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://developers.telnyx.com/docs/overview/errors/10005"
+                  }
                 }
               }
             }
           }
-        },
-        "example": {
-          "errors": [
-            {
-              "detail": "Resource not found"
-            }
-          ]
-        }
+        ]
       },
       "ResumeConferenceRecordingRequest": {
         "title": "Pause Recording Request",
@@ -77224,10 +77399,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Identifies the resource.",
+            "description": "Identifies the type of resource.",
             "format": "uuid",
-            "readOnly": true,
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
           },
           "record_type": {
             "type": "string",
@@ -77283,16 +77457,16 @@
             "readOnly": true
           },
           "created_at": {
-            "title": "Created At",
             "type": "string",
-            "description": "ISO 8601 formatted date indicating when the resource was created.",
-            "example": "2020-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           },
           "updated_at": {
-            "title": "Updated At",
             "type": "string",
-            "description": "ISO 8601 formatted date indicating when the resource was updated.",
-            "example": "2020-02-03T22:25:27.521Z"
+            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           }
         },
         "description": "This object represents a SIM card action. It allows tracking the current status of an operation that impacts the SIM card."
@@ -78537,36 +78711,11 @@
           }
         }
       },
-      "GetEnumEndpoint_200": {
-        "title": "GetEnumEndpoint_200",
-        "required": [
-          "type"
-        ],
+      "DownloadDocument_200": {
+        "title": "DownloadDocument_200",
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/EnumListResponse"
-          },
-          {
-            "$ref": "#/components/schemas/EnumObjectResponse"
-          },
-          {
-            "$ref": "#/components/schemas/EnumPaginatedResponse"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "EnumListResponse": "#/components/schemas/EnumListResponse",
-            "EnumObjectResponse": "#/components/schemas/EnumObjectResponse",
-            "EnumPaginatedResponse": "#/components/schemas/EnumPaginatedResponse"
-          }
+        "additionalProperties": {
+          "type": "object"
         }
       },
       "SendSIPInfoRequest": {
@@ -78603,6 +78752,32 @@
           "body": "{\"key\": \"value\", \"numValue\": 100}",
           "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
+        }
+      },
+      "ServiceDetail": {
+        "title": "ServiceDetail",
+        "required": [
+          "cost_type",
+          "name",
+          "cost"
+        ],
+        "type": "object",
+        "properties": {
+          "cost_type": {
+            "type": "string",
+            "description": "Type of cost (MRC or OTC)",
+            "example": "MRC"
+          },
+          "name": {
+            "type": "string",
+            "description": "Service name",
+            "example": "Local DIDs"
+          },
+          "cost": {
+            "type": "string",
+            "description": "Cost per unit as decimal string",
+            "example": "1.50"
+          }
         }
       },
       "ServicePlan": {
@@ -78899,7 +79074,6 @@
           "data_rate": {
             "type": "string",
             "description": "Currency amount per billing unit used to calculate the Telnyx billing cost",
-            "format": "monetary_value",
             "example": "0.06000"
           },
           "sim_group_name": {
@@ -80154,13 +80328,6 @@
           "stream_id": "1edb94f9-7ef0-4150-b502-e0ebadfd9491"
         }
       },
-      "DownloadDocument_200": {
-        "title": "DownloadDocument_200",
-        "type": "object",
-        "additionalProperties": {
-          "type": "object"
-        }
-      },
       "ListDocuments_200": {
         "title": "ListDocuments_200",
         "type": "object",
@@ -80169,6 +80336,21 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/DocServiceDocument"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
+      },
+      "ListDocumentLinks_200": {
+        "title": "ListDocumentLinks_200",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocServiceDocumentLink"
             }
           },
           "meta": {
@@ -80232,20 +80414,10 @@
         "default": "default",
         "example": "PCMA"
       },
-      "ListDocumentLinks_200": {
-        "title": "ListDocumentLinks_200",
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DocServiceDocumentLink"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
-          }
-        }
+      "get_charges_breakdown_200": {
+        "title": "get_charges_breakdown_200",
+        "type": "string",
+        "description": "CSV format of the charges breakdown"
       },
       "StreamStatus": {
         "title": "StreamStatus",
@@ -80714,6 +80886,38 @@
             },
             "description": "List of billing adjustments"
           }
+        },
+        "example": {
+          "lines": [
+            {
+              "type": "comparative",
+              "name": "Local DIDs",
+              "alias": "local",
+              "new_this_month": {
+                "quantity": 10,
+                "mrc": "25.50",
+                "otc": "5.00"
+              },
+              "existing_this_month": {
+                "quantity": 8,
+                "mrc": "20.00"
+              }
+            },
+            {
+              "type": "simple",
+              "name": "Port Out",
+              "alias": "port_out",
+              "quantity": 100,
+              "amount": "15.75"
+            }
+          ],
+          "adjustments": [
+            {
+              "amount": "-10.00",
+              "description": "Credit for service outage",
+              "event_date": "2025-05-15"
+            }
+          ]
         }
       },
       "SummaryAndTotal": {
@@ -82859,16 +83063,16 @@
             }
           },
           "created_at": {
-            "title": "Created At",
             "type": "string",
-            "description": "ISO 8601 formatted date indicating when the resource was created.",
-            "example": "2020-02-02T22:25:27.521Z"
+            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           },
           "updated_at": {
-            "title": "Updated At",
             "type": "string",
-            "description": "ISO 8601 formatted date indicating when the resource was updated.",
-            "example": "2020-02-03T22:25:27.521Z"
+            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           }
         },
         "example": {
@@ -84665,40 +84869,43 @@
       },
       "UnprocessableEntityError": {
         "title": "UnprocessableEntityError",
-        "required": [
-          "code",
-          "title"
-        ],
         "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "format": "int"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GenericError"
           },
-          "title": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          },
-          "source": {
-            "type": "object",
+          {
             "properties": {
-              "pointer": {
-                "type": "string",
-                "description": "JSON pointer (RFC6901) to the offending entity.",
-                "format": "json-pointer"
+              "code": {
+                "example": "10002"
               },
-              "parameter": {
-                "type": "string",
-                "description": "Indicates which query parameter caused the error."
+              "title": {
+                "example": "Invalid phone number"
+              },
+              "detail": {
+                "example": "The phone number is invalid."
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "pointer": {
+                    "type": "string",
+                    "example": "/phone_numbers"
+                  }
+                }
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://developers.telnyx.com/docs/overview/errors/10002"
+                  }
+                }
               }
             }
-          },
-          "meta": {
-            "type": "object"
           }
-        }
+        ]
       },
       "UnusedUserBundlesResponse": {
         "title": "UnusedUserBundlesResponse",
@@ -85475,30 +85682,49 @@
       },
       "UpdateConferenceRequest": {
         "title": "Update Conference Request",
+        "required": [
+          "call_control_id",
+          "supervisor_role"
+        ],
         "type": "object",
         "properties": {
-          "Status": {
+          "call_control_id": {
             "type": "string",
-            "description": "The new status of the resource. Specifying `completed` will end the conference and hang up all participants.",
-            "example": "completed"
+            "description": "Unique identifier and token for controlling the call",
+            "example": "v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQczRrZvZakpWxBlpw48KyZQ=="
           },
-          "AnnounceUrl": {
+          "command_id": {
             "type": "string",
-            "description": "The URL we should call to announce something into the conference. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `<Play>`, `<Say>`, `<Pause>`, or `<Redirect>` verbs.",
-            "example": "https://www.example.com/announce.xml"
+            "description": "Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same `command_id` as one that has already been executed.",
+            "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
           },
-          "AnnounceMethod": {
+          "supervisor_role": {
             "enum": [
-              "GET",
-              "POST"
+              "barge",
+              "monitor",
+              "none",
+              "whisper"
             ],
             "type": "string",
-            "description": "The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.",
-            "example": "GET"
+            "description": "Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. \"barge\" means the supervisor enters the conference as a normal participant. This is the same as \"none\". \"monitor\" means the supervisor is muted but can hear all participants. \"whisper\" means that only the specified \"whisper_call_control_ids\" can hear the supervisor. Defaults to \"none\".",
+            "example": "whisper"
+          },
+          "whisper_call_control_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only."
           }
         },
         "example": {
-          "Status": "completed"
+          "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
+          "supervisor_role": "whisper",
+          "whisper_call_control_ids": [
+            "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
+            "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
+          ]
         }
       },
       "UpdateConversationRequest": {
@@ -88826,13 +89052,13 @@
           },
           "created_at": {
             "type": "string",
-            "format": "datetime",
-            "example": "2021-07-08T00:00:41.000000+00:00"
+            "format": "date-time",
+            "example": "2021-07-08T00:00:41.0000000+00:00"
           },
           "updated_at": {
             "type": "string",
-            "format": "datetime",
-            "example": "2021-07-08T00:00:41.000000+00:00"
+            "format": "date-time",
+            "example": "2021-07-08T00:00:41.0000000+00:00"
           },
           "rate": {
             "type": "string",
@@ -89282,13 +89508,11 @@
               "primary_telnyx_ip": {
                 "type": "string",
                 "description": "The IP address assigned to the Telnyx side of the Virtual Cross Connect.<br /><br />If none is provided, one will be generated for you.<br /><br />This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.",
-                "format": "ipv4",
                 "example": "169.254.0.1"
               },
               "primary_cloud_ip": {
                 "type": "string",
                 "description": "The IP address assigned for your side of the Virtual Cross Connect.<br /><br />If none is provided, one will be generated for you.<br /><br />This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.",
-                "format": "ipv4",
                 "example": "169.254.0.2"
               },
               "primary_bgp_key": {
@@ -89310,13 +89534,11 @@
               "secondary_telnyx_ip": {
                 "type": "string",
                 "description": "The IP address assigned to the Telnyx side of the Virtual Cross Connect.<br /><br />If none is provided, one will be generated for you.<br /><br />This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.",
-                "format": "ipv4",
                 "example": "169.254.0.3"
               },
               "secondary_cloud_ip": {
                 "type": "string",
                 "description": "The IP address assigned for your side of the Virtual Cross Connect.<br /><br />If none is provided, one will be generated for you.<br /><br />This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.",
-                "format": "ipv4",
                 "example": "169.254.0.4"
               },
               "secondary_bgp_key": {
@@ -89437,7 +89659,6 @@
               "primary_cloud_ip": {
                 "type": "string",
                 "description": "The IP address assigned for your side of the Virtual Cross Connect.<br /><br />If none is provided, one will be generated for you.<br /><br />This value can not be patched once the VXC has bene provisioned.",
-                "format": "ipv4",
                 "example": "169.254.0.2"
               },
               "secondary_enabled": {
@@ -89453,7 +89674,6 @@
               "secondary_cloud_ip": {
                 "type": "string",
                 "description": "The IP address assigned for your side of the Virtual Cross Connect.<br /><br />If none is provided, one will be generated for you.<br /><br />This value can not be patched once the VXC has bene provisioned.",
-                "format": "ipv4",
                 "example": "169.254.0.4"
               }
             }
@@ -91442,6 +91662,59 @@
         },
         "description": "Record of all attempts to deliver a webhook."
       },
+      "CreateRequirementGroup": {
+        "title": "CreateRequirementGroup",
+        "required": [
+          "country_code",
+          "phone_number_type",
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "ISO alpha 2 country code",
+            "example": "US"
+          },
+          "phone_number_type": {
+            "enum": [
+              "local",
+              "toll_free",
+              "mobile",
+              "national",
+              "shared_cost"
+            ],
+            "type": "string",
+            "example": "local"
+          },
+          "action": {
+            "enum": [
+              "ordering",
+              "porting"
+            ],
+            "type": "string",
+            "example": "ordering"
+          },
+          "customer_reference": {
+            "type": "string",
+            "example": "My Requirement Group"
+          },
+          "regulatory_requirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "requirement_id": {
+                  "type": "string"
+                },
+                "field_value": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
       "UpdateRequirementGroup": {
         "title": "UpdateRequirementGroup",
         "type": "object",
@@ -91578,10 +91851,9 @@
             "type": "array",
             "items": {
               "type": "string",
-              "description": "Identifies the resource.",
+              "description": "Identifies the type of resource.",
               "format": "uuid",
-              "readOnly": true,
-              "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+              "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
             }
           }
         }
@@ -93278,7 +93550,19 @@
         }
       },
       "ForbiddenResponse": {
-        "description": "Unauthorized response. Happens when the current user is not authorized to access the endpoint."
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Errors"
+            },
+            "examples": {
+              "Not authorized": {
+                "$ref": "#/components/examples/NotAuthorized"
+              }
+            }
+          }
+        }
       },
       "FqdnConnectionResponse": {
         "description": "Successful response with details about an FQDN connection.",
@@ -96154,14 +96438,7 @@
         }
       },
       "NotFoundResponse": {
-        "description": "Resource not found",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/ResourceNotFoundError"
-            }
-          }
-        }
+        "description": "Fax does not exist"
       },
       "NotFoundResponseApp": {
         "description": "The requested resource doesn't exist.",
@@ -97630,7 +97907,7 @@
         }
       },
       "UnauthorizedResponse": {
-        "description": "Unauthenticated response. Happens when the current user cannot be authenticated."
+        "description": "Unauthorized"
       },
       "UnexpectedErrorResponse": {
         "description": "An unexpected error occurred.",
@@ -98378,10 +98655,11 @@
       "ConnectionId": {
         "name": "connection_id",
         "in": "path",
-        "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+        "description": "Telnyx connection id",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "example": "1293384261075731461"
         }
       },
       "CreatedAtGtFilter": {
@@ -98851,7 +99129,8 @@
         "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
         "schema": {
           "type": "string",
-          "default": null
+          "default": null,
+          "example": "My Connection"
         }
       },
       "FilterCostByAmount": {
@@ -99506,7 +99785,7 @@
       "PageNumber": {
         "name": "page[number]",
         "in": "query",
-        "description": "The page number to load.",
+        "description": "The page number to load",
         "schema": {
           "minimum": 1,
           "type": "integer",
@@ -99516,7 +99795,7 @@
       "PageSize": {
         "name": "page[size]",
         "in": "query",
-        "description": "The size of the page.",
+        "description": "The size of the page",
         "schema": {
           "maximum": 250,
           "minimum": 1,
@@ -99756,15 +100035,14 @@
       "Sort": {
         "name": "sort",
         "in": "query",
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>email</code>: sorts the result by the\n    <code>email</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-email</code>: sorts the result by the\n    <code>email</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+        "description": "Set the order of the results by the creation date.",
         "schema": {
           "enum": [
-            "created_at",
-            "email"
+            "asc",
+            "desc"
           ],
           "type": "string",
-          "default": "created_at",
-          "example": "email"
+          "example": "desc"
         }
       },
       "SortAddress": {
@@ -99787,16 +100065,16 @@
       "SortApplication": {
         "name": "sort",
         "in": "query",
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>application_name</code>: sorts the result by the\n    <code>application_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-application_name</code>: sorts the result by the\n    <code>application_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "enum": [
             "created_at",
-            "friendly_name",
+            "application_name",
             "active"
           ],
           "type": "string",
           "default": "created_at",
-          "example": "friendly_name"
+          "example": "application_name"
         }
       },
       "SortConnection": {
@@ -99883,20 +100161,23 @@
         "example": "2023-05-22"
       },
       "Status": {
-        "name": "Status",
+        "name": "filter[status][eq]",
         "in": "query",
-        "description": "Filters calls by status.",
+        "description": "The status of a notification setting",
         "schema": {
           "enum": [
-            "canceled",
-            "completed",
-            "failed",
-            "busy",
-            "no-answer"
+            "enabled",
+            "enable-received",
+            "enable-pending",
+            "enable-submtited",
+            "delete-received",
+            "delete-pending",
+            "delete-submitted",
+            "deleted"
           ],
-          "type": "string"
-        },
-        "example": "no-answer"
+          "type": "string",
+          "example": "enable-received"
+        }
       },
       "StatusEqFilter": {
         "name": "filter[status][eq]",

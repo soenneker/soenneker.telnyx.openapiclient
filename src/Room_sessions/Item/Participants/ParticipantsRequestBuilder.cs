@@ -137,10 +137,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants
             /// <summary>ISO 8601 date for filtering room participants updated before that date.</summary>
             [QueryParameter("filter%5Bdate_updated_at%5D%5Blte%5D")]
             public Date? FilterdateUpdatedAtlte { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

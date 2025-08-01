@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -39,7 +38,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_GetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_GetResponse?> GetAsWithCall_control_GetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -50,11 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_GetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_GetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_GetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve an existing call from an existing queue
@@ -62,7 +56,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsWithCall_control_GetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,11 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item.WithCall_control_Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve an existing call from an existing queue

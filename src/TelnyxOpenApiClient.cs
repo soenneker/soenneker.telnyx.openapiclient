@@ -28,6 +28,7 @@ using Soenneker.Telnyx.OpenApiClient.Calls;
 using Soenneker.Telnyx.OpenApiClient.Campaign;
 using Soenneker.Telnyx.OpenApiClient.CampaignBuilder;
 using Soenneker.Telnyx.OpenApiClient.Channel_zones;
+using Soenneker.Telnyx.OpenApiClient.Charges_breakdown;
 using Soenneker.Telnyx.OpenApiClient.Charges_summary;
 using Soenneker.Telnyx.OpenApiClient.Comments;
 using Soenneker.Telnyx.OpenApiClient.Conferences;
@@ -273,6 +274,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder Channel_zones
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The charges_breakdown property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Charges_breakdown.Charges_breakdownRequestBuilder Charges_breakdown
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Charges_breakdown.Charges_breakdownRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The charges_summary property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Charges_summary.Charges_summaryRequestBuilder Charges_summary
