@@ -176,10 +176,10 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases
             [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
             public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Releases.GetFilterStatusEqQueryParameterType[] FilterstatuseqAsGetFilterStatusEqQueryParameterType { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

@@ -193,10 +193,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards
             /// <summary>It includes the associated SIM card group object in the response when present.</summary>
             [QueryParameter("include_sim_card_group")]
             public bool? IncludeSimCardGroup { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
             /// <summary>Sorts SIM cards by the given field. Defaults to ascending order unless field is prefixed with a minus sign.</summary>

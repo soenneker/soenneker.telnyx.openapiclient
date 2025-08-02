@@ -40,6 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec.I
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBody?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -51,7 +52,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.Item.Siprec.I
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBody>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBody.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBody>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateSiprecSessionResponseBody.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates siprec session identified by siprec_sid.
