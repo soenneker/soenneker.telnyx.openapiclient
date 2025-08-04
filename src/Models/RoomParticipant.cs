@@ -25,21 +25,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A unique identifier for the room participant.</summary>
         public Guid? Id { get; set; }
         /// <summary>ISO 8601 timestamp when the participant joined the session.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? JoinedAt { get; set; }
-#nullable restore
-#else
-        public string JoinedAt { get; set; }
-#endif
+        public DateTimeOffset? JoinedAt { get; set; }
         /// <summary>ISO 8601 timestamp when the participant left the session.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? LeftAt { get; set; }
-#nullable restore
-#else
-        public string LeftAt { get; set; }
-#endif
+        public DateTimeOffset? LeftAt { get; set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,13 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identify the room session that participant is part of.</summary>
         public Guid? SessionId { get; set; }
         /// <summary>ISO 8601 timestamp when the participant was updated.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RoomParticipant"/> and sets the default values.
         /// </summary>
@@ -85,11 +67,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "context", n => { Context = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "joined_at", n => { JoinedAt = n.GetStringValue(); } },
-                { "left_at", n => { LeftAt = n.GetStringValue(); } },
+                { "joined_at", n => { JoinedAt = n.GetDateTimeOffsetValue(); } },
+                { "left_at", n => { LeftAt = n.GetDateTimeOffsetValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "session_id", n => { SessionId = n.GetGuidValue(); } },
-                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -101,10 +83,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("context", Context);
             writer.WriteGuidValue("id", Id);
-            writer.WriteStringValue("joined_at", JoinedAt);
-            writer.WriteStringValue("left_at", LeftAt);
+            writer.WriteDateTimeOffsetValue("joined_at", JoinedAt);
+            writer.WriteDateTimeOffsetValue("left_at", LeftAt);
             writer.WriteGuidValue("session_id", SessionId);
-            writer.WriteStringValue("updated_at", UpdatedAt);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

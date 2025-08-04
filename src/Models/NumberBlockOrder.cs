@@ -23,13 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ConnectionId { get; set; }
 #endif
         /// <summary>An ISO 8901 datetime string denoting when the number order was created.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; private set; }
-#nullable restore
-#else
-        public string CreatedAt { get; private set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>A customer reference string for customer look ups.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,13 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The status of the order.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.NumberBlockOrder_status? Status { get; private set; }
         /// <summary>An ISO 8901 datetime string for when the number order was updated.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; private set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; private set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NumberBlockOrder"/> and sets the default values.
         /// </summary>
@@ -106,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
-                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
@@ -116,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
                 { "starting_number", n => { StartingNumber = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberBlockOrder_status>(); } },
-                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

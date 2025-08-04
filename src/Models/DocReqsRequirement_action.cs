@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Indicates whether this requirement applies to ordering, porting, or both</summary>
+    /// <summary>Indicates whether this requirement applies to branded_calling, ordering, porting, or both porting and ordering</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DocReqsRequirement_action
     {

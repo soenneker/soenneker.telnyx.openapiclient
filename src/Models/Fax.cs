@@ -31,13 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ConnectionId { get; set; }
 #endif
         /// <summary>ISO 8601 timestamp when resource was created</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; set; }
-#nullable restore
-#else
-        public string CreatedAt { get; set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The direction of the fax.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Direction? Direction { get; set; }
         /// <summary>The phone number, in E.164 format, the fax will be sent from.</summary>
@@ -56,8 +50,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string FromDisplayName { get; set; }
 #endif
-        /// <summary>Identifies the resource.</summary>
-        public Guid? Id { get; private set; }
+        /// <summary>Identifies the type of resource.</summary>
+        public Guid? Id { get; set; }
         /// <summary>The media_name used for the fax&apos;s media. Must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. media_name and media_url/contents can&apos;t be submitted together.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,13 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string To { get; set; }
 #endif
         /// <summary>ISO 8601 timestamp when resource was updated</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Optional failover URL that will receive fax webhooks if webhook_url doesn&apos;t return a 2XX response</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -158,7 +146,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
-                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Direction>(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "from_display_name", n => { FromDisplayName = n.GetStringValue(); } },
@@ -172,7 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "store_media", n => { StoreMedia = n.GetBoolValue(); } },
                 { "stored_media_url", n => { StoredMediaUrl = n.GetStringValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
-                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -186,10 +174,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("connection_id", ConnectionId);
-            writer.WriteStringValue("created_at", CreatedAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Direction>("direction", Direction);
             writer.WriteStringValue("from", From);
             writer.WriteStringValue("from_display_name", FromDisplayName);
+            writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("media_name", MediaName);
             writer.WriteStringValue("media_url", MediaUrl);
             writer.WriteStringValue("preview_url", PreviewUrl);
@@ -199,7 +188,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("stored_media_url", StoredMediaUrl);
             writer.WriteBoolValue("store_media", StoreMedia);
             writer.WriteStringValue("to", To);
-            writer.WriteStringValue("updated_at", UpdatedAt);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

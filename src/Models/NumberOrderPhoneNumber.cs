@@ -25,13 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CountryCode { get; set; }
 #endif
         /// <summary>The deadline property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Deadline { get; set; }
-#nullable restore
-#else
-        public string Deadline { get; set; }
-#endif
+        public DateTimeOffset? Deadline { get; set; }
         /// <summary>The id property</summary>
         public Guid? Id { get; private set; }
         /// <summary>The is_block_number property</summary>
@@ -107,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "bundle_id", n => { BundleId = n.GetGuidValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
-                { "deadline", n => { Deadline = n.GetStringValue(); } },
+                { "deadline", n => { Deadline = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_block_number", n => { IsBlockNumber = n.GetBoolValue(); } },
                 { "locality", n => { Locality = n.GetStringValue(); } },
@@ -130,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("country_code", CountryCode);
-            writer.WriteStringValue("deadline", Deadline);
+            writer.WriteDateTimeOffsetValue("deadline", Deadline);
             writer.WriteBoolValue("is_block_number", IsBlockNumber);
             writer.WriteStringValue("locality", Locality);
             writer.WriteGuidValue("order_request_id", OrderRequestId);

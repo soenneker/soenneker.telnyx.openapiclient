@@ -304,32 +304,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders
             public string FiltercostCurrency { get; set; }
 #endif
             /// <summary>Filter by ISO 8601 formatted date-time string matching resource creation date-time.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("filter%5Bcreated_at%5D")]
-            public string? FiltercreatedAt { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcreated_at%5D")]
-            public string FiltercreatedAt { get; set; }
-#endif
+            public DateTimeOffset? FiltercreatedAt { get; set; }
             /// <summary>Filter orders by how many SIM cards were ordered.</summary>
             [QueryParameter("filter%5Bquantity%5D")]
             public int? Filterquantity { get; set; }
             /// <summary>Filter by ISO 8601 formatted date-time string matching resource last update date-time.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("filter%5Bupdated_at%5D")]
-            public string? FilterupdatedAt { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bupdated_at%5D")]
-            public string FilterupdatedAt { get; set; }
-#endif
-            /// <summary>The page number to load.</summary>
+            public DateTimeOffset? FilterupdatedAt { get; set; }
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

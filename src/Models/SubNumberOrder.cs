@@ -23,13 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CountryCode { get; private set; }
 #endif
         /// <summary>An ISO 8901 datetime string denoting when the number order was created.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; private set; }
-#nullable restore
-#else
-        public string CreatedAt { get; private set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>A customer reference string for customer look ups.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,13 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The status of the order.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder_status? Status { get; private set; }
         /// <summary>An ISO 8901 datetime string for when the number order was updated.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; private set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; private set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>The user_id property</summary>
         public Guid? UserId { get; set; }
         /// <summary>
@@ -104,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
-                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_block_sub_number_order", n => { IsBlockSubNumberOrder = n.GetBoolValue(); } },
@@ -115,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "regulatory_requirements", n => { RegulatoryRequirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrderRegulatoryRequirement.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "requirements_met", n => { RequirementsMet = n.GetBoolValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrder_status>(); } },
-                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "user_id", n => { UserId = n.GetGuidValue(); } },
             };
         }

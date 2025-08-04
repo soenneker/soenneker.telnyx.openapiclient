@@ -31,13 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Certificate { get; set; }
 #endif
         /// <summary>ISO 8601 timestamp when the room was created</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; set; }
-#nullable restore
-#else
-        public string CreatedAt { get; set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Unique identifier of a push credential</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,13 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Type { get; set; }
 #endif
         /// <summary>ISO 8601 timestamp when the room was updated.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential"/> and sets the default values.
         /// </summary>
@@ -113,13 +101,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "alias", n => { Alias = n.GetStringValue(); } },
                 { "certificate", n => { Certificate = n.GetStringValue(); } },
-                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "private_key", n => { PrivateKey = n.GetStringValue(); } },
                 { "project_account_json_file", n => { ProjectAccountJsonFile = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential_project_account_json_file>(global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential_project_account_json_file.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
-                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -131,12 +119,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alias", Alias);
             writer.WriteStringValue("certificate", Certificate);
-            writer.WriteStringValue("created_at", CreatedAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("private_key", PrivateKey);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PushCredential_project_account_json_file>("project_account_json_file", ProjectAccountJsonFile);
             writer.WriteStringValue("type", Type);
-            writer.WriteStringValue("updated_at", UpdatedAt);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

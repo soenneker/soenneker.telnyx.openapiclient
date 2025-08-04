@@ -23,13 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client
         public string RefreshToken { get; set; }
 #endif
         /// <summary>ISO 8601 timestamp when the refresh token expires.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RefreshTokenExpiresAt { get; set; }
-#nullable restore
-#else
-        public string RefreshTokenExpiresAt { get; set; }
-#endif
+        public DateTimeOffset? RefreshTokenExpiresAt { get; set; }
         /// <summary>The token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,13 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client
         public string Token { get; set; }
 #endif
         /// <summary>ISO 8601 timestamp when the token expires.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TokenExpiresAt { get; set; }
-#nullable restore
-#else
-        public string TokenExpiresAt { get; set; }
-#endif
+        public DateTimeOffset? TokenExpiresAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client_token.Generate_join_client_tokenPostResponse_data"/> and sets the default values.
         /// </summary>
@@ -72,9 +60,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
-                { "refresh_token_expires_at", n => { RefreshTokenExpiresAt = n.GetStringValue(); } },
+                { "refresh_token_expires_at", n => { RefreshTokenExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
-                { "token_expires_at", n => { TokenExpiresAt = n.GetStringValue(); } },
+                { "token_expires_at", n => { TokenExpiresAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -85,9 +73,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("refresh_token", RefreshToken);
-            writer.WriteStringValue("refresh_token_expires_at", RefreshTokenExpiresAt);
+            writer.WriteDateTimeOffsetValue("refresh_token_expires_at", RefreshTokenExpiresAt);
             writer.WriteStringValue("token", Token);
-            writer.WriteStringValue("token_expires_at", TokenExpiresAt);
+            writer.WriteDateTimeOffsetValue("token_expires_at", TokenExpiresAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

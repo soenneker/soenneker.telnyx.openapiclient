@@ -15,21 +15,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An ISO 8901 datetime string denoting when the individual number reservation was created.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; private set; }
-#nullable restore
-#else
-        public string CreatedAt { get; private set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>An ISO 8901 datetime string for when the individual number reservation is going to expire</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ExpiredAt { get; private set; }
-#nullable restore
-#else
-        public string ExpiredAt { get; private set; }
-#endif
+        public DateTimeOffset? ExpiredAt { get; private set; }
         /// <summary>The id property</summary>
         public Guid? Id { get; private set; }
         /// <summary>The phone_number property</summary>
@@ -51,13 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The status of the phone number&apos;s reservation.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ReservedPhoneNumber_status? Status { get; private set; }
         /// <summary>An ISO 8901 datetime string for when the the individual number reservation was updated.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; private set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; private set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReservedPhoneNumber"/> and sets the default values.
         /// </summary>
@@ -83,13 +65,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "expired_at", n => { ExpiredAt = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "expired_at", n => { ExpiredAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReservedPhoneNumber_status>(); } },
-                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

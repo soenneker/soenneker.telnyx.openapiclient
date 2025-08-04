@@ -197,15 +197,8 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections
             public string FilterconnectionNamecontains { get; set; }
 #endif
             /// <summary>Filter by ISO 8601 formatted date-time string matching resource creation date-time.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("filter%5Bcreated_at%5D")]
-            public string? FiltercreatedAt { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcreated_at%5D")]
-            public string FiltercreatedAt { get; set; }
-#endif
+            public DateTimeOffset? FiltercreatedAt { get; set; }
             /// <summary>If present, connections with &lt;code&gt;external_sip_connection&lt;/code&gt; matching the given value will be returned.</summary>
             [Obsolete("This property is deprecated, use FilterexternalSipConnectionAsGetFilterExternalSipConnectionQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -240,10 +233,10 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections
             [QueryParameter("filter%5Bphone_number%5D%5Beq%5D")]
             public string FilterphoneNumbereq { get; set; }
 #endif
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

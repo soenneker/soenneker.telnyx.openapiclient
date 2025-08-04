@@ -23,21 +23,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Codec { get; set; }
 #endif
         /// <summary>ISO 8601 timestamp when the room recording has completed.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CompletedAt { get; set; }
-#nullable restore
-#else
-        public string CompletedAt { get; set; }
-#endif
+        public DateTimeOffset? CompletedAt { get; set; }
         /// <summary>ISO 8601 timestamp when the room recording was created.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; set; }
-#nullable restore
-#else
-        public string CreatedAt { get; set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Url to download the recording.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,13 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Shows the room recording duration in seconds.</summary>
         public int? DurationSecs { get; set; }
         /// <summary>ISO 8601 timestamp when the room recording has ended.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? EndedAt { get; set; }
-#nullable restore
-#else
-        public string EndedAt { get; set; }
-#endif
+        public DateTimeOffset? EndedAt { get; set; }
         /// <summary>A unique identifier for the room recording.</summary>
         public Guid? Id { get; set; }
         /// <summary>Identify the room participant associated with the room recording.</summary>
@@ -75,25 +57,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Shows the room recording size in MB.</summary>
         public float? SizeMb { get; set; }
         /// <summary>ISO 8601 timestamp when the room recording has stated.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? StartedAt { get; set; }
-#nullable restore
-#else
-        public string StartedAt { get; set; }
-#endif
+        public DateTimeOffset? StartedAt { get; set; }
         /// <summary>Shows the room recording status.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_status? Status { get; set; }
         /// <summary>Shows the room recording type.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_type? Type { get; set; }
         /// <summary>ISO 8601 timestamp when the room recording was updated.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording"/> and sets the default values.
         /// </summary>
@@ -120,21 +90,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "codec", n => { Codec = n.GetStringValue(); } },
-                { "completed_at", n => { CompletedAt = n.GetStringValue(); } },
-                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "download_url", n => { DownloadUrl = n.GetStringValue(); } },
                 { "duration_secs", n => { DurationSecs = n.GetIntValue(); } },
-                { "ended_at", n => { EndedAt = n.GetStringValue(); } },
+                { "ended_at", n => { EndedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "participant_id", n => { ParticipantId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "room_id", n => { RoomId = n.GetGuidValue(); } },
                 { "session_id", n => { SessionId = n.GetGuidValue(); } },
                 { "size_mb", n => { SizeMb = n.GetFloatValue(); } },
-                { "started_at", n => { StartedAt = n.GetStringValue(); } },
+                { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_status>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_type>(); } },
-                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -145,20 +115,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("codec", Codec);
-            writer.WriteStringValue("completed_at", CompletedAt);
-            writer.WriteStringValue("created_at", CreatedAt);
+            writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("download_url", DownloadUrl);
             writer.WriteIntValue("duration_secs", DurationSecs);
-            writer.WriteStringValue("ended_at", EndedAt);
+            writer.WriteDateTimeOffsetValue("ended_at", EndedAt);
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("participant_id", ParticipantId);
             writer.WriteGuidValue("room_id", RoomId);
             writer.WriteGuidValue("session_id", SessionId);
             writer.WriteFloatValue("size_mb", SizeMb);
-            writer.WriteStringValue("started_at", StartedAt);
+            writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_status>("status", Status);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomRecording_type>("type", Type);
-            writer.WriteStringValue("updated_at", UpdatedAt);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

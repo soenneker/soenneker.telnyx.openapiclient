@@ -23,13 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Refresh_client_token
         public string Token { get; set; }
 #endif
         /// <summary>ISO 8601 timestamp when the token expires.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TokenExpiresAt { get; set; }
-#nullable restore
-#else
-        public string TokenExpiresAt { get; set; }
-#endif
+        public DateTimeOffset? TokenExpiresAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Refresh_client_token.Refresh_client_tokenPostResponse_data"/> and sets the default values.
         /// </summary>
@@ -56,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Refresh_client_token
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "token", n => { Token = n.GetStringValue(); } },
-                { "token_expires_at", n => { TokenExpiresAt = n.GetStringValue(); } },
+                { "token_expires_at", n => { TokenExpiresAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -67,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Refresh_client_token
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("token", Token);
-            writer.WriteStringValue("token_expires_at", TokenExpiresAt);
+            writer.WriteDateTimeOffsetValue("token_expires_at", TokenExpiresAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

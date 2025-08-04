@@ -12,7 +12,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class DocReqsRequirement : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Indicates whether this requirement applies to ordering, porting, or both</summary>
+        /// <summary>Indicates whether this requirement applies to branded_calling, ordering, porting, or both porting and ordering</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DocReqsRequirement_action? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

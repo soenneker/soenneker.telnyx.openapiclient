@@ -3,8 +3,8 @@
   "info": {
     "version": "2.0.0",
     "title": "Telnyx API",
-    "x-endpoint-cost": "light",
     "description": "SIP trunking, SMS, MMS, Call Control and Telephony Data Services.",
+    "x-endpoint-cost": "light",
     "license": {
       "name": "MIT"
     },
@@ -13990,7 +13990,7 @@
           "200": {
             "description": "Successful response",
             "content": {
-              "*/*": {
+              "application/octet-stream": {
                 "schema": {
                   "type": "object",
                   "properties": {}
@@ -22528,8 +22528,7 @@
                   "phone_numbers": {
                     "type": "array",
                     "items": {
-                      "type": "string",
-                      "format": "phone"
+                      "type": "string"
                     }
                   }
                 },
@@ -22554,8 +22553,7 @@
                         "type": "object",
                         "properties": {
                           "phone_number": {
-                            "type": "string",
-                            "format": "phone"
+                            "type": "string"
                           },
                           "features": {
                             "type": "array",
@@ -23846,7 +23844,6 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "int64",
               "example": "1521916448077776306"
             }
           },
@@ -23921,7 +23918,6 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "int64",
               "example": "9102160989215728032"
             }
           },
@@ -24117,7 +24113,6 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "int64",
               "example": "1521916448077776306"
             }
           },
@@ -24192,7 +24187,6 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "int64",
               "example": "9102160989215728032"
             }
           },
@@ -24574,7 +24568,6 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "int64",
               "example": "1521916448077776306"
             }
           },
@@ -24649,7 +24642,6 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "int64",
               "example": "9102160989215728032"
             }
           },
@@ -24986,7 +24978,6 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "int64",
               "example": "1521916448077776306"
             }
           },
@@ -25061,7 +25052,6 @@
             "required": false,
             "schema": {
               "type": "string",
-              "format": "int64",
               "example": "9102160989215728032"
             }
           },
@@ -29582,13 +29572,9 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              }
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -29623,13 +29609,9 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              }
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -32502,7 +32484,6 @@
                     "properties": {
                       "amount": {
                         "type": "string",
-                        "format": "decimal",
                         "example": "2048.1"
                       },
                       "unit": {
@@ -32974,7 +32955,6 @@
                   "address_id": {
                     "type": "string",
                     "description": "Uniquely identifies the address for the order.",
-                    "format": "int64",
                     "example": "1293384261075731499"
                   }
                 }
@@ -39265,11 +39245,12 @@
       },
       "ConnectionId": {
         "name": "connection_id",
-        "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+        "description": "Telnyx connection id",
         "in": "path",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "example": "1293384261075731461"
         }
       },
       "CreatedAtGtFilter": {
@@ -39384,7 +39365,6 @@
         "description": "Uniquely identifies the address for the order.",
         "schema": {
           "type": "string",
-          "format": "int64",
           "example": "1293384261075731499"
         },
         "in": "query"
@@ -39758,7 +39738,8 @@
         "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
         "schema": {
           "type": "string",
-          "default": null
+          "default": null,
+          "example": "My Connection"
         }
       },
       "FilterCostByAmount": {
@@ -39827,7 +39808,7 @@
         "description": "Filter by ISO 8601 formatted date-time string matching resource creation date-time.",
         "schema": {
           "type": "string",
-          "format": "datetime",
+          "format": "date-time",
           "example": "2018-02-02T22:25:27.521Z"
         },
         "in": "query"
@@ -39986,7 +39967,6 @@
         "description": "Identifies the associated outbound voice profile.",
         "schema": {
           "type": "string",
-          "format": "int64",
           "example": "1293384261075731499"
         }
       },
@@ -40155,7 +40135,7 @@
         "description": "Filter by ISO 8601 formatted date-time string matching resource last update date-time.",
         "schema": {
           "type": "string",
-          "format": "datetime",
+          "format": "date-time",
           "example": "2018-02-02T22:25:27.521Z"
         },
         "in": "query"
@@ -40300,7 +40280,6 @@
         "required": true,
         "schema": {
           "type": "string",
-          "format": "int64",
           "example": "1293384261075731499"
         }
       },
@@ -40433,7 +40412,7 @@
       "PageNumber": {
         "name": "page[number]",
         "in": "query",
-        "description": "The page number to load.",
+        "description": "The page number to load",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -40443,7 +40422,7 @@
       "PageSize": {
         "name": "page[size]",
         "in": "query",
-        "description": "The size of the page.",
+        "description": "The size of the page",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -40686,16 +40665,15 @@
       "Sort": {
         "name": "sort",
         "in": "query",
+        "description": "Set the order of the results by the creation date.",
         "required": false,
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>email</code>: sorts the result by the\n    <code>email</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-email</code>: sorts the result by the\n    <code>email</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
           "enum": [
-            "created_at",
-            "email"
+            "asc",
+            "desc"
           ],
-          "example": "email",
-          "default": "created_at"
+          "example": "desc"
         }
       },
       "SortAddress": {
@@ -40719,21 +40697,22 @@
       "SortApplication": {
         "name": "sort",
         "in": "query",
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>application_name</code>: sorts the result by the\n    <code>application_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-application_name</code>: sorts the result by the\n    <code>application_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
           "enum": [
             "created_at",
-            "friendly_name",
+            "application_name",
             "active"
           ],
-          "example": "friendly_name",
+          "example": "application_name",
           "default": "created_at"
         }
       },
       "SortConnection": {
         "name": "sort",
         "in": "query",
+        "required": false,
         "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>connection_name</code>: sorts the result by the\n    <code>connection_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-connection_name</code>: sorts the result by the\n    <code>connection_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
@@ -40819,21 +40798,23 @@
         "example": "2023-05-22"
       },
       "Status": {
-        "name": "Status",
+        "name": "filter[status][eq]",
         "in": "query",
-        "required": false,
-        "description": "Filters calls by status.",
+        "description": "The status of a notification setting",
         "schema": {
           "type": "string",
           "enum": [
-            "canceled",
-            "completed",
-            "failed",
-            "busy",
-            "no-answer"
-          ]
-        },
-        "example": "no-answer"
+            "enabled",
+            "enable-received",
+            "enable-pending",
+            "enable-submtited",
+            "delete-received",
+            "delete-pending",
+            "delete-submitted",
+            "deleted"
+          ],
+          "example": "enable-received"
+        }
       },
       "StatusEqFilter": {
         "name": "filter[status][eq]",
@@ -40958,7 +40939,6 @@
         "in": "path",
         "required": true,
         "schema": {
-          "format": "int64",
           "type": "string",
           "example": "1293384261075731499"
         }
@@ -41130,9 +41110,9 @@
                   "description": "The address of the company.",
                   "required": [
                     "street_address",
-                    "locality",
-                    "administrative_area",
-                    "postal_code",
+                    "city",
+                    "state",
+                    "zip_code",
                     "country_code"
                   ],
                   "properties": {
@@ -41182,8 +41162,7 @@
                     "email": {
                       "type": "string",
                       "description": "The email address of the contact",
-                      "example": "testing@telnyx.com",
-                      "format": "email"
+                      "example": "testing@telnyx.com"
                     },
                     "phone_number": {
                       "type": "string",
@@ -42548,24 +42527,22 @@
                   "properties": {
                     "token": {
                       "type": "string",
-                      "format": "jwt",
                       "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0ZWxueXhfdGVsZXBob255IiwiZXhwIjoxNTkwMDEwMTQzLCJpYXQiOjE1ODc1OTA5NDMsImlzcyI6InRlbG55eF90ZWxlcGhvbnkiLCJqdGkiOiJiOGM3NDgzNy1kODllLTRhNjUtOWNmMi0zNGM3YTZmYTYwYzgiLCJuYmYiOjE1ODc1OTA5NDIsInN1YiI6IjVjN2FjN2QwLWRiNjUtNGYxMS05OGUxLWVlYzBkMWQ1YzZhZSIsInRlbF90b2tlbiI6InJqX1pra1pVT1pNeFpPZk9tTHBFVUIzc2lVN3U2UmpaRmVNOXMtZ2JfeENSNTZXRktGQUppTXlGMlQ2Q0JSbWxoX1N5MGlfbGZ5VDlBSThzRWlmOE1USUlzenl6U2xfYURuRzQ4YU81MHlhSEd1UlNZYlViU1ltOVdJaVEwZz09IiwidHlwIjoiYWNjZXNzIn0.gNEwzTow5MLLPLQENytca7pUN79PmPj6FyqZWW06ZeEmesxYpwKh0xRtA0TzLh6CDYIRHrI8seofOO0YFGDhpQ"
                     },
                     "token_expires_at": {
                       "description": "ISO 8601 timestamp when the token expires.",
                       "type": "string",
-                      "format": "datetime",
+                      "format": "date-time",
                       "example": "2021-03-26T17:51:59Z"
                     },
                     "refresh_token": {
                       "type": "string",
-                      "format": "jwt",
                       "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0ZWxueXhfdGVsZXBob255IiwiZXhwIjoxNTkwMDEwMTQzLCJpYXQiOjE1ODc1OTA5NDMsImlzcyI6InRlbG55eF90ZWxlcGhvbnkiLCJqdGkiOiJiOGM3NDgzNy1kODllLTRhNjUtOWNmMi0zNGM3YTZmYTYwYzgiLCJuYmYiOjE1ODc1OTA5NDIsInN1YiI6IjVjN2FjN2QwLWRiNjUtNGYxMS05OGUxLWVlYzBkMWQ1YzZhZSIsInRlbF90b2tlbiI6InJqX1pra1pVT1pNeFpPZk9tTHBFVUIzc2lVN3U2UmpaRmVNOXMtZ2JfeENSNTZXRktGQUppTXlGMlQ2Q0JSbWxoX1N5MGlfbGZ5VDlBSThzRWlmOE1USUlzenl6U2xfYURuRzQ4YU81MHlhSEd1UlNZYlViU1ltOVdJaVEwZz09IiwidHlwIjoiYWNjZXNzIn0.gNEwzTow5MLLPLQENytca7pUN79PmPj6FyqZWW06ZeEmesxYpwKh0xRtA0TzLh6CDYIRHrI8seofOO0YFGDhpQ"
                     },
                     "refresh_token_expires_at": {
                       "description": "ISO 8601 timestamp when the refresh token expires.",
                       "type": "string",
-                      "format": "datetime",
+                      "format": "date-time",
                       "example": "2021-03-26T17:51:59Z"
                     }
                   },
@@ -42982,7 +42959,19 @@
         }
       },
       "ForbiddenResponse": {
-        "description": "Unauthorized response. Happens when the current user is not authorized to access the endpoint."
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Errors"
+            },
+            "examples": {
+              "Not authorized": {
+                "$ref": "#/components/examples/NotAuthorized"
+              }
+            }
+          }
+        }
       },
       "FqdnConnectionResponse": {
         "description": "Successful response with details about an FQDN connection.",
@@ -45681,7 +45670,7 @@
       "MediaDownloadResponse": {
         "description": "A response describing a media resource",
         "content": {
-          "*/*": {
+          "application/octet-stream": {
             "schema": {
               "type": "string",
               "format": "binary"
@@ -45858,14 +45847,7 @@
         }
       },
       "NotFoundResponse": {
-        "description": "Resource not found",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/ResourceNotFoundError"
-            }
-          }
-        }
+        "description": "Fax does not exist"
       },
       "NotFoundResponseApp": {
         "description": "The requested resource doesn't exist.",
@@ -46326,13 +46308,12 @@
                   "properties": {
                     "token": {
                       "type": "string",
-                      "format": "jwt",
                       "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0ZWxueXhfdGVsZXBob255IiwiZXhwIjoxNTkwMDEwMTQzLCJpYXQiOjE1ODc1OTA5NDMsImlzcyI6InRlbG55eF90ZWxlcGhvbnkiLCJqdGkiOiJiOGM3NDgzNy1kODllLTRhNjUtOWNmMi0zNGM3YTZmYTYwYzgiLCJuYmYiOjE1ODc1OTA5NDIsInN1YiI6IjVjN2FjN2QwLWRiNjUtNGYxMS05OGUxLWVlYzBkMWQ1YzZhZSIsInRlbF90b2tlbiI6InJqX1pra1pVT1pNeFpPZk9tTHBFVUIzc2lVN3U2UmpaRmVNOXMtZ2JfeENSNTZXRktGQUppTXlGMlQ2Q0JSbWxoX1N5MGlfbGZ5VDlBSThzRWlmOE1USUlzenl6U2xfYURuRzQ4YU81MHlhSEd1UlNZYlViU1ltOVdJaVEwZz09IiwidHlwIjoiYWNjZXNzIn0.gNEwzTow5MLLPLQENytca7pUN79PmPj6FyqZWW06ZeEmesxYpwKh0xRtA0TzLh6CDYIRHrI8seofOO0YFGDhpQ"
                     },
                     "token_expires_at": {
                       "description": "ISO 8601 timestamp when the token expires.",
                       "type": "string",
-                      "format": "datetime",
+                      "format": "date-time",
                       "example": "2021-03-26T17:51:59Z"
                     }
                   },
@@ -47336,7 +47317,7 @@
         }
       },
       "UnauthorizedResponse": {
-        "description": "Unauthenticated response. Happens when the current user cannot be authenticated."
+        "description": "Unauthorized"
       },
       "UnexpectedErrorResponse": {
         "description": "An unexpected error occurred.",
@@ -49126,7 +49107,8 @@
           },
           "dynamic_variables": {
             "type": "object",
-            "description": "Map of dynamic variables and their values"
+            "description": "Map of dynamic variables and their values",
+            "additionalProperties": true
           },
           "import_metadata": {
             "$ref": "#/components/schemas/ImportMetadata"
@@ -51203,7 +51185,8 @@
             "type": "object",
             "description": "A JSON object representation of the bulk action payload.",
             "example": {},
-            "readOnly": true
+            "readOnly": true,
+            "additionalProperties": true
           },
           "created_at": {
             "$ref": "#/components/schemas/CreatedAt"
@@ -51237,7 +51220,8 @@
             "type": "object",
             "description": "A JSON object representation of the bulk action payload.",
             "example": {},
-            "readOnly": true
+            "readOnly": true,
+            "additionalProperties": true
           },
           "sim_card_actions_summary": {
             "type": "array",
@@ -56995,7 +56979,8 @@
             "example": "http://portal.telnyx.com/downloads/report_name_8hvb45Gu.csv"
           },
           "result": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "created_at": {
             "type": "string",
@@ -57092,7 +57077,8 @@
           },
           "guided_json": {
             "type": "object",
-            "description": "Must be a valid JSON schema. If specified, the output will follow the JSON schema."
+            "description": "Must be a valid JSON schema. If specified, the output will follow the JSON schema.",
+            "additionalProperties": true
           },
           "guided_regex": {
             "type": "string",
@@ -57586,26 +57572,27 @@
           },
           "read_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the comment was read.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "created_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string denoting when the comment was created.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "updated_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the comment was updated.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           }
-        }
+        },
+        "type": "object"
       },
       "ComparativeLine": {
         "type": "object",
@@ -60133,7 +60120,6 @@
           },
           "amount": {
             "type": "string",
-            "format": "decimal",
             "example": "2048.1"
           }
         }
@@ -60482,17 +60468,20 @@
             }
           },
           "mobile": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "national": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "inventory_coverage": {
             "type": "boolean",
             "description": "Indicates whether country can be queried with inventory coverage endpoint"
           },
           "shared_cost": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         },
         "example": {
@@ -60576,7 +60565,8 @@
             "example": {
               "private_key": "BBBB0J56jd8kda:APA91vjb11BCjvxx3Jxja...",
               "client_email": "account@customer.org"
-            }
+            },
+            "additionalProperties": true
           },
           "alias": {
             "description": "Alias to uniquely identify the credential",
@@ -60642,7 +60632,8 @@
           },
           "dynamic_variables": {
             "type": "object",
-            "description": "Map of dynamic variables and their default values"
+            "description": "Map of dynamic variables and their default values",
+            "additionalProperties": true
           }
         },
         "type": "object",
@@ -61611,11 +61602,7 @@
                 "default": 3,
                 "description": "The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset. 'auto' decides the optimal number of epochs based on the size of the dataset. If setting the number manually, we support any number between 1 and 50 epochs."
               }
-            },
-            "required": [
-              "model",
-              "training_file"
-            ]
+            }
           }
         },
         "type": "object",
@@ -62630,14 +62617,16 @@
                 "type": "string"
               },
               {
-                "type": "object"
+                "type": "object",
+                "title": "ToolChoiceObject"
               }
             ],
             "title": "Tool Choice"
           },
           "tool_calls": {
             "items": {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": true
             },
             "type": "array",
             "title": "Tool Calls"
@@ -62652,6 +62641,7 @@
             "title": "Sent At"
           },
           "metadata": {
+            "type": "object",
             "additionalProperties": {
               "anyOf": [
                 {
@@ -62710,7 +62700,6 @@
           "starting_number": {
             "type": "string",
             "description": "Starting phone number block",
-            "format": "e164_phone_number",
             "example": "+19705555000",
             "writeOnly": true
           },
@@ -62753,14 +62742,14 @@
           },
           "created_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string denoting when the number order was created.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "updated_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the number order was updated.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
@@ -62781,7 +62770,8 @@
         "example": {
           "starting_number": "+19705555000",
           "range": 10
-        }
+        },
+        "type": "object"
       },
       "CreateNumberOrderRequest": {
         "properties": {
@@ -62848,7 +62838,8 @@
           "messaging_profile_id": "abc85f64-5717-4562-b3fc-2c9600",
           "billing_group_id": "abc85f64-5717-4562-b3fc-2c9600",
           "customer_reference": "MY REF 001"
-        }
+        },
+        "type": "object"
       },
       "CreateNumberPoolMessageRequest": {
         "type": "object",
@@ -62962,14 +62953,14 @@
           },
           "created_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string denoting when the numbers reservation was created.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "updated_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the number reservation was updated.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
@@ -62993,7 +62984,8 @@
           "customer_reference": "MY REF 001",
           "created_at": "2018-01-01T00:00:00.000000Z",
           "updated_at": "2018-01-01T00:00:00.000000Z"
-        }
+        },
+        "type": "object"
       },
       "CreateOutboundVoiceProfileRequest": {
         "type": "object",
@@ -63191,13 +63183,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this room composition will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this room composition will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -63238,13 +63230,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this room will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this room will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -63751,7 +63743,8 @@
             },
             "writeOnly": true
           }
-        }
+        },
+        "type": "object"
       },
       "CreateVerificationRequestCall": {
         "title": "CreateVerificationRequestCall",
@@ -63996,10 +63989,10 @@
         }
       },
       "CreatedAt": {
-        "title": "Created At",
         "type": "string",
-        "description": "ISO 8601 formatted date indicating when the resource was created.",
-        "example": "2020-02-02T22:25:27.521Z"
+        "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+        "readOnly": true,
+        "example": "2018-02-02T22:25:27.521Z"
       },
       "CreatedUserBundlesResponse": {
         "title": "CreatedUserBundlesResponse",
@@ -64453,7 +64446,6 @@
       "Credentials": {
         "description": "Opaque credential token used to authenticate and authorize with storage provider.",
         "type": "string",
-        "format": "password",
         "example": "OPAQUE_CREDENTIALS_TOKEN"
       },
       "CredentialsResponse": {
@@ -64538,15 +64530,19 @@
           "cursors": {
             "$ref": "#/components/schemas/Cursor"
           },
+          "total_items": {
+            "type": "integer",
+            "example": 50
+          },
           "next": {
             "type": "string",
             "description": "Path to next page.",
-            "example": "/v2/recording_transcriptions?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/connections/1234567890/active_calls?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           },
           "previous": {
             "type": "string",
             "description": "Path to previous page.",
-            "example": "/v2/recording_transcriptions?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/connections/1234567890/active_calls?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           }
         }
       },
@@ -64913,7 +64909,8 @@
             ]
           },
           "send_dtmf": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         },
         "type": "object",
@@ -65592,7 +65589,8 @@
           "service_account": {
             "description": "The JSON map to connect your Dialoglow account.",
             "type": "object",
-            "example": "{\"service_account\":{\"type\":\"service_account\",\"project_id\":\"your-project-id\",\"private_key_id\":\"your-private-key\",\"private_key\":\"-----BEGIN PRIVATE KEY-----n-----END PRIVATE\",\"client_email\":\"example@example.com\",\"client_id\":\"your-client-id\",\"auth_uri\":\"http://example.com\",\"token_uri\":\"http://example.com\",\"auth_provider_x509_cert_url\":\"http://example.com\",\"client_x509_cert_url\":\"http://example.com\"}}"
+            "example": "{\"service_account\":{\"type\":\"service_account\",\"project_id\":\"your-project-id\",\"private_key_id\":\"your-private-key\",\"private_key\":\"-----BEGIN PRIVATE KEY-----n-----END PRIVATE\",\"client_email\":\"example@example.com\",\"client_id\":\"your-client-id\",\"auth_uri\":\"http://example.com\",\"token_uri\":\"http://example.com\",\"auth_provider_x509_cert_url\":\"http://example.com\",\"client_x509_cert_url\":\"http://example.com\"}}",
+            "additionalProperties": true
           },
           "dialogflow_api": {
             "description": "Determine which Dialogflow will be used.",
@@ -65709,7 +65707,7 @@
             "example": "local"
           },
           "action": {
-            "description": "Indicates whether this requirement applies to ordering, porting, or both",
+            "description": "Indicates whether this requirement applies to branded_calling, ordering, porting, or both porting and ordering",
             "type": "string",
             "enum": [
               "both",
@@ -66141,7 +66139,7 @@
           "locality",
           "administrative_area",
           "postal_code",
-          "country_coude"
+          "country_code"
         ]
       },
       "DynamicEmergencyEndpoint": {
@@ -66398,7 +66396,8 @@
           },
           "loader_metadata": {
             "type": "object",
-            "title": "Loader Metadata"
+            "title": "Loader Metadata",
+            "additionalProperties": true
           }
         },
         "type": "object",
@@ -66598,7 +66597,6 @@
           },
           "emergency_address_id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the address to be used with emergency services."
           },
           "emergency_status": {
@@ -66716,14 +66714,15 @@
         "example": "{\"page\": 1, \"records\": [{\"isin\": \"US68243Q1067\", \"iso2\": \"US\", \"symbol\": \"FLWS\", \"exchange\": \"NASDAQ\", \"displayName\": \"1-800 FLOWERS.COM, Inc.\"}, {\"isin\": \"US88025U1097\", \"iso2\": \"US\", \"symbol\": \"TXG\", \"exchange\": \"NASDAQ\", \"displayName\": \"10X GENOMICS INC CLASS A\"}], \"totalRecords\": 2}"
       },
       "Error": {
+        "type": "object",
         "required": [
           "code",
           "title"
         ],
         "properties": {
           "code": {
-            "type": "string",
-            "format": "int"
+            "type": "integer",
+            "format": "int32"
           },
           "title": {
             "type": "string"
@@ -66736,18 +66735,18 @@
             "properties": {
               "pointer": {
                 "description": "JSON pointer (RFC6901) to the offending entity.",
-                "type": "string",
-                "format": "json-pointer"
+                "type": "string"
               },
               "parameter": {
                 "description": "Indicates which query parameter caused the error.",
-                "type": "string",
-                "example": "+15617819942"
+                "type": "string"
               }
             }
           },
           "meta": {
-            "type": "object"
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
           }
         }
       },
@@ -66817,6 +66816,7 @@
         }
       },
       "Errors": {
+        "type": "object",
         "properties": {
           "errors": {
             "type": "array",
@@ -67352,12 +67352,12 @@
           "created_at": {
             "description": "ISO 8601 timestamp when resource was created",
             "type": "string",
-            "format": "datetime"
+            "format": "date-time"
           },
           "updated_at": {
             "description": "ISO 8601 timestamp when resource was updated",
             "type": "string",
-            "format": "datetime"
+            "format": "date-time"
           }
         },
         "example": {
@@ -67594,7 +67594,6 @@
         "description": "Specifies an email address where faxes sent to this application will be forwarded to (as pdf or tiff attachments)",
         "default": null,
         "nullable": true,
-        "format": "email",
         "example": "user@example.com"
       },
       "FaxFailed": {
@@ -67940,7 +67939,8 @@
         },
         "example": {
           "name": "sms"
-        }
+        },
+        "type": "object"
       },
       "FineTuningJob": {
         "type": "object",
@@ -68054,13 +68054,16 @@
           {
             "properties": {
               "code": {
-                "example": "10010"
+                "example": "10010",
+                "type": "string"
               },
               "title": {
-                "example": "Authorization failed"
+                "example": "Authorization failed",
+                "type": "string"
               },
               "detail": {
-                "example": "You do not have permission to perform the requested action on the specified resource or resources."
+                "example": "You do not have permission to perform the requested action on the specified resource or resources.",
+                "type": "string"
               },
               "meta": {
                 "type": "object",
@@ -68071,7 +68074,8 @@
                   }
                 }
               }
-            }
+            },
+            "type": "object"
           }
         ]
       },
@@ -68368,7 +68372,8 @@
             "type": "string"
           },
           "parameters": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         },
         "type": "object",
@@ -68991,8 +68996,7 @@
       "GenericError": {
         "properties": {
           "code": {
-            "type": "string",
-            "format": "int"
+            "type": "string"
           },
           "title": {
             "type": "string"
@@ -69005,8 +69009,7 @@
             "properties": {
               "pointer": {
                 "description": "JSON pointer (RFC6901) to the offending entity.",
-                "type": "string",
-                "format": "json-pointer"
+                "type": "string"
               },
               "parameter": {
                 "description": "Indicates which query parameter caused the error.",
@@ -69015,9 +69018,11 @@
             }
           },
           "meta": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
-        }
+        },
+        "type": "object"
       },
       "GetInsightTemplateGroupsRespData": {
         "properties": {
@@ -69981,17 +69986,17 @@
         ]
       },
       "HTTPValidationError": {
-        "title": "HTTPValidationError",
-        "type": "object",
         "properties": {
           "detail": {
-            "title": "Detail",
-            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ValidationError"
-            }
+            },
+            "type": "array",
+            "title": "Detail"
           }
-        }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
       },
       "HandoffTool": {
         "description": "The handoff tool allows the assistant to hand off control of the conversation to another AI assistant. By default, this will happen transparently to the end user.",
@@ -70143,9 +70148,8 @@
       "Id": {
         "type": "string",
         "format": "uuid",
-        "description": "Identifies the resource.",
-        "readOnly": true,
-        "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+        "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
+        "description": "Identifies the type of resource."
       },
       "ImportAssistantsRequest": {
         "properties": {
@@ -71288,7 +71292,8 @@
                 "type": "string"
               },
               {
-                "type": "object"
+                "type": "object",
+                "title": "JsonSchemaObject"
               }
             ],
             "title": "Json Schema",
@@ -71443,7 +71448,8 @@
                 "type": "string"
               },
               {
-                "type": "object"
+                "type": "object",
+                "title": "JsonSchemaObject"
               }
             ],
             "title": "Json Schema",
@@ -71478,7 +71484,8 @@
                 "type": "string"
               },
               {
-                "type": "object"
+                "type": "object",
+                "title": "JsonSchemaObject"
               }
             ],
             "title": "Json Schema"
@@ -71490,7 +71497,6 @@
       "IntId": {
         "title": "Int ID",
         "type": "string",
-        "format": "int64",
         "description": "Uniquely identifies the resource.",
         "example": "1293384261075731499"
       },
@@ -72309,7 +72315,8 @@
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
           }
-        }
+        },
+        "type": "object"
       },
       "ListVerificationsResponse": {
         "title": "ListVerificationsResponse",
@@ -73880,34 +73887,36 @@
         }
       },
       "Metadata": {
-        "type": "object",
-        "title": "Metadata",
         "properties": {
-          "total_pages": {
-            "type": "number",
-            "description": "Total number of pages based on pagination settings",
-            "example": 13,
-            "format": "double"
-          },
-          "total_results": {
-            "type": "number",
-            "description": "Total number of results",
-            "example": 13,
-            "format": "double"
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "example": 25
           },
           "page_number": {
-            "type": "number",
-            "description": "Current Page based on pagination settings (included when defaults are used.)",
-            "example": 3,
-            "format": "double"
+            "type": "integer",
+            "title": "Page Number",
+            "example": 1
           },
-          "page_size": {
-            "type": "number",
-            "description": "Number of results to return per page based on pagination settings (included when defaults are used.)",
-            "example": 1,
-            "format": "double"
+          "total_pages": {
+            "type": "integer",
+            "title": "Total Pages",
+            "example": 10
+          },
+          "total_results": {
+            "type": "integer",
+            "title": "Total Items",
+            "example": 250
           }
-        }
+        },
+        "required": [
+          "page_size",
+          "page_number",
+          "total_pages",
+          "total_results"
+        ],
+        "type": "object",
+        "title": "Metadata"
       },
       "MigrationParams": {
         "type": "object",
@@ -74875,7 +74884,6 @@
           "starting_number": {
             "type": "string",
             "description": "Starting phone number block",
-            "format": "e164_phone_number",
             "example": "+19705555000"
           },
           "range": {
@@ -74917,14 +74925,14 @@
           },
           "created_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string denoting when the number order was created.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "updated_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the number order was updated.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
@@ -74949,7 +74957,8 @@
           "created_at": "2018-01-01T00:00:00.000000Z",
           "updated_at": "2018-01-01T00:00:00.000000Z",
           "requirements_met": true
-        }
+        },
+        "type": "object"
       },
       "NumberBreakdownResult": {
         "type": "object",
@@ -75135,14 +75144,14 @@
           },
           "created_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string denoting when the number order was created.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "updated_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the number order was updated.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
@@ -75179,7 +75188,6 @@
           },
           "phone_number": {
             "type": "string",
-            "format": "e164_phone_number",
             "example": "+19705555098"
           },
           "order_request_id": {
@@ -75242,7 +75250,7 @@
           },
           "deadline": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "024-05-31T11:14:00+00:00"
           },
           "requirements_status": {
@@ -75263,7 +75271,8 @@
             "type": "boolean",
             "example": false
           }
-        }
+        },
+        "type": "object"
       },
       "NumberOrderPhoneNumberRequirementGroupResponse": {
         "type": "object",
@@ -75420,14 +75429,14 @@
           },
           "created_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string denoting when the number order was created.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "updated_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the number order was updated.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
@@ -75520,14 +75529,14 @@
           },
           "created_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string denoting when the numbers reservation was created.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "updated_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the number reservation was updated.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
@@ -75552,7 +75561,8 @@
           "customer_reference": "MY REF 001",
           "created_at": "2018-01-01T00:00:00.000000Z",
           "updated_at": "2018-01-01T00:00:00.000000Z"
-        }
+        },
+        "type": "object"
       },
       "OptOutItem": {
         "type": "object",
@@ -76695,7 +76705,6 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the resource.",
             "example": "1293384261075731499"
           },
@@ -76803,7 +76812,6 @@
         "title": "Outbound Voice Profile ID",
         "type": "string",
         "description": "Identifies the associated outbound voice profile.",
-        "format": "int64",
         "example": "1293384261075731499"
       },
       "PWGAssignedResourcesSummary": {
@@ -77014,27 +77022,19 @@
         "properties": {
           "page_number": {
             "type": "integer",
-            "example": [
-              2
-            ]
+            "example": 2
           },
           "page_size": {
             "type": "integer",
-            "example": [
-              25
-            ]
+            "example": 25
           },
           "total_pages": {
             "type": "integer",
-            "example": [
-              3
-            ]
+            "example": 3
           },
           "total_results": {
             "type": "integer",
-            "example": [
-              55
-            ]
+            "example": 55
           }
         }
       },
@@ -77384,13 +77384,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this room will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this room will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -77545,12 +77545,10 @@
         "properties": {
           "phone_number": {
             "type": "string",
-            "description": "The phone number in e164 format.",
-            "format": "e164"
+            "description": "The phone number in e164 format."
           },
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "The phone number's ID"
           },
           "errors": {
@@ -77559,21 +77557,21 @@
               "$ref": "#/components/schemas/Error"
             }
           }
-        }
+        },
+        "type": "object"
       },
       "PhoneNumberBlocksJobSuccessfulOperation": {
         "properties": {
           "phone_number": {
             "type": "string",
-            "description": "The phone number in e164 format.",
-            "format": "e164"
+            "description": "The phone number in e164 format."
           },
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "The phone number's ID"
           }
-        }
+        },
+        "type": "object"
       },
       "PhoneNumberBundleStatusChangeRequest": {
         "type": "object",
@@ -77816,7 +77814,6 @@
           },
           "emergency_address_id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the emergency address associated with the phone number.",
             "readOnly": true
           },
@@ -77997,7 +77994,6 @@
           },
           "emergency_address_id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the emergency address associated with the phone number.",
             "readOnly": true
           },
@@ -78099,7 +78095,6 @@
           },
           "emergency_address_id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the address to be used with emergency services."
           }
         },
@@ -78589,12 +78584,10 @@
         "properties": {
           "phone_number": {
             "type": "string",
-            "description": "The phone number in e164 format.",
-            "format": "e164"
+            "description": "The phone number in e164 format."
           },
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "The phone number's ID"
           },
           "errors": {
@@ -78603,50 +78596,48 @@
               "$ref": "#/components/schemas/Error"
             }
           }
-        }
+        },
+        "type": "object"
       },
       "PhoneNumbersJobPendingOperation": {
         "properties": {
           "phone_number": {
             "type": "string",
-            "description": "The phone number in e164 format.",
-            "format": "e164"
+            "description": "The phone number in e164 format."
           },
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "The phone number's ID"
           }
-        }
+        },
+        "type": "object"
       },
       "PhoneNumbersJobPhoneNumber": {
         "properties": {
           "phone_number": {
             "type": "string",
             "description": "The phone number in e164 format.",
-            "format": "e164",
             "example": "+19705555000"
           },
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "The phone number's ID"
           }
-        }
+        },
+        "type": "object"
       },
       "PhoneNumbersJobSuccessfulOperation": {
         "properties": {
           "phone_number": {
             "type": "string",
-            "description": "The phone number in e164 format.",
-            "format": "e164"
+            "description": "The phone number in e164 format."
           },
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "The phone number's ID"
           }
-        }
+        },
+        "type": "object"
       },
       "PhoneNumbersJobUpdateEmergencySettingsRequest": {
         "type": "object",
@@ -78668,7 +78659,6 @@
           },
           "emergency_address_id": {
             "type": "string",
-            "format": "int64",
             "nullable": true,
             "description": "Identifies the address to be used with emergency services. Required if emergency_enabled is true, must be null or omitted if emergency_enabled is false."
           }
@@ -78932,7 +78922,8 @@
           "document_id": "f1c5e079-9d82-4f50-95bc-ae2f6b8d84d7",
           "created_at": "2018-02-02T22:25:27.521Z",
           "updated_at": "2018-02-02T22:25:27.521Z"
-        }
+        },
+        "type": "object"
       },
       "Portability": {
         "type": "object",
@@ -79294,8 +79285,7 @@
               "email": {
                 "type": "string",
                 "description": "The email address of the contact",
-                "example": "testing@telnyx.com",
-                "format": "email"
+                "example": "testing@telnyx.com"
               },
               "phone_number": {
                 "type": "string",
@@ -79748,7 +79738,8 @@
                 "description": "The acceptance criteria for the requirement type",
                 "example": {
                   "acceptable_values": []
-                }
+                },
+                "additionalProperties": true
               },
               "description": {
                 "type": "string",
@@ -80041,7 +80032,6 @@
           },
           "user_email": {
             "type": "string",
-            "format": "email",
             "description": "The email address of the user who created this comment",
             "example": "user@example.com"
           },
@@ -80522,7 +80512,8 @@
           "portout_id": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
           "user_id": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
           "created_at": "2018-02-02T22:25:27.521Z"
-        }
+        },
+        "type": "object"
       },
       "PortoutDetails": {
         "type": "object",
@@ -81135,7 +81126,8 @@
             "example": {
               "private_key": "BBBB0J56jd8kda:APA91vjb11BCjvxx3Jxja...",
               "client_email": "account@customer.org"
-            }
+            },
+            "additionalProperties": true
           },
           "alias": {
             "description": "Alias to uniquely identify a credential",
@@ -81155,13 +81147,13 @@
           "created_at": {
             "description": "ISO 8601 timestamp when the room was created",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "updated_at": {
             "description": "ISO 8601 timestamp when the room was updated.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           }
         }
@@ -81172,7 +81164,8 @@
           "data": {
             "$ref": "#/components/schemas/PushCredential"
           }
-        }
+        },
+        "type": "object"
       },
       "Quality": {
         "description": "The quality of the fax. The `ultra` settings provides the highest quality available, but also present longer fax processing times. `ultra_light` is best suited for images, wihle `ultra_dark` is best suited for text.",
@@ -82178,10 +82171,11 @@
       },
       "RecordType": {
         "type": "string",
-        "description": "Identifies record type.",
+        "example": "event",
         "enum": [
-          "custom_storage_credentials"
-        ]
+          "event"
+        ],
+        "description": "Identifies the type of the resource."
       },
       "RecordingResponse": {
         "type": "object",
@@ -82490,7 +82484,6 @@
           },
           "refresh_token": {
             "type": "string",
-            "format": "jwt",
             "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ0ZWxueXhfdGVsZXBob255IiwiZXhwIjoxNTkwMDEwMTQzLCJpYXQiOjE1ODc1OTA5NDMsImlzcyI6InRlbG55eF90ZWxlcGhvbnkiLCJqdGkiOiJiOGM3NDgzNy1kODllLTRhNjUtOWNmMi0zNGM3YTZmYTYwYzgiLCJuYmYiOjE1ODc1OTA5NDIsInN1YiI6IjVjN2FjN2QwLWRiNjUtNGYxMS05OGUxLWVlYzBkMWQ1YzZhZSIsInRlbF90b2tlbiI6InJqX1pra1pVT1pNeFpPZk9tTHBFVUIzc2lVN3U2UmpaRmVNOXMtZ2JfeENSNTZXRktGQUppTXlGMlQ2Q0JSbWxoX1N5MGlfbGZ5VDlBSThzRWlmOE1USUlzenl6U2xfYURuRzQ4YU81MHlhSEd1UlNZYlViU1ltOVdJaVEwZz09IiwidHlwIjoiYWNjZXNzIn0.gNEwzTow5MLLPLQENytca7pUN79PmPj6FyqZWW06ZeEmesxYpwKh0xRtA0TzLh6CDYIRHrI8seofOO0YFGDhpQ"
           }
         },
@@ -82558,7 +82551,8 @@
         "example": {
           "region_type": "country_code",
           "region_name": "US"
-        }
+        },
+        "type": "object"
       },
       "RegionOut": {
         "type": "object",
@@ -82694,7 +82688,8 @@
               }
             }
           }
-        }
+        },
+        "type": "object"
       },
       "RegulatoryRequirementsPhoneNumbers": {
         "properties": {
@@ -82783,7 +82778,8 @@
               }
             }
           }
-        }
+        },
+        "type": "object"
       },
       "RejectRequest": {
         "type": "object",
@@ -82969,7 +82965,6 @@
           },
           "phone_number": {
             "type": "string",
-            "format": "e164_phone_number",
             "example": "+19705555098"
           },
           "status": {
@@ -82985,21 +82980,21 @@
           },
           "created_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string denoting when the individual number reservation was created.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "updated_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the the individual number reservation was updated.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "expired_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the individual number reservation is going to expire",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
@@ -83013,31 +83008,41 @@
           "created_at": "2018-01-01T00:00:00.000000Z",
           "updated_at": "2018-01-01T00:00:00.000000Z",
           "expired_at": "2018-01-01T00:00:00.000000Z"
-        }
+        },
+        "type": "object"
       },
       "ResourceNotFoundError": {
-        "type": "object",
-        "title": "Resource not found",
-        "example": {
-          "errors": [
-            {
-              "detail": "Resource not found"
-            }
-          ]
-        },
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "detail": {
-                  "type": "string"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GenericError"
+          },
+          {
+            "properties": {
+              "code": {
+                "example": "10005",
+                "type": "string"
+              },
+              "title": {
+                "example": "Resource not found",
+                "type": "string"
+              },
+              "detail": {
+                "example": "The requested resource or URL could not be found.",
+                "type": "string"
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://developers.telnyx.com/docs/overview/errors/10005"
+                  }
                 }
               }
-            }
+            },
+            "type": "object"
           }
-        }
+        ]
       },
       "ResumeConferenceRecordingRequest": {
         "type": "object",
@@ -83149,13 +83154,13 @@
           "created_at": {
             "description": "ISO 8601 timestamp when the room was created.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "updated_at": {
             "description": "ISO 8601 timestamp when the room was updated.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "active_session_id": {
@@ -83178,13 +83183,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this room will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this room will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -83294,31 +83299,31 @@
           "created_at": {
             "description": "ISO 8601 timestamp when the room composition was created.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "updated_at": {
             "description": "ISO 8601 timestamp when the room composition was updated.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "ended_at": {
             "description": "ISO 8601 timestamp when the room composition has ended.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "started_at": {
             "description": "ISO 8601 timestamp when the room composition has stated.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "completed_at": {
             "description": "ISO 8601 timestamp when the room composition has completed.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "video_layout": {
@@ -83331,12 +83336,12 @@
           "webhook_event_url": {
             "description": "The URL where webhooks related to this room composition will be sent. Must include a scheme, such as 'https'.",
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this room composition will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -83410,19 +83415,19 @@
           "joined_at": {
             "description": "ISO 8601 timestamp when the participant joined the session.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "updated_at": {
             "description": "ISO 8601 timestamp when the participant was updated.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "left_at": {
             "description": "ISO 8601 timestamp when the participant left the session.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "record_type": {
@@ -83510,31 +83515,31 @@
           "created_at": {
             "description": "ISO 8601 timestamp when the room recording was created.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "updated_at": {
             "description": "ISO 8601 timestamp when the room recording was updated.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "ended_at": {
             "description": "ISO 8601 timestamp when the room recording has ended.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "started_at": {
             "description": "ISO 8601 timestamp when the room recording has stated.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "completed_at": {
             "description": "ISO 8601 timestamp when the room recording has completed.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "record_type": {
@@ -83585,19 +83590,19 @@
           "created_at": {
             "description": "ISO 8601 timestamp when the room session was created.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "updated_at": {
             "description": "ISO 8601 timestamp when the room session was updated.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "ended_at": {
             "description": "ISO 8601 timestamp when the room session has ended.",
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "example": "2021-03-26T17:51:59.588408Z"
           },
           "participants": {
@@ -83710,8 +83715,7 @@
             "type": "array",
             "description": "List of IMEIs authorized to use a given SIM card.",
             "items": {
-              "type": "string",
-              "format": "int64"
+              "type": "string"
             },
             "example": [
               "106516771852751",
@@ -83721,7 +83725,6 @@
           },
           "current_imei": {
             "type": "string",
-            "format": "int64",
             "description": "IMEI of the device where a given SIM card is currently being used.",
             "readOnly": true,
             "example": "457032284023794"
@@ -83732,7 +83735,6 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
                 "example": "2048.1"
               },
               "unit": {
@@ -83752,7 +83754,6 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
                 "example": "2049.0"
               },
               "unit": {
@@ -83800,12 +83801,10 @@
             "properties": {
               "latitude": {
                 "type": "string",
-                "format": "float",
                 "example": "41.143"
               },
               "longitude": {
                 "type": "string",
-                "format": "float",
                 "example": "-8.605"
               },
               "accuracy": {
@@ -83935,7 +83934,8 @@
             "description": "A JSON object representation of the action params.",
             "example": {},
             "nullable": true,
-            "readOnly": true
+            "readOnly": true,
+            "additionalProperties": true
           },
           "created_at": {
             "$ref": "#/components/schemas/CreatedAt"
@@ -83992,7 +83992,6 @@
           "imei": {
             "type": "string",
             "description": "IMEI of the device where the SIM card is being used in.",
-            "format": "int64",
             "example": "457032284023794",
             "readOnly": true
           },
@@ -84056,7 +84055,6 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
                 "example": "2048.1"
               },
               "unit": {
@@ -84171,7 +84169,6 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
                 "example": "2048.1"
               },
               "unit": {
@@ -84200,7 +84197,6 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
                 "example": "2048.1"
               },
               "unit": {
@@ -84245,7 +84241,6 @@
               },
               "currency": {
                 "type": "string",
-                "format": "currency",
                 "description": "Filter by ISO 4217 currency string.",
                 "example": "USD"
               }
@@ -84261,7 +84256,6 @@
               "id": {
                 "type": "string",
                 "description": "Uniquely identifies the address for the order.",
-                "format": "int64",
                 "example": "1293384261075731499"
               },
               "first_name": {
@@ -84324,7 +84318,7 @@
           },
           "tracking_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL used to get tracking information about the order.",
             "example": "http://www.example.com/"
           },
@@ -84369,7 +84363,6 @@
               },
               "currency": {
                 "type": "string",
-                "format": "currency",
                 "description": "ISO 4217 currency string.",
                 "example": "USD"
               }
@@ -84385,7 +84378,6 @@
               },
               "currency": {
                 "type": "string",
-                "format": "currency",
                 "description": "ISO 4217 currency string.",
                 "example": "USD"
               }
@@ -84401,7 +84393,6 @@
               },
               "currency": {
                 "type": "string",
-                "format": "currency",
                 "description": "ISO 4217 currency string.",
                 "example": "USD"
               }
@@ -84979,7 +84970,6 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
                 "example": "2048.1"
               },
               "unit": {
@@ -85407,7 +85397,6 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
                 "example": "2048.1"
               },
               "unit": {
@@ -85451,7 +85440,6 @@
           "address_id": {
             "type": "string",
             "description": "Uniquely identifies the address for the order.",
-            "format": "int64",
             "example": "1293384261075731499"
           },
           "quantity": {
@@ -85683,7 +85671,6 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
                 "example": "2048.0"
               },
               "unit": {
@@ -85703,7 +85690,6 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
                 "example": "2049.0"
               },
               "unit": {
@@ -86030,7 +86016,6 @@
           },
           "emergency_address_id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the emergency address associated with the phone number.",
             "readOnly": true
           },
@@ -86934,14 +86919,14 @@
           },
           "created_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string denoting when the number order was created.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
           "updated_at": {
             "type": "string",
-            "format": "datetime",
+            "format": "date-time",
             "description": "An ISO 8901 datetime string for when the number order was updated.",
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
@@ -86973,7 +86958,8 @@
             "example": false,
             "readOnly": true
           }
-        }
+        },
+        "type": "object"
       },
       "SubNumberOrderPhoneNumber": {
         "type": "object",
@@ -87054,7 +87040,8 @@
             "example": "address",
             "readOnly": true
           }
-        }
+        },
+        "type": "object"
       },
       "SubNumberOrderRegulatoryRequirementWithValue": {
         "properties": {
@@ -87085,7 +87072,8 @@
             "description": "The value of the requirement, this could be an id to a resource or a string value.",
             "example": "45f45a04-b4be-4592-95b1-9306b9db2b21"
           }
-        }
+        },
+        "type": "object"
       },
       "SubNumberOrderRequirementGroupResponse": {
         "type": "object",
@@ -87776,7 +87764,6 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "string",
             "description": "Identifies the resource.",
             "example": "c215ade3-0d39-418e-94be-c5f780760199"
           },
@@ -89289,12 +89276,14 @@
           "arguments": {
             "type": "object",
             "title": "Arguments",
-            "description": "Key-value arguments to use for the webhook test"
+            "description": "Key-value arguments to use for the webhook test",
+            "additionalProperties": true
           },
           "dynamic_variables": {
             "type": "object",
             "title": "Dynamic Variables",
-            "description": "Key-value dynamic variables to use for the webhook test"
+            "description": "Key-value dynamic variables to use for the webhook test",
+            "additionalProperties": true
           }
         },
         "type": "object",
@@ -89321,7 +89310,8 @@
           },
           "request": {
             "type": "object",
-            "title": "Request"
+            "title": "Request",
+            "additionalProperties": true
           }
         },
         "type": "object",
@@ -91114,13 +91104,16 @@
           {
             "properties": {
               "code": {
-                "example": "10009"
+                "example": "10009",
+                "type": "string"
               },
               "title": {
-                "example": "Authentication failed"
+                "example": "Authentication failed",
+                "type": "string"
               },
               "detail": {
-                "example": "The required authentication headers were either invalid or not included in the request."
+                "example": "The required authentication headers were either invalid or not included in the request.",
+                "type": "string"
               },
               "meta": {
                 "type": "object",
@@ -91131,7 +91124,8 @@
                   }
                 }
               }
-            }
+            },
+            "type": "object"
           }
         ]
       },
@@ -91143,13 +91137,16 @@
           {
             "properties": {
               "code": {
-                "example": "10007"
+                "example": "10007",
+                "type": "string"
               },
               "title": {
-                "example": "Unexpected error"
+                "example": "Unexpected error",
+                "type": "string"
               },
               "detail": {
-                "example": "An unexpected error occurred."
+                "example": "An unexpected error occurred.",
+                "type": "string"
               },
               "meta": {
                 "type": "object",
@@ -91160,44 +91157,52 @@
                   }
                 }
               }
-            }
+            },
+            "type": "object"
           }
         ]
       },
       "UnprocessableEntityError": {
-        "required": [
-          "code",
-          "title"
-        ],
-        "properties": {
-          "code": {
-            "type": "string",
-            "format": "int"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GenericError"
           },
-          "title": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          },
-          "source": {
-            "type": "object",
+          {
             "properties": {
-              "pointer": {
-                "description": "JSON pointer (RFC6901) to the offending entity.",
-                "type": "string",
-                "format": "json-pointer"
-              },
-              "parameter": {
-                "description": "Indicates which query parameter caused the error.",
+              "code": {
+                "example": "10002",
                 "type": "string"
+              },
+              "title": {
+                "example": "Invalid phone number",
+                "type": "string"
+              },
+              "detail": {
+                "example": "The phone number is invalid.",
+                "type": "string"
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "pointer": {
+                    "type": "string",
+                    "example": "/phone_numbers"
+                  }
+                }
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://developers.telnyx.com/docs/overview/errors/10002"
+                  }
+                }
               }
-            }
-          },
-          "meta": {
+            },
             "type": "object"
           }
-        }
+        ]
       },
       "UnusedUserBundlesResponse": {
         "title": "UnusedUserBundlesResponse",
@@ -91299,7 +91304,8 @@
           },
           "dynamic_variables": {
             "type": "object",
-            "description": "Map of dynamic variables and their default values"
+            "description": "Map of dynamic variables and their default values",
+            "additionalProperties": true
           }
         },
         "type": "object",
@@ -91317,7 +91323,8 @@
                 "default": true,
                 "description": "Indicates whether the assistant should be promoted to the main version. Defaults to true."
               }
-            }
+            },
+            "type": "object"
           }
         ]
       },
@@ -91970,31 +91977,54 @@
         }
       },
       "UpdateConferenceRequest": {
+        "required": [
+          "call_control_id",
+          "supervisor_role"
+        ],
         "type": "object",
         "title": "Update Conference Request",
         "properties": {
-          "Status": {
-            "description": "The new status of the resource. Specifying `completed` will end the conference and hang up all participants.",
-            "example": "completed",
+          "call_control_id": {
+            "description": "Unique identifier and token for controlling the call",
+            "example": "v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQczRrZvZakpWxBlpw48KyZQ==",
             "type": "string"
           },
-          "AnnounceUrl": {
-            "description": "The URL we should call to announce something into the conference. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `<Play>`, `<Say>`, `<Pause>`, or `<Redirect>` verbs.",
-            "example": "https://www.example.com/announce.xml",
+          "command_id": {
+            "description": "Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same `command_id` as one that has already been executed.",
+            "example": "891510ac-f3e4-11e8-af5b-de00688a4901",
             "type": "string"
           },
-          "AnnounceMethod": {
-            "description": "The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.",
-            "example": "GET",
+          "supervisor_role": {
+            "description": "Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. \"barge\" means the supervisor enters the conference as a normal participant. This is the same as \"none\". \"monitor\" means the supervisor is muted but can hear all participants. \"whisper\" means that only the specified \"whisper_call_control_ids\" can hear the supervisor. Defaults to \"none\".",
+            "example": "whisper",
             "type": "string",
             "enum": [
-              "GET",
-              "POST"
+              "barge",
+              "monitor",
+              "none",
+              "whisper"
             ]
+          },
+          "whisper_call_control_ids": {
+            "description": "Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.",
+            "example": [
+              "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
+              "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "example": {
-          "Status": "completed"
+          "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
+          "supervisor_role": "whisper",
+          "whisper_call_control_ids": [
+            "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
+            "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
+          ]
         }
       },
       "UpdateConversationRequest": {
@@ -92920,7 +92950,8 @@
               "$ref": "#/components/schemas/UpdateRegulatoryRequirement"
             }
           }
-        }
+        },
+        "type": "object"
       },
       "UpdateNumberOrderRequest": {
         "properties": {
@@ -92935,7 +92966,8 @@
             "description": "A customer reference string for customer look ups.",
             "example": "MY REF 001"
           }
-        }
+        },
+        "type": "object"
       },
       "UpdateOutboundVoiceProfileRequest": {
         "type": "object",
@@ -93302,7 +93334,8 @@
             "description": "The value of the requirement. For address and document requirements, this should be the ID of the resource. For textual, this should be the value of the requirement.",
             "example": "45f45a04-b4be-4592-95b1-9306b9db2b21"
           }
-        }
+        },
+        "type": "object"
       },
       "UpdateShortCodeRequest": {
         "type": "object",
@@ -93327,7 +93360,8 @@
               "$ref": "#/components/schemas/UpdateRegulatoryRequirement"
             }
           }
-        }
+        },
+        "type": "object"
       },
       "UpdateTexmlApplicationRequest": {
         "type": "object",
@@ -93601,10 +93635,10 @@
         }
       },
       "UpdatedAt": {
-        "title": "Updated At",
         "type": "string",
-        "description": "ISO 8601 formatted date indicating when the resource was updated.",
-        "example": "2020-02-03T22:25:27.521Z"
+        "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+        "readOnly": true,
+        "example": "2018-02-02T22:25:27.521Z"
       },
       "UplinkData": {
         "type": "object",
@@ -93901,7 +93935,8 @@
               }
             ],
             "items": {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": true
             }
           }
         }
@@ -94123,7 +94158,6 @@
         "properties": {
           "pending": {
             "type": "string",
-            "format": "decimal",
             "description": "The account\u2019s pending amount.",
             "example": "10.00"
           },
@@ -94137,25 +94171,21 @@
           },
           "balance": {
             "type": "string",
-            "format": "decimal",
             "description": "The account's current balance.",
             "example": "300.00"
           },
           "credit_limit": {
             "type": "string",
-            "format": "decimal",
             "description": "The account's credit limit.",
             "example": "100.00"
           },
           "available_credit": {
             "type": "string",
-            "format": "decimal",
             "description": "Available amount to spend (balance + credit limit)",
             "example": "400.00"
           },
           "currency": {
             "type": "string",
-            "format": "iso4217",
             "description": "The ISO 4217 currency identifier.",
             "example": "USD"
           }
@@ -94592,17 +94622,8 @@
         ]
       },
       "ValidationError": {
-        "title": "ValidationError",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
-        "type": "object",
         "properties": {
           "loc": {
-            "title": "Location",
-            "type": "array",
             "items": {
               "anyOf": [
                 {
@@ -94612,17 +94633,26 @@
                   "type": "integer"
                 }
               ]
-            }
+            },
+            "type": "array",
+            "title": "Location"
           },
           "msg": {
-            "title": "Message",
-            "type": "string"
+            "type": "string",
+            "title": "Message"
           },
           "type": {
-            "title": "Error Type",
-            "type": "string"
+            "type": "string",
+            "title": "Error Type"
           }
-        }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
       },
       "Verification": {
         "title": "Verification",
@@ -95994,7 +96024,7 @@
         "title": "Webhook Event Failover URL",
         "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
         "type": "string",
-        "format": "url",
+        "format": "uri",
         "default": "",
         "nullable": true,
         "example": "https://failover.example.com"
@@ -96003,7 +96033,7 @@
         "title": "Webhook Event URL",
         "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
         "type": "string",
-        "format": "url",
+        "format": "uri",
         "example": "https://example.com"
       },
       "WebhookPortingOrderDeletedPayload": {
@@ -96420,7 +96450,8 @@
             "properties": {
               "properties": {
                 "description": "The properties of the body parameters.",
-                "type": "object"
+                "type": "object",
+                "additionalProperties": true
               },
               "required": {
                 "description": "The required properties of the body parameters.",
@@ -96460,7 +96491,8 @@
             "properties": {
               "properties": {
                 "description": "The properties of the path parameters.",
-                "type": "object"
+                "type": "object",
+                "additionalProperties": true
               },
               "required": {
                 "description": "The required properties of the path parameters.",
@@ -96495,7 +96527,8 @@
             "properties": {
               "properties": {
                 "description": "The properties of the query parameters.",
-                "type": "object"
+                "type": "object",
+                "additionalProperties": true
               },
               "required": {
                 "description": "The required properties of the query parameters.",

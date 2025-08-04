@@ -37,31 +37,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The comment_record_type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Comment_comment_record_type? CommentRecordType { get; set; }
         /// <summary>An ISO 8901 datetime string denoting when the comment was created.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; private set; }
-#nullable restore
-#else
-        public string CreatedAt { get; private set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>The id property</summary>
         public Guid? Id { get; private set; }
         /// <summary>An ISO 8901 datetime string for when the comment was read.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ReadAt { get; private set; }
-#nullable restore
-#else
-        public string ReadAt { get; private set; }
-#endif
+        public DateTimeOffset? ReadAt { get; private set; }
         /// <summary>An ISO 8901 datetime string for when the comment was updated.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdatedAt { get; private set; }
-#nullable restore
-#else
-        public string UpdatedAt { get; private set; }
-#endif
+        public DateTimeOffset? UpdatedAt { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Comment"/> and sets the default values.
         /// </summary>
@@ -92,10 +74,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "comment_record_type", n => { CommentRecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Comment_comment_record_type>(); } },
                 { "commenter", n => { Commenter = n.GetStringValue(); } },
                 { "commenter_type", n => { CommenterType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Comment_commenter_type>(); } },
-                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "read_at", n => { ReadAt = n.GetStringValue(); } },
-                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "read_at", n => { ReadAt = n.GetDateTimeOffsetValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
