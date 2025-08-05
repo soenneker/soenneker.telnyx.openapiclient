@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.Item
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.Item.Messaging_hosted_numbersDeleteResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HostedNumber>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingHostedNumberOrder>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -35,21 +35,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The conference_sid property</summary>
         public Guid? ConferenceSid { get; set; }
         /// <summary>The date_created property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DateCreated { get; set; }
-#nullable restore
-#else
-        public string DateCreated { get; set; }
-#endif
+        public DateTimeOffset? DateCreated { get; set; }
         /// <summary>The date_updated property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DateUpdated { get; set; }
-#nullable restore
-#else
-        public string DateUpdated { get; set; }
-#endif
+        public DateTimeOffset? DateUpdated { get; set; }
         /// <summary>The duration of this recording, given in seconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,13 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Defines how the recording was created.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource? Source { get; set; }
         /// <summary>The start_time property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? StartTime { get; set; }
-#nullable restore
-#else
-        public string StartTime { get; set; }
-#endif
+        public DateTimeOffset? StartTime { get; set; }
         /// <summary>The audio track to record for the call. The default is `both`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack? Track { get; set; }
         /// <summary>The relative URI for this recording resource.</summary>
@@ -139,15 +121,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_sid", n => { CallSid = n.GetStringValue(); } },
                 { "channels", n => { Channels = n.GetIntValue(); } },
                 { "conference_sid", n => { ConferenceSid = n.GetGuidValue(); } },
-                { "date_created", n => { DateCreated = n.GetStringValue(); } },
-                { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
+                { "date_created", n => { DateCreated = n.GetDateTimeOffsetValue(); } },
+                { "date_updated", n => { DateUpdated = n.GetDateTimeOffsetValue(); } },
                 { "duration", n => { Duration = n.GetStringValue(); } },
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "price", n => { Price = n.GetStringValue(); } },
                 { "price_unit", n => { PriceUnit = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource>(); } },
-                { "start_time", n => { StartTime = n.GetStringValue(); } },
+                { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
                 { "track", n => { Track = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -163,15 +145,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("call_sid", CallSid);
             writer.WriteIntValue("channels", Channels);
             writer.WriteGuidValue("conference_sid", ConferenceSid);
-            writer.WriteStringValue("date_created", DateCreated);
-            writer.WriteStringValue("date_updated", DateUpdated);
+            writer.WriteDateTimeOffsetValue("date_created", DateCreated);
+            writer.WriteDateTimeOffsetValue("date_updated", DateUpdated);
             writer.WriteStringValue("duration", Duration);
             writer.WriteStringValue("error_code", ErrorCode);
             writer.WriteStringValue("price", Price);
             writer.WriteStringValue("price_unit", PriceUnit);
             writer.WriteStringValue("sid", Sid);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource>("source", Source);
-            writer.WriteStringValue("start_time", StartTime);
+            writer.WriteDateTimeOffsetValue("start_time", StartTime);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>("track", Track);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

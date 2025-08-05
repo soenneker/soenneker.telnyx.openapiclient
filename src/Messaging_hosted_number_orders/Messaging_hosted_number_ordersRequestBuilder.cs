@@ -25,7 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders
             get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibility_numbers_check.Eligibility_numbers_checkRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messaging_hosted_number_orders.item collection</summary>
-        /// <param name="position">Identifies the type of resource.</param>
+        /// <param name="position">Identifies the messaging hosted number order to delete.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder"/></returns>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersItemRequestBuilder this[string position]
         {
@@ -206,10 +206,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Messaging_hosted_number_ordersRequestBuilderGetQueryParameters 
         {
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

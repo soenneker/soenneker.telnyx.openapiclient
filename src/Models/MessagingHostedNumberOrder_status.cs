@@ -8,13 +8,49 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public enum MessagingHostedNumberOrder_status
     #pragma warning restore CS1591
     {
+        [EnumMember(Value = "carrier_rejected")]
+        #pragma warning disable CS1591
+        Carrier_rejected,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "compliance_review_failed")]
+        #pragma warning disable CS1591
+        Compliance_review_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "deleted")]
+        #pragma warning disable CS1591
+        Deleted,
+        #pragma warning restore CS1591
         [EnumMember(Value = "failed")]
         #pragma warning disable CS1591
         Failed,
         #pragma warning restore CS1591
+        [EnumMember(Value = "incomplete_documentation")]
+        #pragma warning disable CS1591
+        Incomplete_documentation,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "incorrect_billing_information")]
+        #pragma warning disable CS1591
+        Incorrect_billing_information,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ineligible_carrier")]
+        #pragma warning disable CS1591
+        Ineligible_carrier,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "loa_file_invalid")]
+        #pragma warning disable CS1591
+        Loa_file_invalid,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "loa_file_successful")]
+        #pragma warning disable CS1591
+        Loa_file_successful,
+        #pragma warning restore CS1591
         [EnumMember(Value = "pending")]
         #pragma warning disable CS1591
         Pending,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "provisioning")]
+        #pragma warning disable CS1591
+        Provisioning,
         #pragma warning restore CS1591
         [EnumMember(Value = "successful")]
         #pragma warning disable CS1591

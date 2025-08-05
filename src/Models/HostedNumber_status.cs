@@ -16,9 +16,41 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Failed,
         #pragma warning restore CS1591
+        [EnumMember(Value = "failed_activation")]
+        #pragma warning disable CS1591
+        Failed_activation,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "failed_carrier_rejected")]
+        #pragma warning disable CS1591
+        Failed_carrier_rejected,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "failed_ineligible_carrier")]
+        #pragma warning disable CS1591
+        Failed_ineligible_carrier,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "failed_number_already_hosted")]
+        #pragma warning disable CS1591
+        Failed_number_already_hosted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "failed_number_not_found")]
+        #pragma warning disable CS1591
+        Failed_number_not_found,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "failed_ownership_verification")]
+        #pragma warning disable CS1591
+        Failed_ownership_verification,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "failed_timeout")]
+        #pragma warning disable CS1591
+        Failed_timeout,
+        #pragma warning restore CS1591
         [EnumMember(Value = "pending")]
         #pragma warning disable CS1591
         Pending,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "provisioning")]
+        #pragma warning disable CS1591
+        Provisioning,
         #pragma warning restore CS1591
         [EnumMember(Value = "successful")]
         #pragma warning disable CS1591

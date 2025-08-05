@@ -7,10 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item
 {
-    [Obsolete("This class is obsolete. Use Messaging_hosted_number_ordersGetResponse instead.")]
+    [Obsolete("This class is obsolete. Use Messaging_hosted_number_ordersDeleteResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Messaging_hosted_number_ordersResponse : global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersGetResponse, IParsable
+    public partial class Messaging_hosted_number_ordersResponse : global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Messaging_hosted_number_ordersDeleteResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

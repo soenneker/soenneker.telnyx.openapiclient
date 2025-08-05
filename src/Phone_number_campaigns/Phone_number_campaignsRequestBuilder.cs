@@ -176,24 +176,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns
             /// <summary>Filter results by the Telnyx Campaign id</summary>
             [QueryParameter("filter%5Btelnyx_campaign_id%5D")]
             public Guid? FiltertelnyxCampaignId { get; set; }
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("page")]
-            public string? Page { get; set; }
-#nullable restore
-#else
-            [QueryParameter("page")]
-            public string Page { get; set; }
-#endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            public int? Page { get; set; }
             [QueryParameter("recordsPerPage")]
-            public string? RecordsPerPage { get; set; }
-#nullable restore
-#else
-            [QueryParameter("recordsPerPage")]
-            public string RecordsPerPage { get; set; }
-#endif
+            public int? RecordsPerPage { get; set; }
             /// <summary>Specifies the sort order for results. If not given, results are sorted by createdAt in descending order.</summary>
             [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

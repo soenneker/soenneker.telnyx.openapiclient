@@ -39,21 +39,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CallSid { get; set; }
 #endif
         /// <summary>The date_created property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DateCreated { get; set; }
-#nullable restore
-#else
-        public string DateCreated { get; set; }
-#endif
+        public DateTimeOffset? DateCreated { get; set; }
         /// <summary>The date_updated property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DateUpdated { get; set; }
-#nullable restore
-#else
-        public string DateUpdated { get; set; }
-#endif
+        public DateTimeOffset? DateUpdated { get; set; }
         /// <summary>The duration of this recording, given in seconds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,8 +112,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "account_sid", n => { AccountSid = n.GetStringValue(); } },
                 { "api_version", n => { ApiVersion = n.GetStringValue(); } },
                 { "call_sid", n => { CallSid = n.GetStringValue(); } },
-                { "date_created", n => { DateCreated = n.GetStringValue(); } },
-                { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
+                { "date_created", n => { DateCreated = n.GetDateTimeOffsetValue(); } },
+                { "date_updated", n => { DateUpdated = n.GetDateTimeOffsetValue(); } },
                 { "duration", n => { Duration = n.GetStringValue(); } },
                 { "recording_sid", n => { RecordingSid = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
@@ -144,8 +132,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("account_sid", AccountSid);
             writer.WriteStringValue("api_version", ApiVersion);
             writer.WriteStringValue("call_sid", CallSid);
-            writer.WriteStringValue("date_created", DateCreated);
-            writer.WriteStringValue("date_updated", DateUpdated);
+            writer.WriteDateTimeOffsetValue("date_created", DateCreated);
+            writer.WriteDateTimeOffsetValue("date_updated", DateUpdated);
             writer.WriteStringValue("duration", Duration);
             writer.WriteStringValue("recording_sid", RecordingSid);
             writer.WriteStringValue("sid", Sid);

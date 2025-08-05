@@ -8,9 +8,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public enum CreateTeXMLSecretResult_value
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "*****")]
+        [EnumMember(Value = "REDACTED")]
         #pragma warning disable CS1591
-        AsteriskAsteriskAsteriskAsteriskAsterisk,
+        REDACTED,
         #pragma warning restore CS1591
     }
 }

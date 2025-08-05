@@ -22,6 +22,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string DefaultTexmlAppId { get; set; }
 #endif
+        /// <summary>When enabled, allows users to interact with your AI assistant directly from your website without requiring authentication. This is required for FE widgets that work with assistants that have telephony enabled.</summary>
+        public bool? SupportsUnauthenticatedWebCalls { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings"/> and sets the default values.
         /// </summary>
@@ -48,6 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "default_texml_app_id", n => { DefaultTexmlAppId = n.GetStringValue(); } },
+                { "supports_unauthenticated_web_calls", n => { SupportsUnauthenticatedWebCalls = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -58,6 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("default_texml_app_id", DefaultTexmlAppId);
+            writer.WriteBoolValue("supports_unauthenticated_web_calls", SupportsUnauthenticatedWebCalls);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

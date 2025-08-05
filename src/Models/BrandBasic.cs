@@ -61,10 +61,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Failure reasons for brand</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? FailureReasons { get; set; }
+        public string? FailureReasons { get; set; }
 #nullable restore
 #else
-        public UntypedNode FailureReasons { get; set; }
+        public string FailureReasons { get; set; }
 #endif
         /// <summary>The verification status of an active brand</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.BrandIdentityStatus? IdentityStatus { get; set; }
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EntityType>(); } },
-                { "failureReasons", n => { FailureReasons = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "failureReasons", n => { FailureReasons = n.GetStringValue(); } },
                 { "identityStatus", n => { IdentityStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandIdentityStatus>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandBasic_status>(); } },
                 { "tcrBrandId", n => { TcrBrandId = n.GetStringValue(); } },
@@ -148,7 +148,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("email", Email);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EntityType>("entityType", EntityType);
-            writer.WriteObjectValue<UntypedNode>("failureReasons", FailureReasons);
+            writer.WriteStringValue("failureReasons", FailureReasons);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandIdentityStatus>("identityStatus", IdentityStatus);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BrandBasic_status>("status", Status);
             writer.WriteStringValue("tcrBrandId", TcrBrandId);

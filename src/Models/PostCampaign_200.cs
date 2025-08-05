@@ -29,10 +29,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Display or marketing name of the brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? BrandDisplayName { get; set; }
+        public string? BrandDisplayName { get; set; }
 #nullable restore
 #else
-        public UntypedNode BrandDisplayName { get; set; }
+        public string BrandDisplayName { get; set; }
 #endif
         /// <summary>Unique identifier assigned to the brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,10 +93,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Failure reasons if campaign submission failed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? FailureReasons { get; set; }
+        public string? FailureReasons { get; set; }
 #nullable restore
 #else
-        public UntypedNode FailureReasons { get; set; }
+        public string FailureReasons { get; set; }
 #endif
         /// <summary>Subscriber help keywords. Multiple keywords are comma separated without space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -355,7 +355,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "ageGated", n => { AgeGated = n.GetBoolValue(); } },
                 { "autoRenewal", n => { AutoRenewal = n.GetBoolValue(); } },
                 { "billedDate", n => { BilledDate = n.GetStringValue(); } },
-                { "brandDisplayName", n => { BrandDisplayName = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "brandDisplayName", n => { BrandDisplayName = n.GetStringValue(); } },
                 { "brandId", n => { BrandId = n.GetStringValue(); } },
                 { "campaignId", n => { CampaignId = n.GetStringValue(); } },
                 { "campaignStatus", n => { CampaignStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PostCampaign_200_campaignStatus>(); } },
@@ -366,7 +366,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "embeddedLink", n => { EmbeddedLink = n.GetBoolValue(); } },
                 { "embeddedLinkSample", n => { EmbeddedLinkSample = n.GetStringValue(); } },
                 { "embeddedPhone", n => { EmbeddedPhone = n.GetBoolValue(); } },
-                { "failureReasons", n => { FailureReasons = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "failureReasons", n => { FailureReasons = n.GetStringValue(); } },
                 { "helpKeywords", n => { HelpKeywords = n.GetStringValue(); } },
                 { "helpMessage", n => { HelpMessage = n.GetStringValue(); } },
                 { "isTMobileNumberPoolingEnabled", n => { IsTMobileNumberPoolingEnabled = n.GetBoolValue(); } },
@@ -415,7 +415,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("ageGated", AgeGated);
             writer.WriteBoolValue("autoRenewal", AutoRenewal);
             writer.WriteStringValue("billedDate", BilledDate);
-            writer.WriteObjectValue<UntypedNode>("brandDisplayName", BrandDisplayName);
+            writer.WriteStringValue("brandDisplayName", BrandDisplayName);
             writer.WriteStringValue("brandId", BrandId);
             writer.WriteStringValue("campaignId", CampaignId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PostCampaign_200_campaignStatus>("campaignStatus", CampaignStatus);
@@ -426,7 +426,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("embeddedLink", EmbeddedLink);
             writer.WriteStringValue("embeddedLinkSample", EmbeddedLinkSample);
             writer.WriteBoolValue("embeddedPhone", EmbeddedPhone);
-            writer.WriteObjectValue<UntypedNode>("failureReasons", FailureReasons);
+            writer.WriteStringValue("failureReasons", FailureReasons);
             writer.WriteStringValue("helpKeywords", HelpKeywords);
             writer.WriteStringValue("helpMessage", HelpMessage);
             writer.WriteBoolValue("isTMobileNumberPoolingEnabled", IsTMobileNumberPoolingEnabled);

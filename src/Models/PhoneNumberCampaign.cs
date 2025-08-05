@@ -43,10 +43,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Extra info about a failure to assign/unassign a number. Relevant only if the assignmentStatus is either FAILED_ASSIGNMENT or FAILED_UNASSIGNMENT</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? FailureReasons { get; set; }
+        public string? FailureReasons { get; set; }
 #nullable restore
 #else
-        public UntypedNode FailureReasons { get; set; }
+        public string FailureReasons { get; set; }
 #endif
         /// <summary>The phoneNumber property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "brandId", n => { BrandId = n.GetStringValue(); } },
                 { "campaignId", n => { CampaignId = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
-                { "failureReasons", n => { FailureReasons = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "failureReasons", n => { FailureReasons = n.GetStringValue(); } },
                 { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
                 { "tcrBrandId", n => { TcrBrandId = n.GetStringValue(); } },
                 { "tcrCampaignId", n => { TcrCampaignId = n.GetStringValue(); } },
@@ -136,7 +136,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("brandId", BrandId);
             writer.WriteStringValue("campaignId", CampaignId);
             writer.WriteStringValue("createdAt", CreatedAt);
-            writer.WriteObjectValue<UntypedNode>("failureReasons", FailureReasons);
+            writer.WriteStringValue("failureReasons", FailureReasons);
             writer.WriteStringValue("phoneNumber", PhoneNumber);
             writer.WriteStringValue("tcrBrandId", TcrBrandId);
             writer.WriteStringValue("tcrCampaignId", TcrCampaignId);

@@ -31,13 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CallSid { get; set; }
 #endif
         /// <summary>The date_updated property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DateUpdated { get; set; }
-#nullable restore
-#else
-        public string DateUpdated { get; set; }
-#endif
+        public DateTimeOffset? DateUpdated { get; set; }
         /// <summary>The user specified name of Stream.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "account_sid", n => { AccountSid = n.GetStringValue(); } },
                 { "call_sid", n => { CallSid = n.GetStringValue(); } },
-                { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
+                { "date_updated", n => { DateUpdated = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody_status>(); } },
@@ -107,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account_sid", AccountSid);
             writer.WriteStringValue("call_sid", CallSid);
-            writer.WriteStringValue("date_updated", DateUpdated);
+            writer.WriteDateTimeOffsetValue("date_updated", DateUpdated);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("sid", Sid);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlCreateCallStreamingResponseBody_status>("status", Status);

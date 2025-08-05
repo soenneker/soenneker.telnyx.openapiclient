@@ -22,10 +22,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Display or marketing name of the brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? BrandDisplayName { get; set; }
+        public string? BrandDisplayName { get; set; }
 #nullable restore
 #else
-        public UntypedNode BrandDisplayName { get; set; }
+        public string BrandDisplayName { get; set; }
 #endif
         /// <summary>Campaign status</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaign_campaignStatus? CampaignStatus { get; set; }
@@ -62,10 +62,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Failure reasons if campaign submission failed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? FailureReasons { get; set; }
+        public string? FailureReasons { get; set; }
 #nullable restore
 #else
-        public UntypedNode FailureReasons { get; set; }
+        public string FailureReasons { get; set; }
 #endif
         /// <summary>Subscriber help keywords. Multiple keywords are comma separated without space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -272,7 +272,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "ageGated", n => { AgeGated = n.GetBoolValue(); } },
                 { "assignedPhoneNumbersCount", n => { AssignedPhoneNumbersCount = n.GetDoubleValue(); } },
-                { "brandDisplayName", n => { BrandDisplayName = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "brandDisplayName", n => { BrandDisplayName = n.GetStringValue(); } },
                 { "campaignStatus", n => { CampaignStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaign_campaignStatus>(); } },
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -280,7 +280,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "embeddedLink", n => { EmbeddedLink = n.GetBoolValue(); } },
                 { "embeddedLinkSample", n => { EmbeddedLinkSample = n.GetStringValue(); } },
                 { "embeddedPhone", n => { EmbeddedPhone = n.GetBoolValue(); } },
-                { "failureReasons", n => { FailureReasons = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "failureReasons", n => { FailureReasons = n.GetStringValue(); } },
                 { "helpKeywords", n => { HelpKeywords = n.GetStringValue(); } },
                 { "helpMessage", n => { HelpMessage = n.GetStringValue(); } },
                 { "isNumberPoolingEnabled", n => { IsNumberPoolingEnabled = n.GetBoolValue(); } },
@@ -318,7 +318,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("ageGated", AgeGated);
             writer.WriteDoubleValue("assignedPhoneNumbersCount", AssignedPhoneNumbersCount);
-            writer.WriteObjectValue<UntypedNode>("brandDisplayName", BrandDisplayName);
+            writer.WriteStringValue("brandDisplayName", BrandDisplayName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDownstreamCampaign_campaignStatus>("campaignStatus", CampaignStatus);
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteStringValue("description", Description);
@@ -326,7 +326,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("embeddedLink", EmbeddedLink);
             writer.WriteStringValue("embeddedLinkSample", EmbeddedLinkSample);
             writer.WriteBoolValue("embeddedPhone", EmbeddedPhone);
-            writer.WriteObjectValue<UntypedNode>("failureReasons", FailureReasons);
+            writer.WriteStringValue("failureReasons", FailureReasons);
             writer.WriteStringValue("helpKeywords", HelpKeywords);
             writer.WriteStringValue("helpMessage", HelpMessage);
             writer.WriteBoolValue("isNumberPoolingEnabled", IsNumberPoolingEnabled);

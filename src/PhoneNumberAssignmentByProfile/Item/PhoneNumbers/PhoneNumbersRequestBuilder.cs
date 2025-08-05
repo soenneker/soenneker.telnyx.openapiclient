@@ -90,24 +90,10 @@ namespace Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.Item.Pho
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PhoneNumbersRequestBuilderGetQueryParameters 
         {
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("page")]
-            public string? Page { get; set; }
-#nullable restore
-#else
-            [QueryParameter("page")]
-            public string Page { get; set; }
-#endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            public int? Page { get; set; }
             [QueryParameter("recordsPerPage")]
-            public string? RecordsPerPage { get; set; }
-#nullable restore
-#else
-            [QueryParameter("recordsPerPage")]
-            public string RecordsPerPage { get; set; }
-#endif
+            public int? RecordsPerPage { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

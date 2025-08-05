@@ -39,6 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.RecordingsJson
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingsResponseBody"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingsResponseBody?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.RecordingsJson.RecordingsJsonRequestBuilder.RecordingsJsonRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -49,7 +50,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.RecordingsJson
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingsResponseBody>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingsResponseBody.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingsResponseBody>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TexmlGetCallRecordingsResponseBody.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns multiple recording resources for an account.
@@ -86,13 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.RecordingsJson
         public partial class RecordingsJsonRequestBuilderGetQueryParameters 
         {
             /// <summary>Filters recording by the creation date. Expected format is ISO8601 date or date-time, ie. {YYYY}-{MM}-{DD} or {YYYY}-{MM}-{DD}T{hh}:{mm}:{ss}Z. Also accepts inequality operators, e.g. DateCreated&gt;=2023-05-22.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? DateCreated { get; set; }
-#nullable restore
-#else
-            public string DateCreated { get; set; }
-#endif
+            public DateTimeOffset? DateCreated { get; set; }
             /// <summary>The number of the page to be displayed, zero-indexed, should be used in conjuction with PageToken.</summary>
             public int? Page { get; set; }
             /// <summary>The number of records to be displayed on a page</summary>

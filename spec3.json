@@ -3,8 +3,8 @@
   "info": {
     "version": "2.0.0",
     "title": "Telnyx API",
-    "description": "SIP trunking, SMS, MMS, Call Control and Telephony Data Services.",
     "x-endpoint-cost": "light",
+    "description": "SIP trunking, SMS, MMS, Call Control and Telephony Data Services.",
     "license": {
       "name": "MIT"
     },
@@ -19168,6 +19168,34 @@
       }
     },
     "/messaging_hosted_number_orders/{id}": {
+      "delete": {
+        "summary": "Delete a messaging hosted number order",
+        "description": "Delete a messaging hosted number order and all associated phone numbers.",
+        "operationId": "DeleteMessagingHostedNumberOrder",
+        "tags": [
+          "Messaging Hosted Number"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifies the messaging hosted number order to delete.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/MessagingHostedNumberOrderResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      },
       "get": {
         "summary": "Retrieve a messaging hosted number order",
         "operationId": "GetMessagingHostedNumberOrder",
@@ -19350,7 +19378,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/MessagingHostedNumberResponse"
+            "$ref": "#/components/responses/MessagingHostedNumberOrderResponse"
           },
           "default": {
             "$ref": "#/components/responses/GenericErrorResponse"
@@ -23348,7 +23376,8 @@
             "required": false,
             "schema": {
               "title": "Recordsperpage",
-              "default": 20
+              "default": 20,
+              "type": "integer"
             },
             "name": "recordsPerPage",
             "in": "query"
@@ -23357,7 +23386,8 @@
             "required": false,
             "schema": {
               "title": "Page",
-              "default": 1
+              "default": 1,
+              "type": "integer"
             },
             "name": "page",
             "in": "query"
@@ -23549,7 +23579,8 @@
             "required": false,
             "schema": {
               "title": "Recordsperpage",
-              "default": 20
+              "default": 20,
+              "type": "integer"
             },
             "name": "recordsPerPage",
             "in": "query"
@@ -23558,7 +23589,8 @@
             "required": false,
             "schema": {
               "title": "Page",
-              "default": 1
+              "default": 1,
+              "type": "integer"
             },
             "name": "page",
             "in": "query"
@@ -39245,12 +39277,11 @@
       },
       "ConnectionId": {
         "name": "connection_id",
-        "description": "Telnyx connection id",
+        "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
         "in": "path",
         "required": true,
         "schema": {
-          "type": "string",
-          "example": "1293384261075731461"
+          "type": "string"
         }
       },
       "CreatedAtGtFilter": {
@@ -39738,8 +39769,7 @@
         "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
         "schema": {
           "type": "string",
-          "default": null,
-          "example": "My Connection"
+          "default": null
         }
       },
       "FilterCostByAmount": {
@@ -40179,8 +40209,8 @@
         "in": "path",
         "required": true,
         "schema": {
-          "format": "int64",
           "type": "string",
+          "format": "int64",
           "example": "1517907029795014409"
         }
       },
@@ -40412,7 +40442,7 @@
       "PageNumber": {
         "name": "page[number]",
         "in": "query",
-        "description": "The page number to load",
+        "description": "The page number to load.",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -40422,7 +40452,7 @@
       "PageSize": {
         "name": "page[size]",
         "in": "query",
-        "description": "The size of the page",
+        "description": "The size of the page.",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -40665,15 +40695,16 @@
       "Sort": {
         "name": "sort",
         "in": "query",
-        "description": "Set the order of the results by the creation date.",
         "required": false,
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>email</code>: sorts the result by the\n    <code>email</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-email</code>: sorts the result by the\n    <code>email</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
           "enum": [
-            "asc",
-            "desc"
+            "created_at",
+            "email"
           ],
-          "example": "desc"
+          "example": "email",
+          "default": "created_at"
         }
       },
       "SortAddress": {
@@ -40697,22 +40728,21 @@
       "SortApplication": {
         "name": "sort",
         "in": "query",
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>application_name</code>: sorts the result by the\n    <code>application_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-application_name</code>: sorts the result by the\n    <code>application_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
           "enum": [
             "created_at",
-            "application_name",
+            "friendly_name",
             "active"
           ],
-          "example": "application_name",
+          "example": "friendly_name",
           "default": "created_at"
         }
       },
       "SortConnection": {
         "name": "sort",
         "in": "query",
-        "required": false,
         "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>connection_name</code>: sorts the result by the\n    <code>connection_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-connection_name</code>: sorts the result by the\n    <code>connection_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
@@ -40798,23 +40828,21 @@
         "example": "2023-05-22"
       },
       "Status": {
-        "name": "filter[status][eq]",
+        "name": "Status",
         "in": "query",
-        "description": "The status of a notification setting",
+        "required": false,
+        "description": "Filters calls by status.",
         "schema": {
           "type": "string",
           "enum": [
-            "enabled",
-            "enable-received",
-            "enable-pending",
-            "enable-submtited",
-            "delete-received",
-            "delete-pending",
-            "delete-submitted",
-            "deleted"
-          ],
-          "example": "enable-received"
-        }
+            "canceled",
+            "completed",
+            "failed",
+            "busy",
+            "no-answer"
+          ]
+        },
+        "example": "no-answer"
       },
       "StatusEqFilter": {
         "name": "filter[status][eq]",
@@ -40865,7 +40893,7 @@
         "description": "Filters recording by the creation date. Expected format is ISO8601 date or date-time, ie. {YYYY}-{MM}-{DD} or {YYYY}-{MM}-{DD}T{hh}:{mm}:{ss}Z. Also accepts inequality operators, e.g. DateCreated>=2023-05-22.",
         "schema": {
           "type": "string",
-          "format": "datetime-iso8601",
+          "format": "date-time",
           "example": "2023-05-22"
         }
       },
@@ -42959,19 +42987,7 @@
         }
       },
       "ForbiddenResponse": {
-        "description": "Forbidden",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Errors"
-            },
-            "examples": {
-              "Not authorized": {
-                "$ref": "#/components/examples/NotAuthorized"
-              }
-            }
-          }
-        }
+        "description": "Unauthorized response. Happens when the current user is not authorized to access the endpoint."
       },
       "FqdnConnectionResponse": {
         "description": "Successful response with details about an FQDN connection.",
@@ -45847,7 +45863,14 @@
         }
       },
       "NotFoundResponse": {
-        "description": "Fax does not exist"
+        "description": "Resource not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ResourceNotFoundError"
+            }
+          }
+        }
       },
       "NotFoundResponseApp": {
         "description": "The requested resource doesn't exist.",
@@ -47317,7 +47340,7 @@
         }
       },
       "UnauthorizedResponse": {
-        "description": "Unauthorized"
+        "description": "Unauthenticated response. Happens when the current user cannot be authenticated."
       },
       "UnexpectedErrorResponse": {
         "description": "An unexpected error occurred.",
@@ -48632,7 +48655,8 @@
           "GIIN",
           "LEI"
         ],
-        "description": "An enumeration."
+        "description": "An enumeration.",
+        "type": "string"
       },
       "AmdDetailRecord": {
         "type": "object",
@@ -49454,7 +49478,8 @@
                 "type": "boolean"
               },
               {
-                "type": "object"
+                "type": "object",
+                "additionalProperties": true
               },
               {
                 "type": "array",
@@ -49477,7 +49502,8 @@
                 "type": "boolean"
               },
               {
-                "type": "object"
+                "type": "object",
+                "additionalProperties": true
               },
               {
                 "type": "array",
@@ -50514,7 +50540,8 @@
           },
           "failureReasons": {
             "title": "failureReasons",
-            "description": "Failure reasons for brand"
+            "description": "Failure reasons for brand",
+            "type": "string"
           },
           "status": {
             "title": "status",
@@ -50523,7 +50550,8 @@
               "OK",
               "REGISTRATION_PENDING",
               "REGISTRATION_FAILED"
-            ]
+            ],
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -50617,7 +50645,8 @@
           "SELF_DECLARED",
           "VETTED_VERIFIED"
         ],
-        "description": "The verification status of an active brand"
+        "description": "The verification status of an active brand",
+        "type": "string"
       },
       "BrandOptionalAttributes": {
         "title": "BrandOptionalAttributes",
@@ -50662,7 +50691,8 @@
           "LARGE_ACCOUNT",
           "KEY_ACCOUNT"
         ],
-        "description": "Brand relationship to the CSP."
+        "description": "Brand relationship to the CSP.",
+        "type": "string"
       },
       "BreakdownData": {
         "type": "object",
@@ -59256,7 +59286,8 @@
             "description": "A list of related resources identified by their relative URIs.",
             "example": {
               "transcriptions": null
-            }
+            },
+            "additionalProperties": true
           },
           "uri": {
             "type": "string",
@@ -59576,7 +59607,8 @@
             "example": {
               "participants": "/v2/texml/Accounts/4e71926f-8f13-450e-b91c-23c2ef786aa6/Conferences/cd5a70f4-759b-4d5e-9c06-88c00f16f3c1/Participants.json",
               "recordings": "/v2/texml/Accounts/4e71926f-8f13-450e-b91c-23c2ef786aa6/Conferences/cd5a70f4-759b-4d5e-9c06-88c00f16f3c1/Recordings.json"
-            }
+            },
+            "additionalProperties": true
           },
           "uri": {
             "type": "string",
@@ -59986,7 +60018,7 @@
           "webhook_event_url": {
             "description": "The URL where webhooks related to this connection will be sent.",
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "default": null,
             "nullable": true,
             "example": "https://example.com"
@@ -59994,7 +60026,7 @@
           "webhook_event_failover_url": {
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails.",
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "default": "",
             "nullable": true,
             "example": "https://failover.example.com"
@@ -60087,7 +60119,8 @@
               "rtp+1"
             ],
             "default": "rtp+1",
-            "description": "RTCP port by default is rtp+1, it can also be set to rtcp-mux"
+            "description": "RTCP port by default is rtp+1, it can also be set to rtcp-mux",
+            "type": "string"
           },
           "capture_enabled": {
             "type": "boolean",
@@ -61235,13 +61268,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -61342,7 +61375,7 @@
         "title": "Create External Connection Request",
         "required": [
           "external_sip_connection",
-          "outbound/outbound_voice_profile_id"
+          "outbound"
         ],
         "properties": {
           "active": {
@@ -61364,13 +61397,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -61394,7 +61427,10 @@
                 "default": null,
                 "example": 10
               }
-            }
+            },
+            "required": [
+              "outbound_voice_profile_id"
+            ]
           },
           "outbound": {
             "type": "object",
@@ -61423,8 +61459,7 @@
         "type": "object",
         "title": "Create Upload Request",
         "required": [
-          "external_sip_connection",
-          "outbound/outbound_voice_profile_id"
+          "number_ids"
         ],
         "properties": {
           "number_ids": {
@@ -61432,7 +61467,8 @@
             "items": {
               "type": "string",
               "description": "Phone number ID from the Telnyx API."
-            }
+            },
+            "minItems": 1
           },
           "usage": {
             "type": "string",
@@ -61758,7 +61794,8 @@
             "timeout_1xx_secs": 10,
             "timeout_2xx_secs": 10
           }
-        }
+        },
+        "type": "object"
       },
       "CreateFqdnRequest": {
         "title": "Create Fqdn Request",
@@ -62127,13 +62164,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -62238,7 +62275,8 @@
             "ip_authentication_token": "string",
             "outbound_voice_profile_id": "1293384261075731499"
           }
-        }
+        },
+        "type": "object"
       },
       "CreateIpRequest": {
         "title": "Create Ip Request",
@@ -62381,7 +62419,8 @@
           "business_name": "Larry's Cat Food Inc",
           "managed_account_allow_custom_pricing": false,
           "rollup_billing": false
-        }
+        },
+        "type": "object"
       },
       "CreateMessageRequest": {
         "type": "object",
@@ -63553,9 +63592,9 @@
           "value": {
             "type": "string",
             "enum": [
-              "*****"
+              "REDACTED"
             ],
-            "example": "*****"
+            "example": "REDACTED"
           }
         }
       },
@@ -63599,14 +63638,14 @@
           "voice_url": {
             "type": "string",
             "description": "URL to which Telnyx will deliver your XML Translator webhooks.",
-            "format": "url",
+            "format": "uri",
             "example": "https://example.com"
           },
           "voice_fallback_url": {
             "type": "string",
             "description": "URL to which Telnyx will deliver your XML Translator webhooks if we get an error response from your voice_url.",
             "default": null,
-            "format": "url",
+            "format": "uri",
             "example": "https://fallback.example.com"
           },
           "voice_method": {
@@ -63623,7 +63662,7 @@
             "type": "string",
             "description": "URL for Telnyx to send requests to containing information about call progress events.",
             "default": null,
-            "format": "url",
+            "format": "uri",
             "example": "https://example.com"
           },
           "status_callback_method": {
@@ -63989,10 +64028,10 @@
         }
       },
       "CreatedAt": {
+        "title": "Created At",
         "type": "string",
-        "description": "ISO 8601 formatted date-time indicating when the resource was created.",
-        "readOnly": true,
-        "example": "2018-02-02T22:25:27.521Z"
+        "description": "ISO 8601 formatted date indicating when the resource was created.",
+        "example": "2020-02-02T22:25:27.521Z"
       },
       "CreatedUserBundlesResponse": {
         "title": "CreatedUserBundlesResponse",
@@ -64158,13 +64197,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -64530,19 +64569,15 @@
           "cursors": {
             "$ref": "#/components/schemas/Cursor"
           },
-          "total_items": {
-            "type": "integer",
-            "example": 50
-          },
           "next": {
             "type": "string",
             "description": "Path to next page.",
-            "example": "/v2/connections/1234567890/active_calls?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/recording_transcriptions?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           },
           "previous": {
             "type": "string",
             "description": "Path to previous page.",
-            "example": "/v2/connections/1234567890/active_calls?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/recording_transcriptions?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           }
         }
       },
@@ -64922,7 +64957,7 @@
       },
       "DateTimeRFC2822": {
         "type": "string",
-        "format": "datetime-rfc2822",
+        "format": "date-time",
         "example": "Fri, 11 Aug 2023 19:12:11 +0000"
       },
       "DefaultGateway": {
@@ -66686,7 +66721,8 @@
           "GOVERNMENT"
         ],
         "description": "Entity type behind the brand. This is the form of business establishment.",
-        "example": "PRIVATE_PROFIT"
+        "example": "PRIVATE_PROFIT",
+        "type": "string"
       },
       "EnumListResponse": {
         "title": "EnumListResponse",
@@ -66714,15 +66750,13 @@
         "example": "{\"page\": 1, \"records\": [{\"isin\": \"US68243Q1067\", \"iso2\": \"US\", \"symbol\": \"FLWS\", \"exchange\": \"NASDAQ\", \"displayName\": \"1-800 FLOWERS.COM, Inc.\"}, {\"isin\": \"US88025U1097\", \"iso2\": \"US\", \"symbol\": \"TXG\", \"exchange\": \"NASDAQ\", \"displayName\": \"10X GENOMICS INC CLASS A\"}], \"totalRecords\": 2}"
       },
       "Error": {
-        "type": "object",
         "required": [
           "code",
           "title"
         ],
         "properties": {
           "code": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string"
           },
           "title": {
             "type": "string"
@@ -66739,16 +66773,17 @@
               },
               "parameter": {
                 "description": "Indicates which query parameter caused the error.",
-                "type": "string"
+                "type": "string",
+                "example": "+15617819942"
               }
             }
           },
           "meta": {
             "type": "object",
-            "properties": {},
             "additionalProperties": true
           }
-        }
+        },
+        "type": "object"
       },
       "ErrorRecord": {
         "type": "object",
@@ -66816,7 +66851,6 @@
         }
       },
       "Errors": {
-        "type": "object",
         "properties": {
           "errors": {
             "type": "array",
@@ -66824,7 +66858,8 @@
               "$ref": "#/components/schemas/Error"
             }
           }
-        }
+        },
+        "type": "object"
       },
       "EventStatus": {
         "type": "string",
@@ -66981,13 +67016,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -69986,17 +70021,17 @@
         ]
       },
       "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
         "properties": {
           "detail": {
+            "title": "Detail",
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ValidationError"
-            },
-            "type": "array",
-            "title": "Detail"
+            }
           }
-        },
-        "type": "object",
-        "title": "HTTPValidationError"
+        }
       },
       "HandoffTool": {
         "description": "The handoff tool allows the assistant to hand off control of the conversation to another AI assistant. By default, this will happen transparently to the end user.",
@@ -70139,7 +70174,15 @@
             "enum": [
               "deleted",
               "failed",
+              "failed_activation",
+              "failed_carrier_rejected",
+              "failed_ineligible_carrier",
+              "failed_number_already_hosted",
+              "failed_number_not_found",
+              "failed_ownership_verification",
+              "failed_timeout",
               "pending",
+              "provisioning",
               "successful"
             ]
           }
@@ -70148,8 +70191,9 @@
       "Id": {
         "type": "string",
         "format": "uuid",
-        "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
-        "description": "Identifies the type of resource."
+        "description": "Identifies the resource.",
+        "readOnly": true,
+        "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
       },
       "ImportAssistantsRequest": {
         "properties": {
@@ -71885,13 +71929,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -72454,7 +72498,7 @@
         "properties": {
           "code": {
             "type": "string",
-            "format": "integer",
+            "format": "int64",
             "example": "10015"
           },
           "title": {
@@ -72562,7 +72606,7 @@
           },
           "id": {
             "type": "string",
-            "format": "UUID",
+            "format": "uuid",
             "description": "Uniquely identifies the managed account.",
             "example": "f65ceda4-6522-4ad6-aede-98de83385123"
           },
@@ -72689,7 +72733,7 @@
           },
           "id": {
             "type": "string",
-            "format": "UUID",
+            "format": "uuid",
             "description": "Uniquely identifies the managed account.",
             "example": "f65ceda4-6522-4ad6-aede-98de83385123"
           },
@@ -72764,7 +72808,8 @@
           "allocatable_global_outbound_channels": 500,
           "record_type": "allocatable_global_outbound_channels",
           "total_global_channels_allocated": 135
-        }
+        },
+        "type": "object"
       },
       "MdrDeleteUsageReportsResponse": {
         "type": "object",
@@ -73499,8 +73544,17 @@
           "status": {
             "type": "string",
             "enum": [
+              "carrier_rejected",
+              "compliance_review_failed",
+              "deleted",
               "failed",
+              "incomplete_documentation",
+              "incorrect_billing_information",
+              "ineligible_carrier",
+              "loa_file_invalid",
+              "loa_file_successful",
               "pending",
+              "provisioning",
               "successful"
             ]
           },
@@ -73887,36 +73941,34 @@
         }
       },
       "Metadata": {
+        "type": "object",
+        "title": "Metadata",
         "properties": {
-          "page_size": {
-            "type": "integer",
-            "title": "Page Size",
-            "example": 25
-          },
-          "page_number": {
-            "type": "integer",
-            "title": "Page Number",
-            "example": 1
-          },
           "total_pages": {
-            "type": "integer",
-            "title": "Total Pages",
-            "example": 10
+            "type": "number",
+            "description": "Total number of pages based on pagination settings",
+            "example": 13,
+            "format": "double"
           },
           "total_results": {
-            "type": "integer",
-            "title": "Total Items",
-            "example": 250
+            "type": "number",
+            "description": "Total number of results",
+            "example": 13,
+            "format": "double"
+          },
+          "page_number": {
+            "type": "number",
+            "description": "Current Page based on pagination settings (included when defaults are used.)",
+            "example": 3,
+            "format": "double"
+          },
+          "page_size": {
+            "type": "number",
+            "description": "Number of results to return per page based on pagination settings (included when defaults are used.)",
+            "example": 1,
+            "format": "double"
           }
-        },
-        "required": [
-          "page_size",
-          "page_number",
-          "total_pages",
-          "total_results"
-        ],
-        "type": "object",
-        "title": "Metadata"
+        }
       },
       "MigrationParams": {
         "type": "object",
@@ -74631,7 +74683,8 @@
             "example": "2019-10-15T10:07:15.527Z",
             "readOnly": true
           }
-        }
+        },
+        "type": "object"
       },
       "NotificationEvent": {
         "description": "An object representing the available notifications.",
@@ -74667,7 +74720,8 @@
             "description": "ISO 8601 formatted date indicating when the resource was updated.",
             "example": "2019-10-15T10:07:15.527Z"
           }
-        }
+        },
+        "type": "object"
       },
       "NotificationEventCondition": {
         "properties": {
@@ -74756,7 +74810,8 @@
             "description": "ISO 8601 formatted date indicating when the resource was updated.",
             "example": "2019-10-15T10:07:15.527Z"
           }
-        }
+        },
+        "type": "object"
       },
       "NotificationProfile": {
         "description": "A Collection of Notification Channels",
@@ -74785,7 +74840,8 @@
             "example": "2019-10-15T10:07:15.527Z",
             "readOnly": true
           }
-        }
+        },
+        "type": "object"
       },
       "NotificationSetting": {
         "properties": {
@@ -74866,7 +74922,8 @@
             "example": "2019-10-15T10:07:15.527Z",
             "readOnly": true
           }
-        }
+        },
+        "type": "object"
       },
       "NumberBlockOrder": {
         "properties": {
@@ -77022,19 +77079,27 @@
         "properties": {
           "page_number": {
             "type": "integer",
-            "example": 2
+            "example": [
+              2
+            ]
           },
           "page_size": {
             "type": "integer",
-            "example": 25
+            "example": [
+              25
+            ]
           },
           "total_pages": {
             "type": "integer",
-            "example": 3
+            "example": [
+              3
+            ]
           },
           "total_results": {
             "type": "integer",
-            "example": 55
+            "example": [
+              55
+            ]
           }
         }
       },
@@ -77642,10 +77707,12 @@
               "PENDING_UNASSIGNMENT",
               "FAILED_UNASSIGNMENT"
             ],
-            "example": "ASSIGNED"
+            "example": "ASSIGNED",
+            "type": "string"
           },
           "failureReasons": {
-            "description": "Extra info about a failure to assign/unassign a number. Relevant only if the assignmentStatus is either FAILED_ASSIGNMENT or FAILED_UNASSIGNMENT"
+            "description": "Extra info about a failure to assign/unassign a number. Relevant only if the assignmentStatus is either FAILED_ASSIGNMENT or FAILED_UNASSIGNMENT",
+            "type": "string"
           },
           "createdAt": {
             "title": "Createdat",
@@ -78106,8 +78173,7 @@
       "PhoneNumberStatusResponsePaginated": {
         "title": "PhoneNumberStatusResponsePaginated",
         "required": [
-          "records",
-          "meta"
+          "records"
         ],
         "type": "object",
         "properties": {
@@ -82171,11 +82237,10 @@
       },
       "RecordType": {
         "type": "string",
-        "example": "event",
+        "description": "Identifies record type.",
         "enum": [
-          "event"
-        ],
-        "description": "Identifies the type of the resource."
+          "custom_storage_credentials"
+        ]
       },
       "RecordingResponse": {
         "type": "object",
@@ -83012,37 +83077,28 @@
         "type": "object"
       },
       "ResourceNotFoundError": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GenericError"
-          },
-          {
-            "properties": {
-              "code": {
-                "example": "10005",
-                "type": "string"
-              },
-              "title": {
-                "example": "Resource not found",
-                "type": "string"
-              },
-              "detail": {
-                "example": "The requested resource or URL could not be found.",
-                "type": "string"
-              },
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "url": {
-                    "type": "string",
-                    "example": "https://developers.telnyx.com/docs/overview/errors/10005"
-                  }
+        "type": "object",
+        "title": "Resource not found",
+        "example": {
+          "errors": [
+            {
+              "detail": "Resource not found"
+            }
+          ]
+        },
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "detail": {
+                  "type": "string"
                 }
               }
-            },
-            "type": "object"
+            }
           }
-        ]
+        }
       },
       "ResumeConferenceRecordingRequest": {
         "type": "object",
@@ -85809,7 +85865,8 @@
           "id": "096abcde-1122-3344-ab77-ff0123456789",
           "manager_account_id": "beeabcde-1122-3344-ab77-ff0123456789",
           "record_type": "managed_account_global_outbound_settings"
-        }
+        },
+        "type": "object"
       },
       "SipHeader": {
         "type": "object",
@@ -86642,7 +86699,8 @@
           "VSE"
         ],
         "description": "(Required for public company) stock exchange.",
-        "example": "NASDAQ"
+        "example": "NASDAQ",
+        "type": "string"
       },
       "StopForkingRequest": {
         "type": "object",
@@ -87888,6 +87946,10 @@
           "default_texml_app_id": {
             "type": "string",
             "description": "Default Texml App used for voice calls with your assistant. This will be created automatically on assistant creation."
+          },
+          "supports_unauthenticated_web_calls": {
+            "type": "boolean",
+            "description": "When enabled, allows users to interact with your AI assistant directly from your website without requiring authentication. This is required for FE widgets that work with assistants that have telephony enabled."
           }
         },
         "type": "object",
@@ -88134,11 +88196,13 @@
               "OK",
               "REGISTRATION_PENDING",
               "REGISTRATION_FAILED"
-            ]
+            ],
+            "type": "string"
           },
           "failureReasons": {
             "title": "failureReasons",
-            "description": "Failure reasons for brand"
+            "description": "Failure reasons for brand",
+            "type": "string"
           }
         },
         "description": "Telnyx-specific extensions to The Campaign Registry's `Brand` type"
@@ -88190,7 +88254,8 @@
           "brandDisplayName": {
             "title": "Branddisplayname",
             "description": "Display or marketing name of the brand.",
-            "example": "ABC Mobile"
+            "example": "ABC Mobile",
+            "type": "string"
           },
           "campaignId": {
             "title": "Campaignid",
@@ -88398,7 +88463,8 @@
           },
           "failureReasons": {
             "title": "failureReasons",
-            "description": "Failure reasons if campaign submission failed"
+            "description": "Failure reasons if campaign submission failed",
+            "type": "string"
           },
           "submissionStatus": {
             "title": "submissionStatus",
@@ -88407,7 +88473,8 @@
               "CREATED",
               "FAILED",
               "PENDING"
-            ]
+            ],
+            "type": "string"
           },
           "campaignStatus": {
             "title": "campaignStatus",
@@ -88426,7 +88493,8 @@
               "MNO_REJECTED",
               "MNO_PROVISIONED",
               "MNO_PROVISIONING_FAILED"
-            ]
+            ],
+            "type": "string"
           },
           "privacyPolicyLink": {
             "title": "PrivacyPolicyLink",
@@ -88489,7 +88557,8 @@
           "brandDisplayName": {
             "title": "Branddisplayname",
             "description": "Display or marketing name of the brand.",
-            "example": "ABC Mobile"
+            "example": "ABC Mobile",
+            "type": "string"
           },
           "campaignId": {
             "title": "Campaignid",
@@ -88697,7 +88766,8 @@
           },
           "failureReasons": {
             "title": "failureReasons",
-            "description": "Failure reasons if campaign submission failed"
+            "description": "Failure reasons if campaign submission failed",
+            "type": "string"
           },
           "submissionStatus": {
             "title": "submissionStatus",
@@ -88706,7 +88776,8 @@
               "CREATED",
               "FAILED",
               "PENDING"
-            ]
+            ],
+            "type": "string"
           },
           "campaignStatus": {
             "title": "campaignStatus",
@@ -88725,7 +88796,8 @@
               "MNO_REJECTED",
               "MNO_PROVISIONED",
               "MNO_PROVISIONING_FAILED"
-            ]
+            ],
+            "type": "string"
           },
           "privacyPolicyLink": {
             "title": "PrivacyPolicyLink",
@@ -88777,7 +88849,8 @@
           "brandDisplayName": {
             "title": "Branddisplayname",
             "description": "Display or marketing name of the brand.",
-            "example": "ABC Mobile"
+            "example": "ABC Mobile",
+            "type": "string"
           },
           "campaignStatus": {
             "title": "campaignStatus",
@@ -88796,7 +88869,8 @@
               "MNO_REJECTED",
               "MNO_PROVISIONED",
               "MNO_PROVISIONING_FAILED"
-            ]
+            ],
+            "type": "string"
           },
           "description": {
             "title": "Description",
@@ -88825,7 +88899,8 @@
           },
           "failureReasons": {
             "title": "failureReasons",
-            "description": "Failure reasons if campaign submission failed"
+            "description": "Failure reasons if campaign submission failed",
+            "type": "string"
           },
           "helpKeywords": {
             "title": "Helpkeywords",
@@ -89371,14 +89446,14 @@
           "voice_url": {
             "type": "string",
             "description": "URL to which Telnyx will deliver your XML Translator webhooks.",
-            "format": "url",
+            "format": "uri",
             "example": "https://example.com"
           },
           "voice_fallback_url": {
             "type": "string",
             "description": "URL to which Telnyx will deliver your XML Translator webhooks if we get an error response from your voice_url.",
             "default": null,
-            "format": "url",
+            "format": "uri",
             "example": "https://fallback.example.com"
           },
           "voice_method": {
@@ -89395,7 +89470,7 @@
             "type": "string",
             "description": "URL for Telnyx to send requests to containing information about call progress events.",
             "default": null,
-            "format": "url",
+            "format": "uri",
             "example": "https://example.com"
           },
           "status_callback_method": {
@@ -91163,46 +91238,41 @@
         ]
       },
       "UnprocessableEntityError": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GenericError"
+        "required": [
+          "code",
+          "title"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "format": "int64"
           },
-          {
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
             "properties": {
-              "code": {
-                "example": "10002",
+              "pointer": {
+                "description": "JSON pointer (RFC6901) to the offending entity.",
+                "type": "string",
+                "format": "json-pointer"
+              },
+              "parameter": {
+                "description": "Indicates which query parameter caused the error.",
                 "type": "string"
-              },
-              "title": {
-                "example": "Invalid phone number",
-                "type": "string"
-              },
-              "detail": {
-                "example": "The phone number is invalid.",
-                "type": "string"
-              },
-              "source": {
-                "type": "object",
-                "properties": {
-                  "pointer": {
-                    "type": "string",
-                    "example": "/phone_numbers"
-                  }
-                }
-              },
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "url": {
-                    "type": "string",
-                    "example": "https://developers.telnyx.com/docs/overview/errors/10002"
-                  }
-                }
               }
-            },
-            "type": "object"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "additionalProperties": true
           }
-        ]
+        },
+        "type": "object"
       },
       "UnusedUserBundlesResponse": {
         "title": "UnusedUserBundlesResponse",
@@ -91977,54 +92047,31 @@
         }
       },
       "UpdateConferenceRequest": {
-        "required": [
-          "call_control_id",
-          "supervisor_role"
-        ],
         "type": "object",
         "title": "Update Conference Request",
         "properties": {
-          "call_control_id": {
-            "description": "Unique identifier and token for controlling the call",
-            "example": "v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQczRrZvZakpWxBlpw48KyZQ==",
+          "Status": {
+            "description": "The new status of the resource. Specifying `completed` will end the conference and hang up all participants.",
+            "example": "completed",
             "type": "string"
           },
-          "command_id": {
-            "description": "Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same `command_id` as one that has already been executed.",
-            "example": "891510ac-f3e4-11e8-af5b-de00688a4901",
+          "AnnounceUrl": {
+            "description": "The URL we should call to announce something into the conference. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `<Play>`, `<Say>`, `<Pause>`, or `<Redirect>` verbs.",
+            "example": "https://www.example.com/announce.xml",
             "type": "string"
           },
-          "supervisor_role": {
-            "description": "Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. \"barge\" means the supervisor enters the conference as a normal participant. This is the same as \"none\". \"monitor\" means the supervisor is muted but can hear all participants. \"whisper\" means that only the specified \"whisper_call_control_ids\" can hear the supervisor. Defaults to \"none\".",
-            "example": "whisper",
+          "AnnounceMethod": {
+            "description": "The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.",
+            "example": "GET",
             "type": "string",
             "enum": [
-              "barge",
-              "monitor",
-              "none",
-              "whisper"
+              "GET",
+              "POST"
             ]
-          },
-          "whisper_call_control_ids": {
-            "description": "Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.",
-            "example": [
-              "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
-              "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
-            ],
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           }
         },
         "example": {
-          "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
-          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
-          "supervisor_role": "whisper",
-          "whisper_call_control_ids": [
-            "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
-            "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
-          ]
+          "Status": "completed"
         }
       },
       "UpdateConversationRequest": {
@@ -92102,13 +92149,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -92222,7 +92269,7 @@
         "type": "object",
         "title": "Update External Connection Request",
         "required": [
-          "outbound/outbound_voice_profile_id"
+          "outbound"
         ],
         "properties": {
           "active": {
@@ -92230,13 +92277,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -92285,7 +92332,10 @@
               "outbound_voice_profile_id": {
                 "$ref": "#/components/schemas/OutboundVoiceProfileId"
               }
-            }
+            },
+            "required": [
+              "outbound_voice_profile_id"
+            ]
           }
         },
         "example": {
@@ -92519,7 +92569,8 @@
             "timeout_2xx_secs": 10,
             "shaken_stir_enabled": true
           }
-        }
+        },
+        "type": "object"
       },
       "UpdateFqdnRequest": {
         "title": "Update FQDN Request",
@@ -92606,13 +92657,13 @@
           },
           "webhook_event_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "type": "string",
-            "format": "url",
+            "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
             "nullable": true,
@@ -92717,7 +92768,8 @@
             "ip_authentication_token": "string",
             "outbound_voice_profile_id": "1293384261075731499"
           }
-        }
+        },
+        "type": "object"
       },
       "UpdateIpRequest": {
         "title": "Update Ip Request",
@@ -92759,7 +92811,8 @@
         },
         "example": {
           "channel_limit": 30
-        }
+        },
+        "type": "object"
       },
       "UpdateManagedAccountRequest": {
         "title": "Update Managed Account Request",
@@ -92772,7 +92825,8 @@
         },
         "example": {
           "managed_account_allow_custom_pricing": true
-        }
+        },
+        "type": "object"
       },
       "UpdateMediaMultipartRequest": {
         "type": "object",
@@ -93392,14 +93446,14 @@
           "voice_url": {
             "type": "string",
             "description": "URL to which Telnyx will deliver your XML Translator webhooks.",
-            "format": "url",
+            "format": "uri",
             "example": "https://example.com"
           },
           "voice_fallback_url": {
             "type": "string",
             "description": "URL to which Telnyx will deliver your XML Translator webhooks if we get an error response from your voice_url.",
             "default": null,
-            "format": "url",
+            "format": "uri",
             "example": "https://fallback.example.com"
           },
           "voice_method": {
@@ -93416,7 +93470,7 @@
             "type": "string",
             "description": "URL for Telnyx to send requests to containing information about call progress events.",
             "default": null,
-            "format": "url",
+            "format": "uri",
             "example": "https://example.com"
           },
           "status_callback_method": {
@@ -93635,10 +93689,10 @@
         }
       },
       "UpdatedAt": {
+        "title": "Updated At",
         "type": "string",
-        "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
-        "readOnly": true,
-        "example": "2018-02-02T22:25:27.521Z"
+        "description": "ISO 8601 formatted date indicating when the resource was updated.",
+        "example": "2020-02-03T22:25:27.521Z"
       },
       "UplinkData": {
         "type": "object",
@@ -94013,7 +94067,8 @@
           "mnoMetadata": {
             "title": "Mnometadata",
             "type": "object",
-            "description": "Map of usecase metadata for each MNO. Key is the network ID of the MNO (e.g. 10017), Value is the mno metadata for the usecase."
+            "description": "Map of usecase metadata for each MNO. Key is the network ID of the MNO (e.g. 10017), Value is the mno metadata for the usecase.",
+            "additionalProperties": true
           },
           "monthlyFee": {
             "title": "Monthlyfee",
@@ -94538,7 +94593,8 @@
           "suggested": {
             "type": "object",
             "description": "Provides normalized address when available.",
-            "$ref": "#/components/schemas/ValidateAddressField"
+            "$ref": "#/components/schemas/ValidateAddressField",
+            "additionalProperties": true
           },
           "record_type": {
             "type": "string",
@@ -94622,8 +94678,17 @@
         ]
       },
       "ValidationError": {
+        "title": "ValidationError",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "type": "object",
         "properties": {
           "loc": {
+            "title": "Location",
+            "type": "array",
             "items": {
               "anyOf": [
                 {
@@ -94633,26 +94698,17 @@
                   "type": "integer"
                 }
               ]
-            },
-            "type": "array",
-            "title": "Location"
+            }
           },
           "msg": {
-            "type": "string",
-            "title": "Message"
+            "title": "Message",
+            "type": "string"
           },
           "type": {
-            "type": "string",
-            "title": "Error Type"
+            "title": "Error Type",
+            "type": "string"
           }
-        },
-        "type": "object",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
-        "title": "ValidationError"
+        }
       },
       "Verification": {
         "title": "Verification",
@@ -95566,7 +95622,8 @@
           "COMMUNICATION"
         ],
         "description": "Vertical or industry segment of the brand or campaign.",
-        "example": "TECHNOLOGY"
+        "example": "TECHNOLOGY",
+        "type": "string"
       },
       "VideoRegion": {
         "type": "object",
