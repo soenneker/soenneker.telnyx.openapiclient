@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Detail_recordsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/detail_records?filter[record_type]={filter%5Brecord_type%5D}{&filter*,filter%5Bdate_range%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
+        public Detail_recordsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/detail_records{?filter*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Detail_recordsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/detail_records?filter[record_type]={filter%5Brecord_type%5D}{&filter*,filter%5Bdate_range%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
+        public Detail_recordsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/detail_records{?filter*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Detail_recordsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter records on a given record attribute and value. &lt;br/&gt;Example: filter[status]=delivered</summary>
+            /// <summary>Filter records on a given record attribute and value. &lt;br/&gt;Example: filter[status]=delivered. &lt;br/&gt;Required: filter[record_type] must be specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -95,40 +95,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Filter by the given user-friendly date range. You can specify one of the following enum values, or a dynamic one using this format: last_N_days.</summary>
-            [Obsolete("This property is deprecated, use FilterdateRangeAsGetFilterDateRangeQueryParameterType instead")]
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bdate_range%5D")]
-            public string? FilterdateRange { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bdate_range%5D")]
-            public string FilterdateRange { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>Filter by the given user-friendly date range. You can specify one of the following enum values, or a dynamic one using this format: last_N_days.</summary>
-            [QueryParameter("filter%5Bdate_range%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Detail_records.GetFilterDate_rangeQueryParameterType? FilterdateRangeAsGetFilterDateRangeQueryParameterType { get; set; }
-            /// <summary>Filter by the given record type.</summary>
-            [Obsolete("This property is deprecated, use FilterrecordTypeAsGetFilterRecordTypeQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Brecord_type%5D")]
-            public string? FilterrecordType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Brecord_type%5D")]
-            public string FilterrecordType { get; set; }
-#endif
-            /// <summary>Filter by the given record type.</summary>
-            [QueryParameter("filter%5Brecord_type%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Detail_records.GetFilterRecord_typeQueryParameterType? FilterrecordTypeAsGetFilterRecordTypeQueryParameterType { get; set; }
-            /// <summary>Page number</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>Page size</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. &lt;br/&gt;Example: sort=-created_at</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

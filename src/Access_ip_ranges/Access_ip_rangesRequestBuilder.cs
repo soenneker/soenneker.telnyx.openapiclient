@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_ranges
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Access_ip_rangesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/access_ip_ranges{?filter%5Bcidr_block%5D*,filter%5Bcidr_block%5D%5Bcontains%5D*,filter%5Bcidr_block%5D%5Bendswith%5D*,filter%5Bcidr_block%5D%5Bstartswith%5D*,filter%5Bcreated_at%5D%5Bgt%5D*,filter%5Bcreated_at%5D%5Blt%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Access_ip_rangesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/access_ip_ranges{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_ranges
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Access_ip_rangesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/access_ip_ranges{?filter%5Bcidr_block%5D*,filter%5Bcidr_block%5D%5Bcontains%5D*,filter%5Bcidr_block%5D%5Bendswith%5D*,filter%5Bcidr_block%5D%5Bstartswith%5D*,filter%5Bcreated_at%5D%5Bgt%5D*,filter%5Bcreated_at%5D%5Blt%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Access_ip_rangesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/access_ip_ranges{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -150,50 +150,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_ranges
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Access_ip_rangesRequestBuilderGetQueryParameters 
         {
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[cidr_block], filter[cidr_block][startswith], filter[cidr_block][endswith], filter[cidr_block][contains], filter[created_at]. Supports complex bracket operations for dynamic filtering.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcidr_block%5D")]
-            public string? FiltercidrBlock { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcidr_block%5D")]
-            public string FiltercidrBlock { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcidr_block%5D%5Bcontains%5D")]
-            public string? FiltercidrBlockcontains { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcidr_block%5D%5Bcontains%5D")]
-            public string FiltercidrBlockcontains { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcidr_block%5D%5Bendswith%5D")]
-            public string? FiltercidrBlockendswith { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcidr_block%5D%5Bendswith%5D")]
-            public string FiltercidrBlockendswith { get; set; }
-#endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcidr_block%5D%5Bstartswith%5D")]
-            public string? FiltercidrBlockstartswith { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcidr_block%5D%5Bstartswith%5D")]
-            public string FiltercidrBlockstartswith { get; set; }
-#endif
-            [QueryParameter("filter%5Bcreated_at%5D%5Bgt%5D")]
-            public DateTimeOffset? FiltercreatedAtgt { get; set; }
-            [QueryParameter("filter%5Bcreated_at%5D%5Blt%5D")]
-            public DateTimeOffset? FiltercreatedAtlt { get; set; }
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Integration_secrets
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Integration_secretsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/integration_secrets{?filter%5Btype%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Integration_secretsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/integration_secrets{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Integration_secrets
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Integration_secretsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/integration_secrets{?filter%5Btype%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Integration_secretsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/integration_secrets{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -145,22 +145,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Integration_secrets
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Integration_secretsRequestBuilderGetQueryParameters 
         {
-            [Obsolete("This property is deprecated, use FiltertypeAsGetFilterTypeQueryParameterType instead")]
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[type]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Btype%5D")]
-            public string? Filtertype { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Btype%5D")]
-            public string Filtertype { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            [QueryParameter("filter%5Btype%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Integration_secrets.GetFilterTypeQueryParameterType? FiltertypeAsGetFilterTypeQueryParameterType { get; set; }
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

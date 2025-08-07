@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Mdr_usage_reportsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reports/mdr_usage_reports{?page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Mdr_usage_reportsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reports/mdr_usage_reports{?page*}", pathParameters)
         {
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Mdr_usage_reportsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reports/mdr_usage_reports{?page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Mdr_usage_reportsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/reports/mdr_usage_reports{?page*}", rawUrl)
         {
         }
         /// <summary>
@@ -159,12 +159,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Mdr_usage_reportsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Page number</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>Size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

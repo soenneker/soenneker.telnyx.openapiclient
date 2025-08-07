@@ -540,57 +540,153 @@
         ],
         "parameters": [
           {
-            "required": false,
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[ip_source], filter[ip_address], filter[created_at]. Supports complex bracket operations for dynamic filtering.",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "ip_source": {
+                  "type": "string",
+                  "description": "Filter by IP source"
+                },
+                "ip_address": {
+                  "type": "string",
+                  "description": "Filter by IP address"
+                },
+                "created_at": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Filter by exact creation date-time"
+                    },
+                    {
+                      "type": "object",
+                      "title": "DateRangeFilter",
+                      "properties": {
+                        "gt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Filter for creation date-time greater than"
+                        },
+                        "lt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Filter for creation date-time less than"
+                        },
+                        "gte": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Filter for creation date-time greater than or equal to"
+                        },
+                        "lte": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Filter for creation date-time less than or equal to"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Date range filtering operations"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": true
             },
-            "name": "filter[ip_source]",
-            "in": "query"
+            "examples": {
+              "filter[ip_source]=cloudflare": {
+                "value": {
+                  "ip_source": "cloudflare"
+                },
+                "summary": "Filter access IP addresses by source 'cloudflare'"
+              },
+              "filter[ip_address]=192.168.1.1": {
+                "value": {
+                  "ip_address": "192.168.1.1"
+                },
+                "summary": "Filter by specific IP address"
+              },
+              "filter[created_at][gt]=2023-01-01T00:00:00Z": {
+                "value": {
+                  "created_at": {
+                    "gt": "2023-01-01T00:00:00Z"
+                  }
+                },
+                "summary": "Filter IP addresses created after the specified date-time"
+              },
+              "filter[created_at][lt]=2023-12-31T23:59:59Z": {
+                "value": {
+                  "created_at": {
+                    "lt": "2023-12-31T23:59:59Z"
+                  }
+                },
+                "summary": "Filter IP addresses created before the specified date-time"
+              },
+              "Complex filtering example": {
+                "value": {
+                  "ip_source": "cloudflare",
+                  "created_at": {
+                    "gt": "2023-01-01T00:00:00Z",
+                    "lt": "2023-12-31T23:59:59Z"
+                  }
+                },
+                "summary": "Combine multiple filters: cloudflare source IPs created within 2023"
+              }
+            }
           },
           {
-            "required": false,
+            "name": "page",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "default": 1
+                },
+                "size": {
+                  "maximum": 250,
+                  "type": "integer",
+                  "default": 20
+                }
+              }
             },
-            "name": "filter[ip_address]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "name": "filter[created_at][gt]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "name": "filter[created_at][lt]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 1
-            },
-            "name": "page[number]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "maximum": 250,
-              "type": "integer",
-              "default": 20
-            },
-            "name": "page[size]",
-            "in": "query"
+            "examples": {
+              "page[number]=1&page[size]=20": {
+                "value": {
+                  "number": 1,
+                  "size": 20
+                },
+                "summary": "Default pagination with first page and 20 records per page"
+              },
+              "page[number]=2&page[size]=20": {
+                "value": {
+                  "number": 2,
+                  "size": 20
+                },
+                "summary": "Second page with 20 records per page"
+              },
+              "page[number]=1&page[size]=50": {
+                "value": {
+                  "number": 1,
+                  "size": 50
+                },
+                "summary": "First page with 50 records per page"
+              },
+              "page[number]=5&page[size]=100": {
+                "value": {
+                  "number": 5,
+                  "size": 100
+                },
+                "summary": "Fifth page with 100 records per page"
+              }
+            }
           }
         ],
         "responses": {
@@ -729,73 +825,194 @@
         ],
         "parameters": [
           {
-            "required": false,
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[cidr_block], filter[cidr_block][startswith], filter[cidr_block][endswith], filter[cidr_block][contains], filter[created_at]. Supports complex bracket operations for dynamic filtering.",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "cidr_block": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Filter by exact CIDR block match"
+                    },
+                    {
+                      "type": "object",
+                      "title": "CidrBlockPatternFilter",
+                      "properties": {
+                        "startswith": {
+                          "type": "string",
+                          "description": "Filter CIDR blocks starting with the specified string"
+                        },
+                        "endswith": {
+                          "type": "string",
+                          "description": "Filter CIDR blocks ending with the specified string"
+                        },
+                        "contains": {
+                          "type": "string",
+                          "description": "Filter CIDR blocks containing the specified string"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "CIDR block pattern matching operations"
+                    }
+                  ]
+                },
+                "created_at": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Filter by exact creation date-time"
+                    },
+                    {
+                      "type": "object",
+                      "title": "DateRangeFilter",
+                      "properties": {
+                        "gt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Filter for creation date-time greater than"
+                        },
+                        "lt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Filter for creation date-time less than"
+                        },
+                        "gte": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Filter for creation date-time greater than or equal to"
+                        },
+                        "lte": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Filter for creation date-time less than or equal to"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Date range filtering operations"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": true
             },
-            "name": "filter[cidr_block]",
-            "in": "query"
+            "examples": {
+              "filter[cidr_block]=192.168.1.0/24": {
+                "value": {
+                  "cidr_block": "192.168.1.0/24"
+                },
+                "summary": "Filter by exact CIDR block match"
+              },
+              "filter[cidr_block][startswith]=192.168": {
+                "value": {
+                  "cidr_block": {
+                    "startswith": "192.168"
+                  }
+                },
+                "summary": "Filter CIDR blocks starting with '192.168'"
+              },
+              "filter[cidr_block][endswith]=/24": {
+                "value": {
+                  "cidr_block": {
+                    "endswith": "/24"
+                  }
+                },
+                "summary": "Filter CIDR blocks ending with '/24'"
+              },
+              "filter[cidr_block][contains]=10.0": {
+                "value": {
+                  "cidr_block": {
+                    "contains": "10.0"
+                  }
+                },
+                "summary": "Filter CIDR blocks containing '10.0'"
+              },
+              "filter[created_at][gt]=2023-01-01T00:00:00Z": {
+                "value": {
+                  "created_at": {
+                    "gt": "2023-01-01T00:00:00Z"
+                  }
+                },
+                "summary": "Filter IP ranges created after the specified date-time"
+              },
+              "filter[created_at][lt]=2023-12-31T23:59:59Z": {
+                "value": {
+                  "created_at": {
+                    "lt": "2023-12-31T23:59:59Z"
+                  }
+                },
+                "summary": "Filter IP ranges created before the specified date-time"
+              },
+              "Complex filtering example": {
+                "value": {
+                  "cidr_block": {
+                    "startswith": "10.0",
+                    "endswith": "/16"
+                  },
+                  "created_at": {
+                    "gt": "2023-01-01T00:00:00Z",
+                    "lt": "2023-12-31T23:59:59Z"
+                  }
+                },
+                "summary": "Combine multiple filters: CIDR blocks starting with '10.0' and ending with '/16', created within 2023"
+              }
+            }
           },
           {
-            "required": false,
+            "name": "page",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "default": 1
+                },
+                "size": {
+                  "maximum": 250,
+                  "type": "integer",
+                  "default": 20
+                }
+              }
             },
-            "name": "filter[cidr_block][startswith]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "name": "filter[cidr_block][endswith]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "name": "filter[cidr_block][contains]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "name": "filter[created_at][gt]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "name": "filter[created_at][lt]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 1
-            },
-            "name": "page[number]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "maximum": 250,
-              "type": "integer",
-              "default": 20
-            },
-            "name": "page[size]",
-            "in": "query"
+            "examples": {
+              "page[number]=1&page[size]=20": {
+                "value": {
+                  "number": 1,
+                  "size": 20
+                },
+                "summary": "Default pagination with first page and 20 records per page"
+              },
+              "page[number]=2&page[size]=20": {
+                "value": {
+                  "number": 2,
+                  "size": 20
+                },
+                "summary": "Second page with 20 records per page"
+              },
+              "page[number]=1&page[size]=50": {
+                "value": {
+                  "number": 1,
+                  "size": 50
+                },
+                "summary": "First page with 50 records per page"
+              },
+              "page[number]=5&page[size]=100": {
+                "value": {
+                  "number": 5,
+                  "size": 100
+                },
+                "summary": "Fifth page with 100 records per page"
+              }
+            }
           }
         ],
         "responses": {
@@ -13164,35 +13381,62 @@
         "operationId": "SearchDetailRecords",
         "parameters": [
           {
-            "name": "filter[record_type]",
+            "name": "filter",
             "in": "query",
-            "description": "Filter by the given record type.",
-            "required": true,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Filter records on a given record attribute and value. <br/>Example: filter[status]=delivered. <br/>Required: filter[record_type] must be specified.",
+            "required": false,
             "schema": {
-              "type": "string",
-              "enum": [
-                "ai-voice-assistant",
-                "amd",
-                "call-control",
-                "conference",
-                "conference-participant",
-                "embedding",
-                "fax",
-                "inference",
-                "inference-speech-to-text",
-                "media_storage",
-                "media-streaming",
-                "messaging",
-                "noise-suppression",
-                "recording",
-                "sip-trunking",
-                "siprec-client",
-                "stt",
-                "tts",
-                "verify",
-                "webrtc",
-                "wireless"
-              ]
+              "type": "object",
+              "properties": {
+                "record_type": {
+                  "type": "string",
+                  "enum": [
+                    "ai-voice-assistant",
+                    "amd",
+                    "call-control",
+                    "conference",
+                    "conference-participant",
+                    "embedding",
+                    "fax",
+                    "inference",
+                    "inference-speech-to-text",
+                    "media_storage",
+                    "media-streaming",
+                    "messaging",
+                    "noise-suppression",
+                    "recording",
+                    "sip-trunking",
+                    "siprec-client",
+                    "stt",
+                    "tts",
+                    "verify",
+                    "webrtc",
+                    "wireless"
+                  ],
+                  "description": "Filter by the given record type."
+                },
+                "date_range": {
+                  "type": "string",
+                  "enum": [
+                    "yesterday",
+                    "today",
+                    "tomorrow",
+                    "last_week",
+                    "this_week",
+                    "next_week",
+                    "last_month",
+                    "this_month",
+                    "next_month"
+                  ],
+                  "description": "Filter by the given user-friendly date range. You can specify one of the following enum values, or a dynamic one using this format: last_N_days."
+                }
+              },
+              "required": [
+                "record_type"
+              ],
+              "additionalProperties": true
             },
             "examples": {
               "filter[record_type]=messaging": {
@@ -13202,29 +13446,7 @@
               "filter[record_type]=verify": {
                 "value": "verify",
                 "summary": "Searches for verify detail records"
-              }
-            }
-          },
-          {
-            "name": "filter[date_range]",
-            "in": "query",
-            "description": "Filter by the given user-friendly date range. You can specify one of the following enum values, or a dynamic one using this format: last_N_days.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "yesterday",
-                "today",
-                "tomorrow",
-                "last_week",
-                "this_week",
-                "next_week",
-                "last_month",
-                "this_month",
-                "next_month"
-              ]
-            },
-            "examples": {
+              },
               "filter[date_range]=today": {
                 "value": "today",
                 "summary": "Searches for records with timestamp starting at `00:00:00` of the current day"
@@ -13236,19 +13458,7 @@
               "filter[date_range]=last_month": {
                 "value": "last_month",
                 "summary": "Searches for records with timestamp starting at `00:00:00` on the first day of the month"
-              }
-            }
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "Filter records on a given record attribute and value. <br/>Example: filter[status]=delivered",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "additionalProperties": true
-            },
-            "examples": {
+              },
               "filter[created_at][gte]=2021-06-22": {
                 "value": "2021-06-22",
                 "summary": "Searches for records with `created_at` starting at `2021-06-22`"
@@ -13261,6 +13471,10 @@
                 "value": "inbound",
                 "summary": "Searches for records which have the property `direction` equal to `inbound`"
               },
+              "filter[cld][contains]=456": {
+                "value": "456",
+                "summary": "Searches for records which have the property `cld` containing the pattern `456`"
+              },
               "filter[cld][starts_with]=123": {
                 "value": "123",
                 "summary": "Searches for records which have the property `cld` starting with the prefix `123`"
@@ -13268,34 +13482,7 @@
               "filter[cld][ends_with]=789": {
                 "value": "789",
                 "summary": "Searches for records which have the property `cld` ending with the suffix `789`"
-              },
-              "filter[cld][contains]=456": {
-                "value": "456",
-                "summary": "Searches for records which have the property `cld` containing the pattern `456`"
               }
-            }
-          },
-          {
-            "name": "page[number]",
-            "in": "query",
-            "description": "Page number",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1,
-              "minimum": 1
-            }
-          },
-          {
-            "name": "page[size]",
-            "in": "query",
-            "description": "Page size",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 20,
-              "minimum": 1,
-              "maximum": 50
             }
           },
           {
@@ -13316,6 +13503,56 @@
               "sort=-created_at": {
                 "value": "created_at",
                 "summary": "Sorts search results using the `created_at` date-time in descending order"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "format": "int32",
+                  "default": 1,
+                  "minimum": 1,
+                  "description": "Page number"
+                },
+                "size": {
+                  "type": "integer",
+                  "format": "int32",
+                  "default": 20,
+                  "minimum": 1,
+                  "maximum": 50,
+                  "description": "Page size"
+                }
+              }
+            },
+            "examples": {
+              "page[number]=1&page[size]=20": {
+                "value": {
+                  "number": 1,
+                  "size": 20
+                },
+                "summary": "Default pagination with first page and 20 items per page"
+              },
+              "page[number]=2&page[size]=20": {
+                "value": {
+                  "number": 2,
+                  "size": 20
+                },
+                "summary": "Second page with 20 items per page"
+              },
+              "page[number]=1&page[size]=50": {
+                "value": {
+                  "number": 1,
+                  "size": 50
+                },
+                "summary": "First page with maximum 50 items per page"
               }
             }
           }
@@ -16996,37 +17233,83 @@
         "operationId": "list_integration_secrets",
         "parameters": [
           {
-            "name": "page[size]",
+            "name": "page",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[size], page[number]",
             "schema": {
-              "type": "integer",
-              "title": "Page Size",
-              "example": 25
+              "type": "object",
+              "properties": {
+                "size": {
+                  "type": "integer",
+                  "title": "Page Size",
+                  "example": 25
+                },
+                "number": {
+                  "type": "integer",
+                  "title": "Page Number",
+                  "example": 1
+                }
+              }
+            },
+            "examples": {
+              "page[number]=1&page[size]=20": {
+                "value": {
+                  "number": 1,
+                  "size": 20
+                },
+                "summary": "First page with 20 results per page"
+              },
+              "page[number]=2&page[size]=20": {
+                "value": {
+                  "number": 2,
+                  "size": 20
+                },
+                "summary": "Second page with 20 results per page"
+              },
+              "page[number]=1&page[size]=50": {
+                "value": {
+                  "number": 1,
+                  "size": 50
+                },
+                "summary": "First page with 50 results per page"
+              }
             }
           },
           {
-            "name": "page[number]",
+            "name": "filter",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[type]",
             "schema": {
-              "type": "integer",
-              "title": "Page Number",
-              "example": 1
-            }
-          },
-          {
-            "name": "filter[type]",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "title": "Filter by type",
-              "example": "bearer",
-              "enum": [
-                "bearer",
-                "basic"
-              ]
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "title": "Filter by type",
+                  "example": "bearer",
+                  "enum": [
+                    "bearer",
+                    "basic"
+                  ]
+                }
+              }
+            },
+            "examples": {
+              "filter[type]=bearer": {
+                "value": {
+                  "type": "bearer"
+                },
+                "summary": "Filter results to only show bearer type secrets"
+              },
+              "filter[type]=basic": {
+                "value": {
+                  "type": "basic"
+                },
+                "summary": "Filter results to only show basic authentication type secrets"
+              }
             }
           }
         ],
@@ -29440,23 +29723,57 @@
         "operationId": "GetMdrUsageReports",
         "parameters": [
           {
-            "name": "page[number]",
+            "name": "page",
             "in": "query",
-            "description": "Page number",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
             "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "page[size]",
-            "in": "query",
-            "description": "Size of the page",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 20
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "format": "int32",
+                  "default": 1,
+                  "description": "Page number"
+                },
+                "size": {
+                  "type": "integer",
+                  "format": "int32",
+                  "default": 20,
+                  "description": "Size of the page"
+                }
+              }
+            },
+            "examples": {
+              "page[number]=1&page[size]=20": {
+                "value": {
+                  "number": 1,
+                  "size": 20
+                },
+                "summary": "Default pagination with first page and 20 records per page"
+              },
+              "page[number]=2&page[size]=20": {
+                "value": {
+                  "number": 2,
+                  "size": 20
+                },
+                "summary": "Second page with 20 records per page"
+              },
+              "page[number]=1&page[size]=50": {
+                "value": {
+                  "number": 1,
+                  "size": 50
+                },
+                "summary": "First page with 50 records per page"
+              },
+              "page[number]=5&page[size]=100": {
+                "value": {
+                  "number": 5,
+                  "size": 100
+                },
+                "summary": "Fifth page with 100 records per page"
+              }
             }
           }
         ],
@@ -36476,29 +36793,6 @@
             }
           },
           {
-            "required": false,
-            "schema": {
-              "title": "Page[Number]",
-              "exclusiveMinimum": true,
-              "minimum": 1,
-              "type": "integer",
-              "default": 1
-            },
-            "name": "page[number]",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
-              "title": "Page[Size]",
-              "maximum": 5000,
-              "type": "integer",
-              "default": 20
-            },
-            "name": "page[size]",
-            "in": "query"
-          },
-          {
             "name": "sort",
             "description": "Specifies the sort order for results",
             "in": "query",
@@ -36553,6 +36847,61 @@
             "schema": {
               "type": "string",
               "description": "Authenticates the request with your Telnyx API V2 KEY"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "title": "Page[Number]",
+                  "exclusiveMinimum": true,
+                  "minimum": 1,
+                  "type": "integer",
+                  "default": 1
+                },
+                "size": {
+                  "title": "Page[Size]",
+                  "maximum": 5000,
+                  "type": "integer",
+                  "default": 20
+                }
+              }
+            },
+            "examples": {
+              "page[number]=1&page[size]=20": {
+                "value": {
+                  "number": 1,
+                  "size": 20
+                },
+                "summary": "Returns the first page with 20 records per page (default pagination)"
+              },
+              "page[number]=2&page[size]=20": {
+                "value": {
+                  "number": 2,
+                  "size": 20
+                },
+                "summary": "Returns the second page with 20 records per page"
+              },
+              "page[number]=1&page[size]=50": {
+                "value": {
+                  "number": 1,
+                  "size": 50
+                },
+                "summary": "Returns the first page with 50 records per page (larger page size)"
+              },
+              "page[number]=5&page[size]=100": {
+                "value": {
+                  "number": 5,
+                  "size": 100
+                },
+                "summary": "Returns the fifth page with 100 records per page"
+              }
             }
           }
         ],

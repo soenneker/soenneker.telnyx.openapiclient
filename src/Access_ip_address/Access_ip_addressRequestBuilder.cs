@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Access_ip_addressRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/access_ip_address{?filter%5Bcreated_at%5D%5Bgt%5D*,filter%5Bcreated_at%5D%5Blt%5D*,filter%5Bip_address%5D*,filter%5Bip_source%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Access_ip_addressRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/access_ip_address{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Access_ip_addressRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/access_ip_address{?filter%5Bcreated_at%5D%5Bgt%5D*,filter%5Bcreated_at%5D%5Blt%5D*,filter%5Bip_address%5D*,filter%5Bip_source%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Access_ip_addressRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/access_ip_address{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -150,32 +150,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Access_ip_address
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Access_ip_addressRequestBuilderGetQueryParameters 
         {
-            [QueryParameter("filter%5Bcreated_at%5D%5Bgt%5D")]
-            public DateTimeOffset? FiltercreatedAtgt { get; set; }
-            [QueryParameter("filter%5Bcreated_at%5D%5Blt%5D")]
-            public DateTimeOffset? FiltercreatedAtlt { get; set; }
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[ip_source], filter[ip_address], filter[created_at]. Supports complex bracket operations for dynamic filtering.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bip_address%5D")]
-            public string? FilteripAddress { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bip_address%5D")]
-            public string FilteripAddress { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bip_source%5D")]
-            public string? FilteripSource { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bip_source%5D")]
-            public string FilteripSource { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
