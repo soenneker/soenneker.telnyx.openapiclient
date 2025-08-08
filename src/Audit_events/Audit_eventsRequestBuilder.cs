@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Audit_events
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Audit_eventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/audit_events{?filter%5Bcreated_after%5D*,filter%5Bcreated_before%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
+        public Audit_eventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/audit_events{?filter*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Audit_events
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Audit_eventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/audit_events{?filter%5Bcreated_after%5D*,filter%5Bcreated_before%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
+        public Audit_eventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/audit_events{?filter*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -90,19 +90,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Audit_events
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Audit_eventsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter for audit events created after a specific date.</summary>
-            [QueryParameter("filter%5Bcreated_after%5D")]
-            public DateTimeOffset? FiltercreatedAfter { get; set; }
-            /// <summary>Filter for audit events created before a specific date.</summary>
-            [QueryParameter("filter%5Bcreated_before%5D")]
-            public DateTimeOffset? FiltercreatedBefore { get; set; }
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-            /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound_voice_profile_id]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
+#endif
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
+            /// <summary>Set the order of the results by the creation date.</summary>
             [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Audit_events
             [QueryParameter("sort")]
             public string Sort { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
+            /// <summary>Set the order of the results by the creation date.</summary>
             [QueryParameter("sort")]
             public global::Soenneker.Telnyx.OpenApiClient.Audit_events.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }

@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AddressesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/addresses{?filter%5Baddress_book%5D%5Beq%5D*,filter%5Bcustomer_reference%5D%5Bcontains%5D*,filter%5Bcustomer_reference%5D%5Beq%5D*,filter%5Bstreet_address%5D%5Bcontains%5D*,filter%5Bused_as_emergency%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
+        public AddressesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/addresses{?filter*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AddressesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/addresses{?filter%5Baddress_book%5D%5Beq%5D*,filter%5Bcustomer_reference%5D%5Bcontains%5D*,filter%5Bcustomer_reference%5D%5Beq%5D*,filter%5Bstreet_address%5D%5Bcontains%5D*,filter%5Bused_as_emergency%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
+        public AddressesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/addresses{?filter*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -186,62 +186,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Addresses
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AddressesRequestBuilderGetQueryParameters 
         {
-            /// <summary>If present, only returns results with the &lt;code&gt;address_book&lt;/code&gt; flag set to the given value.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound_voice_profile_id]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Baddress_book%5D%5Beq%5D")]
-            public string? FilteraddressBookeq { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Baddress_book%5D%5Beq%5D")]
-            public string FilteraddressBookeq { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>If present, addresses with &lt;code&gt;customer_reference&lt;/code&gt; containing the given value will be returned. Matching is not case-sensitive.</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcustomer_reference%5D%5Bcontains%5D")]
-            public string? FiltercustomerReferencecontains { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcustomer_reference%5D%5Bcontains%5D")]
-            public string FiltercustomerReferencecontains { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>Filter addresses via the customer reference set. Matching is not case-sensitive.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcustomer_reference%5D%5Beq%5D")]
-            public string? FiltercustomerReferenceeq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcustomer_reference%5D%5Beq%5D")]
-            public string FiltercustomerReferenceeq { get; set; }
-#endif
-            /// <summary>If present, addresses with &lt;code&gt;street_address&lt;/code&gt; containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstreet_address%5D%5Bcontains%5D")]
-            public string? FilterstreetAddresscontains { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstreet_address%5D%5Bcontains%5D")]
-            public string FilterstreetAddresscontains { get; set; }
-#endif
-            /// <summary>If set as &apos;true&apos;, only addresses used as the emergency address for at least one active phone-number will be returned. When set to &apos;false&apos;, the opposite happens: only addresses not used as the emergency address from phone-numbers will be returned.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bused_as_emergency%5D")]
-            public string? FilterusedAsEmergency { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bused_as_emergency%5D")]
-            public string FilterusedAsEmergency { get; set; }
-#endif
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;street_address&lt;/code&gt;: sorts the result by the    &lt;code&gt;street_address&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-street_address&lt;/code&gt;: sorts the result by the    &lt;code&gt;street_address&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
             [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Managed_accountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/managed_accounts{?filter%5Bemail%5D%5Bcontains%5D*,filter%5Bemail%5D%5Beq%5D*,filter%5Borganization_name%5D%5Bcontains%5D*,filter%5Borganization_name%5D%5Beq%5D*,include_cancelled_accounts*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
+        public Managed_accountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/managed_accounts{?filter*,include_cancelled_accounts*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Managed_accountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/managed_accounts{?filter%5Bemail%5D%5Bcontains%5D*,filter%5Bemail%5D%5Beq%5D*,filter%5Borganization_name%5D%5Bcontains%5D*,filter%5Borganization_name%5D%5Beq%5D*,include_cancelled_accounts*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
+        public Managed_accountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/managed_accounts{?filter*,include_cancelled_accounts*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -196,56 +196,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Managed_accountsRequestBuilderGetQueryParameters 
         {
-            /// <summary>If present, email containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound_voice_profile_id]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bemail%5D%5Bcontains%5D")]
-            public string? Filteremailcontains { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bemail%5D%5Bcontains%5D")]
-            public string Filteremailcontains { get; set; }
-#endif
-            /// <summary>If present, only returns results with the &lt;code&gt;email&lt;/code&gt; matching exactly the value given.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bemail%5D%5Beq%5D")]
-            public string? Filteremaileq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bemail%5D%5Beq%5D")]
-            public string Filteremaileq { get; set; }
-#endif
-            /// <summary>If present, only returns results with the &lt;code&gt;organization_name&lt;/code&gt; containing the given value. Matching is not case-sensitive. Requires at least three characters.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Borganization_name%5D%5Bcontains%5D")]
-            public string? FilterorganizationNamecontains { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Borganization_name%5D%5Bcontains%5D")]
-            public string FilterorganizationNamecontains { get; set; }
-#endif
-            /// <summary>If present, only returns results with the &lt;code&gt;organization_name&lt;/code&gt; matching exactly the value given.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Borganization_name%5D%5Beq%5D")]
-            public string? FilterorganizationNameeq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Borganization_name%5D%5Beq%5D")]
-            public string FilterorganizationNameeq { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
             /// <summary>Specifies if cancelled accounts should be included in the results.</summary>
             [QueryParameter("include_cancelled_accounts")]
             public bool? IncludeCancelledAccounts { get; set; }
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-            /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
+            /// <summary>Set the order of the results by the creation date.</summary>
             [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -256,7 +230,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts
             [QueryParameter("sort")]
             public string Sort { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
+            /// <summary>Set the order of the results by the creation date.</summary>
             [QueryParameter("sort")]
             public global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
         }

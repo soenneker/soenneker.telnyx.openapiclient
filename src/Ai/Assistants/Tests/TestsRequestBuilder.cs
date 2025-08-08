@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TestsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/tests{?destination*,page%5Bnumber%5D*,page%5Bsize%5D*,telnyx_conversation_channel*,test_suite*}", pathParameters)
+        public TestsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/tests{?destination*,page*,telnyx_conversation_channel*,test_suite*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/tests{?destination*,page%5Bnumber%5D*,page%5Bsize%5D*,telnyx_conversation_channel*,test_suite*}", rawUrl)
+        public TestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/tests{?destination*,page*,telnyx_conversation_channel*,test_suite*}", rawUrl)
         {
         }
         /// <summary>
@@ -166,12 +166,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests
             [QueryParameter("destination")]
             public string Destination { get; set; }
 #endif
-            /// <summary>Page number to retrieve (1-based indexing)</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>Number of tests to return per page (1-100)</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
             /// <summary>Filter tests by communication channel (e.g., &apos;web_chat&apos;, &apos;sms&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

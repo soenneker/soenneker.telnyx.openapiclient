@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences{?filter%5Bname%5D*,filter%5Bstatus%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public ConferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences{?filter%5Bname%5D*,filter%5Bstatus%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public ConferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -180,36 +180,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConferencesRequestBuilderGetQueryParameters 
         {
-            /// <summary>If present, conferences will be filtered to those with a matching `name` attribute. Matching is case-sensitive</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound_voice_profile_id]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bname%5D")]
-            public string? Filtername { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bname%5D")]
-            public string Filtername { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>If present, conferences will be filtered by status.</summary>
-            [Obsolete("This property is deprecated, use FilterstatusAsGetFilterStatusQueryParameterType instead")]
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string? Filterstatus { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string Filterstatus { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>If present, conferences will be filtered by status.</summary>
-            [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Conferences.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

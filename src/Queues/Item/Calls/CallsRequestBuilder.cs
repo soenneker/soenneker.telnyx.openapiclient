@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.OpenApiClient.Models;
 using Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -35,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/queues/{queue_name}/calls{?page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public CallsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/queues/{queue_name}/calls{?page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/queues/{queue_name}/calls{?page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public CallsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/queues/{queue_name}/calls{?page*}", rawUrl)
         {
         }
         /// <summary>
@@ -52,7 +51,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse?> GetAsCallsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -63,11 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the list of calls in an existing queue
@@ -75,7 +69,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsCallsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,11 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the list of calls in an existing queue
@@ -127,12 +116,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CallsRequestBuilderGetQueryParameters 
         {
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

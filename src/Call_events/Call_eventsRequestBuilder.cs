@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Call_events
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Call_eventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/call_events{?filter%5Bapplication_session_id%5D*,filter%5Bconnection_id%5D*,filter%5Bfailed%5D*,filter%5Bfrom%5D*,filter%5Bleg_id%5D*,filter%5Bname%5D*,filter%5Boccurred_at%5D%5Beq%5D*,filter%5Boccurred_at%5D%5Bgt%5D*,filter%5Boccurred_at%5D%5Bgte%5D*,filter%5Boccurred_at%5D%5Blt%5D*,filter%5Boccurred_at%5D%5Blte%5D*,filter%5Bproduct%5D*,filter%5Bto%5D*,filter%5Btype%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Call_eventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/call_events{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Call_events
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Call_eventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/call_events{?filter%5Bapplication_session_id%5D*,filter%5Bconnection_id%5D*,filter%5Bfailed%5D*,filter%5Bfrom%5D*,filter%5Bleg_id%5D*,filter%5Bname%5D*,filter%5Boccurred_at%5D%5Beq%5D*,filter%5Boccurred_at%5D%5Bgt%5D*,filter%5Boccurred_at%5D%5Bgte%5D*,filter%5Boccurred_at%5D%5Blt%5D*,filter%5Boccurred_at%5D%5Blte%5D*,filter%5Bproduct%5D*,filter%5Bto%5D*,filter%5Btype%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Call_eventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/call_events{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -114,139 +114,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Call_events
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Call_eventsRequestBuilderGetQueryParameters 
         {
-            /// <summary>The unique identifier of the call session. A session may include multiple call leg events.</summary>
-            [QueryParameter("filter%5Bapplication_session_id%5D")]
-            public Guid? FilterapplicationSessionId { get; set; }
-            /// <summary>The unique identifier of the conection.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound_voice_profile_id]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bconnection_id%5D")]
-            public string? FilterconnectionId { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bconnection_id%5D")]
-            public string FilterconnectionId { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Delivery failed or not.</summary>
-            [QueryParameter("filter%5Bfailed%5D")]
-            public bool? Filterfailed { get; set; }
-            /// <summary>Filter by From number.</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bfrom%5D")]
-            public string? Filterfrom { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bfrom%5D")]
-            public string Filterfrom { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>The unique identifier of an individual call leg.</summary>
-            [QueryParameter("filter%5Bleg_id%5D")]
-            public Guid? FilterlegId { get; set; }
-            /// <summary>Event name</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bname%5D")]
-            public string? Filtername { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bname%5D")]
-            public string Filtername { get; set; }
-#endif
-            /// <summary>Event occurred_at: equal</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Boccurred_at%5D%5Beq%5D")]
-            public string? FilteroccurredAteq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Boccurred_at%5D%5Beq%5D")]
-            public string FilteroccurredAteq { get; set; }
-#endif
-            /// <summary>Event occurred_at: greater than</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Boccurred_at%5D%5Bgt%5D")]
-            public string? FilteroccurredAtgt { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Boccurred_at%5D%5Bgt%5D")]
-            public string FilteroccurredAtgt { get; set; }
-#endif
-            /// <summary>Event occurred_at: greater than or equal</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Boccurred_at%5D%5Bgte%5D")]
-            public string? FilteroccurredAtgte { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Boccurred_at%5D%5Bgte%5D")]
-            public string FilteroccurredAtgte { get; set; }
-#endif
-            /// <summary>Event occurred_at: lower than</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Boccurred_at%5D%5Blt%5D")]
-            public string? FilteroccurredAtlt { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Boccurred_at%5D%5Blt%5D")]
-            public string FilteroccurredAtlt { get; set; }
-#endif
-            /// <summary>Event occurred_at: lower than or equal</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Boccurred_at%5D%5Blte%5D")]
-            public string? FilteroccurredAtlte { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Boccurred_at%5D%5Blte%5D")]
-            public string FilteroccurredAtlte { get; set; }
-#endif
-            /// <summary>Filter by product.</summary>
-            [Obsolete("This property is deprecated, use FilterproductAsGetFilterProductQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bproduct%5D")]
-            public string? Filterproduct { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bproduct%5D")]
-            public string Filterproduct { get; set; }
-#endif
-            /// <summary>Filter by product.</summary>
-            [QueryParameter("filter%5Bproduct%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Call_events.GetFilterProductQueryParameterType? FilterproductAsGetFilterProductQueryParameterType { get; set; }
-            /// <summary>Filter by To number.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bto%5D")]
-            public string? Filterto { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bto%5D")]
-            public string Filterto { get; set; }
-#endif
-            /// <summary>Event type</summary>
-            [Obsolete("This property is deprecated, use FiltertypeAsGetFilterTypeQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Btype%5D")]
-            public string? Filtertype { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Btype%5D")]
-            public string Filtertype { get; set; }
-#endif
-            /// <summary>Event type</summary>
-            [QueryParameter("filter%5Btype%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Call_events.GetFilterTypeQueryParameterType? FiltertypeAsGetFilterTypeQueryParameterType { get; set; }
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

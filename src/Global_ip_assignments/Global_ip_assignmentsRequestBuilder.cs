@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Global_ip_assignmentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/global_ip_assignments{?page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Global_ip_assignmentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/global_ip_assignments{?page*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Global_ip_assignmentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/global_ip_assignments{?page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Global_ip_assignmentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/global_ip_assignments{?page*}", rawUrl)
         {
         }
         /// <summary>
@@ -217,12 +217,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_assignments
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Global_ip_assignmentsRequestBuilderGetQueryParameters 
         {
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

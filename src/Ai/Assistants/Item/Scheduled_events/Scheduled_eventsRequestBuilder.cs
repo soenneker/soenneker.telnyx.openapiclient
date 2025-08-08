@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Scheduled_eventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}/scheduled_events{?conversation_channel*,from_date*,page%5Bnumber%5D*,page%5Bsize%5D*,to_date*}", pathParameters)
+        public Scheduled_eventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}/scheduled_events{?conversation_channel*,from_date*,page*,to_date*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Scheduled_eventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}/scheduled_events{?conversation_channel*,from_date*,page%5Bnumber%5D*,page%5Bsize%5D*,to_date*}", rawUrl)
+        public Scheduled_eventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/{assistant_id}/scheduled_events{?conversation_channel*,from_date*,page*,to_date*}", rawUrl)
         {
         }
         /// <summary>
@@ -164,10 +164,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
             public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType? ConversationChannelAsConversationChannelType { get; set; }
             [QueryParameter("from_date")]
             public DateTimeOffset? FromDate { get; set; }
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
             [QueryParameter("to_date")]
             public DateTimeOffset? ToDate { get; set; }
         }

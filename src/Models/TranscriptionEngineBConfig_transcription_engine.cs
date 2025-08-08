@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Identifies the type of the resource.</summary>
+    /// <summary>Engine identifier for Telnyx transcription service</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum RecordType
+    public enum TranscriptionEngineBConfig_transcription_engine
     {
-        [EnumMember(Value = "event")]
+        [EnumMember(Value = "B")]
         #pragma warning disable CS1591
-        Event,
+        B,
         #pragma warning restore CS1591
     }
 }

@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ParticipantsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}/participants{?filter%5Bmuted%5D*,filter%5Bon_hold%5D*,filter%5Bwhispering%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public ParticipantsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}/participants{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +29,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ParticipantsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}/participants{?filter%5Bmuted%5D*,filter%5Bon_hold%5D*,filter%5Bwhispering%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public ParticipantsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}/participants{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -39,7 +38,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse?> GetAsParticipantsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsRequestBuilder.ParticipantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -50,11 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists conference participants
@@ -62,7 +56,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError">When receiving a 404 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsParticipantsGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,11 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists conference participants
@@ -114,21 +103,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ParticipantsRequestBuilderGetQueryParameters 
         {
-            /// <summary>If present, participants will be filtered to those who are/are not muted</summary>
-            [QueryParameter("filter%5Bmuted%5D")]
-            public bool? Filtermuted { get; set; }
-            /// <summary>If present, participants will be filtered to those who are/are not put on hold</summary>
-            [QueryParameter("filter%5Bon_hold%5D")]
-            public bool? FilteronHold { get; set; }
-            /// <summary>If present, participants will be filtered to those who are whispering or are not</summary>
-            [QueryParameter("filter%5Bwhispering%5D")]
-            public bool? Filterwhispering { get; set; }
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[muted], filter[on_hold], filter[whispering]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
+#endif
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

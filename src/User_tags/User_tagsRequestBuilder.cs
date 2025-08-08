@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_tags
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public User_tagsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user_tags{?filter%5Bstarts_with%5D*}", pathParameters)
+        public User_tagsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user_tags{?filter*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_tags
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public User_tagsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user_tags{?filter%5Bstarts_with%5D*}", rawUrl)
+        public User_tagsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user_tags{?filter*}", rawUrl)
         {
         }
         /// <summary>
@@ -114,15 +114,15 @@ namespace Soenneker.Telnyx.OpenApiClient.User_tags
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class User_tagsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter tags by prefix</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[starts_with]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bstarts_with%5D")]
-            public string? FilterstartsWith { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bstarts_with%5D")]
-            public string FilterstartsWith { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
         }
         /// <summary>

@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Black_box_test_resultsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/seti/black_box_test_results{?filter%5Bproduct%5D*}", pathParameters)
+        public Black_box_test_resultsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/seti/black_box_test_results{?filter*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Black_box_test_resultsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/seti/black_box_test_results{?filter%5Bproduct%5D*}", rawUrl)
+        public Black_box_test_resultsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/seti/black_box_test_results{?filter*}", rawUrl)
         {
         }
         /// <summary>
@@ -103,15 +103,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Black_box_test_resultsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter results for a specific product.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[product]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bproduct%5D")]
-            public string? Filterproduct { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bproduct%5D")]
-            public string Filterproduct { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
         }
         /// <summary>

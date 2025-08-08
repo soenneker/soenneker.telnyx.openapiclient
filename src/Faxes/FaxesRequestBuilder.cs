@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FaxesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/faxes{?filter%5Bcreated_at%5D%5Bgt%5D*,filter%5Bcreated_at%5D%5Bgte%5D*,filter%5Bcreated_at%5D%5Blt%5D*,filter%5Bcreated_at%5D%5Blte%5D*,filter%5Bdirection%5D%5Beq%5D*,filter%5Bfrom%5D%5Beq%5D*,filter%5Bto%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public FaxesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/faxes{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FaxesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/faxes{?filter%5Bcreated_at%5D%5Bgt%5D*,filter%5Bcreated_at%5D%5Bgte%5D*,filter%5Bcreated_at%5D%5Blt%5D*,filter%5Bcreated_at%5D%5Blte%5D*,filter%5Bdirection%5D%5Beq%5D*,filter%5Bfrom%5D%5Beq%5D*,filter%5Bto%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public FaxesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/faxes{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -210,54 +210,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FaxesRequestBuilderGetQueryParameters 
         {
-            /// <summary>ISO 8601 date time for filtering faxes created after that date</summary>
-            [QueryParameter("filter%5Bcreated_at%5D%5Bgt%5D")]
-            public DateTimeOffset? FiltercreatedAtgt { get; set; }
-            /// <summary>ISO 8601 date time for filtering faxes created after or on that date</summary>
-            [QueryParameter("filter%5Bcreated_at%5D%5Bgte%5D")]
-            public DateTimeOffset? FiltercreatedAtgte { get; set; }
-            /// <summary>ISO 8601 formatted date time for filtering faxes created before that date</summary>
-            [QueryParameter("filter%5Bcreated_at%5D%5Blt%5D")]
-            public DateTimeOffset? FiltercreatedAtlt { get; set; }
-            /// <summary>ISO 8601 formatted date time for filtering faxes created on or before that date</summary>
-            [QueryParameter("filter%5Bcreated_at%5D%5Blte%5D")]
-            public DateTimeOffset? FiltercreatedAtlte { get; set; }
-            /// <summary>The direction, inbound or outbound, for filtering faxes sent from this account</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[created_at][gte], filter[created_at][gt], filter[created_at][lte], filter[created_at][lt], filter[direction][eq], filter[from][eq], filter[to][eq]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bdirection%5D%5Beq%5D")]
-            public string? Filterdirectioneq { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bdirection%5D%5Beq%5D")]
-            public string Filterdirectioneq { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>The phone number, in E.164 format for filtering faxes sent from this number</summary>
+            /// <summary>Consolidated pagination parameter (deepObject style). Originally: page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bfrom%5D%5Beq%5D")]
-            public string? Filterfromeq { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bfrom%5D%5Beq%5D")]
-            public string Filterfromeq { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>The phone number, in E.164 format for filtering faxes sent to this number</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bto%5D%5Beq%5D")]
-            public string? Filtertoeq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bto%5D%5Beq%5D")]
-            public string Filtertoeq { get; set; }
-#endif
-            /// <summary>Number of the page to be retrieved</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>Number of fax resourcxes for the single page returned</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

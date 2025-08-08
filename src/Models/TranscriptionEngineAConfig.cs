@@ -44,6 +44,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_speech_context> SpeechContext { get; set; }
 #endif
+        /// <summary>Engine identifier for Google transcription service</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_transcription_engine? TranscriptionEngine { get; set; }
         /// <summary>Enables enhanced transcription, this works for models `phone_call` and `video`.</summary>
         public bool? UseEnhanced { get; set; }
         /// <summary>
@@ -81,6 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_model>(); } },
                 { "profanity_filter", n => { ProfanityFilter = n.GetBoolValue(); } },
                 { "speech_context", n => { SpeechContext = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_speech_context>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_speech_context.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_transcription_engine>(); } },
                 { "use_enhanced", n => { UseEnhanced = n.GetBoolValue(); } },
             };
         }
@@ -100,6 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_model>("model", Model);
             writer.WriteBoolValue("profanity_filter", ProfanityFilter);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_speech_context>("speech_context", SpeechContext);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
             writer.WriteBoolValue("use_enhanced", UseEnhanced);
             writer.WriteAdditionalData(AdditionalData);
         }

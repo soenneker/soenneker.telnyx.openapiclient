@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Mobile_push_credentialsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/mobile_push_credentials{?filter%5Balias%5D*,filter%5Btype%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Mobile_push_credentialsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/mobile_push_credentials{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Mobile_push_credentialsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/mobile_push_credentials{?filter%5Balias%5D*,filter%5Btype%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Mobile_push_credentialsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/mobile_push_credentials{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -165,36 +165,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Mobile_push_credentialsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Unique mobile push credential alias</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[type], filter[alias]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Balias%5D")]
-            public string? Filteralias { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Balias%5D")]
-            public string Filteralias { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>type of mobile push credentials</summary>
-            [Obsolete("This property is deprecated, use FiltertypeAsGetFilterTypeQueryParameterType instead")]
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Btype%5D")]
-            public string? Filtertype { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Btype%5D")]
-            public string Filtertype { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>type of mobile push credentials</summary>
-            [QueryParameter("filter%5Btype%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.GetFilterTypeQueryParameterType? FiltertypeAsGetFilterTypeQueryParameterType { get; set; }
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

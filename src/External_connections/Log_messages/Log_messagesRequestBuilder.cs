@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Log_messages
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Log_messagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/external_connections/log_messages{?filter%5Bexternal_connection_id%5D*,filter%5Btelephone_number%5D%5Bcontains%5D*,filter%5Btelephone_number%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Log_messagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/external_connections/log_messages{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Log_messages
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Log_messagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/external_connections/log_messages{?filter%5Bexternal_connection_id%5D*,filter%5Btelephone_number%5D%5Bcontains%5D*,filter%5Btelephone_number%5D%5Beq%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Log_messagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/external_connections/log_messages{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -116,42 +116,26 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Log_messages
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Log_messagesRequestBuilderGetQueryParameters 
         {
-            /// <summary>The external connection ID to filter by or &quot;null&quot; to filter for logs without an external connection ID</summary>
+            /// <summary>Filter parameter for log messages (deepObject style). Supports filtering by external_connection_id and telephone_number with eq/contains operations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bexternal_connection_id%5D")]
-            public string? FilterexternalConnectionId { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bexternal_connection_id%5D")]
-            public string FilterexternalConnectionId { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>The partial phone number to filter log messages for. Requires 3-15 digits.</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Btelephone_number%5D%5Bcontains%5D")]
-            public string? FiltertelephoneNumbercontains { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Btelephone_number%5D%5Bcontains%5D")]
-            public string FiltertelephoneNumbercontains { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>The phone number to filter log messages for or &quot;null&quot; to filter for logs without a phone number</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Btelephone_number%5D%5Beq%5D")]
-            public string? FiltertelephoneNumbereq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Btelephone_number%5D%5Beq%5D")]
-            public string FiltertelephoneNumbereq { get; set; }
-#endif
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

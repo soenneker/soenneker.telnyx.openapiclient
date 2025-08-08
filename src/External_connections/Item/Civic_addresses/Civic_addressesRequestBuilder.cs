@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_address
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Civic_addressesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/external_connections/{id}/civic_addresses{?filter%5Bcountry%5D*}", pathParameters)
+        public Civic_addressesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/external_connections/{id}/civic_addresses{?filter*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_address
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Civic_addressesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/external_connections/{id}/civic_addresses{?filter%5Bcountry%5D*}", rawUrl)
+        public Civic_addressesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/external_connections/{id}/civic_addresses{?filter*}", rawUrl)
         {
         }
         /// <summary>
@@ -129,15 +129,15 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Civic_address
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Civic_addressesRequestBuilderGetQueryParameters 
         {
-            /// <summary>The country (or countries) to filter addresses by.</summary>
+            /// <summary>Filter parameter for civic addresses (deepObject style). Supports filtering by country.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcountry%5D")]
-            public string[]? Filtercountry { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcountry%5D")]
-            public string[] Filtercountry { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
         }
         /// <summary>

@@ -3,8 +3,8 @@
   "info": {
     "version": "2.0.0",
     "title": "Telnyx API",
-    "x-endpoint-cost": "light",
     "description": "SIP trunking, SMS, MMS, Call Control and Telephony Data Services.",
+    "x-endpoint-cost": "light",
     "license": {
       "name": "MIT"
     },
@@ -1180,25 +1180,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCustomerReferenceEquals"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCustomerReferenceContains"
-          },
-          {
-            "$ref": "#/components/parameters/FilterUsedAsEmergency"
-          },
-          {
-            "$ref": "#/components/parameters/FilterStreetAddress"
-          },
-          {
-            "$ref": "#/components/parameters/FilterAddressBook"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
             "$ref": "#/components/parameters/SortAddress"
@@ -1629,33 +1614,6 @@
         "operationId": "get_assistant_tests_public_assistants_tests_get",
         "parameters": [
           {
-            "name": "page[size]",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Number of tests to return per page (1-100)",
-              "default": 20,
-              "title": "Page[Size]"
-            },
-            "description": "Number of tests to return per page (1-100)"
-          },
-          {
-            "name": "page[number]",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number to retrieve (1-based indexing)",
-              "default": 1,
-              "title": "Page[Number]"
-            },
-            "description": "Page number to retrieve (1-based indexing)"
-          },
-          {
             "name": "test_suite",
             "in": "query",
             "required": false,
@@ -1687,6 +1645,33 @@
               "title": "Destination"
             },
             "description": "Filter tests by destination (phone number, webhook URL, etc.)"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[size], page[number]",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "size": {
+                  "type": "integer",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "description": "Number of tests to return per page (1-100)",
+                  "default": 20,
+                  "title": "Page[Size]"
+                },
+                "number": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "Page number to retrieve (1-based indexing)",
+                  "default": 1,
+                  "title": "Page[Number]"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -1829,31 +1814,31 @@
             "description": "Filter runs by specific suite execution batch ID"
           },
           {
-            "name": "page[size]",
+            "name": "page",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[size], page[number]",
             "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Number of test runs to return per page (1-100)",
-              "default": 20,
-              "title": "Page[Size]"
-            },
-            "description": "Number of test runs to return per page (1-100)"
-          },
-          {
-            "name": "page[number]",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number to retrieve (1-based indexing)",
-              "default": 1,
-              "title": "Page[Number]"
-            },
-            "description": "Page number to retrieve (1-based indexing)"
+              "type": "object",
+              "properties": {
+                "size": {
+                  "type": "integer",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "description": "Number of test runs to return per page (1-100)",
+                  "default": 20,
+                  "title": "Page[Size]"
+                },
+                "number": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "Page number to retrieve (1-based indexing)",
+                  "default": 1,
+                  "title": "Page[Number]"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -2103,31 +2088,31 @@
             "description": "Filter runs by execution status (pending, running, completed, failed, timeout)"
           },
           {
-            "name": "page[size]",
+            "name": "page",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[size], page[number]",
             "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Number of test runs to return per page (1-100)",
-              "default": 20,
-              "title": "Page[Size]"
-            },
-            "description": "Number of test runs to return per page (1-100)"
-          },
-          {
-            "name": "page[number]",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number to retrieve (1-based indexing)",
-              "default": 1,
-              "title": "Page[Number]"
-            },
-            "description": "Page number to retrieve (1-based indexing)"
+              "type": "object",
+              "properties": {
+                "size": {
+                  "type": "integer",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "description": "Number of test runs to return per page (1-100)",
+                  "default": 20,
+                  "title": "Page[Size]"
+                },
+                "number": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "Page number to retrieve (1-based indexing)",
+                  "default": 1,
+                  "title": "Page[Number]"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -2733,29 +2718,6 @@
             }
           },
           {
-            "name": "page[size]",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "default": 20,
-              "title": "Page[Size]"
-            }
-          },
-          {
-            "name": "page[number]",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "default": 1,
-              "title": "Page[Number]"
-            }
-          },
-          {
             "name": "from_date",
             "in": "query",
             "required": false,
@@ -2782,6 +2744,31 @@
             "schema": {
               "$ref": "#/components/schemas/ConversationChannelType",
               "title": "Conversation Channel"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[size], page[number]",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "size": {
+                  "type": "integer",
+                  "maximum": 100,
+                  "minimum": 1,
+                  "default": 20,
+                  "title": "Page[Size]"
+                },
+                "number": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "default": 1,
+                  "title": "Page[Number]"
+                }
+              }
             }
           }
         ],
@@ -3438,23 +3425,25 @@
         "operationId": "list_all_requested_clusters_public_text_clusters_get",
         "parameters": [
           {
-            "name": "page[number]",
+            "name": "page",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
             "schema": {
-              "type": "integer",
-              "default": 0,
-              "title": "Page[Number]"
-            }
-          },
-          {
-            "name": "page[size]",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 20,
-              "title": "Page[Size]"
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "default": 0,
+                  "title": "Page[Number]"
+                },
+                "size": {
+                  "type": "integer",
+                  "default": 20,
+                  "title": "Page[Size]"
+                }
+              }
             }
           }
         ],
@@ -3868,32 +3857,32 @@
         "operationId": "get_all_insight_groups",
         "parameters": [
           {
-            "name": "page[number]",
+            "name": "page",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
             "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number (0-based)",
-              "default": 1,
-              "title": "Page[Number]"
-            },
-            "description": "Page number (0-based)"
-          },
-          {
-            "name": "page[size]",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "exclusiveMinimum": true,
-              "minimum": 0,
-              "description": "Number of items per page",
-              "default": 20,
-              "title": "Page[Size]"
-            },
-            "description": "Number of items per page"
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "Page number (0-based)",
+                  "default": 1,
+                  "title": "Page[Number]"
+                },
+                "size": {
+                  "type": "integer",
+                  "maximum": 100,
+                  "exclusiveMinimum": true,
+                  "minimum": 0,
+                  "description": "Number of items per page",
+                  "default": 20,
+                  "title": "Page[Size]"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -4231,32 +4220,32 @@
         "operationId": "get_all_insights",
         "parameters": [
           {
-            "name": "page[number]",
+            "name": "page",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
             "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number (0-based)",
-              "default": 1,
-              "title": "Page[Number]"
-            },
-            "description": "Page number (0-based)"
-          },
-          {
-            "name": "page[size]",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "exclusiveMinimum": true,
-              "minimum": 0,
-              "description": "Number of items per page",
-              "default": 20,
-              "title": "Page[Size]"
-            },
-            "description": "Number of items per page"
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "Page number (0-based)",
+                  "default": 1,
+                  "title": "Page[Number]"
+                },
+                "size": {
+                  "type": "integer",
+                  "maximum": 100,
+                  "exclusiveMinimum": true,
+                  "minimum": 0,
+                  "description": "Number of items per page",
+                  "default": 20,
+                  "title": "Page[Size]"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -5351,16 +5340,10 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCreatedBefore"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCreatedAfter"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
             "$ref": "#/components/parameters/Sort"
@@ -5388,29 +5371,6 @@
         ],
         "parameters": [
           {
-            "name": "page[number]",
-            "in": "query",
-            "description": "The page number to load",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "default": 1
-            }
-          },
-          {
-            "name": "page[size]",
-            "in": "query",
-            "description": "The size of the page",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 250,
-              "default": 20
-            }
-          },
-          {
             "name": "sort",
             "in": "query",
             "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code>-</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>name</code>: sorts the result by the\n    <code>name</code> field in ascending order.\n  </li>\n  <li>\n    <code>-name</code>: sorts the result by the\n    <code>name</code> field in descending order.\n  </li>\n</ul><br/>If not given, results are sorted by <code>created_at</code> in descending order.",
@@ -5431,6 +5391,31 @@
               ],
               "default": "-created_at",
               "example": "name"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "default": 1,
+                  "description": "The page number to load"
+                },
+                "size": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 250,
+                  "default": 20,
+                  "description": "The size of the page"
+                }
+              }
             }
           }
         ],
@@ -7388,16 +7373,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterApplicationName"
-          },
-          {
-            "$ref": "#/components/parameters/FilterOutboundVoiceProfileId"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
             "$ref": "#/components/parameters/SortConnection"
@@ -7582,52 +7561,10 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/FilterCallLegId"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
-            "$ref": "#/components/parameters/FilterCallSessionId"
-          },
-          {
-            "$ref": "#/components/parameters/FilterConnectionId"
-          },
-          {
-            "$ref": "#/components/parameters/FilterProduct"
-          },
-          {
-            "$ref": "#/components/parameters/FilterFrom"
-          },
-          {
-            "$ref": "#/components/parameters/FilterTo"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCallEventFailed"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCallEventType"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCallEventName"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCallEventOccurredAtGreaterThan"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCallEventOccurredAtGreaterThanOrEqualTo"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCallEventOccurredAtLessThan"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCallEventOccurredAtLessThanOrEqualTo"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCallEventOccurredAtEqualTo"
-          },
-          {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -11490,16 +11427,10 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/FilterConferenceName"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
-            "$ref": "#/components/parameters/FilterConferenceStatus"
-          },
-          {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -11672,34 +11603,31 @@
             }
           },
           {
-            "name": "filter[muted]",
+            "$ref": "#/components/parameters/PageConsolidated"
+          },
+          {
+            "name": "filter",
             "in": "query",
-            "description": "If present, participants will be filtered to those who are/are not muted",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[muted], filter[on_hold], filter[whispering]",
             "schema": {
-              "type": "boolean"
+              "type": "object",
+              "properties": {
+                "muted": {
+                  "type": "boolean",
+                  "description": "If present, participants will be filtered to those who are/are not muted"
+                },
+                "on_hold": {
+                  "type": "boolean",
+                  "description": "If present, participants will be filtered to those who are/are not put on hold"
+                },
+                "whispering": {
+                  "type": "boolean",
+                  "description": "If present, participants will be filtered to those who are whispering or are not"
+                }
+              }
             }
-          },
-          {
-            "name": "filter[on_hold]",
-            "in": "query",
-            "description": "If present, participants will be filtered to those who are/are not put on hold",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "filter[whispering]",
-            "in": "query",
-            "description": "If present, participants will be filtered to those who are whispering or are not",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
           }
         ],
         "responses": {
@@ -12685,16 +12613,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterConnectionName"
-          },
-          {
-            "$ref": "#/components/parameters/FilterOutboundVoiceProfileId"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
             "$ref": "#/components/parameters/SortConnection"
@@ -12732,13 +12654,7 @@
             "$ref": "#/components/parameters/ConnectionId"
           },
           {
-            "$ref": "#/components/parameters/PageLimit"
-          },
-          {
-            "$ref": "#/components/parameters/PageAfter"
-          },
-          {
-            "$ref": "#/components/parameters/PageBefore"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -12852,16 +12768,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterConnectionName"
-          },
-          {
-            "$ref": "#/components/parameters/FilterInnerOutboundVoiceProfileId"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
             "$ref": "#/components/parameters/SortConnection"
@@ -14653,25 +14563,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterConnectionsConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterConnectionName"
-          },
-          {
-            "$ref": "#/components/parameters/FilterExternalSipConnection"
-          },
-          {
-            "$ref": "#/components/parameters/FilterId"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCreatedAt"
-          },
-          {
-            "$ref": "#/components/parameters/FilterPhoneNumber"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -14731,19 +14626,10 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterLogMessagesConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterExternalConnectionId"
-          },
-          {
-            "$ref": "#/components/parameters/FilterPhoneNumberLogMessageContains"
-          },
-          {
-            "$ref": "#/components/parameters/FilterPhoneNumberLogMessageEq"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -14936,7 +14822,7 @@
             "$ref": "#/components/parameters/id"
           },
           {
-            "$ref": "#/components/parameters/FilterCountry"
+            "$ref": "#/components/parameters/FilterCivicAddressesConsolidated"
           }
         ],
         "responses": {
@@ -15102,22 +14988,10 @@
             "$ref": "#/components/parameters/id"
           },
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterPhoneNumbersConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterPhoneNumberEq"
-          },
-          {
-            "$ref": "#/components/parameters/FilterPhoneNumberContains"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCivicAddressId"
-          },
-          {
-            "$ref": "#/components/parameters/FilterLocationId"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -15222,25 +15096,10 @@
             "$ref": "#/components/parameters/id"
           },
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterReleasesConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterReleaseStatus"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCivicAddressId"
-          },
-          {
-            "$ref": "#/components/parameters/FilterLocationId"
-          },
-          {
-            "$ref": "#/components/parameters/FilterPhoneNumberEq"
-          },
-          {
-            "$ref": "#/components/parameters/FilterPhoneNumberContains"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -15303,25 +15162,10 @@
             "$ref": "#/components/parameters/id"
           },
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterUploadsConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterUploadStatus"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCivicAddressId"
-          },
-          {
-            "$ref": "#/components/parameters/FilterLocationId"
-          },
-          {
-            "$ref": "#/components/parameters/FilterPhoneNumberEq"
-          },
-          {
-            "$ref": "#/components/parameters/FilterPhoneNumberContains"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -15553,16 +15397,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterApplicationName"
-          },
-          {
-            "$ref": "#/components/parameters/FilterOutboundVoiceProfileId"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
             "$ref": "#/components/parameters/SortApplication"
@@ -15738,88 +15576,100 @@
         ],
         "parameters": [
           {
-            "name": "filter[created_at][gte]",
+            "name": "filter",
             "in": "query",
-            "description": "ISO 8601 date time for filtering faxes created after or on that date",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[created_at][gte], filter[created_at][gt], filter[created_at][lte], filter[created_at][lt], filter[direction][eq], filter[from][eq], filter[to][eq]",
             "schema": {
-              "type": "string",
-              "format": "date-time",
-              "example": "2020-02-02T22:25:27.521992Z"
+              "type": "object",
+              "properties": {
+                "created_at": {
+                  "type": "object",
+                  "properties": {
+                    "gte": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2020-02-02T22:25:27.521992Z",
+                      "description": "ISO 8601 date time for filtering faxes created after or on that date"
+                    },
+                    "gt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2020-02-02T22:25:27.521992Z",
+                      "description": "ISO 8601 date time for filtering faxes created after that date"
+                    },
+                    "lte": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2020-02-02T22:25:27.521992Z",
+                      "description": "ISO 8601 formatted date time for filtering faxes created on or before that date"
+                    },
+                    "lt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2020-02-02T22:25:27.521992Z",
+                      "description": "ISO 8601 formatted date time for filtering faxes created before that date"
+                    }
+                  },
+                  "description": "Date range filtering operations for fax creation timestamp"
+                },
+                "direction": {
+                  "type": "object",
+                  "properties": {
+                    "eq": {
+                      "type": "string",
+                      "example": "inbound",
+                      "description": "The direction, inbound or outbound, for filtering faxes sent from this account"
+                    }
+                  },
+                  "description": "Direction filtering operations"
+                },
+                "from": {
+                  "type": "object",
+                  "properties": {
+                    "eq": {
+                      "type": "string",
+                      "example": "+13127367276",
+                      "description": "The phone number, in E.164 format for filtering faxes sent from this number"
+                    }
+                  },
+                  "description": "From number filtering operations"
+                },
+                "to": {
+                  "type": "object",
+                  "properties": {
+                    "eq": {
+                      "type": "string",
+                      "example": "+13127367276",
+                      "description": "The phone number, in E.164 format for filtering faxes sent to this number"
+                    }
+                  },
+                  "description": "To number filtering operations"
+                }
+              }
             }
           },
           {
-            "name": "filter[created_at][gt]",
+            "name": "page",
             "in": "query",
-            "description": "ISO 8601 date time for filtering faxes created after that date",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated pagination parameter (deepObject style). Originally: page[size], page[number]",
             "schema": {
-              "type": "string",
-              "format": "date-time",
-              "example": "2020-02-02T22:25:27.521992Z"
-            }
-          },
-          {
-            "name": "filter[created_at][lte]",
-            "in": "query",
-            "description": "ISO 8601 formatted date time for filtering faxes created on or before that date",
-            "schema": {
-              "type": "string",
-              "format": "date-time",
-              "example": "2020-02-02T22:25:27.521992Z"
-            }
-          },
-          {
-            "name": "filter[created_at][lt]",
-            "in": "query",
-            "description": "ISO 8601 formatted date time for filtering faxes created before that date",
-            "schema": {
-              "type": "string",
-              "format": "date-time",
-              "example": "2020-02-02T22:25:27.521992Z"
-            }
-          },
-          {
-            "name": "filter[direction][eq]",
-            "in": "query",
-            "description": "The direction, inbound or outbound, for filtering faxes sent from this account",
-            "schema": {
-              "type": "string",
-              "example": "inbound"
-            }
-          },
-          {
-            "name": "filter[from][eq]",
-            "in": "query",
-            "description": "The phone number, in E.164 format for filtering faxes sent from this number",
-            "schema": {
-              "type": "string",
-              "example": "+13127367276"
-            }
-          },
-          {
-            "name": "filter[to][eq]",
-            "in": "query",
-            "description": "The phone number, in E.164 format for filtering faxes sent to this number",
-            "schema": {
-              "type": "string",
-              "example": "+13127367276"
-            }
-          },
-          {
-            "name": "page[size]",
-            "in": "query",
-            "description": "Number of fax resourcxes for the single page returned",
-            "schema": {
-              "type": "integer",
-              "example": 2
-            }
-          },
-          {
-            "name": "page[number]",
-            "in": "query",
-            "description": "Number of the page to be retrieved",
-            "schema": {
-              "type": "integer",
-              "example": 2
+              "type": "object",
+              "properties": {
+                "size": {
+                  "type": "integer",
+                  "example": 2,
+                  "description": "Number of fax resources for the single page returned"
+                },
+                "number": {
+                  "type": "integer",
+                  "example": 2,
+                  "description": "Number of the page to be retrieved"
+                }
+              }
             }
           }
         ],
@@ -16119,19 +15969,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterConnectionName"
-          },
-          {
-            "$ref": "#/components/parameters/FilterFqdn"
-          },
-          {
-            "$ref": "#/components/parameters/FilterOutboundVoiceProfileId"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
             "$ref": "#/components/parameters/SortConnection"
@@ -16314,44 +16155,37 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "name": "filter[connection_id]",
-            "description": "ID of the FQDN connection to which the FQDN belongs.",
+            "name": "filter",
             "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[connection_id], filter[fqdn], filter[port], filter[dns_record_type]",
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "filter[fqdn]",
-            "description": "FQDN represented by the resource.",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "example": "example.com"
-            }
-          },
-          {
-            "name": "filter[port]",
-            "description": "Port to use when connecting to the FQDN.",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "example": 5060
-            }
-          },
-          {
-            "name": "filter[dns_record_type]",
-            "description": "DNS record type used by the FQDN.",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "example": "a"
+              "type": "object",
+              "properties": {
+                "connection_id": {
+                  "type": "string",
+                  "description": "ID of the FQDN connection to which the FQDN belongs."
+                },
+                "fqdn": {
+                  "type": "string",
+                  "example": "example.com",
+                  "description": "FQDN represented by the resource."
+                },
+                "port": {
+                  "type": "integer",
+                  "example": 5060,
+                  "description": "Port to use when connecting to the FQDN."
+                },
+                "dns_record_type": {
+                  "type": "string",
+                  "example": "a",
+                  "description": "DNS record type used by the FQDN."
+                }
+              }
             }
           }
         ],
@@ -16535,28 +16369,58 @@
         ],
         "parameters": [
           {
-            "name": "filter[global_ip_id][in]",
+            "$ref": "#/components/parameters/FilterConsolidated"
+          },
+          {
+            "name": "filter",
             "in": "query",
-            "description": "Filter by Global IP ID(s) separated by commas",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[global_ip_id][in], filter[global_ip_assignment_id][in]",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "global_ip_id": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Filter by exact Global IP ID"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "in": {
+                          "type": "string",
+                          "description": "Filter by Global IP ID(s) separated by commas"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Filtering operations"
+                    }
+                  ]
+                },
+                "global_ip_assignment_id": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Filter by exact Global IP Assignment ID"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "in": {
+                          "type": "string",
+                          "description": "Filter by Global IP Assignment ID(s) separated by commas"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Filtering operations"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
-          },
-          {
-            "name": "filter[global_ip_assignment_id][in]",
-            "in": "query",
-            "description": "Filter by Global IP Assignment ID(s) separated by commas",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "$ref": "#/components/parameters/TimestampGreater"
-          },
-          {
-            "$ref": "#/components/parameters/TimestampLess"
           }
         ],
         "responses": {
@@ -16580,10 +16444,7 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -16715,28 +16576,58 @@
         ],
         "parameters": [
           {
-            "name": "filter[global_ip_assignment_id][in]",
+            "$ref": "#/components/parameters/FilterConsolidated"
+          },
+          {
+            "name": "filter",
             "in": "query",
-            "description": "Filter by Global IP Assignment ID(s) separated by commas",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[global_ip_assignment_id][in], filter[global_ip_id][in]",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "global_ip_assignment_id": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Filter by exact Global IP Assignment ID"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "in": {
+                          "type": "string",
+                          "description": "Filter by Global IP Assignment ID(s) separated by commas"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Filtering operations"
+                    }
+                  ]
+                },
+                "global_ip_id": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Filter by exact Global IP ID"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "in": {
+                          "type": "string",
+                          "description": "Filter by Global IP ID(s) separated by commas"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Filtering operations"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
-          },
-          {
-            "name": "filter[global_ip_id][in]",
-            "in": "query",
-            "description": "Filter by Global IP ID(s), separated by commas",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "$ref": "#/components/parameters/TimestampGreater"
-          },
-          {
-            "$ref": "#/components/parameters/TimestampLess"
           }
         ],
         "responses": {
@@ -16779,10 +16670,7 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -16882,19 +16770,39 @@
         ],
         "parameters": [
           {
-            "name": "filter[global_ip_id][in]",
+            "$ref": "#/components/parameters/FilterConsolidated"
+          },
+          {
+            "name": "filter",
             "in": "query",
-            "description": "Filter by Global IP ID(s) separated by commas",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[global_ip_id][in]",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "global_ip_id": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Filter by exact Global IP ID"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "in": {
+                          "type": "string",
+                          "description": "Filter by Global IP ID(s) separated by commas"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Filtering operations"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
-          },
-          {
-            "$ref": "#/components/parameters/TimestampGreater"
-          },
-          {
-            "$ref": "#/components/parameters/TimestampLess"
           }
         ],
         "responses": {
@@ -16937,19 +16845,39 @@
         ],
         "parameters": [
           {
-            "name": "filter[global_ip_id][in]",
+            "$ref": "#/components/parameters/FilterConsolidated"
+          },
+          {
+            "name": "filter",
             "in": "query",
-            "description": "Filter by Global IP ID(s) separated by commas",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[global_ip_id][in]",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "global_ip_id": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Filter by exact Global IP ID"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "in": {
+                          "type": "string",
+                          "description": "Filter by Global IP ID(s) separated by commas"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Filtering operations"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
-          },
-          {
-            "$ref": "#/components/parameters/TimestampGreater"
-          },
-          {
-            "$ref": "#/components/parameters/TimestampLess"
           }
         ],
         "responses": {
@@ -16973,10 +16901,7 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -17721,16 +17646,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterConnectionName"
-          },
-          {
-            "$ref": "#/components/parameters/FilterInnerOutboundVoiceProfileId"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
             "$ref": "#/components/parameters/SortConnection"
@@ -17925,35 +17844,32 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "name": "filter[connection_id]",
-            "description": "ID of the IP Connection to which this IP should be attached.",
+            "name": "filter",
             "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[connection_id], filter[ip_address], filter[port]",
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "filter[ip_address]",
-            "description": "IP adddress represented by this resource.",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "example": "192.168.0.0"
-            }
-          },
-          {
-            "name": "filter[port]",
-            "description": "Port to use when connecting to this IP.",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "example": 5060
+              "type": "object",
+              "properties": {
+                "connection_id": {
+                  "type": "string",
+                  "description": "ID of the IP Connection to which this IP should be attached."
+                },
+                "ip_address": {
+                  "type": "string",
+                  "example": "192.168.0.0",
+                  "description": "IP adddress represented by this resource."
+                },
+                "port": {
+                  "type": "integer",
+                  "example": 5060,
+                  "description": "Port to use when connecting to this IP."
+                }
+              }
             }
           }
         ],
@@ -18269,22 +18185,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterEmailContains"
-          },
-          {
-            "$ref": "#/components/parameters/FilterEmailEq"
-          },
-          {
-            "$ref": "#/components/parameters/FilterOrganizationEmailContains"
-          },
-          {
-            "$ref": "#/components/parameters/FilterOrganizationEmailEq"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
             "$ref": "#/components/parameters/Sort"
@@ -18586,12 +18490,23 @@
         ],
         "parameters": [
           {
-            "name": "filter[content_type][]",
+            "name": "filter",
             "in": "query",
-            "description": "Filters files by given content types",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[content_type][]",
             "schema": {
-              "type": "string",
-              "example": "application_xml"
+              "type": "object",
+              "properties": {
+                "content_type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "application_xml"
+                  },
+                  "description": "Filters files by given content types"
+                }
+              }
             }
           }
         ],
@@ -20874,32 +20789,33 @@
         "operationId": "ListPushCredentials",
         "parameters": [
           {
-            "name": "filter[type]",
+            "$ref": "#/components/parameters/PageConsolidated"
+          },
+          {
+            "name": "filter",
             "in": "query",
-            "description": "type of mobile push credentials",
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[type], filter[alias]",
             "schema": {
-              "type": "string",
-              "enum": [
-                "ios",
-                "android"
-              ],
-              "example": "ios"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "ios",
+                    "android"
+                  ],
+                  "example": "ios",
+                  "description": "type of mobile push credentials"
+                },
+                "alias": {
+                  "type": "string",
+                  "example": "LucyCredential",
+                  "description": "Unique mobile push credential alias"
+                }
+              }
             }
-          },
-          {
-            "name": "filter[alias]",
-            "in": "query",
-            "description": "Unique mobile push credential alias",
-            "schema": {
-              "type": "string",
-              "example": "LucyCredential"
-            }
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/PageNumber"
           }
         ],
         "responses": {
@@ -21120,59 +21036,71 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "name": "filters[available_services][contains]",
-            "description": "The region of associated location to filter on.",
+            "name": "filters",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filters parameter (deepObject style). Originally: filters[available_services][contains]",
             "schema": {
-              "$ref": "#/components/schemas/AvailableService"
+              "type": "object",
+              "properties": {
+                "available_services": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AvailableService",
+                      "description": "Filter by exact available service match"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "contains": {
+                          "$ref": "#/components/schemas/AvailableService",
+                          "description": "Filter by available services containing the specified service"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Available service filtering operations"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
           },
           {
-            "name": "filter[location.region]",
-            "description": "The region of associated location to filter on.",
+            "name": "filter",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[location.region], filter[location.site], filter[location.pop], filter[location.code]",
             "schema": {
-              "type": "string",
-              "example": "AMER"
+              "type": "object",
+              "properties": {
+                "location.region": {
+                  "type": "string",
+                  "example": "AMER",
+                  "description": "The region of associated location to filter on."
+                },
+                "location.site": {
+                  "type": "string",
+                  "example": "SJC",
+                  "description": "The site of associated location to filter on."
+                },
+                "location.pop": {
+                  "type": "string",
+                  "example": "SV1",
+                  "description": "The POP of associated location to filter on."
+                },
+                "location.code": {
+                  "type": "string",
+                  "example": "silicon_valley-ca",
+                  "description": "The code of associated location to filter on."
+                }
+              }
             }
           },
           {
-            "name": "filter[location.site]",
-            "description": "The site of associated location to filter on.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "SJC"
-            }
-          },
-          {
-            "name": "filter[location.pop]",
-            "description": "The POP of associated location to filter on.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "SV1"
-            }
-          },
-          {
-            "name": "filter[location.code]",
-            "description": "The code of associated location to filter on.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "silicon_valley-ca"
-            }
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -21196,20 +21124,24 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "name": "filter[name]",
-            "description": "The network name to filter on.",
+            "name": "filter",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[name]",
             "schema": {
-              "type": "string",
-              "example": "test network"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "test network",
+                  "description": "The network name to filter on."
+                }
+              }
             }
+          },
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -21422,39 +21354,33 @@
             "$ref": "#/components/parameters/ResourceId"
           },
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "name": "filter[name]",
-            "description": "The interface name to filter on.",
+            "name": "filter",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[name], filter[type], filter[status]",
             "schema": {
-              "type": "string",
-              "example": "test interface"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "test interface",
+                  "description": "The interface name to filter on."
+                },
+                "type": {
+                  "type": "string",
+                  "example": "wireguard_interface",
+                  "description": "The interface type to filter on."
+                },
+                "status": {
+                  "$ref": "#/components/schemas/InterfaceStatus",
+                  "description": "The interface status to filter on."
+                }
+              }
             }
           },
           {
-            "name": "filter[type]",
-            "description": "The interface type to filter on.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "wireguard_interface"
-            }
-          },
-          {
-            "name": "filter[status]",
-            "description": "The interface status to filter on.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "$ref": "#/components/schemas/InterfaceStatus"
-            }
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -23048,13 +22974,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/NameFilter"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
             "$ref": "#/components/parameters/SortOutboundVoiceProfile"
@@ -28971,20 +28894,24 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "name": "filter[network_id]",
-            "description": "The associated network id to filter on.",
+            "name": "filter",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[network_id]",
             "schema": {
-              "type": "string",
-              "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+              "type": "object",
+              "properties": {
+                "network_id": {
+                  "type": "string",
+                  "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
+                  "description": "The associated network id to filter on."
+                }
+              }
             }
+          },
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -29123,10 +29050,7 @@
             }
           },
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -29357,92 +29281,67 @@
         ],
         "parameters": [
           {
-            "name": "filter[conference_id]",
+            "$ref": "#/components/parameters/PageConsolidated"
+          },
+          {
+            "name": "filter",
             "in": "query",
-            "description": "Returns only recordings associated with a given conference.",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[conference_id], filter[created_at][gte], filter[created_at][lte], filter[call_leg_id], filter[call_session_id], filter[from], filter[to], filter[connection_id]",
             "schema": {
-              "type": "string",
-              "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1"
+              "type": "object",
+              "properties": {
+                "conference_id": {
+                  "type": "string",
+                  "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1",
+                  "description": "Returns only recordings associated with a given conference."
+                },
+                "created_at": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "gte": {
+                      "type": "string",
+                      "example": "2019-03-29T11:10:00Z",
+                      "description": "Returns only recordings created later than or at given ISO 8601 datetime."
+                    },
+                    "lte": {
+                      "type": "string",
+                      "example": "2019-03-29T11:10:00Z",
+                      "description": "Returns only recordings created earlier than or at given ISO 8601 datetime."
+                    }
+                  }
+                },
+                "call_leg_id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1",
+                  "description": "If present, recordings will be filtered to those with a matching call_leg_id."
+                },
+                "call_session_id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1",
+                  "description": "If present, recordings will be filtered to those with a matching call_session_id."
+                },
+                "from": {
+                  "type": "string",
+                  "example": "1234567890",
+                  "description": "If present, recordings will be filtered to those with a matching `from` attribute (case-sensitive)."
+                },
+                "to": {
+                  "type": "string",
+                  "example": "1234567890",
+                  "description": "If present, recordings will be filtered to those with a matching `to` attribute (case-sensitive)."
+                },
+                "connection_id": {
+                  "type": "string",
+                  "example": "175237942907135762",
+                  "description": "If present, recordings will be filtered to those with a matching `connection_id` attribute (case-sensitive)."
+                }
+              }
             }
-          },
-          {
-            "name": "filter[created_at][gte]",
-            "in": "query",
-            "description": "Returns only recordings created later than or at given ISO 8601 datetime.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "2019-03-29T11:10:00Z"
-            }
-          },
-          {
-            "name": "filter[created_at][lte]",
-            "in": "query",
-            "description": "Returns only recordings created earlier than or at given ISO 8601 datetime.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "2019-03-29T11:10:00Z"
-            }
-          },
-          {
-            "name": "filter[call_leg_id]",
-            "in": "query",
-            "description": "If present, recordings will be filtered to those with a matching call_leg_id.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "uuid",
-              "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1"
-            }
-          },
-          {
-            "name": "filter[call_session_id]",
-            "in": "query",
-            "description": "If present, recordings will be filtered to those with a matching call_session_id.",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "uuid",
-              "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1"
-            }
-          },
-          {
-            "name": "filter[from]",
-            "in": "query",
-            "description": "If present, recordings will be filtered to those with a matching `from` attribute (case-sensitive).",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "1234567890"
-            }
-          },
-          {
-            "name": "filter[to]",
-            "in": "query",
-            "description": "If present, recordings will be filtered to those with a matching `to` attribute (case-sensitive).",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "1234567890"
-            }
-          },
-          {
-            "name": "filter[connection_id]",
-            "in": "query",
-            "description": "If present, recordings will be filtered to those with a matching `connection_id` attribute (case-sensitive).",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "175237942907135762"
-            }
-          },
-          {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
           }
         ],
         "responses": {
@@ -32583,12 +32482,20 @@
         ],
         "parameters": [
           {
-            "name": "filter[product]",
+            "name": "filter",
             "in": "query",
-            "description": "Filter results for a specific product.",
+            "style": "deepObject",
+            "explode": true,
             "required": false,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[product]",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "product": {
+                  "type": "string",
+                  "description": "Filter results for a specific product."
+                }
+              }
             }
           }
         ],
@@ -36314,22 +36221,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSizeApp"
-          },
-          {
-            "name": "filter[friendly_name][contains]",
-            "in": "query",
-            "description": "If present, applications with <code>friendly_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
-            "schema": {
-              "type": "string",
-              "default": "null"
-            }
-          },
-          {
-            "$ref": "#/components/parameters/FilterOutboundVoiceProfileId"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
             "$ref": "#/components/parameters/SortApplication"
@@ -37036,19 +36931,10 @@
         "x-endpoint-cost": "medium",
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
+            "$ref": "#/components/parameters/PageConsolidated"
           },
           {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCustomerReferenceEquals"
-          },
-          {
-            "$ref": "#/components/parameters/FilterCustomerReferenceContains"
-          },
-          {
-            "$ref": "#/components/parameters/FilterStreetAddress"
+            "$ref": "#/components/parameters/FilterConsolidated"
           },
           {
             "$ref": "#/components/parameters/SortUserAddress"
@@ -37147,13 +37033,20 @@
         ],
         "parameters": [
           {
-            "name": "filter[starts_with]",
+            "name": "filter",
             "in": "query",
-            "description": "Filter tags by prefix",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[starts_with]",
             "schema": {
-              "type": "string",
-              "example": "my-tag"
+              "type": "object",
+              "properties": {
+                "starts_with": {
+                  "type": "string",
+                  "example": "my-tag",
+                  "description": "Filter tags by prefix"
+                }
+              }
             }
           }
         ],
@@ -38031,20 +37924,24 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "name": "filter[network_id]",
-            "description": "The associated network id to filter on.",
+            "name": "filter",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[network_id]",
             "schema": {
-              "type": "string",
-              "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+              "type": "object",
+              "properties": {
+                "network_id": {
+                  "type": "string",
+                  "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
+                  "description": "The associated network id to filter on."
+                }
+              }
             }
+          },
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -38179,87 +38076,86 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "name": "filters[available_bandwidth][contains]",
-            "description": "The available bandwidth to filter on.",
+            "name": "filters",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filters parameter (deepObject style). Originally: filters[available_bandwidth][contains]",
             "schema": {
-              "type": "integer"
-            },
-            "example": 50
-          },
-          {
-            "name": "filter[cloud_provider]",
-            "description": "The Telnyx region code",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "aws",
-                "azure",
-                "gce"
-              ],
-              "description": "The Virtual Private Cloud provider.",
-              "example": "aws"
+              "type": "object",
+              "properties": {
+                "available_bandwidth": {
+                  "oneOf": [
+                    {
+                      "type": "integer",
+                      "description": "Filter by exact available bandwidth match"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "contains": {
+                          "type": "integer",
+                          "description": "Filter by available bandwidth containing the specified value"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "description": "Available bandwidth filtering operations"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
           },
           {
-            "name": "filter[cloud_provider_region]",
-            "description": "The cloud provider region code to filter on",
+            "name": "filter",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[cloud_provider], filter[cloud_provider_region], filter[location.region], filter[location.site], filter[location.pop], filter[location.code]",
             "schema": {
-              "type": "string",
-              "description": "The region of specific cloud provider.",
-              "example": "us-east-1"
+              "type": "object",
+              "properties": {
+                "cloud_provider": {
+                  "type": "string",
+                  "enum": [
+                    "aws",
+                    "azure",
+                    "gce"
+                  ],
+                  "description": "The Virtual Private Cloud provider.",
+                  "example": "aws"
+                },
+                "cloud_provider_region": {
+                  "type": "string",
+                  "description": "The region of specific cloud provider.",
+                  "example": "us-east-1"
+                },
+                "location.region": {
+                  "type": "string",
+                  "example": "AMER",
+                  "description": "The region of associated location to filter on."
+                },
+                "location.site": {
+                  "type": "string",
+                  "example": "SJC",
+                  "description": "The site of associated location to filter on."
+                },
+                "location.pop": {
+                  "type": "string",
+                  "example": "SV1",
+                  "description": "The POP of associated location to filter on."
+                },
+                "location.code": {
+                  "type": "string",
+                  "example": "silicon_valley-ca",
+                  "description": "The code of associated location to filter on."
+                }
+              }
             }
           },
           {
-            "name": "filter[location.region]",
-            "description": "The region of associated location to filter on.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "AMER"
-            }
-          },
-          {
-            "name": "filter[location.site]",
-            "description": "The site of associated location to filter on.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "SJC"
-            }
-          },
-          {
-            "name": "filter[location.pop]",
-            "description": "The POP of associated location to filter on.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "SV1"
-            }
-          },
-          {
-            "name": "filter[location.code]",
-            "description": "The code of associated location to filter on.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "example": "silicon_valley-ca"
-            }
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -38444,20 +38340,24 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "name": "filter[network_id]",
-            "description": "The associated network id to filter on.",
+            "name": "filter",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[network_id]",
             "schema": {
-              "type": "string",
-              "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+              "type": "object",
+              "properties": {
+                "network_id": {
+                  "type": "string",
+                  "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
+                  "description": "The associated network id to filter on."
+                }
+              }
             }
+          },
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -38557,21 +38457,25 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/PageNumber"
-          },
-          {
-            "$ref": "#/components/parameters/PageSize"
-          },
-          {
-            "name": "filter[wireguard_interface_id]",
-            "description": "The id of the associated WireGuard interface to filter on.",
+            "name": "filter",
             "in": "query",
-            "required": false,
+            "style": "deepObject",
+            "explode": true,
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[wireguard_interface_id]",
             "schema": {
-              "type": "string",
-              "format": "uuid",
-              "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+              "type": "object",
+              "properties": {
+                "wireguard_interface_id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
+                  "description": "The id of the associated WireGuard interface to filter on."
+                }
+              }
             }
+          },
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
           }
         ],
         "responses": {
@@ -39626,11 +39530,12 @@
       },
       "ConnectionId": {
         "name": "connection_id",
-        "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource.",
+        "description": "Telnyx connection id",
         "in": "path",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "example": "1293384261075731461"
         }
       },
       "CreatedAtGtFilter": {
@@ -39703,16 +39608,6 @@
         },
         "example": "2023-05-22"
       },
-      "FilterAddressBook": {
-        "name": "filter[address_book][eq]",
-        "in": "query",
-        "required": false,
-        "description": "If present, only returns results with the <code>address_book</code> flag set to the given value.",
-        "schema": {
-          "type": "string",
-          "default": "null"
-        }
-      },
       "FilterAddressByAdministrativeArea": {
         "name": "filter[address.administrative_area]",
         "description": "Filter by state or province where the address is located.",
@@ -39775,15 +39670,6 @@
           "example": "600 Congress Avenue"
         },
         "in": "query"
-      },
-      "FilterApplicationName": {
-        "name": "filter[application_name][contains]",
-        "in": "query",
-        "description": "If present, applications with <code>application_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
-        "schema": {
-          "type": "string",
-          "example": "fax-app"
-        }
       },
       "FilterBasicStatusLifecycle": {
         "name": "filter[status]",
@@ -39968,157 +39854,113 @@
           "example": "f3575e15-32ce-400e-a4c0-dd78800c20b0"
         }
       },
-      "FilterCallEventFailed": {
-        "name": "filter[failed]",
+      "FilterCivicAddressesConsolidated": {
+        "name": "filter",
         "in": "query",
-        "description": "Delivery failed or not.",
-        "required": false,
+        "style": "deepObject",
+        "explode": true,
+        "description": "Filter parameter for civic addresses (deepObject style). Supports filtering by country.",
         "schema": {
-          "type": "boolean",
-          "example": false
+          "type": "object",
+          "properties": {
+            "country": {
+              "type": "array",
+              "example": [
+                "US",
+                "CA",
+                "MX",
+                "BR"
+              ],
+              "items": {
+                "type": "string",
+                "description": "The ISO 3166-1 alpha-2 country code (2 characters)"
+              },
+              "description": "The country (or countries) to filter addresses by."
+            }
+          }
         }
       },
-      "FilterCallEventName": {
-        "name": "filter[name]",
+      "FilterConnectionsConsolidated": {
+        "name": "filter",
         "in": "query",
-        "description": "Event name",
-        "required": false,
+        "style": "deepObject",
+        "explode": true,
+        "description": "Filter parameter for external connections (deepObject style). Supports filtering by connection_name, external_sip_connection, id, created_at, and phone_number.",
         "schema": {
-          "type": "string",
-          "example": "webhook"
+          "type": "object",
+          "properties": {
+            "connection_name": {
+              "type": "object",
+              "properties": {
+                "contains": {
+                  "type": "string",
+                  "default": null,
+                  "example": "My Connection",
+                  "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters."
+                }
+              }
+            },
+            "external_sip_connection": {
+              "enum": [
+                "zoom",
+                "operator_connect"
+              ],
+              "type": "string",
+              "example": "zoom",
+              "description": "If present, connections with <code>external_sip_connection</code> matching the given value will be returned."
+            },
+            "id": {
+              "type": "string",
+              "default": null,
+              "example": "1930241863466354012",
+              "description": "If present, connections with <code>id</code> matching the given value will be returned."
+            },
+            "created_at": {
+              "type": "string",
+              "default": null,
+              "example": "2022-12-31",
+              "description": "If present, connections with <code>created_at</code> date matching the given YYYY-MM-DD date will be returned."
+            },
+            "phone_number": {
+              "type": "object",
+              "properties": {
+                "contains": {
+                  "type": "string",
+                  "example": "+15555555555",
+                  "description": "If present, connections associated with the given phone_number will be returned. A full match is necessary with a e164 format."
+                }
+              },
+              "description": "Phone number filter for connections. Note: Despite the 'contains' name, this requires a full E164 match per the original specification."
+            }
+          }
         }
       },
-      "FilterCallEventOccurredAtEqualTo": {
-        "name": "filter[occurred_at][eq]",
+      "FilterConsolidated": {
+        "name": "filter",
         "in": "query",
-        "description": "Event occurred_at: equal",
-        "required": false,
+        "style": "deepObject",
+        "explode": true,
+        "description": "Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound_voice_profile_id]",
         "schema": {
-          "type": "string",
-          "example": "2019-03-29T11:10:00Z"
-        }
-      },
-      "FilterCallEventOccurredAtGreaterThan": {
-        "name": "filter[occurred_at][gt]",
-        "in": "query",
-        "description": "Event occurred_at: greater than",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "example": "2019-03-29T11:10:00Z"
-        }
-      },
-      "FilterCallEventOccurredAtGreaterThanOrEqualTo": {
-        "name": "filter[occurred_at][gte]",
-        "in": "query",
-        "description": "Event occurred_at: greater than or equal",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "example": "2019-03-29T11:10:00Z"
-        }
-      },
-      "FilterCallEventOccurredAtLessThan": {
-        "name": "filter[occurred_at][lt]",
-        "in": "query",
-        "description": "Event occurred_at: lower than",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "example": "2019-03-29T11:10:00Z"
-        }
-      },
-      "FilterCallEventOccurredAtLessThanOrEqualTo": {
-        "name": "filter[occurred_at][lte]",
-        "in": "query",
-        "description": "Event occurred_at: lower than or equal",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "example": "2019-03-29T11:10:00Z"
-        }
-      },
-      "FilterCallEventType": {
-        "name": "filter[type]",
-        "in": "query",
-        "description": "Event type",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "enum": [
-            "command",
-            "webhook"
-          ],
-          "example": "webhook"
-        }
-      },
-      "FilterCallLegId": {
-        "name": "filter[leg_id]",
-        "in": "query",
-        "description": "The unique identifier of an individual call leg.",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "format": "uuid"
-        }
-      },
-      "FilterCallSessionId": {
-        "name": "filter[application_session_id]",
-        "in": "query",
-        "description": "The unique identifier of the call session. A session may include multiple call leg events.",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "format": "uuid"
-        }
-      },
-      "FilterCivicAddressId": {
-        "name": "filter[civic_address_id][eq]",
-        "in": "query",
-        "description": "The civic address ID to filter by",
-        "schema": {
-          "type": "string",
-          "format": "uuid",
-          "example": "67ea7693-9cd5-4a68-8c76-abb3aa5bf5d2"
-        }
-      },
-      "FilterConferenceName": {
-        "name": "filter[name]",
-        "in": "query",
-        "description": "If present, conferences will be filtered to those with a matching `name` attribute. Matching is case-sensitive",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "FilterConferenceStatus": {
-        "name": "filter[status]",
-        "in": "query",
-        "description": "If present, conferences will be filtered by status.",
-        "schema": {
-          "type": "string",
-          "enum": [
-            "init",
-            "in_progress",
-            "completed"
-          ]
-        }
-      },
-      "FilterConnectionId": {
-        "name": "filter[connection_id]",
-        "in": "query",
-        "description": "The unique identifier of the conection.",
-        "required": false,
-        "schema": {
-          "type": "string"
-        }
-      },
-      "FilterConnectionName": {
-        "name": "filter[connection_name][contains]",
-        "in": "query",
-        "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
-        "schema": {
-          "type": "string",
-          "default": null
+          "type": "object",
+          "properties": {
+            "application_name": {
+              "type": "object",
+              "properties": {
+                "contains": {
+                  "type": "string",
+                  "example": "fax-app",
+                  "description": "If present, applications with <code>application_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters."
+                }
+              },
+              "description": "Application name filtering operations"
+            },
+            "outbound_voice_profile_id": {
+              "type": "string",
+              "example": "1293384261075731499",
+              "description": "Identifies the associated outbound voice profile."
+            }
+          }
         }
       },
       "FilterCostByAmount": {
@@ -40139,24 +39981,6 @@
         },
         "in": "query"
       },
-      "FilterCountry": {
-        "name": "filter[country]",
-        "in": "query",
-        "description": "The country (or countries) to filter addresses by.",
-        "schema": {
-          "type": "array",
-          "example": [
-            "US",
-            "CA",
-            "MX",
-            "BR"
-          ],
-          "items": {
-            "type": "string",
-            "description": "The ISO 3166-1 alpha-2 country code (2 characters)"
-          }
-        }
-      },
       "FilterCountryIso": {
         "required": false,
         "schema": {
@@ -40171,17 +39995,6 @@
         "in": "query",
         "description": "Filter by country code."
       },
-      "FilterCreatedAfter": {
-        "name": "filter[created_after]",
-        "in": "query",
-        "description": "Filter for audit events created after a specific date.",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2021-01-01T00:00:00Z"
-        }
-      },
       "FilterCreatedAt": {
         "name": "filter[created_at]",
         "description": "Filter by ISO 8601 formatted date-time string matching resource creation date-time.",
@@ -40192,124 +40005,38 @@
         },
         "in": "query"
       },
-      "FilterCreatedBefore": {
-        "name": "filter[created_before]",
+      "FilterLogMessagesConsolidated": {
+        "name": "filter",
         "in": "query",
-        "description": "Filter for audit events created before a specific date.",
-        "required": false,
+        "style": "deepObject",
+        "explode": true,
+        "description": "Filter parameter for log messages (deepObject style). Supports filtering by external_connection_id and telephone_number with eq/contains operations.",
         "schema": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2021-01-01T00:00:00Z"
-        }
-      },
-      "FilterCustomerReferenceContains": {
-        "name": "filter[customer_reference][contains]",
-        "in": "query",
-        "required": false,
-        "description": "If present, addresses with <code>customer_reference</code> containing the given value will be returned. Matching is not case-sensitive.",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "FilterCustomerReferenceEquals": {
-        "name": "filter[customer_reference][eq]",
-        "in": "query",
-        "required": false,
-        "description": "Filter addresses via the customer reference set. Matching is not case-sensitive.",
-        "schema": {
-          "type": "string"
-        }
-      },
-      "FilterEmailContains": {
-        "name": "filter[email][contains]",
-        "in": "query",
-        "required": false,
-        "description": "If present, email containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
-        "schema": {
-          "type": "string",
-          "default": "null"
-        }
-      },
-      "FilterEmailEq": {
-        "name": "filter[email][eq]",
-        "in": "query",
-        "required": false,
-        "description": "If present, only returns results with the <code>email</code> matching exactly the value given.",
-        "schema": {
-          "type": "string",
-          "default": "null"
-        }
-      },
-      "FilterExternalConnectionId": {
-        "name": "filter[external_connection_id]",
-        "in": "query",
-        "description": "The external connection ID to filter by or \"null\" to filter for logs without an external connection ID",
-        "schema": {
-          "type": "string",
-          "example": "67ea7693-9cd5-4a68-8c76-abb3aa5bf5d2"
-        }
-      },
-      "FilterExternalSipConnection": {
-        "name": "filter[external_sip_connection]",
-        "in": "query",
-        "description": "If present, connections with <code>external_sip_connection</code> matching the given value will be returned.",
-        "schema": {
-          "enum": [
-            "zoom",
-            "operator_connect"
-          ],
-          "type": "string",
-          "example": "zoom"
-        }
-      },
-      "FilterFqdn": {
-        "name": "filter[fqdn]",
-        "in": "query",
-        "description": "If present, connections with an `fqdn` that equals the given value will be returned. Matching is case-sensitive, and the full string must match.",
-        "schema": {
-          "type": "string",
-          "default": null
-        }
-      },
-      "FilterFrom": {
-        "name": "filter[from]",
-        "in": "query",
-        "description": "Filter by From number.",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "example": "+12025550142"
-        }
-      },
-      "FilterId": {
-        "name": "filter[id]",
-        "in": "query",
-        "description": "If present, connections with <code>id</code> matching the given value will be returned.",
-        "schema": {
-          "type": "string",
-          "default": null,
-          "example": "1930241863466354012"
-        }
-      },
-      "FilterInnerOutboundVoiceProfileId": {
-        "name": "filter[outbound.outbound_voice_profile_id]",
-        "in": "query",
-        "description": "Identifies the associated outbound voice profile.",
-        "schema": {
-          "type": "string",
-          "format": "int64",
-          "example": "1293384261075731499"
-        }
-      },
-      "FilterLocationId": {
-        "name": "filter[location_id][eq]",
-        "in": "query",
-        "description": "The location ID to filter by",
-        "schema": {
-          "type": "string",
-          "format": "uuid",
-          "example": "52545f6f-9cd5-4a68-8c76-abb3aa5bf5d2"
+          "type": "object",
+          "properties": {
+            "external_connection_id": {
+              "type": "string",
+              "example": "67ea7693-9cd5-4a68-8c76-abb3aa5bf5d2",
+              "description": "The external connection ID to filter by or \"null\" to filter for logs without an external connection ID"
+            },
+            "telephone_number": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "string",
+                  "format": "E164",
+                  "example": "+1234567890",
+                  "description": "The phone number to filter log messages for or \"null\" to filter for logs without a phone number"
+                },
+                "contains": {
+                  "type": "string",
+                  "example": "+123",
+                  "description": "The partial phone number to filter log messages for. Requires 3-15 digits."
+                }
+              },
+              "description": "Telephone number filter operations for log messages. Use 'eq' for exact matches or 'contains' for partial matches."
+            }
+          }
         }
       },
       "FilterName": {
@@ -40320,95 +40047,52 @@
           "type": "string"
         }
       },
-      "FilterOrganizationEmailContains": {
-        "name": "filter[organization_name][contains]",
+      "FilterPhoneNumbersConsolidated": {
+        "name": "filter",
         "in": "query",
+        "style": "deepObject",
+        "explode": true,
         "required": false,
-        "description": "If present, only returns results with the <code>organization_name</code> containing the given value. Matching is not case-sensitive. Requires at least three characters.",
+        "description": "Filter parameter for phone numbers (deepObject style). Supports filtering by phone_number, civic_address_id, and location_id with eq/contains operations.",
         "schema": {
-          "type": "string",
-          "default": "null"
-        }
-      },
-      "FilterOrganizationEmailEq": {
-        "name": "filter[organization_name][eq]",
-        "in": "query",
-        "required": false,
-        "description": "If present, only returns results with the <code>organization_name</code> matching exactly the value given.",
-        "schema": {
-          "type": "string",
-          "default": "null"
-        }
-      },
-      "FilterOutboundVoiceProfileId": {
-        "name": "filter[outbound_voice_profile_id]",
-        "in": "query",
-        "description": "Identifies the associated outbound voice profile.",
-        "schema": {
-          "type": "string",
-          "example": "1293384261075731499"
-        }
-      },
-      "FilterPhoneNumber": {
-        "name": "filter[phone_number][eq]",
-        "in": "query",
-        "description": "If present, connections associated with the given phone_number will be returned. A full match is necessary with a e164 format.",
-        "schema": {
-          "type": "string",
-          "default": null,
-          "example": "+15555555555"
-        }
-      },
-      "FilterPhoneNumberContains": {
-        "name": "filter[phone_number][contains]",
-        "in": "query",
-        "description": "The partial phone number to filter by. Requires 3-15 digits.",
-        "schema": {
-          "type": "string",
-          "example": "+123"
-        }
-      },
-      "FilterPhoneNumberEq": {
-        "name": "filter[phone_number][eq]",
-        "in": "query",
-        "description": "The phone number to filter by",
-        "schema": {
-          "type": "string",
-          "format": "E164",
-          "example": "+1234567890"
-        }
-      },
-      "FilterPhoneNumberLogMessageContains": {
-        "name": "filter[telephone_number][contains]",
-        "in": "query",
-        "description": "The partial phone number to filter log messages for. Requires 3-15 digits.",
-        "schema": {
-          "type": "string",
-          "example": "+123"
-        }
-      },
-      "FilterPhoneNumberLogMessageEq": {
-        "name": "filter[telephone_number][eq]",
-        "in": "query",
-        "description": "The phone number to filter log messages for or \"null\" to filter for logs without a phone number",
-        "schema": {
-          "type": "string",
-          "example": "+1234567890"
-        }
-      },
-      "FilterProduct": {
-        "name": "filter[product]",
-        "in": "query",
-        "description": "Filter by product.",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "enum": [
-            "call_control",
-            "fax",
-            "texml"
-          ],
-          "example": "texml"
+          "type": "object",
+          "properties": {
+            "phone_number": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "string",
+                  "example": "+19705555098",
+                  "description": "The phone number to filter by (exact match)"
+                },
+                "contains": {
+                  "type": "string",
+                  "example": "+1970",
+                  "description": "The phone number to filter by (partial match)"
+                }
+              }
+            },
+            "civic_address_id": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "string",
+                  "example": "19990261512338516954",
+                  "description": "The civic address ID to filter by"
+                }
+              }
+            },
+            "location_id": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "string",
+                  "example": "19995665508264022121",
+                  "description": "The location ID to filter by"
+                }
+              }
+            }
+          }
         }
       },
       "FilterQuantity": {
@@ -40420,29 +40104,78 @@
         },
         "in": "query"
       },
-      "FilterReleaseStatus": {
-        "name": "filter[status][eq]",
+      "FilterReleasesConsolidated": {
+        "name": "filter",
         "in": "query",
-        "description": "The status of the release to filter by",
-        "required": false,
+        "style": "deepObject",
+        "explode": true,
+        "description": "Filter parameter for releases (deepObject style). Supports filtering by status, civic_address_id, location_id, and phone_number with eq/contains operations.",
         "schema": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "pending_upload",
-              "pending",
-              "in_progress",
-              "complete",
-              "failed",
-              "expired",
-              "unknown"
-            ]
-          },
-          "example": [
-            "pending",
-            "in_progress"
-          ]
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "pending_upload",
+                      "pending",
+                      "in_progress",
+                      "complete",
+                      "failed",
+                      "expired",
+                      "unknown"
+                    ]
+                  },
+                  "example": [
+                    "pending",
+                    "in_progress"
+                  ],
+                  "description": "The status of the release to filter by"
+                }
+              }
+            },
+            "civic_address_id": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "string",
+                  "example": "19990261512338516954",
+                  "description": "The civic address ID to filter by"
+                }
+              }
+            },
+            "location_id": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "string",
+                  "example": "19995665508264022121",
+                  "description": "The location ID to filter by"
+                }
+              }
+            },
+            "phone_number": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "string",
+                  "format": "E164",
+                  "example": "+1234567890",
+                  "description": "The phone number to filter by"
+                },
+                "contains": {
+                  "type": "string",
+                  "example": "+123",
+                  "description": "The partial phone number to filter by. Requires 3-15 digits."
+                }
+              },
+              "description": "Phone number filter operations. Use 'eq' for exact matches or 'contains' for partial matches."
+            }
+          }
         }
       },
       "FilterResourceId": {
@@ -40489,26 +40222,6 @@
           "type": "string"
         }
       },
-      "FilterStreetAddress": {
-        "name": "filter[street_address][contains]",
-        "in": "query",
-        "required": false,
-        "description": "If present, addresses with <code>street_address</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
-        "schema": {
-          "type": "string",
-          "default": "null"
-        }
-      },
-      "FilterTo": {
-        "name": "filter[to]",
-        "in": "query",
-        "description": "Filter by To number.",
-        "required": false,
-        "schema": {
-          "type": "string",
-          "example": "+12025550142"
-        }
-      },
       "FilterUpdatedAt": {
         "name": "filter[updated_at]",
         "description": "Filter by ISO 8601 formatted date-time string matching resource last update date-time.",
@@ -40519,37 +40232,75 @@
         },
         "in": "query"
       },
-      "FilterUploadStatus": {
-        "name": "filter[status][eq]",
+      "FilterUploadsConsolidated": {
+        "name": "filter",
         "in": "query",
-        "description": "The status of the upload to filter by",
+        "style": "deepObject",
+        "explode": true,
         "required": false,
+        "description": "Filter parameter for uploads (deepObject style). Supports filtering by status, civic_address_id, location_id, and phone_number with eq/contains operations.",
         "schema": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "pending_upload",
-              "pending",
-              "in_progress",
-              "success",
-              "error"
-            ]
-          },
-          "example": [
-            "pending_upload",
-            "pending"
-          ]
-        }
-      },
-      "FilterUsedAsEmergency": {
-        "name": "filter[used_as_emergency]",
-        "in": "query",
-        "required": false,
-        "description": "If set as 'true', only addresses used as the emergency address for at least one active phone-number will be returned. When set to 'false', the opposite happens: only addresses not used as the emergency address from phone-numbers will be returned.",
-        "schema": {
-          "type": "string",
-          "default": "null"
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "pending_upload",
+                      "pending",
+                      "in_progress",
+                      "success",
+                      "error"
+                    ]
+                  },
+                  "example": [
+                    "pending_upload",
+                    "pending"
+                  ],
+                  "description": "The status of the upload to filter by"
+                }
+              }
+            },
+            "civic_address_id": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "string",
+                  "example": "19990261512338516954",
+                  "description": "The civic address ID to filter by"
+                }
+              }
+            },
+            "location_id": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "string",
+                  "example": "19995665508264022121",
+                  "description": "The location ID to filter by"
+                }
+              }
+            },
+            "phone_number": {
+              "type": "object",
+              "properties": {
+                "eq": {
+                  "type": "string",
+                  "example": "+19705555098",
+                  "description": "The phone number to filter by (exact match)"
+                },
+                "contains": {
+                  "type": "string",
+                  "example": "+1970",
+                  "description": "The phone number to filter by (partial match)"
+                }
+              }
+            }
+          }
         }
       },
       "FqdnId": {
@@ -40692,15 +40443,6 @@
           "format": "uuid"
         }
       },
-      "NameFilter": {
-        "name": "filter[name][contains]",
-        "in": "query",
-        "description": "Optional filter on outbound voice profile name.",
-        "schema": {
-          "type": "string",
-          "example": "office-profile"
-        }
-      },
       "NotificationChannelId": {
         "name": "filter[notification_channel][eq]",
         "in": "query",
@@ -40759,39 +40501,35 @@
         },
         "example": 1
       },
-      "PageAfter": {
-        "name": "page[after]",
+      "PageConsolidated": {
+        "name": "page",
         "in": "query",
-        "description": "Opaque identifier of next page",
+        "style": "deepObject",
+        "explode": true,
+        "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
         "schema": {
-          "type": "string",
-          "default": "null"
-        }
-      },
-      "PageBefore": {
-        "name": "page[before]",
-        "in": "query",
-        "description": "Opaque identifier of previous page",
-        "schema": {
-          "type": "string",
-          "default": "null"
-        }
-      },
-      "PageLimit": {
-        "name": "page[limit]",
-        "in": "query",
-        "description": "Limit of records per single page",
-        "schema": {
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 250,
-          "default": 20
+          "type": "object",
+          "properties": {
+            "number": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "description": "The page number to load"
+            },
+            "size": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 250,
+              "default": 20,
+              "description": "The size of the page"
+            }
+          }
         }
       },
       "PageNumber": {
         "name": "page[number]",
         "in": "query",
-        "description": "The page number to load.",
+        "description": "The page number to load",
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -40801,23 +40539,12 @@
       "PageSize": {
         "name": "page[size]",
         "in": "query",
-        "description": "The size of the page.",
-        "schema": {
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 250,
-          "default": 20
-        }
-      },
-      "PageSizeApp": {
-        "name": "page[size]",
-        "in": "query",
         "description": "The size of the page",
         "schema": {
           "type": "integer",
           "minimum": 1,
           "maximum": 250,
-          "default": 250
+          "default": 20
         }
       },
       "PageSizeTexml": {
@@ -41044,16 +40771,15 @@
       "Sort": {
         "name": "sort",
         "in": "query",
+        "description": "Set the order of the results by the creation date.",
         "required": false,
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>email</code>: sorts the result by the\n    <code>email</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-email</code>: sorts the result by the\n    <code>email</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
           "enum": [
-            "created_at",
-            "email"
+            "asc",
+            "desc"
           ],
-          "example": "email",
-          "default": "created_at"
+          "example": "desc"
         }
       },
       "SortAddress": {
@@ -41077,21 +40803,22 @@
       "SortApplication": {
         "name": "sort",
         "in": "query",
-        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-friendly_name</code>: sorts the result by the\n    <code>friendly_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
+        "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>application_name</code>: sorts the result by the\n    <code>application_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-application_name</code>: sorts the result by the\n    <code>application_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
           "enum": [
             "created_at",
-            "friendly_name",
+            "application_name",
             "active"
           ],
-          "example": "friendly_name",
+          "example": "application_name",
           "default": "created_at"
         }
       },
       "SortConnection": {
         "name": "sort",
         "in": "query",
+        "required": false,
         "description": "Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the <code> -</code> prefix.<br/><br/>\nThat is: <ul>\n  <li>\n    <code>connection_name</code>: sorts the result by the\n    <code>connection_name</code> field in ascending order.\n  </li>\n\n  <li>\n    <code>-connection_name</code>: sorts the result by the\n    <code>connection_name</code> field in descending order.\n  </li>\n</ul> <br/> If not given, results are sorted by <code>created_at</code> in descending order.",
         "schema": {
           "type": "string",
@@ -41177,21 +40904,23 @@
         "example": "2023-05-22"
       },
       "Status": {
-        "name": "Status",
+        "name": "filter[status][eq]",
         "in": "query",
-        "required": false,
-        "description": "Filters calls by status.",
+        "description": "The status of a notification setting",
         "schema": {
           "type": "string",
           "enum": [
-            "canceled",
-            "completed",
-            "failed",
-            "busy",
-            "no-answer"
-          ]
-        },
-        "example": "no-answer"
+            "enabled",
+            "enable-received",
+            "enable-pending",
+            "enable-submtited",
+            "delete-received",
+            "delete-pending",
+            "delete-submitted",
+            "deleted"
+          ],
+          "example": "enable-received"
+        }
       },
       "StatusEqFilter": {
         "name": "filter[status][eq]",
@@ -41244,28 +40973,6 @@
           "type": "string",
           "format": "date-time",
           "example": "2023-05-22"
-        }
-      },
-      "TimestampGreater": {
-        "name": "filter[timestamp][gt]",
-        "description": "Filter by timestamp greater than",
-        "in": "query",
-        "required": false,
-        "schema": {
-          "format": "date-time",
-          "type": "string",
-          "example": "2019-01-01T00:00:00.000Z"
-        }
-      },
-      "TimestampLess": {
-        "name": "filter[timestamp][lt]",
-        "description": "Filter by timestamp less than",
-        "in": "query",
-        "required": false,
-        "schema": {
-          "format": "date-time",
-          "type": "string",
-          "example": "2019-01-01T00:00:00.000Z"
         }
       },
       "To": {
@@ -43336,7 +43043,19 @@
         }
       },
       "ForbiddenResponse": {
-        "description": "Unauthorized response. Happens when the current user is not authorized to access the endpoint."
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Errors"
+            },
+            "examples": {
+              "Not authorized": {
+                "$ref": "#/components/examples/NotAuthorized"
+              }
+            }
+          }
+        }
       },
       "FqdnConnectionResponse": {
         "description": "Successful response with details about an FQDN connection.",
@@ -46212,14 +45931,7 @@
         }
       },
       "NotFoundResponse": {
-        "description": "Resource not found",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/ResourceNotFoundError"
-            }
-          }
-        }
+        "description": "Fax does not exist"
       },
       "NotFoundResponseApp": {
         "description": "The requested resource doesn't exist.",
@@ -47689,7 +47401,7 @@
         }
       },
       "UnauthorizedResponse": {
-        "description": "Unauthenticated response. Happens when the current user cannot be authenticated."
+        "description": "Unauthorized"
       },
       "UnexpectedErrorResponse": {
         "description": "An unexpected error occurred.",
@@ -60144,6 +59856,12 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/TelnyxVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/AWSVoiceSettings"
               }
             ]
           },
@@ -64377,10 +64095,10 @@
         }
       },
       "CreatedAt": {
-        "title": "Created At",
         "type": "string",
-        "description": "ISO 8601 formatted date indicating when the resource was created.",
-        "example": "2020-02-02T22:25:27.521Z"
+        "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+        "readOnly": true,
+        "example": "2018-02-02T22:25:27.521Z"
       },
       "CreatedUserBundlesResponse": {
         "title": "CreatedUserBundlesResponse",
@@ -64918,15 +64636,19 @@
           "cursors": {
             "$ref": "#/components/schemas/Cursor"
           },
+          "total_items": {
+            "type": "integer",
+            "example": 50
+          },
           "next": {
             "type": "string",
             "description": "Path to next page.",
-            "example": "/v2/recording_transcriptions?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/connections/1234567890/active_calls?page[after]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           },
           "previous": {
             "type": "string",
             "description": "Path to previous page.",
-            "example": "/v2/recording_transcriptions?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
+            "example": "/v2/connections/1234567890/active_calls?page[before]=v1:g3QAAAADZAAKdGVsbnl4X2lkc2wAAAABbQAAACRlYmRiYzdkNi1kZWRmLTExZWQtYTM3MS0wMjQyMGFlZjAwYjRqZAAJdGltZXN0YW1wbggA8Le4pGhpVxdkAAR0eXBlZAAFYWZ0ZXI="
           }
         }
       },
@@ -65697,7 +65419,8 @@
           "Timeout": {
             "description": "The number of seconds that we should allow the phone to ring before assuming there is no answer. Can be an integer between 5 and 120, inclusive. The default value is 30.",
             "example": 30,
-            "type": "integer"
+            "type": "integer",
+            "x-stainless-param": "timeout_seconds"
           },
           "Muted": {
             "description": "Whether the participant should be muted.",
@@ -67099,13 +66822,15 @@
         "example": "{\"page\": 1, \"records\": [{\"isin\": \"US68243Q1067\", \"iso2\": \"US\", \"symbol\": \"FLWS\", \"exchange\": \"NASDAQ\", \"displayName\": \"1-800 FLOWERS.COM, Inc.\"}, {\"isin\": \"US88025U1097\", \"iso2\": \"US\", \"symbol\": \"TXG\", \"exchange\": \"NASDAQ\", \"displayName\": \"10X GENOMICS INC CLASS A\"}], \"totalRecords\": 2}"
       },
       "Error": {
+        "type": "object",
         "required": [
           "code",
           "title"
         ],
         "properties": {
           "code": {
-            "type": "string"
+            "type": "integer",
+            "format": "int32"
           },
           "title": {
             "type": "string"
@@ -67122,17 +66847,16 @@
               },
               "parameter": {
                 "description": "Indicates which query parameter caused the error.",
-                "type": "string",
-                "example": "+15617819942"
+                "type": "string"
               }
             }
           },
           "meta": {
             "type": "object",
+            "properties": {},
             "additionalProperties": true
           }
-        },
-        "type": "object"
+        }
       },
       "ErrorRecord": {
         "type": "object",
@@ -67200,6 +66924,7 @@
         }
       },
       "Errors": {
+        "type": "object",
         "properties": {
           "errors": {
             "type": "array",
@@ -67207,8 +66932,7 @@
               "$ref": "#/components/schemas/Error"
             }
           }
-        },
-        "type": "object"
+        }
       },
       "EventStatus": {
         "type": "string",
@@ -69150,6 +68874,12 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/TelnyxVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/AWSVoiceSettings"
               }
             ]
           },
@@ -70370,17 +70100,17 @@
         ]
       },
       "HTTPValidationError": {
-        "title": "HTTPValidationError",
-        "type": "object",
         "properties": {
           "detail": {
-            "title": "Detail",
-            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ValidationError"
-            }
+            },
+            "type": "array",
+            "title": "Detail"
           }
-        }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
       },
       "HandoffTool": {
         "description": "The handoff tool allows the assistant to hand off control of the conversation to another AI assistant. By default, this will happen transparently to the end user.",
@@ -70540,9 +70270,8 @@
       "Id": {
         "type": "string",
         "format": "uuid",
-        "description": "Identifies the resource.",
-        "readOnly": true,
-        "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+        "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
+        "description": "Identifies the type of resource."
       },
       "ImportAssistantsRequest": {
         "properties": {
@@ -74290,34 +74019,36 @@
         }
       },
       "Metadata": {
-        "type": "object",
-        "title": "Metadata",
         "properties": {
-          "total_pages": {
-            "type": "number",
-            "description": "Total number of pages based on pagination settings",
-            "example": 13,
-            "format": "double"
-          },
-          "total_results": {
-            "type": "number",
-            "description": "Total number of results",
-            "example": 13,
-            "format": "double"
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size",
+            "example": 25
           },
           "page_number": {
-            "type": "number",
-            "description": "Current Page based on pagination settings (included when defaults are used.)",
-            "example": 3,
-            "format": "double"
+            "type": "integer",
+            "title": "Page Number",
+            "example": 1
           },
-          "page_size": {
-            "type": "number",
-            "description": "Number of results to return per page based on pagination settings (included when defaults are used.)",
-            "example": 1,
-            "format": "double"
+          "total_pages": {
+            "type": "integer",
+            "title": "Total Pages",
+            "example": 10
+          },
+          "total_results": {
+            "type": "integer",
+            "title": "Total Items",
+            "example": 250
           }
-        }
+        },
+        "required": [
+          "page_size",
+          "page_number",
+          "total_pages",
+          "total_results"
+        ],
+        "type": "object",
+        "title": "Metadata"
       },
       "MigrationParams": {
         "type": "object",
@@ -77428,27 +77159,19 @@
         "properties": {
           "page_number": {
             "type": "integer",
-            "example": [
-              2
-            ]
+            "example": 2
           },
           "page_size": {
             "type": "integer",
-            "example": [
-              25
-            ]
+            "example": 25
           },
           "total_pages": {
             "type": "integer",
-            "example": [
-              3
-            ]
+            "example": 3
           },
           "total_results": {
             "type": "integer",
-            "example": [
-              55
-            ]
+            "example": 55
           }
         }
       },
@@ -82586,10 +82309,11 @@
       },
       "RecordType": {
         "type": "string",
-        "description": "Identifies record type.",
+        "example": "event",
         "enum": [
-          "custom_storage_credentials"
-        ]
+          "event"
+        ],
+        "description": "Identifies the type of the resource."
       },
       "RecordingResponse": {
         "type": "object",
@@ -83426,28 +83150,37 @@
         "type": "object"
       },
       "ResourceNotFoundError": {
-        "type": "object",
-        "title": "Resource not found",
-        "example": {
-          "errors": [
-            {
-              "detail": "Resource not found"
-            }
-          ]
-        },
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "detail": {
-                  "type": "string"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GenericError"
+          },
+          {
+            "properties": {
+              "code": {
+                "example": "10005",
+                "type": "string"
+              },
+              "title": {
+                "example": "Resource not found",
+                "type": "string"
+              },
+              "detail": {
+                "example": "The requested resource or URL could not be found.",
+                "type": "string"
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://developers.telnyx.com/docs/overview/errors/10005"
+                  }
                 }
               }
-            }
+            },
+            "type": "object"
           }
-        }
+        ]
       },
       "ResumeConferenceRecordingRequest": {
         "type": "object",
@@ -86600,6 +86333,12 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/ElevenLabsVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/TelnyxVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/AWSVoiceSettings"
               }
             ]
           },
@@ -90897,6 +90636,13 @@
         "type": "object",
         "title": "Transcription engine A config",
         "properties": {
+          "transcription_engine": {
+            "type": "string",
+            "enum": [
+              "A"
+            ],
+            "description": "Engine identifier for Google transcription service"
+          },
           "language": {
             "$ref": "#/components/schemas/GoogleTranscriptionLanguage"
           },
@@ -90996,6 +90742,13 @@
         "type": "object",
         "title": "Transcription engine B config",
         "properties": {
+          "transcription_engine": {
+            "type": "string",
+            "enum": [
+              "B"
+            ],
+            "description": "Engine identifier for Telnyx transcription service"
+          },
           "language": {
             "$ref": "#/components/schemas/TelnyxTranscriptionLanguage"
           },
@@ -91587,41 +91340,46 @@
         ]
       },
       "UnprocessableEntityError": {
-        "required": [
-          "code",
-          "title"
-        ],
-        "properties": {
-          "code": {
-            "type": "string",
-            "format": "int64"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GenericError"
           },
-          "title": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          },
-          "source": {
-            "type": "object",
+          {
             "properties": {
-              "pointer": {
-                "description": "JSON pointer (RFC6901) to the offending entity.",
-                "type": "string",
-                "format": "json-pointer"
-              },
-              "parameter": {
-                "description": "Indicates which query parameter caused the error.",
+              "code": {
+                "example": "10002",
                 "type": "string"
+              },
+              "title": {
+                "example": "Invalid phone number",
+                "type": "string"
+              },
+              "detail": {
+                "example": "The phone number is invalid.",
+                "type": "string"
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "pointer": {
+                    "type": "string",
+                    "example": "/phone_numbers"
+                  }
+                }
+              },
+              "meta": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "example": "https://developers.telnyx.com/docs/overview/errors/10002"
+                  }
+                }
               }
-            }
-          },
-          "meta": {
-            "type": "object",
-            "additionalProperties": true
+            },
+            "type": "object"
           }
-        },
-        "type": "object"
+        ]
       },
       "UnusedUserBundlesResponse": {
         "title": "UnusedUserBundlesResponse",
@@ -92396,31 +92154,54 @@
         }
       },
       "UpdateConferenceRequest": {
+        "required": [
+          "call_control_id",
+          "supervisor_role"
+        ],
         "type": "object",
         "title": "Update Conference Request",
         "properties": {
-          "Status": {
-            "description": "The new status of the resource. Specifying `completed` will end the conference and hang up all participants.",
-            "example": "completed",
+          "call_control_id": {
+            "description": "Unique identifier and token for controlling the call",
+            "example": "v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQczRrZvZakpWxBlpw48KyZQ==",
             "type": "string"
           },
-          "AnnounceUrl": {
-            "description": "The URL we should call to announce something into the conference. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `<Play>`, `<Say>`, `<Pause>`, or `<Redirect>` verbs.",
-            "example": "https://www.example.com/announce.xml",
+          "command_id": {
+            "description": "Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same `command_id` as one that has already been executed.",
+            "example": "891510ac-f3e4-11e8-af5b-de00688a4901",
             "type": "string"
           },
-          "AnnounceMethod": {
-            "description": "The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.",
-            "example": "GET",
+          "supervisor_role": {
+            "description": "Sets the participant as a supervisor for the conference. A conference can have multiple supervisors. \"barge\" means the supervisor enters the conference as a normal participant. This is the same as \"none\". \"monitor\" means the supervisor is muted but can hear all participants. \"whisper\" means that only the specified \"whisper_call_control_ids\" can hear the supervisor. Defaults to \"none\".",
+            "example": "whisper",
             "type": "string",
             "enum": [
-              "GET",
-              "POST"
+              "barge",
+              "monitor",
+              "none",
+              "whisper"
             ]
+          },
+          "whisper_call_control_ids": {
+            "description": "Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only.",
+            "example": [
+              "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
+              "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "example": {
-          "Status": "completed"
+          "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
+          "supervisor_role": "whisper",
+          "whisper_call_control_ids": [
+            "v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ",
+            "v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw"
+          ]
         }
       },
       "UpdateConversationRequest": {
@@ -94038,10 +93819,10 @@
         }
       },
       "UpdatedAt": {
-        "title": "Updated At",
         "type": "string",
-        "description": "ISO 8601 formatted date indicating when the resource was updated.",
-        "example": "2020-02-03T22:25:27.521Z"
+        "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+        "readOnly": true,
+        "example": "2018-02-02T22:25:27.521Z"
       },
       "UplinkData": {
         "type": "object",
@@ -95027,17 +94808,8 @@
         ]
       },
       "ValidationError": {
-        "title": "ValidationError",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
-        "type": "object",
         "properties": {
           "loc": {
-            "title": "Location",
-            "type": "array",
             "items": {
               "anyOf": [
                 {
@@ -95047,17 +94819,26 @@
                   "type": "integer"
                 }
               ]
-            }
+            },
+            "type": "array",
+            "title": "Location"
           },
           "msg": {
-            "title": "Message",
-            "type": "string"
+            "type": "string",
+            "title": "Message"
           },
           "type": {
-            "title": "Error Type",
-            "type": "string"
+            "type": "string",
+            "title": "Error Type"
           }
-        }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
       },
       "Verification": {
         "title": "Verification",

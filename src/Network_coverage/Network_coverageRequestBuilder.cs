@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Network_coverage
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Network_coverageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/network_coverage{?filter%5Blocation%2Ecode%5D*,filter%5Blocation%2Epop%5D*,filter%5Blocation%2Eregion%5D*,filter%5Blocation%2Esite%5D*,filters%5Bavailable_services%5D%5Bcontains%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Network_coverageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/network_coverage{?filter*,filters*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Network_coverage
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Network_coverageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/network_coverage{?filter%5Blocation%2Ecode%5D*,filter%5Blocation%2Epop%5D*,filter%5Blocation%2Eregion%5D*,filter%5Blocation%2Esite%5D*,filters%5Bavailable_services%5D%5Bcontains%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Network_coverageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/network_coverage{?filter*,filters*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -114,66 +114,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Network_coverage
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Network_coverageRequestBuilderGetQueryParameters 
         {
-            /// <summary>The code of associated location to filter on.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[location.region], filter[location.site], filter[location.pop], filter[location.code]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Blocation%2Ecode%5D")]
-            public string? FilterlocationCode { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Blocation%2Ecode%5D")]
-            public string FilterlocationCode { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>The POP of associated location to filter on.</summary>
+            /// <summary>Consolidated filters parameter (deepObject style). Originally: filters[available_services][contains]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Blocation%2Epop%5D")]
-            public string? FilterlocationPop { get; set; }
+            [QueryParameter("filters")]
+            public string? Filters { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Blocation%2Epop%5D")]
-            public string FilterlocationPop { get; set; }
+            [QueryParameter("filters")]
+            public string Filters { get; set; }
 #endif
-            /// <summary>The region of associated location to filter on.</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Blocation%2Eregion%5D")]
-            public string? FilterlocationRegion { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Blocation%2Eregion%5D")]
-            public string FilterlocationRegion { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>The site of associated location to filter on.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Blocation%2Esite%5D")]
-            public string? FilterlocationSite { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Blocation%2Esite%5D")]
-            public string FilterlocationSite { get; set; }
-#endif
-            /// <summary>The region of associated location to filter on.</summary>
-            [Obsolete("This property is deprecated, use FiltersavailableServicescontainsAsAvailableService instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filters%5Bavailable_services%5D%5Bcontains%5D")]
-            public string? FiltersavailableServicescontains { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filters%5Bavailable_services%5D%5Bcontains%5D")]
-            public string FiltersavailableServicescontains { get; set; }
-#endif
-            /// <summary>The region of associated location to filter on.</summary>
-            [QueryParameter("filters%5Bavailable_services%5D%5Bcontains%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Models.AvailableService? FiltersavailableServicescontainsAsAvailableService { get; set; }
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

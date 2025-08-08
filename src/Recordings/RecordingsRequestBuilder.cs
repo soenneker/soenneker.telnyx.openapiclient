@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RecordingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/recordings{?filter%5Bcall_leg_id%5D*,filter%5Bcall_session_id%5D*,filter%5Bconference_id%5D*,filter%5Bconnection_id%5D*,filter%5Bcreated_at%5D%5Bgte%5D*,filter%5Bcreated_at%5D%5Blte%5D*,filter%5Bfrom%5D*,filter%5Bto%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public RecordingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/recordings{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RecordingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/recordings{?filter%5Bcall_leg_id%5D*,filter%5Bcall_session_id%5D*,filter%5Bconference_id%5D*,filter%5Bconnection_id%5D*,filter%5Bcreated_at%5D%5Bgte%5D*,filter%5Bcreated_at%5D%5Blte%5D*,filter%5Bfrom%5D*,filter%5Bto%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public RecordingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/recordings{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -133,78 +133,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RecordingsRequestBuilderGetQueryParameters 
         {
-            /// <summary>If present, recordings will be filtered to those with a matching call_leg_id.</summary>
-            [QueryParameter("filter%5Bcall_leg_id%5D")]
-            public Guid? FiltercallLegId { get; set; }
-            /// <summary>If present, recordings will be filtered to those with a matching call_session_id.</summary>
-            [QueryParameter("filter%5Bcall_session_id%5D")]
-            public Guid? FiltercallSessionId { get; set; }
-            /// <summary>Returns only recordings associated with a given conference.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[conference_id], filter[created_at][gte], filter[created_at][lte], filter[call_leg_id], filter[call_session_id], filter[from], filter[to], filter[connection_id]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bconference_id%5D")]
-            public string? FilterconferenceId { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bconference_id%5D")]
-            public string FilterconferenceId { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>If present, recordings will be filtered to those with a matching `connection_id` attribute (case-sensitive).</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bconnection_id%5D")]
-            public string? FilterconnectionId { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bconnection_id%5D")]
-            public string FilterconnectionId { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>Returns only recordings created later than or at given ISO 8601 datetime.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcreated_at%5D%5Bgte%5D")]
-            public string? FiltercreatedAtgte { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcreated_at%5D%5Bgte%5D")]
-            public string FiltercreatedAtgte { get; set; }
-#endif
-            /// <summary>Returns only recordings created earlier than or at given ISO 8601 datetime.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcreated_at%5D%5Blte%5D")]
-            public string? FiltercreatedAtlte { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcreated_at%5D%5Blte%5D")]
-            public string FiltercreatedAtlte { get; set; }
-#endif
-            /// <summary>If present, recordings will be filtered to those with a matching `from` attribute (case-sensitive).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bfrom%5D")]
-            public string? Filterfrom { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bfrom%5D")]
-            public string Filterfrom { get; set; }
-#endif
-            /// <summary>If present, recordings will be filtered to those with a matching `to` attribute (case-sensitive).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bto%5D")]
-            public string? Filterto { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bto%5D")]
-            public string Filterto { get; set; }
-#endif
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

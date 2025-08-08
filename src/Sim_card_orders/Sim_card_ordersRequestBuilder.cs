@@ -312,10 +312,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders
             /// <summary>Filter by ISO 8601 formatted date-time string matching resource last update date-time.</summary>
             [QueryParameter("filter%5Bupdated_at%5D")]
             public DateTimeOffset? FilterupdatedAt { get; set; }
-            /// <summary>The page number to load.</summary>
+            /// <summary>The page number to load</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
+            /// <summary>The size of the page</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
         }

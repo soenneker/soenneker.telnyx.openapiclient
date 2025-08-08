@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Connections.Item.Active_calls
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Active_callsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connections/{connection_%2Did}/active_calls{?page%5Bafter%5D*,page%5Bbefore%5D*,page%5Blimit%5D*}", pathParameters)
+        public Active_callsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connections/{connection_%2Did}/active_calls{?page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Connections.Item.Active_calls
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Active_callsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connections/{connection_%2Did}/active_calls{?page%5Bafter%5D*,page%5Bbefore%5D*,page%5Blimit%5D*}", rawUrl)
+        public Active_callsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connections/{connection_%2Did}/active_calls{?page*}", rawUrl)
         {
         }
         /// <summary>
@@ -114,29 +114,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Connections.Item.Active_calls
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Active_callsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Opaque identifier of next page</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("page%5Bafter%5D")]
-            public string? Pageafter { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("page%5Bafter%5D")]
-            public string Pageafter { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>Opaque identifier of previous page</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("page%5Bbefore%5D")]
-            public string? Pagebefore { get; set; }
-#nullable restore
-#else
-            [QueryParameter("page%5Bbefore%5D")]
-            public string Pagebefore { get; set; }
-#endif
-            /// <summary>Limit of records per single page</summary>
-            [QueryParameter("page%5Blimit%5D")]
-            public int? Pagelimit { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

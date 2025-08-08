@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Network_interfaces
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Network_interfacesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/networks/{id}/network_interfaces{?filter%5Bname%5D*,filter%5Bstatus%5D*,filter%5Btype%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Network_interfacesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/networks/{id}/network_interfaces{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Network_interfaces
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Network_interfacesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/networks/{id}/network_interfaces{?filter%5Bname%5D*,filter%5Bstatus%5D*,filter%5Btype%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Network_interfacesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/networks/{id}/network_interfaces{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -114,46 +114,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Networks.Item.Network_interfaces
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Network_interfacesRequestBuilderGetQueryParameters 
         {
-            /// <summary>The interface name to filter on.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[name], filter[type], filter[status]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bname%5D")]
-            public string? Filtername { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bname%5D")]
-            public string Filtername { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>The interface status to filter on.</summary>
-            [Obsolete("This property is deprecated, use FilterstatusAsInterfaceStatus instead")]
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string? Filterstatus { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string Filterstatus { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>The interface status to filter on.</summary>
-            [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus? FilterstatusAsInterfaceStatus { get; set; }
-            /// <summary>The interface type to filter on.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Btype%5D")]
-            public string? Filtertype { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Btype%5D")]
-            public string Filtertype { get; set; }
-#endif
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

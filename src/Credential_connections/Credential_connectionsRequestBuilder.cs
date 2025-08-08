@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Credential_connections
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Credential_connectionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/credential_connections{?filter%5Bconnection_name%5D%5Bcontains%5D*,filter%5Boutbound%2Eoutbound_voice_profile_id%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
+        public Credential_connectionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/credential_connections{?filter*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Credential_connections
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Credential_connectionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/credential_connections{?filter%5Bconnection_name%5D%5Bcontains%5D*,filter%5Boutbound%2Eoutbound_voice_profile_id%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
+        public Credential_connectionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/credential_connections{?filter*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -204,32 +204,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Credential_connections
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Credential_connectionsRequestBuilderGetQueryParameters 
         {
-            /// <summary>If present, connections with &lt;code&gt;connection_name&lt;/code&gt; containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound_voice_profile_id]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bconnection_name%5D%5Bcontains%5D")]
-            public string? FilterconnectionNamecontains { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bconnection_name%5D%5Bcontains%5D")]
-            public string FilterconnectionNamecontains { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Identifies the associated outbound voice profile.</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Boutbound%2Eoutbound_voice_profile_id%5D")]
-            public string? FilteroutboundOutboundVoiceProfileId { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Boutbound%2Eoutbound_voice_profile_id%5D")]
-            public string FilteroutboundOutboundVoiceProfileId { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>The page number to load.</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page.</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
             /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;connection_name&lt;/code&gt;: sorts the result by the    &lt;code&gt;connection_name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-connection_name&lt;/code&gt;: sorts the result by the    &lt;code&gt;connection_name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
             [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestSuites.Item.Run
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/tests/test-suites/{suite_name}/runs{?page%5Bnumber%5D*,page%5Bsize%5D*,status*,test_suite_run_id*}", pathParameters)
+        public RunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/tests/test-suites/{suite_name}/runs{?page*,status*,test_suite_run_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestSuites.Item.Run
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/tests/test-suites/{suite_name}/runs{?page%5Bnumber%5D*,page%5Bsize%5D*,status*,test_suite_run_id*}", rawUrl)
+        public RunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/ai/assistants/tests/test-suites/{suite_name}/runs{?page*,status*,test_suite_run_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -138,12 +138,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestSuites.Item.Run
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RunsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Page number to retrieve (1-based indexing)</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>Number of test runs to return per page (1-100)</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
             /// <summary>Filter runs by execution status (pending, running, completed, failed, timeout)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

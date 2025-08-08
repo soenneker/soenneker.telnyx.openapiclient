@@ -16,6 +16,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Language to use for speech recognition</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage? Language { get; set; }
+        /// <summary>Engine identifier for Telnyx transcription service</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_engine? TranscriptionEngine { get; set; }
         /// <summary>The model to use for transcription.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_model? TranscriptionModel { get; set; }
         /// <summary>
@@ -46,6 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage>(); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_engine>(); } },
                 { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_model>(); } },
             };
         }
@@ -57,6 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage>("language", Language);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_model>("transcription_model", TranscriptionModel);
             writer.WriteAdditionalData(AdditionalData);
         }

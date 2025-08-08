@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_usage
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Global_ip_usageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/global_ip_usage{?filter%5Bglobal_ip_id%5D%5Bin%5D*,filter%5Btimestamp%5D%5Bgt%5D*,filter%5Btimestamp%5D%5Blt%5D*}", pathParameters)
+        public Global_ip_usageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/global_ip_usage{?filter*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_usage
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Global_ip_usageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/global_ip_usage{?filter%5Bglobal_ip_id%5D%5Bin%5D*,filter%5Btimestamp%5D%5Bgt%5D*,filter%5Btimestamp%5D%5Blt%5D*}", rawUrl)
+        public Global_ip_usageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/global_ip_usage{?filter*}", rawUrl)
         {
         }
         /// <summary>
@@ -114,22 +114,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_usage
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Global_ip_usageRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter by Global IP ID(s) separated by commas</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound_voice_profile_id]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bglobal_ip_id%5D%5Bin%5D")]
-            public string? FilterglobalIpIdin { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bglobal_ip_id%5D%5Bin%5D")]
-            public string FilterglobalIpIdin { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter by timestamp greater than</summary>
-            [QueryParameter("filter%5Btimestamp%5D%5Bgt%5D")]
-            public DateTimeOffset? Filtertimestampgt { get; set; }
-            /// <summary>Filter by timestamp less than</summary>
-            [QueryParameter("filter%5Btimestamp%5D%5Blt%5D")]
-            public DateTimeOffset? Filtertimestamplt { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
