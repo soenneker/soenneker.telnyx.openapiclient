@@ -39,46 +39,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Invoices.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Invoice_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesGetResponse?> GetAsInvoicesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder.InvoicesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder.InvoicesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesGetResponse> GetAsInvoicesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder.InvoicesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder.InvoicesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Invoice_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Retrieve a single invoice by its unique identifier.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsInvoicesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder.InvoicesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder.InvoicesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a single invoice by its unique identifier.
@@ -115,27 +91,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Invoices.Item
         public partial class InvoicesItemRequestBuilderGetQueryParameters 
         {
             /// <summary>Invoice action</summary>
-            [Obsolete("This property is deprecated, use ActionAsGetActionQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("action")]
-            public string? Action { get; set; }
-#nullable restore
-#else
-            [QueryParameter("action")]
-            public string Action { get; set; }
-#endif
-            /// <summary>Invoice action</summary>
-            [QueryParameter("action")]
-            public global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.GetActionQueryParameterType? ActionAsGetActionQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class InvoicesItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder.InvoicesItemRequestBuilderGetQueryParameters>
-        {
+            public global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.GetActionQueryParameterType? Action { get; set; }
         }
     }
 }

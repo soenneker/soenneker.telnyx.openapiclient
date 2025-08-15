@@ -30,25 +30,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
                 return new global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Item.WithRoom_composition_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.room_compositions.item collection</summary>
-        /// <param name="position">The unique identifier of a room composition.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Item.WithRoom_composition_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Item.WithRoom_composition_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("room_composition_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Item.WithRoom_composition_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Room_compositionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/room_compositions{?filter%5Bdate_created_at%5D%5Beq%5D*,filter%5Bdate_created_at%5D%5Bgte%5D*,filter%5Bdate_created_at%5D%5Blte%5D*,filter%5Bsession_id%5D*,filter%5Bstatus%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Room_compositionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/room_compositions{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Room_compositionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/room_compositions{?filter%5Bdate_created_at%5D%5Beq%5D*,filter%5Bdate_created_at%5D%5Bgte%5D*,filter%5Bdate_created_at%5D%5Blte%5D*,filter%5Bsession_id%5D*,filter%5Bstatus%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Room_compositionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/room_compositions{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -67,34 +54,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse?> GetAsRoom_compositionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse> GetAsRoom_compositionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// View a list of room compositions.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsRoom_compositionsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Asynchronously create a room composition.
@@ -103,49 +71,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Video_Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse?> PostAsRoom_compositionsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse> PostAsRoom_compositionsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Video_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Asynchronously create a room composition.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsRoom_compositionsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomCompositionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,54 +142,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_compositions
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Room_compositionsRequestBuilderGetQueryParameters 
         {
-            /// <summary>ISO 8601 date for filtering room compositions created on that date.</summary>
-            [QueryParameter("filter%5Bdate_created_at%5D%5Beq%5D")]
-            public Date? FilterdateCreatedAteq { get; set; }
-            /// <summary>ISO 8601 date for filtering room compositions created after that date.</summary>
-            [QueryParameter("filter%5Bdate_created_at%5D%5Bgte%5D")]
-            public Date? FilterdateCreatedAtgte { get; set; }
-            /// <summary>ISO 8601 date for filtering room compositions created before that date.</summary>
-            [QueryParameter("filter%5Bdate_created_at%5D%5Blte%5D")]
-            public Date? FilterdateCreatedAtlte { get; set; }
-            /// <summary>The session_id for filtering room compositions.</summary>
-            [QueryParameter("filter%5Bsession_id%5D")]
-            public Guid? FiltersessionId { get; set; }
-            /// <summary>The status for filtering room compositions.</summary>
-            [Obsolete("This property is deprecated, use FilterstatusAsGetFilterStatusQueryParameterType instead")]
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[date_created_at][eq], filter[date_created_at][gte], filter[date_created_at][lte], filter[session_id], filter[status]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string? Filterstatus { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string Filterstatus { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>The status for filtering room compositions.</summary>
-            [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Room_compositions.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Room_compositionsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_compositions.Room_compositionsRequestBuilder.Room_compositionsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Room_compositionsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
         }
     }
 }

@@ -53,49 +53,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControl_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse?> PostAsCallsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse> PostAsCallsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.CallControl_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Dial a number or SIP URI from a given connection. A successful response will include a `call_leg_id` which can be used to correlate the command with subsequent webhooks.**Expected Webhooks (see [schema](https://developers.telnyx.com/api/call-control/dial-call#callbacks) below):**- `call.initiated`- `call.answered` or `call.hangup`- `call.machine.detection.ended` if `answering_machine_detection` was requested- `call.machine.greeting.ended` if `answering_machine_detection` was requested to detect the end of machine greeting- `call.machine.premium.detection.ended` if `answering_machine_detection=premium` was requested- `call.machine.premium.greeting.ended` if `answering_machine_detection=premium` was requested and a beep was detected- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was setWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.CallsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsCallsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.CallsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Dial a number or SIP URI from a given connection. A successful response will include a `call_leg_id` which can be used to correlate the command with subsequent webhooks.**Expected Webhooks (see [schema](https://developers.telnyx.com/api/call-control/dial-call#callbacks) below):**- `call.initiated`- `call.answered` or `call.hangup`- `call.machine.detection.ended` if `answering_machine_detection` was requested- `call.machine.greeting.ended` if `answering_machine_detection` was requested to detect the end of machine greeting- `call.machine.premium.detection.ended` if `answering_machine_detection=premium` was requested- `call.machine.premium.greeting.ended` if `answering_machine_detection=premium` was requested and a beep was detected- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was setWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.
@@ -127,14 +101,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls
         public global::Soenneker.Telnyx.OpenApiClient.Calls.CallsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Calls.CallsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CallsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

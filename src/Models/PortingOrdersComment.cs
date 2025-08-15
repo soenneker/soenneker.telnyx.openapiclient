@@ -36,16 +36,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RecordType { get; set; }
 #endif
-        /// <summary>The email address of the user who created this comment</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UserEmail { get; set; }
-#nullable restore
-#else
-        public string UserEmail { get; set; }
-#endif
-        /// <summary>The ID of the user who created this comment</summary>
-        public Guid? UserId { get; set; }
         /// <summary>Indicates whether this comment was created by a Telnyx Admin, user, or system</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment_user_type? UserType { get; set; }
         /// <summary>
@@ -78,8 +68,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "user_email", n => { UserEmail = n.GetStringValue(); } },
-                { "user_id", n => { UserId = n.GetGuidValue(); } },
                 { "user_type", n => { UserType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment_user_type>(); } },
             };
         }
@@ -95,8 +83,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteStringValue("user_email", UserEmail);
-            writer.WriteGuidValue("user_id", UserId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrdersComment_user_type>("user_type", UserType);
             writer.WriteAdditionalData(AdditionalData);
         }

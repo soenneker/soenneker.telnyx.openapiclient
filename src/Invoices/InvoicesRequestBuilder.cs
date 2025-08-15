@@ -30,25 +30,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Invoices
                 return new global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.invoices.item collection</summary>
-        /// <param name="position">Invoice UUID</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Invoices.Item.InvoicesItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Invoices.InvoicesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvoicesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/invoices{?page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
+        public InvoicesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/invoices{?page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Invoices
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvoicesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/invoices{?page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
+        public InvoicesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/invoices{?page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -65,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Invoices
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Get_invoices_200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Invoice_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Get_invoices_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Invoices.InvoicesRequestBuilder.InvoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -78,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Invoices
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Invoice_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.Get_invoices_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.Get_invoices_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -116,34 +103,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Invoices
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InvoicesRequestBuilderGetQueryParameters 
         {
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-            /// <summary>Specifies the sort order for results.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("sort")]
-            public string? Sort { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
             /// <summary>Specifies the sort order for results.</summary>
             [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.Invoices.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class InvoicesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Invoices.InvoicesRequestBuilder.InvoicesRequestBuilderGetQueryParameters>
-        {
+            public global::Soenneker.Telnyx.OpenApiClient.Invoices.GetSortQueryParameterType? Sort { get; set; }
         }
     }
 }

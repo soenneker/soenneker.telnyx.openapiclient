@@ -65,17 +65,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item
         /// <summary>
         /// Retrieves a specific version of an assistant by assistant_id and version_id
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Assistant"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_Assistant"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Assistant?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item.WithVersion_ItemRequestBuilder.WithVersion_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_Assistant?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item.WithVersion_ItemRequestBuilder.WithVersion_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Assistant> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item.WithVersion_ItemRequestBuilder.WithVersion_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_Assistant> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item.WithVersion_ItemRequestBuilder.WithVersion_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -83,23 +83,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.Assistant>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.Assistant.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_Assistant>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_Assistant.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates the configuration of a specific assistant version. Can not update main version
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Assistant"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_Assistant"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Assistant?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_Assistant?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.Assistant> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_Assistant> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAssistantRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.Assistant>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.Assistant.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_Assistant>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_Assistant.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Permanently removes a specific version of an assistant. Can not delete main version
@@ -180,14 +180,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item
             return new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item.WithVersion_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithVersion_ItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
         /// Retrieves a specific version of an assistant by assistant_id and version_id
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -195,22 +187,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item
         {
             [QueryParameter("include_mcp_servers")]
             public bool? IncludeMcpServers { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithVersion_ItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions.Item.WithVersion_ItemRequestBuilder.WithVersion_ItemRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithVersion_ItemRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

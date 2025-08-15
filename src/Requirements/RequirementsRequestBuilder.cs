@@ -30,25 +30,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements
                 return new global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.requirements.item collection</summary>
-        /// <param name="position">Uniquely identifies the requirement_type record</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Requirements.Item.RequirementsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RequirementsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirements{?filter%5Baction%5D*,filter%5Bcountry_code%5D*,filter%5Bphone_number_type%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort%5B%5D*}", pathParameters)
+        public RequirementsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirements{?filter*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,31 +43,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RequirementsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirements{?filter%5Baction%5D*,filter%5Bcountry_code%5D*,filter%5Bphone_number_type%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort%5B%5D*}", rawUrl)
+        public RequirementsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirements{?filter*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>
         /// List all requirements with filtering, sorting, and pagination
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListRequirements_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Documents_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListRequirements_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListRequirements_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Documents_Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListRequirements_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListRequirements_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all requirements with filtering, sorting, and pagination
@@ -116,72 +103,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RequirementsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filters requirements to those applying to a specific action.</summary>
-            [Obsolete("This property is deprecated, use FilteractionAsGetFilterActionQueryParameterType instead")]
+            /// <summary>Consolidated filter parameter for requirements (deepObject style). Originally: filter[country_code], filter[phone_number_type], filter[action]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Baction%5D")]
-            public string? Filteraction { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Baction%5D")]
-            public string Filteraction { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filters requirements to those applying to a specific action.</summary>
-            [QueryParameter("filter%5Baction%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Requirements.GetFilterActionQueryParameterType? FilteractionAsGetFilterActionQueryParameterType { get; set; }
-            /// <summary>Filters results to those applying to a 2-character (ISO 3166-1 alpha-2) country code</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcountry_code%5D")]
-            public string? FiltercountryCode { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcountry_code%5D")]
-            public string FiltercountryCode { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>Filters results to those applying to a specific `phone_number_type`</summary>
-            [Obsolete("This property is deprecated, use FilterphoneNumberTypeAsGetFilterPhoneNumberTypeQueryParameterType instead")]
+            /// <summary>Consolidated sort parameter for requirements (deepObject style). Originally: sort[]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bphone_number_type%5D")]
-            public string? FilterphoneNumberType { get; set; }
+            [QueryParameter("sort")]
+            public global::Soenneker.Telnyx.OpenApiClient.Requirements.GetSortQueryParameterType[]? Sort { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bphone_number_type%5D")]
-            public string FilterphoneNumberType { get; set; }
+            [QueryParameter("sort")]
+            public global::Soenneker.Telnyx.OpenApiClient.Requirements.GetSortQueryParameterType[] Sort { get; set; }
 #endif
-            /// <summary>Filters results to those applying to a specific `phone_number_type`</summary>
-            [QueryParameter("filter%5Bphone_number_type%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Requirements.GetFilterPhone_number_typeQueryParameterType? FilterphoneNumberTypeAsGetFilterPhoneNumberTypeQueryParameterType { get; set; }
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-            /// <summary>Specifies the sort order for results. If you want to sort by a field in ascending order, include it as a sort parameter. If you want to sort in descending order, prepend a `-` in front of the field name.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("sort%5B%5D")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort%5B%5D")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>Specifies the sort order for results. If you want to sort by a field in ascending order, include it as a sort parameter. If you want to sort in descending order, prepend a `-` in front of the field name.</summary>
-            [QueryParameter("sort%5B%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Requirements.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RequirementsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirements.RequirementsRequestBuilder.RequirementsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

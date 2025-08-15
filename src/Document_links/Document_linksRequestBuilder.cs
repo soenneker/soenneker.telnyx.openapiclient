@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Document_links
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Document_linksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/document_links{?filter%5Bdocument_id%5D*,filter%5Blinked_record_type%5D*,filter%5Blinked_resource_id%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Document_linksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/document_links{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,31 +30,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Document_links
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Document_linksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/document_links{?filter%5Bdocument_id%5D*,filter%5Blinked_record_type%5D*,filter%5Blinked_resource_id%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Document_linksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/document_links{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
         /// List all documents links ordered by created_at descending.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListDocumentLinks_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Documents_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListDocumentLinks_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksRequestBuilder.Document_linksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksRequestBuilder.Document_linksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListDocumentLinks_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksRequestBuilder.Document_linksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksRequestBuilder.Document_linksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Documents_Errors.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListDocumentLinks_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListDocumentLinks_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List all documents links ordered by created_at descending.
@@ -90,36 +90,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Document_links
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Document_linksRequestBuilderGetQueryParameters 
         {
-            /// <summary>Identifies the associated document to filter on.</summary>
-            [QueryParameter("filter%5Bdocument_id%5D")]
-            public Guid? FilterdocumentId { get; set; }
-            /// <summary>The `linked_record_type` of the document to filter on.</summary>
+            /// <summary>Consolidated filter parameter for document links (deepObject style). Originally: filter[linked_record_type], filter[linked_resource_id]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Blinked_record_type%5D")]
-            public string? FilterlinkedRecordType { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Blinked_record_type%5D")]
-            public string FilterlinkedRecordType { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>The `linked_resource_id` of the document to filter on.</summary>
-            [QueryParameter("filter%5Blinked_resource_id%5D")]
-            public Guid? FilterlinkedResourceId { get; set; }
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Document_linksRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Document_links.Document_linksRequestBuilder.Document_linksRequestBuilderGetQueryParameters>
-        {
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
         }
     }
 }

@@ -68,6 +68,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string UpdatedAt { get; private set; }
 #endif
+        /// <summary>The identification of the related Wireless Blocklist resource.</summary>
+        public Guid? WirelessBlocklistId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroup"/> and sets the default values.
         /// </summary>
@@ -102,6 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "private_wireless_gateway_id", n => { PrivateWirelessGatewayId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "wireless_blocklist_id", n => { WirelessBlocklistId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -115,6 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroup_data_limit>("data_limit", DataLimit);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("private_wireless_gateway_id", PrivateWirelessGatewayId);
+            writer.WriteGuidValue("wireless_blocklist_id", WirelessBlocklistId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

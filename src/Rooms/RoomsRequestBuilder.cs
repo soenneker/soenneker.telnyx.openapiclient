@@ -30,25 +30,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms
                 return new global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.WithRoom_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.rooms.item collection</summary>
-        /// <param name="position">The unique identifier of a room.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.WithRoom_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.WithRoom_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("room_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.WithRoom_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RoomsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms{?filter%5Bdate_created_at%5D%5Beq%5D*,filter%5Bdate_created_at%5D%5Bgte%5D*,filter%5Bdate_created_at%5D%5Blte%5D*,filter%5Bdate_updated_at%5D%5Beq%5D*,filter%5Bdate_updated_at%5D%5Bgte%5D*,filter%5Bdate_updated_at%5D%5Blte%5D*,filter%5Bunique_name%5D*,include_sessions*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public RoomsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms{?filter*,include_sessions*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RoomsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms{?filter%5Bdate_created_at%5D%5Beq%5D*,filter%5Bdate_created_at%5D%5Bgte%5D*,filter%5Bdate_created_at%5D%5Blte%5D*,filter%5Bdate_updated_at%5D%5Beq%5D*,filter%5Bdate_updated_at%5D%5Bgte%5D*,filter%5Bdate_updated_at%5D%5Blte%5D*,filter%5Bunique_name%5D*,include_sessions*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public RoomsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/rooms{?filter*,include_sessions*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -67,34 +54,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsGetResponse?> GetAsRoomsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder.RoomsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder.RoomsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsGetResponse> GetAsRoomsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder.RoomsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder.RoomsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// View a list of rooms.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsRoomsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder.RoomsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder.RoomsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Synchronously create a Room.
@@ -103,49 +71,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Video_Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsPostResponse?> PostAsRoomsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsPostResponse> PostAsRoomsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Video_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Synchronously create a Room.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsRoomsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateRoomRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -200,59 +142,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RoomsRequestBuilderGetQueryParameters 
         {
-            /// <summary>ISO 8601 date for filtering rooms created on that date.</summary>
-            [QueryParameter("filter%5Bdate_created_at%5D%5Beq%5D")]
-            public Date? FilterdateCreatedAteq { get; set; }
-            /// <summary>ISO 8601 date for filtering rooms created after that date.</summary>
-            [QueryParameter("filter%5Bdate_created_at%5D%5Bgte%5D")]
-            public Date? FilterdateCreatedAtgte { get; set; }
-            /// <summary>ISO 8601 date for filtering rooms created before that date.</summary>
-            [QueryParameter("filter%5Bdate_created_at%5D%5Blte%5D")]
-            public Date? FilterdateCreatedAtlte { get; set; }
-            /// <summary>ISO 8601 date for filtering rooms updated on that date.</summary>
-            [QueryParameter("filter%5Bdate_updated_at%5D%5Beq%5D")]
-            public Date? FilterdateUpdatedAteq { get; set; }
-            /// <summary>ISO 8601 date for filtering rooms updated after that date.</summary>
-            [QueryParameter("filter%5Bdate_updated_at%5D%5Bgte%5D")]
-            public Date? FilterdateUpdatedAtgte { get; set; }
-            /// <summary>ISO 8601 date for filtering rooms updated before that date.</summary>
-            [QueryParameter("filter%5Bdate_updated_at%5D%5Blte%5D")]
-            public Date? FilterdateUpdatedAtlte { get; set; }
-            /// <summary>Unique_name for filtering rooms.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[date_created_at][eq], filter[date_created_at][gte], filter[date_created_at][lte], filter[date_updated_at][eq], filter[date_updated_at][gte], filter[date_updated_at][lte], filter[unique_name]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bunique_name%5D")]
-            public string? FilteruniqueName { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bunique_name%5D")]
-            public string FilteruniqueName { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
             /// <summary>To decide if room sessions should be included in the response.</summary>
             [QueryParameter("include_sessions")]
             public bool? IncludeSessions { get; set; }
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RoomsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder.RoomsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RoomsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
         }
     }
 }

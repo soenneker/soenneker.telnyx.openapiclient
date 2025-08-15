@@ -3,7 +3,9 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Remove_private_wireless_gateway;
+using Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Remove_wireless_blocklist;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway;
+using Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_wireless_blocklist;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -21,10 +23,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Remove_private_wireless_gateway.Remove_private_wireless_gatewayRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The remove_wireless_blocklist property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Remove_wireless_blocklist.Remove_wireless_blocklistRequestBuilder Remove_wireless_blocklist
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Remove_wireless_blocklist.Remove_wireless_blocklistRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The set_private_wireless_gateway property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder Set_private_wireless_gateway
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_private_wireless_gateway.Set_private_wireless_gatewayRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The set_wireless_blocklist property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_wireless_blocklist.Set_wireless_blocklistRequestBuilder Set_wireless_blocklist
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.Set_wireless_blocklist.Set_wireless_blocklistRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_groups.Item.Actions.ActionsRequestBuilder"/> and sets the default values.

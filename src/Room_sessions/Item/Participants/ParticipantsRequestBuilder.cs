@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ParticipantsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/room_sessions/{room_session_id}/participants{?filter%5Bcontext%5D*,filter%5Bdate_joined_at%5D%5Beq%5D*,filter%5Bdate_joined_at%5D%5Bgte%5D*,filter%5Bdate_joined_at%5D%5Blte%5D*,filter%5Bdate_left_at%5D%5Beq%5D*,filter%5Bdate_left_at%5D%5Bgte%5D*,filter%5Bdate_left_at%5D%5Blte%5D*,filter%5Bdate_updated_at%5D%5Beq%5D*,filter%5Bdate_updated_at%5D%5Bgte%5D*,filter%5Bdate_updated_at%5D%5Blte%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public ParticipantsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/room_sessions/{room_session_id}/participants{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ParticipantsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/room_sessions/{room_session_id}/participants{?filter%5Bcontext%5D*,filter%5Bdate_joined_at%5D%5Beq%5D*,filter%5Bdate_joined_at%5D%5Bgte%5D*,filter%5Bdate_joined_at%5D%5Blte%5D*,filter%5Bdate_left_at%5D%5Beq%5D*,filter%5Bdate_left_at%5D%5Bgte%5D*,filter%5Bdate_left_at%5D%5Blte%5D*,filter%5Bdate_updated_at%5D%5Beq%5D*,filter%5Bdate_updated_at%5D%5Bgte%5D*,filter%5Bdate_updated_at%5D%5Blte%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public ParticipantsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/room_sessions/{room_session_id}/participants{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -40,34 +40,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsGetResponse?> GetAsParticipantsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsRequestBuilder.ParticipantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsRequestBuilder.ParticipantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsGetResponse> GetAsParticipantsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsRequestBuilder.ParticipantsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsRequestBuilder.ParticipantsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// View a list of room participants.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsParticipantsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsRequestBuilder.ParticipantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsRequestBuilder.ParticipantsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,57 +81,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ParticipantsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter room participants based on the context.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[date_joined_at][eq], filter[date_joined_at][gte], filter[date_joined_at][lte], filter[date_updated_at][eq], filter[date_updated_at][gte], filter[date_updated_at][lte], filter[date_left_at][eq], filter[date_left_at][gte], filter[date_left_at][lte], filter[context]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcontext%5D")]
-            public string? Filtercontext { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcontext%5D")]
-            public string Filtercontext { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>ISO 8601 date for filtering room participants that joined on that date.</summary>
-            [QueryParameter("filter%5Bdate_joined_at%5D%5Beq%5D")]
-            public Date? FilterdateJoinedAteq { get; set; }
-            /// <summary>ISO 8601 date for filtering room participants that joined after that date.</summary>
-            [QueryParameter("filter%5Bdate_joined_at%5D%5Bgte%5D")]
-            public Date? FilterdateJoinedAtgte { get; set; }
-            /// <summary>ISO 8601 date for filtering room participants that joined before that date.</summary>
-            [QueryParameter("filter%5Bdate_joined_at%5D%5Blte%5D")]
-            public Date? FilterdateJoinedAtlte { get; set; }
-            /// <summary>ISO 8601 date for filtering room participants that left on that date.</summary>
-            [QueryParameter("filter%5Bdate_left_at%5D%5Beq%5D")]
-            public Date? FilterdateLeftAteq { get; set; }
-            /// <summary>ISO 8601 date for filtering room participants that left after that date.</summary>
-            [QueryParameter("filter%5Bdate_left_at%5D%5Bgte%5D")]
-            public Date? FilterdateLeftAtgte { get; set; }
-            /// <summary>ISO 8601 date for filtering room participants that left before that date.</summary>
-            [QueryParameter("filter%5Bdate_left_at%5D%5Blte%5D")]
-            public Date? FilterdateLeftAtlte { get; set; }
-            /// <summary>ISO 8601 date for filtering room participants updated on that date.</summary>
-            [QueryParameter("filter%5Bdate_updated_at%5D%5Beq%5D")]
-            public Date? FilterdateUpdatedAteq { get; set; }
-            /// <summary>ISO 8601 date for filtering room participants updated after that date.</summary>
-            [QueryParameter("filter%5Bdate_updated_at%5D%5Bgte%5D")]
-            public Date? FilterdateUpdatedAtgte { get; set; }
-            /// <summary>ISO 8601 date for filtering room participants updated before that date.</summary>
-            [QueryParameter("filter%5Bdate_updated_at%5D%5Blte%5D")]
-            public Date? FilterdateUpdatedAtlte { get; set; }
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ParticipantsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Participants.ParticipantsRequestBuilder.ParticipantsRequestBuilderGetQueryParameters>
-        {
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
         }
     }
 }

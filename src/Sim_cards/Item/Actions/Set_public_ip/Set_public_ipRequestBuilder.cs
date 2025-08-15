@@ -39,46 +39,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipPostResponse?> PostAsSet_public_ipPostResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipRequestBuilder.Set_public_ipRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipPostResponse?> PostAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipRequestBuilder.Set_public_ipRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipPostResponse> PostAsSet_public_ipPostResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipRequestBuilder.Set_public_ipRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipPostResponse> PostAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipRequestBuilder.Set_public_ipRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// This API makes a SIM card reachable on the public internet by mapping a random public IP to the SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developersdev.telnyx.com/docs/api/v2/wireless/SIM-Card-Actions#ListSIMCardActions) API. &lt;br/&gt;&lt;br/&gt; Setting a Public IP to a SIM Card incurs a charge and will only succeed if the account has sufficient funds.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsSet_public_ipPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipResponse?> PostAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipRequestBuilder.Set_public_ipRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipResponse> PostAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipRequestBuilder.Set_public_ipRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This API makes a SIM card reachable on the public internet by mapping a random public IP to the SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developersdev.telnyx.com/docs/api/v2/wireless/SIM-Card-Actions#ListSIMCardActions) API. &lt;br/&gt;&lt;br/&gt; Setting a Public IP to a SIM Card incurs a charge and will only succeed if the account has sufficient funds.
@@ -124,14 +100,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip
             [QueryParameter("region_code")]
             public string RegionCode { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Set_public_ipRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipRequestBuilder.Set_public_ipRequestBuilderPostQueryParameters>
-        {
         }
     }
 }

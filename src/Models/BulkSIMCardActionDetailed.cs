@@ -24,8 +24,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CreatedAt { get; private set; }
 #endif
-        /// <summary>Identifies the type of resource.</summary>
-        public Guid? Id { get; set; }
+        /// <summary>Identifies the resource.</summary>
+        public Guid? Id { get; private set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,7 +99,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardActionsSummary>("sim_card_actions_summary", SimCardActionsSummary);
             writer.WriteAdditionalData(AdditionalData);
         }

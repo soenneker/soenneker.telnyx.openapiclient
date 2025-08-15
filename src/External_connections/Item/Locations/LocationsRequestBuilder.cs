@@ -27,19 +27,6 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations
                 return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Item.WithLocation_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.external_connections.item.locations.item collection</summary>
-        /// <param name="position">The ID of the location to update</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Item.WithLocation_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Item.WithLocation_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("location_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.Item.WithLocation_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.External_connections.Item.Locations.LocationsRequestBuilder"/> and sets the default values.
         /// </summary>

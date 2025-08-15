@@ -75,34 +75,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameHeadResponse?> HeadAsWithObjectNameHeadResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameHeadResponse?> HeadAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameHeadResponse> HeadAsWithObjectNameHeadResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameHeadResponse> HeadAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToHeadRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameHeadResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameHeadResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Retrieves metadata from an object without returning the object itself.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use HeadAsWithObjectNameHeadResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameResponse?> HeadAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameResponse> HeadAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToHeadRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Add an object to a bucket.
@@ -113,37 +94,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNamePutResponse?> PutAsWithObjectNamePutResponseAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNamePutResponse?> PutAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNamePutResponse> PutAsWithObjectNamePutResponseAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNamePutResponse> PutAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNamePutResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNamePutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Add an object to a bucket.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PutAsWithObjectNamePutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameResponse?> PutAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameResponse> PutAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete an object from a given bucket.
@@ -234,14 +194,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Item.Item
             return new global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithObjectNameItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
         /// Retrieves an object from a given bucket.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -256,22 +208,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Item.Item
             [QueryParameter("uploadId")]
             public string UploadId { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithObjectNameItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithObjectNameItemRequestBuilderHeadRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
         /// <summary>
         /// Add an object to a bucket.
@@ -297,14 +233,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Item.Item
             [QueryParameter("uploadId")]
             public string UploadId { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithObjectNameItemRequestBuilderPutRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Item.Item.WithObjectNameItemRequestBuilder.WithObjectNameItemRequestBuilderPutQueryParameters>
-        {
         }
     }
 }

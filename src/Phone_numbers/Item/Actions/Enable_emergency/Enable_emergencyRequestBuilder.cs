@@ -40,49 +40,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emerg
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyPostResponse?> PostAsEnable_emergencyPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberEnableEmergencyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberEnableEmergencyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyPostResponse> PostAsEnable_emergencyPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberEnableEmergencyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberEnableEmergencyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Enable emergency for a phone number
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsEnable_emergencyPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberEnableEmergencyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberEnableEmergencyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Enable emergency for a phone number
@@ -114,14 +88,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emerg
         public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Actions.Enable_emergency.Enable_emergencyRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Enable_emergencyRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

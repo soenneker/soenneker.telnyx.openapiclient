@@ -40,34 +40,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsGetResponse?> GetAsBlack_box_test_resultsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsRequestBuilder.Black_box_test_resultsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsRequestBuilder.Black_box_test_resultsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsGetResponse> GetAsBlack_box_test_resultsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsRequestBuilder.Black_box_test_resultsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsRequestBuilder.Black_box_test_resultsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns the results of the various black box tests
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsBlack_box_test_resultsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsRequestBuilder.Black_box_test_resultsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsRequestBuilder.Black_box_test_resultsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the results of the various black box tests
@@ -113,14 +94,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Black_box_test_resultsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results.Black_box_test_resultsRequestBuilder.Black_box_test_resultsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

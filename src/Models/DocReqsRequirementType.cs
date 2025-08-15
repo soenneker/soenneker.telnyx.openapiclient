@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>Provides one or more example of acceptable documents</summary>
+        /// <summary>Provides one or more examples of acceptable documents</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Example { get; set; }

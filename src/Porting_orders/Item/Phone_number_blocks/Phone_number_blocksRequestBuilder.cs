@@ -29,25 +29,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks
                 return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Item.Phone_number_blocksItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.porting_orders.item.phone_number_blocks.item collection</summary>
-        /// <param name="position">Identifies the phone number block to be deleted</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Item.Phone_number_blocksItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Item.Phone_number_blocksItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Item.Phone_number_blocksItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_number_blocksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/phone_number_blocks{?filter%5Bphone_number%5D*,filter%5Bphone_number%5D%5Bin%5D%5B%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort%5B%5D*}", pathParameters)
+        public Phone_number_blocksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/phone_number_blocks{?filter*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_number_blocksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/phone_number_blocks{?filter%5Bphone_number%5D*,filter%5Bphone_number%5D%5Bin%5D%5B%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort%5B%5D*}", rawUrl)
+        public Phone_number_blocksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders/{%2Did}/phone_number_blocks{?filter*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -66,34 +53,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksGetResponse?> GetAsPhone_number_blocksGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder.Phone_number_blocksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder.Phone_number_blocksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksGetResponse> GetAsPhone_number_blocksGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder.Phone_number_blocksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder.Phone_number_blocksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a list of all phone number blocks of a porting order.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsPhone_number_blocksGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder.Phone_number_blocksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder.Phone_number_blocksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new phone number block.
@@ -104,37 +72,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostResponse?> PostAsPhone_number_blocksPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostResponse> PostAsPhone_number_blocksPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new phone number block.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsPhone_number_blocksPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of all phone number blocks of a porting order.
@@ -192,62 +139,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_number_blocksRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter results by phone number</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[porting_order_id], filter[support_key], filter[status], filter[phone_number], filter[activation_status], filter[portability_status]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bphone_number%5D")]
-            public string? FilterphoneNumber { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bphone_number%5D")]
-            public string FilterphoneNumber { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter results by a list of phone numbers</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bphone_number%5D%5Bin%5D%5B%5D")]
-            public string[]? FilterphoneNumberin { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bphone_number%5D%5Bin%5D%5B%5D")]
-            public string[] FilterphoneNumberin { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-            /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
+            /// <summary>Consolidated sort parameter (deepObject style). Originally: sort[value]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("sort%5B%5D")]
+            [QueryParameter("sort")]
             public string? Sort { get; set; }
 #nullable restore
 #else
-            [QueryParameter("sort%5B%5D")]
+            [QueryParameter("sort")]
             public string Sort { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order</summary>
-            [QueryParameter("sort%5B%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Phone_number_blocksRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Phone_number_blocks.Phone_number_blocksRequestBuilder.Phone_number_blocksRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Phone_number_blocksRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

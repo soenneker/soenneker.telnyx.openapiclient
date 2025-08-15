@@ -30,25 +30,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
                 return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messaging_profiles.item.autoresp_configs.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("autoresp_cfg_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Item.WithAutoresp_cfg_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Autoresp_configsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/autoresp_configs{?country_code*,created_at%5Bgte%5D*,created_at%5Blte%5D*,updated_at%5Bgte%5D*,updated_at%5Blte%5D*}", pathParameters)
+        public Autoresp_configsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/autoresp_configs{?country_code*,created_at*,updated_at*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Autoresp_configsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/autoresp_configs{?country_code*,created_at%5Bgte%5D*,created_at%5Blte%5D*,updated_at%5Bgte%5D*,updated_at%5Blte%5D*}", rawUrl)
+        public Autoresp_configsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles/{%2Did}/autoresp_configs{?country_code*,created_at*,updated_at*}", rawUrl)
         {
         }
         /// <summary>
@@ -65,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -78,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -89,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigResponseSchema?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AutoRespConfigCreateSchema body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -103,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -172,58 +159,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
             [QueryParameter("country_code")]
             public string CountryCode { get; set; }
 #endif
+            /// <summary>Consolidated created_at parameter (deepObject style). Originally: created_at[gte], created_at[lte]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("created_at%5Bgte%5D")]
-            public string? CreatedAtgte { get; set; }
+            [QueryParameter("created_at")]
+            public string? CreatedAt { get; set; }
 #nullable restore
 #else
-            [QueryParameter("created_at%5Bgte%5D")]
-            public string CreatedAtgte { get; set; }
+            [QueryParameter("created_at")]
+            public string CreatedAt { get; set; }
 #endif
+            /// <summary>Consolidated updated_at parameter (deepObject style). Originally: updated_at[gte], updated_at[lte]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("created_at%5Blte%5D")]
-            public string? CreatedAtlte { get; set; }
+            [QueryParameter("updated_at")]
+            public string? UpdatedAt { get; set; }
 #nullable restore
 #else
-            [QueryParameter("created_at%5Blte%5D")]
-            public string CreatedAtlte { get; set; }
+            [QueryParameter("updated_at")]
+            public string UpdatedAt { get; set; }
 #endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("updated_at%5Bgte%5D")]
-            public string? UpdatedAtgte { get; set; }
-#nullable restore
-#else
-            [QueryParameter("updated_at%5Bgte%5D")]
-            public string UpdatedAtgte { get; set; }
-#endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("updated_at%5Blte%5D")]
-            public string? UpdatedAtlte { get; set; }
-#nullable restore
-#else
-            [QueryParameter("updated_at%5Blte%5D")]
-            public string UpdatedAtlte { get; set; }
-#endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Autoresp_configsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder.Autoresp_configsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Autoresp_configsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

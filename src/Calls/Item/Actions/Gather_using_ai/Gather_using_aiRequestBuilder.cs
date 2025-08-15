@@ -40,49 +40,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControl_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiPostResponse?> PostAsGather_using_aiPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiPostResponse> PostAsGather_using_aiPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.CallControl_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Gather parameters defined in the request payload using a voice assistant. You can pass parameters described as a JSON Schema object and the voice assistant will attempt to gather these informations. **Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-gather-using-ai#callbacks) below):**- `call.ai_gather.ended`- `call.conversation.ended`- `call.ai_gather.partial_results` (if `send_partial_results` is set to `true`)- `call.ai_gather.message_history_updated` (if `send_message_history_updates` is set to `true`)
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsGather_using_aiPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Gather parameters defined in the request payload using a voice assistant. You can pass parameters described as a JSON Schema object and the voice assistant will attempt to gather these informations. **Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-gather-using-ai#callbacks) below):**- `call.ai_gather.ended`- `call.conversation.ended`- `call.ai_gather.partial_results` (if `send_partial_results` is set to `true`)- `call.ai_gather.message_history_updated` (if `send_message_history_updates` is set to `true`)
@@ -114,14 +88,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Gather_using_aiRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

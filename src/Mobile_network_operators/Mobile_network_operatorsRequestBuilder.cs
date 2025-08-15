@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_network_operators
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Mobile_network_operatorsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/mobile_network_operators{?filter%5Bcountry_code%5D*,filter%5Bmcc%5D*,filter%5Bmnc%5D*,filter%5Bname%5D%5Bcontains%5D*,filter%5Bname%5D%5Bends_with%5D*,filter%5Bname%5D%5Bstarts_with%5D*,filter%5Bnetwork_preferences_enabled%5D*,filter%5Btadig%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Mobile_network_operatorsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/mobile_network_operators{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_network_operators
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Mobile_network_operatorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/mobile_network_operators{?filter%5Bcountry_code%5D*,filter%5Bmcc%5D*,filter%5Bmnc%5D*,filter%5Bname%5D%5Bcontains%5D*,filter%5Bname%5D%5Bends_with%5D*,filter%5Bname%5D%5Bstarts_with%5D*,filter%5Bnetwork_preferences_enabled%5D*,filter%5Btadig%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Mobile_network_operatorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/mobile_network_operators{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -39,46 +39,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_network_operators
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse?> GetAsMobile_network_operatorsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse> GetAsMobile_network_operatorsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Telnyx has a set of GSM mobile operators partners that are available through our mobile network roaming. This resource is entirely managed by Telnyx and may change over time. That means that this resource won&apos;t allow any write operations for it. Still, it&apos;s available so it can be used as a support resource that can be related to other resources or become a configuration option.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsMobile_network_operatorsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Telnyx has a set of GSM mobile operators partners that are available through our mobile network roaming. This resource is entirely managed by Telnyx and may change over time. That means that this resource won&apos;t allow any write operations for it. Still, it&apos;s available so it can be used as a support resource that can be related to other resources or become a configuration option.
@@ -114,93 +90,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_network_operators
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Mobile_network_operatorsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter by exact country_code.</summary>
+            /// <summary>Consolidated filter parameter for mobile network operators (deepObject style). Originally: filter[name][starts_with], filter[name][contains], filter[name][ends_with], filter[country_code], filter[mcc], filter[mnc], filter[tadig], filter[network_preferences_enabled]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcountry_code%5D")]
-            public string? FiltercountryCode { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcountry_code%5D")]
-            public string FiltercountryCode { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter by exact MCC.</summary>
+            /// <summary>Consolidated pagination parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bmcc%5D")]
-            public string? Filtermcc { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bmcc%5D")]
-            public string Filtermcc { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>Filter by exact MNC.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bmnc%5D")]
-            public string? Filtermnc { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bmnc%5D")]
-            public string Filtermnc { get; set; }
-#endif
-            /// <summary>Filter by name containing match.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bname%5D%5Bcontains%5D")]
-            public string? Filternamecontains { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bname%5D%5Bcontains%5D")]
-            public string Filternamecontains { get; set; }
-#endif
-            /// <summary>Filter by name ending with.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bname%5D%5Bends_with%5D")]
-            public string? FilternameendsWith { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bname%5D%5Bends_with%5D")]
-            public string FilternameendsWith { get; set; }
-#endif
-            /// <summary>Filter by name starting with.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bname%5D%5Bstarts_with%5D")]
-            public string? FilternamestartsWith { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bname%5D%5Bstarts_with%5D")]
-            public string FilternamestartsWith { get; set; }
-#endif
-            /// <summary>Filter by network_preferences_enabled.</summary>
-            [QueryParameter("filter%5Bnetwork_preferences_enabled%5D")]
-            public bool? FilternetworkPreferencesEnabled { get; set; }
-            /// <summary>Filter by exact TADIG.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Btadig%5D")]
-            public string? Filtertadig { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Btadig%5D")]
-            public string Filtertadig { get; set; }
-#endif
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Mobile_network_operatorsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder.Mobile_network_operatorsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

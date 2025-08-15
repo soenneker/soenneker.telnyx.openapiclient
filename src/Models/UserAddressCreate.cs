@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The locality of the address. For US addresses, this corresponds to the state of the address.</summary>
+        /// <summary>The locality of the user address. For US addresses, this corresponds to the state of the address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AdministrativeArea { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AdministrativeArea { get; set; }
 #endif
-        /// <summary>The borough of the address. This field is not used for addresses in the US but is used for some international addresses.</summary>
+        /// <summary>The borough of the user address. This field is not used for addresses in the US but is used for some international addresses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Borough { get; set; }
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Borough { get; set; }
 #endif
-        /// <summary>The business name associated with the address. An address must have either a first last name or a business name.</summary>
+        /// <summary>The business name associated with the user address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BusinessName { get; set; }
@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string BusinessName { get; set; }
 #endif
-        /// <summary>The two-character (ISO 3166-1 alpha-2) country code of the address.</summary>
+        /// <summary>The two-character (ISO 3166-1 alpha-2) country code of the user address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CountryCode { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CustomerReference { get; set; }
 #endif
-        /// <summary>Additional street address information about the address such as, but not limited to, unit number or apartment number.</summary>
+        /// <summary>Additional street address information about the user address such as, but not limited to, unit number or apartment number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExtendedAddress { get; set; }
@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ExtendedAddress { get; set; }
 #endif
-        /// <summary>The first name associated with the address. An address must have either a first last name or a business name.</summary>
+        /// <summary>The first name associated with the user address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FirstName { get; set; }
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string FirstName { get; set; }
 #endif
-        /// <summary>The last name associated with the address. An address must have either a first last name or a business name.</summary>
+        /// <summary>The last name associated with the user address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastName { get; set; }
@@ -78,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LastName { get; set; }
 #endif
-        /// <summary>The locality of the address. For US addresses, this corresponds to the city of the address.</summary>
+        /// <summary>The locality of the user address. For US addresses, this corresponds to the city of the address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Locality { get; set; }
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Locality { get; set; }
 #endif
-        /// <summary>The neighborhood of the address. This field is not used for addresses in the US but is used for some international addresses.</summary>
+        /// <summary>The neighborhood of the user address. This field is not used for addresses in the US but is used for some international addresses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Neighborhood { get; set; }
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Neighborhood { get; set; }
 #endif
-        /// <summary>The phone number associated with the address.</summary>
+        /// <summary>The phone number associated with the user address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PhoneNumber { get; set; }
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PhoneNumber { get; set; }
 #endif
-        /// <summary>The postal code of the address.</summary>
+        /// <summary>The postal code of the user address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostalCode { get; set; }
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string SkipAddressVerification { get; set; }
 #endif
-        /// <summary>The primary street address information about the address.</summary>
+        /// <summary>The primary street address information about the user address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StreetAddress { get; set; }

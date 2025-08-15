@@ -30,25 +30,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints
                 return new global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.dynamic_emergency_endpoints.item collection</summary>
-        /// <param name="position">Dynamic Emergency Endpoint id</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Item.Dynamic_emergency_endpointsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Dynamic_emergency_endpointsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dynamic_emergency_endpoints{?filter%5Bcountry_code%5D*,filter%5Bstatus%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Dynamic_emergency_endpointsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dynamic_emergency_endpoints{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Dynamic_emergency_endpointsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dynamic_emergency_endpoints{?filter%5Bcountry_code%5D*,filter%5Bstatus%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Dynamic_emergency_endpointsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dynamic_emergency_endpoints{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -67,34 +54,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsGetResponse?> GetAsDynamic_emergency_endpointsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder.Dynamic_emergency_endpointsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder.Dynamic_emergency_endpointsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsGetResponse> GetAsDynamic_emergency_endpointsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder.Dynamic_emergency_endpointsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder.Dynamic_emergency_endpointsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns the dynamic emergency endpoints according to filters
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsDynamic_emergency_endpointsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder.Dynamic_emergency_endpointsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder.Dynamic_emergency_endpointsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a dynamic emergency endpoints.
@@ -105,37 +73,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsPostResponse?> PostAsDynamic_emergency_endpointsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyEndpoint body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyEndpoint body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsPostResponse> PostAsDynamic_emergency_endpointsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyEndpoint body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyEndpoint body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a dynamic emergency endpoints.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsDynamic_emergency_endpointsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyEndpoint body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DynamicEmergencyEndpoint body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the dynamic emergency endpoints according to filters
@@ -193,52 +140,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Dynamic_emergency_endpointsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter by country code.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[status], filter[country_code]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcountry_code%5D")]
-            public string? FiltercountryCode { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcountry_code%5D")]
-            public string FiltercountryCode { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter by status.</summary>
-            [Obsolete("This property is deprecated, use FilterstatusAsGetFilterStatusQueryParameterType instead")]
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string? Filterstatus { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string Filterstatus { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>Filter by status.</summary>
-            [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Dynamic_emergency_endpointsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder.Dynamic_emergency_endpointsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Dynamic_emergency_endpointsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

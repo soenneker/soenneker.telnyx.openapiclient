@@ -38,13 +38,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Bucket { get; set; }
 #endif
-        /// <summary>The region property</summary>
+        /// <summary>Region where the bucket is located.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Region? Region { get; set; }
+        public string? Region { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Region Region { get; set; }
+        public string Region { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData"/> and sets the default values.
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "aws_access_key_id", n => { AwsAccessKeyId = n.GetStringValue(); } },
                 { "aws_secret_access_key", n => { AwsSecretAccessKey = n.GetStringValue(); } },
                 { "bucket", n => { Bucket = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Region>(global::Soenneker.Telnyx.OpenApiClient.Models.Region.CreateFromDiscriminatorValue); } },
+                { "region", n => { Region = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("aws_access_key_id", AwsAccessKeyId);
             writer.WriteStringValue("aws_secret_access_key", AwsSecretAccessKey);
             writer.WriteStringValue("bucket", Bucket);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Region>("region", Region);
+            writer.WriteStringValue("region", Region);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

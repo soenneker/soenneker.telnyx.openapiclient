@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Meta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Meta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Meta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Meta Meta { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifyProfilesResponse"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponse.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Meta>(global::Soenneker.Telnyx.OpenApiClient.Models.Meta.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Meta>(global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Meta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponse>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Meta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

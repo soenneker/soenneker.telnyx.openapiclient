@@ -44,11 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider_422">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersDeleteResponse?> DeleteAsAuthentication_providersDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersDeleteResponse> DeleteAsAuthentication_providersDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -61,34 +61,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes an existing authentication provider.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider_401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider_404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider_422">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use DeleteAsAuthentication_providersDeleteResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider_401.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider_404.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.DeleteAuthenticationProvider_422.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
         /// Retrieves the details of an existing authentication provider.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersGetResponse"/></returns>
@@ -99,11 +71,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider_422">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersGetResponse?> GetAsAuthentication_providersGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersGetResponse> GetAsAuthentication_providersGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -114,34 +86,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider_422.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Retrieves the details of an existing authentication provider.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider_401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider_404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider_422">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsAuthentication_providersGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider_401.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider_404.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.GetAuthenticationProvider_422.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates settings of an existing authentication provider.
@@ -155,11 +99,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider_422">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersPatchResponse?> PatchAsAuthentication_providersPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProviderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersPatchResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProviderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersPatchResponse> PatchAsAuthentication_providersPatchResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProviderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersPatchResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProviderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -171,36 +115,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider_422.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersPatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Updates settings of an existing authentication provider.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider_401">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider_404">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider_422">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use PatchAsAuthentication_providersPatchResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse?> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProviderRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProviderRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider_401.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider_404.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.UpdateAuthenticationProvider_422.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes an existing authentication provider.
@@ -270,30 +184,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item
         public global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Item.Authentication_providersItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Authentication_providersItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Authentication_providersItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Authentication_providersItemRequestBuilderPatchRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

@@ -40,49 +40,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControl_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerPostResponse?> PostAsAnswerPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerPostResponse> PostAsAnswerPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.CallControl_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Answer an incoming call. You must issue this command before executing subsequent commands on an incoming call.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/answer-call#callbacks) below):**- `call.answered`- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was setWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsAnswerPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Answer an incoming call. You must issue this command before executing subsequent commands on an incoming call.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/answer-call#callbacks) below):**- `call.answered`- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was setWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.
@@ -114,14 +88,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer.AnswerRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AnswerRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

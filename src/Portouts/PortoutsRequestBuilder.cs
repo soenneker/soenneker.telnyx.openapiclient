@@ -47,25 +47,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
                 return new global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.PortoutsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.portouts.item collection</summary>
-        /// <param name="position">Portout id</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.PortoutsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.PortoutsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Portouts.Item.PortoutsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PortoutsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts{?filter%5Bcarrier_name%5D*,filter%5Bfoc_date%5D*,filter%5Binserted_at%5D%5Bgte%5D*,filter%5Binserted_at%5D%5Blte%5D*,filter%5Bphone_number%5D*,filter%5Bpon%5D*,filter%5Bported_out_at%5D%5Bgte%5D*,filter%5Bported_out_at%5D%5Blte%5D*,filter%5Bspid%5D*,filter%5Bstatus%5D*,filter%5Bstatus_in%5D*,filter%5Bsupport_key%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public PortoutsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -73,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PortoutsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts{?filter%5Bcarrier_name%5D*,filter%5Bfoc_date%5D*,filter%5Binserted_at%5D%5Bgte%5D*,filter%5Binserted_at%5D%5Blte%5D*,filter%5Bphone_number%5D*,filter%5Bpon%5D*,filter%5Bported_out_at%5D%5Bgte%5D*,filter%5Bported_out_at%5D%5Blte%5D*,filter%5Bspid%5D*,filter%5Bstatus%5D*,filter%5Bstatus_in%5D*,filter%5Bsupport_key%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public PortoutsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -84,34 +71,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsGetResponse?> GetAsPortoutsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder.PortoutsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder.PortoutsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsGetResponse> GetAsPortoutsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder.PortoutsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder.PortoutsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns the portout requests according to filters
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsPortoutsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder.PortoutsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder.PortoutsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the portout requests according to filters
@@ -147,120 +115,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PortoutsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter by new carrier name.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[carrier_name], filter[pon], filter[spid], filter[status], filter[status_in], filter[ported_out_at], filter[inserted_at], filter[foc_date], filter[phone_number], filter[support_key]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcarrier_name%5D")]
-            public string? FiltercarrierName { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcarrier_name%5D")]
-            public string FiltercarrierName { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter by foc_date. Matches all portouts with the same date</summary>
-            [QueryParameter("filter%5Bfoc_date%5D")]
-            public DateTimeOffset? FilterfocDate { get; set; }
-            /// <summary>Filter by inserted_at date greater than or equal.</summary>
-            [QueryParameter("filter%5Binserted_at%5D%5Bgte%5D")]
-            public DateTimeOffset? FilterinsertedAtgte { get; set; }
-            /// <summary>Filter by inserted_at date less than or equal.</summary>
-            [QueryParameter("filter%5Binserted_at%5D%5Blte%5D")]
-            public DateTimeOffset? FilterinsertedAtlte { get; set; }
-            /// <summary>Filter by a phone number on the portout. Matches all portouts with the phone number</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bphone_number%5D")]
-            public string? FilterphoneNumber { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bphone_number%5D")]
-            public string FilterphoneNumber { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>Filter by Port Order Number (PON).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bpon%5D")]
-            public string? Filterpon { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bpon%5D")]
-            public string Filterpon { get; set; }
-#endif
-            /// <summary>Filter by ported_out_at date greater than or equal.</summary>
-            [QueryParameter("filter%5Bported_out_at%5D%5Bgte%5D")]
-            public DateTimeOffset? FilterportedOutAtgte { get; set; }
-            /// <summary>Filter by ported_out_at date less than or equal.</summary>
-            [QueryParameter("filter%5Bported_out_at%5D%5Blte%5D")]
-            public DateTimeOffset? FilterportedOutAtlte { get; set; }
-            /// <summary>Filter by new carrier spid.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bspid%5D")]
-            public string? Filterspid { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bspid%5D")]
-            public string Filterspid { get; set; }
-#endif
-            /// <summary>Filter by portout status.</summary>
-            [Obsolete("This property is deprecated, use FilterstatusAsGetFilterStatusQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string? Filterstatus { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string Filterstatus { get; set; }
-#endif
-            /// <summary>Filter by portout status.</summary>
-            [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Portouts.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
-            /// <summary>Filter by a list of portout statuses</summary>
-            [Obsolete("This property is deprecated, use FilterstatusInAsGetFilterStatusInQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus_in%5D")]
-            public string[]? FilterstatusIn { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus_in%5D")]
-            public string[] FilterstatusIn { get; set; }
-#endif
-            /// <summary>Filter by a list of portout statuses</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus_in%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Portouts.GetFilterStatus_inQueryParameterType[]? FilterstatusInAsGetFilterStatusInQueryParameterType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus_in%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Portouts.GetFilterStatus_inQueryParameterType[] FilterstatusInAsGetFilterStatusInQueryParameterType { get; set; }
-#endif
-            /// <summary>Filter by the portout&apos;s support_key</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bsupport_key%5D")]
-            public string? FiltersupportKey { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bsupport_key%5D")]
-            public string FiltersupportKey { get; set; }
-#endif
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PortoutsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.PortoutsRequestBuilder.PortoutsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_numbers_regulatory_requirementsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers_regulatory_requirements?filter[phone_number]={filter%5Bphone_number%5D}", pathParameters)
+        public Phone_numbers_regulatory_requirementsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers_regulatory_requirements{?filter*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_numbers_regulatory_requirementsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers_regulatory_requirements?filter[phone_number]={filter%5Bphone_number%5D}", rawUrl)
+        public Phone_numbers_regulatory_requirementsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers_regulatory_requirements{?filter*}", rawUrl)
         {
         }
         /// <summary>
@@ -39,46 +39,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsGetResponse?> GetAsPhone_numbers_regulatory_requirementsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsRequestBuilder.Phone_numbers_regulatory_requirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsRequestBuilder.Phone_numbers_regulatory_requirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsGetResponse> GetAsPhone_numbers_regulatory_requirementsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsRequestBuilder.Phone_numbers_regulatory_requirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsRequestBuilder.Phone_numbers_regulatory_requirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Retrieve regulatory requirements for a list of phone numbers
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsPhone_numbers_regulatory_requirementsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsRequestBuilder.Phone_numbers_regulatory_requirementsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsRequestBuilder.Phone_numbers_regulatory_requirementsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve regulatory requirements for a list of phone numbers
@@ -114,24 +90,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_numbers_regulatory_requirementsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Record type phone number/ phone numbers</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[phone_number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bphone_number%5D")]
-            public string? FilterphoneNumber { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bphone_number%5D")]
-            public string FilterphoneNumber { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Phone_numbers_regulatory_requirementsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsRequestBuilder.Phone_numbers_regulatory_requirementsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

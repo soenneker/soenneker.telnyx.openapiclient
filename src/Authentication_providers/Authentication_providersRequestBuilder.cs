@@ -83,11 +83,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAuthenticationProvider_422">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersPostResponse?> PostAsAuthentication_providersPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersPostResponse> PostAsAuthentication_providersPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -97,32 +97,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CreateAuthenticationProvider_422.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates an authentication provider.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAuthenticationProvider_422">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsAuthentication_providersPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProviderCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.CreateAuthenticationProvider_422.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your SSO authentication providers.
@@ -191,35 +165,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers
             public string Page { get; set; }
 #endif
             /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt;-&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("sort")]
-            public string? Sort { get; set; }
-#nullable restore
-#else
-            [QueryParameter("sort")]
-            public string Sort { get; set; }
-#endif
-            /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt;-&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
-            [QueryParameter("sort")]
-            public global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Authentication_providersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.Authentication_providersRequestBuilder.Authentication_providersRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Authentication_providersRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
+            public global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.GetSortQueryParameterType? Sort { get; set; }
         }
     }
 }

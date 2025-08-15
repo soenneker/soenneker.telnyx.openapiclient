@@ -30,19 +30,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications
                 return new global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Item.Sim_card_data_usage_notificationsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.sim_card_data_usage_notifications.item collection</summary>
-        /// <param name="position">Identifies the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Item.Sim_card_data_usage_notificationsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Item.Sim_card_data_usage_notificationsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Item.Sim_card_data_usage_notificationsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -65,46 +52,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsGetResponse?> GetAsSim_card_data_usage_notificationsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsRequestBuilder.Sim_card_data_usage_notificationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsRequestBuilder.Sim_card_data_usage_notificationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsGetResponse> GetAsSim_card_data_usage_notificationsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsRequestBuilder.Sim_card_data_usage_notificationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsRequestBuilder.Sim_card_data_usage_notificationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Lists a paginated collection of SIM card data usage notifications. It enables exploring the collection using specific filters.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsSim_card_data_usage_notificationsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsRequestBuilder.Sim_card_data_usage_notificationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsRequestBuilder.Sim_card_data_usage_notificationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new SIM card data usage notification.
@@ -113,49 +76,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostResponse?> PostAsSim_card_data_usage_notificationsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PostSimCardDataUsageNotification body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PostSimCardDataUsageNotification body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostResponse> PostAsSim_card_data_usage_notificationsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PostSimCardDataUsageNotification body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PostSimCardDataUsageNotification body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new SIM card data usage notification.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsSim_card_data_usage_notificationsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PostSimCardDataUsageNotification body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PostSimCardDataUsageNotification body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists a paginated collection of SIM card data usage notifications. It enables exploring the collection using specific filters.
@@ -216,28 +153,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications
             /// <summary>A valid SIM card ID.</summary>
             [QueryParameter("filter%5Bsim_card_id%5D")]
             public Guid? FiltersimCardId { get; set; }
-            /// <summary>The page number to load</summary>
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Sim_card_data_usage_notificationsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_data_usage_notifications.Sim_card_data_usage_notificationsRequestBuilder.Sim_card_data_usage_notificationsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Sim_card_data_usage_notificationsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

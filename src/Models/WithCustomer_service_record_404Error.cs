@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError>? Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_record_ResourceNotFoundError>? Errors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError> Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_record_ResourceNotFoundError> Errors { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError>(global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_record_ResourceNotFoundError>(global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_record_ResourceNotFoundError.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ResourceNotFoundError>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_record_ResourceNotFoundError>("errors", Errors);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

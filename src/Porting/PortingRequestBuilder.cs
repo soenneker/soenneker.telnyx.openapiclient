@@ -6,6 +6,7 @@ using Soenneker.Telnyx.OpenApiClient.Porting.Events;
 using Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration;
 using Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations;
 using Soenneker.Telnyx.OpenApiClient.Porting.Reports;
+using Soenneker.Telnyx.OpenApiClient.Porting.Uk_carriers;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -37,6 +38,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting
         public global::Soenneker.Telnyx.OpenApiClient.Porting.Reports.ReportsRequestBuilder Reports
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Porting.Reports.ReportsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The uk_carriers property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Porting.Uk_carriers.Uk_carriersRequestBuilder Uk_carriers
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting.Uk_carriers.Uk_carriersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.PortingRequestBuilder"/> and sets the default values.

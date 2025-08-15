@@ -80,13 +80,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ExternalPin { get; set; }
 #endif
-        /// <summary>Uniquely identifies the resource.</summary>
+        /// <summary>Identifies the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get; private set; }
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get; private set; }
 #endif
         /// <summary>Identifies the messaging profile associated with the phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -211,7 +211,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteStringValue("external_pin", ExternalPin);
-            writer.WriteStringValue("id", Id);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
             writer.WriteStringValue("messaging_profile_name", MessagingProfileName);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

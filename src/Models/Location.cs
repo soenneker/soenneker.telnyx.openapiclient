@@ -14,46 +14,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Location code.</summary>
+        /// <summary>The additional_info property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Code { get; set; }
+        public string? AdditionalInfo { get; set; }
 #nullable restore
 #else
-        public string Code { get; set; }
+        public string AdditionalInfo { get; set; }
 #endif
-        /// <summary>Human readable name of location.</summary>
+        /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Description { get; set; }
 #endif
-        /// <summary>Point of presence of location.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Pop { get; set; }
-#nullable restore
-#else
-        public string Pop { get; set; }
-#endif
-        /// <summary>Identifies the geographical region of location.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Region { get; set; }
-#nullable restore
-#else
-        public string Region { get; set; }
-#endif
-        /// <summary>Site of location.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Site { get; set; }
-#nullable restore
-#else
-        public string Site { get; set; }
-#endif
+        /// <summary>Uniquely identifies the resource.</summary>
+        public Guid? Id { get; set; }
+        /// <summary>Represents whether the location is the default or not.</summary>
+        public bool? IsDefault { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Location"/> and sets the default values.
         /// </summary>
@@ -79,11 +59,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "pop", n => { Pop = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetStringValue(); } },
-                { "site", n => { Site = n.GetStringValue(); } },
+                { "additional_info", n => { AdditionalInfo = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "is_default", n => { IsDefault = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -93,11 +72,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("code", Code);
-            writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("pop", Pop);
-            writer.WriteStringValue("region", Region);
-            writer.WriteStringValue("site", Site);
+            writer.WriteStringValue("additional_info", AdditionalInfo);
+            writer.WriteStringValue("description", Description);
+            writer.WriteGuidValue("id", Id);
+            writer.WriteBoolValue("is_default", IsDefault);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

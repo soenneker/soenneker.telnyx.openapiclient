@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Conferences{?DateCreated*,DateUpdated*,FriendlyName*,Page*,PageToken*,Status*,page%5Bsize%5D*}", pathParameters)
+        public ConferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Conferences{?DateCreated*,DateUpdated*,FriendlyName*,Page*,PageSize*,PageToken*,Status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Conferences{?DateCreated*,DateUpdated*,FriendlyName*,Page*,PageToken*,Status*,page%5Bsize%5D*}", rawUrl)
+        public ConferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Conferences{?DateCreated*,DateUpdated*,FriendlyName*,Page*,PageSize*,PageToken*,Status*}", rawUrl)
         {
         }
         /// <summary>
@@ -52,6 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceIndex"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallScripting_ResourceNotFoundError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceIndex?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.ConferencesRequestBuilder.ConferencesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +63,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceIndex>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceIndex.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.CallScripting_ResourceNotFoundError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceIndex>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceResourceIndex.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists conference resources.
@@ -124,9 +129,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
 #endif
             /// <summary>The number of the page to be displayed, zero-indexed, should be used in conjuction with PageToken.</summary>
             public int? Page { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>The number of records to be displayed on a page</summary>
+            public int? PageSize { get; set; }
             /// <summary>Used to request the next page of results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -136,25 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences
             public string PageToken { get; set; }
 #endif
             /// <summary>Filters conferences by status.</summary>
-            [Obsolete("This property is deprecated, use StatusAsGetStatusQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? Status { get; set; }
-#nullable restore
-#else
-            public string Status { get; set; }
-#endif
-            /// <summary>Filters conferences by status.</summary>
-            [QueryParameter("Status")]
-            public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.GetStatusQueryParameterType? StatusAsGetStatusQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ConferencesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.ConferencesRequestBuilder.ConferencesRequestBuilderGetQueryParameters>
-        {
+            public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.GetStatusQueryParameterType? Status { get; set; }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Messaging_optoutsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_optouts{?created_at%5Bgte%5D*,created_at%5Blte%5D*,filter%5Bfrom%5D*,filter%5Bmessaging_profile_id%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,redaction_enabled*}", pathParameters)
+        public Messaging_optoutsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_optouts{?created_at*,filter*,page*,redaction_enabled*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Messaging_optoutsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_optouts{?created_at%5Bgte%5D*,created_at%5Blte%5D*,filter%5Bfrom%5D*,filter%5Bmessaging_profile_id%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,redaction_enabled*}", rawUrl)
+        public Messaging_optoutsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_optouts{?created_at*,filter*,page*,redaction_enabled*}", rawUrl)
         {
         }
         /// <summary>
@@ -39,8 +39,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OptOutListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Error">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.OptOutListResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_optouts.Messaging_optoutsRequestBuilder.Messaging_optoutsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -53,8 +53,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.OptOutListResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.OptOutListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -92,38 +92,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Messaging_optoutsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter opt-outs created after this date (ISO-8601 format)</summary>
-            [QueryParameter("created_at%5Bgte%5D")]
-            public DateTimeOffset? CreatedAtgte { get; set; }
-            /// <summary>Filter opt-outs created before this date (ISO-8601 format)</summary>
-            [QueryParameter("created_at%5Blte%5D")]
-            public DateTimeOffset? CreatedAtlte { get; set; }
-            /// <summary>The sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code) to retrieve opt-outs for</summary>
+            /// <summary>Consolidated created_at parameter (deepObject style). Originally: created_at[gte], created_at[lte]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bfrom%5D")]
-            public string? Filterfrom { get; set; }
+            [QueryParameter("created_at")]
+            public string? CreatedAt { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bfrom%5D")]
-            public string Filterfrom { get; set; }
+            [QueryParameter("created_at")]
+            public string CreatedAt { get; set; }
 #endif
-            /// <summary>The ID of the messaging profile to retrieve opt-outs for</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[messaging_profile_id], filter[from]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bmessaging_profile_id%5D")]
-            public string? FiltermessagingProfileId { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bmessaging_profile_id%5D")]
-            public string FiltermessagingProfileId { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
             /// <summary>If receiving address (+E.164 formatted phone number) should be redacted</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -134,14 +132,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
             [QueryParameter("redaction_enabled")]
             public string RedactionEnabled { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Messaging_optoutsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Messaging_optouts.Messaging_optoutsRequestBuilder.Messaging_optoutsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

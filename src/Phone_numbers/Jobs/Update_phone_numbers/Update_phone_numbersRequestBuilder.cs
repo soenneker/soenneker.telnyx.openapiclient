@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Update_phone_numbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/jobs/update_phone_numbers{?filter%5Bbilling_group_id%5D*,filter%5Bconnection_id%5D*,filter%5Bcustomer_reference%5D*,filter%5Bemergency_address_id%5D*,filter%5Bhas_bundle%5D*,filter%5Bphone_number%5D*,filter%5Bstatus%5D*,filter%5Btag%5D*,filter%5Bvoice%2Econnection_name%5D%5Bcontains%5D*,filter%5Bvoice%2Eusage_payment_method%5D*}", pathParameters)
+        public Update_phone_numbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/jobs/update_phone_numbers{?filter*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Update_phone_numbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/jobs/update_phone_numbers{?filter%5Bbilling_group_id%5D*,filter%5Bconnection_id%5D*,filter%5Bcustomer_reference%5D*,filter%5Bemergency_address_id%5D*,filter%5Bhas_bundle%5D*,filter%5Bphone_number%5D*,filter%5Bstatus%5D*,filter%5Btag%5D*,filter%5Bvoice%2Econnection_name%5D%5Bcontains%5D*,filter%5Bvoice%2Eusage_payment_method%5D*}", rawUrl)
+        public Update_phone_numbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/jobs/update_phone_numbers{?filter*}", rawUrl)
         {
         }
         /// <summary>
@@ -40,57 +40,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse?> PostAsUpdate_phone_numbersPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse> PostAsUpdate_phone_numbersPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted. IMPORTANT: You must either specify filters (using the filter parameters) or specific phone numbers (using the phone_numbers parameter in the request body). If you specify filters, ALL phone numbers that match the given filters (up to 1000 at a time) will be updated. If you want to update only specific numbers, you must use the phone_numbers parameter in the request body. When using the phone_numbers parameter, ensure you follow the correct format as shown in the example (either phone number IDs or phone numbers in E164 format).
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsUpdate_phone_numbersPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new background job to update a batch of numbers. At most one thousand numbers can be updated per API call. At least one of the updateable fields must be submitted. IMPORTANT: You must either specify filters (using the filter parameters) or specific phone numbers (using the phone_numbers parameter in the request body). If you specify filters, ALL phone numbers that match the given filters (up to 1000 at a time) will be updated. If you want to update only specific numbers, you must use the phone_numbers parameter in the request body. When using the phone_numbers parameter, ensure you follow the correct format as shown in the example (either phone number IDs or phone numbers in E164 format).
@@ -129,122 +101,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Update_phone_numbersRequestBuilderPostQueryParameters 
         {
-            /// <summary>Filter by the billing_group_id associated with phone numbers. To filter to only phone numbers that have no billing group associated them, set the value of this filter to the string &apos;null&apos;.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[has_bundle], filter[tag], filter[connection_id], filter[phone_number], filter[status], filter[voice.connection_name], filter[voice.usage_payment_method], filter[billing_group_id], filter[emergency_address_id], filter[customer_reference]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bbilling_group_id%5D")]
-            public string? FilterbillingGroupId { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bbilling_group_id%5D")]
-            public string FilterbillingGroupId { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter by connection_id.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bconnection_id%5D")]
-            public string? FilterconnectionId { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bconnection_id%5D")]
-            public string FilterconnectionId { get; set; }
-#endif
-            /// <summary>Filter numbers via the customer_reference set.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcustomer_reference%5D")]
-            public string? FiltercustomerReference { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcustomer_reference%5D")]
-            public string FiltercustomerReference { get; set; }
-#endif
-            /// <summary>Filter by the emergency_address_id associated with phone numbers. To filter only phone numbers that have no emergency address associated with them, set the value of this filter to the string &apos;null&apos;.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bemergency_address_id%5D")]
-            public string? FilteremergencyAddressId { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bemergency_address_id%5D")]
-            public string FilteremergencyAddressId { get; set; }
-#endif
-            /// <summary>Filter by phone number that have bundles.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bhas_bundle%5D")]
-            public string? FilterhasBundle { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bhas_bundle%5D")]
-            public string FilterhasBundle { get; set; }
-#endif
-            /// <summary>Filter by phone number. Requires at least three digits.             Non-numerical characters will result in no values being returned.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bphone_number%5D")]
-            public string? FilterphoneNumber { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bphone_number%5D")]
-            public string FilterphoneNumber { get; set; }
-#endif
-            /// <summary>Filter by phone number status.</summary>
-            [Obsolete("This property is deprecated, use FilterstatusAsPostFilterStatusQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string? Filterstatus { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string Filterstatus { get; set; }
-#endif
-            /// <summary>Filter by phone number status.</summary>
-            [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.PostFilterStatusQueryParameterType? FilterstatusAsPostFilterStatusQueryParameterType { get; set; }
-            /// <summary>Filter by phone number tags.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Btag%5D")]
-            public string? Filtertag { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Btag%5D")]
-            public string Filtertag { get; set; }
-#endif
-            /// <summary>Filter contains connection name. Requires at least three characters.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bvoice%2Econnection_name%5D%5Bcontains%5D")]
-            public string? FiltervoiceConnectionNamecontains { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bvoice%2Econnection_name%5D%5Bcontains%5D")]
-            public string FiltervoiceConnectionNamecontains { get; set; }
-#endif
-            /// <summary>Filter by usage_payment_method.</summary>
-            [Obsolete("This property is deprecated, use FiltervoiceUsagePaymentMethodAsPostFilterVoiceUsagePaymentMethodQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bvoice%2Eusage_payment_method%5D")]
-            public string? FiltervoiceUsagePaymentMethod { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bvoice%2Eusage_payment_method%5D")]
-            public string FiltervoiceUsagePaymentMethod { get; set; }
-#endif
-            /// <summary>Filter by usage_payment_method.</summary>
-            [QueryParameter("filter%5Bvoice%2Eusage_payment_method%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.PostFilterVoiceUsage_payment_methodQueryParameterType? FiltervoiceUsagePaymentMethodAsPostFilterVoiceUsagePaymentMethodQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Update_phone_numbersRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>
-        {
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Customer_service_recordsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/customer_service_records{?filter%5Bcreated_at%5D%5Bgt%5D*,filter%5Bcreated_at%5D%5Blt%5D*,filter%5Bphone_number%5D%5Beq%5D*,filter%5Bphone_number%5D%5Bin%5D%5B%5D*,filter%5Bstatus%5D%5Beq%5D*,filter%5Bstatus%5D%5Bin%5D%5B%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort%5B%5D*}", pathParameters)
+        public Customer_service_recordsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/customer_service_records{?filter*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Customer_service_recordsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/customer_service_records{?filter%5Bcreated_at%5D%5Bgt%5D*,filter%5Bcreated_at%5D%5Blt%5D*,filter%5Bphone_number%5D%5Beq%5D*,filter%5Bphone_number%5D%5Bin%5D%5B%5D*,filter%5Bstatus%5D%5Beq%5D*,filter%5Bstatus%5D%5Bin%5D%5B%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort%5B%5D*}", rawUrl)
+        public Customer_service_recordsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/customer_service_records{?filter*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -64,11 +64,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsGetResponse?> GetAsCustomer_service_recordsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsRequestBuilder.Customer_service_recordsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsRequestBuilder.Customer_service_recordsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsGetResponse> GetAsCustomer_service_recordsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsRequestBuilder.Customer_service_recordsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsRequestBuilder.Customer_service_recordsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -80,36 +80,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// List customer service records.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records500Error">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsCustomer_service_recordsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsRequestBuilder.Customer_service_recordsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsRequestBuilder.Customer_service_recordsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records403Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records422Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records500Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new customer service record for the provided phone number.
@@ -124,11 +94,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostResponse?> PostAsCustomer_service_recordsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostResponse> PostAsCustomer_service_recordsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -141,38 +111,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
                 { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Create a new customer service record for the provided phone number.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records500Error">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsCustomer_service_recordsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records403Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records422Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Customer_service_records500Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List customer service records.
@@ -230,103 +168,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Customer_service_records
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Customer_service_recordsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filters records to those created after a specific date.</summary>
-            [QueryParameter("filter%5Bcreated_at%5D%5Bgt%5D")]
-            public DateTimeOffset? FiltercreatedAtgt { get; set; }
-            /// <summary>Filters records to those created before a specific date.</summary>
-            [QueryParameter("filter%5Bcreated_at%5D%5Blt%5D")]
-            public DateTimeOffset? FiltercreatedAtlt { get; set; }
-            /// <summary>Filters records to those with a specified number.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[phone_number][eq], filter[phone_number][in][], filter[status][eq], filter[status][in][], filter[created_at][lt], filter[created_at][gt]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bphone_number%5D%5Beq%5D")]
-            public string? FilterphoneNumbereq { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bphone_number%5D%5Beq%5D")]
-            public string FilterphoneNumbereq { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filters records to those with at least one number in the list.</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bphone_number%5D%5Bin%5D%5B%5D")]
-            public string[]? FilterphoneNumberin { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bphone_number%5D%5Bin%5D%5B%5D")]
-            public string[] FilterphoneNumberin { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>Filters records to those with a specific status.</summary>
-            [Obsolete("This property is deprecated, use FilterstatuseqAsGetFilterStatusEqQueryParameterType instead")]
+            /// <summary>Consolidated sort parameter (deepObject style). Originally: sort[value]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public string? Filterstatuseq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public string Filterstatuseq { get; set; }
-#endif
-            /// <summary>Filters records to those with a specific status.</summary>
-            [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.GetFilterStatusEqQueryParameterType? FilterstatuseqAsGetFilterStatusEqQueryParameterType { get; set; }
-            /// <summary>Filters records to those with a least one status in the list.</summary>
-            [Obsolete("This property is deprecated, use FilterstatusinAsGetFilterStatusInQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus%5D%5Bin%5D%5B%5D")]
-            public string[]? Filterstatusin { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus%5D%5Bin%5D%5B%5D")]
-            public string[] Filterstatusin { get; set; }
-#endif
-            /// <summary>Filters records to those with a least one status in the list.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus%5D%5Bin%5D%5B%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.GetFilterStatusInQueryParameterType[]? FilterstatusinAsGetFilterStatusInQueryParameterType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus%5D%5Bin%5D%5B%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.GetFilterStatusInQueryParameterType[] FilterstatusinAsGetFilterStatusInQueryParameterType { get; set; }
-#endif
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-            /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("sort%5B%5D")]
+            [QueryParameter("sort")]
             public string? Sort { get; set; }
 #nullable restore
 #else
-            [QueryParameter("sort%5B%5D")]
+            [QueryParameter("sort")]
             public string Sort { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>
-            [QueryParameter("sort%5B%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Customer_service_recordsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Customer_service_records.Customer_service_recordsRequestBuilder.Customer_service_recordsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Customer_service_recordsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Requirement_groupsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirement_groups{?filter%5Baction%5D*,filter%5Bcountry_code%5D*,filter%5Bcustomer_reference%5D*,filter%5Bphone_number_type%5D*,filter%5Bstatus%5D*}", pathParameters)
+        public Requirement_groupsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirement_groups{?filter*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Requirement_groupsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirement_groups{?filter%5Baction%5D*,filter%5Bcountry_code%5D*,filter%5Bcustomer_reference%5D*,filter%5Bphone_number_type%5D*,filter%5Bstatus%5D*}", rawUrl)
+        public Requirement_groupsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/requirement_groups{?filter*}", rawUrl)
         {
         }
         /// <summary>
@@ -141,84 +141,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_groups
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Requirement_groupsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter requirement groups by action type</summary>
-            [Obsolete("This property is deprecated, use FilteractionAsGetFilterActionQueryParameterType instead")]
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[country_code], filter[phone_number_type], filter[action], filter[status], filter[customer_reference]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Baction%5D")]
-            public string? Filteraction { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Baction%5D")]
-            public string Filteraction { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter requirement groups by action type</summary>
-            [QueryParameter("filter%5Baction%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Requirement_groups.GetFilterActionQueryParameterType? FilteractionAsGetFilterActionQueryParameterType { get; set; }
-            /// <summary>Filter requirement groups by country code (iso alpha 2)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcountry_code%5D")]
-            public string? FiltercountryCode { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcountry_code%5D")]
-            public string FiltercountryCode { get; set; }
-#endif
-            /// <summary>Filter requirement groups by customer reference</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcustomer_reference%5D")]
-            public string? FiltercustomerReference { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcustomer_reference%5D")]
-            public string FiltercustomerReference { get; set; }
-#endif
-            /// <summary>Filter requirement groups by phone number type.</summary>
-            [Obsolete("This property is deprecated, use FilterphoneNumberTypeAsGetFilterPhoneNumberTypeQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bphone_number_type%5D")]
-            public string? FilterphoneNumberType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bphone_number_type%5D")]
-            public string FilterphoneNumberType { get; set; }
-#endif
-            /// <summary>Filter requirement groups by phone number type.</summary>
-            [QueryParameter("filter%5Bphone_number_type%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Requirement_groups.GetFilterPhone_number_typeQueryParameterType? FilterphoneNumberTypeAsGetFilterPhoneNumberTypeQueryParameterType { get; set; }
-            /// <summary>Filter requirement groups by status</summary>
-            [Obsolete("This property is deprecated, use FilterstatusAsGetFilterStatusQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string? Filterstatus { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string Filterstatus { get; set; }
-#endif
-            /// <summary>Filter requirement groups by status</summary>
-            [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Requirement_groups.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Requirement_groupsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Requirement_groups.Requirement_groupsRequestBuilder.Requirement_groupsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Requirement_groupsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

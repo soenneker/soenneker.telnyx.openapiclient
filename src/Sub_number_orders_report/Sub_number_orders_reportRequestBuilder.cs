@@ -30,19 +30,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report
                 return new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Item.WithReport_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.sub_number_orders_report.item collection</summary>
-        /// <param name="position">The unique identifier of the sub number orders report</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Item.WithReport_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Item.WithReport_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("report_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Item.WithReport_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -66,49 +53,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportPostResponse?> PostAsSub_number_orders_reportPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportPostResponse> PostAsSub_number_orders_reportPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Create a CSV report for sub number orders. The report will be generated asynchronously and can be downloaded once complete.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsSub_number_orders_reportPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateSubNumberOrdersReportRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a CSV report for sub number orders. The report will be generated asynchronously and can be downloaded once complete.
@@ -140,14 +101,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report
         public global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report.Sub_number_orders_reportRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Sub_number_orders_reportRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

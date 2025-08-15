@@ -42,25 +42,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles
                 return new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.bundle_pricing.user_bundles.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("user_bundle_id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item.WithUser_bundle_ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.User_bundlesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public User_bundlesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bundle_pricing/user_bundles{?filter%5Bcountry_iso%5D*,filter%5Bresource%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public User_bundlesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bundle_pricing/user_bundles{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -68,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public User_bundlesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bundle_pricing/user_bundles{?filter%5Bcountry_iso%5D*,filter%5Bresource%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public User_bundlesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bundle_pricing/user_bundles{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -123,40 +110,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class User_bundlesRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter by country code.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Supports filtering by country_iso and resource. Examples: filter[country_iso]=US or filter[resource]=+15617819942</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcountry_iso%5D")]
-            public string[]? FiltercountryIso { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcountry_iso%5D")]
-            public string[] FiltercountryIso { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter by resource.</summary>
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bresource%5D")]
-            public string[]? Filterresource { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bresource%5D")]
-            public string[] Filterresource { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class User_bundlesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.User_bundlesRequestBuilder.User_bundlesRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

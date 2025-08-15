@@ -20,5 +20,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents
         #pragma warning disable CS1591
         Updated_at,
         #pragma warning restore CS1591
+        [EnumMember(Value = "-filename")]
+        #pragma warning disable CS1591
+        Minus_filename,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "-created_at")]
+        #pragma warning disable CS1591
+        Minus_created_at,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "-updated_at")]
+        #pragma warning disable CS1591
+        Minus_updated_at,
+        #pragma warning restore CS1591
     }
 }

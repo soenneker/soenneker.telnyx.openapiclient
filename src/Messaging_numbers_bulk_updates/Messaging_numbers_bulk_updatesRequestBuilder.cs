@@ -53,49 +53,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesPostResponse?> PostAsMessaging_numbers_bulk_updatesPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesPostResponse> PostAsMessaging_numbers_bulk_updatesPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Update the messaging profile of multiple phone numbers
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsMessaging_numbers_bulk_updatesPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.BulkMessagingSettingsUpdatePhoneNumbersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the messaging profile of multiple phone numbers
@@ -127,14 +101,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates.Messaging_numbers_bulk_updatesRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Messaging_numbers_bulk_updatesRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

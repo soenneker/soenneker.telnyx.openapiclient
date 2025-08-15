@@ -30,25 +30,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders
                 return new global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Item.Sim_card_ordersItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.sim_card_orders.item collection</summary>
-        /// <param name="position">Identifies the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Item.Sim_card_ordersItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Item.Sim_card_ordersItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Item.Sim_card_ordersItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Sim_card_ordersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sim_card_orders{?filter%5Baddress%2Eadministrative_area%5D*,filter%5Baddress%2Ecountry_code%5D*,filter%5Baddress%2Eextended_address%5D*,filter%5Baddress%2Eid%5D*,filter%5Baddress%2Elocality%5D*,filter%5Baddress%2Epostal_code%5D*,filter%5Baddress%2Estreet_address%5D*,filter%5Bcost%2Eamount%5D*,filter%5Bcost%2Ecurrency%5D*,filter%5Bcreated_at%5D*,filter%5Bquantity%5D*,filter%5Bupdated_at%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", pathParameters)
+        public Sim_card_ordersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sim_card_orders{?filter*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Sim_card_ordersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sim_card_orders{?filter%5Baddress%2Eadministrative_area%5D*,filter%5Baddress%2Ecountry_code%5D*,filter%5Baddress%2Eextended_address%5D*,filter%5Baddress%2Eid%5D*,filter%5Baddress%2Elocality%5D*,filter%5Baddress%2Epostal_code%5D*,filter%5Baddress%2Estreet_address%5D*,filter%5Bcost%2Eamount%5D*,filter%5Bcost%2Ecurrency%5D*,filter%5Bcreated_at%5D*,filter%5Bquantity%5D*,filter%5Bupdated_at%5D*,page%5Bnumber%5D*,page%5Bsize%5D*}", rawUrl)
+        public Sim_card_ordersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/sim_card_orders{?filter*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -65,46 +52,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersGetResponse?> GetAsSim_card_ordersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersRequestBuilder.Sim_card_ordersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersRequestBuilder.Sim_card_ordersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersGetResponse> GetAsSim_card_ordersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersRequestBuilder.Sim_card_ordersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersRequestBuilder.Sim_card_ordersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Get all SIM card orders according to filters.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsSim_card_ordersGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersRequestBuilder.Sim_card_ordersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersRequestBuilder.Sim_card_ordersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new order for SIM cards.
@@ -113,49 +76,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersPostResponse?> PostAsSim_card_ordersPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersPostResponse> PostAsSim_card_ordersPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new order for SIM cards.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsSim_card_ordersPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderCreate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.SimCardOrderCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get all SIM card orders according to filters.
@@ -213,127 +150,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_orders
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Sim_card_ordersRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter by state or province where the address is located.</summary>
+            /// <summary>Consolidated filter parameter for SIM card orders (deepObject style). Originally: filter[created_at], filter[updated_at], filter[quantity], filter[cost.amount], filter[cost.currency], filter[address.id], filter[address.street_address], filter[address.extended_address], filter[address.locality], filter[address.administrative_area], filter[address.country_code], filter[address.postal_code]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Baddress%2Eadministrative_area%5D")]
-            public string? FilteraddressAdministrativeArea { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Baddress%2Eadministrative_area%5D")]
-            public string FilteraddressAdministrativeArea { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter by the mobile operator two-character (ISO 3166-1 alpha-2) origin country code.</summary>
+            /// <summary>Consolidated pagination parameter (deepObject style). Originally: page[number], page[size]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Baddress%2Ecountry_code%5D")]
-            public string? FilteraddressCountryCode { get; set; }
+            [QueryParameter("page")]
+            public string? Page { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Baddress%2Ecountry_code%5D")]
-            public string FilteraddressCountryCode { get; set; }
+            [QueryParameter("page")]
+            public string Page { get; set; }
 #endif
-            /// <summary>Returns entries with matching name of the supplemental field for address information.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Baddress%2Eextended_address%5D")]
-            public string? FilteraddressExtendedAddress { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Baddress%2Eextended_address%5D")]
-            public string FilteraddressExtendedAddress { get; set; }
-#endif
-            /// <summary>Uniquely identifies the address for the order.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Baddress%2Eid%5D")]
-            public string? FilteraddressId { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Baddress%2Eid%5D")]
-            public string FilteraddressId { get; set; }
-#endif
-            /// <summary>Filter by the name of the city where the address is located.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Baddress%2Elocality%5D")]
-            public string? FilteraddressLocality { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Baddress%2Elocality%5D")]
-            public string FilteraddressLocality { get; set; }
-#endif
-            /// <summary>Filter by postal code for the address.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Baddress%2Epostal_code%5D")]
-            public string? FilteraddressPostalCode { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Baddress%2Epostal_code%5D")]
-            public string FilteraddressPostalCode { get; set; }
-#endif
-            /// <summary>Returns entries with matching name of the street where the address is located.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Baddress%2Estreet_address%5D")]
-            public string? FilteraddressStreetAddress { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Baddress%2Estreet_address%5D")]
-            public string FilteraddressStreetAddress { get; set; }
-#endif
-            /// <summary>The total monetary amount of the order.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcost%2Eamount%5D")]
-            public string? FiltercostAmount { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcost%2Eamount%5D")]
-            public string FiltercostAmount { get; set; }
-#endif
-            /// <summary>Filter by ISO 4217 currency string.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcost%2Ecurrency%5D")]
-            public string? FiltercostCurrency { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcost%2Ecurrency%5D")]
-            public string FiltercostCurrency { get; set; }
-#endif
-            /// <summary>Filter by ISO 8601 formatted date-time string matching resource creation date-time.</summary>
-            [QueryParameter("filter%5Bcreated_at%5D")]
-            public DateTimeOffset? FiltercreatedAt { get; set; }
-            /// <summary>Filter orders by how many SIM cards were ordered.</summary>
-            [QueryParameter("filter%5Bquantity%5D")]
-            public int? Filterquantity { get; set; }
-            /// <summary>Filter by ISO 8601 formatted date-time string matching resource last update date-time.</summary>
-            [QueryParameter("filter%5Bupdated_at%5D")]
-            public DateTimeOffset? FilterupdatedAt { get; set; }
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Sim_card_ordersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Sim_card_orders.Sim_card_ordersRequestBuilder.Sim_card_ordersRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Sim_card_ordersRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

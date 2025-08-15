@@ -15,5 +15,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Remove_private_wireless_gateway,
         #pragma warning restore CS1591
+        [EnumMember(Value = "set_wireless_blocklist")]
+        #pragma warning disable CS1591
+        Set_wireless_blocklist,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "remove_wireless_blocklist")]
+        #pragma warning disable CS1591
+        Remove_wireless_blocklist,
+        #pragma warning restore CS1591
     }
 }

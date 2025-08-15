@@ -42,37 +42,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsPostResponse?> PostAsEsimsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsPostResponse> PostAsEsimsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Purchases and registers the specified amount of eSIMs to the current user&apos;s account.&lt;br/&gt;&lt;br/&gt;If &lt;code&gt;sim_card_group_id&lt;/code&gt; is provided, the eSIMs will be associated with that group. Otherwise, the default group for the current user will be used.&lt;br/&gt;&lt;br/&gt;
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsEsimsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ESimPurchase body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Purchases and registers the specified amount of eSIMs to the current user&apos;s account.&lt;br/&gt;&lt;br/&gt;If &lt;code&gt;sim_card_group_id&lt;/code&gt; is provided, the eSIMs will be associated with that group. Otherwise, the default group for the current user will be used.&lt;br/&gt;&lt;br/&gt;
@@ -104,14 +83,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims
         public global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EsimsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

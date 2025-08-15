@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Calls{?EndTime*,EndTime_gt*,EndTime_lt*,From*,Page*,PageToken*,StartTime*,StartTime_gt*,StartTime_lt*,To*,filter%5Bstatus%5D%5Beq%5D*,page%5Bsize%5D*}", pathParameters)
+        public CallsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Calls{?EndTime*,EndTime_gt*,EndTime_lt*,From*,Page*,PageSize*,PageToken*,StartTime*,StartTime_gt*,StartTime_lt*,Status*,To*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Calls{?EndTime*,EndTime_gt*,EndTime_lt*,From*,Page*,PageToken*,StartTime*,StartTime_gt*,StartTime_lt*,To*,filter%5Bstatus%5D%5Beq%5D*,page%5Bsize%5D*}", rawUrl)
+        public CallsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/texml/Accounts/{account_sid}/Calls{?EndTime*,EndTime_gt*,EndTime_lt*,From*,Page*,PageSize*,PageToken*,StartTime*,StartTime_gt*,StartTime_lt*,Status*,To*}", rawUrl)
         {
         }
         /// <summary>
@@ -52,6 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceIndex"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallScripting_ResourceNotFoundError">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceIndex?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +63,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceIndex>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceIndex.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.CallScripting_ResourceNotFoundError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceIndex>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CallResourceIndex.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Initiate an outbound TeXML call. Telnyx will request TeXML from the XML Request URL configured for the connection in the Mission Control Portal.
@@ -168,20 +173,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
             [QueryParameter("EndTime_lt")]
             public string EndTimeLt { get; set; }
 #endif
-            /// <summary>The status of a notification setting</summary>
-            [Obsolete("This property is deprecated, use FilterstatuseqAsGetFilterStatusEqQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public string? Filterstatuseq { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public string Filterstatuseq { get; set; }
-#endif
-            /// <summary>The status of a notification setting</summary>
-            [QueryParameter("filter%5Bstatus%5D%5Beq%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.GetFilterStatusEqQueryParameterType? FilterstatuseqAsGetFilterStatusEqQueryParameterType { get; set; }
             /// <summary>Filters calls by the from number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -192,9 +183,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
 #endif
             /// <summary>The number of the page to be displayed, zero-indexed, should be used in conjuction with PageToken.</summary>
             public int? Page { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
+            /// <summary>The number of records to be displayed on a page</summary>
+            public int? PageSize { get; set; }
             /// <summary>Used to request the next page of results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -231,6 +221,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
             [QueryParameter("StartTime_lt")]
             public string StartTimeLt { get; set; }
 #endif
+            /// <summary>Filters calls by status.</summary>
+            public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.GetStatusQueryParameterType? Status { get; set; }
             /// <summary>Filters calls by the to number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -239,22 +231,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
 #else
             public string To { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CallsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CallsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

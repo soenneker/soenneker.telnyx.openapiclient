@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Error>? Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Error>? Errors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Error> Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Error> Errors { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims.EsimsPostResponse"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard>(global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>(global::Soenneker.Telnyx.OpenApiClient.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Error>(global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Error.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Actions.Purchase.Esims
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Error>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Error>("errors", Errors);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

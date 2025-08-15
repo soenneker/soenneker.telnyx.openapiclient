@@ -31,8 +31,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Specifies whether string matching should be case sensitive</summary>
-        public bool? CaseSensitive { get; set; }
         /// <summary>Specifies geography-based acceptance criteria</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,14 +43,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? MaxLength { get; set; }
         /// <summary>Minimum length allowed for the value</summary>
         public int? MinLength { get; set; }
-        /// <summary>A regular expression pattern that the value must match</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Regex { get; set; }
-#nullable restore
-#else
-        public string Regex { get; set; }
-#endif
         /// <summary>Specifies time-based acceptance criteria</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,11 +78,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "acceptable_characters", n => { AcceptableCharacters = n.GetStringValue(); } },
                 { "acceptable_values", n => { AcceptableValues = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "case_sensitive", n => { CaseSensitive = n.GetBoolValue(); } },
                 { "locality_limit", n => { LocalityLimit = n.GetStringValue(); } },
                 { "max_length", n => { MaxLength = n.GetIntValue(); } },
                 { "min_length", n => { MinLength = n.GetIntValue(); } },
-                { "regex", n => { Regex = n.GetStringValue(); } },
                 { "time_limit", n => { TimeLimit = n.GetStringValue(); } },
             };
         }
@@ -105,11 +93,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("acceptable_characters", AcceptableCharacters);
             writer.WriteCollectionOfPrimitiveValues<string>("acceptable_values", AcceptableValues);
-            writer.WriteBoolValue("case_sensitive", CaseSensitive);
             writer.WriteStringValue("locality_limit", LocalityLimit);
             writer.WriteIntValue("max_length", MaxLength);
             writer.WriteIntValue("min_length", MinLength);
-            writer.WriteStringValue("regex", Regex);
             writer.WriteStringValue("time_limit", TimeLimit);
             writer.WriteAdditionalData(AdditionalData);
         }

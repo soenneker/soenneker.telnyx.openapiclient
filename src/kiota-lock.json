@@ -1,5 +1,5 @@
 {
-  "descriptionHash": "74CEEFA771F188A97B271AF22474550D0766B29E7051E265A70BCF022024EDC0B82F7E24AA1E980D053169386E6A688E6C9395EB3E9C9438BAF413719F33C7F0",
+  "descriptionHash": "6E77AA24462FCDF3F442DFDC45416B0509EAF0D45AE307A897F243AF74112D000011CEE84DC20E6338CB247FB9500A7875E92761D38492F3F1D7546D4286507A",
   "descriptionLocation": "../fixed.json",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.28.0",
@@ -8,7 +8,7 @@
   "clientNamespaceName": "Soenneker.Telnyx.OpenApiClient",
   "language": "CSharp",
   "usesBackingStore": false,
-  "excludeBackwardCompatible": false,
+  "excludeBackwardCompatible": true,
   "includeAdditionalData": true,
   "disableSSLValidation": false,
   "serializers": [

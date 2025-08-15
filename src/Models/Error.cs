@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,13 +9,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Error : ApiException, IAdditionalDataHolder, IParsable
+    public partial class Error : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The code property</summary>
-        public int? Code { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Code { get; set; }
+#nullable restore
+#else
+        public string Code { get; set; }
+#endif
         /// <summary>The detail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,8 +30,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Detail { get; set; }
 #endif
-        /// <summary>The primary error message.</summary>
-        public override string Message { get => base.Message; }
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,10 +41,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_source? SourceEscaped { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_source? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_source SourceEscaped { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_source Source { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,10 +79,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetIntValue(); } },
+                { "code", n => { Code = n.GetStringValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta>(global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta.CreateFromDiscriminatorValue); } },
-                { "source", n => { SourceEscaped = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_source>(global::Soenneker.Telnyx.OpenApiClient.Models.Error_source.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_source>(global::Soenneker.Telnyx.OpenApiClient.Models.Error_source.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -90,10 +93,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("code", Code);
+            writer.WriteStringValue("code", Code);
             writer.WriteStringValue("detail", Detail);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_source>("source", SourceEscaped);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_source>("source", Source);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

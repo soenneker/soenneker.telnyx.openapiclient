@@ -42,10 +42,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Subproducts if applicable</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecordType?>? RecordTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UsageReports_RecordType>? RecordTypes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RecordType?> RecordTypes { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UsageReports_RecordType> RecordTypes { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UsageReportsOptionsRecord"/> and sets the default values.
@@ -75,7 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "product", n => { Product = n.GetStringValue(); } },
                 { "product_dimensions", n => { ProductDimensions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "product_metrics", n => { ProductMetrics = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "record_types", n => { RecordTypes = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecordType>()?.AsList(); } },
+                { "record_types", n => { RecordTypes = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UsageReports_RecordType>(global::Soenneker.Telnyx.OpenApiClient.Models.UsageReports_RecordType.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("product", Product);
             writer.WriteCollectionOfPrimitiveValues<string>("product_dimensions", ProductDimensions);
             writer.WriteCollectionOfPrimitiveValues<string>("product_metrics", ProductMetrics);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.RecordType>("record_types", RecordTypes);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UsageReports_RecordType>("record_types", RecordTypes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

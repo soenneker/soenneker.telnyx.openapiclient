@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Available_phone_number_blocksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/available_phone_number_blocks{?filter%5Bcountry_code%5D*,filter%5Blocality%5D*,filter%5Bnational_destination_code%5D*,filter%5Bphone_number_type%5D*}", pathParameters)
+        public Available_phone_number_blocksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/available_phone_number_blocks{?filter*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Available_phone_number_blocksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/available_phone_number_blocks{?filter%5Bcountry_code%5D*,filter%5Blocality%5D*,filter%5Bnational_destination_code%5D*,filter%5Bphone_number_type%5D*}", rawUrl)
+        public Available_phone_number_blocksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/available_phone_number_blocks{?filter*}", rawUrl)
         {
         }
         /// <summary>
@@ -39,46 +39,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksGetResponse?> GetAsAvailable_phone_number_blocksGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksRequestBuilder.Available_phone_number_blocksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksRequestBuilder.Available_phone_number_blocksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksGetResponse> GetAsAvailable_phone_number_blocksGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksRequestBuilder.Available_phone_number_blocksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksRequestBuilder.Available_phone_number_blocksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// List available phone number blocks
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsAvailable_phone_number_blocksGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksRequestBuilder.Available_phone_number_blocksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksRequestBuilder.Available_phone_number_blocksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List available phone number blocks
@@ -114,58 +90,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Available_phone_number_blocksRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter phone numbers by country.</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[locality], filter[country_code], filter[national_destination_code], filter[phone_number_type]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcountry_code%5D")]
-            public string? FiltercountryCode { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcountry_code%5D")]
-            public string FiltercountryCode { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter phone numbers by city.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Blocality%5D")]
-            public string? Filterlocality { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Blocality%5D")]
-            public string Filterlocality { get; set; }
-#endif
-            /// <summary>Filter by the national destination code of the number.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bnational_destination_code%5D")]
-            public string? FilternationalDestinationCode { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bnational_destination_code%5D")]
-            public string FilternationalDestinationCode { get; set; }
-#endif
-            /// <summary>Filter phone numbers by number type.</summary>
-            [Obsolete("This property is deprecated, use FilterphoneNumberTypeAsGetFilterPhoneNumberTypeQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bphone_number_type%5D")]
-            public string? FilterphoneNumberType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bphone_number_type%5D")]
-            public string FilterphoneNumberType { get; set; }
-#endif
-            /// <summary>Filter phone numbers by number type.</summary>
-            [QueryParameter("filter%5Bphone_number_type%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.GetFilterPhone_number_typeQueryParameterType? FilterphoneNumberTypeAsGetFilterPhoneNumberTypeQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Available_phone_number_blocksRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks.Available_phone_number_blocksRequestBuilder.Available_phone_number_blocksRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

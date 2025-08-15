@@ -30,19 +30,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions
                 return new global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Item.Bulk_sim_card_actionsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.bulk_sim_card_actions.item collection</summary>
-        /// <param name="position">Identifies the resource.</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Item.Bulk_sim_card_actionsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Item.Bulk_sim_card_actionsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Item.Bulk_sim_card_actionsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -65,46 +52,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsGetResponse?> GetAsBulk_sim_card_actionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsRequestBuilder.Bulk_sim_card_actionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsRequestBuilder.Bulk_sim_card_actionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsGetResponse> GetAsBulk_sim_card_actionsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsRequestBuilder.Bulk_sim_card_actionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsRequestBuilder.Bulk_sim_card_actionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// This API lists a paginated collection of bulk SIM card actions. A bulk SIM card action contains details about a collection of individual SIM card actions.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 4XX or 5XX status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsBulk_sim_card_actionsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsRequestBuilder.Bulk_sim_card_actionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsRequestBuilder.Bulk_sim_card_actionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This API lists a paginated collection of bulk SIM card actions. A bulk SIM card action contains details about a collection of individual SIM card actions.
@@ -141,33 +104,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions
         public partial class Bulk_sim_card_actionsRequestBuilderGetQueryParameters 
         {
             /// <summary>Filter by action type.</summary>
-            [Obsolete("This property is deprecated, use FilteractionTypeAsGetFilterActionTypeQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("filter%5Baction_type%5D")]
-            public string? FilteractionType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Baction_type%5D")]
-            public string FilteractionType { get; set; }
-#endif
-            /// <summary>Filter by action type.</summary>
-            [QueryParameter("filter%5Baction_type%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.GetFilterAction_typeQueryParameterType? FilteractionTypeAsGetFilterActionTypeQueryParameterType { get; set; }
-            /// <summary>The page number to load</summary>
+            public global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.GetFilterAction_typeQueryParameterType? FilteractionType { get; set; }
+            /// <summary>The page number to load.</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
+            /// <summary>The size of the page.</summary>
             [QueryParameter("page%5Bsize%5D")]
             public int? Pagesize { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Bulk_sim_card_actionsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsRequestBuilder.Bulk_sim_card_actionsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

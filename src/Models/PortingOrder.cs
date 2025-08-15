@@ -22,6 +22,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>For specific porting orders, we may require additional steps to be taken before submitting the porting order.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_additional_steps?>? AdditionalSteps { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_additional_steps?> AdditionalSteps { get; set; }
+#endif
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>A customer-specified reference number for customer bookkeeping purposes</summary>
@@ -182,6 +190,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "activation_settings", n => { ActivationSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings.CreateFromDiscriminatorValue); } },
+                { "additional_steps", n => { AdditionalSteps = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_additional_steps>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -214,6 +223,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings>("activation_settings", ActivationSettings);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_additional_steps>("additional_steps", AdditionalSteps);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments>("documents", Documents);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser>("end_user", EndUser);

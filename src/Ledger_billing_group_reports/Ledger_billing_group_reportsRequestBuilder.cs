@@ -30,19 +30,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports
                 return new global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Item.Ledger_billing_group_reportsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.ledger_billing_group_reports.item collection</summary>
-        /// <param name="position">The id of the ledger billing group report</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Item.Ledger_billing_group_reportsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Item.Ledger_billing_group_reportsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Item.Ledger_billing_group_reportsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -66,49 +53,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroup_Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsPostResponse?> PostAsLedger_billing_group_reportsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NewLedgerBillingGroupReport body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NewLedgerBillingGroupReport body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsPostResponse> PostAsLedger_billing_group_reportsPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NewLedgerBillingGroupReport body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NewLedgerBillingGroupReport body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.BillingGroup_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Create a ledger billing group report
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Errors">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsLedger_billing_group_reportsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NewLedgerBillingGroupReport body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.NewLedgerBillingGroupReport body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -137,14 +98,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports
         public global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Ledger_billing_group_reports.Ledger_billing_group_reportsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Ledger_billing_group_reportsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

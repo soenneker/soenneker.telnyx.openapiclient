@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPortout_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts/rejections/{portout_id}{?filter%5Bcode%5D*,filter%5Bcode%5D%5Bin%5D*}", pathParameters)
+        public WithPortout_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts/rejections/{portout_id}{?filter*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPortout_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts/rejections/{portout_id}{?filter%5Bcode%5D*,filter%5Bcode%5D%5Bin%5D*}", rawUrl)
+        public WithPortout_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/portouts/rejections/{portout_id}{?filter*}", rawUrl)
         {
         }
         /// <summary>
@@ -40,34 +40,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_GetResponse?> GetAsWithPortout_GetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_ItemRequestBuilder.WithPortout_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_GetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_ItemRequestBuilder.WithPortout_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_GetResponse> GetAsWithPortout_GetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_ItemRequestBuilder.WithPortout_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_GetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_ItemRequestBuilder.WithPortout_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_GetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_GetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Given a port-out ID, list rejection codes that are eligible for that port-out
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_Response"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsWithPortout_GetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_ItemRequestBuilder.WithPortout_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_ItemRequestBuilder.WithPortout_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_Response>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Given a port-out ID, list rejection codes that are eligible for that port-out
@@ -103,27 +84,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPortout_ItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter rejections of a specific code</summary>
-            [QueryParameter("filter%5Bcode%5D")]
-            public int? Filtercode { get; set; }
-            /// <summary>Filter rejections in a list of codes</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[code], filter[code][in]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bcode%5D%5Bin%5D")]
-            public int?[]? Filtercodein { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bcode%5D%5Bin%5D")]
-            public int?[] Filtercodein { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithPortout_ItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Portouts.Rejections.Item.WithPortout_ItemRequestBuilder.WithPortout_ItemRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

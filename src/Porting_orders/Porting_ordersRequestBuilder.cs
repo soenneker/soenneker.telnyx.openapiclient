@@ -42,25 +42,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
                 return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.porting_orders.item collection</summary>
-        /// <param name="position">Porting Order id</param>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Porting_ordersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders{?filter%5Bactivation_settings%2Efast_port_eligible%5D*,filter%5Bactivation_settings%2Efoc_datetime_requested%5D%5Bgt%5D*,filter%5Bactivation_settings%2Efoc_datetime_requested%5D%5Blt%5D*,filter%5Bcustomer_reference%5D*,filter%5Bend_user%2Eadmin%2Eauth_person_name%5D*,filter%5Bend_user%2Eadmin%2Eentity_name%5D*,filter%5Bmisc%2Etype%5D*,filter%5Bparent_support_key%5D*,filter%5Bphone_numbers%2Ecarrier_name%5D*,filter%5Bphone_numbers%2Ecountry_code%5D*,filter%5Bphone_numbers%2Ephone_number%5D%5Bcontains%5D*,filter%5Bstatus%5D*,filter%5Bstatus%5D%5Bin%5D%5B%5D*,include_phone_numbers*,page%5Bnumber%5D*,page%5Bsize%5D*,sort%5B%5D*}", pathParameters)
+        public Porting_ordersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders{?filter*,include_phone_numbers*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -68,7 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Porting_ordersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders{?filter%5Bactivation_settings%2Efast_port_eligible%5D*,filter%5Bactivation_settings%2Efoc_datetime_requested%5D%5Bgt%5D*,filter%5Bactivation_settings%2Efoc_datetime_requested%5D%5Blt%5D*,filter%5Bcustomer_reference%5D*,filter%5Bend_user%2Eadmin%2Eauth_person_name%5D*,filter%5Bend_user%2Eadmin%2Eentity_name%5D*,filter%5Bmisc%2Etype%5D*,filter%5Bparent_support_key%5D*,filter%5Bphone_numbers%2Ecarrier_name%5D*,filter%5Bphone_numbers%2Ecountry_code%5D*,filter%5Bphone_numbers%2Ephone_number%5D%5Bcontains%5D*,filter%5Bstatus%5D*,filter%5Bstatus%5D%5Bin%5D%5B%5D*,include_phone_numbers*,page%5Bnumber%5D*,page%5Bsize%5D*,sort%5B%5D*}", rawUrl)
+        public Porting_ordersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/porting_orders{?filter*,include_phone_numbers*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -79,34 +66,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersGetResponse?> GetAsPorting_ordersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersRequestBuilder.Porting_ordersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersRequestBuilder.Porting_ordersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersGetResponse> GetAsPorting_ordersGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersRequestBuilder.Porting_ordersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersRequestBuilder.Porting_ordersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a list of your porting order.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsPorting_ordersGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersRequestBuilder.Porting_ordersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersRequestBuilder.Porting_ordersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new porting order object.
@@ -117,37 +85,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersPostResponse?> PostAsPorting_ordersPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrderBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrderBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersPostResponse> PostAsPorting_ordersPostResponseAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrderBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrderBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new porting order object.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PostAsPorting_ordersPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrderBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreatePortingOrderBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your porting order.
@@ -205,180 +152,39 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Porting_ordersRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter results by fast port eligible</summary>
-            [QueryParameter("filter%5Bactivation_settings%2Efast_port_eligible%5D")]
-            public bool? FilteractivationSettingsFastPortEligible { get; set; }
-            /// <summary>Filter results by foc date later than this value</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[porting_order_id], filter[support_key], filter[status], filter[phone_number], filter[activation_status], filter[portability_status]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("filter%5Bactivation_settings%2Efoc_datetime_requested%5D%5Bgt%5D")]
-            public string? FilteractivationSettingsFocDatetimeRequestedgt { get; set; }
+            [QueryParameter("filter")]
+            public string? Filter { get; set; }
 #nullable restore
 #else
-            [QueryParameter("filter%5Bactivation_settings%2Efoc_datetime_requested%5D%5Bgt%5D")]
-            public string FilteractivationSettingsFocDatetimeRequestedgt { get; set; }
+            [QueryParameter("filter")]
+            public string Filter { get; set; }
 #endif
-            /// <summary>Filter results by foc date earlier than this value</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bactivation_settings%2Efoc_datetime_requested%5D%5Blt%5D")]
-            public string? FilteractivationSettingsFocDatetimeRequestedlt { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bactivation_settings%2Efoc_datetime_requested%5D%5Blt%5D")]
-            public string FilteractivationSettingsFocDatetimeRequestedlt { get; set; }
-#endif
-            /// <summary>Filter results by customer_reference</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bcustomer_reference%5D")]
-            public string? FiltercustomerReference { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bcustomer_reference%5D")]
-            public string FiltercustomerReference { get; set; }
-#endif
-            /// <summary>Filter results by authorized person</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bend_user%2Eadmin%2Eauth_person_name%5D")]
-            public string? FilterendUserAdminAuthPersonName { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bend_user%2Eadmin%2Eauth_person_name%5D")]
-            public string FilterendUserAdminAuthPersonName { get; set; }
-#endif
-            /// <summary>Filter results by person or company name</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bend_user%2Eadmin%2Eentity_name%5D")]
-            public string? FilterendUserAdminEntityName { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bend_user%2Eadmin%2Eentity_name%5D")]
-            public string FilterendUserAdminEntityName { get; set; }
-#endif
-            /// <summary>Filter results by porting order type</summary>
-            [Obsolete("This property is deprecated, use FiltermiscTypeAsPortingOrderType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bmisc%2Etype%5D")]
-            public string? FiltermiscType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bmisc%2Etype%5D")]
-            public string FiltermiscType { get; set; }
-#endif
-            /// <summary>Filter results by porting order type</summary>
-            [QueryParameter("filter%5Bmisc%2Etype%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType? FiltermiscTypeAsPortingOrderType { get; set; }
-            /// <summary>Filter results by parent_support_key</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bparent_support_key%5D")]
-            public string? FilterparentSupportKey { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bparent_support_key%5D")]
-            public string FilterparentSupportKey { get; set; }
-#endif
-            /// <summary>Filter results by old service provider</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bphone_numbers%2Ecarrier_name%5D")]
-            public string? FilterphoneNumbersCarrierName { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bphone_numbers%2Ecarrier_name%5D")]
-            public string FilterphoneNumbersCarrierName { get; set; }
-#endif
-            /// <summary>Filter results by country ISO 3166-1 alpha-2 code</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bphone_numbers%2Ecountry_code%5D")]
-            public string? FilterphoneNumbersCountryCode { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bphone_numbers%2Ecountry_code%5D")]
-            public string FilterphoneNumbersCountryCode { get; set; }
-#endif
-            /// <summary>Filter results by full or partial phone_number</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bphone_numbers%2Ephone_number%5D%5Bcontains%5D")]
-            public string? FilterphoneNumbersPhoneNumbercontains { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bphone_numbers%2Ephone_number%5D%5Bcontains%5D")]
-            public string FilterphoneNumbersPhoneNumbercontains { get; set; }
-#endif
-            /// <summary>Filter results by status</summary>
-            [Obsolete("This property is deprecated, use FilterstatusAsGetFilterStatusQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string? Filterstatus { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus%5D")]
-            public string Filterstatus { get; set; }
-#endif
-            /// <summary>Filter results by status</summary>
-            [QueryParameter("filter%5Bstatus%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.GetFilterStatusQueryParameterType? FilterstatusAsGetFilterStatusQueryParameterType { get; set; }
-            /// <summary>Filter porting orders by multiple statuses</summary>
-            [Obsolete("This property is deprecated, use FilterstatusinAsGetFilterStatusInQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("filter%5Bstatus%5D%5Bin%5D%5B%5D")]
-            public string? Filterstatusin { get; set; }
-#nullable restore
-#else
-            [QueryParameter("filter%5Bstatus%5D%5Bin%5D%5B%5D")]
-            public string Filterstatusin { get; set; }
-#endif
-            /// <summary>Filter porting orders by multiple statuses</summary>
-            [QueryParameter("filter%5Bstatus%5D%5Bin%5D%5B%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.GetFilterStatusInQueryParameterType? FilterstatusinAsGetFilterStatusInQueryParameterType { get; set; }
             /// <summary>Include the first 50 phone number objects in the results</summary>
             [QueryParameter("include_phone_numbers")]
             public bool? IncludePhoneNumbers { get; set; }
-            /// <summary>The page number to load</summary>
-            [QueryParameter("page%5Bnumber%5D")]
-            public int? Pagenumber { get; set; }
-            /// <summary>The size of the page</summary>
-            [QueryParameter("page%5Bsize%5D")]
-            public int? Pagesize { get; set; }
-            /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>
-            [Obsolete("This property is deprecated, use SortAsGetSortQueryParameterType instead")]
+            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("sort%5B%5D")]
+            [QueryParameter("page")]
+            public string? Page { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page")]
+            public string Page { get; set; }
+#endif
+            /// <summary>Consolidated sort parameter (deepObject style). Originally: sort[value]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("sort")]
             public string? Sort { get; set; }
 #nullable restore
 #else
-            [QueryParameter("sort%5B%5D")]
+            [QueryParameter("sort")]
             public string Sort { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. If not given, results are sorted by created_at in descending order.</summary>
-            [QueryParameter("sort%5B%5D")]
-            public global::Soenneker.Telnyx.OpenApiClient.Porting_orders.GetSortQueryParameterType? SortAsGetSortQueryParameterType { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Porting_ordersRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Porting_ordersRequestBuilder.Porting_ordersRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Porting_ordersRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

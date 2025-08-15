@@ -90,13 +90,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ExternalPin { get; set; }
 #endif
-        /// <summary>Uniquely identifies the resource.</summary>
+        /// <summary>Identifies the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get; private set; }
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get; private set; }
 #endif
         /// <summary>The inbound_call_screening setting is a phone number configuration option variable that allows users to configure their settings to block or flag fraudulent calls. It can be set to disabled, reject_calls, or flag_calls. This feature has an additional per-number monthly cost associated with it.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_inbound_call_screening? InboundCallScreening { get; set; }
@@ -222,7 +222,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_emergency_status>("emergency_status", EmergencyStatus);
             writer.WriteStringValue("external_pin", ExternalPin);
-            writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_inbound_call_screening>("inbound_call_screening", InboundCallScreening);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
             writer.WriteStringValue("messaging_profile_name", MessagingProfileName);
