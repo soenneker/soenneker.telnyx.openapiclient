@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Agents;
 using Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Bulk_capabilities;
 using Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Capabilities;
 using Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Test_number_invite;
@@ -17,6 +18,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Rcs
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RcsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The agents property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Agents.AgentsRequestBuilder Agents
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Agents.AgentsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The bulk_capabilities property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Bulk_capabilities.Bulk_capabilitiesRequestBuilder Bulk_capabilities
         {

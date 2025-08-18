@@ -20273,6 +20273,137 @@
         "x-latency-category": "responsive"
       }
     },
+    "/messaging/rcs/agents": {
+      "get": {
+        "tags": [
+          "RCS messaging"
+        ],
+        "summary": "List all RCS agents",
+        "operationId": "get_messaging_rcs_agents",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "minimum": 1,
+                  "type": "integer",
+                  "description": "The page number to load",
+                  "default": 1
+                },
+                "size": {
+                  "maximum": 250,
+                  "minimum": 1,
+                  "type": "integer",
+                  "description": "The size of the page",
+                  "default": 20
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful reponse with the list of RCS agents",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RCSAgentsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
+    "/messaging/rcs/agents/{id}": {
+      "get": {
+        "tags": [
+          "RCS messaging"
+        ],
+        "summary": "Retrieve an RCS agent",
+        "operationId": "get_messaging_rcs_agents_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "RCS agent ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with the RCS agent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RCSAgentResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      },
+      "patch": {
+        "tags": [
+          "RCS messaging"
+        ],
+        "summary": "Modify an RCS agent",
+        "operationId": "patch_messaging_rcs_agents_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "RCS agent ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RCSAgentUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with the updated RCS agent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RCSAgentResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
     "/messaging/rcs/bulk_capabilities": {
       "post": {
         "tags": [
@@ -31895,137 +32026,6 @@
           }
         },
         "x-latency-category": "interactive"
-      }
-    },
-    "/rcs_agents": {
-      "get": {
-        "tags": [
-          "RCS messaging"
-        ],
-        "summary": "List all RCS agents",
-        "operationId": "get_rcs_agents",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
-            "style": "deepObject",
-            "explode": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "number": {
-                  "minimum": 1,
-                  "type": "integer",
-                  "description": "The page number to load",
-                  "default": 1
-                },
-                "size": {
-                  "maximum": 250,
-                  "minimum": 1,
-                  "type": "integer",
-                  "description": "The size of the page",
-                  "default": 20
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful reponse with the list of RCS agents",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RCSAgentsResponse"
-                }
-              }
-            }
-          },
-          "default": {
-            "$ref": "#/components/responses/messaging_GenericErrorResponse"
-          }
-        },
-        "x-latency-category": "responsive"
-      }
-    },
-    "/rcs_agents/{id}": {
-      "get": {
-        "tags": [
-          "RCS messaging"
-        ],
-        "summary": "Retrieve an RCS agent",
-        "operationId": "get_rcs_agents_id",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "RCS agent ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response with the RCS agent",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RCSAgentResponse"
-                }
-              }
-            }
-          },
-          "default": {
-            "$ref": "#/components/responses/messaging_GenericErrorResponse"
-          }
-        },
-        "x-latency-category": "responsive"
-      },
-      "patch": {
-        "tags": [
-          "RCS messaging"
-        ],
-        "summary": "Modify an RCS agent",
-        "operationId": "patch_rcs_agents_id",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "RCS agent ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RCSAgentUpdate"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response with the updated RCS agent",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RCSAgentResponse"
-                }
-              }
-            }
-          },
-          "default": {
-            "$ref": "#/components/responses/messaging_GenericErrorResponse"
-          }
-        },
-        "x-latency-category": "responsive"
       }
     },
     "/recording_transcriptions": {

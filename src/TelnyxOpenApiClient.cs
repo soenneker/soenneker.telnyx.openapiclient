@@ -114,7 +114,6 @@ using Soenneker.Telnyx.OpenApiClient.Portouts;
 using Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways;
 using Soenneker.Telnyx.OpenApiClient.Public_internet_gateways;
 using Soenneker.Telnyx.OpenApiClient.Queues;
-using Soenneker.Telnyx.OpenApiClient.Rcs_agents;
 using Soenneker.Telnyx.OpenApiClient.Recording_transcriptions;
 using Soenneker.Telnyx.OpenApiClient.Recordings;
 using Soenneker.Telnyx.OpenApiClient.Regions;
@@ -701,11 +700,6 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Queues.QueuesRequestBuilder Queues
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Queues.QueuesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The rcs_agents property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Rcs_agents.Rcs_agentsRequestBuilder Rcs_agents
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Rcs_agents.Rcs_agentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The recording_transcriptions property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Recording_transcriptions.Recording_transcriptionsRequestBuilder Recording_transcriptions
