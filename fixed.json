@@ -11014,30 +11014,6 @@
             }
           }
         },
-        "callbacks": {
-          "campaignStatusUpdate": {
-            "{$request.body#/webhook_url}": {
-              "post": {
-                "summary": "Campaign status update webhook",
-                "requestBody": {
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "$ref": "#/components/schemas/CampaignStatusUpdateEvent"
-                      }
-                    }
-                  },
-                  "required": true
-                },
-                "responses": {
-                  "200": {
-                    "description": "The server must return a HTTP 200, otherwise we will reattempt to deliver the webhook to the failover URL."
-                  }
-                }
-              }
-            }
-          }
-        },
         "x-latency-category": "responsive"
       }
     },
@@ -30917,6 +30893,22 @@
                     "type": "string"
                   },
                   "description": "Filter by a list of portout statuses"
+                },
+                "country_code": {
+                  "type": "string",
+                  "description": "Filter by 2-letter country code",
+                  "example": "US"
+                },
+                "country_code_in": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Filter by a list of 2-letter country codes",
+                  "example": [
+                    "CA",
+                    "US"
+                  ]
                 },
                 "ported_out_at": {
                   "type": "object",
