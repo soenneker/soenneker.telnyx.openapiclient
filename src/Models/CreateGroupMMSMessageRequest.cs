@@ -49,10 +49,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A list of destinations. No more than 8 destinations are allowed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? To { get; set; }
+        public List<UntypedNode>? To { get; set; }
 #nullable restore
 #else
-        public List<string> To { get; set; }
+        public List<UntypedNode> To { get; set; }
 #endif
         /// <summary>If the profile this number is associated with has webhooks, use them for delivery notifications. If webhooks are also specified on the message itself, they will be attempted first, then those on the profile.</summary>
         public bool? UseProfileWebhooks { get; set; }
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "media_urls", n => { MediaUrls = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
-                { "to", n => { To = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "to", n => { To = n.GetCollectionOfPrimitiveValues<UntypedNode>()?.AsList(); } },
                 { "use_profile_webhooks", n => { UseProfileWebhooks = n.GetBoolValue(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("media_urls", MediaUrls);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("text", Text);
-            writer.WriteCollectionOfPrimitiveValues<string>("to", To);
+            writer.WriteCollectionOfPrimitiveValues<UntypedNode>("to", To);
             writer.WriteBoolValue("use_profile_webhooks", UseProfileWebhooks);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);

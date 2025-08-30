@@ -71,34 +71,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.Country&gt;, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.MCC&gt;, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.PLMN&gt;
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WirelessBlocklistsGetAll_200_data : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.Country&gt;</summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public List<global::Soenneker.Telnyx.OpenApiClient.Models.Country>? Country { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
 #nullable restore
 #else
-            public List<global::Soenneker.Telnyx.OpenApiClient.Models.Country> Country { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.MCC&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.Telnyx.OpenApiClient.Models.MCC>? MCC { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.Telnyx.OpenApiClient.Models.MCC> MCC { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.PLMN&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.Telnyx.OpenApiClient.Models.PLMN>? PLMN { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.Telnyx.OpenApiClient.Models.PLMN> PLMN { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -110,17 +94,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklistsGetAll_200.WirelessBlocklistsGetAll_200_data();
-                if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Country>(global::Soenneker.Telnyx.OpenApiClient.Models.Country.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.Country> countryValue)
+                if("UnionBranch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.Country = countryValue;
-                }
-                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MCC>(global::Soenneker.Telnyx.OpenApiClient.Models.MCC.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.MCC> mCCValue)
-                {
-                    result.MCC = mCCValue;
-                }
-                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PLMN>(global::Soenneker.Telnyx.OpenApiClient.Models.PLMN.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.PLMN> pLMNValue)
-                {
-                    result.PLMN = pLMNValue;
+                    result.UnionBranch = new global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch();
                 }
                 return result;
             }
@@ -130,6 +106,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
+                if(UnionBranch != null)
+                {
+                    return UnionBranch.GetFieldDeserializers();
+                }
                 return new Dictionary<string, Action<IParseNode>>();
             }
             /// <summary>
@@ -139,17 +119,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
-                if(Country != null)
+                if(UnionBranch != null)
                 {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Country>(null, Country);
-                }
-                else if(MCC != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MCC>(null, MCC);
-                }
-                else if(PLMN != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PLMN>(null, PLMN);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
                 }
             }
         }

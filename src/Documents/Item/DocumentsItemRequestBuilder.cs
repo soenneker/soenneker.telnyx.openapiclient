@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Documents.Item.Download;
+using Soenneker.Telnyx.OpenApiClient.Documents.Item.Download_link;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +23,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents.Item
         public global::Soenneker.Telnyx.OpenApiClient.Documents.Item.Download.DownloadRequestBuilder Download
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Documents.Item.Download.DownloadRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The download_link property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Documents.Item.Download_link.Download_linkRequestBuilder Download_link
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Documents.Item.Download_link.Download_linkRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Documents.Item.DocumentsItemRequestBuilder"/> and sets the default values.

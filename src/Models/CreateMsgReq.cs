@@ -67,10 +67,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The tool_choice property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToolChoice { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_choice? ToolChoice { get; set; }
 #nullable restore
 #else
-        public string ToolChoice { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_choice ToolChoice { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq"/> and sets the default values.
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
                 { "tool_call_id", n => { ToolCallId = n.GetStringValue(); } },
                 { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_calls>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_calls.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "tool_choice", n => { ToolChoice = n.GetStringValue(); } },
+                { "tool_choice", n => { ToolChoice = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_choice>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_choice.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
             writer.WriteStringValue("tool_call_id", ToolCallId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_calls>("tool_calls", ToolCalls);
-            writer.WriteStringValue("tool_choice", ToolChoice);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMsgReq_tool_choice>("tool_choice", ToolChoice);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

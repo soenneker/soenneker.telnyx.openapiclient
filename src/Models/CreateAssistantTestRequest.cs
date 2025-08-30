@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest_rubric> Rubric { get; set; }
 #endif
-        /// <summary>The communication channel through which the test will be conducted. Determines how the assistant will receive and respond to test messages.</summary>
+        /// <summary>The telnyx_conversation_channel property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel? TelnyxConversationChannel { get; set; }
         /// <summary>Optional test suite name to group related tests together. Useful for organizing tests by feature, team, or release cycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CreateAssistantTestRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            TelnyxConversationChannel = global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel.Web_chat;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

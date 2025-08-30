@@ -88,7 +88,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ScheduledPhoneCallEventResponse()
         {
             AdditionalData = new Dictionary<string, object>();
-            Status = global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus.Pending;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

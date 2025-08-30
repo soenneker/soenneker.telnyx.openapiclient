@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Pagination metadata including total counts and current page info.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Meta? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList_meta? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Meta Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList_meta Meta { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Meta>(global::Soenneker.Telnyx.OpenApiClient.Models.Meta.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList_meta>(global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList_meta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Meta>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList_meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

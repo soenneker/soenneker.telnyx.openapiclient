@@ -84,7 +84,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public AIAssistantStartRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            Voice = "Telnyx.KokoroTTS.af";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

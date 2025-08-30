@@ -23,10 +23,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The params property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport? Params { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingReport_params? Params { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport Params { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingReport_params Params { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "document_id", n => { DocumentId = n.GetGuidValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "params", n => { Params = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport>(global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport.CreateFromDiscriminatorValue); } },
+                { "params", n => { Params = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReport_params>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingReport_params.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "report_type", n => { ReportType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReport_report_type>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReport_status>(); } },
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("document_id", DocumentId);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport>("params", Params);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReport_params>("params", Params);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReport_report_type>("report_type", ReportType);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingReport_status>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

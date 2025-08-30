@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string IsvReseller { get; set; }
 #endif
-        /// <summary>Estimated monthly volume of messages from the given phone numbers</summary>
+        /// <summary>Message Volume Enums</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Volume? MessageVolume { get; set; }
         /// <summary>Human-readable description of how end users will opt into receiving messages from the given phone numbers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -153,7 +153,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ProductionMessageContent { get; set; }
 #endif
-        /// <summary>Machine-readable use-case for the phone numbers</summary>
+        /// <summary>Tollfree usecase categories</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories? UseCase { get; set; }
         /// <summary>Human-readable summary of the desired use-case</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

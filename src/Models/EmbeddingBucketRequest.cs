@@ -26,9 +26,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? DocumentChunkOverlapSize { get; set; }
         /// <summary>The document_chunk_size property</summary>
         public int? DocumentChunkSize { get; set; }
-        /// <summary>The embedding_model property</summary>
+        /// <summary>Supported models to vectorize and embed documents.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingModels? EmbeddingModel { get; set; }
-        /// <summary>The loader property</summary>
+        /// <summary>Supported types of custom document loaders for embeddings.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingLoaders? Loader { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EmbeddingBucketRequest"/> and sets the default values.
@@ -36,8 +36,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public EmbeddingBucketRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            EmbeddingModel = global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingModels.ThenlperGteLarge;
-            Loader = global::Soenneker.Telnyx.OpenApiClient.Models.SupportedEmbeddingLoaders.Default;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

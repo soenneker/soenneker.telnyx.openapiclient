@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantTestResponse_rubric> Rubric { get; set; }
 #endif
-        /// <summary>Communication channel used for test execution.</summary>
+        /// <summary>The telnyx_conversation_channel property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel? TelnyxConversationChannel { get; set; }
         /// <summary>Unique identifier for the assistant test.</summary>
         public Guid? TestId { get; set; }

@@ -33,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string BrandId { get; set; }
 #endif
-        /// <summary>Brand relationship to the CSP</summary>
+        /// <summary>Brand relationship to the CSP.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.BrandRelationship? BrandRelationship { get; set; }
         /// <summary>Business contact email.Required if `entityType` is `PUBLIC_PROFIT`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

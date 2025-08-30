@@ -5,32 +5,31 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders
+namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>
-    /// Default response schema
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Advanced_ordersGetResponse : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class Update_assistant_public_assistants_assistant_id_post_200 : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Advanced_ordersGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Update_assistant_public_assistants_assistant_id_post_200"/> and sets the default values.
         /// </summary>
-        public Advanced_ordersGetResponse()
+        public Update_assistant_public_assistants_assistant_id_post_200()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Advanced_ordersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Update_assistant_public_assistants_assistant_id_post_200"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Advanced_ordersGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.Update_assistant_public_assistants_assistant_id_post_200 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Advanced_ordersGetResponse();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.Update_assistant_public_assistants_assistant_id_post_200();
         }
         /// <summary>
         /// The deserialization information for the current model

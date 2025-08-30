@@ -71,26 +71,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>, List&lt;Guid&gt;
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ActionsParticipantsRequest_participants : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type List&lt;Guid&gt;</summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public List<Guid?>? Guid { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
 #nullable restore
 #else
-            public List<Guid?> Guid { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -102,13 +94,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest.ActionsParticipantsRequest_participants();
-                if(parseNode.GetStringValue() is string stringValue)
+                if("UnionBranch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.String = stringValue;
-                }
-                else if(parseNode.GetCollectionOfPrimitiveValues<Guid?>()?.AsList() is List<Guid?> guidValue)
-                {
-                    result.Guid = guidValue;
+                    result.UnionBranch = new global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch();
                 }
                 return result;
             }
@@ -118,6 +106,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
+                if(UnionBranch != null)
+                {
+                    return UnionBranch.GetFieldDeserializers();
+                }
                 return new Dictionary<string, Action<IParseNode>>();
             }
             /// <summary>
@@ -127,13 +119,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 _ = writer ?? throw new ArgumentNullException(nameof(writer));
-                if(String != null)
+                if(UnionBranch != null)
                 {
-                    writer.WriteStringValue(null, String);
-                }
-                else if(Guid != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<Guid?>(null, Guid);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
                 }
             }
         }

@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string IsvReseller { get; set; }
 #endif
-        /// <summary>One of the following exact values: 10; 100; 1,000; 10,000; 100,000; 250,000; 500,000; 750,000; 1,000,000; 5,000,000; 10,000,000+</summary>
+        /// <summary>Message Volume Enums</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Volume? MessageVolume { get; set; }
         /// <summary>The optInWorkflow property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -167,7 +167,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The updatedAt property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>The useCase property</summary>
+        /// <summary>Tollfree usecase categories</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories? UseCase { get; set; }
         /// <summary>The useCaseSummary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -177,7 +177,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string UseCaseSummary { get; set; }
 #endif
-        /// <summary>The verificationStatus property</summary>
+        /// <summary>Tollfree verification status</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationStatus? VerificationStatus { get; set; }
         /// <summary>The webhookUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -152,7 +152,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Street { get; set; }
 #endif
-        /// <summary>Vertical or industry segment of the brand.</summary>
+        /// <summary>Vertical or industry segment of the brand or campaign.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Vertical? Vertical { get; set; }
         /// <summary>Webhook failover URL for brand status updates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

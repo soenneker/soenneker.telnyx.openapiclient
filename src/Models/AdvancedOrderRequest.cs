@@ -58,6 +58,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type? PhoneNumberType { get; set; }
         /// <summary>The quantity property</summary>
         public int? Quantity { get; set; }
+        /// <summary>The ID of the requirement group to associate with this advanced order</summary>
+        public Guid? RequirementGroupId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest"/> and sets the default values.
         /// </summary>
@@ -92,6 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "features", n => { Features = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_features>()?.AsList(); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type>(); } },
                 { "quantity", n => { Quantity = n.GetIntValue(); } },
+                { "requirement_group_id", n => { RequirementGroupId = n.GetGuidValue(); } },
             };
         }
         /// <summary>
@@ -108,6 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_features>("features", Features);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AdvancedOrderRequest_phone_number_type>("phone_number_type", PhoneNumberType);
             writer.WriteIntValue("quantity", Quantity);
+            writer.WriteGuidValue("requirement_group_id", RequirementGroupId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
