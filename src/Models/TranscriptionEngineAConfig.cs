@@ -27,7 +27,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether to send also interim results. If set to false, only final results will be sent.</summary>
         public bool? InterimResults { get; set; }
         /// <summary>Language to use for speech recognition</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage? Language { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Language { get; set; }
+#nullable restore
+#else
+        public string Language { get; set; }
+#endif
         /// <summary>Defines maximum number of speakers in the conversation.</summary>
         public int? MaxSpeakerCount { get; set; }
         /// <summary>Defines minimum number of speakers in the conversation.</summary>
@@ -54,7 +60,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TranscriptionEngineAConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            Language = global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage.En;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -77,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "enable_speaker_diarization", n => { EnableSpeakerDiarization = n.GetBoolValue(); } },
                 { "hints", n => { Hints = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "interim_results", n => { InterimResults = n.GetBoolValue(); } },
-                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage>(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
                 { "max_speaker_count", n => { MaxSpeakerCount = n.GetIntValue(); } },
                 { "min_speaker_count", n => { MinSpeakerCount = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_model>(); } },
@@ -97,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("enable_speaker_diarization", EnableSpeakerDiarization);
             writer.WriteCollectionOfPrimitiveValues<string>("hints", Hints);
             writer.WriteBoolValue("interim_results", InterimResults);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage>("language", Language);
+            writer.WriteStringValue("language", Language);
             writer.WriteIntValue("max_speaker_count", MaxSpeakerCount);
             writer.WriteIntValue("min_speaker_count", MinSpeakerCount);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig_model>("model", Model);

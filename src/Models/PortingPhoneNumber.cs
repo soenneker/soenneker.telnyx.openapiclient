@@ -13,7 +13,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>Activation status</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus? ActivationStatus { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ActivationStatus { get; set; }
+#nullable restore
+#else
+        public string ActivationStatus { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>E164 formatted phone number</summary>
@@ -27,7 +33,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The type of the phone number</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber_phone_number_type? PhoneNumberType { get; set; }
         /// <summary>Specifies whether Telnyx is able to confirm portability this number in the United States &amp; Canada. International phone numbers are provisional by default.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityStatus? PortabilityStatus { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PortabilityStatus { get; set; }
+#nullable restore
+#else
+        public string PortabilityStatus { get; set; }
+#endif
         /// <summary>Identifies the associated port request</summary>
         public Guid? PortingOrderId { get; set; }
         /// <summary>The current status of the porting order</summary>
@@ -75,10 +87,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "activation_status", n => { ActivationStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus>(); } },
+                { "activation_status", n => { ActivationStatus = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber_phone_number_type>(); } },
-                { "portability_status", n => { PortabilityStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityStatus>(); } },
+                { "portability_status", n => { PortabilityStatus = n.GetStringValue(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetGuidValue(); } },
                 { "porting_order_status", n => { PortingOrderStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber_porting_order_status>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
@@ -93,10 +105,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus>("activation_status", ActivationStatus);
+            writer.WriteStringValue("activation_status", ActivationStatus);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber_phone_number_type>("phone_number_type", PhoneNumberType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortabilityStatus>("portability_status", PortabilityStatus);
+            writer.WriteStringValue("portability_status", PortabilityStatus);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber_porting_order_status>("porting_order_status", PortingOrderStatus);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber_requirements_status>("requirements_status", RequirementsStatus);

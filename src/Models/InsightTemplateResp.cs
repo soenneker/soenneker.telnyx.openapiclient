@@ -19,7 +19,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
         /// <summary>The insight_type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TemplateType? InsightType { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InsightType { get; set; }
+#nullable restore
+#else
+        public string InsightType { get; set; }
+#endif
         /// <summary>The instructions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "insight_type", n => { InsightType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TemplateType>(); } },
+                { "insight_type", n => { InsightType = n.GetStringValue(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "json_schema", n => { JsonSchema = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateResp_json_schema>(global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateResp_json_schema.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -95,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TemplateType>("insight_type", InsightType);
+            writer.WriteStringValue("insight_type", InsightType);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightTemplateResp_json_schema>("json_schema", JsonSchema);
             writer.WriteStringValue("name", Name);

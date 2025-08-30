@@ -63,7 +63,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ScheduledEventId { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus? Status { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
         /// <summary>The telnyx_agent_target property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,7 +79,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string TelnyxAgentTarget { get; set; }
 #endif
         /// <summary>The telnyx_conversation_channel property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType? TelnyxConversationChannel { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TelnyxConversationChannel { get; set; }
+#nullable restore
+#else
+        public string TelnyxConversationChannel { get; set; }
+#endif
         /// <summary>The telnyx_end_user_target property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -116,9 +128,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "retry_count", n => { RetryCount = n.GetIntValue(); } },
                 { "scheduled_at_fixed_datetime", n => { ScheduledAtFixedDatetime = n.GetDateTimeOffsetValue(); } },
                 { "scheduled_event_id", n => { ScheduledEventId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus>(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "telnyx_agent_target", n => { TelnyxAgentTarget = n.GetStringValue(); } },
-                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>(); } },
+                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetStringValue(); } },
                 { "telnyx_end_user_target", n => { TelnyxEndUserTarget = n.GetStringValue(); } },
             };
         }
@@ -138,9 +150,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("retry_count", RetryCount);
             writer.WriteDateTimeOffsetValue("scheduled_at_fixed_datetime", ScheduledAtFixedDatetime);
             writer.WriteStringValue("scheduled_event_id", ScheduledEventId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus>("status", Status);
+            writer.WriteStringValue("status", Status);
             writer.WriteStringValue("telnyx_agent_target", TelnyxAgentTarget);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>("telnyx_conversation_channel", TelnyxConversationChannel);
+            writer.WriteStringValue("telnyx_conversation_channel", TelnyxConversationChannel);
             writer.WriteStringValue("telnyx_end_user_target", TelnyxEndUserTarget);
             writer.WriteAdditionalData(AdditionalData);
         }

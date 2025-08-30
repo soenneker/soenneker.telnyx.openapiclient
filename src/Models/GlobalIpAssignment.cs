@@ -21,7 +21,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Enable/disable BGP announcement.</summary>
         public bool? IsInMaintenance { get; set; }
         /// <summary>The current status of the interface deployment.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus? Status { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
         /// <summary>Wireguard peer ID.</summary>
         public Guid? WireguardPeerId { get; set; }
         /// <summary>
@@ -46,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "is_announced", n => { IsAnnounced = n.GetBoolValue(); } },
                 { "is_connected", n => { IsConnected = n.GetBoolValue(); } },
                 { "is_in_maintenance", n => { IsInMaintenance = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus>(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "wireguard_peer_id", n => { WireguardPeerId = n.GetGuidValue(); } },
             };
         }
@@ -60,6 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             base.Serialize(writer);
             writer.WriteGuidValue("global_ip_id", GlobalIpId);
             writer.WriteBoolValue("is_in_maintenance", IsInMaintenance);
+            writer.WriteStringValue("status", Status);
             writer.WriteGuidValue("wireguard_peer_id", WireguardPeerId);
         }
     }

@@ -15,7 +15,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Network ID.</summary>
         public Guid? NetworkId { get; private set; }
         /// <summary>The current status of the interface deployment.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus? Status { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
         /// <summary>Wireguard peer ID.</summary>
         public Guid? WireguardPeerId { get; set; }
         /// <summary>
@@ -37,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "network_id", n => { NetworkId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus>(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "wireguard_peer_id", n => { WireguardPeerId = n.GetGuidValue(); } },
             };
         }
@@ -49,6 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("status", Status);
             writer.WriteGuidValue("wireguard_peer_id", WireguardPeerId);
         }
     }

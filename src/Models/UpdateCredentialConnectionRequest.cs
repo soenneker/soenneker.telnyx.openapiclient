@@ -17,7 +17,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AnchorsiteOverride { get; set; }
+#nullable restore
+#else
+        public string AnchorsiteOverride { get; set; }
+#endif
         /// <summary>The uuid of the push credential for Android</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,7 +43,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout.</summary>
         public bool? DefaultOnHoldComfortNoiseEnabled { get; set; }
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType? DtmfType { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DtmfType { get; set; }
+#nullable restore
+#else
+        public string DtmfType { get; set; }
+#endif
         /// <summary>Encode the SIP contact header sent by Telnyx to avoid issues for NAT or ALG scenarios.</summary>
         public bool? EncodeContactHeaderEnabled { get; set; }
         /// <summary>Enable use of SRTP for encryption. Cannot be set if the transport_portocol is TLS.</summary>
@@ -128,8 +140,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UpdateCredentialConnectionRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AnchorsiteOverride = global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride.Latency;
-            DtmfType = global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType.RFC2833;
             WebhookApiVersion = global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCredentialConnectionRequest_webhook_api_version.One;
         }
         /// <summary>
@@ -151,11 +161,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
+                { "anchorsite_override", n => { AnchorsiteOverride = n.GetStringValue(); } },
                 { "android_push_credential_id", n => { AndroidPushCredentialId = n.GetStringValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "default_on_hold_comfort_noise_enabled", n => { DefaultOnHoldComfortNoiseEnabled = n.GetBoolValue(); } },
-                { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); } },
+                { "dtmf_type", n => { DtmfType = n.GetStringValue(); } },
                 { "encode_contact_header_enabled", n => { EncodeContactHeaderEnabled = n.GetBoolValue(); } },
                 { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound.CreateFromDiscriminatorValue); } },
@@ -181,11 +191,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
+            writer.WriteStringValue("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("android_push_credential_id", AndroidPushCredentialId);
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);
+            writer.WriteStringValue("dtmf_type", DtmfType);
             writer.WriteBoolValue("encode_contact_header_enabled", EncodeContactHeaderEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound>("inbound", Inbound);

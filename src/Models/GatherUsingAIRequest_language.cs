@@ -23,14 +23,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string TranscriptionModel { get; set; }
 #endif
         /// <summary>Language to use for speech recognition</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage? Value { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Value { get; set; }
+#nullable restore
+#else
+        public string Value { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_language"/> and sets the default values.
         /// </summary>
         public GatherUsingAIRequest_language()
         {
             AdditionalData = new Dictionary<string, object>();
-            Value = global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage.En;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -51,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "transcription.model", n => { TranscriptionModel = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage>(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("transcription.model", TranscriptionModel);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage>("value", Value);
+            writer.WriteStringValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

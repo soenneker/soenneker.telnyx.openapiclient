@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The outbound_voice_profile_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? OutboundVoiceProfileId { get; set; }
+        public string? OutboundVoiceProfileId { get; set; }
 #nullable restore
 #else
-        public UntypedNode OutboundVoiceProfileId { get; set; }
+        public string OutboundVoiceProfileId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_outbound"/> and sets the default values.
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
-                { "outbound_voice_profile_id", n => { OutboundVoiceProfileId = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "outbound_voice_profile_id", n => { OutboundVoiceProfileId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("channel_limit", ChannelLimit);
-            writer.WriteObjectValue<UntypedNode>("outbound_voice_profile_id", OutboundVoiceProfileId);
+            writer.WriteStringValue("outbound_voice_profile_id", OutboundVoiceProfileId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

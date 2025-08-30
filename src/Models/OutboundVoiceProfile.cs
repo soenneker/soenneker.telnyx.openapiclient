@@ -75,7 +75,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordType { get; set; }
 #endif
         /// <summary>Indicates the coverage of the termination regions.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan? ServicePlan { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServicePlan { get; set; }
+#nullable restore
+#else
+        public string ServicePlan { get; set; }
+#endif
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +91,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Tags { get; set; }
 #endif
         /// <summary>Specifies the type of traffic allowed in this profile.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType? TrafficType { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TrafficType { get; set; }
+#nullable restore
+#else
+        public string TrafficType { get; set; }
+#endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,7 +107,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UpdatedAt { get; set; }
 #endif
         /// <summary>Setting for how costs for outbound profile are calculated.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod? UsagePaymentMethod { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UsagePaymentMethod { get; set; }
+#nullable restore
+#else
+        public string UsagePaymentMethod { get; set; }
+#endif
         /// <summary>The list of destinations you want to be able to call using this outbound voice profile formatted in alpha2.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,9 +128,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public OutboundVoiceProfile()
         {
             AdditionalData = new Dictionary<string, object>();
-            ServicePlan = global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan.Global;
-            TrafficType = global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType.Conversational;
-            UsagePaymentMethod = global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod.RateDeck;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -144,11 +159,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "max_destination_rate", n => { MaxDestinationRate = n.GetDoubleValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "service_plan", n => { ServicePlan = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan>(); } },
+                { "service_plan", n => { ServicePlan = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "traffic_type", n => { TrafficType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType>(); } },
+                { "traffic_type", n => { TrafficType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
-                { "usage_payment_method", n => { UsagePaymentMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod>(); } },
+                { "usage_payment_method", n => { UsagePaymentMethod = n.GetStringValue(); } },
                 { "whitelisted_destinations", n => { WhitelistedDestinations = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -171,11 +186,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("max_destination_rate", MaxDestinationRate);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("record_type", RecordType);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ServicePlan>("service_plan", ServicePlan);
+            writer.WriteStringValue("service_plan", ServicePlan);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TrafficType>("traffic_type", TrafficType);
+            writer.WriteStringValue("traffic_type", TrafficType);
             writer.WriteStringValue("updated_at", UpdatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UsagePaymentMethod>("usage_payment_method", UsagePaymentMethod);
+            writer.WriteStringValue("usage_payment_method", UsagePaymentMethod);
             writer.WriteCollectionOfPrimitiveValues<string>("whitelisted_destinations", WhitelistedDestinations);
             writer.WriteAdditionalData(AdditionalData);
         }

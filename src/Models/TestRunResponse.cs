@@ -54,7 +54,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Unique identifier for this specific test run execution.</summary>
         public Guid? RunId { get; set; }
         /// <summary>Represents the lifecycle of a test:  - &apos;pending&apos;: Test is waiting to be executed.  - &apos;starting&apos;: Test execution is initializing.  - &apos;running&apos;: Test is currently executing.  - &apos;passed&apos;: Test completed successfully.  - &apos;failed&apos;: Test executed but did not pass.  - &apos;error&apos;: An error occurred during test execution.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TestStatus? Status { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
         /// <summary>Identifier of the assistant test that was executed.</summary>
         public Guid? TestId { get; set; }
         /// <summary>Identifier linking this run to a test suite execution batch.</summary>
@@ -101,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "detail_status", n => { DetailStatus = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunDetailResult>(global::Soenneker.Telnyx.OpenApiClient.Models.TestRunDetailResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "logs", n => { Logs = n.GetStringValue(); } },
                 { "run_id", n => { RunId = n.GetGuidValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestStatus>(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "test_id", n => { TestId = n.GetGuidValue(); } },
                 { "test_suite_run_id", n => { TestSuiteRunId = n.GetGuidValue(); } },
                 { "triggered_by", n => { TriggeredBy = n.GetStringValue(); } },
@@ -122,7 +128,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TestRunDetailResult>("detail_status", DetailStatus);
             writer.WriteStringValue("logs", Logs);
             writer.WriteGuidValue("run_id", RunId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestStatus>("status", Status);
+            writer.WriteStringValue("status", Status);
             writer.WriteGuidValue("test_id", TestId);
             writer.WriteGuidValue("test_suite_run_id", TestSuiteRunId);
             writer.WriteStringValue("triggered_by", TriggeredBy);

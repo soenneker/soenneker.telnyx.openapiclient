@@ -15,7 +15,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Language to use for speech recognition</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage? Language { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Language { get; set; }
+#nullable restore
+#else
+        public string Language { get; set; }
+#endif
         /// <summary>Engine identifier for Telnyx transcription service</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_engine? TranscriptionEngine { get; set; }
         /// <summary>The model to use for transcription.</summary>
@@ -26,7 +32,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TranscriptionEngineBConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            Language = global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage.En;
             TranscriptionModel = global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_model.OpenaiWhisperTiny;
         }
         /// <summary>
@@ -47,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage>(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_engine>(); } },
                 { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_model>(); } },
             };
@@ -59,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage>("language", Language);
+            writer.WriteStringValue("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig_transcription_model>("transcription_model", TranscriptionModel);
             writer.WriteAdditionalData(AdditionalData);

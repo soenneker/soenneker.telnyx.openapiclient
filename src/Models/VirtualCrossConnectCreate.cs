@@ -133,7 +133,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string SecondaryTelnyxIp { get; set; }
 #endif
         /// <summary>The current status of the interface deployment.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus? Status { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -187,7 +193,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "secondary_cloud_ip", n => { SecondaryCloudIp = n.GetStringValue(); } },
                 { "secondary_enabled", n => { SecondaryEnabled = n.GetBoolValue(); } },
                 { "secondary_telnyx_ip", n => { SecondaryTelnyxIp = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus>(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -213,6 +219,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("secondary_cloud_account_id", SecondaryCloudAccountId);
             writer.WriteStringValue("secondary_cloud_ip", SecondaryCloudIp);
             writer.WriteStringValue("secondary_telnyx_ip", SecondaryTelnyxIp);
+            writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

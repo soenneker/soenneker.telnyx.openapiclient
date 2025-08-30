@@ -59,7 +59,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RegionCode { get; set; }
 #endif
         /// <summary>The current status of the interface deployment.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus? Status { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
         /// <summary>Identifies the type of the interface.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkInterface_region>(global::Soenneker.Telnyx.OpenApiClient.Models.NetworkInterface_region.CreateFromDiscriminatorValue); } },
                 { "region_code", n => { RegionCode = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus>(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
@@ -124,6 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("network_id", NetworkId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetworkInterface_region>("region", Region);
             writer.WriteStringValue("region_code", RegionCode);
+            writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

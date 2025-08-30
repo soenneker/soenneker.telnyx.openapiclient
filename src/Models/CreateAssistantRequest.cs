@@ -41,10 +41,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The enabled_features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?>? EnabledFeatures { get; set; }
+        public List<string>? EnabledFeatures { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?> EnabledFeatures { get; set; }
+        public List<string> EnabledFeatures { get; set; }
 #endif
         /// <summary>Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -170,7 +170,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest_dynamic_variables.CreateFromDiscriminatorValue); } },
                 { "dynamic_variables_webhook_url", n => { DynamicVariablesWebhookUrl = n.GetStringValue(); } },
-                { "enabled_features", n => { EnabledFeatures = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures>()?.AsList(); } },
+                { "enabled_features", n => { EnabledFeatures = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
                 { "insight_settings", n => { InsightSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
@@ -195,7 +195,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest_dynamic_variables>("dynamic_variables", DynamicVariables);
             writer.WriteStringValue("dynamic_variables_webhook_url", DynamicVariablesWebhookUrl);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures>("enabled_features", EnabledFeatures);
+            writer.WriteCollectionOfPrimitiveValues<string>("enabled_features", EnabledFeatures);
             writer.WriteStringValue("greeting", Greeting);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings>("insight_settings", InsightSettings);
             writer.WriteStringValue("instructions", Instructions);

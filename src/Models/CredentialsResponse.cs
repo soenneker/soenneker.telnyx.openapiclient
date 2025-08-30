@@ -31,7 +31,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration Data { get; set; }
 #endif
         /// <summary>Identifies record type.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordType? RecordType { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecordType { get; set; }
+#nullable restore
+#else
+        public string RecordType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CredentialsResponse"/> and sets the default values.
         /// </summary>
@@ -59,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CreateFromDiscriminatorValue); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordType>(); } },
+                { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -71,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordType>("record_type", RecordType);
+            writer.WriteStringValue("record_type", RecordType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

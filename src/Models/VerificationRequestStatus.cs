@@ -124,7 +124,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string IsvReseller { get; set; }
 #endif
         /// <summary>Message Volume Enums</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Volume? MessageVolume { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MessageVolume { get; set; }
+#nullable restore
+#else
+        public string MessageVolume { get; set; }
+#endif
         /// <summary>The optInWorkflow property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -168,7 +174,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The updatedAt property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Tollfree usecase categories</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories? UseCase { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UseCase { get; set; }
+#nullable restore
+#else
+        public string UseCase { get; set; }
+#endif
         /// <summary>The useCaseSummary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -178,7 +190,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UseCaseSummary { get; set; }
 #endif
         /// <summary>Tollfree verification status</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationStatus? VerificationStatus { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VerificationStatus { get; set; }
+#nullable restore
+#else
+        public string VerificationStatus { get; set; }
+#endif
         /// <summary>The webhookUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -227,16 +245,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
-                { "messageVolume", n => { MessageVolume = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>(); } },
+                { "messageVolume", n => { MessageVolume = n.GetStringValue(); } },
                 { "optInWorkflow", n => { OptInWorkflow = n.GetStringValue(); } },
                 { "optInWorkflowImageURLs", n => { OptInWorkflowImageURLs = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>(global::Soenneker.Telnyx.OpenApiClient.Models.Url.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phoneNumbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "productionMessageContent", n => { ProductionMessageContent = n.GetStringValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "useCase", n => { UseCase = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>(); } },
+                { "useCase", n => { UseCase = n.GetStringValue(); } },
                 { "useCaseSummary", n => { UseCaseSummary = n.GetStringValue(); } },
-                { "verificationStatus", n => { VerificationStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationStatus>(); } },
+                { "verificationStatus", n => { VerificationStatus = n.GetStringValue(); } },
                 { "webhookUrl", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
@@ -262,16 +280,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("isvReseller", IsvReseller);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>("messageVolume", MessageVolume);
+            writer.WriteStringValue("messageVolume", MessageVolume);
             writer.WriteStringValue("optInWorkflow", OptInWorkflow);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>("optInWorkflowImageURLs", OptInWorkflowImageURLs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>("phoneNumbers", PhoneNumbers);
             writer.WriteStringValue("productionMessageContent", ProductionMessageContent);
             writer.WriteStringValue("reason", Reason);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>("useCase", UseCase);
+            writer.WriteStringValue("useCase", UseCase);
             writer.WriteStringValue("useCaseSummary", UseCaseSummary);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationStatus>("verificationStatus", VerificationStatus);
+            writer.WriteStringValue("verificationStatus", VerificationStatus);
             writer.WriteStringValue("webhookUrl", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

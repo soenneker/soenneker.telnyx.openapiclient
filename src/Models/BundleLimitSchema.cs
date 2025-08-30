@@ -45,7 +45,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The created_at property</summary>
         public Date? CreatedAt { get; set; }
         /// <summary>An enumeration.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BundleLimitDirection? Direction { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Direction { get; set; }
+#nullable restore
+#else
+        public string Direction { get; set; }
+#endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
         /// <summary>The limit property</summary>
@@ -114,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "country_code", n => { CountryCode = n.GetIntValue(); } },
                 { "country_iso", n => { CountryIso = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateValue(); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BundleLimitDirection>(); } },
+                { "direction", n => { Direction = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
                 { "metric", n => { Metric = n.GetStringValue(); } },
@@ -136,7 +142,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("country_code", CountryCode);
             writer.WriteStringValue("country_iso", CountryIso);
             writer.WriteDateValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BundleLimitDirection>("direction", Direction);
+            writer.WriteStringValue("direction", Direction);
             writer.WriteGuidValue("id", Id);
             writer.WriteIntValue("limit", Limit);
             writer.WriteStringValue("metric", Metric);

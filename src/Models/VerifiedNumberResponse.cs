@@ -23,7 +23,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>The possible verified numbers record types.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifiedNumberRecordType? RecordType { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecordType { get; set; }
+#nullable restore
+#else
+        public string RecordType { get; set; }
+#endif
         /// <summary>The verified_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
-                { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifiedNumberRecordType>(); } },
+                { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "verified_at", n => { VerifiedAt = n.GetStringValue(); } },
             };
         }
@@ -70,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("phone_number", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifiedNumberRecordType>("record_type", RecordType);
+            writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("verified_at", VerifiedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

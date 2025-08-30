@@ -168,8 +168,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
             [QueryParameter("phone_number")]
             public string PhoneNumber { get; set; }
 #endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("status")]
-            public global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationStatus? Status { get; set; }
+            public string? Status { get; set; }
+#nullable restore
+#else
+            [QueryParameter("status")]
+            public string Status { get; set; }
+#endif
         }
     }
 }

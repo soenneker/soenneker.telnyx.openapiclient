@@ -150,8 +150,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Scheduled_eventsRequestBuilderGetQueryParameters 
         {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("conversation_channel")]
-            public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType? ConversationChannel { get; set; }
+            public string? ConversationChannel { get; set; }
+#nullable restore
+#else
+            [QueryParameter("conversation_channel")]
+            public string ConversationChannel { get; set; }
+#endif
             [QueryParameter("from_date")]
             public DateTimeOffset? FromDate { get; set; }
             /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
