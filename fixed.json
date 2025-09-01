@@ -2171,7 +2171,7 @@
             "name": "conversation_channel",
             "in": "query",
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/ConversationChannelType"
             }
           },
           {
@@ -16030,8 +16030,7 @@
             "name": "status",
             "in": "query",
             "schema": {
-              "type": "string",
-              "description": "Tollfree verification status"
+              "$ref": "#/components/schemas/TFVerificationStatus"
             }
           },
           {
@@ -16550,7 +16549,7 @@
                       "type": "object",
                       "properties": {
                         "contains": {
-                          "type": "string"
+                          "$ref": "#/components/schemas/AvailableService"
                         }
                       },
                       "additionalProperties": false,
@@ -16856,8 +16855,7 @@
                   "example": "wireguard_interface"
                 },
                 "status": {
-                  "type": "string",
-                  "description": "The current status of the interface deployment."
+                  "$ref": "#/components/schemas/InterfaceStatus"
                 }
               }
             }
@@ -21246,8 +21244,7 @@
                   "description": "Filter results by old service provider"
                 },
                 "misc.type": {
-                  "type": "string",
-                  "description": "A port can be either 'full' or 'partial'. When type is 'full' the other attributes should be omitted."
+                  "$ref": "#/components/schemas/PortingOrderType"
                 },
                 "end_user.admin.entity_name": {
                   "type": "string",
@@ -32726,8 +32723,7 @@
             "type": "string"
           },
           "status": {
-            "type": "string",
-            "description": "An enumeration."
+            "$ref": "#/components/schemas/CloudflareSyncStatus"
           },
           "description": {
             "title": "Description",
@@ -32805,8 +32801,7 @@
             "type": "string"
           },
           "status": {
-            "type": "string",
-            "description": "An enumeration."
+            "$ref": "#/components/schemas/CloudflareSyncStatus"
           },
           "description": {
             "title": "Description",
@@ -33383,20 +33378,16 @@
             "example": "both_tracks"
           },
           "stream_codec": {
-            "type": "string",
-            "description": "Specifies the codec to be used for the streamed audio. When set to 'default' or when transcoding is not possible, the codec from the call will be used. Currently, transcoding is only supported between PCMU and PCMA codecs."
+            "$ref": "#/components/schemas/StreamCodec"
           },
           "stream_bidirectional_mode": {
-            "type": "string",
-            "description": "Configures method of bidirectional streaming (mp3, rtp)."
+            "$ref": "#/components/schemas/StreamBidirectionalMode"
           },
           "stream_bidirectional_codec": {
-            "type": "string",
-            "description": "Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive."
+            "$ref": "#/components/schemas/StreamBidirectionalCodec"
           },
           "stream_bidirectional_target_legs": {
-            "type": "string",
-            "description": "Specifies which call legs should receive the bidirectional stream audio."
+            "$ref": "#/components/schemas/StreamBidirectionalTargetLegs"
           },
           "send_silence_when_idle": {
             "type": "boolean",
@@ -33766,7 +33757,7 @@
             "description": "Detailed description of the test's purpose and scope."
           },
           "telnyx_conversation_channel": {
-            "type": "string"
+            "$ref": "#/components/schemas/TelnyxConversationChannel"
           },
           "destination": {
             "title": "Destination",
@@ -34722,8 +34713,7 @@
             "type": "string"
           },
           "status": {
-            "type": "string",
-            "description": "Status of an embeddings task."
+            "$ref": "#/components/schemas/BackgroundTaskStatus"
           },
           "created_at": {
             "title": "Created At",
@@ -35060,12 +35050,10 @@
             "example": "BBRAND1"
           },
           "entityType": {
-            "type": "string",
-            "description": "Entity type behind the brand. This is the form of business establishment."
+            "$ref": "#/components/schemas/EntityType"
           },
           "identityStatus": {
-            "type": "string",
-            "description": "The verification status of an active brand"
+            "$ref": "#/components/schemas/BrandIdentityStatus"
           },
           "companyName": {
             "type": "string",
@@ -35860,8 +35848,7 @@
             "deprecated": true
           },
           "direction": {
-            "type": "string",
-            "description": "An enumeration."
+            "$ref": "#/components/schemas/BundleLimitDirection"
           },
           "types": {
             "title": "Types",
@@ -39760,24 +39747,19 @@
             "example": "both_tracks"
           },
           "stream_codec": {
-            "type": "string",
-            "description": "Specifies the codec to be used for the streamed audio. When set to 'default' or when transcoding is not possible, the codec from the call will be used. Currently, transcoding is only supported between PCMU and PCMA codecs."
+            "$ref": "#/components/schemas/StreamCodec"
           },
           "stream_bidirectional_mode": {
-            "type": "string",
-            "description": "Configures method of bidirectional streaming (mp3, rtp)."
+            "$ref": "#/components/schemas/StreamBidirectionalMode"
           },
           "stream_bidirectional_codec": {
-            "type": "string",
-            "description": "Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive."
+            "$ref": "#/components/schemas/StreamBidirectionalCodec"
           },
           "stream_bidirectional_target_legs": {
-            "type": "string",
-            "description": "Specifies which call legs should receive the bidirectional stream audio."
+            "$ref": "#/components/schemas/StreamBidirectionalTargetLegs"
           },
           "stream_bidirectional_sampling_rate": {
-            "type": "integer",
-            "description": "Audio sampling rate."
+            "$ref": "#/components/schemas/StreamBidirectionalSamplingRate"
           },
           "stream_establish_before_call_originate": {
             "type": "boolean",
@@ -42005,7 +41987,7 @@
             "type": "string"
           },
           "status": {
-            "type": "string"
+            "$ref": "#/components/schemas/TaskStatus"
           },
           "bucket": {
             "type": "string"
@@ -42055,7 +42037,7 @@
         "type": "object",
         "properties": {
           "status": {
-            "type": "string"
+            "$ref": "#/components/schemas/TaskStatus"
           },
           "bucket": {
             "type": "string"
@@ -44693,8 +44675,7 @@
             "example": true
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "connection_name": {
             "type": "string",
@@ -45425,8 +45406,7 @@
           "enabled_features": {
             "type": "array",
             "items": {
-              "type": "string",
-              "description": "If `telephony` is enabled, the assistant will be able to make and receive calls. If `messaging` is enabled, the assistant will be able to send and receive messages."
+              "$ref": "#/components/schemas/EnabledFeatures"
             }
           },
           "insight_settings": {
@@ -45470,7 +45450,7 @@
             "description": "Optional detailed description of what this test evaluates and its purpose. Helps team members understand the test's objectives."
           },
           "telnyx_conversation_channel": {
-            "type": "string"
+            "$ref": "#/components/schemas/TelnyxConversationChannel"
           },
           "destination": {
             "title": "Destination",
@@ -45539,8 +45519,7 @@
         "type": "object",
         "properties": {
           "entityType": {
-            "type": "string",
-            "description": "Entity type behind the brand. This is the form of business establishment."
+            "$ref": "#/components/schemas/EntityType"
           },
           "displayName": {
             "title": "Displayname",
@@ -45633,8 +45612,7 @@
             "example": "ABC"
           },
           "stockExchange": {
-            "type": "string",
-            "description": "(Required for public company) stock exchange."
+            "$ref": "#/components/schemas/StockExchange"
           },
           "ipAddress": {
             "title": "Ipaddress",
@@ -45650,8 +45628,7 @@
             "example": "http://www.abcmobile.com"
           },
           "vertical": {
-            "type": "string",
-            "description": "Vertical or industry segment of the brand or campaign."
+            "$ref": "#/components/schemas/Vertical"
           },
           "isReseller": {
             "title": "Isreseller",
@@ -45952,8 +45929,7 @@
             "example": "my123secure456password789"
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "connection_name": {
             "type": "string",
@@ -45975,8 +45951,7 @@
             "default": false
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "encode_contact_header_enabled": {
             "type": "boolean",
@@ -46136,8 +46111,7 @@
             "description": "Specifies whether the connection can be used."
           },
           "external_sip_connection": {
-            "type": "string",
-            "description": "The service that will be consuming this connection."
+            "$ref": "#/components/schemas/ExternalSipConnectionZoomOnly"
           },
           "tags": {
             "type": "array",
@@ -46277,8 +46251,7 @@
             "description": "Specifies whether the connection can be used."
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "webhook_event_url": {
             "type": "string",
@@ -46408,16 +46381,14 @@
             "default": true
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "connection_name": {
             "type": "string",
             "description": "A user-assigned name to help manage the connection."
           },
           "transport_protocol": {
-            "type": "string",
-            "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication."
+            "$ref": "#/components/schemas/FqdnConnectionTransportProtocol"
           },
           "default_on_hold_comfort_noise_enabled": {
             "type": "boolean",
@@ -46425,8 +46396,7 @@
             "default": true
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "encode_contact_header_enabled": {
             "type": "boolean",
@@ -46468,8 +46438,7 @@
             "$ref": "#/components/schemas/WebhookEventFailoverUrl"
           },
           "webhook_api_version": {
-            "type": "string",
-            "description": "Determines which webhook format will be used, Telnyx API v1 or v2."
+            "$ref": "#/components/schemas/WebhookApiVersion"
           },
           "webhook_timeout_secs": {
             "$ref": "#/components/schemas/WebhookTimeoutSecs"
@@ -46872,8 +46841,7 @@
             "example": true
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "connection_name": {
             "type": "string",
@@ -46898,8 +46866,7 @@
             "example": true
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "encode_contact_header_enabled": {
             "type": "boolean",
@@ -47863,12 +47830,10 @@
             "example": "office"
           },
           "traffic_type": {
-            "type": "string",
-            "description": "Specifies the type of traffic allowed in this profile."
+            "$ref": "#/components/schemas/TrafficType"
           },
           "service_plan": {
-            "type": "string",
-            "description": "Indicates the coverage of the termination regions."
+            "$ref": "#/components/schemas/ServicePlan"
           },
           "concurrent_call_limit": {
             "type": "integer",
@@ -47889,8 +47854,7 @@
             }
           },
           "usage_payment_method": {
-            "type": "string",
-            "description": "Setting for how costs for outbound profile are calculated."
+            "$ref": "#/components/schemas/UsagePaymentMethod"
           },
           "whitelisted_destinations": {
             "type": "array",
@@ -48111,7 +48075,7 @@
         "type": "object",
         "properties": {
           "telnyx_conversation_channel": {
-            "type": "string"
+            "$ref": "#/components/schemas/ConversationChannelType"
           },
           "telnyx_end_user_target": {
             "title": "Telnyx End User Target",
@@ -48401,7 +48365,7 @@
             "example": "My Secret Name"
           },
           "value": {
-            "type": "string"
+            "$ref": "#/components/schemas/CreateTeXMLSecretResult_value"
           }
         },
         "example": {
@@ -48426,12 +48390,10 @@
             "description": "Specifies whether the connection can be used."
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "first_command_timeout": {
             "type": "boolean",
@@ -49009,8 +48971,7 @@
             "example": "2018-02-02T22:25:27.521Z"
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "connection_name": {
             "type": "string"
@@ -49032,8 +48993,7 @@
             "default": true
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "encode_contact_header_enabled": {
             "type": "boolean",
@@ -49404,8 +49364,7 @@
             "description": "Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip connection resource."
           },
           "record_type": {
-            "type": "string",
-            "description": "Identifies record type."
+            "$ref": "#/components/schemas/RecordType"
           }
         }
       },
@@ -49905,8 +49864,7 @@
                 "example": "e66c496d-4a85-423b-8b2a-8e63fac20320"
               },
               "status": {
-                "type": "string",
-                "description": "The current status of the interface deployment."
+                "$ref": "#/components/schemas/InterfaceStatus"
               }
             }
           }
@@ -51362,12 +51320,10 @@
             "default": 512
           },
           "embedding_model": {
-            "type": "string",
-            "description": "Supported models to vectorize and embed documents."
+            "$ref": "#/components/schemas/SupportedEmbeddingModels"
           },
           "loader": {
-            "type": "string",
-            "description": "Supported types of custom document loaders for embeddings."
+            "$ref": "#/components/schemas/SupportedEmbeddingLoaders"
           }
         }
       },
@@ -51984,8 +51940,7 @@
             "description": "If the credential associated with this service is active."
           },
           "external_sip_connection": {
-            "type": "string",
-            "description": "The service that will be consuming this connection."
+            "$ref": "#/components/schemas/ExternalSipConnection"
           },
           "tags": {
             "type": "array",
@@ -52306,8 +52261,7 @@
             "description": "The ID of the connection used to send the fax."
           },
           "direction": {
-            "type": "string",
-            "description": "The direction of the fax."
+            "$ref": "#/components/schemas/Direction"
           },
           "media_url": {
             "type": "string",
@@ -52331,8 +52285,7 @@
             "example": "Company Name"
           },
           "quality": {
-            "type": "string",
-            "description": "The quality of the fax. The `ultra` settings provides the highest quality available, but also present longer fax processing times. `ultra_light` is best suited for images, wihle `ultra_dark` is best suited for text."
+            "$ref": "#/components/schemas/Quality"
           },
           "status": {
             "enum": [
@@ -52430,8 +52383,7 @@
             "description": "Specifies whether the connection can be used."
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "webhook_event_url": {
             "type": "string",
@@ -52527,8 +52479,7 @@
         "type": "object",
         "properties": {
           "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource."
+            "$ref": "#/components/schemas/programmable-fax_RecordType"
           },
           "id": {
             "type": "string",
@@ -52556,8 +52507,7 @@
                 "type": "string"
               },
               "direction": {
-                "type": "string",
-                "description": "The direction of the fax."
+                "$ref": "#/components/schemas/Direction"
               },
               "fax_id": {
                 "type": "string"
@@ -52632,8 +52582,7 @@
         "type": "object",
         "properties": {
           "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource."
+            "$ref": "#/components/schemas/programmable-fax_RecordType"
           },
           "id": {
             "type": "string",
@@ -52656,8 +52605,7 @@
                 "type": "string"
               },
               "direction": {
-                "type": "string",
-                "description": "The direction of the fax."
+                "$ref": "#/components/schemas/Direction"
               },
               "fax_id": {
                 "type": "string"
@@ -52752,8 +52700,7 @@
         "type": "object",
         "properties": {
           "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource."
+            "$ref": "#/components/schemas/programmable-fax_RecordType"
           },
           "id": {
             "type": "string",
@@ -52776,8 +52723,7 @@
                 "type": "string"
               },
               "direction": {
-                "type": "string",
-                "description": "The direction of the fax."
+                "$ref": "#/components/schemas/Direction"
               },
               "fax_id": {
                 "type": "string"
@@ -52838,8 +52784,7 @@
         "type": "object",
         "properties": {
           "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource."
+            "$ref": "#/components/schemas/programmable-fax_RecordType"
           },
           "id": {
             "type": "string",
@@ -52862,8 +52807,7 @@
                 "type": "string"
               },
               "direction": {
-                "type": "string",
-                "description": "The direction of the fax."
+                "$ref": "#/components/schemas/Direction"
               },
               "fax_id": {
                 "type": "string"
@@ -52924,8 +52868,7 @@
         "type": "object",
         "properties": {
           "record_type": {
-            "type": "string",
-            "description": "Identifies the type of the resource."
+            "$ref": "#/components/schemas/programmable-fax_RecordType"
           },
           "id": {
             "type": "string",
@@ -52948,8 +52891,7 @@
                 "type": "string"
               },
               "direction": {
-                "type": "string",
-                "description": "The direction of the fax."
+                "$ref": "#/components/schemas/Direction"
               },
               "fax_id": {
                 "type": "string"
@@ -53278,16 +53220,14 @@
             "description": "Defaults to true"
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "connection_name": {
             "type": "string",
             "description": "A user-assigned name to help manage the connection."
           },
           "transport_protocol": {
-            "type": "string",
-            "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication."
+            "$ref": "#/components/schemas/FqdnConnectionTransportProtocol"
           },
           "default_on_hold_comfort_noise_enabled": {
             "type": "boolean",
@@ -53295,8 +53235,7 @@
             "default": true
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "encode_contact_header_enabled": {
             "type": "boolean",
@@ -53384,8 +53323,7 @@
             "$ref": "#/components/schemas/WebhookEventFailoverUrl"
           },
           "webhook_api_version": {
-            "type": "string",
-            "description": "Determines which webhook format will be used, Telnyx API v1 or v2."
+            "$ref": "#/components/schemas/WebhookApiVersion"
           },
           "webhook_timeout_secs": {
             "$ref": "#/components/schemas/WebhookTimeoutSecs"
@@ -54394,8 +54332,7 @@
                 "example": "e66c496d-4a85-423b-8b2a-8e63fac20320"
               },
               "status": {
-                "type": "string",
-                "description": "The current status of the interface deployment."
+                "$ref": "#/components/schemas/InterfaceStatus"
               },
               "is_connected": {
                 "type": "boolean",
@@ -56599,7 +56536,7 @@
             "format": "date-time"
           },
           "insight_type": {
-            "type": "string"
+            "$ref": "#/components/schemas/TemplateType"
           },
           "name": {
             "title": "Name",
@@ -56767,8 +56704,7 @@
             "example": "test interface"
           },
           "status": {
-            "type": "string",
-            "description": "The current status of the interface deployment."
+            "$ref": "#/components/schemas/InterfaceStatus"
           }
         }
       },
@@ -57031,8 +56967,7 @@
             "example": true
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "connection_name": {
             "type": "string",
@@ -57057,8 +56992,7 @@
             "example": true
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "encode_contact_header_enabled": {
             "type": "boolean",
@@ -59817,12 +59751,10 @@
             "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
           },
           "direction": {
-            "type": "string",
-            "description": "The direction of the audio stream to be noise suppressed."
+            "$ref": "#/components/schemas/NoiseSuppressionDirection"
           },
           "noise_suppression_engine": {
-            "type": "string",
-            "description": "The engine to use for noise suppression. \nA - rnnoise engine \nB - deepfilter engine."
+            "$ref": "#/components/schemas/NoiseSuppressionEngine"
           }
         },
         "example": {
@@ -62107,12 +62039,10 @@
             "example": 12
           },
           "traffic_type": {
-            "type": "string",
-            "description": "Specifies the type of traffic allowed in this profile."
+            "$ref": "#/components/schemas/TrafficType"
           },
           "service_plan": {
-            "type": "string",
-            "description": "Indicates the coverage of the termination regions."
+            "$ref": "#/components/schemas/ServicePlan"
           },
           "concurrent_call_limit": {
             "type": "integer",
@@ -62133,8 +62063,7 @@
             }
           },
           "usage_payment_method": {
-            "type": "string",
-            "description": "Setting for how costs for outbound profile are calculated."
+            "$ref": "#/components/schemas/UsagePaymentMethod"
           },
           "whitelisted_destinations": {
             "type": "array",
@@ -65405,8 +65334,7 @@
             "example": true
           },
           "activation_status": {
-            "type": "string",
-            "description": "Activation status"
+            "$ref": "#/components/schemas/PortingOrderActivationStatus"
           }
         }
       },
@@ -65575,8 +65503,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string",
-            "description": "A port can be either 'full' or 'partial'. When type is 'full' the other attributes should be omitted."
+            "$ref": "#/components/schemas/PortingOrderType"
           },
           "remaining_numbers_action": {
             "enum": [
@@ -65792,7 +65719,7 @@
             "description": "A list of 0 or more details about this porting order's status"
           },
           "value": {
-            "type": "string"
+            "$ref": "#/components/schemas/PortingOrderStatus_value"
           }
         },
         "description": "Porting order status"
@@ -66058,12 +65985,10 @@
             "example": "sr_a12345"
           },
           "activation_status": {
-            "type": "string",
-            "description": "Activation status"
+            "$ref": "#/components/schemas/PortingOrderActivationStatus"
           },
           "portability_status": {
-            "type": "string",
-            "description": "Specifies whether Telnyx is able to confirm portability this number in the United States & Canada. International phone numbers are provisional by default."
+            "$ref": "#/components/schemas/PortabilityStatus"
           },
           "requirements_status": {
             "enum": [
@@ -66919,7 +66844,7 @@
         "type": "object",
         "properties": {
           "value": {
-            "type": "string"
+            "$ref": "#/components/schemas/PrivateWirelessGatewayStatus_value"
           },
           "error_description": {
             "type": "string",
@@ -70745,7 +70670,7 @@
         "type": "object",
         "properties": {
           "value": {
-            "type": "string"
+            "$ref": "#/components/schemas/SIMCardStatus_value"
           },
           "reason": {
             "type": "string",
@@ -70969,7 +70894,7 @@
         "type": "object",
         "properties": {
           "telnyx_conversation_channel": {
-            "type": "string"
+            "$ref": "#/components/schemas/ConversationChannelType"
           },
           "telnyx_end_user_target": {
             "title": "Telnyx End User Target",
@@ -71011,7 +70936,7 @@
             "format": "date-time"
           },
           "status": {
-            "type": "string"
+            "$ref": "#/components/schemas/EventStatus"
           },
           "conversation_metadata": {
             "title": "Conversation Metadata",
@@ -71053,7 +70978,7 @@
         "type": "object",
         "properties": {
           "telnyx_conversation_channel": {
-            "type": "string"
+            "$ref": "#/components/schemas/ConversationChannelType"
           },
           "telnyx_end_user_target": {
             "title": "Telnyx End User Target",
@@ -71095,7 +71020,7 @@
             "format": "date-time"
           },
           "status": {
-            "type": "string"
+            "$ref": "#/components/schemas/EventStatus"
           },
           "conversation_metadata": {
             "title": "Conversation Metadata",
@@ -71266,8 +71191,7 @@
             "description": "The phone number, in E.164 format, the fax will be sent from."
           },
           "quality": {
-            "type": "string",
-            "description": "The quality of the fax. The `ultra` settings provides the highest quality available, but also present longer fax processing times. `ultra_light` is best suited for images, wihle `ultra_dark` is best suited for text."
+            "$ref": "#/components/schemas/Quality"
           },
           "t38_enabled": {
             "type": "boolean",
@@ -71323,8 +71247,7 @@
             "example": "Company Name"
           },
           "quality": {
-            "type": "string",
-            "description": "The quality of the fax. The `ultra` settings provides the highest quality available, but also present longer fax processing times. `ultra_light` is best suited for images, wihle `ultra_dark` is best suited for text."
+            "$ref": "#/components/schemas/Quality"
           },
           "t38_enabled": {
             "type": "boolean",
@@ -72836,8 +72759,7 @@
             "example": "A"
           },
           "transcription_language": {
-            "type": "string",
-            "description": "Language to use for speech recognition"
+            "$ref": "#/components/schemas/GoogleTranscriptionLanguageLong"
           },
           "transcription_profanity_filter": {
             "type": "boolean",
@@ -72965,20 +72887,16 @@
             "example": "both_tracks"
           },
           "stream_codec": {
-            "type": "string",
-            "description": "Specifies the codec to be used for the streamed audio. When set to 'default' or when transcoding is not possible, the codec from the call will be used. Currently, transcoding is only supported between PCMU and PCMA codecs."
+            "$ref": "#/components/schemas/StreamCodec"
           },
           "stream_bidirectional_mode": {
-            "type": "string",
-            "description": "Configures method of bidirectional streaming (mp3, rtp)."
+            "$ref": "#/components/schemas/StreamBidirectionalMode"
           },
           "stream_bidirectional_codec": {
-            "type": "string",
-            "description": "Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive."
+            "$ref": "#/components/schemas/StreamBidirectionalCodec"
           },
           "stream_bidirectional_target_legs": {
-            "type": "string",
-            "description": "Specifies which call legs should receive the bidirectional stream audio."
+            "$ref": "#/components/schemas/StreamBidirectionalTargetLegs"
           },
           "enable_dialogflow": {
             "type": "boolean",
@@ -73208,7 +73126,8 @@
           "PCMA",
           "G722",
           "OPUS",
-          "AMR-WB"
+          "AMR-WB",
+          "L16"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -73257,13 +73176,17 @@
       "StreamCodec": {
         "title": "Stream Codec",
         "enum": [
-          "PCMA",
           "PCMU",
+          "PCMA",
+          "G722",
+          "OPUS",
+          "AMR-WB",
+          "L16",
           "default"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Specifies the codec to be used for the streamed audio. When set to 'default' or when transcoding is not possible, the codec from the call will be used. Currently, transcoding is only supported between PCMU and PCMA codecs.",
+        "description": "Specifies the codec to be used for the streamed audio. When set to 'default' or when transcoding is not possible, the codec from the call will be used.",
         "default": "default",
         "example": "PCMA"
       },
@@ -74068,8 +73991,7 @@
             "example": "+18005550100"
           },
           "messageVolume": {
-            "type": "string",
-            "description": "Message Volume Enums"
+            "$ref": "#/components/schemas/Volume"
           },
           "phoneNumbers": {
             "title": "Phonenumbers",
@@ -74081,8 +74003,7 @@
             "description": "The phone numbers to request the verification of"
           },
           "useCase": {
-            "type": "string",
-            "description": "Tollfree usecase categories"
+            "$ref": "#/components/schemas/UseCaseCategories"
           },
           "useCaseSummary": {
             "title": "Usecasesummary",
@@ -74182,8 +74103,7 @@
                 "type": "string"
               },
               "status": {
-                "type": "string",
-                "description": "Status of an embeddings task."
+                "$ref": "#/components/schemas/BackgroundTaskStatus"
               },
               "created_at": {
                 "title": "Created At",
@@ -74349,8 +74269,7 @@
         "type": "object",
         "properties": {
           "entityType": {
-            "type": "string",
-            "description": "Entity type behind the brand. This is the form of business establishment."
+            "$ref": "#/components/schemas/EntityType"
           },
           "cspId": {
             "title": "Cspid",
@@ -74460,8 +74379,7 @@
             "example": "ABC"
           },
           "stockExchange": {
-            "type": "string",
-            "description": "(Required for public company) stock exchange."
+            "$ref": "#/components/schemas/StockExchange"
           },
           "ipAddress": {
             "title": "Ipaddress",
@@ -74477,8 +74395,7 @@
             "example": "http://www.abcmobile.com"
           },
           "brandRelationship": {
-            "type": "string",
-            "description": "Brand relationship to the CSP."
+            "$ref": "#/components/schemas/BrandRelationship"
           },
           "vertical": {
             "title": "Vertical",
@@ -74493,8 +74410,7 @@
             "description": "Alternate business identifier such as DUNS, LEI, or GIIN"
           },
           "altBusinessIdType": {
-            "type": "string",
-            "description": "An enumeration."
+            "$ref": "#/components/schemas/AltBusinessIdType"
           },
           "universalEin": {
             "title": "Universalein",
@@ -74507,8 +74423,7 @@
             "description": "Unique identifier Telnyx assigned to the brand - the brandId"
           },
           "identityStatus": {
-            "type": "string",
-            "description": "The verification status of an active brand"
+            "$ref": "#/components/schemas/BrandIdentityStatus"
           },
           "optionalAttributes": {
             "$ref": "#/components/schemas/BrandOptionalAttributes"
@@ -75594,8 +75509,7 @@
             "type": "string"
           },
           "status": {
-            "type": "string",
-            "description": "Represents the lifecycle of a test:\n  - 'pending': Test is waiting to be executed.\n  - 'starting': Test execution is initializing.\n  - 'running': Test is currently executing.\n  - 'passed': Test completed successfully.\n  - 'failed': Test executed but did not pass.\n  - 'error': An error occurred during test execution."
+            "$ref": "#/components/schemas/TestStatus"
           }
         }
       },
@@ -75625,8 +75539,7 @@
             "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "status": {
-            "type": "string",
-            "description": "Represents the lifecycle of a test:\n  - 'pending': Test is waiting to be executed.\n  - 'starting': Test execution is initializing.\n  - 'running': Test is currently executing.\n  - 'passed': Test completed successfully.\n  - 'failed': Test executed but did not pass.\n  - 'error': An error occurred during test execution."
+            "$ref": "#/components/schemas/TestStatus"
           },
           "triggered_by": {
             "title": "Triggered By",
@@ -75803,12 +75716,10 @@
             "description": "Specifies whether the connection can be used."
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "first_command_timeout": {
             "type": "boolean",
@@ -75994,16 +75905,13 @@
             "format": "uri"
           },
           "RecordingStatusCallbackMethod": {
-            "type": "string",
-            "description": "HTTP method used to send status callbacks."
+            "$ref": "#/components/schemas/TexmlStatusCallbackMethod"
           },
           "RecordingChannels": {
-            "type": "string",
-            "description": "When `dual`, final audio file has the first leg on channel A, and the rest on channel B. `single` mixes both tracks into a single channel."
+            "$ref": "#/components/schemas/TexmlRecordingChannels"
           },
           "RecordingTrack": {
-            "type": "string",
-            "description": "The audio track to record for the call. The default is `both`."
+            "$ref": "#/components/schemas/RecordingTrack"
           },
           "SendRecordingUrl": {
             "type": "boolean",
@@ -76025,7 +75933,7 @@
             "$ref": "#/components/schemas/ConferenceSid"
           },
           "channels": {
-            "type": "integer"
+            "$ref": "#/components/schemas/TwimlRecordingChannels"
           },
           "date_created": {
             "type": "string",
@@ -76053,15 +75961,13 @@
             "description": "Identifier of a resource."
           },
           "source": {
-            "type": "string",
-            "description": "Defines how the recording was created."
+            "$ref": "#/components/schemas/RecordingSource"
           },
           "error_code": {
             "$ref": "#/components/schemas/TexmlErrorCode"
           },
           "track": {
-            "type": "string",
-            "description": "The audio track to record for the call. The default is `both`."
+            "$ref": "#/components/schemas/RecordingTrack"
           },
           "uri": {
             "type": "string",
@@ -76080,24 +75986,20 @@
             "format": "uri"
           },
           "StatusCallbackMethod": {
-            "type": "string",
-            "description": "HTTP method used to send status callbacks."
+            "$ref": "#/components/schemas/TexmlStatusCallbackMethod"
           },
           "Track": {
-            "type": "string",
-            "description": "Tracks to be included in the stream"
+            "$ref": "#/components/schemas/StreamTrack"
           },
           "Name": {
             "type": "string",
             "description": "The user specified name of Stream."
           },
           "BidirectionalMode": {
-            "type": "string",
-            "description": "Configures method of bidirectional streaming (mp3, rtp)."
+            "$ref": "#/components/schemas/TexmlBidirectionalStreamMode"
           },
           "BidirectionalCodec": {
-            "type": "string",
-            "description": "Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive."
+            "$ref": "#/components/schemas/TexmlBidirectionalStreamCodec"
           },
           "Url": {
             "type": "string",
@@ -76300,7 +76202,7 @@
             "$ref": "#/components/schemas/ConferenceSid"
           },
           "channels": {
-            "type": "integer"
+            "$ref": "#/components/schemas/TwimlRecordingChannels"
           },
           "date_created": {
             "type": "string",
@@ -76322,11 +76224,10 @@
             "description": "Identifier of a resource."
           },
           "source": {
-            "type": "string",
-            "description": "Defines how the recording was created."
+            "$ref": "#/components/schemas/RecordingSource"
           },
           "status": {
-            "type": "string"
+            "$ref": "#/components/schemas/TexmlRecordingStatus"
           },
           "error_code": {
             "$ref": "#/components/schemas/TexmlErrorCode"
@@ -76645,8 +76546,7 @@
         "type": "object",
         "properties": {
           "Status": {
-            "type": "string",
-            "description": "The status of the Stream you wish to update."
+            "$ref": "#/components/schemas/StreamStatus"
           }
         }
       },
@@ -77086,8 +76986,7 @@
             "description": "Engine identifier for Google transcription service"
           },
           "language": {
-            "type": "string",
-            "description": "Language to use for speech recognition"
+            "$ref": "#/components/schemas/GoogleTranscriptionLanguage"
           },
           "interim_results": {
             "type": "boolean",
@@ -77187,8 +77086,7 @@
             "description": "Engine identifier for Telnyx transcription service"
           },
           "language": {
-            "type": "string",
-            "description": "Language to use for speech recognition"
+            "$ref": "#/components/schemas/TelnyxTranscriptionLanguage"
           },
           "transcription_model": {
             "enum": [
@@ -77887,8 +77785,7 @@
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "type": "string",
-              "description": "If `telephony` is enabled, the assistant will be able to make and receive calls. If `messaging` is enabled, the assistant will be able to send and receive messages."
+              "$ref": "#/components/schemas/EnabledFeatures"
             }
           },
           "insight_settings": {
@@ -77943,7 +77840,7 @@
             "description": "Updated description of the test's purpose and evaluation criteria."
           },
           "telnyx_conversation_channel": {
-            "type": "string"
+            "$ref": "#/components/schemas/TelnyxConversationChannel"
           },
           "destination": {
             "title": "Destination",
@@ -78059,8 +77956,7 @@
         "type": "object",
         "properties": {
           "entityType": {
-            "type": "string",
-            "description": "Entity type behind the brand. This is the form of business establishment."
+            "$ref": "#/components/schemas/EntityType"
           },
           "displayName": {
             "title": "Displayname",
@@ -78153,8 +78049,7 @@
             "example": "ABC"
           },
           "stockExchange": {
-            "type": "string",
-            "description": "(Required for public company) stock exchange."
+            "$ref": "#/components/schemas/StockExchange"
           },
           "ipAddress": {
             "title": "Ipaddress",
@@ -78170,8 +78065,7 @@
             "example": "http://www.abcmobile.com"
           },
           "vertical": {
-            "type": "string",
-            "description": "Vertical or industry segment of the brand or campaign."
+            "$ref": "#/components/schemas/Vertical"
           },
           "altBusiness_id": {
             "title": "Altbusiness Id",
@@ -78180,16 +78074,14 @@
             "description": "Alternate business identifier such as DUNS, LEI, or GIIN"
           },
           "altBusinessIdType": {
-            "type": "string",
-            "description": "An enumeration."
+            "$ref": "#/components/schemas/AltBusinessIdType"
           },
           "isReseller": {
             "title": "Isreseller",
             "type": "boolean"
           },
           "identityStatus": {
-            "type": "string",
-            "description": "The verification status of an active brand"
+            "$ref": "#/components/schemas/BrandIdentityStatus"
           },
           "businessContactEmail": {
             "title": "BusinessContactEmail",
@@ -78648,8 +78540,7 @@
             "example": "my123secure456password789"
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "connection_name": {
             "type": "string",
@@ -78671,8 +78562,7 @@
             "default": false
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "encode_contact_header_enabled": {
             "type": "boolean",
@@ -78896,8 +78786,7 @@
             "description": "Specifies whether the connection can be used."
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "webhook_event_url": {
             "type": "string",
@@ -78991,16 +78880,14 @@
             "description": "Defaults to true"
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "connection_name": {
             "type": "string",
             "description": "A user-assigned name to help manage the connection."
           },
           "transport_protocol": {
-            "type": "string",
-            "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication."
+            "$ref": "#/components/schemas/FqdnConnectionTransportProtocol"
           },
           "default_on_hold_comfort_noise_enabled": {
             "type": "boolean",
@@ -79008,8 +78895,7 @@
             "default": true
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "encode_contact_header_enabled": {
             "type": "boolean",
@@ -79046,8 +78932,7 @@
             "$ref": "#/components/schemas/WebhookEventFailoverUrl"
           },
           "webhook_api_version": {
-            "type": "string",
-            "description": "Determines which webhook format will be used, Telnyx API v1 or v2."
+            "$ref": "#/components/schemas/WebhookApiVersion"
           },
           "webhook_timeout_secs": {
             "$ref": "#/components/schemas/WebhookTimeoutSecs"
@@ -79150,8 +79035,7 @@
             "description": "Defaults to true"
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "connection_name": {
             "type": "string"
@@ -79173,8 +79057,7 @@
             "default": true
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "encode_contact_header_enabled": {
             "type": "boolean",
@@ -79630,12 +79513,10 @@
             "example": "office"
           },
           "traffic_type": {
-            "type": "string",
-            "description": "Specifies the type of traffic allowed in this profile."
+            "$ref": "#/components/schemas/TrafficType"
           },
           "service_plan": {
-            "type": "string",
-            "description": "Indicates the coverage of the termination regions."
+            "$ref": "#/components/schemas/ServicePlan"
           },
           "concurrent_call_limit": {
             "type": "integer",
@@ -79656,8 +79537,7 @@
             }
           },
           "usage_payment_method": {
-            "type": "string",
-            "description": "Setting for how costs for outbound profile are calculated."
+            "$ref": "#/components/schemas/UsagePaymentMethod"
           },
           "whitelisted_destinations": {
             "type": "array",
@@ -80023,12 +79903,10 @@
             "description": "Specifies whether the connection can be used."
           },
           "anchorsite_override": {
-            "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media."
+            "$ref": "#/components/schemas/AnchorsiteOverride"
           },
           "dtmf_type": {
-            "type": "string",
-            "description": "Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats."
+            "$ref": "#/components/schemas/DtmfType"
           },
           "first_command_timeout": {
             "type": "boolean",
@@ -81335,12 +81213,10 @@
             "example": "12ade33a-21c0-473b-b055-b3c836e1c292"
           },
           "type": {
-            "type": "string",
-            "description": "The possible types of verification."
+            "$ref": "#/components/schemas/VerificationType"
           },
           "record_type": {
-            "type": "string",
-            "description": "The possible verification record types."
+            "$ref": "#/components/schemas/VerificationRecordType"
           },
           "phone_number": {
             "type": "string",
@@ -81365,8 +81241,7 @@
             "example": 300
           },
           "status": {
-            "type": "string",
-            "description": "The possible statuses of the verification request."
+            "$ref": "#/components/schemas/VerificationStatus"
           },
           "created_at": {
             "type": "string",
@@ -81506,8 +81381,7 @@
             "example": "+18005550100"
           },
           "messageVolume": {
-            "type": "string",
-            "description": "Message Volume Enums"
+            "$ref": "#/components/schemas/Volume"
           },
           "phoneNumbers": {
             "title": "Phonenumbers",
@@ -81517,8 +81391,7 @@
             }
           },
           "useCase": {
-            "type": "string",
-            "description": "Tollfree usecase categories"
+            "$ref": "#/components/schemas/UseCaseCategories"
           },
           "useCaseSummary": {
             "title": "Usecasesummary",
@@ -81567,8 +81440,7 @@
             "type": "string"
           },
           "verificationStatus": {
-            "type": "string",
-            "description": "Tollfree verification status"
+            "$ref": "#/components/schemas/TFVerificationStatus"
           }
         },
         "description": "A verification request as it comes out of the database"
@@ -81656,8 +81528,7 @@
             "example": "+18889809750"
           },
           "messageVolume": {
-            "type": "string",
-            "description": "Message Volume Enums"
+            "$ref": "#/components/schemas/Volume"
           },
           "phoneNumbers": {
             "title": "Phonenumbers",
@@ -81667,8 +81538,7 @@
             }
           },
           "useCase": {
-            "type": "string",
-            "description": "Tollfree usecase categories"
+            "$ref": "#/components/schemas/UseCaseCategories"
           },
           "useCaseSummary": {
             "title": "Usecasesummary",
@@ -81714,8 +81584,7 @@
             "example": "eaba9f52-164e-58e0-b002-4f668e18b7ed"
           },
           "verificationStatus": {
-            "type": "string",
-            "description": "Tollfree verification status"
+            "$ref": "#/components/schemas/TFVerificationStatus"
           },
           "reason": {
             "title": "Reason",
@@ -81782,8 +81651,7 @@
             "example": "+15551234567"
           },
           "record_type": {
-            "type": "string",
-            "description": "The possible verified numbers record types."
+            "$ref": "#/components/schemas/VerifiedNumberRecordType"
           },
           "verified_at": {
             "type": "string",
@@ -81971,8 +81839,7 @@
             "example": "http://example.com/webhook/failover"
           },
           "record_type": {
-            "type": "string",
-            "description": "The possible verification profile record types."
+            "$ref": "#/components/schemas/VerificationProfileRecordType"
           },
           "created_at": {
             "type": "string",
@@ -85141,8 +85008,7 @@
             "uniqueItems": true,
             "type": "array",
             "items": {
-              "type": "string",
-              "description": "If `telephony` is enabled, the assistant will be able to make and receive calls. If `messaging` is enabled, the assistant will be able to send and receive messages."
+              "$ref": "#/components/schemas/EnabledFeatures"
             }
           },
           "insight_settings": {
@@ -87421,8 +87287,7 @@
         "type": "object",
         "properties": {
           "value": {
-            "type": "string",
-            "description": "An enumeration."
+            "$ref": "#/components/schemas/10dlc_TaskStatus"
           }
         }
       },
@@ -87444,8 +87309,7 @@
         "type": "object",
         "properties": {
           "value": {
-            "type": "string",
-            "description": "Language to use for speech recognition"
+            "$ref": "#/components/schemas/GoogleTranscriptionLanguage"
           }
         }
       },
@@ -87467,7 +87331,7 @@
         "type": "object",
         "properties": {
           "value": {
-            "type": "string"
+            "$ref": "#/components/schemas/AvailableService"
           }
         }
       }
@@ -97590,12 +97454,10 @@
               "description": "Filter results by a list of phone numbers"
             },
             "activation_status": {
-              "type": "string",
-              "description": "Activation status"
+              "$ref": "#/components/schemas/PortingOrderActivationStatus"
             },
             "portability_status": {
-              "type": "string",
-              "description": "Specifies whether Telnyx is able to confirm portability this number in the United States & Canada. International phone numbers are provisional by default."
+              "$ref": "#/components/schemas/PortabilityStatus"
             }
           }
         }

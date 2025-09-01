@@ -71,23 +71,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Sid { get; set; }
 #endif
         /// <summary>Defines how the recording was created.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Source { get; set; }
-#nullable restore
-#else
-        public string Source { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource? Source { get; set; }
         /// <summary>The start_time property</summary>
         public DateTimeOffset? StartTime { get; set; }
         /// <summary>The status property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingStatus? Status { get; set; }
         /// <summary>Subresources details for a recording if available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -139,9 +127,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "media_url", n => { MediaUrl = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "source", n => { Source = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource>(); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingStatus>(); } },
                 { "subresources_uris", n => { SubresourcesUris = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris>(global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris.CreateFromDiscriminatorValue); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -163,9 +151,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("error_code", ErrorCode);
             writer.WriteStringValue("media_url", MediaUrl);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteStringValue("source", Source);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource>("source", Source);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
-            writer.WriteStringValue("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingSubresourcesUris>("subresources_uris", SubresourcesUris);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

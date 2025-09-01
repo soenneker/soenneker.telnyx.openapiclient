@@ -79,23 +79,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string Sid { get; set; }
 #endif
         /// <summary>Defines how the recording was created.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Source { get; set; }
-#nullable restore
-#else
-        public string Source { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource? Source { get; set; }
         /// <summary>The start_time property</summary>
         public DateTimeOffset? StartTime { get; set; }
         /// <summary>The audio track to record for the call. The default is `both`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Track { get; set; }
-#nullable restore
-#else
-        public string Track { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack? Track { get; set; }
         /// <summary>The relative URI for this recording resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -140,9 +128,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "price", n => { Price = n.GetStringValue(); } },
                 { "price_unit", n => { PriceUnit = n.GetStringValue(); } },
                 { "sid", n => { Sid = n.GetStringValue(); } },
-                { "source", n => { Source = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource>(); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
-                { "track", n => { Track = n.GetStringValue(); } },
+                { "track", n => { Track = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
         }
@@ -164,9 +152,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("price", Price);
             writer.WriteStringValue("price_unit", PriceUnit);
             writer.WriteStringValue("sid", Sid);
-            writer.WriteStringValue("source", Source);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingSource>("source", Source);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
-            writer.WriteStringValue("track", Track);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>("track", Track);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
         }

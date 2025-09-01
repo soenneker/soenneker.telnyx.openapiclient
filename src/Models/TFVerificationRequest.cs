@@ -120,13 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string IsvReseller { get; set; }
 #endif
         /// <summary>Message Volume Enums</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? MessageVolume { get; set; }
-#nullable restore
-#else
-        public string MessageVolume { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Volume? MessageVolume { get; set; }
         /// <summary>Human-readable description of how end users will opt into receiving messages from the given phone numbers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -160,13 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ProductionMessageContent { get; set; }
 #endif
         /// <summary>Tollfree usecase categories</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UseCase { get; set; }
-#nullable restore
-#else
-        public string UseCase { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories? UseCase { get; set; }
         /// <summary>Human-readable summary of the desired use-case</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -221,12 +209,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "businessZip", n => { BusinessZip = n.GetStringValue(); } },
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
-                { "messageVolume", n => { MessageVolume = n.GetStringValue(); } },
+                { "messageVolume", n => { MessageVolume = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>(); } },
                 { "optInWorkflow", n => { OptInWorkflow = n.GetStringValue(); } },
                 { "optInWorkflowImageURLs", n => { OptInWorkflowImageURLs = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>(global::Soenneker.Telnyx.OpenApiClient.Models.Url.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phoneNumbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "productionMessageContent", n => { ProductionMessageContent = n.GetStringValue(); } },
-                { "useCase", n => { UseCase = n.GetStringValue(); } },
+                { "useCase", n => { UseCase = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>(); } },
                 { "useCaseSummary", n => { UseCaseSummary = n.GetStringValue(); } },
                 { "webhookUrl", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -251,12 +239,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("businessZip", BusinessZip);
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteStringValue("isvReseller", IsvReseller);
-            writer.WriteStringValue("messageVolume", MessageVolume);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>("messageVolume", MessageVolume);
             writer.WriteStringValue("optInWorkflow", OptInWorkflow);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>("optInWorkflowImageURLs", OptInWorkflowImageURLs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>("phoneNumbers", PhoneNumbers);
             writer.WriteStringValue("productionMessageContent", ProductionMessageContent);
-            writer.WriteStringValue("useCase", UseCase);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>("useCase", UseCase);
             writer.WriteStringValue("useCaseSummary", UseCaseSummary);
             writer.WriteStringValue("webhookUrl", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

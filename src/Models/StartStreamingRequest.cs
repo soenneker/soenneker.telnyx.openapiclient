@@ -41,37 +41,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Enables Dialogflow for the current call. The default value is false.</summary>
         public bool? EnableDialogflow { get; set; }
         /// <summary>Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? StreamBidirectionalCodec { get; set; }
-#nullable restore
-#else
-        public string StreamBidirectionalCodec { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec? StreamBidirectionalCodec { get; set; }
         /// <summary>Configures method of bidirectional streaming (mp3, rtp).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? StreamBidirectionalMode { get; set; }
-#nullable restore
-#else
-        public string StreamBidirectionalMode { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode? StreamBidirectionalMode { get; set; }
         /// <summary>Specifies which call legs should receive the bidirectional stream audio.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? StreamBidirectionalTargetLegs { get; set; }
-#nullable restore
-#else
-        public string StreamBidirectionalTargetLegs { get; set; }
-#endif
-        /// <summary>Specifies the codec to be used for the streamed audio. When set to &apos;default&apos; or when transcoding is not possible, the codec from the call will be used. Currently, transcoding is only supported between PCMU and PCMA codecs.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? StreamCodec { get; set; }
-#nullable restore
-#else
-        public string StreamCodec { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs? StreamBidirectionalTargetLegs { get; set; }
+        /// <summary>Specifies the codec to be used for the streamed audio. When set to &apos;default&apos; or when transcoding is not possible, the codec from the call will be used.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec? StreamCodec { get; set; }
         /// <summary>Specifies which track should be streamed.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest_stream_track? StreamTrack { get; set; }
         /// <summary>The destination WebSocket address where the stream is going to be delivered.</summary>
@@ -88,6 +64,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public StartStreamingRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            StreamBidirectionalCodec = global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec.PCMU;
+            StreamBidirectionalMode = global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode.Mp3;
+            StreamBidirectionalTargetLegs = global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs.Opposite;
+            StreamCodec = global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec.Default;
             StreamTrack = global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest_stream_track.Inbound_track;
         }
         /// <summary>
@@ -112,10 +92,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "dialogflow_config", n => { DialogflowConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig.CreateFromDiscriminatorValue); } },
                 { "enable_dialogflow", n => { EnableDialogflow = n.GetBoolValue(); } },
-                { "stream_bidirectional_codec", n => { StreamBidirectionalCodec = n.GetStringValue(); } },
-                { "stream_bidirectional_mode", n => { StreamBidirectionalMode = n.GetStringValue(); } },
-                { "stream_bidirectional_target_legs", n => { StreamBidirectionalTargetLegs = n.GetStringValue(); } },
-                { "stream_codec", n => { StreamCodec = n.GetStringValue(); } },
+                { "stream_bidirectional_codec", n => { StreamBidirectionalCodec = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec>(); } },
+                { "stream_bidirectional_mode", n => { StreamBidirectionalMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode>(); } },
+                { "stream_bidirectional_target_legs", n => { StreamBidirectionalTargetLegs = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs>(); } },
+                { "stream_codec", n => { StreamCodec = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec>(); } },
                 { "stream_track", n => { StreamTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest_stream_track>(); } },
                 { "stream_url", n => { StreamUrl = n.GetStringValue(); } },
             };
@@ -131,10 +111,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig>("dialogflow_config", DialogflowConfig);
             writer.WriteBoolValue("enable_dialogflow", EnableDialogflow);
-            writer.WriteStringValue("stream_bidirectional_codec", StreamBidirectionalCodec);
-            writer.WriteStringValue("stream_bidirectional_mode", StreamBidirectionalMode);
-            writer.WriteStringValue("stream_bidirectional_target_legs", StreamBidirectionalTargetLegs);
-            writer.WriteStringValue("stream_codec", StreamCodec);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec>("stream_bidirectional_codec", StreamBidirectionalCodec);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode>("stream_bidirectional_mode", StreamBidirectionalMode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalTargetLegs>("stream_bidirectional_target_legs", StreamBidirectionalTargetLegs);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamCodec>("stream_codec", StreamCodec);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest_stream_track>("stream_track", StreamTrack);
             writer.WriteStringValue("stream_url", StreamUrl);
             writer.WriteAdditionalData(AdditionalData);

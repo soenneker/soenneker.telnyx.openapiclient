@@ -15,21 +15,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BidirectionalCodec { get; set; }
-#nullable restore
-#else
-        public string BidirectionalCodec { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec? BidirectionalCodec { get; set; }
         /// <summary>Configures method of bidirectional streaming (mp3, rtp).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BidirectionalMode { get; set; }
-#nullable restore
-#else
-        public string BidirectionalMode { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode? BidirectionalMode { get; set; }
         /// <summary>The user specified name of Stream.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,21 +35,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string StatusCallback { get; set; }
 #endif
         /// <summary>HTTP method used to send status callbacks.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? StatusCallbackMethod { get; set; }
-#nullable restore
-#else
-        public string StatusCallbackMethod { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? StatusCallbackMethod { get; set; }
         /// <summary>Tracks to be included in the stream</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Track { get; set; }
-#nullable restore
-#else
-        public string Track { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack? Track { get; set; }
         /// <summary>The destination WebSocket address where the stream is going to be delivered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,6 +52,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TexmlCreateCallStreamingRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            BidirectionalCodec = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec.PCMU;
+            BidirectionalMode = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode.Mp3;
+            StatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod.POST;
+            Track = global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack.Inbound_track;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -95,12 +75,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "BidirectionalCodec", n => { BidirectionalCodec = n.GetStringValue(); } },
-                { "BidirectionalMode", n => { BidirectionalMode = n.GetStringValue(); } },
+                { "BidirectionalCodec", n => { BidirectionalCodec = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec>(); } },
+                { "BidirectionalMode", n => { BidirectionalMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode>(); } },
                 { "Name", n => { Name = n.GetStringValue(); } },
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
-                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetStringValue(); } },
-                { "Track", n => { Track = n.GetStringValue(); } },
+                { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>(); } },
+                { "Track", n => { Track = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack>(); } },
                 { "Url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -111,12 +91,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("BidirectionalCodec", BidirectionalCodec);
-            writer.WriteStringValue("BidirectionalMode", BidirectionalMode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamCodec>("BidirectionalCodec", BidirectionalCodec);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlBidirectionalStreamMode>("BidirectionalMode", BidirectionalMode);
             writer.WriteStringValue("Name", Name);
             writer.WriteStringValue("StatusCallback", StatusCallback);
-            writer.WriteStringValue("StatusCallbackMethod", StatusCallbackMethod);
-            writer.WriteStringValue("Track", Track);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamTrack>("Track", Track);
             writer.WriteStringValue("Url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

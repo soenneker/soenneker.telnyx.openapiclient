@@ -19,13 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Indicates whether DTMF timestamp adjustment is enabled.</summary>
         public bool? AdjustDtmfTimestamp { get; set; }
         /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AnchorsiteOverride { get; set; }
-#nullable restore
-#else
-        public string AnchorsiteOverride { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
         /// <summary>Indicates whether call cost calculation is enabled.</summary>
         public bool? CallCostEnabled { get; set; }
         /// <summary>A user-assigned name to help manage the connection.</summary>
@@ -47,13 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>When enabled, Telnyx will generate comfort noise when you place the call on hold. If disabled, you will need to generate comfort noise or on hold music to avoid RTP timeout.</summary>
         public bool? DefaultOnHoldComfortNoiseEnabled { get; set; }
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DtmfType { get; set; }
-#nullable restore
-#else
-        public string DtmfType { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType? DtmfType { get; set; }
         /// <summary>Encode the SIP contact header sent by Telnyx to avoid issues for NAT or ALG scenarios.</summary>
         public bool? EncodeContactHeaderEnabled { get; set; }
         /// <summary>Enable use of SRTP for encryption. Cannot be set if the transport_portocol is TLS.</summary>
@@ -131,13 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Indicates whether third-party control is enabled.</summary>
         public bool? ThirdPartyControlEnabled { get; set; }
         /// <summary>One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TransportProtocol { get; set; }
-#nullable restore
-#else
-        public string TransportProtocol { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol? TransportProtocol { get; set; }
         /// <summary>The name for the TXT record associated with the FQDN connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -173,13 +155,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string UserName { get; set; }
 #endif
         /// <summary>Determines which webhook format will be used, Telnyx API v1 or v2.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? WebhookApiVersion { get; set; }
-#nullable restore
-#else
-        public string WebhookApiVersion { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookApiVersion? WebhookApiVersion { get; set; }
         /// <summary>The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as &apos;https&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -204,6 +180,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public FqdnConnection()
         {
             AdditionalData = new Dictionary<string, object>();
+            AnchorsiteOverride = global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride.Latency;
+            DtmfType = global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType.RFC2833;
+            TransportProtocol = global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol.UDP;
+            WebhookApiVersion = global::Soenneker.Telnyx.OpenApiClient.Models.WebhookApiVersion.One;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -225,12 +205,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "adjust_dtmf_timestamp", n => { AdjustDtmfTimestamp = n.GetBoolValue(); } },
-                { "anchorsite_override", n => { AnchorsiteOverride = n.GetStringValue(); } },
+                { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
                 { "call_cost_enabled", n => { CallCostEnabled = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "default_on_hold_comfort_noise_enabled", n => { DefaultOnHoldComfortNoiseEnabled = n.GetBoolValue(); } },
-                { "dtmf_type", n => { DtmfType = n.GetStringValue(); } },
+                { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); } },
                 { "encode_contact_header_enabled", n => { EncodeContactHeaderEnabled = n.GetBoolValue(); } },
                 { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -248,13 +228,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "send_normalized_timestamps", n => { SendNormalizedTimestamps = n.GetBoolValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "third_party_control_enabled", n => { ThirdPartyControlEnabled = n.GetBoolValue(); } },
-                { "transport_protocol", n => { TransportProtocol = n.GetStringValue(); } },
+                { "transport_protocol", n => { TransportProtocol = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol>(); } },
                 { "txt_name", n => { TxtName = n.GetStringValue(); } },
                 { "txt_ttl", n => { TxtTtl = n.GetIntValue(); } },
                 { "txt_value", n => { TxtValue = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "user_name", n => { UserName = n.GetStringValue(); } },
-                { "webhook_api_version", n => { WebhookApiVersion = n.GetStringValue(); } },
+                { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookApiVersion>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
                 { "webhook_timeout_secs", n => { WebhookTimeoutSecs = n.GetIntValue(); } },
@@ -269,12 +249,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteBoolValue("adjust_dtmf_timestamp", AdjustDtmfTimestamp);
-            writer.WriteStringValue("anchorsite_override", AnchorsiteOverride);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteBoolValue("call_cost_enabled", CallCostEnabled);
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
-            writer.WriteStringValue("dtmf_type", DtmfType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);
             writer.WriteBoolValue("encode_contact_header_enabled", EncodeContactHeaderEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
             writer.WriteStringValue("id", Id);
@@ -292,13 +272,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("send_normalized_timestamps", SendNormalizedTimestamps);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteBoolValue("third_party_control_enabled", ThirdPartyControlEnabled);
-            writer.WriteStringValue("transport_protocol", TransportProtocol);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.FqdnConnectionTransportProtocol>("transport_protocol", TransportProtocol);
             writer.WriteStringValue("txt_name", TxtName);
             writer.WriteIntValue("txt_ttl", TxtTtl);
             writer.WriteStringValue("txt_value", TxtValue);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("user_name", UserName);
-            writer.WriteStringValue("webhook_api_version", WebhookApiVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookApiVersion>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);
             writer.WriteIntValue("webhook_timeout_secs", WebhookTimeoutSecs);

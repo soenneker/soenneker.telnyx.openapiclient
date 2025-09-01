@@ -32,13 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string ErrorDescription { get; private set; }
 #endif
         /// <summary>The value property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Value { get; set; }
-#nullable restore
-#else
-        public string Value { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus_value? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus"/> and sets the default values.
         /// </summary>
@@ -66,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "error_code", n => { ErrorCode = n.GetStringValue(); } },
                 { "error_description", n => { ErrorDescription = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus_value>(); } },
             };
         }
         /// <summary>
@@ -76,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("value", Value);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivateWirelessGatewayStatus_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

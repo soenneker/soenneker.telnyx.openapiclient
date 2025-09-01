@@ -27,13 +27,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>If the credential associated with this service is active.</summary>
         public bool? CredentialActive { get; set; }
         /// <summary>The service that will be consuming this connection.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ExternalSipConnection { get; set; }
-#nullable restore
-#else
-        public string ExternalSipConnection { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnection? ExternalSipConnection { get; set; }
         /// <summary>Uniquely identifies the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,6 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ExternalConnection()
         {
             AdditionalData = new Dictionary<string, object>();
+            ExternalSipConnection = global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnection.Zoom;
             WebhookApiVersion = global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_webhook_api_version.One;
         }
         /// <summary>
@@ -131,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "credential_active", n => { CredentialActive = n.GetBoolValue(); } },
-                { "external_sip_connection", n => { ExternalSipConnection = n.GetStringValue(); } },
+                { "external_sip_connection", n => { ExternalSipConnection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnection>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound.CreateFromDiscriminatorValue); } },
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound.CreateFromDiscriminatorValue); } },
@@ -154,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("credential_active", CredentialActive);
-            writer.WriteStringValue("external_sip_connection", ExternalSipConnection);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnection>("external_sip_connection", ExternalSipConnection);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound>("inbound", Inbound);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound>("outbound", Outbound);

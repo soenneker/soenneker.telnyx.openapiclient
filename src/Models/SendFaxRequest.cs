@@ -67,13 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The format for the preview file in case the `store_preview` is `true`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_preview_format? PreviewFormat { get; set; }
         /// <summary>The quality of the fax. The `ultra` settings provides the highest quality available, but also present longer fax processing times. `ultra_light` is best suited for images, wihle `ultra_dark` is best suited for text.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Quality { get; set; }
-#nullable restore
-#else
-        public string Quality { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Quality? Quality { get; set; }
         /// <summary>Should fax media be stored on temporary URL. It does not support media_name, they can&apos;t be submitted together.</summary>
         public bool? StoreMedia { get; set; }
         /// <summary>Should fax preview be stored on temporary URL.</summary>
@@ -103,6 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             PreviewFormat = global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_preview_format.Tiff;
+            Quality = global::Soenneker.Telnyx.OpenApiClient.Models.Quality.High;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -130,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "media_url", n => { MediaUrl = n.GetStringValue(); } },
                 { "monochrome", n => { Monochrome = n.GetBoolValue(); } },
                 { "preview_format", n => { PreviewFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_preview_format>(); } },
-                { "quality", n => { Quality = n.GetStringValue(); } },
+                { "quality", n => { Quality = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Quality>(); } },
                 { "store_media", n => { StoreMedia = n.GetBoolValue(); } },
                 { "store_preview", n => { StorePreview = n.GetBoolValue(); } },
                 { "t38_enabled", n => { T38Enabled = n.GetBoolValue(); } },
@@ -153,7 +148,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("media_url", MediaUrl);
             writer.WriteBoolValue("monochrome", Monochrome);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendFaxRequest_preview_format>("preview_format", PreviewFormat);
-            writer.WriteStringValue("quality", Quality);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Quality>("quality", Quality);
             writer.WriteBoolValue("store_media", StoreMedia);
             writer.WriteBoolValue("store_preview", StorePreview);
             writer.WriteBoolValue("t38_enabled", T38Enabled);

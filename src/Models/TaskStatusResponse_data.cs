@@ -31,13 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string FinishedAt { get; set; }
 #endif
         /// <summary>Status of an embeddings task.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTaskStatus? Status { get; set; }
         /// <summary>The task_id property</summary>
         public Guid? TaskId { get; set; }
         /// <summary>The task_name property</summary>
@@ -75,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "finished_at", n => { FinishedAt = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTaskStatus>(); } },
                 { "task_id", n => { TaskId = n.GetGuidValue(); } },
                 { "task_name", n => { TaskName = n.GetStringValue(); } },
             };
@@ -89,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("finished_at", FinishedAt);
-            writer.WriteStringValue("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTaskStatus>("status", Status);
             writer.WriteGuidValue("task_id", TaskId);
             writer.WriteStringValue("task_name", TaskName);
             writer.WriteAdditionalData(AdditionalData);

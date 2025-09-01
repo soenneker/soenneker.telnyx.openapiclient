@@ -17,13 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The service that will be consuming this connection.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ExternalSipConnection { get; set; }
-#nullable restore
-#else
-        public string ExternalSipConnection { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnectionZoomOnly? ExternalSipConnection { get; set; }
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,6 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CreateExternalConnectionRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            ExternalSipConnection = global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnectionZoomOnly.Zoom;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -92,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "external_sip_connection", n => { ExternalSipConnection = n.GetStringValue(); } },
+                { "external_sip_connection", n => { ExternalSipConnection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnectionZoomOnly>(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound.CreateFromDiscriminatorValue); } },
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_outbound.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -109,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteStringValue("external_sip_connection", ExternalSipConnection);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnectionZoomOnly>("external_sip_connection", ExternalSipConnection);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound>("inbound", Inbound);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_outbound>("outbound", Outbound);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

@@ -13,13 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>Activation status</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ActivationStatus { get; set; }
-#nullable restore
-#else
-        public string ActivationStatus { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus? ActivationStatus { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates whether this porting order is eligible for FastPort</summary>
@@ -53,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "activation_status", n => { ActivationStatus = n.GetStringValue(); } },
+                { "activation_status", n => { ActivationStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus>(); } },
                 { "fast_port_eligible", n => { FastPortEligible = n.GetBoolValue(); } },
                 { "foc_datetime_actual", n => { FocDatetimeActual = n.GetDateTimeOffsetValue(); } },
                 { "foc_datetime_requested", n => { FocDatetimeRequested = n.GetDateTimeOffsetValue(); } },
@@ -66,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("activation_status", ActivationStatus);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus>("activation_status", ActivationStatus);
             writer.WriteDateTimeOffsetValue("foc_datetime_actual", FocDatetimeActual);
             writer.WriteDateTimeOffsetValue("foc_datetime_requested", FocDatetimeRequested);
             writer.WriteAdditionalData(AdditionalData);

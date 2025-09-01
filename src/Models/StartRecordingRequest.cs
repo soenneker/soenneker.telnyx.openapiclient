@@ -61,13 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string TranscriptionEngine { get; set; }
 #endif
         /// <summary>Language to use for speech recognition</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TranscriptionLanguage { get; set; }
-#nullable restore
-#else
-        public string TranscriptionLanguage { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong? TranscriptionLanguage { get; set; }
         /// <summary>Defines maximum number of speakers in the conversation. Applies to `google` engine only.</summary>
         public int? TranscriptionMaxSpeakerCount { get; set; }
         /// <summary>Defines minimum number of speakers in the conversation. Applies to `google` engine only.</summary>
@@ -86,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             RecordingTrack = global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_recording_track.Both;
             TranscriptionEngine = "A";
+            TranscriptionLanguage = global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong.EnUS;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -116,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
                 { "transcription", n => { Transcription = n.GetBoolValue(); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetStringValue(); } },
-                { "transcription_language", n => { TranscriptionLanguage = n.GetStringValue(); } },
+                { "transcription_language", n => { TranscriptionLanguage = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong>(); } },
                 { "transcription_max_speaker_count", n => { TranscriptionMaxSpeakerCount = n.GetIntValue(); } },
                 { "transcription_min_speaker_count", n => { TranscriptionMinSpeakerCount = n.GetIntValue(); } },
                 { "transcription_profanity_filter", n => { TranscriptionProfanityFilter = n.GetBoolValue(); } },
@@ -142,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
             writer.WriteBoolValue("transcription", Transcription);
             writer.WriteStringValue("transcription_engine", TranscriptionEngine);
-            writer.WriteStringValue("transcription_language", TranscriptionLanguage);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong>("transcription_language", TranscriptionLanguage);
             writer.WriteIntValue("transcription_max_speaker_count", TranscriptionMaxSpeakerCount);
             writer.WriteIntValue("transcription_min_speaker_count", TranscriptionMinSpeakerCount);
             writer.WriteBoolValue("transcription_profanity_filter", TranscriptionProfanityFilter);

@@ -58,13 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest_rubric> Rubric { get; set; }
 #endif
         /// <summary>The telnyx_conversation_channel property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TelnyxConversationChannel { get; set; }
-#nullable restore
-#else
-        public string TelnyxConversationChannel { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel? TelnyxConversationChannel { get; set; }
         /// <summary>Optional test suite name to group related tests together. Useful for organizing tests by feature, team, or release cycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "max_duration_seconds", n => { MaxDurationSeconds = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "rubric", n => { Rubric = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest_rubric>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest_rubric.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetStringValue(); } },
+                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel>(); } },
                 { "test_suite", n => { TestSuite = n.GetStringValue(); } },
             };
         }
@@ -121,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("max_duration_seconds", MaxDurationSeconds);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantTestRequest_rubric>("rubric", Rubric);
-            writer.WriteStringValue("telnyx_conversation_channel", TelnyxConversationChannel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxConversationChannel>("telnyx_conversation_channel", TelnyxConversationChannel);
             writer.WriteStringValue("test_suite", TestSuite);
             writer.WriteAdditionalData(AdditionalData);
         }

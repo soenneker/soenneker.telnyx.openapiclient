@@ -17,13 +17,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Whether to play a beep when recording is started.</summary>
         public bool? PlayBeep { get; set; }
         /// <summary>When `dual`, final audio file has the first leg on channel A, and the rest on channel B. `single` mixes both tracks into a single channel.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RecordingChannels { get; set; }
-#nullable restore
-#else
-        public string RecordingChannels { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels? RecordingChannels { get; set; }
         /// <summary>Url where status callbacks will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,21 +35,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string RecordingStatusCallbackEvent { get; set; }
 #endif
         /// <summary>HTTP method used to send status callbacks.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RecordingStatusCallbackMethod { get; set; }
-#nullable restore
-#else
-        public string RecordingStatusCallbackMethod { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod? RecordingStatusCallbackMethod { get; set; }
         /// <summary>The audio track to record for the call. The default is `both`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RecordingTrack { get; set; }
-#nullable restore
-#else
-        public string RecordingTrack { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack? RecordingTrack { get; set; }
         /// <summary>Whether to send RecordingUrl in webhooks.</summary>
         public bool? SendRecordingUrl { get; set; }
         /// <summary>
@@ -64,6 +46,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TexmlCreateCallRecordingRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            RecordingChannels = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels.Dual;
+            RecordingStatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod.POST;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -84,11 +68,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "PlayBeep", n => { PlayBeep = n.GetBoolValue(); } },
-                { "RecordingChannels", n => { RecordingChannels = n.GetStringValue(); } },
+                { "RecordingChannels", n => { RecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels>(); } },
                 { "RecordingStatusCallback", n => { RecordingStatusCallback = n.GetStringValue(); } },
                 { "RecordingStatusCallbackEvent", n => { RecordingStatusCallbackEvent = n.GetStringValue(); } },
-                { "RecordingStatusCallbackMethod", n => { RecordingStatusCallbackMethod = n.GetStringValue(); } },
-                { "RecordingTrack", n => { RecordingTrack = n.GetStringValue(); } },
+                { "RecordingStatusCallbackMethod", n => { RecordingStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>(); } },
+                { "RecordingTrack", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>(); } },
                 { "SendRecordingUrl", n => { SendRecordingUrl = n.GetBoolValue(); } },
             };
         }
@@ -100,11 +84,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("PlayBeep", PlayBeep);
-            writer.WriteStringValue("RecordingChannels", RecordingChannels);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlRecordingChannels>("RecordingChannels", RecordingChannels);
             writer.WriteStringValue("RecordingStatusCallback", RecordingStatusCallback);
             writer.WriteStringValue("RecordingStatusCallbackEvent", RecordingStatusCallbackEvent);
-            writer.WriteStringValue("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
-            writer.WriteStringValue("RecordingTrack", RecordingTrack);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlStatusCallbackMethod>("RecordingStatusCallbackMethod", RecordingStatusCallbackMethod);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingTrack>("RecordingTrack", RecordingTrack);
             writer.WriteBoolValue("SendRecordingUrl", SendRecordingUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

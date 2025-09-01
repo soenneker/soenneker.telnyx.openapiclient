@@ -15,19 +15,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The status of the Stream you wish to update.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StreamStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TexmlUpdateCallStreamingRequestBody"/> and sets the default values.
         /// </summary>
         public TexmlUpdateCallStreamingRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            Status = global::Soenneker.Telnyx.OpenApiClient.Models.StreamStatus.Stopped;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "Status", n => { Status = n.GetStringValue(); } },
+                { "Status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamStatus>(); } },
             };
         }
         /// <summary>
@@ -57,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("Status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamStatus>("Status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

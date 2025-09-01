@@ -17,21 +17,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AnchorsiteOverride { get; set; }
-#nullable restore
-#else
-        public string AnchorsiteOverride { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DtmfType { get; set; }
-#nullable restore
-#else
-        public string DtmfType { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType? DtmfType { get; set; }
         /// <summary>Specifies whether calls to phone numbers associated with this connection should hangup after timing out.</summary>
         public bool? FirstCommandTimeout { get; set; }
         /// <summary>Specifies how many seconds to wait before timing out a dial command.</summary>
@@ -102,6 +90,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public UpdateTexmlApplicationRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            AnchorsiteOverride = global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride.Latency;
+            DtmfType = global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType.RFC2833;
             StatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplicationRequest_status_callback_method.Post;
             VoiceMethod = global::Soenneker.Telnyx.OpenApiClient.Models.UpdateTexmlApplicationRequest_voice_method.Post;
         }
@@ -124,8 +114,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
-                { "anchorsite_override", n => { AnchorsiteOverride = n.GetStringValue(); } },
-                { "dtmf_type", n => { DtmfType = n.GetStringValue(); } },
+                { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
+                { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); } },
                 { "first_command_timeout", n => { FirstCommandTimeout = n.GetBoolValue(); } },
                 { "first_command_timeout_secs", n => { FirstCommandTimeoutSecs = n.GetIntValue(); } },
                 { "friendly_name", n => { FriendlyName = n.GetStringValue(); } },
@@ -147,8 +137,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
-            writer.WriteStringValue("anchorsite_override", AnchorsiteOverride);
-            writer.WriteStringValue("dtmf_type", DtmfType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);
             writer.WriteBoolValue("first_command_timeout", FirstCommandTimeout);
             writer.WriteIntValue("first_command_timeout_secs", FirstCommandTimeoutSecs);
             writer.WriteStringValue("friendly_name", FriendlyName);

@@ -31,13 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The min_subcluster_size property</summary>
         public int? MinSubclusterSize { get; set; }
         /// <summary>The status property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatus? Status { get; set; }
         /// <summary>The task_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "finished_at", n => { FinishedAt = n.GetDateTimeOffsetValue(); } },
                 { "min_cluster_size", n => { MinClusterSize = n.GetIntValue(); } },
                 { "min_subcluster_size", n => { MinSubclusterSize = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatus>(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
             };
         }
@@ -92,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("finished_at", FinishedAt);
             writer.WriteIntValue("min_cluster_size", MinClusterSize);
             writer.WriteIntValue("min_subcluster_size", MinSubclusterSize);
-            writer.WriteStringValue("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TaskStatus>("status", Status);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteAdditionalData(AdditionalData);
         }

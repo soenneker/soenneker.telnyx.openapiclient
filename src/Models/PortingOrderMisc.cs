@@ -25,13 +25,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Remaining numbers can be either kept with their current service provider or disconnected. &apos;new_billing_telephone_number&apos; is required when &apos;remaining_numbers_action&apos; is &apos;keep&apos;.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc_remaining_numbers_action? RemainingNumbersAction { get; set; }
         /// <summary>A port can be either &apos;full&apos; or &apos;partial&apos;. When type is &apos;full&apos; the other attributes should be omitted.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc"/> and sets the default values.
         /// </summary>
@@ -59,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "new_billing_phone_number", n => { NewBillingPhoneNumber = n.GetStringValue(); } },
                 { "remaining_numbers_action", n => { RemainingNumbersAction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc_remaining_numbers_action>(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType>(); } },
             };
         }
         /// <summary>
@@ -71,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("new_billing_phone_number", NewBillingPhoneNumber);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMisc_remaining_numbers_action>("remaining_numbers_action", RemainingNumbersAction);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -33,13 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string TelnyxAgentTarget { get; set; }
 #endif
         /// <summary>The telnyx_conversation_channel property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TelnyxConversationChannel { get; set; }
-#nullable restore
-#else
-        public string TelnyxConversationChannel { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType? TelnyxConversationChannel { get; set; }
         /// <summary>The phone number, SIP URI, to schedule the call or text to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,7 +78,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "conversation_metadata", n => { ConversationMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_conversation_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_conversation_metadata.CreateFromDiscriminatorValue); } },
                 { "scheduled_at_fixed_datetime", n => { ScheduledAtFixedDatetime = n.GetDateTimeOffsetValue(); } },
                 { "telnyx_agent_target", n => { TelnyxAgentTarget = n.GetStringValue(); } },
-                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetStringValue(); } },
+                { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>(); } },
                 { "telnyx_end_user_target", n => { TelnyxEndUserTarget = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
             };
@@ -99,7 +93,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_conversation_metadata>("conversation_metadata", ConversationMetadata);
             writer.WriteDateTimeOffsetValue("scheduled_at_fixed_datetime", ScheduledAtFixedDatetime);
             writer.WriteStringValue("telnyx_agent_target", TelnyxAgentTarget);
-            writer.WriteStringValue("telnyx_conversation_channel", TelnyxConversationChannel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>("telnyx_conversation_channel", TelnyxConversationChannel);
             writer.WriteStringValue("telnyx_end_user_target", TelnyxEndUserTarget);
             writer.WriteStringValue("text", Text);
             writer.WriteAdditionalData(AdditionalData);

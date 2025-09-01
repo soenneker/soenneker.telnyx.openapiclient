@@ -27,13 +27,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The finished_at property</summary>
         public DateTimeOffset? FinishedAt { get; set; }
         /// <summary>Status of an embeddings task.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTaskStatus? Status { get; set; }
         /// <summary>The task_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "bucket", n => { Bucket = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "finished_at", n => { FinishedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTaskStatus>(); } },
                 { "task_id", n => { TaskId = n.GetStringValue(); } },
                 { "task_name", n => { TaskName = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
@@ -102,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("bucket", Bucket);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("finished_at", FinishedAt);
-            writer.WriteStringValue("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.BackgroundTaskStatus>("status", Status);
             writer.WriteStringValue("task_id", TaskId);
             writer.WriteStringValue("task_name", TaskName);
             writer.WriteStringValue("user_id", UserId);
