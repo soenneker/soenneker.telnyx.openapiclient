@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The sim_card_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SimCardIds { get; set; }
+        public List<Guid?>? SimCardIds { get; set; }
 #nullable restore
 #else
-        public List<string> SimCardIds { get; set; }
+        public List<Guid?> SimCardIds { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SetPublicIPsBulk"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "sim_card_ids", n => { SimCardIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "sim_card_ids", n => { SimCardIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("sim_card_ids", SimCardIds);
+            writer.WriteCollectionOfPrimitiveValues<Guid?>("sim_card_ids", SimCardIds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The retrieval property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_BucketIds? RetrievalProp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_BucketIds? RetrievalProp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_BucketIds RetrievalProp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_BucketIds RetrievalProp { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval_type? Type { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "retrieval", n => { RetrievalProp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_BucketIds>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_BucketIds.CreateFromDiscriminatorValue); } },
+                { "retrieval", n => { RetrievalProp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_BucketIds>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_BucketIds.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval_type>(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbedding_BucketIds>("retrieval", RetrievalProp);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_BucketIds>("retrieval", RetrievalProp);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Retrieval_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

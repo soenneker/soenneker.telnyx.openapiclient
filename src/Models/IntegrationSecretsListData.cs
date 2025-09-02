@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationSecrets_Metadata? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Integration_secrets_Metadata? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationSecrets_Metadata Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Integration_secrets_Metadata Meta { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationSecretsListData"/> and sets the default values.
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationSecret>(global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationSecret.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationSecrets_Metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationSecrets_Metadata.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Integration_secrets_Metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.Integration_secrets_Metadata.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationSecret>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.IntegrationSecrets_Metadata>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Integration_secrets_Metadata>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

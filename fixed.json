@@ -213,7 +213,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/cloudflare-ip-list-sync_Errors"
+                  "$ref": "#/components/schemas/cloudflare_ip_list_sync_Errors"
                 }
               }
             }
@@ -251,7 +251,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/cloudflare-ip-list-sync_Errors"
+                  "$ref": "#/components/schemas/cloudflare_ip_list_sync_Errors"
                 }
               }
             }
@@ -532,7 +532,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/cloudflare-ip-list-sync_Errors"
+                  "$ref": "#/components/schemas/cloudflare_ip_list_sync_Errors"
                 }
               }
             }
@@ -570,7 +570,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/cloudflare-ip-list-sync_Errors"
+                  "$ref": "#/components/schemas/cloudflare_ip_list_sync_Errors"
                 }
               }
             }
@@ -1018,7 +1018,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inference-embedding_Assistant"
+                  "$ref": "#/components/schemas/inference_embedding_Assistant"
                 }
               }
             }
@@ -1794,7 +1794,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inference-embedding_Assistant"
+                  "$ref": "#/components/schemas/inference_embedding_Assistant"
                 }
               }
             }
@@ -2113,7 +2113,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inference-embedding_Assistant"
+                  "$ref": "#/components/schemas/inference_embedding_Assistant"
                 }
               }
             }
@@ -2604,7 +2604,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inference-embedding_Assistant"
+                  "$ref": "#/components/schemas/inference_embedding_Assistant"
                 }
               }
             }
@@ -2663,7 +2663,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inference-embedding_Assistant"
+                  "$ref": "#/components/schemas/inference_embedding_Assistant"
                 }
               }
             }
@@ -2715,7 +2715,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inference-embedding_Assistant"
+                  "$ref": "#/components/schemas/inference_embedding_Assistant"
                 }
               }
             }
@@ -5307,7 +5307,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/billing-group_Errors"
+                  "$ref": "#/components/schemas/billing_group_Errors"
                 }
               }
             }
@@ -5354,7 +5354,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/billing-group_Errors"
+                  "$ref": "#/components/schemas/billing_group_Errors"
                 }
               }
             }
@@ -5404,7 +5404,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/billing-group_Errors"
+                  "$ref": "#/components/schemas/billing_group_Errors"
                 }
               }
             }
@@ -5452,7 +5452,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/billing-group_Errors"
+                  "$ref": "#/components/schemas/billing_group_Errors"
                 }
               }
             }
@@ -5512,7 +5512,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/billing-group_Errors"
+                  "$ref": "#/components/schemas/billing_group_Errors"
                 }
               }
             }
@@ -8179,7 +8179,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/10dlc_Error"
+                  "$ref": "#/components/schemas/C10dlc_Error"
                 }
               }
             }
@@ -8189,7 +8189,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/10dlc_Error"
+                  "$ref": "#/components/schemas/C10dlc_Error"
                 }
               }
             }
@@ -8244,7 +8244,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/10dlc_Errors"
+                  "$ref": "#/components/schemas/C10dlc_Errors"
                 }
               }
             }
@@ -10969,7 +10969,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/10dlc_Errors"
+                  "$ref": "#/components/schemas/C10dlc_Errors"
                 }
               }
             }
@@ -13213,7 +13213,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/integration-secrets_ErrorResponse"
+                  "$ref": "#/components/schemas/integration_secrets_ErrorResponse"
                 }
               }
             }
@@ -13246,7 +13246,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/integration-secrets_ErrorResponse"
+                  "$ref": "#/components/schemas/integration_secrets_ErrorResponse"
                 }
               }
             }
@@ -13904,7 +13904,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/billing-group_Errors"
+                  "$ref": "#/components/schemas/billing_group_Errors"
                 }
               }
             }
@@ -13954,7 +13954,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/billing-group_Errors"
+                  "$ref": "#/components/schemas/billing_group_Errors"
                 }
               }
             }
@@ -16345,7 +16345,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/push-notifications_Errors"
+                  "$ref": "#/components/schemas/push_notifications_Errors"
                 }
               }
             }
@@ -16385,7 +16385,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/push-notifications_Errors"
+                  "$ref": "#/components/schemas/push_notifications_Errors"
                 }
               }
             }
@@ -16395,7 +16395,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/push-notifications_Errors"
+                  "$ref": "#/components/schemas/push_notifications_Errors"
                 }
               }
             }
@@ -16430,7 +16430,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/push-notifications_Errors"
+                  "$ref": "#/components/schemas/push_notifications_Errors"
                 }
               }
             }
@@ -16440,7 +16440,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/push-notifications_Errors"
+                  "$ref": "#/components/schemas/push_notifications_Errors"
                 }
               }
             }
@@ -16450,7 +16450,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/push-notifications_Errors"
+                  "$ref": "#/components/schemas/push_notifications_Errors"
                 }
               }
             }
@@ -16493,7 +16493,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/push-notifications_Errors"
+                  "$ref": "#/components/schemas/push_notifications_Errors"
                 }
               }
             }
@@ -16503,7 +16503,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/push-notifications_Errors"
+                  "$ref": "#/components/schemas/push_notifications_Errors"
                 }
               }
             }
@@ -16513,7 +16513,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/push-notifications_Errors"
+                  "$ref": "#/components/schemas/push_notifications_Errors"
                 }
               }
             }
@@ -29091,7 +29091,7 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "$ref": "#/components/schemas/call-scripting_UpdateConferenceRequest"
+                "$ref": "#/components/schemas/call_scripting_UpdateConferenceRequest"
               }
             }
           }
@@ -30082,7 +30082,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/usage-reports_ErrorResponse"
+                  "$ref": "#/components/schemas/usage_reports_ErrorResponse"
                 }
               }
             }
@@ -30092,7 +30092,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/usage-reports_ErrorResponse"
+                  "$ref": "#/components/schemas/usage_reports_ErrorResponse"
                 }
               }
             }
@@ -30146,7 +30146,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/usage-reports_ErrorResponse"
+                  "$ref": "#/components/schemas/usage_reports_ErrorResponse"
                 }
               }
             }
@@ -30156,7 +30156,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/usage-reports_ErrorResponse"
+                  "$ref": "#/components/schemas/usage_reports_ErrorResponse"
                 }
               }
             }
@@ -32491,7 +32491,7 @@
   },
   "components": {
     "schemas": {
-      "10dlc_Error": {
+      "C10dlc_Error": {
         "required": [
           "code",
           "title"
@@ -32522,18 +32522,18 @@
           }
         }
       },
-      "10dlc_Errors": {
+      "C10dlc_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/10dlc_Error"
+              "$ref": "#/components/schemas/C10dlc_Error"
             }
           }
         }
       },
-      "10dlc_TaskStatus": {
+      "C10dlc_TaskStatus": {
         "title": "TaskStatus",
         "enum": [
           "pending",
@@ -32678,7 +32678,7 @@
             }
           },
           "meta": {
-            "$ref": "#/components/schemas/cloudflare-ip-list-sync_PaginationMeta"
+            "$ref": "#/components/schemas/cloudflare_ip_list_sync_PaginationMeta"
           }
         }
       },
@@ -32761,7 +32761,7 @@
             }
           },
           "meta": {
-            "$ref": "#/components/schemas/cloudflare-ip-list-sync_PaginationMeta"
+            "$ref": "#/components/schemas/cloudflare_ip_list_sync_PaginationMeta"
           }
         }
       },
@@ -33592,7 +33592,7 @@
             "type": "string",
             "allOf": [
               {
-                "$ref": "#/components/schemas/10dlc_TaskStatus_Wrapper"
+                "$ref": "#/components/schemas/C10dlc_TaskStatus_Wrapper"
               }
             ],
             "description": "The status of the task associated with assigning a messaging profile to a campaign.",
@@ -33853,7 +33853,7 @@
             "title": "Data",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/inference-embedding_Assistant"
+              "$ref": "#/components/schemas/inference_embedding_Assistant"
             }
           }
         }
@@ -34095,7 +34095,7 @@
             }
           },
           "meta": {
-            "$ref": "#/components/schemas/audit-logs_PaginationMeta"
+            "$ref": "#/components/schemas/audit_logs_PaginationMeta"
           }
         }
       },
@@ -44777,7 +44777,9 @@
           "sim_card_ids": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "description": "Identifies the resource.",
+              "format": "uuid"
             }
           }
         }
@@ -46163,7 +46165,9 @@
                 "example": 10
               },
               "outbound_voice_profile_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the associated outbound voice profile.",
+                "format": "int64"
               }
             }
           }
@@ -46306,7 +46310,8 @@
                 "example": 10
               },
               "outbound_voice_profile_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the associated outbound voice profile."
               }
             }
           }
@@ -46569,7 +46574,9 @@
           "to": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "description": "Receiving address (+E.164 formatted phone number or short code).",
+              "format": "address"
             },
             "description": "A list of destinations. No more than 8 destinations are allowed."
           },
@@ -48491,7 +48498,8 @@
                 "example": 10
               },
               "outbound_voice_profile_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the associated outbound voice profile."
               }
             }
           }
@@ -50183,7 +50191,7 @@
             }
           },
           "meta": {
-            "$ref": "#/components/schemas/detail-records_PaginationMeta"
+            "$ref": "#/components/schemas/detail_records_PaginationMeta"
           }
         }
       },
@@ -51788,7 +51796,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/audit-logs_Error"
+              "$ref": "#/components/schemas/audit_logs_Error"
             }
           }
         }
@@ -52000,7 +52008,9 @@
                 "example": 10
               },
               "outbound_voice_profile_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the associated outbound voice profile.",
+                "format": "int64"
               }
             }
           },
@@ -52223,7 +52233,7 @@
             }
           },
           "meta": {
-            "$ref": "#/components/schemas/wireless-public_PaginationMeta"
+            "$ref": "#/components/schemas/wireless_public_PaginationMeta"
           }
         }
       },
@@ -52438,7 +52448,8 @@
                 "example": 10
               },
               "outbound_voice_profile_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the associated outbound voice profile."
               }
             }
           },
@@ -52479,7 +52490,7 @@
         "type": "object",
         "properties": {
           "record_type": {
-            "$ref": "#/components/schemas/programmable-fax_RecordType"
+            "$ref": "#/components/schemas/programmable_fax_RecordType"
           },
           "id": {
             "type": "string",
@@ -52504,28 +52515,37 @@
                 "example": 25
               },
               "connection_id": {
-                "type": "string"
+                "type": "string",
+                "description": "The ID of the connection used to send the fax."
               },
               "direction": {
                 "$ref": "#/components/schemas/Direction"
               },
               "fax_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the fax.",
+                "format": "uuid"
               },
               "original_media_url": {
-                "type": "string"
+                "type": "string",
+                "description": "The original URL to the PDF used for the fax's media. If media_name was supplied, this is omitted"
               },
               "media_name": {
-                "type": "string"
+                "type": "string",
+                "description": "The media_name used for the fax's media. Must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. media_name and media_url/contents can't be submitted together."
               },
               "to": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone number, in E.164 format, the fax will be sent to or SIP URI"
               },
               "from": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone number, in E.164 format, the fax will be sent from."
               },
               "user_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifier of the user to whom the fax belongs",
+                "format": "uuid"
               },
               "page_count": {
                 "type": "integer",
@@ -52582,7 +52602,7 @@
         "type": "object",
         "properties": {
           "record_type": {
-            "$ref": "#/components/schemas/programmable-fax_RecordType"
+            "$ref": "#/components/schemas/programmable_fax_RecordType"
           },
           "id": {
             "type": "string",
@@ -52602,28 +52622,37 @@
             "type": "object",
             "properties": {
               "connection_id": {
-                "type": "string"
+                "type": "string",
+                "description": "The ID of the connection used to send the fax."
               },
               "direction": {
                 "$ref": "#/components/schemas/Direction"
               },
               "fax_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the fax.",
+                "format": "uuid"
               },
               "original_media_url": {
-                "type": "string"
+                "type": "string",
+                "description": "The original URL to the PDF used for the fax's media. If media_name was supplied, this is omitted"
               },
               "media_name": {
-                "type": "string"
+                "type": "string",
+                "description": "The media_name used for the fax's media. Must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. media_name and media_url/contents can't be submitted together."
               },
               "to": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone number, in E.164 format, the fax will be sent to or SIP URI"
               },
               "from": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone number, in E.164 format, the fax will be sent from."
               },
               "user_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifier of the user to whom the fax belongs",
+                "format": "uuid"
               },
               "failure_reason": {
                 "enum": [
@@ -52700,7 +52729,7 @@
         "type": "object",
         "properties": {
           "record_type": {
-            "$ref": "#/components/schemas/programmable-fax_RecordType"
+            "$ref": "#/components/schemas/programmable_fax_RecordType"
           },
           "id": {
             "type": "string",
@@ -52720,28 +52749,37 @@
             "type": "object",
             "properties": {
               "connection_id": {
-                "type": "string"
+                "type": "string",
+                "description": "The ID of the connection used to send the fax."
               },
               "direction": {
                 "$ref": "#/components/schemas/Direction"
               },
               "fax_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the fax.",
+                "format": "uuid"
               },
               "original_media_url": {
-                "type": "string"
+                "type": "string",
+                "description": "The original URL to the PDF used for the fax's media. If media_name was supplied, this is omitted"
               },
               "media_name": {
-                "type": "string"
+                "type": "string",
+                "description": "The media_name used for the fax's media. Must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. media_name and media_url/contents can't be submitted together."
               },
               "to": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone number, in E.164 format, the fax will be sent to or SIP URI"
               },
               "from": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone number, in E.164 format, the fax will be sent from."
               },
               "user_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifier of the user to whom the fax belongs",
+                "format": "uuid"
               },
               "status": {
                 "enum": [
@@ -52784,7 +52822,7 @@
         "type": "object",
         "properties": {
           "record_type": {
-            "$ref": "#/components/schemas/programmable-fax_RecordType"
+            "$ref": "#/components/schemas/programmable_fax_RecordType"
           },
           "id": {
             "type": "string",
@@ -52804,28 +52842,37 @@
             "type": "object",
             "properties": {
               "connection_id": {
-                "type": "string"
+                "type": "string",
+                "description": "The ID of the connection used to send the fax."
               },
               "direction": {
                 "$ref": "#/components/schemas/Direction"
               },
               "fax_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the fax.",
+                "format": "uuid"
               },
               "original_media_url": {
-                "type": "string"
+                "type": "string",
+                "description": "The original URL to the PDF used for the fax's media. If media_name was supplied, this is omitted"
               },
               "media_name": {
-                "type": "string"
+                "type": "string",
+                "description": "The media_name used for the fax's media. Must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. media_name and media_url/contents can't be submitted together."
               },
               "to": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone number, in E.164 format, the fax will be sent to or SIP URI"
               },
               "from": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone number, in E.164 format, the fax will be sent from."
               },
               "user_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifier of the user to whom the fax belongs",
+                "format": "uuid"
               },
               "status": {
                 "enum": [
@@ -52868,7 +52915,7 @@
         "type": "object",
         "properties": {
           "record_type": {
-            "$ref": "#/components/schemas/programmable-fax_RecordType"
+            "$ref": "#/components/schemas/programmable_fax_RecordType"
           },
           "id": {
             "type": "string",
@@ -52888,28 +52935,37 @@
             "type": "object",
             "properties": {
               "connection_id": {
-                "type": "string"
+                "type": "string",
+                "description": "The ID of the connection used to send the fax."
               },
               "direction": {
                 "$ref": "#/components/schemas/Direction"
               },
               "fax_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the fax.",
+                "format": "uuid"
               },
               "original_media_url": {
-                "type": "string"
+                "type": "string",
+                "description": "The original URL to the PDF used for the fax's media. If media_name was supplied, this is omitted"
               },
               "media_name": {
-                "type": "string"
+                "type": "string",
+                "description": "The media_name used for the fax's media. Must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. media_name and media_url/contents can't be submitted together."
               },
               "to": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone number, in E.164 format, the fax will be sent to or SIP URI"
               },
               "from": {
-                "type": "string"
+                "type": "string",
+                "description": "The phone number, in E.164 format, the fax will be sent from."
               },
               "user_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifier of the user to whom the fax belongs",
+                "format": "uuid"
               },
               "status": {
                 "enum": [
@@ -56685,7 +56741,7 @@
             }
           },
           "meta": {
-            "$ref": "#/components/schemas/integration-secrets_Metadata"
+            "$ref": "#/components/schemas/integration_secrets_Metadata"
           }
         }
       },
@@ -57462,7 +57518,7 @@
             }
           },
           "meta": {
-            "$ref": "#/components/schemas/verified-numbers_Meta"
+            "$ref": "#/components/schemas/verified_numbers_Meta"
           }
         },
         "description": "A paginated list of Verified Numbers"
@@ -60382,15 +60438,6 @@
           }
         }
       },
-      "NumberOrderBlockEvent": {
-        "title": "Number Order Event",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/NumberBlockOrder"
-          }
-        }
-      },
       "NumberOrderDocument": {
         "type": "object",
         "properties": {
@@ -60637,6 +60684,221 @@
           "record_type": {
             "type": "string",
             "example": "number_order_phone_number"
+          }
+        }
+      },
+      "NumberOrderWebhookEvent": {
+        "title": "Number Order Event",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "required": [
+              "event_type",
+              "id",
+              "occurred_at",
+              "payload",
+              "record_type"
+            ],
+            "type": "object",
+            "properties": {
+              "event_type": {
+                "type": "string",
+                "description": "The type of event being sent",
+                "example": "number_order.complete"
+              },
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for the event",
+                "format": "uuid",
+                "example": "d578b093-a0e7-4b64-b0d3-6b689a6ff170"
+              },
+              "occurred_at": {
+                "type": "string",
+                "description": "ISO 8601 timestamp of when the event occurred",
+                "format": "date-time",
+                "example": "2025-08-22T16:23:54.496464Z"
+              },
+              "payload": {
+                "$ref": "#/components/schemas/NumberOrderWithPhoneNumbers"
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Type of record",
+                "example": "event"
+              }
+            }
+          },
+          "meta": {
+            "required": [
+              "attempt",
+              "delivered_to"
+            ],
+            "type": "object",
+            "properties": {
+              "attempt": {
+                "type": "integer",
+                "description": "Webhook delivery attempt number",
+                "example": 1
+              },
+              "delivered_to": {
+                "type": "string",
+                "description": "URL where the webhook was delivered",
+                "format": "uri",
+                "example": "https://sample-api.com/webhook"
+              }
+            }
+          }
+        }
+      },
+      "NumberOrderWebhookPayload": {
+        "title": "Number Order Webhook Payload",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the number order",
+            "format": "uuid",
+            "example": "b1425b7e-92a2-4a24-a709-fdd0cc4293e8"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Type of record",
+            "example": "number_order"
+          },
+          "phone_numbers_count": {
+            "type": "integer",
+            "description": "The count of phone numbers in the number order.",
+            "example": 1
+          },
+          "connection_id": {
+            "type": "string",
+            "description": "Identifies the connection associated with this phone number.",
+            "nullable": true
+          },
+          "messaging_profile_id": {
+            "type": "string",
+            "description": "Identifies the messaging profile associated with the phone number.",
+            "nullable": true
+          },
+          "billing_group_id": {
+            "type": "string",
+            "description": "Identifies the billing group associated with the phone number.",
+            "nullable": true
+          },
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "example": "c7d55dc7-bca4-47d1-a739-9a45bbf8717f"
+                },
+                "phone_number": {
+                  "type": "string",
+                  "example": "+14803935977"
+                },
+                "country_code": {
+                  "type": "string",
+                  "description": "Country code of the phone number",
+                  "example": "US"
+                },
+                "phone_number_type": {
+                  "enum": [
+                    "local",
+                    "mobile",
+                    "national",
+                    "shared_cost",
+                    "toll_free"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "example": "local"
+                },
+                "record_type": {
+                  "type": "string",
+                  "example": "number_order_phone_number"
+                },
+                "bundle_id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "nullable": true
+                },
+                "regulatory_requirements": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "requirements_met": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "requirements_status": {
+                  "enum": [
+                    "pending",
+                    "approved",
+                    "cancelled",
+                    "deleted",
+                    "requirement-info-exception",
+                    "requirement-info-pending",
+                    "requirement-info-under-review"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "example": "approved"
+                },
+                "status": {
+                  "enum": [
+                    "pending",
+                    "success",
+                    "failure"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "example": "success"
+                }
+              }
+            }
+          },
+          "sub_number_orders_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "success",
+              "failure"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "success"
+          },
+          "customer_reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-08-22T16:23:50.762227+00:00"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-08-22T16:23:50.762227+00:00"
+          },
+          "requirements_met": {
+            "type": "boolean",
+            "example": true
           }
         }
       },
@@ -63824,7 +64086,8 @@
                   "example": "+15551234567"
                 },
                 "id": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Identifies the resource."
                 }
               }
             },
@@ -69214,7 +69477,7 @@
             "additionalProperties": false
           },
           "retrieval": {
-            "$ref": "#/components/schemas/inference-embedding_BucketIds"
+            "$ref": "#/components/schemas/inference_embedding_BucketIds"
           }
         }
       },
@@ -69234,7 +69497,7 @@
             "additionalProperties": false
           },
           "retrieval": {
-            "$ref": "#/components/schemas/inference-embedding_BucketIds"
+            "$ref": "#/components/schemas/inference_embedding_BucketIds"
           }
         }
       },
@@ -75817,7 +76080,8 @@
                 "example": 10
               },
               "outbound_voice_profile_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the associated outbound voice profile."
               }
             }
           },
@@ -77514,7 +77778,7 @@
             "additionalProperties": false
           },
           "transfer": {
-            "$ref": "#/components/schemas/inference-embedding_TransferToolParams"
+            "$ref": "#/components/schemas/inference_embedding_TransferToolParams"
           }
         }
       },
@@ -78757,7 +79021,9 @@
                 "example": 10
               },
               "outbound_voice_profile_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the associated outbound voice profile.",
+                "format": "int64"
               }
             }
           }
@@ -78844,7 +79110,8 @@
                 "example": 10
               },
               "outbound_voice_profile_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the associated outbound voice profile."
               }
             }
           }
@@ -80004,7 +80271,8 @@
                 "example": 10
               },
               "outbound_voice_profile_id": {
-                "type": "string"
+                "type": "string",
+                "description": "Identifies the associated outbound voice profile."
               }
             }
           }
@@ -80406,7 +80674,7 @@
           "record_types": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/usage-reports_RecordType"
+              "$ref": "#/components/schemas/usage_reports_RecordType"
             },
             "description": "Subproducts if applicable",
             "example": "null"
@@ -82910,7 +83178,7 @@
             "additionalProperties": false
           },
           "webhook": {
-            "$ref": "#/components/schemas/inference-embedding_WebhookToolParams"
+            "$ref": "#/components/schemas/inference_embedding_WebhookToolParams"
           }
         }
       },
@@ -83267,13 +83535,13 @@
               "type": "object",
               "oneOf": [
                 {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UnionBranch"
                 },
                 {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UnionBranch"
                 },
                 {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UnionBranch"
                 }
               ]
             },
@@ -83519,7 +83787,7 @@
         },
         "description": "Webhook delivery attempt details."
       },
-      "audit-logs_Error": {
+      "audit_logs_Error": {
         "type": "object",
         "properties": {
           "code": {
@@ -83539,7 +83807,7 @@
           }
         }
       },
-      "audit-logs_PaginationMeta": {
+      "audit_logs_PaginationMeta": {
         "title": "Pagination Meta",
         "type": "object",
         "properties": {
@@ -83561,7 +83829,7 @@
           }
         }
       },
-      "billing-group_Error": {
+      "billing_group_Error": {
         "required": [
           "code",
           "title"
@@ -83596,13 +83864,13 @@
           }
         }
       },
-      "billing-group_Errors": {
+      "billing_group_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/billing-group_Error"
+              "$ref": "#/components/schemas/billing_group_Error"
             }
           }
         }
@@ -83679,7 +83947,7 @@
           }
         }
       },
-      "bundle-pricing_Error": {
+      "bundle_pricing_Error": {
         "required": [
           "code",
           "title"
@@ -83714,13 +83982,13 @@
           }
         }
       },
-      "bundle-pricing_Errors": {
+      "bundle_pricing_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/bundle-pricing_Error"
+              "$ref": "#/components/schemas/bundle_pricing_Error"
             }
           }
         }
@@ -83729,7 +83997,7 @@
         "title": "Response Get My Osr Campaign Attributes Public Campaign  Campaignid  Osr Attributes Get",
         "type": "object"
       },
-      "call-control_Error": {
+      "call_control_Error": {
         "required": [
           "code",
           "title"
@@ -83765,18 +84033,18 @@
           }
         }
       },
-      "call-control_Errors": {
+      "call_control_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/call-control_Error"
+              "$ref": "#/components/schemas/call_control_Error"
             }
           }
         }
       },
-      "call-recordings_CursorPaginationMeta": {
+      "call_recordings_CursorPaginationMeta": {
         "title": "Cursor Pagination Meta",
         "type": "object",
         "properties": {
@@ -83795,7 +84063,7 @@
           }
         }
       },
-      "call-recordings_Error": {
+      "call_recordings_Error": {
         "required": [
           "code",
           "title"
@@ -83830,18 +84098,18 @@
           }
         }
       },
-      "call-recordings_Errors": {
+      "call_recordings_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/call-recordings_Error"
+              "$ref": "#/components/schemas/call_recordings_Error"
             }
           }
         }
       },
-      "call-scripting_PaginationMeta": {
+      "call_scripting_PaginationMeta": {
         "title": "Pagination Meta",
         "type": "object",
         "properties": {
@@ -83863,7 +84131,7 @@
           }
         }
       },
-      "call-scripting_ResourceNotFoundError": {
+      "call_scripting_ResourceNotFoundError": {
         "title": "Resource not found",
         "type": "object",
         "properties": {
@@ -83887,7 +84155,7 @@
           ]
         }
       },
-      "call-scripting_UpdateConferenceRequest": {
+      "call_scripting_UpdateConferenceRequest": {
         "title": "Update Conference Request",
         "type": "object",
         "properties": {
@@ -84493,7 +84761,7 @@
           }
         }
       },
-      "cloudflare-ip-list-sync_Error": {
+      "cloudflare_ip_list_sync_Error": {
         "required": [
           "code",
           "title"
@@ -84527,18 +84795,18 @@
           }
         }
       },
-      "cloudflare-ip-list-sync_Errors": {
+      "cloudflare_ip_list_sync_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/cloudflare-ip-list-sync_Error"
+              "$ref": "#/components/schemas/cloudflare_ip_list_sync_Error"
             }
           }
         }
       },
-      "cloudflare-ip-list-sync_PaginationMeta": {
+      "cloudflare_ip_list_sync_PaginationMeta": {
         "title": "PaginationMeta",
         "required": [
           "page_number",
@@ -84696,7 +84964,7 @@
           }
         ]
       },
-      "detail-records_PaginationMeta": {
+      "detail_records_PaginationMeta": {
         "type": "object",
         "properties": {
           "total_pages": {
@@ -84814,7 +85082,7 @@
       "RevetBrand_200": {
         "type": "object"
       },
-      "external-voice-integrations_Error": {
+      "external_voice_integrations_Error": {
         "required": [
           "code",
           "title"
@@ -84861,13 +85129,13 @@
           }
         }
       },
-      "external-voice-integrations_Errors": {
+      "external_voice_integrations_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/external-voice-integrations_Error"
+              "$ref": "#/components/schemas/external_voice_integrations_Error"
             }
           }
         }
@@ -84878,7 +85146,7 @@
       "ListExternalVettings_200": {
         "type": "object"
       },
-      "external-voice-integrations_PaginationMeta": {
+      "external_voice_integrations_PaginationMeta": {
         "title": "Pagination Meta",
         "type": "object",
         "properties": {
@@ -84949,7 +85217,7 @@
         },
         "description": "List of headers, limited to 10kB."
       },
-      "inference-embedding_Assistant": {
+      "inference_embedding_Assistant": {
         "required": [
           "id",
           "name",
@@ -85030,7 +85298,7 @@
           }
         }
       },
-      "inference-embedding_BucketIds": {
+      "inference_embedding_BucketIds": {
         "title": "BucketIds",
         "required": [
           "bucket_ids"
@@ -85050,7 +85318,7 @@
           }
         }
       },
-      "inference-embedding_TransferToolParams": {
+      "inference_embedding_TransferToolParams": {
         "title": "TransferToolParams",
         "required": [
           "targets",
@@ -85100,7 +85368,7 @@
           }
         }
       },
-      "inference-embedding_WebhookToolParams": {
+      "inference_embedding_WebhookToolParams": {
         "title": "WebhookToolParams",
         "required": [
           "url",
@@ -85266,7 +85534,7 @@
           }
         }
       },
-      "integration-secrets_Error": {
+      "integration_secrets_Error": {
         "title": "Error",
         "required": [
           "detail"
@@ -85287,7 +85555,7 @@
           }
         }
       },
-      "integration-secrets_ErrorResponse": {
+      "integration_secrets_ErrorResponse": {
         "title": "ErrorResponse",
         "type": "object",
         "properties": {
@@ -85295,12 +85563,12 @@
             "title": "Errors",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/integration-secrets_Error"
+              "$ref": "#/components/schemas/integration_secrets_Error"
             }
           }
         }
       },
-      "integration-secrets_Metadata": {
+      "integration_secrets_Metadata": {
         "title": "Metadata",
         "required": [
           "page_size",
@@ -85394,7 +85662,7 @@
       "UpdateAuthenticationProvider_422": {
         "type": "object"
       },
-      "media-storage_Error": {
+      "media_storage_Error": {
         "required": [
           "code",
           "title"
@@ -85428,18 +85696,18 @@
           }
         }
       },
-      "media-storage_Errors": {
+      "media_storage_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/media-storage_Error"
+              "$ref": "#/components/schemas/media_storage_Error"
             }
           }
         }
       },
-      "media-streaming_Error": {
+      "media_streaming_Error": {
         "required": [
           "code",
           "title"
@@ -85473,13 +85741,13 @@
           }
         }
       },
-      "media-streaming_Errors": {
+      "media_streaming_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/media-streaming_Error"
+              "$ref": "#/components/schemas/media_streaming_Error"
             }
           }
         }
@@ -85702,7 +85970,7 @@
           }
         }
       },
-      "number-lookup_Error": {
+      "number_lookup_Error": {
         "required": [
           "code",
           "title"
@@ -85736,13 +86004,13 @@
           }
         }
       },
-      "number-lookup_Errors": {
+      "number_lookup_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/number-lookup_Error"
+              "$ref": "#/components/schemas/number_lookup_Error"
             }
           }
         }
@@ -85881,7 +86149,7 @@
       "GetAuthenticationProvider_401": {
         "type": "object"
       },
-      "portability-check_Error": {
+      "portability_check_Error": {
         "required": [
           "code",
           "title"
@@ -85915,13 +86183,13 @@
           }
         }
       },
-      "portability-check_Errors": {
+      "portability_check_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/portability-check_Error"
+              "$ref": "#/components/schemas/portability_check_Error"
             }
           }
         }
@@ -85929,7 +86197,7 @@
       "DeleteAuthenticationProvider_422": {
         "type": "object"
       },
-      "programmable-fax_Error": {
+      "programmable_fax_Error": {
         "required": [
           "code",
           "title"
@@ -85963,18 +86231,18 @@
           }
         }
       },
-      "programmable-fax_Errors": {
+      "programmable_fax_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/programmable-fax_Error"
+              "$ref": "#/components/schemas/programmable_fax_Error"
             }
           }
         }
       },
-      "programmable-fax_RecordType": {
+      "programmable_fax_RecordType": {
         "enum": [
           "event"
         ],
@@ -85983,7 +86251,7 @@
         "description": "Identifies the type of the resource.",
         "example": "event"
       },
-      "push-notifications_Error": {
+      "push_notifications_Error": {
         "required": [
           "code",
           "title"
@@ -86025,13 +86293,13 @@
           }
         }
       },
-      "push-notifications_Errors": {
+      "push_notifications_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/push-notifications_Error"
+              "$ref": "#/components/schemas/push_notifications_Error"
             }
           }
         }
@@ -86160,7 +86428,7 @@
       "FindAuthenticationProviders_404": {
         "type": "object"
       },
-      "toll-free-verification_Error": {
+      "toll_free_verification_Error": {
         "required": [
           "code",
           "title"
@@ -86194,18 +86462,18 @@
           }
         }
       },
-      "toll-free-verification_Errors": {
+      "toll_free_verification_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/toll-free-verification_Error"
+              "$ref": "#/components/schemas/toll_free_verification_Error"
             }
           }
         }
       },
-      "usage-reports_ErrorResponse": {
+      "usage_reports_ErrorResponse": {
         "type": "object",
         "properties": {
           "errors": {
@@ -86216,7 +86484,7 @@
           }
         }
       },
-      "usage-reports_RecordType": {
+      "usage_reports_RecordType": {
         "type": "object",
         "properties": {
           "record_type": {
@@ -86243,7 +86511,7 @@
         },
         "description": "An object following one of the schemas published in https://developers.telnyx.com/docs/api/v2/detail-records"
       },
-      "user-addresses_Error": {
+      "user_addresses_Error": {
         "required": [
           "code",
           "title"
@@ -86285,13 +86553,13 @@
           "description": "The street address provided is invalid."
         }
       },
-      "user-addresses_Errors": {
+      "user_addresses_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/user-addresses_Error"
+              "$ref": "#/components/schemas/user_addresses_Error"
             }
           }
         }
@@ -86346,7 +86614,7 @@
       "update_assistant_public_assistants_assistant_id_post_200": {
         "type": "object"
       },
-      "verified-numbers_Error": {
+      "verified_numbers_Error": {
         "required": [
           "code",
           "title"
@@ -86386,18 +86654,18 @@
           }
         }
       },
-      "verified-numbers_Errors": {
+      "verified_numbers_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/verified-numbers_Error"
+              "$ref": "#/components/schemas/verified_numbers_Error"
             }
           }
         }
       },
-      "verified-numbers_Meta": {
+      "verified_numbers_Meta": {
         "type": "object",
         "properties": {
           "total_pages": {
@@ -86540,7 +86808,7 @@
           }
         }
       },
-      "voice-channels_Error": {
+      "voice_channels_Error": {
         "required": [
           "code",
           "title"
@@ -86574,13 +86842,13 @@
           }
         }
       },
-      "voice-channels_Errors": {
+      "voice_channels_Errors": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/voice-channels_Error"
+              "$ref": "#/components/schemas/voice_channels_Error"
             }
           }
         }
@@ -86747,7 +87015,7 @@
           }
         }
       },
-      "wireless-public_PaginationMeta": {
+      "wireless_public_PaginationMeta": {
         "type": "object",
         "properties": {
           "total_pages": {
@@ -87098,13 +87366,13 @@
               "type": "object",
               "oneOf": [
                 {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UnionBranch"
                 },
                 {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UnionBranch"
                 },
                 {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UnionBranch"
                 }
               ]
             },
@@ -87142,13 +87410,13 @@
               "type": "object",
               "oneOf": [
                 {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UnionBranch"
                 },
                 {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UnionBranch"
                 },
                 {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UnionBranch"
                 }
               ]
             },
@@ -87280,14 +87548,14 @@
           }
         }
       },
-      "10dlc_TaskStatus_Wrapper": {
+      "C10dlc_TaskStatus_Wrapper": {
         "required": [
           "value"
         ],
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/10dlc_TaskStatus"
+            "$ref": "#/components/schemas/C10dlc_TaskStatus"
           }
         }
       },
@@ -87342,7 +87610,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/10dlc_Errors"
+              "$ref": "#/components/schemas/C10dlc_Errors"
             }
           }
         }
@@ -88934,7 +89202,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/call-recordings_Errors"
+              "$ref": "#/components/schemas/call_recordings_Errors"
             }
           }
         }
@@ -88994,7 +89262,7 @@
                   }
                 },
                 "meta": {
-                  "$ref": "#/components/schemas/external-voice-integrations_PaginationMeta"
+                  "$ref": "#/components/schemas/external_voice_integrations_PaginationMeta"
                 }
               }
             }
@@ -89123,7 +89391,7 @@
                   }
                 },
                 "meta": {
-                  "$ref": "#/components/schemas/call-scripting_PaginationMeta"
+                  "$ref": "#/components/schemas/call_scripting_PaginationMeta"
                 }
               }
             }
@@ -90395,7 +90663,7 @@
                   }
                 },
                 "meta": {
-                  "$ref": "#/components/schemas/external-voice-integrations_PaginationMeta"
+                  "$ref": "#/components/schemas/external_voice_integrations_PaginationMeta"
                 }
               }
             }
@@ -90530,7 +90798,7 @@
                   }
                 },
                 "meta": {
-                  "$ref": "#/components/schemas/external-voice-integrations_PaginationMeta"
+                  "$ref": "#/components/schemas/external_voice_integrations_PaginationMeta"
                 }
               }
             }
@@ -91509,7 +91777,7 @@
                   }
                 },
                 "meta": {
-                  "$ref": "#/components/schemas/call-recordings_CursorPaginationMeta"
+                  "$ref": "#/components/schemas/call_recordings_CursorPaginationMeta"
                 }
               }
             }
@@ -91531,7 +91799,7 @@
                   }
                 },
                 "meta": {
-                  "$ref": "#/components/schemas/external-voice-integrations_PaginationMeta"
+                  "$ref": "#/components/schemas/external_voice_integrations_PaginationMeta"
                 }
               }
             }
@@ -91720,7 +91988,7 @@
                   }
                 },
                 "meta": {
-                  "$ref": "#/components/schemas/external-voice-integrations_PaginationMeta"
+                  "$ref": "#/components/schemas/external_voice_integrations_PaginationMeta"
                 }
               }
             }
@@ -91960,7 +92228,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/verified-numbers_Errors"
+              "$ref": "#/components/schemas/verified_numbers_Errors"
             }
           }
         }
@@ -93478,7 +93746,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/verified-numbers_Errors"
+              "$ref": "#/components/schemas/verified_numbers_Errors"
             }
           }
         }
@@ -94040,7 +94308,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/bundle-pricing_Errors"
+              "$ref": "#/components/schemas/bundle_pricing_Errors"
             }
           }
         }
@@ -94050,7 +94318,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/call-control_Errors"
+              "$ref": "#/components/schemas/call_control_Errors"
             }
           }
         }
@@ -94060,7 +94328,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/call-scripting_ResourceNotFoundError"
+              "$ref": "#/components/schemas/call_scripting_ResourceNotFoundError"
             }
           }
         }
@@ -94216,7 +94484,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/external-voice-integrations_Errors"
+              "$ref": "#/components/schemas/external_voice_integrations_Errors"
             }
           }
         }
@@ -94341,7 +94609,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/media-storage_Errors"
+              "$ref": "#/components/schemas/media_storage_Errors"
             }
           }
         }
@@ -94351,7 +94619,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/media-streaming_Errors"
+              "$ref": "#/components/schemas/media_streaming_Errors"
             }
           }
         }
@@ -94401,7 +94669,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/number-lookup_Errors"
+              "$ref": "#/components/schemas/number_lookup_Errors"
             }
           }
         }
@@ -94411,7 +94679,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/number-lookup_Errors"
+              "$ref": "#/components/schemas/number_lookup_Errors"
             }
           }
         }
@@ -94482,7 +94750,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/programmable-fax_Errors"
+              "$ref": "#/components/schemas/programmable_fax_Errors"
             }
           }
         }
@@ -94505,7 +94773,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/toll-free-verification_Errors"
+              "$ref": "#/components/schemas/toll_free_verification_Errors"
             }
           }
         }
@@ -94515,7 +94783,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/user-addresses_Errors"
+              "$ref": "#/components/schemas/user_addresses_Errors"
             }
           }
         }
@@ -94525,7 +94793,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/verified-numbers_Errors"
+              "$ref": "#/components/schemas/verified_numbers_Errors"
             }
           }
         }
@@ -94535,7 +94803,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/verified-numbers_Errors"
+              "$ref": "#/components/schemas/verified_numbers_Errors"
             }
           }
         }
@@ -94575,7 +94843,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/voice-channels_Errors"
+              "$ref": "#/components/schemas/voice_channels_Errors"
             }
           }
         }

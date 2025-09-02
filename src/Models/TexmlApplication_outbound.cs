@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When set, this will limit the total number of outbound calls to phone numbers associated with this connection.</summary>
         public int? ChannelLimit { get; set; }
-        /// <summary>The outbound_voice_profile_id property</summary>
+        /// <summary>Identifies the associated outbound voice profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OutboundVoiceProfileId { get; set; }
