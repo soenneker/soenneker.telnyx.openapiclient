@@ -95,6 +95,9 @@ using Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Number_orders;
 using Soenneker.Telnyx.OpenApiClient.Number_reservations;
 using Soenneker.Telnyx.OpenApiClient.Numbers_features;
+using Soenneker.Telnyx.OpenApiClient.Oauth;
+using Soenneker.Telnyx.OpenApiClient.Oauth_clients;
+using Soenneker.Telnyx.OpenApiClient.Oauth_grants;
 using Soenneker.Telnyx.OpenApiClient.Operator_connect;
 using Soenneker.Telnyx.OpenApiClient.Ota_updates;
 using Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles;
@@ -153,6 +156,7 @@ using Soenneker.Telnyx.OpenApiClient.Verify_profiles;
 using Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects;
 using Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage;
 using Soenneker.Telnyx.OpenApiClient.Webhook_deliveries;
+using Soenneker.Telnyx.OpenApiClient.WellKnown;
 using Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces;
 using Soenneker.Telnyx.OpenApiClient.Wireguard_peers;
 using Soenneker.Telnyx.OpenApiClient.Wireless;
@@ -606,6 +610,21 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Numbers_features.Numbers_featuresRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The oauth property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Oauth.OauthRequestBuilder Oauth
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Oauth.OauthRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The oauth_clients property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsRequestBuilder Oauth_clients
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Oauth_clients.Oauth_clientsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The oauth_grants property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Oauth_grants.Oauth_grantsRequestBuilder Oauth_grants
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Oauth_grants.Oauth_grantsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The operator_connect property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Operator_connectRequestBuilder Operator_connect
         {
@@ -895,6 +914,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Webhook_deliveriesRequestBuilder Webhook_deliveries
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Webhook_deliveriesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The wellKnown property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.WellKnown.WellKnownRequestBuilder WellKnown
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.WellKnown.WellKnownRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The wireguard_interfaces property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces.Wireguard_interfacesRequestBuilder Wireguard_interfaces

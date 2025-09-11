@@ -41,6 +41,62 @@
         }
       }
     },
+    "/.well-known/oauth-authorization-server": {
+      "get": {
+        "tags": [
+          "OAuth Discovery"
+        ],
+        "summary": "Authorization server metadata",
+        "description": "OAuth 2.0 Authorization Server Metadata (RFC 8414)",
+        "operationId": "get_.well_known_oauth_authorization_server",
+        "responses": {
+          "200": {
+            "description": "Authorization server metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthorizationServerMetadata"
+                }
+              }
+            }
+          }
+        },
+        "security": [ ]
+      },
+      "servers": [
+        {
+          "url": "https://api.telnyx.com"
+        }
+      ]
+    },
+    "/.well-known/oauth-protected-resource": {
+      "get": {
+        "tags": [
+          "OAuth Discovery"
+        ],
+        "summary": "Protected resource metadata",
+        "description": "OAuth 2.0 Protected Resource Metadata for resource discovery",
+        "operationId": "get_.well_known_oauth_protected_resource",
+        "responses": {
+          "200": {
+            "description": "Protected resource metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceMetadata"
+                }
+              }
+            }
+          }
+        },
+        "security": [ ]
+      },
+      "servers": [
+        {
+          "url": "https://api.telnyx.com"
+        }
+      ]
+    },
     "/access_ip_address": {
       "get": {
         "tags": [
@@ -18100,6 +18156,940 @@
         ]
       }
     },
+    "/oauth/authorize": {
+      "get": {
+        "tags": [
+          "OAuth Protocol"
+        ],
+        "summary": "OAuth authorization endpoint",
+        "description": "OAuth 2.0 authorization endpoint for the authorization code flow",
+        "operationId": "get_oauth_authorize",
+        "parameters": [
+          {
+            "name": "response_type",
+            "in": "query",
+            "description": "OAuth response type",
+            "required": true,
+            "schema": {
+              "enum": [
+                "code"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "description": "OAuth client identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "description": "Redirect URI",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "description": "Space-separated list of requested scopes",
+            "schema": {
+              "type": "string"
+            },
+            "example": "admin"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "State parameter for CSRF protection",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code_challenge",
+            "in": "query",
+            "description": "PKCE code challenge",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code_challenge_method",
+            "in": "query",
+            "description": "PKCE code challenge method",
+            "schema": {
+              "enum": [
+                "plain",
+                "S256"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Client not found",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid redirect URI",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [ ]
+      }
+    },
+    "/oauth/consent/{consent_token}": {
+      "get": {
+        "tags": [
+          "OAuth Protocol"
+        ],
+        "summary": "Get OAuth consent token",
+        "description": "Retrieve details about an OAuth consent token",
+        "operationId": "get_oauth_consent_consent_token",
+        "parameters": [
+          {
+            "name": "consent_token",
+            "in": "path",
+            "description": "OAuth consent token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consent token details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentTokenResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid consent token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ]
+      }
+    },
+    "/oauth/grants": {
+      "post": {
+        "tags": [
+          "OAuth Protocol"
+        ],
+        "summary": "Create OAuth grant",
+        "description": "Create an OAuth authorization grant",
+        "operationId": "post_oauth_grants",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOAuthGrantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Grant created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateGrantResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid consent token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ]
+      }
+    },
+    "/oauth/introspect": {
+      "post": {
+        "tags": [
+          "OAuth Protocol"
+        ],
+        "summary": "Token introspection",
+        "description": "Introspect an OAuth access token to check its validity and metadata",
+        "operationId": "post_oauth_introspect",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/IntrospectRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IntrospectRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Introspection response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntrospectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                },
+                "example": {
+                  "error": "invalid_request"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid client credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                },
+                "example": {
+                  "error": "invalid_client"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauthClientAuth": [ ]
+          }
+        ]
+      }
+    },
+    "/oauth/jwks": {
+      "get": {
+        "tags": [
+          "OAuth Protocol"
+        ],
+        "summary": "JSON Web Key Set",
+        "description": "Retrieve the JSON Web Key Set for token verification",
+        "operationId": "get_oauth_jwks",
+        "responses": {
+          "200": {
+            "description": "JSON Web Key Set",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JWKSet"
+                }
+              }
+            }
+          }
+        },
+        "security": [ ]
+      }
+    },
+    "/oauth/register": {
+      "post": {
+        "tags": [
+          "OAuth Protocol"
+        ],
+        "summary": "Dynamic client registration",
+        "description": "Register a new OAuth client dynamically (RFC 7591)",
+        "operationId": "post_oauth_register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OAuthDynamicRegistrationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Client registered successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OAuthDynamicRegistrationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid client metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/post_oauth_register_400"
+                }
+              }
+            }
+          }
+        },
+        "security": [ ]
+      }
+    },
+    "/oauth/token": {
+      "post": {
+        "tags": [
+          "OAuth Protocol"
+        ],
+        "summary": "OAuth token endpoint",
+        "description": "Exchange authorization code, client credentials, or refresh token for access token",
+        "operationId": "post_oauth_token",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Token response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                },
+                "examples": {
+                  "invalid_request": {
+                    "value": {
+                      "error": "invalid_request"
+                    }
+                  },
+                  "invalid_grant": {
+                    "value": {
+                      "error": "invalid_grant"
+                    }
+                  },
+                  "unsupported_grant_type": {
+                    "value": {
+                      "error": "unsupported_grant_type"
+                    }
+                  },
+                  "invalid_scope": {
+                    "value": {
+                      "error": "invalid_scope"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid client credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                },
+                "example": {
+                  "error": "invalid_client"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauthClientAuth": [ ]
+          },
+          { }
+        ]
+      }
+    },
+    "/oauth_clients": {
+      "get": {
+        "tags": [
+          "OAuth Clients"
+        ],
+        "summary": "List OAuth clients",
+        "description": "Retrieve a paginated list of OAuth clients for the authenticated user",
+        "operationId": "get_oauth_clients",
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "Number of results per page",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "Page number",
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "filter[client_type]",
+            "in": "query",
+            "description": "Filter by client type",
+            "schema": {
+              "enum": [
+                "confidential",
+                "public"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "filter[verified]",
+            "in": "query",
+            "description": "Filter by verification status",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "filter[allowed_grant_types][contains]",
+            "in": "query",
+            "description": "Filter by allowed grant type",
+            "schema": {
+              "enum": [
+                "client_credentials",
+                "authorization_code",
+                "refresh_token"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "filter[name]",
+            "in": "query",
+            "description": "Filter by exact client name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[name][contains]",
+            "in": "query",
+            "description": "Filter by client name containing text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[client_id]",
+            "in": "query",
+            "description": "Filter by client ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of OAuth clients",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/get_oauth_clients_200"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "OAuth Clients"
+        ],
+        "summary": "Create OAuth client",
+        "description": "Create a new OAuth client",
+        "operationId": "post_oauth_clients",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OAuthClientCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OAuth client created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/OAuthClient"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ]
+      }
+    },
+    "/oauth_clients/{id}": {
+      "delete": {
+        "tags": [
+          "OAuth Clients"
+        ],
+        "summary": "Delete OAuth client",
+        "description": "Delete an OAuth client",
+        "operationId": "delete_oauth_clients_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "OAuth client ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "OAuth client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "OAuth Clients"
+        ],
+        "summary": "Get OAuth client",
+        "description": "Retrieve a single OAuth client by ID",
+        "operationId": "get_oauth_clients_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "OAuth client ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OAuth client details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/OAuthClient"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "OAuth client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "OAuth Clients"
+        ],
+        "summary": "Update OAuth client",
+        "description": "Update an existing OAuth client",
+        "operationId": "put_oauth_clients_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "OAuth client ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OAuthClientUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OAuth client updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/OAuthClient"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "OAuth client not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ]
+      }
+    },
+    "/oauth_grants": {
+      "get": {
+        "tags": [
+          "OAuth Grants"
+        ],
+        "summary": "List OAuth grants",
+        "description": "Retrieve a paginated list of OAuth grants for the authenticated user",
+        "operationId": "get_oauth_grants",
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "Number of results per page",
+            "schema": {
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "Page number",
+            "schema": {
+              "minimum": 1,
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of OAuth grants",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/get_oauth_grants_200"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ]
+      }
+    },
+    "/oauth_grants/{id}": {
+      "delete": {
+        "tags": [
+          "OAuth Grants"
+        ],
+        "summary": "Revoke OAuth grant",
+        "description": "Revoke an OAuth grant",
+        "operationId": "delete_oauth_grants_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "OAuth grant ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OAuth grant revoked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/OAuthGrant"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "OAuth grant not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "OAuth Grants"
+        ],
+        "summary": "Get OAuth grant",
+        "description": "Retrieve a single OAuth grant by ID",
+        "operationId": "get_oauth_grants_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "OAuth grant ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OAuth grant details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/OAuthGrant"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "OAuth grant not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ]
+      }
+    },
     "/operator_connect/actions/refresh": {
       "post": {
         "tags": [
@@ -30906,6 +31896,85 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Verify"
+        ],
+        "summary": "Create message template",
+        "description": "Create a new Verify profile message template.",
+        "operationId": "CreateMessageTemplate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageTemplateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected message template response to a valid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageTemplateResponseDataWrapper"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/verify_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/verify_profiles/templates/{template_id}": {
+      "patch": {
+        "tags": [
+          "Verify"
+        ],
+        "summary": "Update message template",
+        "description": "Update an existing Verify profile message template.",
+        "operationId": "UpdateMessageTemplate",
+        "parameters": [
+          {
+            "name": "template_id",
+            "in": "path",
+            "description": "The identifier of the message template to update.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "12ade33a-21c0-473b-b055-b3c836e1c292"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMessageTemplateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected message template response to a valid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageTemplateResponseDataWrapper"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/verify_GenericErrorResponse"
+          }
+        }
       }
     },
     "/verify_profiles/{verify_profile_id}": {
@@ -32832,9 +33901,16 @@
           }
         }
       },
-      "DownloadSubNumberOrdersReport_200": {
-        "type": "string",
-        "format": "binary"
+      "GetStorageAPIUsage_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketAPIUsageResponse"
+            }
+          }
+        }
       },
       "ActionsParticipantsRequest": {
         "type": "object",
@@ -33511,16 +34587,18 @@
           "send_silence_when_idle": true
         }
       },
-      "updateSubNumberOrderRequirementGroup": {
-        "required": [
-          "requirement_group_id"
-        ],
+      "AddStorageSSLCertificate": {
         "type": "object",
         "properties": {
-          "requirement_group_id": {
+          "certificate": {
             "type": "string",
-            "description": "The ID of the requirement group to associate",
-            "format": "uuid"
+            "description": "The SSL certificate file",
+            "format": "binary"
+          },
+          "private_key": {
+            "type": "string",
+            "description": "The private key file",
+            "format": "binary"
           }
         }
       },
@@ -34237,6 +35315,76 @@
           }
         }
       },
+      "AuthorizationServerMetadata": {
+        "type": "object",
+        "properties": {
+          "issuer": {
+            "type": "string",
+            "description": "Authorization server issuer URL",
+            "format": "uri"
+          },
+          "token_endpoint": {
+            "type": "string",
+            "description": "Token endpoint URL",
+            "format": "uri"
+          },
+          "introspection_endpoint": {
+            "type": "string",
+            "description": "Token introspection endpoint URL",
+            "format": "uri"
+          },
+          "jwks_uri": {
+            "type": "string",
+            "description": "JWK Set endpoint URL",
+            "format": "uri"
+          },
+          "registration_endpoint": {
+            "type": "string",
+            "description": "Dynamic client registration endpoint URL",
+            "format": "uri"
+          },
+          "authorization_endpoint": {
+            "type": "string",
+            "description": "Authorization endpoint URL",
+            "format": "uri"
+          },
+          "grant_types_supported": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Supported grant types"
+          },
+          "code_challenge_methods_supported": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Supported PKCE code challenge methods"
+          },
+          "response_types_supported": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Supported response types"
+          },
+          "token_endpoint_auth_methods_supported": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Supported token endpoint authentication methods"
+          },
+          "scopes_supported": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Supported OAuth scopes"
+          }
+        }
+      },
       "AutoRechargePref": {
         "type": "object",
         "properties": {
@@ -34611,59 +35759,71 @@
         "type": "string",
         "additionalProperties": false
       },
-      "ListMigrations_200": {
+      "ValidateRegistrationCodes": {
         "type": "object",
         "properties": {
-          "data": {
+          "registration_codes": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MigrationParams"
+              "type": "string"
             }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMetaSimple"
+          }
+        },
+        "description": "The object containing the Array of SIM card registration codes.",
+        "example": {
+          "registration_codes": [
+            "123456780",
+            "1231231230"
+          ]
+        }
+      },
+      "SetPublicIPsBulk": {
+        "required": [
+          "sim_card_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "sim_card_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Identifies the resource.",
+              "format": "uuid"
+            }
           }
         }
       },
-      "ListMigrationSources_200": {
+      "PreviewSimCardOrders": {
+        "required": [
+          "quantity",
+          "address_id"
+        ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MigrationSourceParams"
-            }
+          "quantity": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
+            "example": 21
           },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMetaSimple"
+          "address_id": {
+            "type": "string",
+            "description": "Uniquely identifies the address for the order.",
+            "example": "1293384261075731499"
           }
         }
       },
-      "ListMigrationSourceCoverage_200": {
+      "SetWirelessBlocklistForSimCardGroup": {
+        "required": [
+          "wireless_blocklist_id"
+        ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MigrationSourceCoverageParams"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMetaSimple"
-          }
-        }
-      },
-      "GetBucketUsage_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BucketUsage"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMetaSimple"
+          "wireless_blocklist_id": {
+            "type": "string",
+            "description": "The identification of the related Wireless Blocklist resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           }
         }
       },
@@ -35478,14 +36638,17 @@
           "park_after_unbridge": "self"
         }
       },
-      "GetStorageAPIUsage_200": {
+      "SetPrivateWirelessGatewayForSimCardGroup": {
+        "required": [
+          "private_wireless_gateway_id"
+        ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BucketAPIUsageResponse"
-            }
+          "private_wireless_gateway_id": {
+            "type": "string",
+            "description": "The identification of the related Private Wireless Gateway resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           }
         }
       },
@@ -36888,18 +38051,37 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "AddStorageSSLCertificate": {
+      "PostSimCardDataUsageNotification": {
+        "required": [
+          "sim_card_id",
+          "threshold"
+        ],
         "type": "object",
         "properties": {
-          "certificate": {
+          "sim_card_id": {
             "type": "string",
-            "description": "The SSL certificate file",
-            "format": "binary"
+            "description": "The identification UUID of the related SIM card resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
-          "private_key": {
-            "type": "string",
-            "description": "The private key file",
-            "format": "binary"
+          "threshold": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "example": "2048.1"
+              },
+              "unit": {
+                "enum": [
+                  "MB",
+                  "GB"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "example": "MB"
+              }
+            },
+            "description": "Data usage threshold that will trigger the notification."
           }
         }
       },
@@ -44752,22 +45934,32 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "ValidateRegistrationCodes": {
+      "UpdateRequirementGroup": {
         "type": "object",
         "properties": {
-          "registration_codes": {
+          "customer_reference": {
+            "type": "string",
+            "description": "Reference for the customer",
+            "example": "0002"
+          },
+          "regulatory_requirements": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "requirement_id": {
+                  "type": "string",
+                  "description": "Unique identifier for the regulatory requirement",
+                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
+                },
+                "field_value": {
+                  "type": "string",
+                  "description": "New value for the regulatory requirement",
+                  "example": "new requirement value"
+                }
+              }
             }
           }
-        },
-        "description": "The object containing the Array of SIM card registration codes.",
-        "example": {
-          "registration_codes": [
-            "123456780",
-            "1231231230"
-          ]
         }
       },
       "ConnectionAndroidPushCredentialId": {
@@ -44777,40 +45969,64 @@
         "nullable": true,
         "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
       },
-      "SetPublicIPsBulk": {
+      "CreateRequirementGroup": {
         "required": [
-          "sim_card_ids"
+          "country_code",
+          "phone_number_type",
+          "action"
         ],
         "type": "object",
         "properties": {
-          "sim_card_ids": {
+          "country_code": {
+            "type": "string",
+            "description": "ISO alpha 2 country code",
+            "example": "US"
+          },
+          "phone_number_type": {
+            "enum": [
+              "local",
+              "toll_free",
+              "mobile",
+              "national",
+              "shared_cost"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "local"
+          },
+          "action": {
+            "enum": [
+              "ordering",
+              "porting"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "ordering"
+          },
+          "customer_reference": {
+            "type": "string",
+            "example": "My Requirement Group"
+          },
+          "regulatory_requirements": {
             "type": "array",
             "items": {
-              "type": "string",
-              "description": "Identifies the resource.",
-              "format": "uuid"
+              "type": "object",
+              "properties": {
+                "requirement_id": {
+                  "type": "string"
+                },
+                "field_value": {
+                  "type": "string"
+                }
+              }
             }
           }
         }
       },
-      "PreviewSimCardOrders": {
-        "required": [
-          "quantity",
-          "address_id"
-        ],
-        "type": "object",
-        "properties": {
-          "quantity": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
-            "example": 21
-          },
-          "address_id": {
-            "type": "string",
-            "description": "Uniquely identifies the address for the order.",
-            "example": "1293384261075731499"
-          }
+      "GetRequirementGroups_200": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RequirementGroup"
         }
       },
       "ConnectionIosPushCredentialId": {
@@ -44820,17 +46036,28 @@
         "nullable": true,
         "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
       },
-      "SetWirelessBlocklistForSimCardGroup": {
+      "CreatePrivateWirelessGateway": {
         "required": [
-          "wireless_blocklist_id"
+          "network_id",
+          "name"
         ],
         "type": "object",
         "properties": {
-          "wireless_blocklist_id": {
+          "network_id": {
             "type": "string",
-            "description": "The identification of the related Wireless Blocklist resource.",
+            "description": "The identification of the related network resource.",
             "format": "uuid",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "name": {
+            "type": "string",
+            "description": "The private wireless gateway name.",
+            "example": "My private wireless gateway"
+          },
+          "region_code": {
+            "type": "string",
+            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
+            "example": "dc2"
           }
         }
       },
@@ -44865,6 +46092,71 @@
           "port": "rtcp-mux",
           "capture_enabled": true,
           "report_frequency_secs": 10
+        }
+      },
+      "ConsentTokenResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "client_id": {
+                "type": "string",
+                "description": "Client ID"
+              },
+              "name": {
+                "type": "string",
+                "description": "Client name"
+              },
+              "requested_scopes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Scope ID"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Scope name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Scope description"
+                    }
+                  }
+                }
+              },
+              "logo_uri": {
+                "type": "string",
+                "description": "URL of the client logo",
+                "format": "uri",
+                "nullable": true
+              },
+              "tos_uri": {
+                "type": "string",
+                "description": "URL of the client's terms of service",
+                "format": "uri",
+                "nullable": true
+              },
+              "policy_uri": {
+                "type": "string",
+                "description": "URL of the client's privacy policy",
+                "format": "uri",
+                "nullable": true
+              },
+              "redirect_uri": {
+                "type": "string",
+                "description": "The redirect URI for this authorization",
+                "format": "uri"
+              },
+              "verified": {
+                "type": "boolean",
+                "description": "Whether the client is verified"
+              }
+            }
+          }
         }
       },
       "ConsumedData": {
@@ -45165,17 +46457,22 @@
           }
         }
       },
-      "SetPrivateWirelessGatewayForSimCardGroup": {
+      "UpdatePortoutStatus": {
         "required": [
-          "private_wireless_gateway_id"
+          "reason"
         ],
         "type": "object",
         "properties": {
-          "private_wireless_gateway_id": {
+          "reason": {
             "type": "string",
-            "description": "The identification of the related Private Wireless Gateway resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "description": "Provide a reason if rejecting the port out request",
+            "example": "I do not recognize this transaction"
+          },
+          "host_messaging": {
+            "type": "boolean",
+            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
+            "default": false,
+            "example": false
           }
         }
       },
@@ -46568,6 +47865,19 @@
           "dns_record_type": "a"
         }
       },
+      "CreateGrantResponse": {
+        "required": [
+          "redirect_uri"
+        ],
+        "type": "object",
+        "properties": {
+          "redirect_uri": {
+            "type": "string",
+            "description": "Redirect URI with authorization code or error",
+            "format": "uri"
+          }
+        }
+      },
       "CreateGroupMMSMessageRequest": {
         "required": [
           "from",
@@ -47249,6 +48559,21 @@
           "type": "MMS"
         }
       },
+      "CreateMessageTemplateRequest": {
+        "title": "CreateMessageTemplateRequest",
+        "required": [
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The text content of the message template.",
+            "example": "Your {{app_name}} verification code is: {{code}}."
+          }
+        },
+        "description": "The request body when creating a message template."
+      },
       "CreateMessagingHostedNumberOrderRequest": {
         "type": "object",
         "properties": {
@@ -47831,6 +49156,24 @@
           "created_at": "2018-01-01T00:00:00.000000Z",
           "updated_at": "2018-01-01T00:00:00.000000Z"
         }
+      },
+      "CreateOAuthGrantRequest": {
+        "required": [
+          "allowed",
+          "consent_token"
+        ],
+        "type": "object",
+        "properties": {
+          "allowed": {
+            "type": "boolean",
+            "description": "Whether the grant is allowed"
+          },
+          "consent_token": {
+            "type": "string",
+            "description": "Consent token"
+          }
+        },
+        "additionalProperties": false
       },
       "CreateOutboundVoiceProfileRequest": {
         "title": "Outbound Voice Profile",
@@ -48803,37 +50146,39 @@
           }
         }
       },
-      "PostSimCardDataUsageNotification": {
-        "required": [
-          "sim_card_id",
-          "threshold"
-        ],
+      "PostPortRequestSupportingDocuments": {
         "type": "object",
         "properties": {
-          "sim_card_id": {
-            "type": "string",
-            "description": "The identification UUID of the related SIM card resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "threshold": {
-            "type": "object",
-            "properties": {
-              "amount": {
-                "type": "string",
-                "example": "2048.1"
-              },
-              "unit": {
-                "enum": [
-                  "MB",
-                  "GB"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "example": "MB"
+          "documents": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "required": [
+                "type",
+                "document_id"
+              ],
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "loa",
+                    "invoice"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "Identifies the type of the document",
+                  "example": "loa"
+                },
+                "document_id": {
+                  "type": "string",
+                  "description": "Identifies the associated document",
+                  "format": "uuid",
+                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+                }
               }
             },
-            "description": "Data usage threshold that will trigger the notification."
+            "description": "List of supporting documents parameters"
           }
         }
       },
@@ -48920,31 +50265,12 @@
           }
         }
       },
-      "UpdateRequirementGroup": {
+      "PostPortRequestComment": {
         "type": "object",
         "properties": {
-          "customer_reference": {
+          "body": {
             "type": "string",
-            "description": "Reference for the customer",
-            "example": "0002"
-          },
-          "regulatory_requirements": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "requirement_id": {
-                  "type": "string",
-                  "description": "Unique identifier for the regulatory requirement",
-                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
-                },
-                "field_value": {
-                  "type": "string",
-                  "description": "New value for the regulatory requirement",
-                  "example": "new requirement value"
-                }
-              }
-            }
+            "description": "Comment to post on this portout request"
           }
         }
       },
@@ -49310,57 +50636,15 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "CreateRequirementGroup": {
-        "required": [
-          "country_code",
-          "phone_number_type",
-          "action"
-        ],
+      "PostPortabilityCheck": {
         "type": "object",
         "properties": {
-          "country_code": {
-            "type": "string",
-            "description": "ISO alpha 2 country code",
-            "example": "US"
-          },
-          "phone_number_type": {
-            "enum": [
-              "local",
-              "toll_free",
-              "mobile",
-              "national",
-              "shared_cost"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "local"
-          },
-          "action": {
-            "enum": [
-              "ordering",
-              "porting"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "ordering"
-          },
-          "customer_reference": {
-            "type": "string",
-            "example": "My Requirement Group"
-          },
-          "regulatory_requirements": {
+          "phone_numbers": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "requirement_id": {
-                  "type": "string"
-                },
-                "field_value": {
-                  "type": "string"
-                }
-              }
-            }
+              "type": "string"
+            },
+            "description": "The list of +E.164 formatted phone numbers to check for portability"
           }
         }
       },
@@ -49845,10 +51129,32 @@
           }
         }
       },
-      "GetRequirementGroups_200": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/RequirementGroup"
+      "PostAssignMessagingProfileToCampaign_202": {
+        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
+          },
+          {
+            "$ref": "#/components/schemas/SettingsDataErrorMessage"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
+            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
+          }
         }
       },
       "DefaultGateway": {
@@ -52709,29 +54015,11 @@
           }
         }
       },
-      "CreatePrivateWirelessGateway": {
-        "required": [
-          "network_id",
-          "name"
-        ],
+      "GetPartnerCampaignSharingStatus_200": {
+        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
         "type": "object",
-        "properties": {
-          "network_id": {
-            "type": "string",
-            "description": "The identification of the related network resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "name": {
-            "type": "string",
-            "description": "The private wireless gateway name.",
-            "example": "My private wireless gateway"
-          },
-          "region_code": {
-            "type": "string",
-            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
-            "example": "dc2"
-          }
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CampaignSharingStatus"
         }
       },
       "FaxMediaProcessed": {
@@ -53116,58 +54404,35 @@
           }
         }
       },
-      "UpdatePortoutStatus": {
-        "required": [
-          "reason"
-        ],
+      "OperatorConnectRefresh_202": {
+        "title": "Operator Connect Refresh Response",
         "type": "object",
         "properties": {
-          "reason": {
-            "type": "string",
-            "description": "Provide a reason if rejecting the port out request",
-            "example": "I do not recognize this transaction"
-          },
-          "host_messaging": {
+          "success": {
             "type": "boolean",
-            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
-            "default": false,
-            "example": false
+            "description": "Describes wether or not the operation was successful",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "description": "A message describing the result of the operation",
+            "example": "Operator connect refresh started"
           }
         }
       },
-      "PostPortRequestSupportingDocuments": {
+      "OperatorConnectRefresh_200": {
+        "title": "Operator Connect Refresh Response",
         "type": "object",
         "properties": {
-          "documents": {
-            "maxItems": 10,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "required": [
-                "type",
-                "document_id"
-              ],
-              "type": "object",
-              "properties": {
-                "type": {
-                  "enum": [
-                    "loa",
-                    "invoice"
-                  ],
-                  "type": "string",
-                  "additionalProperties": false,
-                  "description": "Identifies the type of the document",
-                  "example": "loa"
-                },
-                "document_id": {
-                  "type": "string",
-                  "description": "Identifies the associated document",
-                  "format": "uuid",
-                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-                }
-              }
-            },
-            "description": "List of supporting documents parameters"
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "description": "A message describing the result of the operation",
+            "example": "Operator connect refresh already in progress"
           }
         }
       },
@@ -53486,12 +54751,17 @@
         "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.",
         "default": "UDP"
       },
-      "PostPortRequestComment": {
+      "get_oauth_grants_200": {
         "type": "object",
         "properties": {
-          "body": {
-            "type": "string",
-            "description": "Comment to post on this portout request"
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuthGrant"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/oauth_PaginationMeta"
           }
         }
       },
@@ -55280,15 +56550,17 @@
           }
         }
       },
-      "PostPortabilityCheck": {
+      "get_oauth_clients_200": {
         "type": "object",
         "properties": {
-          "phone_numbers": {
+          "data": {
             "type": "array",
             "items": {
-              "type": "string"
-            },
-            "description": "The list of +E.164 formatted phone numbers to check for portability"
+              "$ref": "#/components/schemas/OAuthClient"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/oauth_PaginationMeta"
           }
         }
       },
@@ -56658,31 +57930,25 @@
           }
         }
       },
-      "PostAssignMessagingProfileToCampaign_202": {
-        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
-        "required": [
-          "type"
-        ],
+      "post_oauth_register_400": {
         "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
-          },
-          {
-            "$ref": "#/components/schemas/SettingsDataErrorMessage"
-          }
-        ],
         "properties": {
-          "type": {
+          "error": {
             "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
-            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
+            "example": "invalid_client_metadata"
+          },
+          "error_description": {
+            "type": "string",
+            "example": "The client metadata was invalid"
+          },
+          "invalid_fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -56796,6 +58062,54 @@
           }
         },
         "description": "Settings for handling user interruptions during assistant speech"
+      },
+      "IntrospectRequest": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "The token to introspect"
+          }
+        }
+      },
+      "IntrospectResponse": {
+        "required": [
+          "active"
+        ],
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "description": "Whether the token is active"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Space-separated list of scopes"
+          },
+          "client_id": {
+            "type": "string",
+            "description": "Client identifier"
+          },
+          "exp": {
+            "type": "integer",
+            "description": "Expiration timestamp"
+          },
+          "iat": {
+            "type": "integer",
+            "description": "Issued at timestamp"
+          },
+          "iss": {
+            "type": "string",
+            "description": "Issuer"
+          },
+          "aud": {
+            "type": "string",
+            "description": "Audience"
+          }
+        }
       },
       "InventoryCoverage": {
         "type": "object",
@@ -57197,6 +58511,35 @@
             "ip_authentication_method": "token",
             "ip_authentication_token": "string",
             "outbound_voice_profile_id": "1293384261075731499"
+          }
+        }
+      },
+      "JWKSet": {
+        "type": "object",
+        "properties": {
+          "keys": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kty": {
+                  "type": "string",
+                  "description": "Key type"
+                },
+                "use": {
+                  "type": "string",
+                  "description": "Key use"
+                },
+                "alg": {
+                  "type": "string",
+                  "description": "Algorithm"
+                },
+                "kid": {
+                  "type": "string",
+                  "description": "Key ID"
+                }
+              }
+            }
           }
         }
       },
@@ -58321,12 +59664,8 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "GetPartnerCampaignSharingStatus_200": {
-        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/CampaignSharingStatus"
-        }
+      "get_oauth_authorize_422": {
+        "type": "string"
       },
       "MediaResource": {
         "title": "Media Resource",
@@ -58449,21 +59788,8 @@
           }
         }
       },
-      "OperatorConnectRefresh_202": {
-        "title": "Operator Connect Refresh Response",
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful",
-            "example": true
-          },
-          "message": {
-            "type": "string",
-            "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh started"
-          }
-        }
+      "get_oauth_authorize_404": {
+        "type": "string"
       },
       "MessageDetailRecord": {
         "required": [
@@ -58654,6 +59980,15 @@
             "description": "Identifies the record schema",
             "default": "message_detail_record",
             "example": "message_detail_record"
+          }
+        }
+      },
+      "MessageTemplateResponseDataWrapper": {
+        "title": "MessageTemplateResponseDataWrapper",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/VerifyProfileMessageTemplateResponse"
           }
         }
       },
@@ -59360,21 +60695,8 @@
           }
         }
       },
-      "OperatorConnectRefresh_200": {
-        "title": "Operator Connect Refresh Response",
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful",
-            "example": true
-          },
-          "message": {
-            "type": "string",
-            "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh already in progress"
-          }
-        }
+      "get_oauth_authorize_400": {
+        "type": "string"
       },
       "MobileNetworkOperator": {
         "title": "MobileNetworkOperator",
@@ -61153,6 +62475,445 @@
           "customer_reference": "MY REF 001",
           "created_at": "2018-01-01T00:00:00.000000Z",
           "updated_at": "2018-01-01T00:00:00.000000Z"
+        }
+      },
+      "OAuthClient": {
+        "required": [
+          "record_type",
+          "client_id",
+          "name",
+          "org_id",
+          "user_id",
+          "client_type",
+          "require_pkce",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "enum": [
+              "oauth_client"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Record type identifier"
+          },
+          "client_id": {
+            "type": "string",
+            "description": "OAuth client identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable name for the OAuth client"
+          },
+          "org_id": {
+            "type": "string",
+            "description": "Organization ID that owns this OAuth client"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "User ID that created this OAuth client"
+          },
+          "allowed_scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of allowed OAuth scopes"
+          },
+          "client_type": {
+            "enum": [
+              "public",
+              "confidential"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "OAuth client type"
+          },
+          "require_pkce": {
+            "type": "boolean",
+            "description": "Whether PKCE (Proof Key for Code Exchange) is required for this client"
+          },
+          "allowed_grant_types": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "client_credentials",
+                "authorization_code",
+                "refresh_token"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            },
+            "description": "List of allowed OAuth grant types"
+          },
+          "redirect_uris": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "List of allowed redirect URIs"
+          },
+          "logo_uri": {
+            "type": "string",
+            "description": "URL of the client logo",
+            "format": "uri",
+            "nullable": true
+          },
+          "tos_uri": {
+            "type": "string",
+            "description": "URL of the client's terms of service",
+            "format": "uri",
+            "nullable": true
+          },
+          "policy_uri": {
+            "type": "string",
+            "description": "URL of the client's privacy policy",
+            "format": "uri",
+            "nullable": true
+          },
+          "client_secret": {
+            "type": "string",
+            "description": "Client secret (only included when available, for confidential clients)",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the client was created",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the client was last updated",
+            "format": "date-time"
+          }
+        }
+      },
+      "OAuthClientCreateRequest": {
+        "required": [
+          "name",
+          "allowed_scopes",
+          "client_type",
+          "allowed_grant_types"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the OAuth client",
+            "example": "My OAuth client"
+          },
+          "allowed_scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of allowed OAuth scopes"
+          },
+          "client_type": {
+            "enum": [
+              "public",
+              "confidential"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "OAuth client type"
+          },
+          "require_pkce": {
+            "type": "boolean",
+            "description": "Whether PKCE (Proof Key for Code Exchange) is required for this client",
+            "default": false
+          },
+          "allowed_grant_types": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "client_credentials",
+                "authorization_code",
+                "refresh_token"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            },
+            "description": "List of allowed OAuth grant types"
+          },
+          "redirect_uris": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "List of redirect URIs (required for authorization_code flow)"
+          },
+          "logo_uri": {
+            "type": "string",
+            "description": "URL of the client logo",
+            "format": "uri"
+          },
+          "policy_uri": {
+            "type": "string",
+            "description": "URL of the client's privacy policy",
+            "format": "uri"
+          },
+          "tos_uri": {
+            "type": "string",
+            "description": "URL of the client's terms of service",
+            "format": "uri"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OAuthClientUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the OAuth client"
+          },
+          "allowed_scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of allowed OAuth scopes"
+          },
+          "require_pkce": {
+            "type": "boolean",
+            "description": "Whether PKCE (Proof Key for Code Exchange) is required for this client"
+          },
+          "allowed_grant_types": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "client_credentials",
+                "authorization_code",
+                "refresh_token"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            },
+            "description": "List of allowed OAuth grant types"
+          },
+          "redirect_uris": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "List of redirect URIs"
+          },
+          "logo_uri": {
+            "type": "string",
+            "description": "URL of the client logo",
+            "format": "uri"
+          },
+          "policy_uri": {
+            "type": "string",
+            "description": "URL of the client's privacy policy",
+            "format": "uri"
+          },
+          "tos_uri": {
+            "type": "string",
+            "description": "URL of the client's terms of service",
+            "format": "uri"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OAuthDynamicRegistrationRequest": {
+        "type": "object",
+        "properties": {
+          "redirect_uris": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "Array of redirection URI strings for use in redirect-based flows"
+          },
+          "client_name": {
+            "type": "string",
+            "description": "Human-readable string name of the client to be presented to the end-user",
+            "example": "My OAuth Application"
+          },
+          "grant_types": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "authorization_code",
+                "client_credentials",
+                "refresh_token"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            },
+            "description": "Array of OAuth 2.0 grant type strings that the client may use",
+            "default": [
+              "authorization_code"
+            ]
+          },
+          "response_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of the OAuth 2.0 response type strings that the client may use",
+            "default": [
+              "code"
+            ]
+          },
+          "scope": {
+            "type": "string",
+            "description": "Space-separated string of scope values that the client may use",
+            "example": "admin"
+          },
+          "token_endpoint_auth_method": {
+            "enum": [
+              "none",
+              "client_secret_basic",
+              "client_secret_post"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Authentication method for the token endpoint",
+            "default": "client_secret_basic"
+          },
+          "logo_uri": {
+            "type": "string",
+            "description": "URL of the client logo",
+            "format": "uri"
+          },
+          "tos_uri": {
+            "type": "string",
+            "description": "URL of the client's terms of service",
+            "format": "uri"
+          },
+          "policy_uri": {
+            "type": "string",
+            "description": "URL of the client's privacy policy",
+            "format": "uri"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OAuthDynamicRegistrationResponse": {
+        "required": [
+          "client_id",
+          "client_id_issued_at"
+        ],
+        "type": "object",
+        "properties": {
+          "client_id": {
+            "type": "string",
+            "description": "Unique client identifier",
+            "example": "abc123def456"
+          },
+          "client_secret": {
+            "type": "string",
+            "description": "Client secret (only for confidential clients)"
+          },
+          "redirect_uris": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "Array of redirection URIs"
+          },
+          "client_name": {
+            "type": "string",
+            "description": "Human-readable client name"
+          },
+          "grant_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of allowed grant types"
+          },
+          "response_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of allowed response types"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Space-separated scope values"
+          },
+          "token_endpoint_auth_method": {
+            "type": "string",
+            "description": "Token endpoint authentication method"
+          },
+          "client_id_issued_at": {
+            "type": "integer",
+            "description": "Unix timestamp of when the client ID was issued"
+          },
+          "logo_uri": {
+            "type": "string",
+            "description": "URL of the client logo",
+            "format": "uri"
+          },
+          "tos_uri": {
+            "type": "string",
+            "description": "URL of the client's terms of service",
+            "format": "uri"
+          },
+          "policy_uri": {
+            "type": "string",
+            "description": "URL of the client's privacy policy",
+            "format": "uri"
+          }
+        }
+      },
+      "OAuthGrant": {
+        "required": [
+          "id",
+          "record_type",
+          "client_id",
+          "scopes",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the OAuth grant",
+            "format": "uuid"
+          },
+          "record_type": {
+            "enum": [
+              "oauth_grant"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Record type identifier"
+          },
+          "client_id": {
+            "type": "string",
+            "description": "OAuth client identifier"
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of granted OAuth scopes"
+          },
+          "last_used_at": {
+            "type": "string",
+            "description": "Timestamp when the grant was last used",
+            "format": "date-time",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the grant was created",
+            "format": "date-time"
+          }
         }
       },
       "OptOutItem": {
@@ -69397,6 +71158,24 @@
           "expired_at": "2018-01-01T00:00:00.000000Z"
         }
       },
+      "ResourceMetadata": {
+        "type": "object",
+        "properties": {
+          "resource": {
+            "type": "string",
+            "description": "Protected resource URL",
+            "format": "uri"
+          },
+          "authorization_servers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "List of authorization server URLs"
+          }
+        }
+      },
       "ResourceNotFoundError": {
         "type": "object",
         "properties": {
@@ -77060,6 +78839,88 @@
           }
         }
       },
+      "TokenRequest": {
+        "required": [
+          "grant_type"
+        ],
+        "type": "object",
+        "properties": {
+          "grant_type": {
+            "enum": [
+              "client_credentials",
+              "authorization_code",
+              "refresh_token"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "OAuth 2.0 grant type"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Space-separated list of requested scopes (for client_credentials)",
+            "example": "admin"
+          },
+          "code": {
+            "type": "string",
+            "description": "Authorization code (for authorization_code flow)"
+          },
+          "redirect_uri": {
+            "type": "string",
+            "description": "Redirect URI (for authorization_code flow)",
+            "format": "uri"
+          },
+          "code_verifier": {
+            "type": "string",
+            "description": "PKCE code verifier (for authorization_code flow)"
+          },
+          "refresh_token": {
+            "type": "string",
+            "description": "Refresh token (for refresh_token flow)"
+          },
+          "client_id": {
+            "type": "string",
+            "description": "OAuth client ID (if not using HTTP Basic auth)"
+          },
+          "client_secret": {
+            "type": "string",
+            "description": "OAuth client secret (if not using HTTP Basic auth)"
+          }
+        }
+      },
+      "TokenResponse": {
+        "required": [
+          "access_token",
+          "token_type",
+          "expires_in"
+        ],
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "The access token"
+          },
+          "token_type": {
+            "enum": [
+              "Bearer"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Token type"
+          },
+          "expires_in": {
+            "type": "integer",
+            "description": "Token lifetime in seconds"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Space-separated list of granted scopes"
+          },
+          "refresh_token": {
+            "type": "string",
+            "description": "Refresh token (if applicable)"
+          }
+        }
+      },
       "TotalSummary": {
         "required": [
           "new_mrc",
@@ -79560,6 +81421,21 @@
           "media_url": "http://www.example.com/audio.mp3",
           "ttl_secs": 86400
         }
+      },
+      "UpdateMessageTemplateRequest": {
+        "title": "UpdateMessageTemplateRequest",
+        "required": [
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The text content of the message template.",
+            "example": "Your {{app_name}} verification code is: {{code}}."
+          }
+        },
+        "description": "The request body when updating a message template."
       },
       "UpdateMessagingProfileRequest": {
         "type": "object",
@@ -86104,6 +87980,43 @@
           }
         }
       },
+      "oauth_Error": {
+        "required": [
+          "error"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "error_description": {
+            "type": "string",
+            "description": "Human-readable error description"
+          }
+        }
+      },
+      "oauth_PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "page_number": {
+            "type": "integer",
+            "description": "Current page number"
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "Number of items per page"
+          },
+          "total_results": {
+            "type": "integer",
+            "description": "Total number of results"
+          },
+          "total_pages": {
+            "type": "integer",
+            "description": "Total number of pages"
+          }
+        }
+      },
       "GetAuthenticationProvider_404": {
         "type": "object"
       },
@@ -87142,6 +89055,79 @@
             "type": "string"
           }
         }
+      },
+      "GetBucketUsage_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketUsage"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMetaSimple"
+          }
+        }
+      },
+      "ListMigrationSourceCoverage_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MigrationSourceCoverageParams"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMetaSimple"
+          }
+        }
+      },
+      "ListMigrationSources_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MigrationSourceParams"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMetaSimple"
+          }
+        }
+      },
+      "ListMigrations_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MigrationParams"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMetaSimple"
+          }
+        }
+      },
+      "updateSubNumberOrderRequirementGroup": {
+        "required": [
+          "requirement_group_id"
+        ],
+        "type": "object",
+        "properties": {
+          "requirement_group_id": {
+            "type": "string",
+            "description": "The ID of the requirement group to associate",
+            "format": "uuid"
+          }
+        }
+      },
+      "DownloadSubNumberOrdersReport_200": {
+        "type": "string",
+        "format": "binary"
       },
       "CreateTelephonyCredentialToken_201": {
         "type": "string",
@@ -98990,6 +100976,11 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer"
+      },
+      "oauthClientAuth": {
+        "type": "http",
+        "description": "OAuth client credentials (client_id:client_secret) via HTTP Basic Auth, or client credentials in request body for public clients",
+        "scheme": "basic"
       },
       "assets_jwt": {
         "type": "http",
