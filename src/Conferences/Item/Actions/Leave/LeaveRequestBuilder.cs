@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Leave
         {
         }
         /// <summary>
-        /// Removes a call leg from a conference and moves it back to parked state. **Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/leave-conference#callbacks) below):**- `conference.participant.left`
+        /// Removes a call leg from a conference and moves it back to parked state. **Expected Webhooks:**- `conference.participant.left`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Leave.LeavePostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Leave
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Leave.LeavePostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Leave.LeavePostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Removes a call leg from a conference and moves it back to parked state. **Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/leave-conference#callbacks) below):**- `conference.participant.left`
+        /// Removes a call leg from a conference and moves it back to parked state. **Expected Webhooks:**- `conference.participant.left`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

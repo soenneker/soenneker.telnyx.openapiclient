@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai
         {
         }
         /// <summary>
-        /// Gather parameters defined in the request payload using a voice assistant. You can pass parameters described as a JSON Schema object and the voice assistant will attempt to gather these informations. **Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-gather-using-ai#callbacks) below):**- `call.ai_gather.ended`- `call.conversation.ended`- `call.ai_gather.partial_results` (if `send_partial_results` is set to `true`)- `call.ai_gather.message_history_updated` (if `send_message_history_updates` is set to `true`)
+        /// Gather parameters defined in the request payload using a voice assistant. You can pass parameters described as a JSON Schema object and the voice assistant will attempt to gather these informations. **Expected Webhooks:**- `call.ai_gather.ended`- `call.conversation.ended`- `call.ai_gather.partial_results` (if `send_partial_results` is set to `true`)- `call.ai_gather.message_history_updated` (if `send_message_history_updates` is set to `true`)
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather_using_ai.Gather_using_aiPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gather parameters defined in the request payload using a voice assistant. You can pass parameters described as a JSON Schema object and the voice assistant will attempt to gather these informations. **Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-gather-using-ai#callbacks) below):**- `call.ai_gather.ended`- `call.conversation.ended`- `call.ai_gather.partial_results` (if `send_partial_results` is set to `true`)- `call.ai_gather.message_history_updated` (if `send_message_history_updates` is set to `true`)
+        /// Gather parameters defined in the request payload using a voice assistant. You can pass parameters described as a JSON Schema object and the voice assistant will attempt to gather these informations. **Expected Webhooks:**- `call.ai_gather.ended`- `call.conversation.ended`- `call.ai_gather.partial_results` (if `send_partial_results` is set to `true`)- `call.ai_gather.message_history_updated` (if `send_message_history_updates` is set to `true`)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

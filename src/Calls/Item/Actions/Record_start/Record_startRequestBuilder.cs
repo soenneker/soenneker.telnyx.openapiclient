@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_start
         {
         }
         /// <summary>
-        /// Start recording the call. Recording will stop on call hang-up, or can be initiated via the Stop Recording command.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/start-call-record#callbacks) below):**- `call.recording.saved`- `call.recording.transcription.saved`- `call.recording.error`
+        /// Start recording the call. Recording will stop on call hang-up, or can be initiated via the Stop Recording command.**Expected Webhooks:**- `call.recording.saved`- `call.recording.transcription.saved`- `call.recording.error`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_start.Record_startPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_start
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_start.Record_startPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Record_start.Record_startPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start recording the call. Recording will stop on call hang-up, or can be initiated via the Stop Recording command.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/start-call-record#callbacks) below):**- `call.recording.saved`- `call.recording.transcription.saved`- `call.recording.error`
+        /// Start recording the call. Recording will stop on call hang-up, or can be initiated via the Stop Recording command.**Expected Webhooks:**- `call.recording.saved`- `call.recording.transcription.saved`- `call.recording.error`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

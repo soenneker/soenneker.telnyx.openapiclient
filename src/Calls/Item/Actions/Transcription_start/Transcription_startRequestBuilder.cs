@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_start
         {
         }
         /// <summary>
-        /// Start real-time transcription. Transcription will stop on call hang-up, or can be initiated via the Transcription stop command.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/start-call-transcription#callbacks) below):**- `call.transcription`
+        /// Start real-time transcription. Transcription will stop on call hang-up, or can be initiated via the Transcription stop command.**Expected Webhooks:**- `call.transcription`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_start.Transcription_startPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_start
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_start.Transcription_startPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Transcription_start.Transcription_startPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start real-time transcription. Transcription will stop on call hang-up, or can be initiated via the Transcription stop command.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/start-call-transcription#callbacks) below):**- `call.transcription`
+        /// Start real-time transcription. Transcription will stop on call hang-up, or can be initiated via the Transcription stop command.**Expected Webhooks:**- `call.transcription`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

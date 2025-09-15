@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_start
         {
         }
         /// <summary>
-        /// Start recording the conference. Recording will stop on conference end, or via the Stop Recording command.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/start-conference-recording#callbacks) below):**- `conference.recording.saved`
+        /// Start recording the conference. Recording will stop on conference end, or via the Stop Recording command.**Expected Webhooks:**- `conference.recording.saved`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_start.Record_startPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_start
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_start.Record_startPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_start.Record_startPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start recording the conference. Recording will stop on conference end, or via the Stop Recording command.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/start-conference-recording#callbacks) below):**- `conference.recording.saved`
+        /// Start recording the conference. Recording will stop on conference end, or via the Stop Recording command.**Expected Webhooks:**- `conference.recording.saved`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

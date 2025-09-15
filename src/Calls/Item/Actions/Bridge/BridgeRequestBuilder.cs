@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Bridge
         {
         }
         /// <summary>
-        /// Bridge two call control calls.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/bridge-call#callbacks) below):**- `call.bridged` for Leg A- `call.bridged` for Leg B
+        /// Bridge two call control calls.**Expected Webhooks:**- `call.bridged` for Leg A- `call.bridged` for Leg B
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Bridge.BridgePostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Bridge
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Bridge.BridgePostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Bridge.BridgePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Bridge two call control calls.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/bridge-call#callbacks) below):**- `call.bridged` for Leg A- `call.bridged` for Leg B
+        /// Bridge two call control calls.**Expected Webhooks:**- `call.bridged` for Leg A- `call.bridged` for Leg B
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

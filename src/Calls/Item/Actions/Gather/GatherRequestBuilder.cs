@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather
         {
         }
         /// <summary>
-        /// Gather DTMF signals to build interactive menus.You can pass a list of valid digits. The `Answer` command must be issued before the `gather` command.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/gather-call#callbacks) below):**- `call.dtmf.received` (you may receive many of these webhooks)- `call.gather.ended`
+        /// Gather DTMF signals to build interactive menus.You can pass a list of valid digits. The `Answer` command must be issued before the `gather` command.**Expected Webhooks:**- `call.dtmf.received` (you may receive many of these webhooks)- `call.gather.ended`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather.GatherPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather.GatherPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Gather.GatherPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gather DTMF signals to build interactive menus.You can pass a list of valid digits. The `Answer` command must be issued before the `gather` command.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/gather-call#callbacks) below):**- `call.dtmf.received` (you may receive many of these webhooks)- `call.gather.ended`
+        /// Gather DTMF signals to build interactive menus.You can pass a list of valid digits. The `Answer` command must be issued before the `gather` command.**Expected Webhooks:**- `call.dtmf.received` (you may receive many of these webhooks)- `call.gather.ended`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

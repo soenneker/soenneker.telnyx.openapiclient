@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start
         {
         }
         /// <summary>
-        /// Start an AI assistant on the call.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-start-ai-assistant#callbacks) below):**- `call.conversation.ended`- `call.conversation_insights.generated`
+        /// Start an AI assistant on the call.**Expected Webhooks:**- `call.conversation.ended`- `call.conversation_insights.generated`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Start an AI assistant on the call.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/call-start-ai-assistant#callbacks) below):**- `call.conversation.ended`- `call.conversation_insights.generated`
+        /// Start an AI assistant on the call.**Expected Webhooks:**- `call.conversation.ended`- `call.conversation_insights.generated`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

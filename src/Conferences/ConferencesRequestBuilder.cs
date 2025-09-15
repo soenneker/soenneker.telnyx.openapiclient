@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a conference from an existing call leg using a `call_control_id` and a conference name. Upon creating the conference, the call will be automatically bridged to the conference. Conferences will expire after all participants have left the conference or after 4 hours regardless of the number of active participants.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/create-conference#callbacks) below):**- `conference.created`- `conference.participant.joined`- `conference.participant.left`- `conference.ended`- `conference.recording.saved`- `conference.floor.changed`
+        /// Create a conference from an existing call leg using a `call_control_id` and a conference name. Upon creating the conference, the call will be automatically bridged to the conference. Conferences will expire after all participants have left the conference or after 4 hours regardless of the number of active participants.**Expected Webhooks:**- `conference.created`- `conference.participant.joined`- `conference.participant.left`- `conference.ended`- `conference.recording.saved`- `conference.floor.changed`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
             return requestInfo;
         }
         /// <summary>
-        /// Create a conference from an existing call leg using a `call_control_id` and a conference name. Upon creating the conference, the call will be automatically bridged to the conference. Conferences will expire after all participants have left the conference or after 4 hours regardless of the number of active participants.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/create-conference#callbacks) below):**- `conference.created`- `conference.participant.joined`- `conference.participant.left`- `conference.ended`- `conference.recording.saved`- `conference.floor.changed`
+        /// Create a conference from an existing call leg using a `call_control_id` and a conference name. Upon creating the conference, the call will be automatically bridged to the conference. Conferences will expire after all participants have left the conference or after 4 hours regardless of the number of active participants.**Expected Webhooks:**- `conference.created`- `conference.participant.joined`- `conference.participant.left`- `conference.ended`- `conference.recording.saved`- `conference.floor.changed`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
