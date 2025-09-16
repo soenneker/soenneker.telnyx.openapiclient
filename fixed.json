@@ -8226,8 +8226,7 @@
                   "$ref": "#/components/schemas/AppealCampaign_200"
                 },
                 "example": {
-                  "appealed_at": "2025-08-06T15:30:45.123456",
-                  "previous_status": null
+                  "appealed_at": "2025-08-06T15:30:45.123456"
                 }
               }
             }
@@ -86728,11 +86727,6 @@
             "type": "string",
             "description": "Timestamp when the appeal was submitted",
             "format": "date-time"
-          },
-          "previous_status": {
-            "type": "string",
-            "description": "Previous campaign status (currently always null)",
-            "nullable": true
           }
         }
       },
