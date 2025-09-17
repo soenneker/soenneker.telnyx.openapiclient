@@ -23,6 +23,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CustomCode { get; set; }
 #endif
+        /// <summary>Optional extension to dial after call is answered using DTMF digits. Valid digits are 0-9, A-D, *, and #. Pauses can be added using w (0.5s) and W (1s).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Extension { get; set; }
+#nullable restore
+#else
+        public string Extension { get; set; }
+#endif
         /// <summary>+E164 formatted phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,6 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "custom_code", n => { CustomCode = n.GetStringValue(); } },
+                { "extension", n => { Extension = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
                 { "verify_profile_id", n => { VerifyProfileId = n.GetGuidValue(); } },
@@ -74,6 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("custom_code", CustomCode);
+            writer.WriteStringValue("extension", Extension);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
             writer.WriteGuidValue("verify_profile_id", VerifyProfileId);

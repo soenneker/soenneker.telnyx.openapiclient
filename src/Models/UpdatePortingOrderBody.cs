@@ -22,6 +22,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The customer_group_reference property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CustomerGroupReference { get; set; }
+#nullable restore
+#else
+        public string CustomerGroupReference { get; set; }
+#endif
         /// <summary>The customer_reference property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,6 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "activation_settings", n => { ActivationSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrderBody_activation_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrderBody_activation_settings.CreateFromDiscriminatorValue); } },
+                { "customer_group_reference", n => { CustomerGroupReference = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "documents", n => { Documents = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments.CreateFromDiscriminatorValue); } },
                 { "end_user", n => { EndUser = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser.CreateFromDiscriminatorValue); } },
@@ -142,6 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdatePortingOrderBody_activation_settings>("activation_settings", ActivationSettings);
+            writer.WriteStringValue("customer_group_reference", CustomerGroupReference);
             writer.WriteStringValue("customer_reference", CustomerReference);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderDocuments>("documents", Documents);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderEndUser>("end_user", EndUser);

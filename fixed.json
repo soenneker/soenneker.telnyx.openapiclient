@@ -22221,7 +22221,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Consolidated filter parameter (deepObject style). Originally: filter[customer_reference], filter[parent_support_key], filter[phone_numbers.country_code], filter[phone_numbers.carrier_name], filter[misc.type], filter[end_user.admin.entity_name], filter[end_user.admin.auth_person_name], filter[activation_settings.fast_port_eligible], filter[activation_settings.foc_datetime_requested][gt], filter[activation_settings.foc_datetime_requested][lt], filter[phone_numbers.phone_number][contains]",
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[customer_reference], filter[customer_group_reference], filter[parent_support_key], filter[phone_numbers.country_code], filter[phone_numbers.carrier_name], filter[misc.type], filter[end_user.admin.entity_name], filter[end_user.admin.auth_person_name], filter[activation_settings.fast_port_eligible], filter[activation_settings.foc_datetime_requested][gt], filter[activation_settings.foc_datetime_requested][lt], filter[phone_numbers.phone_number][contains]",
             "style": "deepObject",
             "explode": true,
             "schema": {
@@ -22230,6 +22230,10 @@
                 "customer_reference": {
                   "type": "string",
                   "description": "Filter results by customer_reference"
+                },
+                "customer_group_reference": {
+                  "type": "string",
+                  "description": "Filter results by customer_group_reference"
                 },
                 "parent_support_key": {
                   "type": "string",
@@ -49292,6 +49296,11 @@
             "type": "string",
             "description": "A customer-specified reference number for customer bookkeeping purposes",
             "example": "Acct 123abc"
+          },
+          "customer_group_reference": {
+            "type": "string",
+            "description": "A customer-specified group reference for customer bookkeeping purposes",
+            "example": "Group-456"
           }
         }
       },
@@ -49948,6 +49957,12 @@
             "type": "integer",
             "description": "The number of seconds the verification code is valid for.",
             "example": 300
+          },
+          "extension": {
+            "type": "string",
+            "description": "Optional extension to dial after call is answered using DTMF digits. Valid digits are 0-9, A-D, *, and #. Pauses can be added using w (0.5s) and W (1s).",
+            "nullable": true,
+            "example": "1www2WABCDw9"
           }
         },
         "description": "The request body when creating a verification."
@@ -67221,6 +67236,11 @@
             "description": "A customer-specified reference number for customer bookkeeping purposes",
             "example": "Acct 123abc"
           },
+          "customer_group_reference": {
+            "type": "string",
+            "description": "A customer-specified group reference for customer bookkeeping purposes",
+            "example": "Group-456"
+          },
           "created_at": {
             "type": "string",
             "description": "ISO 8601 formatted date indicating when the resource was created.",
@@ -81965,6 +81985,9 @@
           "customer_reference": {
             "type": "string"
           },
+          "customer_group_reference": {
+            "type": "string"
+          },
           "messaging": {
             "type": "object",
             "properties": {
@@ -90065,6 +90088,7 @@
                   },
                   "created_at": "2022-03-24T14:22:28Z",
                   "customer_reference": "Test1234",
+                  "customer_group_reference": "Group-789",
                   "description": "FP Telnyx",
                   "documents": {
                     "loa": "3a5b98a0-5049-47c3-96e1-aa6c8d119117",
@@ -90215,6 +90239,7 @@
                   },
                   "created_at": "2022-03-24T14:22:28Z",
                   "customer_reference": "Test1234",
+                  "customer_group_reference": "Group-789",
                   "description": "FP Telnyx",
                   "documents": {
                     "loa": "3a5b98a0-5049-47c3-96e1-aa6c8d119117",
@@ -92561,6 +92586,7 @@
                     },
                     "created_at": "2022-03-17T18:01:01Z",
                     "customer_reference": null,
+                    "customer_group_reference": null,
                     "description": "FP Telnyx",
                     "documents": {
                       "loa": null,
@@ -95872,6 +95898,7 @@
                   },
                   "created_at": "2022-03-24T14:22:28Z",
                   "customer_reference": "Test1234",
+                  "customer_group_reference": "Group-789",
                   "description": "FP Telnyx",
                   "documents": {
                     "loa": null,
