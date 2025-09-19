@@ -73665,7 +73665,8 @@
             "items": {
               "type": "string"
             },
-            "description": "List of IMEIs authorized to use a given SIM card."
+            "description": "List of IMEIs authorized to use a given SIM card.",
+            "nullable": true
           },
           "current_imei": {
             "type": "string",
@@ -73816,6 +73817,38 @@
               }
             },
             "description": "PIN and PUK codes for the SIM card. Only available when include_pin_puk_codes=true is set in the request.",
+            "readOnly": true
+          },
+          "esim_installation_status": {
+            "enum": [
+              "released",
+              "disabled"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The installation status of the eSIM. Only applicable for eSIM cards.",
+            "nullable": true,
+            "readOnly": true,
+            "example": "released"
+          },
+          "version": {
+            "type": "string",
+            "description": "The version of the SIM card.",
+            "readOnly": true,
+            "example": "4.3"
+          },
+          "resources_with_in_progress_actions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "List of resources with actions in progress.",
+            "readOnly": true
+          },
+          "eid": {
+            "type": "string",
+            "description": "The Embedded Identity Document (eID) for eSIM cards.",
+            "nullable": true,
             "readOnly": true
           }
         }
@@ -75843,6 +75876,46 @@
             "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
             "readOnly": true,
             "example": "2018-02-02T22:25:27.521Z"
+          },
+          "esim_installation_status": {
+            "enum": [
+              "released",
+              "disabled"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The installation status of the eSIM. Only applicable for eSIM cards.",
+            "nullable": true,
+            "readOnly": true,
+            "example": "released"
+          },
+          "version": {
+            "type": "string",
+            "description": "The version of the SIM card.",
+            "readOnly": true,
+            "example": "4.3"
+          },
+          "resources_with_in_progress_actions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "List of resources with actions in progress.",
+            "readOnly": true
+          },
+          "eid": {
+            "type": "string",
+            "description": "The Embedded Identity Document (eID) for eSIM cards.",
+            "nullable": true,
+            "readOnly": true
+          },
+          "authorized_imeis": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of IMEIs authorized to use a given SIM card.",
+            "nullable": true
           }
         }
       },
@@ -76729,6 +76802,9 @@
           "stream_bidirectional_target_legs": {
             "$ref": "#/components/schemas/StreamBidirectionalTargetLegs"
           },
+          "stream_bidirectional_sampling_rate": {
+            "$ref": "#/components/schemas/StreamBidirectionalSamplingRate"
+          },
           "enable_dialogflow": {
             "type": "boolean",
             "description": "Enables Dialogflow for the current call. The default value is false.",
@@ -76983,6 +77059,8 @@
         "enum": [
           8000,
           16000,
+          22050,
+          24000,
           48000
         ],
         "type": "integer",
