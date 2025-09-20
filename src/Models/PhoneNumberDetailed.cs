@@ -70,6 +70,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CustomerReference { get; set; }
 #endif
+        /// <summary>Indicates whether deletion lock is enabled for this number. When enabled, this prevents the phone number from being deleted via the API or Telnyx portal.</summary>
+        public bool? DeletionLockEnabled { get; set; }
         /// <summary>Identifies the emergency address associated with the phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -192,6 +194,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "country_iso_alpha2", n => { CountryIsoAlpha2 = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
+                { "deletion_lock_enabled", n => { DeletionLockEnabled = n.GetBoolValue(); } },
                 { "emergency_address_id", n => { EmergencyAddressId = n.GetStringValue(); } },
                 { "emergency_enabled", n => { EmergencyEnabled = n.GetBoolValue(); } },
                 { "emergency_status", n => { EmergencyStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_emergency_status>(); } },
@@ -220,6 +223,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("billing_group_id", BillingGroupId);
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("customer_reference", CustomerReference);
+            writer.WriteBoolValue("deletion_lock_enabled", DeletionLockEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_emergency_status>("emergency_status", EmergencyStatus);
             writer.WriteStringValue("external_pin", ExternalPin);
             writer.WriteStringValue("id", Id);
