@@ -43744,6 +43744,7 @@
                       "toll_free": {},
                       "mobile": {},
                       "national": {},
+                      "region": null,
                       "inventory_coverage": false
                     },
                     "Aland Islands": {
@@ -43759,6 +43760,7 @@
                       "toll_free": {},
                       "mobile": {},
                       "national": {},
+                      "region": null,
                       "inventory_coverage": false
                     },
                     "Albania": {
@@ -43782,6 +43784,7 @@
                           "voice"
                         ],
                         "reservable": false,
+                        "full_pstn_replacement": false,
                         "quickship": false,
                         "international_sms": false,
                         "p2p": false
@@ -43792,12 +43795,14 @@
                           "voice"
                         ],
                         "reservable": false,
+                        "full_pstn_replacement": false,
                         "quickship": false,
                         "international_sms": false,
                         "p2p": false
                       },
                       "mobile": {},
                       "national": {},
+                      "region": "EMEA",
                       "inventory_coverage": false,
                       "shared_cost": {}
                     },
@@ -43814,6 +43819,7 @@
                       "toll_free": {},
                       "mobile": {},
                       "national": {},
+                      "region": null,
                       "inventory_coverage": false
                     }
                   }
@@ -63476,6 +63482,9 @@
               },
               "p2p": {
                 "type": "boolean"
+              },
+              "full_pstn_replacement": {
+                "type": "boolean"
               }
             }
           },
@@ -63499,6 +63508,9 @@
               },
               "p2p": {
                 "type": "boolean"
+              },
+              "full_pstn_replacement": {
+                "type": "boolean"
               }
             }
           },
@@ -63517,6 +63529,11 @@
           "shared_cost": {
             "type": "object",
             "additionalProperties": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true,
+            "description": "Geographic region (e.g., AMER, EMEA, APAC)"
           }
         },
         "example": {
@@ -63556,7 +63573,8 @@
               "reservable": true,
               "quickship": false,
               "international_sms": true,
-              "p2p": true
+              "p2p": true,
+              "full_pstn_replacement": true
             },
             "toll_free": {
               "features": [
@@ -63569,12 +63587,14 @@
               "reservable": true,
               "quickship": true,
               "international_sms": false,
-              "p2p": false
+              "p2p": false,
+              "full_pstn_replacement": false
             },
             "mobile": {},
             "national": {},
             "inventory_coverage": true,
-            "shared_cost": {}
+            "shared_cost": {},
+            "region": "AMER"
           }
         }
       },
