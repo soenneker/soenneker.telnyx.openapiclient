@@ -32599,13 +32599,38 @@
           "Verified Numbers"
         ],
         "summary": "Request phone number verification",
-        "description": "Initiates phone number verification procedure.",
+        "description": "Initiates phone number verification procedure. Supports DTMF extension dialing for voice calls to numbers behind IVR systems.",
         "operationId": "CreateVerifiedNumber",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateVerifiedNumber"
+              },
+              "examples": {
+                "sms_verification": {
+                  "summary": "SMS verification",
+                  "value": {
+                    "phone_number": "+15551234567",
+                    "verification_method": "sms"
+                  }
+                },
+                "call_verification": {
+                  "summary": "Call verification",
+                  "value": {
+                    "phone_number": "+15551234567",
+                    "verification_method": "call"
+                  }
+                },
+                "call_with_extension": {
+                  "summary": "Call verification with DTMF extension",
+                  "description": "Example for verifying a number behind an IVR system that requires extension dialing",
+                  "value": {
+                    "phone_number": "+15551234567",
+                    "verification_method": "call",
+                    "extension": "ww243w1"
+                  }
+                }
               }
             }
           }
@@ -41873,6 +41898,11 @@
             "description": "Whether to automatically bridge answered call to the call specified in link_to. When bridge_on_answer is true, link_to becomes required.",
             "default": false,
             "example": true
+          },
+          "park_after_unbridge": {
+            "type": "string",
+            "description": "If supplied with the value `self`, the current leg will be parked after unbridge. If not set, the default behavior is to hang up the leg. When park_after_unbridge is set, link_to becomes required.",
+            "example": "self"
           },
           "media_encryption": {
             "enum": [
@@ -91470,6 +91500,14 @@
             "additionalProperties": false,
             "description": "Verification method.",
             "example": "sms"
+          },
+          "extension": {
+            "maxLength": 50,
+            "pattern": "^[0-9A-D*#wW]*$",
+            "type": "string",
+            "description": "Optional DTMF extension sequence to dial after the call is answered. This parameter enables verification of phone numbers behind IVR systems that require extension dialing. Valid characters: digits 0-9, letters A-D, symbols * and #. Pauses: w = 0.5 second pause, W = 1 second pause. Maximum length: 50 characters. Only works with 'call' verification method.",
+            "nullable": true,
+            "example": "ww243w1"
           }
         }
       },

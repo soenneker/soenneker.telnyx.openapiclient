@@ -122,6 +122,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MediaName { get; set; }
 #endif
+        /// <summary>If supplied with the value `self`, the current leg will be parked after unbridge. If not set, the default behavior is to hang up the leg. When park_after_unbridge is set, link_to becomes required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParkAfterUnbridge { get; set; }
+#nullable restore
+#else
+        public string ParkAfterUnbridge { get; set; }
+#endif
         /// <summary>The list of comma-separated codecs in a preferred order for the forked media to be received.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -308,6 +316,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "link_to", n => { LinkTo = n.GetStringValue(); } },
                 { "media_encryption", n => { MediaEncryption = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_media_encryption>(); } },
                 { "media_name", n => { MediaName = n.GetStringValue(); } },
+                { "park_after_unbridge", n => { ParkAfterUnbridge = n.GetStringValue(); } },
                 { "preferred_codecs", n => { PreferredCodecs = n.GetStringValue(); } },
                 { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record>(); } },
                 { "record_channels", n => { RecordChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record_channels>(); } },
@@ -367,6 +376,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("link_to", LinkTo);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_media_encryption>("media_encryption", MediaEncryption);
             writer.WriteStringValue("media_name", MediaName);
+            writer.WriteStringValue("park_after_unbridge", ParkAfterUnbridge);
             writer.WriteStringValue("preferred_codecs", PreferredCodecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record>("record", Record);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record_channels>("record_channels", RecordChannels);
