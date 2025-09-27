@@ -86744,6 +86744,82 @@
           "api_key_ref": {
             "type": "string",
             "description": "The `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your ElevenLabs API key. Warning: Free plans are unlikely to work with this integration."
+          },
+          "background_audio": {
+            "type": "object",
+            "oneOf": [
+              {
+                "required": [
+                  "type",
+                  "value"
+                ],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "predefined_media"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "description": "Select from predefined media options."
+                  },
+                  "value": {
+                    "enum": [
+                      "silence",
+                      "office"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "description": "The predefined media to use. `silence` disables background audio.",
+                    "default": "silence"
+                  }
+                }
+              },
+              {
+                "required": [
+                  "type",
+                  "value"
+                ],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "media_url"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "description": "Provide a direct URL to an MP3 file. The audio will loop during the call."
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "HTTPS URL to an MP3 file.",
+                    "format": "uri"
+                  }
+                }
+              },
+              {
+                "required": [
+                  "type",
+                  "value"
+                ],
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "media_name"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "description": "Reference a previously uploaded media by its name from Telnyx Media Storage."
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "The `name` of a media asset created via [Media Storage API](https://developers.telnyx.com/api/media-storage/create-media-storage). The audio will loop during the call."
+                  }
+                }
+              }
+            ],
+            "description": "Optional background audio to play on the call. Use a predefined media bed, or supply a looped MP3 URL. If a media URL is chosen in the portal, customers can preview it before saving."
           }
         }
       },
@@ -89477,6 +89553,11 @@
             "type": "string",
             "description": "Number or SIP URI placing the call.",
             "example": "+35319605860"
+          },
+          "warm_transfer_instructions": {
+            "type": "string",
+            "description": "Natural language instructions for your agent for how to provide context for the transfer recipient.",
+            "example": "Briefly greet the transfer recipient and provide any relevant information from the call. Let them know you will bridge the call right after."
           },
           "custom_headers": {
             "type": "array",

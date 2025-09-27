@@ -38,6 +38,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams_targets> Targets { get; set; }
 #endif
+        /// <summary>Natural language instructions for your agent for how to provide context for the transfer recipient.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WarmTransferInstructions { get; set; }
+#nullable restore
+#else
+        public string WarmTransferInstructions { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams"/> and sets the default values.
         /// </summary>
@@ -66,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams_custom_headers>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams_custom_headers.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "targets", n => { Targets = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams_targets>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams_targets.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "warm_transfer_instructions", n => { WarmTransferInstructions = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -78,6 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams_custom_headers>("custom_headers", CustomHeaders);
             writer.WriteStringValue("from", From);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams_targets>("targets", Targets);
+            writer.WriteStringValue("warm_transfer_instructions", WarmTransferInstructions);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
