@@ -16,31 +16,6 @@
     }
   ],
   "paths": {
-    "/": {
-      "get": {
-        "tags": [
-          "Bucket"
-        ],
-        "summary": "ListBuckets",
-        "description": "List all Buckets.",
-        "externalDocs": {
-          "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html"
-        },
-        "operationId": "ListBuckets",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListBucketsResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/.well-known/oauth-authorization-server": {
       "get": {
         "tags": [
@@ -34139,451 +34114,6 @@
           }
         }
       }
-    },
-    "/{bucketName}": {
-      "delete": {
-        "tags": [
-          "Bucket"
-        ],
-        "summary": "DeleteBucket",
-        "description": "Deletes a bucket. The bucket must be empty for it to be deleted.",
-        "externalDocs": {
-          "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html"
-        },
-        "operationId": "DeleteBucket",
-        "parameters": [
-          {
-            "name": "bucketName",
-            "in": "path",
-            "description": "The name of the bucket.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Object"
-        ],
-        "summary": "ListObjectsV2",
-        "description": "List all objects contained in a given bucket.",
-        "externalDocs": {
-          "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html"
-        },
-        "operationId": "ListObjects",
-        "parameters": [
-          {
-            "name": "bucketName",
-            "in": "path",
-            "description": "The name of the bucket.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 4,
-              "type": "string"
-            }
-          },
-          {
-            "name": "list-type",
-            "in": "query",
-            "schema": {
-              "enum": [
-                2
-              ],
-              "type": "integer",
-              "additionalProperties": false
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListObjectsResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "head": {
-        "tags": [
-          "Bucket"
-        ],
-        "summary": "HeadBucket",
-        "description": "Determines if a bucket exists and you have permission to access it.",
-        "externalDocs": {
-          "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html"
-        },
-        "operationId": "HeadBucket",
-        "parameters": [
-          {
-            "name": "bucketName",
-            "in": "path",
-            "description": "The name of the bucket.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Object"
-        ],
-        "summary": "DeleteObjects",
-        "description": "Deletes one or multiple objects from a given bucket.",
-        "externalDocs": {
-          "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html"
-        },
-        "operationId": "DeleteObjects",
-        "parameters": [
-          {
-            "name": "bucketName",
-            "in": "path",
-            "description": "The bucket name.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "delete",
-            "in": "query",
-            "required": true,
-            "allowEmptyValue": true,
-            "schema": {
-              "enum": [
-                true
-              ],
-              "type": "boolean",
-              "additionalProperties": false
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "text/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/DeleteObjectsRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeleteObjectsResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Bucket"
-        ],
-        "summary": "CreateBucket",
-        "description": "Create a bucket.",
-        "externalDocs": {
-          "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html"
-        },
-        "operationId": "CreateBucket",
-        "parameters": [
-          {
-            "name": "bucketName",
-            "in": "path",
-            "description": "The name of the bucket.",
-            "required": true,
-            "schema": {
-              "maxLength": 64,
-              "minLength": 4,
-              "type": "string",
-              "example": "mybucket"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "text/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateBucketRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "409": {
-            "description": "BucketAlreadyExists",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/{bucketName}/{objectName}": {
-      "delete": {
-        "tags": [
-          "Object"
-        ],
-        "summary": "DeleteObject",
-        "description": "Delete an object from a given bucket.",
-        "externalDocs": {
-          "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html"
-        },
-        "operationId": "DeleteObject",
-        "parameters": [
-          {
-            "name": "bucketName",
-            "in": "path",
-            "description": "The bucket name.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "objectName",
-            "in": "path",
-            "description": "The object name.",
-            "required": true,
-            "schema": {
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Object"
-        ],
-        "summary": "GetObject",
-        "description": "Retrieves an object from a given bucket.",
-        "externalDocs": {
-          "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html"
-        },
-        "operationId": "GetObject",
-        "parameters": [
-          {
-            "name": "bucketName",
-            "in": "path",
-            "description": "The bucket name.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "objectName",
-            "in": "path",
-            "description": "The object name.",
-            "required": true,
-            "schema": {
-              "minLength": 1,
-              "type": "string"
-            }
-          },
-          {
-            "name": "uploadId",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
-            }
-          }
-        }
-      },
-      "head": {
-        "tags": [
-          "Object"
-        ],
-        "summary": "HeadObject",
-        "description": "Retrieves metadata from an object without returning the object itself.",
-        "externalDocs": {
-          "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html"
-        },
-        "operationId": "HeadObject",
-        "parameters": [
-          {
-            "name": "bucketName",
-            "in": "path",
-            "description": "The bucket name.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "objectName",
-            "in": "path",
-            "description": "The object name.",
-            "required": true,
-            "schema": {
-              "minLength": 1,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Object"
-        ],
-        "summary": "PutObject",
-        "description": "Add an object to a bucket.",
-        "externalDocs": {
-          "url": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html"
-        },
-        "operationId": "PutObject",
-        "parameters": [
-          {
-            "name": "bucketName",
-            "in": "path",
-            "description": "The bucket name.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "objectName",
-            "in": "path",
-            "description": "The object name.",
-            "required": true,
-            "schema": {
-              "minLength": 1,
-              "type": "string"
-            }
-          },
-          {
-            "name": "Content-type",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "partNumber",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "uploadId",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PutObject"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Default",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
@@ -34920,14 +34450,17 @@
           }
         }
       },
-      "GetStorageAPIUsage_200": {
+      "GetBucketUsage_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BucketAPIUsageResponse"
+              "$ref": "#/components/schemas/BucketUsage"
             }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMetaSimple"
           }
         }
       },
@@ -35606,18 +35139,14 @@
           "send_silence_when_idle": true
         }
       },
-      "AddStorageSSLCertificate": {
+      "GetStorageAPIUsage_200": {
         "type": "object",
         "properties": {
-          "certificate": {
-            "type": "string",
-            "description": "The SSL certificate file",
-            "format": "binary"
-          },
-          "private_key": {
-            "type": "string",
-            "description": "The private key file",
-            "format": "binary"
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketAPIUsageResponse"
+            }
           }
         }
       },
@@ -36778,6 +36307,21 @@
         "type": "string",
         "additionalProperties": false
       },
+      "AddStorageSSLCertificate": {
+        "type": "object",
+        "properties": {
+          "certificate": {
+            "type": "string",
+            "description": "The SSL certificate file",
+            "format": "binary"
+          },
+          "private_key": {
+            "type": "string",
+            "description": "The private key file",
+            "format": "binary"
+          }
+        }
+      },
       "ValidateRegistrationCodes": {
         "type": "object",
         "properties": {
@@ -36829,20 +36373,6 @@
             "type": "string",
             "description": "Uniquely identifies the address for the order.",
             "example": "1293384261075731499"
-          }
-        }
-      },
-      "SetWirelessBlocklistForSimCardGroup": {
-        "required": [
-          "wireless_blocklist_id"
-        ],
-        "type": "object",
-        "properties": {
-          "wireless_blocklist_id": {
-            "type": "string",
-            "description": "The identification of the related Wireless Blocklist resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           }
         }
       },
@@ -37657,15 +37187,15 @@
           "park_after_unbridge": "self"
         }
       },
-      "SetPrivateWirelessGatewayForSimCardGroup": {
+      "SetWirelessBlocklistForSimCardGroup": {
         "required": [
-          "private_wireless_gateway_id"
+          "wireless_blocklist_id"
         ],
         "type": "object",
         "properties": {
-          "private_wireless_gateway_id": {
+          "wireless_blocklist_id": {
             "type": "string",
-            "description": "The identification of the related Private Wireless Gateway resource.",
+            "description": "The identification of the related Wireless Blocklist resource.",
             "format": "uuid",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           }
@@ -39070,37 +38600,17 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "PostSimCardDataUsageNotification": {
+      "SetPrivateWirelessGatewayForSimCardGroup": {
         "required": [
-          "sim_card_id",
-          "threshold"
+          "private_wireless_gateway_id"
         ],
         "type": "object",
         "properties": {
-          "sim_card_id": {
+          "private_wireless_gateway_id": {
             "type": "string",
-            "description": "The identification UUID of the related SIM card resource.",
+            "description": "The identification of the related Private Wireless Gateway resource.",
             "format": "uuid",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "threshold": {
-            "type": "object",
-            "properties": {
-              "amount": {
-                "type": "string",
-                "example": "2048.1"
-              },
-              "unit": {
-                "enum": [
-                  "MB",
-                  "GB"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "example": "MB"
-              }
-            },
-            "description": "Data usage threshold that will trigger the notification."
           }
         }
       },
@@ -47337,6 +46847,47 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
+      "PostSimCardDataUsageNotification": {
+        "required": [
+          "sim_card_id",
+          "threshold"
+        ],
+        "type": "object",
+        "properties": {
+          "sim_card_id": {
+            "type": "string",
+            "description": "The identification UUID of the related SIM card resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "threshold": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "example": "2048.1"
+              },
+              "unit": {
+                "enum": [
+                  "MB",
+                  "GB"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "example": "MB"
+              }
+            },
+            "description": "Data usage threshold that will trigger the notification."
+          }
+        }
+      },
+      "ConnectionAndroidPushCredentialId": {
+        "title": "Android Push Credential Id",
+        "type": "string",
+        "description": "The uuid of the push credential for Android",
+        "nullable": true,
+        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
+      },
       "UpdateRequirementGroup": {
         "type": "object",
         "properties": {
@@ -47364,13 +46915,6 @@
             }
           }
         }
-      },
-      "ConnectionAndroidPushCredentialId": {
-        "title": "Android Push Credential Id",
-        "type": "string",
-        "description": "The uuid of the push credential for Android",
-        "nullable": true,
-        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
       },
       "CreateRequirementGroup": {
         "required": [
@@ -47426,12 +46970,6 @@
           }
         }
       },
-      "GetRequirementGroups_200": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/RequirementGroup"
-        }
-      },
       "ConnectionIosPushCredentialId": {
         "title": "Ios Push Credential Id",
         "type": "string",
@@ -47439,29 +46977,10 @@
         "nullable": true,
         "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
       },
-      "CreatePrivateWirelessGateway": {
-        "required": [
-          "network_id",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "network_id": {
-            "type": "string",
-            "description": "The identification of the related network resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "name": {
-            "type": "string",
-            "description": "The private wireless gateway name.",
-            "example": "My private wireless gateway"
-          },
-          "region_code": {
-            "type": "string",
-            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
-            "example": "dc2"
-          }
+      "GetRequirementGroups_200": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RequirementGroup"
         }
       },
       "ConnectionRtcpSettings": {
@@ -47860,22 +47379,28 @@
           }
         }
       },
-      "UpdatePortoutStatus": {
+      "CreatePrivateWirelessGateway": {
         "required": [
-          "reason"
+          "network_id",
+          "name"
         ],
         "type": "object",
         "properties": {
-          "reason": {
+          "network_id": {
             "type": "string",
-            "description": "Provide a reason if rejecting the port out request",
-            "example": "I do not recognize this transaction"
+            "description": "The identification of the related network resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
-          "host_messaging": {
-            "type": "boolean",
-            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
-            "default": false,
-            "example": false
+          "name": {
+            "type": "string",
+            "description": "The private wireless gateway name.",
+            "example": "My private wireless gateway"
+          },
+          "region_code": {
+            "type": "string",
+            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
+            "example": "dc2"
           }
         }
       },
@@ -48391,18 +47916,6 @@
             "description": "Webhook failover URL for brand status updates.",
             "example": "https://webhook.com/9010a453-4df8-4be6-a551-1070892888d6"
           }
-        }
-      },
-      "CreateBucketRequest": {
-        "type": "object",
-        "properties": {
-          "LocationConstraint": {
-            "type": "string"
-          }
-        },
-        "xml": {
-          "name": "CreateBucketConfiguration",
-          "wrapped": true
         }
       },
       "CreateCallControlApplicationRequest": {
@@ -51574,39 +51087,22 @@
           }
         }
       },
-      "PostPortRequestSupportingDocuments": {
+      "UpdatePortoutStatus": {
+        "required": [
+          "reason"
+        ],
         "type": "object",
         "properties": {
-          "documents": {
-            "maxItems": 10,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "required": [
-                "type",
-                "document_id"
-              ],
-              "type": "object",
-              "properties": {
-                "type": {
-                  "enum": [
-                    "loa",
-                    "invoice"
-                  ],
-                  "type": "string",
-                  "additionalProperties": false,
-                  "description": "Identifies the type of the document",
-                  "example": "loa"
-                },
-                "document_id": {
-                  "type": "string",
-                  "description": "Identifies the associated document",
-                  "format": "uuid",
-                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-                }
-              }
-            },
-            "description": "List of supporting documents parameters"
+          "reason": {
+            "type": "string",
+            "description": "Provide a reason if rejecting the port out request",
+            "example": "I do not recognize this transaction"
+          },
+          "host_messaging": {
+            "type": "boolean",
+            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
+            "default": false,
+            "example": false
           }
         }
       },
@@ -51693,12 +51189,39 @@
           }
         }
       },
-      "PostPortRequestComment": {
+      "PostPortRequestSupportingDocuments": {
         "type": "object",
         "properties": {
-          "body": {
-            "type": "string",
-            "description": "Comment to post on this portout request"
+          "documents": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "required": [
+                "type",
+                "document_id"
+              ],
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "loa",
+                    "invoice"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "Identifies the type of the document",
+                  "example": "loa"
+                },
+                "document_id": {
+                  "type": "string",
+                  "description": "Identifies the associated document",
+                  "format": "uuid",
+                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+                }
+              }
+            },
+            "description": "List of supporting documents parameters"
           }
         }
       },
@@ -52064,15 +51587,12 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "PostPortabilityCheck": {
+      "PostPortRequestComment": {
         "type": "object",
         "properties": {
-          "phone_numbers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The list of +E.164 formatted phone numbers to check for portability"
+          "body": {
+            "type": "string",
+            "description": "Comment to post on this portout request"
           }
         }
       },
@@ -52557,31 +52077,15 @@
           }
         }
       },
-      "PostAssignMessagingProfileToCampaign_202": {
-        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
-        "required": [
-          "type"
-        ],
+      "PostPortabilityCheck": {
         "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
-          },
-          {
-            "$ref": "#/components/schemas/SettingsDataErrorMessage"
-          }
-        ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
-            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The list of +E.164 formatted phone numbers to check for portability"
           }
         }
       },
@@ -52620,19 +52124,6 @@
             }
           }
         ]
-      },
-      "DeleteObjectsRequest": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/DeleteObjectsRequest_item"
-        },
-        "xml": {
-          "name": "Delete",
-          "wrapped": true
-        }
-      },
-      "DeleteObjectsResponse": {
-        "type": "object"
       },
       "DeprecatedInitiateCallRequest": {
         "title": "Initiate Call Request",
@@ -55443,11 +54934,32 @@
           }
         }
       },
-      "GetPartnerCampaignSharingStatus_200": {
-        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
+      "PostAssignMessagingProfileToCampaign_202": {
+        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
+        "required": [
+          "type"
+        ],
         "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/CampaignSharingStatus"
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
+          },
+          {
+            "$ref": "#/components/schemas/SettingsDataErrorMessage"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
+            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
+          }
         }
       },
       "FaxMediaProcessed": {
@@ -55887,6 +55399,13 @@
           }
         }
       },
+      "GetPartnerCampaignSharingStatus_200": {
+        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CampaignSharingStatus"
+        }
+      },
       "OperatorConnectRefresh_202": {
         "title": "Operator Connect Refresh Response",
         "type": "object",
@@ -55900,22 +55419,6 @@
             "type": "string",
             "description": "A message describing the result of the operation",
             "example": "Operator connect refresh started"
-          }
-        }
-      },
-      "OperatorConnectRefresh_200": {
-        "title": "Operator Connect Refresh Response",
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful",
-            "example": true
-          },
-          "message": {
-            "type": "string",
-            "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh already in progress"
           }
         }
       },
@@ -56234,17 +55737,19 @@
         "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.",
         "default": "UDP"
       },
-      "get_oauth_grants_200": {
+      "OperatorConnectRefresh_200": {
+        "title": "Operator Connect Refresh Response",
         "type": "object",
         "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OAuthGrant"
-            }
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful",
+            "example": true
           },
-          "meta": {
-            "$ref": "#/components/schemas/oauth_PaginationMeta"
+          "message": {
+            "type": "string",
+            "description": "A message describing the result of the operation",
+            "example": "Operator connect refresh already in progress"
           }
         }
       },
@@ -58033,13 +57538,13 @@
           }
         }
       },
-      "get_oauth_clients_200": {
+      "get_oauth_grants_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/OAuthClient"
+              "$ref": "#/components/schemas/OAuthGrant"
             }
           },
           "meta": {
@@ -59413,25 +58918,17 @@
           }
         }
       },
-      "post_oauth_register_400": {
+      "get_oauth_clients_200": {
         "type": "object",
         "properties": {
-          "error": {
-            "type": "string",
-            "example": "invalid_client_metadata"
-          },
-          "error_description": {
-            "type": "string",
-            "example": "The client metadata was invalid"
-          },
-          "invalid_fields": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuthClient"
             }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/oauth_PaginationMeta"
           }
         }
       },
@@ -60244,64 +59741,6 @@
           "report_url": "https://example.com",
           "created_at": "2019-10-15T10:07:15.527Z",
           "updated_at": "2019-10-15T10:07:15.527Z"
-        }
-      },
-      "ListBucketsResponse": {
-        "type": "object",
-        "properties": {
-          "Buckets": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "Name": {
-                  "type": "string"
-                },
-                "CreationDate": {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              },
-              "xml": {
-                "name": "Bucket"
-              }
-            },
-            "xml": {
-              "wrapped": true
-            }
-          }
-        },
-        "xml": {
-          "name": "ListAllMyBucketsResult"
-        }
-      },
-      "ListObjectsResponse": {
-        "type": "object",
-        "properties": {
-          "Name": {
-            "type": "string"
-          },
-          "Contents": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "Key": {
-                  "type": "string"
-                },
-                "Size": {
-                  "type": "number"
-                },
-                "LastModified": {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
-            }
-          }
-        },
-        "xml": {
-          "name": "ListBucketResult"
         }
       },
       "ListPushCredentialsResponse": {
@@ -61513,8 +60952,27 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "get_oauth_authorize_422": {
-        "type": "string"
+      "post_oauth_register_400": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "invalid_client_metadata"
+          },
+          "error_description": {
+            "type": "string",
+            "example": "The client metadata was invalid"
+          },
+          "invalid_fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
       },
       "MediaResource": {
         "title": "Media Resource",
@@ -61637,7 +61095,7 @@
           }
         }
       },
-      "get_oauth_authorize_404": {
+      "get_oauth_authorize_422": {
         "type": "string"
       },
       "MessageDetailRecord": {
@@ -62544,7 +62002,7 @@
           }
         }
       },
-      "get_oauth_authorize_400": {
+      "get_oauth_authorize_404": {
         "type": "string"
       },
       "MobileNetworkOperator": {
@@ -62675,31 +62133,8 @@
           }
         }
       },
-      "PostNumbersFeatures_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "required": [
-                "phone_number",
-                "features"
-              ],
-              "type": "object",
-              "properties": {
-                "phone_number": {
-                  "type": "string"
-                },
-                "features": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
+      "get_oauth_authorize_400": {
+        "type": "string"
       },
       "MonthDetail": {
         "required": [
@@ -64832,16 +64267,28 @@
           }
         }
       },
-      "PostNumbersFeatures": {
-        "required": [
-          "phone_numbers"
-        ],
+      "PostNumbersFeatures_200": {
         "type": "object",
         "properties": {
-          "phone_numbers": {
+          "data": {
             "type": "array",
             "items": {
-              "type": "string"
+              "required": [
+                "phone_number",
+                "features"
+              ],
+              "type": "object",
+              "properties": {
+                "phone_number": {
+                  "type": "string"
+                },
+                "features": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
         }
@@ -66027,16 +65474,17 @@
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
       },
-      "updateNumberOrderPhoneNumberRequirementGroup": {
+      "PostNumbersFeatures": {
         "required": [
-          "requirement_group_id"
+          "phone_numbers"
         ],
         "type": "object",
         "properties": {
-          "requirement_group_id": {
-            "type": "string",
-            "description": "The ID of the requirement group to associate",
-            "format": "uuid"
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -66060,17 +65508,16 @@
           }
         }
       },
-      "ListNotificationSettings_200": {
+      "updateNumberOrderPhoneNumberRequirementGroup": {
+        "required": [
+          "requirement_group_id"
+        ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationSetting"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+          "requirement_group_id": {
+            "type": "string",
+            "description": "The ID of the requirement group to associate",
+            "format": "uuid"
           }
         }
       },
@@ -68402,13 +67849,13 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
-      "FindNotificationsProfiles_200": {
+      "ListNotificationSettings_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationProfile"
+              "$ref": "#/components/schemas/NotificationSetting"
             }
           },
           "meta": {
@@ -72333,13 +71780,13 @@
           }
         }
       },
-      "FindNotificationsEvents_200": {
+      "FindNotificationsProfiles_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEvent"
+              "$ref": "#/components/schemas/NotificationProfile"
             }
           },
           "meta": {
@@ -72517,13 +71964,13 @@
           }
         }
       },
-      "FindNotificationsEventsConditions_200": {
+      "FindNotificationsEvents_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEventCondition"
+              "$ref": "#/components/schemas/NotificationEvent"
             }
           },
           "meta": {
@@ -75245,13 +74692,13 @@
           }
         }
       },
-      "ListNotificationChannels_200": {
+      "FindNotificationsEventsConditions_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationChannel"
+              "$ref": "#/components/schemas/NotificationEventCondition"
             }
           },
           "meta": {
@@ -77086,6 +76533,20 @@
           "stream_id": "1edb94f9-7ef0-4150-b502-e0ebadfd9491"
         }
       },
+      "ListNotificationChannels_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationChannel"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
+      },
       "CreatePushCredential": {
         "required": [
           "type"
@@ -77112,9 +76573,6 @@
             "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
           }
         }
-      },
-      "DeleteVerificationRequest_200": {
-        "type": "object"
       },
       "StreamBidirectionalCodec": {
         "title": "Bidirectional Stream Codec",
@@ -77189,7 +76647,7 @@
         "default": "default",
         "example": "PCMA"
       },
-      "DeleteAutorespConfig_200": {
+      "DeleteVerificationRequest_200": {
         "type": "object"
       },
       "StreamStatus": {
@@ -77966,21 +77424,8 @@
           "role": "barge"
         }
       },
-      "GetMessage_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/OutboundMessagePayload"
-              },
-              {
-                "$ref": "#/components/schemas/InboundMessagePayload"
-              }
-            ]
-          }
-        }
+      "DeleteAutorespConfig_200": {
+        "type": "object"
       },
       "TFPhoneNumber": {
         "title": "PhoneNumber",
@@ -80466,14 +79911,19 @@
         "nullable": true,
         "example": "12"
       },
-      "EnableManagedAccount": {
+      "GetMessage_200": {
         "type": "object",
         "properties": {
-          "reenable_all_connections": {
-            "type": "boolean",
-            "description": "When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.",
-            "default": false,
-            "example": true
+          "data": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutboundMessagePayload"
+              },
+              {
+                "$ref": "#/components/schemas/InboundMessagePayload"
+              }
+            ]
           }
         }
       },
@@ -80563,6 +80013,17 @@
           }
         }
       },
+      "EnableManagedAccount": {
+        "type": "object",
+        "properties": {
+          "reenable_all_connections": {
+            "type": "boolean",
+            "description": "When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.",
+            "default": false,
+            "example": true
+          }
+        }
+      },
       "get_invoices_200": {
         "type": "object",
         "properties": {
@@ -80594,6 +80055,17 @@
             }
           }
         }
+      },
+      "TexmlStatusCallbackMethod": {
+        "enum": [
+          "GET",
+          "POST"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "HTTP method used to send status callbacks.",
+        "default": "POST",
+        "example": "GET"
       },
       "UpdateOutboundChannels_default": {
         "type": "object",
@@ -80632,37 +80104,6 @@
                 "meta": {
                   "type": "object"
                 }
-              }
-            }
-          }
-        }
-      },
-      "TexmlStatusCallbackMethod": {
-        "enum": [
-          "GET",
-          "POST"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "HTTP method used to send status callbacks.",
-        "default": "POST",
-        "example": "GET"
-      },
-      "UpdateOutboundChannels_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "channels": {
-                "type": "integer",
-                "description": "The number of channels set for the account",
-                "example": 7
-              },
-              "record_type": {
-                "type": "string",
-                "description": "Identifies the type of the response",
-                "example": "inbound_channels"
               }
             }
           }
@@ -80897,6 +80338,26 @@
           }
         }
       },
+      "UpdateOutboundChannels_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "channels": {
+                "type": "integer",
+                "description": "The number of channels set for the account",
+                "example": 7
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the response",
+                "example": "inbound_channels"
+              }
+            }
+          }
+        }
+      },
       "UpdateOutboundChannels": {
         "required": [
           "channels"
@@ -80907,26 +80368,6 @@
             "type": "integer",
             "description": "The new number of concurrent channels for the account",
             "example": 7
-          }
-        }
-      },
-      "ListInboundChannels_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "channels": {
-                "type": "integer",
-                "description": "The current number of concurrent channels set for the account",
-                "example": 7
-              },
-              "record_type": {
-                "type": "string",
-                "description": "Identifies the type of the response",
-                "example": "inbound_channels"
-              }
-            }
           }
         }
       },
@@ -81886,13 +81327,23 @@
         "default": 2,
         "example": 1
       },
-      "RefreshExternalConnectionUploads_200": {
-        "title": "Create Upload request Response",
+      "ListInboundChannels_200": {
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
+          "data": {
+            "type": "object",
+            "properties": {
+              "channels": {
+                "type": "integer",
+                "description": "The current number of concurrent channels set for the account",
+                "example": 7
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the response",
+                "example": "inbound_channels"
+              }
+            }
           }
         }
       },
@@ -84463,18 +83914,13 @@
           }
         }
       },
-      "CreateExternalConnectionUpload_202": {
+      "RefreshExternalConnectionUploads_200": {
         "title": "Create Upload request Response",
         "type": "object",
         "properties": {
           "success": {
             "type": "boolean",
             "description": "Describes wether or not the operation was successful"
-          },
-          "ticket_id": {
-            "type": "string",
-            "description": "Ticket id of the upload request",
-            "format": "uuid"
           }
         }
       },
@@ -85326,15 +84772,17 @@
           }
         }
       },
-      "updateLocation": {
-        "required": [
-          "static_emergency_address_id"
-        ],
+      "CreateExternalConnectionUpload_202": {
+        "title": "Create Upload request Response",
         "type": "object",
         "properties": {
-          "static_emergency_address_id": {
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
+          },
+          "ticket_id": {
             "type": "string",
-            "description": "A new static emergency address ID to update the location with",
+            "description": "Ticket id of the upload request",
             "format": "uuid"
           }
         }
@@ -86716,13 +86164,16 @@
           }
         ]
       },
-      "DeleteExternalConnectionLogMessage_200": {
-        "title": "Dismiss request was successful",
+      "updateLocation": {
+        "required": [
+          "static_emergency_address_id"
+        ],
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
+          "static_emergency_address_id": {
+            "type": "string",
+            "description": "A new static emergency address ID to update the location with",
+            "format": "uuid"
           }
         }
       },
@@ -86971,34 +86422,13 @@
         "nullable": true,
         "example": "https://failover.example.com"
       },
-      "GetEnumEndpoint_200": {
-        "required": [
-          "type"
-        ],
+      "DeleteExternalConnectionLogMessage_200": {
+        "title": "Dismiss request was successful",
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/EnumListResponse_Wrapper"
-          },
-          {
-            "$ref": "#/components/schemas/EnumObjectResponse"
-          },
-          {
-            "$ref": "#/components/schemas/EnumPaginatedResponse"
-          }
-        ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "EnumListResponse": "#/components/schemas/EnumListResponse_Wrapper",
-            "EnumObjectResponse": "#/components/schemas/EnumObjectResponse",
-            "EnumPaginatedResponse": "#/components/schemas/EnumPaginatedResponse"
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
           }
         }
       },
@@ -87898,6 +87328,37 @@
           }
         }
       },
+      "GetEnumEndpoint_200": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/EnumListResponse_Wrapper"
+          },
+          {
+            "$ref": "#/components/schemas/EnumObjectResponse"
+          },
+          {
+            "$ref": "#/components/schemas/EnumPaginatedResponse"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "EnumListResponse": "#/components/schemas/EnumListResponse_Wrapper",
+            "EnumObjectResponse": "#/components/schemas/EnumObjectResponse",
+            "EnumPaginatedResponse": "#/components/schemas/EnumPaginatedResponse"
+          }
+        }
+      },
       "getDocumentDownloadLink_200": {
         "required": [
           "data"
@@ -87923,19 +87384,6 @@
       "get_charges_breakdown_200": {
         "type": "string",
         "description": "CSV format of the charges breakdown"
-      },
-      "PatchChannelZone": {
-        "required": [
-          "channels"
-        ],
-        "type": "object",
-        "properties": {
-          "channels": {
-            "type": "integer",
-            "description": "The number of reserved channels",
-            "format": "int64"
-          }
-        }
       },
       "attempt": {
         "type": "object",
@@ -88129,30 +87577,16 @@
           }
         }
       },
-      "PostCampaign_200": {
-        "title": "Response Submit Campaign Public Campaignbuilder Post",
+      "PatchChannelZone": {
         "required": [
-          "type"
+          "channels"
         ],
         "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/TelnyxCampaign_CSP"
-          }
-        ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "TelnyxCampaign_CSP": "#/components/schemas/TelnyxCampaign_CSP"
+          "channels": {
+            "type": "integer",
+            "description": "The number of reserved channels",
+            "format": "int64"
           }
         }
       },
@@ -88202,9 +87636,32 @@
           }
         }
       },
-      "GetCampaignOsrAttributes_200": {
-        "title": "Response Get My Osr Campaign Attributes Public Campaign  Campaignid  Osr Attributes Get",
-        "type": "object"
+      "PostCampaign_200": {
+        "title": "Response Submit Campaign Public Campaignbuilder Post",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/TelnyxCampaign_CSP"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "TelnyxCampaign_CSP": "#/components/schemas/TelnyxCampaign_CSP"
+          }
+        }
       },
       "call_control_Error": {
         "required": [
@@ -89039,19 +88496,13 @@
           }
         }
       },
+      "GetCampaignOsrAttributes_200": {
+        "title": "Response Get My Osr Campaign Attributes Public Campaign  Campaignid  Osr Attributes Get",
+        "type": "object"
+      },
       "GetCampaignOperationStatus_200": {
         "title": "Response Get My Campaign Operation Status Public Campaign  Campaignid  Operationstatus Get",
         "type": "object"
-      },
-      "AppealCampaign_200": {
-        "type": "object",
-        "properties": {
-          "appealed_at": {
-            "type": "string",
-            "description": "Timestamp when the appeal was submitted",
-            "format": "date-time"
-          }
-        }
       },
       "connections_PaginationMeta": {
         "title": "Pagination Meta",
@@ -89075,6 +88526,16 @@
           }
         }
       },
+      "AppealCampaign_200": {
+        "type": "object",
+        "properties": {
+          "appealed_at": {
+            "type": "string",
+            "description": "Timestamp when the appeal was submitted",
+            "format": "date-time"
+          }
+        }
+      },
       "AppealCampaign": {
         "required": [
           "appeal_reason"
@@ -89087,9 +88548,6 @@
             "example": "The website has been updated to include the required privacy policy and terms of service."
           }
         }
-      },
-      "AcceptCampaign_200": {
-        "type": "object"
       },
       "customer_service_record_ResourceNotFoundError": {
         "type": "object",
@@ -89283,7 +88741,7 @@
           }
         }
       },
-      "RevetBrand_200": {
+      "AcceptCampaign_200": {
         "type": "object"
       },
       "external_voice_integrations_Error": {
@@ -89344,10 +88802,10 @@
           }
         }
       },
-      "PostOrderExternalVetting_200": {
+      "RevetBrand_200": {
         "type": "object"
       },
-      "ListExternalVettings_200": {
+      "PostOrderExternalVetting_200": {
         "type": "object"
       },
       "external_voice_integrations_PaginationMeta": {
@@ -89372,7 +88830,7 @@
           }
         }
       },
-      "DeleteBrand_200": {
+      "ListExternalVettings_200": {
         "type": "object"
       },
       "http": {
@@ -89854,6 +89312,9 @@
           }
         }
       },
+      "DeleteBrand_200": {
+        "type": "object"
+      },
       "ListBillingGroups_200": {
         "type": "object",
         "properties": {
@@ -89867,9 +89328,6 @@
             "$ref": "#/components/schemas/PaginationMeta"
           }
         }
-      },
-      "UpdateAuthenticationProvider_422": {
-        "type": "object"
       },
       "media_storage_Error": {
         "required": [
@@ -90008,10 +89466,10 @@
           }
         }
       },
-      "UpdateAuthenticationProvider_404": {
+      "UpdateAuthenticationProvider_422": {
         "type": "object"
       },
-      "UpdateAuthenticationProvider_401": {
+      "UpdateAuthenticationProvider_404": {
         "type": "object"
       },
       "netapps_Error": {
@@ -90280,7 +89738,7 @@
           }
         }
       },
-      "GetAuthenticationProvider_422": {
+      "UpdateAuthenticationProvider_401": {
         "type": "object"
       },
       "numbers_PaginationMetaSimple": {
@@ -90341,7 +89799,7 @@
           }
         }
       },
-      "GetAuthenticationProvider_404": {
+      "GetAuthenticationProvider_422": {
         "type": "object"
       },
       "payment_Error": {
@@ -90392,7 +89850,7 @@
           }
         }
       },
-      "GetAuthenticationProvider_401": {
+      "GetAuthenticationProvider_404": {
         "type": "object"
       },
       "portability_check_Error": {
@@ -90440,7 +89898,7 @@
           }
         }
       },
-      "DeleteAuthenticationProvider_422": {
+      "GetAuthenticationProvider_401": {
         "type": "object"
       },
       "programmable_fax_Error": {
@@ -90616,10 +90074,10 @@
         },
         "description": "The settings associated with the authentication provider."
       },
-      "DeleteAuthenticationProvider_404": {
+      "DeleteAuthenticationProvider_422": {
         "type": "object"
       },
-      "DeleteAuthenticationProvider_401": {
+      "DeleteAuthenticationProvider_404": {
         "type": "object"
       },
       "siprec_Error": {
@@ -90668,7 +90126,7 @@
           }
         }
       },
-      "CreateAuthenticationProvider_422": {
+      "DeleteAuthenticationProvider_401": {
         "type": "object"
       },
       "standard_MdrGetUsageReportsResponse": {
@@ -90710,7 +90168,7 @@
           }
         }
       },
-      "FindAuthenticationProviders_404": {
+      "CreateAuthenticationProvider_422": {
         "type": "object"
       },
       "toll_free_verification_Error": {
@@ -90849,6 +90307,9 @@
           }
         }
       },
+      "FindAuthenticationProviders_404": {
+        "type": "object"
+      },
       "FindAuthenticationProviders_401": {
         "type": "object"
       },
@@ -90894,9 +90355,6 @@
         "type": "string"
       },
       "delete_scheduled_event_200": {
-        "type": "object"
-      },
-      "update_assistant_public_assistants_assistant_id_post_200": {
         "type": "object"
       },
       "verified_numbers_Error": {
@@ -91325,7 +90783,7 @@
           }
         }
       },
-      "delete_assistant_test_public_assistants_tests_test_id_delete_200": {
+      "update_assistant_public_assistants_assistant_id_post_200": {
         "type": "object"
       },
       "wireless_Error": {
@@ -91373,12 +90831,8 @@
           }
         }
       },
-      "trigger_test_suite_runs_public_assistants_tests_test_suites_suite_name_runs_post_201": {
-        "title": "Response Trigger Test Suite Runs Public Assistants Tests Test Suites  Suite Name  Runs Post",
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/TestRunResponse"
-        }
+      "delete_assistant_test_public_assistants_tests_test_id_delete_200": {
+        "type": "object"
       },
       "wireless_Region": {
         "title": "Region",
@@ -91410,27 +90864,11 @@
           }
         }
       },
-      "DeleteObjectsRequest_item": {
-        "title": "DeleteObjectsRequest_item",
-        "type": "object",
-        "properties": {
-          "Key": {
-            "type": "string"
-          }
-        }
-      },
-      "GetBucketUsage_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BucketUsage"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMetaSimple"
-          }
+      "trigger_test_suite_runs_public_assistants_tests_test_suites_suite_name_runs_post_201": {
+        "title": "Response Trigger Test Suite Runs Public Assistants Tests Test Suites  Suite Name  Runs Post",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/TestRunResponse"
         }
       },
       "ListMigrationSourceCoverage_200": {
@@ -91787,28 +91225,6 @@
               ]
             },
             "description": "Values to block. The values here depend on the `type` of Wireless Blocklist."
-          }
-        }
-      },
-      "CreateBucket_409": {
-        "type": "string",
-        "xml": {
-          "name": "BucketAlreadyExists"
-        }
-      },
-      "GetObject_200": {
-        "type": "string",
-        "format": "binary"
-      },
-      "PutObject": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "format": "binary"
           }
         }
       },
