@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>An enumeration.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AltBusinessIdType? AltBusinessIdType { get; set; }
-        /// <summary>Business contact email.Required if `entityType` will be changed to `PUBLIC_PROFIT`.</summary>
+        /// <summary>Business contact email.Required if `entityType` will be changed to `PUBLIC_PROFIT`. Otherwise, it is recommended to either omit this field or set it to `null`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BusinessContactEmail { get; set; }
