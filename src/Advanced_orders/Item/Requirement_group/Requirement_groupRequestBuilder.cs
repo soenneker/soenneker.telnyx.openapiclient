@@ -9,47 +9,29 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item
+namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group
 {
     /// <summary>
-    /// Builds and executes requests for operations under \advanced_orders\{order_id}
+    /// Builds and executes requests for operations under \advanced_orders\{advancedOrder-id}\requirement_group
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithOrder_ItemRequestBuilder : BaseRequestBuilder
+    public partial class Requirement_groupRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.WithOrder_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group.Requirement_groupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithOrder_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/advanced_orders/{order_id}", pathParameters)
+        public Requirement_groupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/advanced_orders/{advancedOrder%2Did}/requirement_group", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.WithOrder_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group.Requirement_groupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithOrder_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/advanced_orders/{order_id}", rawUrl)
+        public Requirement_groupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/advanced_orders/{advancedOrder%2Did}/requirement_group", rawUrl)
         {
-        }
-        /// <summary>
-        /// Get Advanced Order
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExamplePayload"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExamplePayload?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ExamplePayload> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ExamplePayload>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ExamplePayload.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update Advanced Order
@@ -70,25 +52,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ExamplePayload>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ExamplePayload.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Get Advanced Order
-        /// </summary>
-        /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
-        {
-#nullable restore
-#else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
-        {
-#endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
-            requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
-            return requestInfo;
         }
         /// <summary>
         /// Update Advanced Order
@@ -115,11 +78,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.WithOrder_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group.Requirement_groupRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.WithOrder_ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group.Requirement_groupRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.WithOrder_ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Telnyx.OpenApiClient.Advanced_orders.Item.Requirement_group.Requirement_groupRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

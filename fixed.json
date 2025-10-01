@@ -923,6 +923,48 @@
         }
       }
     },
+    "/advanced_orders/{advanced-order-id}/requirement_group": {
+      "patch": {
+        "tags": [
+          "Advanced Number Orders"
+        ],
+        "summary": "Update Advanced Order",
+        "operationId": "update-advanced-order-v2",
+        "parameters": [
+          {
+            "name": "advanced-order-id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Order Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdvancedOrderRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExamplePayload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/advanced_orders/{order_id}": {
       "get": {
         "tags": [
@@ -942,46 +984,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ExamplePayload"
-                }
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "Advanced Number Orders"
-        ],
-        "summary": "Update Advanced Order",
-        "operationId": "update-advanced-order-v2",
-        "parameters": [
-          {
-            "name": "order_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "title": "Order Id",
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AdvancedOrderRequest"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "Successful Response",
