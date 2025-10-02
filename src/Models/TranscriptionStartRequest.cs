@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CommandId { get; set; }
 #endif
-        /// <summary>Engine to use for speech recognition. `A` - `Google`, `B` - `Telnyx`.</summary>
+        /// <summary>Engine to use for speech recognition. Legacy values `A` - `Google`, `B` - `Telnyx` are supported for backward compatibility.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest_transcription_engine? TranscriptionEngine { get; set; }
         /// <summary>The transcription_engine_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public TranscriptionStartRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            TranscriptionEngine = global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest_transcription_engine.A;
+            TranscriptionEngine = global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest_transcription_engine.Google;
             TranscriptionTracks = "inbound";
         }
         /// <summary>
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranscriptionStartRequest_transcription_engine_config : IComposedTypeWrapper, IParsable
@@ -118,6 +118,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig TranscriptionEngineBConfig { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig? TranscriptionEngineDeepgramConfig { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig TranscriptionEngineDeepgramConfig { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig? TranscriptionEngineGoogleConfig { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig TranscriptionEngineGoogleConfig { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig? TranscriptionEngineTelnyxConfig { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig TranscriptionEngineTelnyxConfig { get; set; }
+#endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
@@ -136,6 +160,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.TranscriptionEngineBConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig();
                 }
+                else if("Deepgram".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.TranscriptionEngineDeepgramConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig();
+                }
+                else if("Google".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.TranscriptionEngineGoogleConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig();
+                }
+                else if("Telnyx".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.TranscriptionEngineTelnyxConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig();
+                }
                 return result;
             }
             /// <summary>
@@ -151,6 +187,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if(TranscriptionEngineBConfig != null)
                 {
                     return TranscriptionEngineBConfig.GetFieldDeserializers();
+                }
+                else if(TranscriptionEngineDeepgramConfig != null)
+                {
+                    return TranscriptionEngineDeepgramConfig.GetFieldDeserializers();
+                }
+                else if(TranscriptionEngineGoogleConfig != null)
+                {
+                    return TranscriptionEngineGoogleConfig.GetFieldDeserializers();
+                }
+                else if(TranscriptionEngineTelnyxConfig != null)
+                {
+                    return TranscriptionEngineTelnyxConfig.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -168,6 +216,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if(TranscriptionEngineBConfig != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig>(null, TranscriptionEngineBConfig);
+                }
+                else if(TranscriptionEngineDeepgramConfig != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig>(null, TranscriptionEngineDeepgramConfig);
+                }
+                else if(TranscriptionEngineGoogleConfig != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig>(null, TranscriptionEngineGoogleConfig);
+                }
+                else if(TranscriptionEngineTelnyxConfig != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig>(null, TranscriptionEngineTelnyxConfig);
                 }
             }
         }

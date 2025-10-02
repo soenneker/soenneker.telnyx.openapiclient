@@ -34452,13 +34452,13 @@
           }
         }
       },
-      "GetBucketUsage_200": {
+      "ListMigrationSourceCoverage_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BucketUsage"
+              "$ref": "#/components/schemas/MigrationSourceCoverageParams"
             }
           },
           "meta": {
@@ -35141,14 +35141,17 @@
           "send_silence_when_idle": true
         }
       },
-      "GetStorageAPIUsage_200": {
+      "GetBucketUsage_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BucketAPIUsageResponse"
+              "$ref": "#/components/schemas/BucketUsage"
             }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMetaSimple"
           }
         }
       },
@@ -36309,6 +36312,17 @@
         "type": "string",
         "additionalProperties": false
       },
+      "GetStorageAPIUsage_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketAPIUsageResponse"
+            }
+          }
+        }
+      },
       "AddStorageSSLCertificate": {
         "type": "object",
         "properties": {
@@ -36355,26 +36369,6 @@
               "description": "Identifies the resource.",
               "format": "uuid"
             }
-          }
-        }
-      },
-      "PreviewSimCardOrders": {
-        "required": [
-          "quantity",
-          "address_id"
-        ],
-        "type": "object",
-        "properties": {
-          "quantity": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
-            "example": 21
-          },
-          "address_id": {
-            "type": "string",
-            "description": "Uniquely identifies the address for the order.",
-            "example": "1293384261075731499"
           }
         }
       },
@@ -37189,17 +37183,23 @@
           "park_after_unbridge": "self"
         }
       },
-      "SetWirelessBlocklistForSimCardGroup": {
+      "PreviewSimCardOrders": {
         "required": [
-          "wireless_blocklist_id"
+          "quantity",
+          "address_id"
         ],
         "type": "object",
         "properties": {
-          "wireless_blocklist_id": {
+          "quantity": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
+            "example": 21
+          },
+          "address_id": {
             "type": "string",
-            "description": "The identification of the related Wireless Blocklist resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "description": "Uniquely identifies the address for the order.",
+            "example": "1293384261075731499"
           }
         }
       },
@@ -38602,15 +38602,15 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "SetPrivateWirelessGatewayForSimCardGroup": {
+      "SetWirelessBlocklistForSimCardGroup": {
         "required": [
-          "private_wireless_gateway_id"
+          "wireless_blocklist_id"
         ],
         "type": "object",
         "properties": {
-          "private_wireless_gateway_id": {
+          "wireless_blocklist_id": {
             "type": "string",
-            "description": "The identification of the related Private Wireless Gateway resource.",
+            "description": "The identification of the related Wireless Blocklist resource.",
             "format": "uuid",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           }
@@ -46849,6 +46849,27 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
+      "SetPrivateWirelessGatewayForSimCardGroup": {
+        "required": [
+          "private_wireless_gateway_id"
+        ],
+        "type": "object",
+        "properties": {
+          "private_wireless_gateway_id": {
+            "type": "string",
+            "description": "The identification of the related Private Wireless Gateway resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          }
+        }
+      },
+      "ConnectionAndroidPushCredentialId": {
+        "title": "Android Push Credential Id",
+        "type": "string",
+        "description": "The uuid of the push credential for Android",
+        "nullable": true,
+        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
+      },
       "PostSimCardDataUsageNotification": {
         "required": [
           "sim_card_id",
@@ -46883,13 +46904,6 @@
           }
         }
       },
-      "ConnectionAndroidPushCredentialId": {
-        "title": "Android Push Credential Id",
-        "type": "string",
-        "description": "The uuid of the push credential for Android",
-        "nullable": true,
-        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
-      },
       "UpdateRequirementGroup": {
         "type": "object",
         "properties": {
@@ -46917,6 +46931,13 @@
             }
           }
         }
+      },
+      "ConnectionIosPushCredentialId": {
+        "title": "Ios Push Credential Id",
+        "type": "string",
+        "description": "The uuid of the push credential for Ios",
+        "nullable": true,
+        "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
       },
       "CreateRequirementGroup": {
         "required": [
@@ -46970,19 +46991,6 @@
               }
             }
           }
-        }
-      },
-      "ConnectionIosPushCredentialId": {
-        "title": "Ios Push Credential Id",
-        "type": "string",
-        "description": "The uuid of the push credential for Ios",
-        "nullable": true,
-        "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
-      },
-      "GetRequirementGroups_200": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/RequirementGroup"
         }
       },
       "ConnectionRtcpSettings": {
@@ -47381,29 +47389,10 @@
           }
         }
       },
-      "CreatePrivateWirelessGateway": {
-        "required": [
-          "network_id",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "network_id": {
-            "type": "string",
-            "description": "The identification of the related network resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "name": {
-            "type": "string",
-            "description": "The private wireless gateway name.",
-            "example": "My private wireless gateway"
-          },
-          "region_code": {
-            "type": "string",
-            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
-            "example": "dc2"
-          }
+      "GetRequirementGroups_200": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RequirementGroup"
         }
       },
       "CountryCoverage": {
@@ -51089,22 +51078,28 @@
           }
         }
       },
-      "UpdatePortoutStatus": {
+      "CreatePrivateWirelessGateway": {
         "required": [
-          "reason"
+          "network_id",
+          "name"
         ],
         "type": "object",
         "properties": {
-          "reason": {
+          "network_id": {
             "type": "string",
-            "description": "Provide a reason if rejecting the port out request",
-            "example": "I do not recognize this transaction"
+            "description": "The identification of the related network resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
-          "host_messaging": {
-            "type": "boolean",
-            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
-            "default": false,
-            "example": false
+          "name": {
+            "type": "string",
+            "description": "The private wireless gateway name.",
+            "example": "My private wireless gateway"
+          },
+          "region_code": {
+            "type": "string",
+            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
+            "example": "dc2"
           }
         }
       },
@@ -51191,39 +51186,22 @@
           }
         }
       },
-      "PostPortRequestSupportingDocuments": {
+      "UpdatePortoutStatus": {
+        "required": [
+          "reason"
+        ],
         "type": "object",
         "properties": {
-          "documents": {
-            "maxItems": 10,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "required": [
-                "type",
-                "document_id"
-              ],
-              "type": "object",
-              "properties": {
-                "type": {
-                  "enum": [
-                    "loa",
-                    "invoice"
-                  ],
-                  "type": "string",
-                  "additionalProperties": false,
-                  "description": "Identifies the type of the document",
-                  "example": "loa"
-                },
-                "document_id": {
-                  "type": "string",
-                  "description": "Identifies the associated document",
-                  "format": "uuid",
-                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-                }
-              }
-            },
-            "description": "List of supporting documents parameters"
+          "reason": {
+            "type": "string",
+            "description": "Provide a reason if rejecting the port out request",
+            "example": "I do not recognize this transaction"
+          },
+          "host_messaging": {
+            "type": "boolean",
+            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
+            "default": false,
+            "example": false
           }
         }
       },
@@ -51589,12 +51567,39 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "PostPortRequestComment": {
+      "PostPortRequestSupportingDocuments": {
         "type": "object",
         "properties": {
-          "body": {
-            "type": "string",
-            "description": "Comment to post on this portout request"
+          "documents": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "required": [
+                "type",
+                "document_id"
+              ],
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "loa",
+                    "invoice"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "Identifies the type of the document",
+                  "example": "loa"
+                },
+                "document_id": {
+                  "type": "string",
+                  "description": "Identifies the associated document",
+                  "format": "uuid",
+                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+                }
+              }
+            },
+            "description": "List of supporting documents parameters"
           }
         }
       },
@@ -52078,6 +52083,109 @@
             "type": "object"
           }
         }
+      },
+      "PostPortRequestComment": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Comment to post on this portout request"
+          }
+        }
+      },
+      "DeepgramNova2TranscriptionLanguage": {
+        "title": "Deepgram nova-2 transcription engine list of languages",
+        "enum": [
+          "bg",
+          "ca",
+          "zh",
+          "zh-CN",
+          "zh-Hans",
+          "zh-TW",
+          "zh-Hant",
+          "zh-HK",
+          "cs",
+          "da",
+          "da-DK",
+          "nl",
+          "en",
+          "en-US",
+          "en-AU",
+          "en-GB",
+          "en-NZ",
+          "en-IN",
+          "et",
+          "fi",
+          "nl-BE",
+          "fr",
+          "fr-CA",
+          "de",
+          "de-CH",
+          "el",
+          "hi",
+          "hu",
+          "id",
+          "it",
+          "ja",
+          "ko",
+          "ko-KR",
+          "lv",
+          "lt",
+          "ms",
+          "no",
+          "pl",
+          "pt",
+          "pt-BR",
+          "pt-PT",
+          "ro",
+          "ru",
+          "sk",
+          "es",
+          "es-419",
+          "sv",
+          "sv-SE",
+          "th",
+          "th-TH",
+          "tr",
+          "uk",
+          "vi",
+          "auto_detect"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Language to use for speech recognition with nova-2 model",
+        "default": "en",
+        "example": "en"
+      },
+      "DeepgramNova3TranscriptionLanguage": {
+        "title": "Deepgram nova-3 transcription engine list of languages",
+        "enum": [
+          "en",
+          "en-US",
+          "en-AU",
+          "en-GB",
+          "en-IN",
+          "en-NZ",
+          "de",
+          "nl",
+          "sv",
+          "sv-SE",
+          "da",
+          "da-DK",
+          "es",
+          "es-419",
+          "fr",
+          "fr-CA",
+          "pt",
+          "pt-BR",
+          "pt-PT",
+          "auto_detect"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Language to use for speech recognition with nova-3 model",
+        "default": "en",
+        "example": "en"
       },
       "PostPortabilityCheck": {
         "type": "object",
@@ -80768,6 +80876,173 @@
           }
         }
       },
+      "TranscriptionEngineDeepgramConfig": {
+        "title": "Transcription engine Deepgram config",
+        "required": [
+          "transcription_engine",
+          "transcription_model"
+        ],
+        "type": "object",
+        "properties": {
+          "transcription_engine": {
+            "enum": [
+              "Deepgram"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Engine identifier for Deepgram transcription service"
+          },
+          "transcription_model": {
+            "enum": [
+              "deepgram/nova-2",
+              "deepgram/nova-3"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The model to use for transcription.",
+            "default": "deepgram/nova-2"
+          },
+          "language": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DeepgramNova2TranscriptionLanguage_Wrapper"
+              },
+              {
+                "$ref": "#/components/schemas/DeepgramNova3TranscriptionLanguage_Wrapper"
+              }
+            ],
+            "description": "Language to use for speech recognition. Available languages depend on the selected model."
+          }
+        }
+      },
+      "TranscriptionEngineGoogleConfig": {
+        "title": "Transcription engine Google config",
+        "type": "object",
+        "properties": {
+          "transcription_engine": {
+            "enum": [
+              "Google"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Engine identifier for Google transcription service"
+          },
+          "language": {
+            "$ref": "#/components/schemas/GoogleTranscriptionLanguage"
+          },
+          "interim_results": {
+            "type": "boolean",
+            "description": "Whether to send also interim results. If set to false, only final results will be sent.",
+            "default": false,
+            "example": true
+          },
+          "enable_speaker_diarization": {
+            "type": "boolean",
+            "description": "Enables speaker diarization.",
+            "default": false,
+            "example": true
+          },
+          "min_speaker_count": {
+            "type": "integer",
+            "description": "Defines minimum number of speakers in the conversation.",
+            "format": "int32",
+            "default": 2,
+            "example": 4
+          },
+          "max_speaker_count": {
+            "type": "integer",
+            "description": "Defines maximum number of speakers in the conversation.",
+            "format": "int32",
+            "default": 6,
+            "example": 4
+          },
+          "profanity_filter": {
+            "type": "boolean",
+            "description": "Enables profanity_filter.",
+            "default": false,
+            "example": true
+          },
+          "use_enhanced": {
+            "type": "boolean",
+            "description": "Enables enhanced transcription, this works for models `phone_call` and `video`.",
+            "default": false,
+            "example": true
+          },
+          "model": {
+            "enum": [
+              "latest_long",
+              "latest_short",
+              "command_and_search",
+              "phone_call",
+              "video",
+              "default",
+              "medical_conversation",
+              "medical_dictation"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The model to use for transcription."
+          },
+          "hints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Hints to improve transcription accuracy."
+          },
+          "speech_context": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "phrases": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "boost": {
+                  "maximum": 20.0,
+                  "minimum": 0.0,
+                  "type": "number",
+                  "description": "Boost factor for the speech context.",
+                  "default": 1.0,
+                  "example": 1.0
+                }
+              }
+            },
+            "description": "Speech context to improve transcription accuracy."
+          }
+        }
+      },
+      "TranscriptionEngineTelnyxConfig": {
+        "title": "Transcription engine Telnyx config",
+        "type": "object",
+        "properties": {
+          "transcription_engine": {
+            "enum": [
+              "Telnyx"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Engine identifier for Telnyx transcription service"
+          },
+          "language": {
+            "$ref": "#/components/schemas/TelnyxTranscriptionLanguage"
+          },
+          "transcription_model": {
+            "enum": [
+              "openai/whisper-tiny",
+              "openai/whisper-large-v3-turbo"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The model to use for transcription.",
+            "default": "openai/whisper-tiny"
+          }
+        }
+      },
       "TranscriptionEvent": {
         "title": "Transcription Event",
         "type": "object",
@@ -80796,14 +81071,17 @@
         "properties": {
           "transcription_engine": {
             "enum": [
+              "Google",
+              "Telnyx",
+              "Deepgram",
               "A",
               "B"
             ],
             "type": "string",
             "additionalProperties": false,
-            "description": "Engine to use for speech recognition. `A` - `Google`, `B` - `Telnyx`.",
-            "default": "A",
-            "example": "A"
+            "description": "Engine to use for speech recognition. Legacy values `A` - `Google`, `B` - `Telnyx` are supported for backward compatibility.",
+            "default": "Google",
+            "example": "Google"
           },
           "transcription_engine_config": {
             "required": [
@@ -80811,6 +81089,15 @@
             ],
             "type": "object",
             "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranscriptionEngineGoogleConfig"
+              },
+              {
+                "$ref": "#/components/schemas/TranscriptionEngineTelnyxConfig"
+              },
+              {
+                "$ref": "#/components/schemas/TranscriptionEngineDeepgramConfig"
+              },
               {
                 "$ref": "#/components/schemas/TranscriptionEngineAConfig"
               },
@@ -80826,6 +81113,9 @@
             "discriminator": {
               "propertyName": "transcription_engine",
               "mapping": {
+                "Google": "#/components/schemas/TranscriptionEngineGoogleConfig",
+                "Telnyx": "#/components/schemas/TranscriptionEngineTelnyxConfig",
+                "Deepgram": "#/components/schemas/TranscriptionEngineDeepgramConfig",
                 "A": "#/components/schemas/TranscriptionEngineAConfig",
                 "B": "#/components/schemas/TranscriptionEngineBConfig"
               }
@@ -90873,20 +91163,6 @@
           "$ref": "#/components/schemas/TestRunResponse"
         }
       },
-      "ListMigrationSourceCoverage_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MigrationSourceCoverageParams"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMetaSimple"
-          }
-        }
-      },
       "ListMigrationSources_200": {
         "type": "object",
         "properties": {
@@ -91384,6 +91660,28 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/AvailableService"
+          }
+        }
+      },
+      "DeepgramNova2TranscriptionLanguage_Wrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/DeepgramNova2TranscriptionLanguage"
+          }
+        }
+      },
+      "DeepgramNova3TranscriptionLanguage_Wrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/DeepgramNova3TranscriptionLanguage"
           }
         }
       }
