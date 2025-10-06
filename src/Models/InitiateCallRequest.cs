@@ -46,6 +46,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? CancelPlaybackOnDetectMessageEnd { get; set; }
         /// <summary>Whether to cancel ongoing playback on `machine` detection. Defaults to `true`.</summary>
         public bool? CancelPlaybackOnMachineDetection { get; set; }
+        /// <summary>Custom HTTP headers to be sent with the call. Each header should be an object with &apos;name&apos; and &apos;value&apos; properties.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_CustomHeaders>? CustomHeaders { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_CustomHeaders> CustomHeaders { get; set; }
+#endif
         /// <summary>Allows you to chose between Premium and Standard detections.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_DetectionMode? DetectionMode { get; set; }
         /// <summary>A failover URL for which Telnyx will retrieve the TeXML call instructions if the `Url` is not responding.</summary>
@@ -196,6 +204,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "CallerId", n => { CallerId = n.GetStringValue(); } },
                 { "CancelPlaybackOnDetectMessageEnd", n => { CancelPlaybackOnDetectMessageEnd = n.GetBoolValue(); } },
                 { "CancelPlaybackOnMachineDetection", n => { CancelPlaybackOnMachineDetection = n.GetBoolValue(); } },
+                { "CustomHeaders", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_CustomHeaders>(global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_CustomHeaders.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "DetectionMode", n => { DetectionMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_DetectionMode>(); } },
                 { "FallbackUrl", n => { FallbackUrl = n.GetStringValue(); } },
                 { "From", n => { From = n.GetStringValue(); } },
@@ -238,6 +247,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("CallerId", CallerId);
             writer.WriteBoolValue("CancelPlaybackOnDetectMessageEnd", CancelPlaybackOnDetectMessageEnd);
             writer.WriteBoolValue("CancelPlaybackOnMachineDetection", CancelPlaybackOnMachineDetection);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_CustomHeaders>("CustomHeaders", CustomHeaders);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_DetectionMode>("DetectionMode", DetectionMode);
             writer.WriteStringValue("FallbackUrl", FallbackUrl);
             writer.WriteStringValue("From", From);

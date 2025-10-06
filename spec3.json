@@ -65176,6 +65176,11 @@
             "description": "enables automated resizing of MMS media.",
             "type": "boolean",
             "default": false
+          },
+          "mobile_only": {
+            "description": "Send messages only to mobile phone numbers.",
+            "type": "boolean",
+            "default": false
           }
         },
         "example": {
@@ -68341,6 +68346,33 @@
             "enum": [
               "trim-silence",
               "do-not-trim"
+            ]
+          },
+          "CustomHeaders": {
+            "description": "Custom HTTP headers to be sent with the call. Each header should be an object with 'name' and 'value' properties.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the custom header"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The value of the custom header"
+                }
+              },
+              "required": [
+                "name",
+                "value"
+              ]
+            },
+            "example": [
+              {
+                "name": "X-Custom-Header",
+                "value": "custom-value"
+              }
             ]
           }
         },
@@ -74128,6 +74160,33 @@
               "trim-silence",
               "do-not-trim"
             ]
+          },
+          "CustomHeaders": {
+            "description": "Custom HTTP headers to be sent with the call. Each header should be an object with 'name' and 'value' properties.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the custom header"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The value of the custom header"
+                }
+              },
+              "required": [
+                "name",
+                "value"
+              ]
+            },
+            "example": [
+              {
+                "name": "X-Custom-Header",
+                "value": "custom-value"
+              }
+            ]
           }
         },
         "example": {
@@ -76946,6 +77005,10 @@
           "daily_spend_limit_enabled": {
             "description": "Whether to enforce the value configured by `daily_spend_limit`.",
             "type": "boolean"
+          },
+          "mobile_only": {
+            "description": "Send messages only to mobile phone numbers.",
+            "type": "boolean"
           }
         },
         "example": {
@@ -76981,7 +77044,8 @@
           "daily_spend_limit": "100.00",
           "daily_spend_limit_enabled": false,
           "redaction_enabled": false,
-          "redaction_level": 2
+          "redaction_level": 2,
+          "mobile_only": false
         }
       },
       "MessagingProfileDetailedMetric": {
@@ -98530,6 +98594,11 @@
           },
           "mms_transcoding": {
             "description": "enables automated resizing of MMS media.",
+            "type": "boolean",
+            "default": false
+          },
+          "mobile_only": {
+            "description": "Send messages only to mobile phone numbers.",
             "type": "boolean",
             "default": false
           }

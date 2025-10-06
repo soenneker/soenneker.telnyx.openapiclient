@@ -42,6 +42,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? MmsFallBackToSms { get; set; }
         /// <summary>enables automated resizing of MMS media.</summary>
         public bool? MmsTranscoding { get; set; }
+        /// <summary>Send messages only to mobile phone numbers.</summary>
+        public bool? MobileOnly { get; set; }
         /// <summary>A user friendly name for the messaging profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -137,6 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "mms_fall_back_to_sms", n => { MmsFallBackToSms = n.GetBoolValue(); } },
                 { "mms_transcoding", n => { MmsTranscoding = n.GetBoolValue(); } },
+                { "mobile_only", n => { MobileOnly = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number_pool_settings", n => { NumberPoolSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile_record_type>(); } },
@@ -162,6 +165,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteBoolValue("mms_fall_back_to_sms", MmsFallBackToSms);
             writer.WriteBoolValue("mms_transcoding", MmsTranscoding);
+            writer.WriteBoolValue("mobile_only", MobileOnly);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings>("number_pool_settings", NumberPoolSettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>("url_shortener_settings", UrlShortenerSettings);
