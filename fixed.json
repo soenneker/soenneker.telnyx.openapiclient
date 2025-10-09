@@ -26602,7 +26602,8 @@
                     "approved",
                     "unapproved",
                     "pending-approval",
-                    "declined"
+                    "declined",
+                    "expired"
                   ],
                   "type": "string",
                   "additionalProperties": false,
@@ -57699,7 +57700,8 @@
           "provider": {
             "enum": [
               "elevenlabs",
-              "vapi"
+              "vapi",
+              "retell"
             ],
             "type": "string",
             "additionalProperties": false,
@@ -57743,7 +57745,8 @@
           "import_provider": {
             "enum": [
               "elevenlabs",
-              "vapi"
+              "vapi",
+              "retell"
             ],
             "type": "string",
             "additionalProperties": false,
@@ -72544,7 +72547,8 @@
               "approved",
               "unapproved",
               "pending-approval",
-              "declined"
+              "declined",
+              "expired"
             ],
             "type": "string",
             "additionalProperties": false
@@ -85153,7 +85157,8 @@
               "approved",
               "unapproved",
               "pending-approval",
-              "declined"
+              "declined",
+              "expired"
             ],
             "type": "string",
             "additionalProperties": false

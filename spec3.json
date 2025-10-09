@@ -29750,7 +29750,8 @@
                     "approved",
                     "unapproved",
                     "pending-approval",
-                    "declined"
+                    "declined",
+                    "expired"
                   ],
                   "description": "Filter requirement groups by status"
                 },
@@ -73087,7 +73088,8 @@
             "type": "string",
             "enum": [
               "elevenlabs",
-              "vapi"
+              "vapi",
+              "retell"
             ],
             "description": "The external provider to import assistants from."
           },
@@ -73135,7 +73137,8 @@
             "type": "string",
             "enum": [
               "elevenlabs",
-              "vapi"
+              "vapi",
+              "retell"
             ],
             "description": "Provider the assistant was imported from."
           },
@@ -87812,7 +87815,8 @@
               "approved",
               "unapproved",
               "pending-approval",
-              "declined"
+              "declined",
+              "expired"
             ]
           },
           "action": {
@@ -100256,7 +100260,8 @@
               "approved",
               "unapproved",
               "pending-approval",
-              "declined"
+              "declined",
+              "expired"
             ]
           },
           "expires_at": {
