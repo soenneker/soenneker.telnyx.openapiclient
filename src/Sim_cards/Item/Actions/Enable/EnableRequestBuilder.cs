@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable
         {
         }
         /// <summary>
-        /// This API enables a SIM card, connecting it to the network and making it possible to consume data.&lt;br/&gt;To enable a SIM card, it must be associated with a SIM card group.&lt;br/&gt;The API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the enabled state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developersdev.telnyx.com/docs/api/v2/wireless/SIM-Card-Actions#ListSIMCardActions) API.
+        /// This API enables a SIM card, connecting it to the network and making it possible to consume data.&lt;br/&gt;To enable a SIM card, it must be associated with a SIM card group.&lt;br/&gt;The API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the enabled state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable.EnablePostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable.EnablePostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Enable.EnablePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// This API enables a SIM card, connecting it to the network and making it possible to consume data.&lt;br/&gt;To enable a SIM card, it must be associated with a SIM card group.&lt;br/&gt;The API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the enabled state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developersdev.telnyx.com/docs/api/v2/wireless/SIM-Card-Actions#ListSIMCardActions) API.
+        /// This API enables a SIM card, connecting it to the network and making it possible to consume data.&lt;br/&gt;To enable a SIM card, it must be associated with a SIM card group.&lt;br/&gt;The API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the enabled state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

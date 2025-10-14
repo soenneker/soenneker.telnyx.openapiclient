@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Remove_public_ip
         {
         }
         /// <summary>
-        /// This API removes an existing public IP from a SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developersdev.telnyx.com/docs/api/v2/wireless/SIM-Card-Actions#ListSIMCardActions) API.
+        /// This API removes an existing public IP from a SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Remove_public_ip.Remove_public_ipPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Remove_public_ip
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Remove_public_ip.Remove_public_ipPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Remove_public_ip.Remove_public_ipPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// This API removes an existing public IP from a SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developersdev.telnyx.com/docs/api/v2/wireless/SIM-Card-Actions#ListSIMCardActions) API.
+        /// This API removes an existing public IP from a SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
