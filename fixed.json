@@ -50177,6 +50177,35 @@
             "format": "uuid",
             "nullable": true,
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "calling_window": {
+            "type": "object",
+            "properties": {
+              "start_time": {
+                "type": "string",
+                "description": "(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are allowed to start.",
+                "format": "time",
+                "example": "08:00"
+              },
+              "end_time": {
+                "type": "string",
+                "description": "(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are no longer allowed to start.",
+                "format": "time",
+                "example": "20:00"
+              },
+              "calls_per_cld": {
+                "minimum": 0,
+                "type": "integer",
+                "description": "(BETA) The maximum number of calls that can be initiated to a single called party (CLD) within the calling window. A null value means no limit.",
+                "example": 5
+              }
+            },
+            "description": "(BETA) Specifies the time window and call limits for calls made using this outbound voice profile. Note that all times are UTC in 24-hour clock time.",
+            "example": {
+              "start_time": "08:00",
+              "end_time": "20:00",
+              "calls_per_cld": 5
+            }
           }
         },
         "example": {
@@ -50197,7 +50226,12 @@
           "max_destination_rate": 10,
           "daily_spend_limit": "100.00",
           "daily_spend_limit_enabled": true,
-          "billing_group_id": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          "billing_group_id": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
+          "calling_window": {
+            "start_time": "08:00",
+            "end_time": "20:00",
+            "calls_per_cld": 5
+          }
         }
       },
       "CreatePortingOrderBody": {
@@ -65594,6 +65628,32 @@
             "nullable": true,
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
+          "calling_window": {
+            "type": "object",
+            "properties": {
+              "start_time": {
+                "type": "string",
+                "description": "(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are allowed to start.",
+                "example": "08:00"
+              },
+              "end_time": {
+                "type": "string",
+                "description": "(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are no longer allowed to start.",
+                "example": "20:00"
+              },
+              "calls_per_cld": {
+                "type": "integer",
+                "description": "(BETA) The maximum number of calls that can be initiated to a single called party (CLD) within the calling window. A null value means no limit.",
+                "example": 5
+              }
+            },
+            "description": "(BETA) Specifies the time window and call limits for calls made using this outbound voice profile. Note that all times are UTC in 24-hour clock time.",
+            "example": {
+              "start_time": "08:00",
+              "end_time": "20:00",
+              "calls_per_cld": 5
+            }
+          },
           "created_at": {
             "type": "string",
             "description": "ISO 8601 formatted date-time indicating when the resource was created.",
@@ -65635,6 +65695,11 @@
             "call_recording_format": "mp3"
           },
           "billing_group_id": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
+          "calling_window": {
+            "start_time": "08:00",
+            "end_time": "20:00",
+            "calls_per_cld": 5
+          },
           "created_at": "2018-02-02T22:25:27.521Z",
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
@@ -77774,6 +77839,94 @@
             "type": "string",
             "description": "URL that should receive webhooks relating to this verification request",
             "example": "http://example-webhook.com"
+          },
+          "businessRegistrationNumber": {
+            "title": "Businessregistrationnumber",
+            "maxLength": 500,
+            "type": "string",
+            "description": "Official business registration number (e.g., Employer Identification Number (EIN) in the U.S.). Required from January 2026.",
+            "nullable": true,
+            "example": "12-3456789"
+          },
+          "businessRegistrationType": {
+            "title": "Businessregistrationtype",
+            "maxLength": 500,
+            "type": "string",
+            "description": "Type of business registration being provided. Required from January 2026.",
+            "nullable": true,
+            "example": "EIN"
+          },
+          "businessRegistrationCountry": {
+            "title": "Businessregistrationcountry",
+            "maxLength": 2,
+            "pattern": "^[A-Z]{2}$",
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code of the issuing business authority. Must be exactly 2 letters. Automatically converted to uppercase. Required from January 2026.",
+            "nullable": true,
+            "example": "US"
+          },
+          "doingBusinessAs": {
+            "title": "Doingbusinessas",
+            "maxLength": 500,
+            "type": "string",
+            "description": "Doing Business As (DBA) name if different from legal name",
+            "nullable": true,
+            "example": "Acme Services"
+          },
+          "entityType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/toll_free_verification_EntityType_Wrapper"
+              }
+            ],
+            "description": "Business entity classification. Must be one of the 5 valid enum values.",
+            "nullable": true
+          },
+          "optInConfirmationResponse": {
+            "title": "Optinconfirmationresponse",
+            "maxLength": 500,
+            "type": "string",
+            "description": "Message sent to users confirming their opt-in to receive messages",
+            "nullable": true,
+            "example": "You have successfully opted in to receive messages from Acme Corp"
+          },
+          "helpMessageResponse": {
+            "title": "Helpmessageresponse",
+            "maxLength": 500,
+            "type": "string",
+            "description": "The message returned when users text 'HELP'",
+            "nullable": true,
+            "example": "Reply HELP for assistance or STOP to unsubscribe. Contact: support@example.com"
+          },
+          "privacyPolicyURL": {
+            "title": "Privacypolicyurl",
+            "maxLength": 500,
+            "type": "string",
+            "description": "URL pointing to the business's privacy policy. Plain string, no URL format validation.",
+            "nullable": true,
+            "example": "https://example.com/privacy"
+          },
+          "termsAndConditionURL": {
+            "title": "Termsandconditionurl",
+            "maxLength": 500,
+            "type": "string",
+            "description": "URL pointing to the business's terms and conditions. Plain string, no URL format validation.",
+            "nullable": true,
+            "example": "https://example.com/terms"
+          },
+          "ageGatedContent": {
+            "title": "Agegatedcontent",
+            "type": "boolean",
+            "description": "Indicates if messaging content requires age gating (e.g., 18+). Defaults to false if not provided.",
+            "default": false
+          },
+          "optInKeywords": {
+            "title": "Optinkeywords",
+            "maxLength": 500,
+            "type": "string",
+            "description": "Keywords used to collect and process consumer opt-ins",
+            "nullable": true,
+            "example": "START, YES, SUBSCRIBE"
           }
         },
         "description": "The body of a tollfree verification request"
@@ -83696,6 +83849,35 @@
             "format": "uuid",
             "nullable": true,
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "calling_window": {
+            "type": "object",
+            "properties": {
+              "start_time": {
+                "type": "string",
+                "description": "(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are allowed to start.",
+                "format": "time",
+                "example": "08:00"
+              },
+              "end_time": {
+                "type": "string",
+                "description": "(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are no longer allowed to start.",
+                "format": "time",
+                "example": "20:00"
+              },
+              "calls_per_cld": {
+                "minimum": 0,
+                "type": "integer",
+                "description": "(BETA) The maximum number of calls that can be initiated to a single called party (CLD) within the calling window. A null value means no limit.",
+                "example": 5
+              }
+            },
+            "description": "(BETA) Specifies the time window and call limits for calls made using this outbound voice profile.",
+            "example": {
+              "start_time": "08:00",
+              "end_time": "20:00",
+              "calls_per_cld": 5
+            }
           }
         },
         "example": {
@@ -83716,7 +83898,12 @@
           "max_destination_rate": 10,
           "daily_spend_limit": "100.00",
           "daily_spend_limit_enabled": true,
-          "billing_group_id": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          "billing_group_id": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
+          "calling_window": {
+            "start_time": "08:00",
+            "end_time": "20:00",
+            "calls_per_cld": 5
+          }
         }
       },
       "UpdatePartnerCampaignRequest": {
@@ -85610,6 +85797,59 @@
             "type": "string",
             "example": "http://example-webhook.com"
           },
+          "businessRegistrationNumber": {
+            "title": "Businessregistrationnumber",
+            "type": "string",
+            "example": "12-3456789"
+          },
+          "businessRegistrationType": {
+            "title": "Businessregistrationtype",
+            "type": "string",
+            "example": "EIN"
+          },
+          "businessRegistrationCountry": {
+            "title": "Businessregistrationcountry",
+            "type": "string",
+            "example": "US"
+          },
+          "doingBusinessAs": {
+            "title": "Doingbusinessas",
+            "type": "string",
+            "example": "Acme Services"
+          },
+          "entityType": {
+            "$ref": "#/components/schemas/toll_free_verification_EntityType"
+          },
+          "optInConfirmationResponse": {
+            "title": "Optinconfirmationresponse",
+            "type": "string",
+            "example": "You have successfully opted in to receive messages from Acme Corp"
+          },
+          "helpMessageResponse": {
+            "title": "Helpmessageresponse",
+            "type": "string",
+            "example": "Reply HELP for assistance or STOP to unsubscribe. Contact: support@example.com"
+          },
+          "privacyPolicyURL": {
+            "title": "Privacypolicyurl",
+            "type": "string",
+            "example": "https://example.com/privacy"
+          },
+          "termsAndConditionURL": {
+            "title": "Termsandconditionurl",
+            "type": "string",
+            "example": "https://example.com/terms"
+          },
+          "ageGatedContent": {
+            "title": "Agegatedcontent",
+            "type": "boolean",
+            "example": false
+          },
+          "optInKeywords": {
+            "title": "Optinkeywords",
+            "type": "string",
+            "example": "START, YES, SUBSCRIBE"
+          },
           "id": {
             "title": "Id",
             "type": "string",
@@ -85756,6 +85996,59 @@
             "title": "Webhookurl",
             "type": "string",
             "example": "http://example-webhook.com"
+          },
+          "businessRegistrationNumber": {
+            "title": "Businessregistrationnumber",
+            "type": "string",
+            "example": "12-3456789"
+          },
+          "businessRegistrationType": {
+            "title": "Businessregistrationtype",
+            "type": "string",
+            "example": "EIN"
+          },
+          "businessRegistrationCountry": {
+            "title": "Businessregistrationcountry",
+            "type": "string",
+            "example": "US"
+          },
+          "doingBusinessAs": {
+            "title": "Doingbusinessas",
+            "type": "string",
+            "example": "Acme Services"
+          },
+          "entityType": {
+            "$ref": "#/components/schemas/toll_free_verification_EntityType"
+          },
+          "optInConfirmationResponse": {
+            "title": "Optinconfirmationresponse",
+            "type": "string",
+            "example": "You have successfully opted in to receive messages from Acme Corp"
+          },
+          "helpMessageResponse": {
+            "title": "Helpmessageresponse",
+            "type": "string",
+            "example": "Reply HELP for assistance or STOP to unsubscribe. Contact: support@example.com"
+          },
+          "privacyPolicyURL": {
+            "title": "Privacypolicyurl",
+            "type": "string",
+            "example": "https://example.com/privacy"
+          },
+          "termsAndConditionURL": {
+            "title": "Termsandconditionurl",
+            "type": "string",
+            "example": "https://example.com/terms"
+          },
+          "ageGatedContent": {
+            "title": "Agegatedcontent",
+            "type": "boolean",
+            "example": false
+          },
+          "optInKeywords": {
+            "title": "Optinkeywords",
+            "type": "string",
+            "example": "START, YES, SUBSCRIBE"
           },
           "id": {
             "title": "Id",
@@ -90527,6 +90820,19 @@
       "CreateAuthenticationProvider_422": {
         "type": "object"
       },
+      "toll_free_verification_EntityType": {
+        "title": "EntityType",
+        "enum": [
+          "SOLE_PROPRIETOR",
+          "PRIVATE_PROFIT",
+          "PUBLIC_PROFIT",
+          "NON_PROFIT",
+          "GOVERNMENT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Business entity classification"
+      },
       "toll_free_verification_Error": {
         "required": [
           "code",
@@ -91724,6 +92030,17 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/AvailableService"
+          }
+        }
+      },
+      "toll_free_verification_EntityType_Wrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/toll_free_verification_EntityType"
           }
         }
       },
@@ -101797,24 +102114,24 @@
       "outbound-voice-profiles_PageConsolidated": {
         "name": "page",
         "in": "query",
-        "description": "Consolidated page parameter (deepObject style). Originally: page[number], page[size]",
+        "description": "Consolidated page parameter (deepObject style). Originally: page[size], page[number]",
         "style": "deepObject",
         "explode": true,
         "schema": {
           "type": "object",
           "properties": {
-            "number": {
-              "minimum": 1,
-              "type": "integer",
-              "description": "The page number to load.",
-              "default": 1
-            },
             "size": {
               "maximum": 250,
               "minimum": 1,
               "type": "integer",
               "description": "The size of the page.",
               "default": 20
+            },
+            "number": {
+              "minimum": 1,
+              "type": "integer",
+              "description": "The page number to load.",
+              "default": 1
             }
           }
         }
