@@ -48501,7 +48501,8 @@
             "items": {
               "type": "string"
             },
-            "description": "Tags associated with the Fax Application."
+            "description": "Tags associated with the Fax Application.",
+            "default": [ ]
           },
           "inbound": {
             "type": "object",
@@ -54816,7 +54817,8 @@
             "items": {
               "type": "string"
             },
-            "description": "Tags associated with the Fax Application."
+            "description": "Tags associated with the Fax Application.",
+            "default": [ ]
           },
           "inbound": {
             "type": "object",
@@ -64128,7 +64130,8 @@
               "type": "string",
               "format": "uri"
             },
-            "description": "List of redirect URIs (required for authorization_code flow)"
+            "description": "List of redirect URIs (required for authorization_code flow)",
+            "default": [ ]
           },
           "logo_uri": {
             "type": "string",
@@ -65897,7 +65900,8 @@
             "items": {
               "$ref": "#/components/schemas/VerificationRequestStatus"
             },
-            "description": "The records yielded by this request"
+            "description": "The records yielded by this request",
+            "default": [ ]
           },
           "total_records": {
             "title": "Total Records",
@@ -73613,7 +73617,8 @@
               "type": "object"
             },
             "description": "List of resources with actions in progress.",
-            "readOnly": true
+            "readOnly": true,
+            "example": [ ]
           },
           "eid": {
             "type": "string",
@@ -75671,7 +75676,8 @@
               "type": "object"
             },
             "description": "List of resources with actions in progress.",
-            "readOnly": true
+            "readOnly": true,
+            "example": [ ]
           },
           "eid": {
             "type": "string",
@@ -81033,7 +81039,8 @@
             "items": {
               "type": "string"
             },
-            "description": "Hints to improve transcription accuracy."
+            "description": "Hints to improve transcription accuracy.",
+            "default": [ ]
           },
           "speech_context": {
             "type": "array",
@@ -81044,7 +81051,8 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "default": [ ]
                 },
                 "boost": {
                   "maximum": 20.0,
@@ -81200,7 +81208,9 @@
             "items": {
               "type": "string"
             },
-            "description": "Hints to improve transcription accuracy."
+            "description": "Hints to improve transcription accuracy.",
+            "default": [ ],
+            "example": [ ]
           },
           "speech_context": {
             "type": "array",
@@ -81211,7 +81221,9 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "default": [ ],
+                  "example": [ ]
                 },
                 "boost": {
                   "maximum": 20.0,
@@ -85140,7 +85152,8 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UserBundleResourceSchema"
-            }
+            },
+            "example": [ ]
           }
         }
       },
