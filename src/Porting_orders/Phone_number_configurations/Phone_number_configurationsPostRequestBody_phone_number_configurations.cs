@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurati
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostRequestBody_phone_number_configurations CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurations.Phone_number_configurationsPostRequestBody_phone_number_configurations();
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Phone_number_configurati
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("porting_phone_number_id", PortingPhoneNumberId);
             writer.WriteGuidValue("user_bundle_id", UserBundleId);
             writer.WriteAdditionalData(AdditionalData);

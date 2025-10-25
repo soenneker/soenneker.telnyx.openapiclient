@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric();
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_global_ip>("global_ip", GlobalIp);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_mean_latency>("mean_latency", MeanLatency);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpLatencyMetric_percentile_latency>("percentile_latency", PercentileLatency);

@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client_token.Generate_join_client_tokenPostResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client_token.Generate_join_client_tokenPostResponse_data();
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Rooms.Item.Actions.Generate_join_client
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteDateTimeOffsetValue("refresh_token_expires_at", RefreshTokenExpiresAt);
             writer.WriteStringValue("token", Token);

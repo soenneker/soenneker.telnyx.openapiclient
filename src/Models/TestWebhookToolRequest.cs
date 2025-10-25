@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest();
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_arguments>("arguments", Arguments);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TestWebhookToolRequest_dynamic_variables>("dynamic_variables", DynamicVariables);
             writer.WriteAdditionalData(AdditionalData);

@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumber CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumber();
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionPhoneNumber_acquired_capabilities>("acquired_capabilities", AcquiredCapabilities);
             writer.WriteGuidValue("civic_address_id", CivicAddressId);
             writer.WriteStringValue("displayed_country_code", DisplayedCountryCode);

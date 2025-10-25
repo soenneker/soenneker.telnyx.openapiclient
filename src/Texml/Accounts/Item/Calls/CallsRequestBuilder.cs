@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallResult> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallResult>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallResult.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -123,7 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls
         public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

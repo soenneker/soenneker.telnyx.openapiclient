@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_document
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents();
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_document
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("document_id", DocumentId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Additional_documents.Additional_documentsPostRequestBody_additional_documents_document_type>("document_type", DocumentType);
             writer.WriteAdditionalData(AdditionalData);

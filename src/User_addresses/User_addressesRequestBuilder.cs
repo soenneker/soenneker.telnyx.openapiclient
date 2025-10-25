@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_addresses
         public async Task<global::Soenneker.Telnyx.OpenApiClient.User_addresses.User_addressesPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UserAddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.User_addresses.User_addressesPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.User_addresses.User_addressesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_addresses
         public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UserAddressCreate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

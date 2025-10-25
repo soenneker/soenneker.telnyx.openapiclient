@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail.VoicemailPatchResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VoicemailRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail.VoicemailPatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail.VoicemailPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -87,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail.VoicemailPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.VoicemailRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail.VoicemailPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail.VoicemailPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -125,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
         public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.VoicemailRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -147,7 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Item.Voicemail
         public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.VoicemailRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

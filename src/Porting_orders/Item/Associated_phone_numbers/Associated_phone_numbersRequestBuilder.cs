@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_nu
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers.Associated_phone_numbersPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers.Associated_phone_numbersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers.Associated_phone_numbersPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers.Associated_phone_numbersPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -117,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_nu
         public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers.Associated_phone_numbersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

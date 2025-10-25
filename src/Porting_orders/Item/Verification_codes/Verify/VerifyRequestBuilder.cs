@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verify.VerifyPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verify.VerifyPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verify.VerifyPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verify.VerifyPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.
         public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes.Verify.VerifyPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

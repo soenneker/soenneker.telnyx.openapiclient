@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Call_control_applications.Item
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Call_control_applications.Item.Call_control_applicationsPatchResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallControlApplicationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Call_control_applications.Item.Call_control_applicationsPatchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Call_control_applications.Item.Call_control_applicationsPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
@@ -142,7 +142,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Call_control_applications.Item
         public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCallControlApplicationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

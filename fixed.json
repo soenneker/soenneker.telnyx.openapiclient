@@ -2,7 +2,7 @@
   "openapi": "3.0.4",
   "info": {
     "title": "Telnyx API",
-    "description": "SIP trunking, SMS, MMS, Call Control and Telephony Data Services.",
+    "description": "Telnyx provides global communications and connectivity APIs for developers — including SIP trunking, programmable voice, SMS, MMS, WhatsApp Business Messaging, Call Control, Fax, Wireless (IoT & eSIM), Phone Numbers (DID provisioning & porting), Emergency Services, and Network APIs for private interconnects and edge connectivity. Build, scale, and manage voice, messaging, and data networks with Telnyx's carrier-grade global infrastructure and API-first platform.",
     "contact": {
       "email": "support@telnyx.com"
     },
@@ -36651,7 +36651,8 @@
             "type": "string",
             "description": "ISO 8601 formatted date indicating when the resource was removed.",
             "format": "date-time",
-            "nullable": true
+            "nullable": true,
+            "example": null
           }
         },
         "example": {
@@ -38462,6 +38463,7 @@
             "maximum": 30,
             "minimum": 0,
             "type": "integer",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -38518,6 +38520,7 @@
           "sip_subdomain": {
             "type": "string",
             "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \"example.sip.telnyx.com\" can be called from any SIP endpoint by using the SIP URI \"sip:@example.sip.telnyx.com\" where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+            "default": null,
             "example": "example"
           },
           "sip_subdomain_receive_settings": {
@@ -43215,7 +43218,8 @@
           },
           "error_code": {
             "type": "string",
-            "description": "Unused"
+            "description": "Unused",
+            "example": null
           },
           "normalized_carrier": {
             "type": "string",
@@ -45984,7 +45988,8 @@
           },
           "error_code": {
             "type": "string",
-            "description": "The recording error, if any."
+            "description": "The recording error, if any.",
+            "example": null
           },
           "media_url": {
             "type": "string",
@@ -46802,6 +46807,7 @@
             "type": "string",
             "description": "The URL where webhooks related to this connection will be sent.",
             "format": "uri",
+            "default": null,
             "nullable": true,
             "example": "https://example.com"
           },
@@ -46868,6 +46874,7 @@
         "title": "Android Push Credential Id",
         "type": "string",
         "description": "The uuid of the push credential for Android",
+        "default": null,
         "nullable": true,
         "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
       },
@@ -46937,6 +46944,7 @@
         "title": "Ios Push Credential Id",
         "type": "string",
         "description": "The uuid of the push credential for Ios",
+        "default": null,
         "nullable": true,
         "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
       },
@@ -48000,6 +48008,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -48232,6 +48241,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -48368,6 +48378,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -48515,6 +48526,7 @@
               "sip_subdomain": {
                 "type": "string",
                 "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \"example.sip.telnyx.com\" can be called from any SIP endpoint by using the SIP URI \"sip:@example.sip.telnyx.com\" where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+                "default": null,
                 "example": "example"
               },
               "sip_subdomain_receive_settings": {
@@ -49167,6 +49179,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -50176,6 +50189,7 @@
             "type": "string",
             "description": "The ID of the billing group associated with the outbound proflile. Defaults to null (for no group assigned).",
             "format": "uuid",
+            "default": null,
             "nullable": true,
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
@@ -50340,6 +50354,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           }
@@ -50385,6 +50400,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           }
@@ -50746,6 +50762,7 @@
             "type": "string",
             "description": "URL to which Telnyx will deliver your XML Translator webhooks if we get an error response from your voice_url.",
             "format": "uri",
+            "default": null,
             "example": "https://fallback.example.com"
           },
           "voice_method": {
@@ -50763,6 +50780,7 @@
             "type": "string",
             "description": "URL for Telnyx to send requests to containing information about call progress events.",
             "format": "uri",
+            "default": null,
             "example": "https://example.com"
           },
           "status_callback_method": {
@@ -50793,6 +50811,7 @@
               "sip_subdomain": {
                 "type": "string",
                 "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \"example.sip.telnyx.com\" can be called from any SIP endpoint by using the SIP URI \"sip:@example.sip.telnyx.com\" where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+                "default": null,
                 "example": "example"
               },
               "sip_subdomain_receive_settings": {
@@ -50907,6 +50926,7 @@
           "custom_code": {
             "type": "string",
             "description": "Send a self-generated numeric code to the end-user",
+            "default": null,
             "nullable": true,
             "example": "43612"
           },
@@ -50918,6 +50938,7 @@
           "extension": {
             "type": "string",
             "description": "Optional extension to dial after call is answered using DTMF digits. Valid digits are 0-9, A-D, *, and #. Pauses can be added using w (0.5s) and W (1s).",
+            "default": null,
             "nullable": true,
             "example": "1www2WABCDw9"
           }
@@ -50973,6 +50994,7 @@
           "custom_code": {
             "type": "string",
             "description": "Send a self-generated numeric code to the end-user",
+            "default": null,
             "nullable": true,
             "example": "43612"
           },
@@ -51352,6 +51374,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -54392,6 +54415,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -54831,6 +54855,7 @@
               "sip_subdomain": {
                 "type": "string",
                 "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \"example.sip.telnyx.com\" can be called from any SIP endpoint by using the SIP URI \"sip:@example.sip.telnyx.com\" where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+                "default": null,
                 "example": "example"
               },
               "sip_subdomain_receive_settings": {
@@ -55002,6 +55027,7 @@
         "title": "Fax Email Recipient",
         "type": "string",
         "description": "Specifies an email address where faxes sent to this application will be forwarded to (as pdf or tiff attachments)",
+        "default": null,
         "nullable": true,
         "example": "user@example.com"
       },
@@ -56869,7 +56895,8 @@
               "ip_address": {
                 "type": "string",
                 "description": "The Global IP address.",
-                "readOnly": true
+                "readOnly": true,
+                "example": null
               }
             }
           },
@@ -57087,7 +57114,8 @@
               "ip_address": {
                 "type": "string",
                 "description": "The Global IP address.",
-                "readOnly": true
+                "readOnly": true,
+                "example": null
               }
             }
           },
@@ -57851,23 +57879,27 @@
             "type": "string",
             "description": "The default primary FQDN to use for the number. Only settable if the connection is\nof FQDN type. Value must be the ID of an FQDN set on the connection.",
             "format": "int64",
+            "default": null,
             "nullable": true
           },
           "default_secondary_fqdn_id": {
             "type": "string",
             "description": "The default secondary FQDN to use for the number. Only settable if the connection is\nof FQDN type. Value must be the ID of an FQDN set on the connection.",
             "format": "int64",
+            "default": null,
             "nullable": true
           },
           "default_tertiary_fqdn_id": {
             "type": "string",
             "description": "The default tertiary FQDN to use for the number. Only settable if the connection is\nof FQDN type. Value must be the ID of an FQDN set on the connection.",
             "format": "int64",
+            "default": null,
             "nullable": true
           },
           "channel_limit": {
             "type": "integer",
             "description": "When set, this will limit the total number of inbound calls to phone numbers associated with this connection.",
+            "default": null,
             "nullable": true
           },
           "generate_ringback_tone": {
@@ -57904,6 +57936,7 @@
           "sip_subdomain": {
             "type": "string",
             "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \"example.sip.telnyx.com\" can be called from any SIP endpoint by using the SIP URI \"sip:@example.sip.telnyx.com\" where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+            "default": null,
             "nullable": true
           },
           "sip_subdomain_receive_settings": {
@@ -59593,6 +59626,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -63155,7 +63189,8 @@
           },
           "fraud": {
             "type": "string",
-            "description": "Unused"
+            "description": "Unused",
+            "example": null
           },
           "carrier": {
             "$ref": "#/components/schemas/Carrier"
@@ -63382,7 +63417,8 @@
           "bundle_id": {
             "type": "string",
             "format": "uuid",
-            "readOnly": true
+            "readOnly": true,
+            "example": null
           },
           "locality": {
             "type": "string",
@@ -63593,17 +63629,20 @@
           "connection_id": {
             "type": "string",
             "description": "Identifies the connection associated with this phone number.",
-            "nullable": true
+            "nullable": true,
+            "example": null
           },
           "messaging_profile_id": {
             "type": "string",
             "description": "Identifies the messaging profile associated with the phone number.",
-            "nullable": true
+            "nullable": true,
+            "example": null
           },
           "billing_group_id": {
             "type": "string",
             "description": "Identifies the billing group associated with the phone number.",
-            "nullable": true
+            "nullable": true,
+            "example": null
           },
           "phone_numbers": {
             "type": "array",
@@ -63643,7 +63682,8 @@
                 "bundle_id": {
                   "type": "string",
                   "format": "uuid",
-                  "nullable": true
+                  "nullable": true,
+                  "example": null
                 },
                 "regulatory_requirements": {
                   "type": "array",
@@ -63700,7 +63740,8 @@
           },
           "customer_reference": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "example": null
           },
           "created_at": {
             "type": "string",
@@ -64692,7 +64733,8 @@
           },
           "localization": {
             "type": "string",
-            "description": "A 2-character country code specifying the country whose national dialing rules should be used. For example, if set to `US` then any US number can be dialed without preprending +1 to the number. When left blank, Telnyx will try US and GB dialing rules, in that order, by default."
+            "description": "A 2-character country code specifying the country whose national dialing rules should be used. For example, if set to `US` then any US number can be dialed without preprending +1 to the number. When left blank, Telnyx will try US and GB dialing rules, in that order, by default.",
+            "default": null
           },
           "t38_reinvite_source": {
             "enum": [
@@ -64723,7 +64765,8 @@
             "example": "tech-prefixp-charge-info"
           },
           "ip_authentication_token": {
-            "type": "string"
+            "type": "string",
+            "default": null
           },
           "outbound_voice_profile_id": {
             "type": "string",
@@ -65628,6 +65671,7 @@
             "type": "string",
             "description": "The ID of the billing group associated with the outbound proflile. Defaults to null (for no group assigned).",
             "format": "uuid",
+            "default": null,
             "nullable": true,
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
@@ -66518,6 +66562,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           }
@@ -68375,7 +68420,8 @@
           "cancel_reason": {
             "type": "string",
             "description": "Reason for cancellation if status is 'cancelled'",
-            "nullable": true
+            "nullable": true,
+            "example": null
           },
           "created_at": {
             "type": "string",
@@ -69981,6 +70027,7 @@
           "portout_id": {
             "type": "string",
             "description": "Identifies the associated port request",
+            "default": null,
             "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
           },
           "user_id": {
@@ -70075,7 +70122,8 @@
           },
           "reason": {
             "type": "string",
-            "description": "The reason why the order is being rejected by the user. If the order is authorized, this field can be left null"
+            "description": "The reason why the order is being rejected by the user. If the order is authorized, this field can be left null",
+            "example": null
           },
           "rejection_code": {
             "type": "integer",
@@ -70406,6 +70454,7 @@
           "region_code": {
             "type": "string",
             "description": "The name of the region where the Private Wireless Gateway is deployed.",
+            "default": null,
             "example": "dc2"
           },
           "status": {
@@ -70414,6 +70463,7 @@
           "ip_range": {
             "type": "string",
             "description": "IP block used to assign IPs to the SIM cards in the Private Wireless Gateway.",
+            "default": null,
             "readOnly": true,
             "example": "100.64.1.0/24"
           },
@@ -70435,12 +70485,16 @@
           "error_description": {
             "type": "string",
             "description": "This attribute provides a human-readable explanation of why a failure happened.",
-            "readOnly": true
+            "default": null,
+            "readOnly": true,
+            "example": null
           },
           "error_code": {
             "type": "string",
             "description": "This attribute is an [error code](https://developers.telnyx.com/api/errors) related to the failure reason.",
-            "readOnly": true
+            "default": null,
+            "readOnly": true,
+            "example": null
           }
         },
         "description": "The current status or failure details of the Private Wireless Gateway."
@@ -72922,6 +72976,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -73074,6 +73129,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -73624,7 +73680,8 @@
             "type": "string",
             "description": "The Embedded Identity Document (eID) for eSIM cards.",
             "nullable": true,
-            "readOnly": true
+            "readOnly": true,
+            "example": null
           }
         }
       },
@@ -73829,12 +73886,14 @@
             "type": "string",
             "description": "The identification of the related Private Wireless Gateway resource.",
             "format": "uuid",
+            "default": null,
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "wireless_blocklist_id": {
             "type": "string",
             "description": "The identification of the related Wireless Blocklist resource.",
             "format": "uuid",
+            "default": null,
             "example": "a13bc415-7966-43bf-90d4-63cc76275289"
           },
           "created_at": {
@@ -74212,6 +74271,7 @@
           "ip": {
             "type": "string",
             "description": "The provisioned IP address. This attribute will only be available when underlying resource status is in a \"provisioned\" status.",
+            "default": null,
             "readOnly": true,
             "example": "192.168.0.0"
           },
@@ -74743,12 +74803,14 @@
             "type": "string",
             "description": "The identification of the related Private Wireless Gateway resource.",
             "format": "uuid",
+            "default": null,
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
           "wireless_blocklist_id": {
             "type": "string",
             "description": "The identification of the related Wireless Blocklist resource.",
             "format": "uuid",
+            "default": null,
             "example": "5aa584f6-14b1-41b2-8e01-1c04d1ee77c1"
           },
           "created_at": {
@@ -75683,7 +75745,8 @@
             "type": "string",
             "description": "The Embedded Identity Document (eID) for eSIM cards.",
             "nullable": true,
-            "readOnly": true
+            "readOnly": true,
+            "example": null
           },
           "authorized_imeis": {
             "type": "array",
@@ -79653,6 +79716,7 @@
             "type": "string",
             "description": "URL to which Telnyx will deliver your XML Translator webhooks if we get an error response from your voice_url.",
             "format": "uri",
+            "default": null,
             "example": "https://fallback.example.com"
           },
           "voice_method": {
@@ -79670,6 +79734,7 @@
             "type": "string",
             "description": "URL for Telnyx to send requests to containing information about call progress events.",
             "format": "uri",
+            "default": null,
             "example": "https://example.com"
           },
           "status_callback_method": {
@@ -79707,6 +79772,7 @@
               "sip_subdomain": {
                 "type": "string",
                 "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \"example.sip.telnyx.com\" can be called from any SIP endpoint by using the SIP URI \"sip:@example.sip.telnyx.com\" where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+                "default": null,
                 "example": "example"
               },
               "sip_subdomain_receive_settings": {
@@ -80095,13 +80161,15 @@
           },
           "error_code": {
             "type": "string",
-            "description": "The error code of the siprec session."
+            "description": "The error code of the siprec session.",
+            "example": null
           }
         }
       },
       "TexmlErrorCode": {
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "example": null
       },
       "TexmlGetCallRecordingResponseBody": {
         "title": "Texml Get Call Recording Response Body",
@@ -80551,7 +80619,8 @@
           },
           "error_code": {
             "type": "string",
-            "description": "The error code of the siprec session."
+            "description": "The error code of the siprec session.",
+            "example": null
           }
         }
       },
@@ -82464,6 +82533,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -82876,6 +82946,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -82996,6 +83067,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -83086,6 +83158,7 @@
               "sip_subdomain": {
                 "type": "string",
                 "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \"example.sip.telnyx.com\" can be called from any SIP endpoint by using the SIP URI \"sip:@example.sip.telnyx.com\" where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+                "default": null,
                 "example": "example"
               },
               "sip_subdomain_receive_settings": {
@@ -83374,6 +83447,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
+            "default": null,
             "nullable": true,
             "example": 25
           },
@@ -83859,6 +83933,7 @@
             "type": "string",
             "description": "The ID of the billing group associated with the outbound proflile. Defaults to null (for no group assigned).",
             "format": "uuid",
+            "default": null,
             "nullable": true,
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
@@ -84250,6 +84325,7 @@
             "type": "string",
             "description": "URL to which Telnyx will deliver your XML Translator webhooks if we get an error response from your voice_url.",
             "format": "uri",
+            "default": null,
             "example": "https://fallback.example.com"
           },
           "voice_method": {
@@ -84267,6 +84343,7 @@
             "type": "string",
             "description": "URL for Telnyx to send requests to containing information about call progress events.",
             "format": "uri",
+            "default": null,
             "example": "https://example.com"
           },
           "status_callback_method": {
@@ -84304,6 +84381,7 @@
               "sip_subdomain": {
                 "type": "string",
                 "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \"example.sip.telnyx.com\" can be called from any SIP endpoint by using the SIP URI \"sip:@example.sip.telnyx.com\" where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.",
+                "default": null,
                 "example": "example"
               },
               "sip_subdomain_receive_settings": {
@@ -85612,6 +85690,7 @@
           "custom_code": {
             "type": "string",
             "description": "Send a self-generated numeric code to the end-user",
+            "default": null,
             "nullable": true,
             "example": "43612"
           },
@@ -87419,7 +87498,8 @@
           },
           "rejection_reason": {
             "type": "string",
-            "description": "The reason why the order is being rejected by the user. If the order is authorized, this field can be left null"
+            "description": "The reason why the order is being rejected by the user. If the order is authorized, this field can be left null",
+            "example": null
           },
           "attempted_pin": {
             "type": "string",
@@ -87435,6 +87515,7 @@
         "minimum": 0,
         "type": "integer",
         "description": "Specifies how many seconds to wait before timing out a webhook.",
+        "default": null,
         "nullable": true,
         "example": 25
       },
@@ -91686,6 +91767,7 @@
             "pattern": "^[0-9A-D*#wW]*$",
             "type": "string",
             "description": "Optional DTMF extension sequence to dial after the call is answered. This parameter enables verification of phone numbers behind IVR systems that require extension dialing. Valid characters: digits 0-9, letters A-D, symbols * and #. Pauses: w = 0.5 second pause, W = 1 second pause. Maximum length: 50 characters. Only works with 'call' verification method.",
+            "default": null,
             "nullable": true,
             "example": "ww243w1"
           }
@@ -99706,6 +99788,7 @@
                 "contains": {
                   "type": "string",
                   "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
+                  "default": null,
                   "example": "My Connection"
                 }
               }
@@ -99723,11 +99806,13 @@
             "id": {
               "type": "string",
               "description": "If present, connections with <code>id</code> matching the given value will be returned.",
+              "default": null,
               "example": "1930241863466354012"
             },
             "created_at": {
               "type": "string",
               "description": "If present, connections with <code>created_at</code> date matching the given YYYY-MM-DD date will be returned.",
+              "default": null,
               "example": "2022-12-31"
             },
             "phone_number": {
@@ -101593,14 +101678,16 @@
               "properties": {
                 "contains": {
                   "type": "string",
-                  "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters."
+                  "description": "If present, connections with <code>connection_name</code> containing the given value will be returned. Matching is not case-sensitive. Requires at least three characters.",
+                  "default": null
                 }
               },
               "description": "Filter by connection_name using nested operations"
             },
             "fqdn": {
               "type": "string",
-              "description": "If present, connections with an `fqdn` that equals the given value will be returned. Matching is case-sensitive, and the full string must match."
+              "description": "If present, connections with an `fqdn` that equals the given value will be returned. Matching is case-sensitive, and the full string must match.",
+              "default": null
             },
             "outbound_voice_profile_id": {
               "type": "string",

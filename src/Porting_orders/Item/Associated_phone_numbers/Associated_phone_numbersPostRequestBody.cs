@@ -38,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_nu
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers.Associated_phone_numbersPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers.Associated_phone_numbersPostRequestBody();
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_nu
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers.Associated_phone_numbersPostRequestBody_action>("action", Action);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Associated_phone_numbers.Associated_phone_numbersPostRequestBody_phone_number_range>("phone_number_range", PhoneNumberRange);
             writer.WriteAdditionalData(AdditionalData);

@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Update_global_cha
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Update_global_channel_limit.Update_global_channel_limitPatchResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateManagedAccountGlobalChannelLimitRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts.Item.Update_global_cha
         public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateManagedAccountGlobalChannelLimitRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

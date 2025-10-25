@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers
         public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumbersJobUpdatePhoneNumbersRequest body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Jobs.Update_phone_numbers.Update_phone_numbersRequestBuilder.Update_phone_numbersRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

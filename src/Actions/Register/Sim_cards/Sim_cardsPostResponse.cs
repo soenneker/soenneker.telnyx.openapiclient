@@ -45,7 +45,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Actions.Register.Sim_cards
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Soenneker.Telnyx.OpenApiClient.Actions.Register.Sim_cards.Sim_cardsPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Actions.Register.Sim_cards.Sim_cardsPostResponse();
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Actions.Register.Sim_cards
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard>("data", Data);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Wireless_Error>("errors", Errors);
             writer.WriteAdditionalData(AdditionalData);

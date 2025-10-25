@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Campaign.Item
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxCampaign_CSP> PutAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -187,7 +187,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Campaign.Item
         public RequestInformation ToPutRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateCampaignRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");

@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item.Fqdn_connectionsPatchResponse> PatchAsync(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFqdnConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -175,7 +175,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fqdn_connections.Item
         public RequestInformation ToPatchRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFqdnConnectionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
