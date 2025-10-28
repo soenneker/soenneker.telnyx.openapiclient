@@ -140,6 +140,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader> SipHeaders { get; set; }
 #endif
+        /// <summary>Defines the SIP region to be used for the call.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_region? SipRegion { get; set; }
         /// <summary>Defines SIP transport protocol to be used on the call.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_transport_protocol? SipTransportProtocol { get; set; }
         /// <summary>Use this field to modify sound effects, for example adjust the pitch.</summary>
@@ -192,6 +194,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             RecordChannels = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_channels.Dual;
             RecordFormat = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_format.Mp3;
             RecordTrack = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_track.Both;
+            SipRegion = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_region.US;
             SipTransportProtocol = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_transport_protocol.UDP;
             WebhookUrlMethod = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_url_method.POST;
         }
@@ -237,6 +240,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "sip_auth_password", n => { SipAuthPassword = n.GetStringValue(); } },
                 { "sip_auth_username", n => { SipAuthUsername = n.GetStringValue(); } },
                 { "sip_headers", n => { SipHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sip_region", n => { SipRegion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_region>(); } },
                 { "sip_transport_protocol", n => { SipTransportProtocol = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_transport_protocol>(); } },
                 { "sound_modifications", n => { SoundModifications = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications>(global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications.CreateFromDiscriminatorValue); } },
                 { "target_leg_client_state", n => { TargetLegClientState = n.GetStringValue(); } },
@@ -278,6 +282,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("sip_auth_password", SipAuthPassword);
             writer.WriteStringValue("sip_auth_username", SipAuthUsername);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SipHeader>("sip_headers", SipHeaders);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_region>("sip_region", SipRegion);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_transport_protocol>("sip_transport_protocol", SipTransportProtocol);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications>("sound_modifications", SoundModifications);
             writer.WriteStringValue("target_leg_client_state", TargetLegClientState);

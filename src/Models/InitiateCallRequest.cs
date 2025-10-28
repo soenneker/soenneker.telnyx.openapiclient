@@ -134,6 +134,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string SipAuthUsername { get; set; }
 #endif
+        /// <summary>Defines the SIP region to be used for the call.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SipRegion? SipRegion { get; set; }
         /// <summary>URL destination for Telnyx to send status callback events to for the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -175,6 +177,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AsyncAmdStatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod.POST;
             DetectionMode = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_DetectionMode.Regular;
             MachineDetection = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_MachineDetection.Disable;
+            SipRegion = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SipRegion.US;
             StatusCallbackEvent = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent.Completed;
             StatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod.POST;
             UrlMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_UrlMethod.POST;
@@ -224,6 +227,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "SendRecordingUrl", n => { SendRecordingUrl = n.GetBoolValue(); } },
                 { "SipAuthPassword", n => { SipAuthPassword = n.GetStringValue(); } },
                 { "SipAuthUsername", n => { SipAuthUsername = n.GetStringValue(); } },
+                { "SipRegion", n => { SipRegion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SipRegion>(); } },
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
                 { "StatusCallbackEvent", n => { StatusCallbackEvent = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent>(); } },
                 { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod>(); } },
@@ -267,6 +271,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("SendRecordingUrl", SendRecordingUrl);
             writer.WriteStringValue("SipAuthPassword", SipAuthPassword);
             writer.WriteStringValue("SipAuthUsername", SipAuthUsername);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SipRegion>("SipRegion", SipRegion);
             writer.WriteStringValue("StatusCallback", StatusCallback);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent>("StatusCallbackEvent", StatusCallbackEvent);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);

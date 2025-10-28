@@ -41626,6 +41626,20 @@
           },
           "transcription_config": {
             "$ref": "#/components/schemas/TranscriptionStartRequest"
+          },
+          "sip_region": {
+            "enum": [
+              "US",
+              "Europe",
+              "Canada",
+              "Australia",
+              "Middle East"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Defines the SIP region to be used for the call.",
+            "default": "US",
+            "example": "Canada"
           }
         },
         "example": {
@@ -58886,6 +58900,20 @@
               }
             },
             "description": "Custom HTTP headers to be sent with the call. Each header should be an object with 'name' and 'value' properties."
+          },
+          "SipRegion": {
+            "enum": [
+              "US",
+              "Europe",
+              "Canada",
+              "Australia",
+              "Middle East"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Defines the SIP region to be used for the call.",
+            "default": "US",
+            "example": "Canada"
           }
         },
         "example": {
@@ -81770,6 +81798,20 @@
             "type": "string",
             "description": "The custom recording file name to be used instead of the default `call_leg_id`. Telnyx will still add a Unix timestamp suffix.",
             "example": "my_recording_file_name"
+          },
+          "sip_region": {
+            "enum": [
+              "US",
+              "Europe",
+              "Canada",
+              "Australia",
+              "Middle East"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Defines the SIP region to be used for the call.",
+            "default": "US",
+            "example": "Canada"
           }
         },
         "example": {
