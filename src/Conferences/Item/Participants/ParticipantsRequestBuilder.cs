@@ -21,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ParticipantsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}/participants{?filter*,page*}", pathParameters)
+        public ParticipantsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}/participants{?filter*,page*,region*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ParticipantsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}/participants{?filter*,page*}", rawUrl)
+        public ParticipantsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}/participants{?filter*,page*,region*}", rawUrl)
         {
         }
         /// <summary>
@@ -104,6 +104,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
+            /// <summary>Region where the conference data is located</summary>
+            [QueryParameter("region")]
+            public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.GetRegionQueryParameterType? Region { get; set; }
         }
     }
 }

@@ -9,6 +9,8 @@ using Soenneker.Telnyx.OpenApiClient.Ai.Clusters;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations;
 using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings;
 using Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning;
+using Soenneker.Telnyx.OpenApiClient.Ai.Integrations;
+using Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers;
 using Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests;
 using Soenneker.Telnyx.OpenApiClient.Ai.Summarize;
 using System.Collections.Generic;
@@ -57,6 +59,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning.Fine_tuningRequestBuilder Fine_tuning
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning.Fine_tuningRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The integrations property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.IntegrationsRequestBuilder Integrations
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Integrations.IntegrationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mcp_servers property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers.Mcp_serversRequestBuilder Mcp_servers
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers.Mcp_serversRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The models property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests.ModelsRequestBuilder Models

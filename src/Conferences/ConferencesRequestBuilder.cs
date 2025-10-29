@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences{?filter*,page*}", pathParameters)
+        public ConferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences{?filter*,page*,region*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences{?filter*,page*}", rawUrl)
+        public ConferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences{?filter*,page*,region*}", rawUrl)
         {
         }
         /// <summary>
@@ -160,6 +160,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
+            /// <summary>Region where the conference data is located</summary>
+            [QueryParameter("region")]
+            public global::Soenneker.Telnyx.OpenApiClient.Conferences.GetRegionQueryParameterType? Region { get; set; }
         }
     }
 }

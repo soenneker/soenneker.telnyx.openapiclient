@@ -4631,6 +4631,431 @@
         }
       }
     },
+    "/ai/integrations": {
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "List Integrations",
+        "description": "List all available integrations.",
+        "operationId": "list-integrations-public-integrations-get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntegrationsListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai/integrations/connections": {
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "List User Integrations",
+        "description": "List user setup integrations",
+        "operationId": "list-user-integrations-public-integrations-connections-get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntegrationConnectionsListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai/integrations/connections/{user_connection_id}": {
+      "delete": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "Delete Integration Connection",
+        "description": "Delete a specific integration connection.",
+        "operationId": "delete-integration-connection",
+        "parameters": [
+          {
+            "name": "user_connection_id",
+            "in": "path",
+            "description": "The user integration connection identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "Get User Integration connection By Id",
+        "description": "Get user setup integrations",
+        "operationId": "get-user-integration-by-id-public-integrations-connections-user-connection-id-get",
+        "parameters": [
+          {
+            "name": "user_connection_id",
+            "in": "path",
+            "description": "The connection id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntegrationConnectionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai/integrations/{integration_id}": {
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "List Integration By Id",
+        "description": "Retrieve integration details",
+        "operationId": "list-integration-by-id-public-integrations-integration-id-get",
+        "parameters": [
+          {
+            "name": "integration_id",
+            "in": "path",
+            "description": "The integration id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Integration"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai/mcp_servers": {
+      "get": {
+        "tags": [
+          "MCP Servers"
+        ],
+        "summary": "List MCP Servers",
+        "description": "Retrieve a list of MCP servers.",
+        "operationId": "list-mcp-servers",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "title": "Type",
+              "type": "string"
+            }
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "title": "Url",
+              "type": "string"
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "schema": {
+              "title": "Page[Size]",
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "schema": {
+              "title": "Page[Number]",
+              "minimum": 1,
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MCPServersListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "MCP Servers"
+        ],
+        "summary": "Create MCP Server",
+        "description": "Create a new MCP server.",
+        "operationId": "create-mcp-server",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMCPServerRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MCPServer"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ai/mcp_servers/{mcp_server_id}": {
+      "delete": {
+        "tags": [
+          "MCP Servers"
+        ],
+        "summary": "Delete MCP Server",
+        "description": "Delete a specific MCP server.",
+        "operationId": "delete-mcp-server",
+        "parameters": [
+          {
+            "name": "mcp_server_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Mcp Server Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/delete_mcp_server_200"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "MCP Servers"
+        ],
+        "summary": "Get MCP Server",
+        "description": "Retrieve details for a specific MCP server.",
+        "operationId": "get-mcp-server",
+        "parameters": [
+          {
+            "name": "mcp_server_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Mcp Server Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MCPServer"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "MCP Servers"
+        ],
+        "summary": "Update MCP Server",
+        "description": "Update an existing MCP server.",
+        "operationId": "update-mcp-server",
+        "parameters": [
+          {
+            "name": "mcp_server_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Mcp Server Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMCPServerRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MCPServer"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ai/models": {
       "get": {
         "tags": [
@@ -8829,6 +9254,9 @@
         "operationId": "ListConferences",
         "parameters": [
           {
+            "$ref": "#/components/parameters/ConferenceRegion"
+          },
+          {
             "$ref": "#/components/parameters/call-control_FilterConsolidated"
           },
           {
@@ -8896,6 +9324,9 @@
             }
           },
           {
+            "$ref": "#/components/parameters/ConferenceRegion"
+          },
+          {
             "$ref": "#/components/parameters/call-control_PageConsolidated"
           },
           {
@@ -8956,6 +9387,9 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "$ref": "#/components/parameters/ConferenceRegion"
           }
         ],
         "responses": {
@@ -9340,7 +9774,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/StopRecordingRequest"
+                "$ref": "#/components/schemas/StopRecordingConferenceRequest"
               }
             }
           }
@@ -25700,7 +26134,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "Consolidated filter parameter (deepObject style). Originally: filter[conference_id], filter[created_at][gte], filter[created_at][lte], filter[call_leg_id], filter[call_session_id], filter[from], filter[to], filter[connection_id]",
+            "description": "Consolidated filter parameter (deepObject style). Originally: filter[conference_id], filter[created_at][gte], filter[created_at][lte], filter[call_leg_id], filter[call_session_id], filter[from], filter[to], filter[connection_id], filter[sip_call_id]",
             "style": "deepObject",
             "explode": true,
             "schema": {
@@ -25753,6 +26187,11 @@
                   "type": "string",
                   "description": "If present, recordings will be filtered to those with a matching `connection_id` attribute (case-sensitive).",
                   "example": "175237942907135762"
+                },
+                "sip_call_id": {
+                  "type": "string",
+                  "description": "If present, recordings will be filtered to those with a matching `sip_call_id` attribute. Matching is case-sensitive",
+                  "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1"
                 }
               }
             }
@@ -34453,13 +34892,13 @@
           }
         }
       },
-      "ListMigrationSourceCoverage_200": {
+      "GetBucketUsage_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MigrationSourceCoverageParams"
+              "$ref": "#/components/schemas/BucketUsage"
             }
           },
           "meta": {
@@ -35142,17 +35581,14 @@
           "send_silence_when_idle": true
         }
       },
-      "GetBucketUsage_200": {
+      "GetStorageAPIUsage_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BucketUsage"
+              "$ref": "#/components/schemas/BucketAPIUsageResponse"
             }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMetaSimple"
           }
         }
       },
@@ -36313,17 +36749,6 @@
         "type": "string",
         "additionalProperties": false
       },
-      "GetStorageAPIUsage_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BucketAPIUsageResponse"
-            }
-          }
-        }
-      },
       "AddStorageSSLCertificate": {
         "type": "object",
         "properties": {
@@ -36370,6 +36795,26 @@
               "description": "Identifies the resource.",
               "format": "uuid"
             }
+          }
+        }
+      },
+      "PreviewSimCardOrders": {
+        "required": [
+          "quantity",
+          "address_id"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
+            "example": 21
+          },
+          "address_id": {
+            "type": "string",
+            "description": "Uniquely identifies the address for the order.",
+            "example": "1293384261075731499"
           }
         }
       },
@@ -37185,23 +37630,17 @@
           "park_after_unbridge": "self"
         }
       },
-      "PreviewSimCardOrders": {
+      "SetWirelessBlocklistForSimCardGroup": {
         "required": [
-          "quantity",
-          "address_id"
+          "wireless_blocklist_id"
         ],
         "type": "object",
         "properties": {
-          "quantity": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
-            "example": 21
-          },
-          "address_id": {
+          "wireless_blocklist_id": {
             "type": "string",
-            "description": "Uniquely identifies the address for the order.",
-            "example": "1293384261075731499"
+            "description": "The identification of the related Wireless Blocklist resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           }
         }
       },
@@ -38606,15 +39045,15 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "SetWirelessBlocklistForSimCardGroup": {
+      "SetPrivateWirelessGatewayForSimCardGroup": {
         "required": [
-          "wireless_blocklist_id"
+          "private_wireless_gateway_id"
         ],
         "type": "object",
         "properties": {
-          "wireless_blocklist_id": {
+          "private_wireless_gateway_id": {
             "type": "string",
-            "description": "The identification of the related Wireless Blocklist resource.",
+            "description": "The identification of the related Private Wireless Gateway resource.",
             "format": "uuid",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           }
@@ -45020,6 +45459,9 @@
             "type": "string",
             "description": "The media_name of a file to be played to the participants when they are put on hold. The media_name must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. The file must either be a WAV or MP3 file.",
             "example": "my_media_uploaded_to_media_storage_api"
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         },
         "example": {
@@ -45039,6 +45481,9 @@
               "type": "string"
             },
             "description": "Array of unique identifiers and tokens for controlling the call. When empty all participants will be muted."
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         },
         "example": {
@@ -45779,6 +46224,9 @@
               "type": "string"
             },
             "description": "List of call control ids identifying participants the audio file should be played to. If not given, the audio file will be played to the entire conference."
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         },
         "example": {
@@ -46307,6 +46755,18 @@
           }
         }
       },
+      "ConferenceRegion": {
+        "enum": [
+          "Australia",
+          "Europe",
+          "Middle East",
+          "US"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Region where the conference data is located. Defaults to the region defined in user's data locality settings (Europe or US).",
+        "example": "US"
+      },
       "ConferenceResource": {
         "title": "Conference resource",
         "type": "object",
@@ -46638,6 +47098,9 @@
             "type": "string",
             "description": "Use this field to avoid execution of duplicate commands. Telnyx will ignore subsequent commands with the same `command_id` as one that has already been executed.",
             "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         },
         "example": {
@@ -46738,6 +47201,9 @@
               "type": "string"
             },
             "description": "List of call control ids identifying participants the audio file should stop be played to. If not given, the audio will be stoped to the entire conference."
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         }
       },
@@ -46754,6 +47220,9 @@
               "type": "string"
             },
             "description": "List of unique identifiers and tokens for controlling the call. Enter each call control ID to be unheld."
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         },
         "example": {
@@ -46772,6 +47241,9 @@
               "type": "string"
             },
             "description": "List of unique identifiers and tokens for controlling the call. Enter each call control ID to be unmuted. When empty all participants will be unmuted."
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         },
         "example": {
@@ -46870,28 +47342,6 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "SetPrivateWirelessGatewayForSimCardGroup": {
-        "required": [
-          "private_wireless_gateway_id"
-        ],
-        "type": "object",
-        "properties": {
-          "private_wireless_gateway_id": {
-            "type": "string",
-            "description": "The identification of the related Private Wireless Gateway resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          }
-        }
-      },
-      "ConnectionAndroidPushCredentialId": {
-        "title": "Android Push Credential Id",
-        "type": "string",
-        "description": "The uuid of the push credential for Android",
-        "default": null,
-        "nullable": true,
-        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
-      },
       "PostSimCardDataUsageNotification": {
         "required": [
           "sim_card_id",
@@ -46926,6 +47376,14 @@
           }
         }
       },
+      "ConnectionAndroidPushCredentialId": {
+        "title": "Android Push Credential Id",
+        "type": "string",
+        "description": "The uuid of the push credential for Android",
+        "default": null,
+        "nullable": true,
+        "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
+      },
       "UpdateRequirementGroup": {
         "type": "object",
         "properties": {
@@ -46953,14 +47411,6 @@
             }
           }
         }
-      },
-      "ConnectionIosPushCredentialId": {
-        "title": "Ios Push Credential Id",
-        "type": "string",
-        "description": "The uuid of the push credential for Ios",
-        "default": null,
-        "nullable": true,
-        "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
       },
       "CreateRequirementGroup": {
         "required": [
@@ -47014,6 +47464,20 @@
               }
             }
           }
+        }
+      },
+      "ConnectionIosPushCredentialId": {
+        "title": "Ios Push Credential Id",
+        "type": "string",
+        "description": "The uuid of the push credential for Ios",
+        "default": null,
+        "nullable": true,
+        "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
+      },
+      "GetRequirementGroups_200": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RequirementGroup"
         }
       },
       "ConnectionRtcpSettings": {
@@ -47412,10 +47876,29 @@
           }
         }
       },
-      "GetRequirementGroups_200": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/RequirementGroup"
+      "CreatePrivateWirelessGateway": {
+        "required": [
+          "network_id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "network_id": {
+            "type": "string",
+            "description": "The identification of the related network resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "name": {
+            "type": "string",
+            "description": "The private wireless gateway name.",
+            "example": "My private wireless gateway"
+          },
+          "region_code": {
+            "type": "string",
+            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
+            "example": "dc2"
+          }
         }
       },
       "CountryCoverage": {
@@ -48128,6 +48611,18 @@
             "type": "boolean",
             "description": "Whether the conference should be started on creation. If the conference isn't started all participants that join are automatically put on hold. Defaults to \"true\".",
             "example": false
+          },
+          "region": {
+            "enum": [
+              "Australia",
+              "Europe",
+              "Middle East",
+              "US"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Sets the region where the conference data will be hosted. Defaults to the region defined in user's data locality settings (Europe or US).",
+            "example": "US"
           }
         },
         "example": {
@@ -49379,6 +49874,42 @@
           "webhook_failover_url": "https://backup.example.com/hooks",
           "use_profile_webhooks": true,
           "type": "MMS"
+        }
+      },
+      "CreateMCPServerRequest": {
+        "title": "CreateMCPServerRequest",
+        "required": [
+          "name",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "api_key_ref": {
+            "title": "Api Key Ref",
+            "type": "string",
+            "nullable": true
+          },
+          "allowed_tools": {
+            "title": "Allowed Tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
         }
       },
       "CreateManagedAccountRequest": {
@@ -51155,28 +51686,22 @@
           }
         }
       },
-      "CreatePrivateWirelessGateway": {
+      "UpdatePortoutStatus": {
         "required": [
-          "network_id",
-          "name"
+          "reason"
         ],
         "type": "object",
         "properties": {
-          "network_id": {
+          "reason": {
             "type": "string",
-            "description": "The identification of the related network resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "description": "Provide a reason if rejecting the port out request",
+            "example": "I do not recognize this transaction"
           },
-          "name": {
-            "type": "string",
-            "description": "The private wireless gateway name.",
-            "example": "My private wireless gateway"
-          },
-          "region_code": {
-            "type": "string",
-            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
-            "example": "dc2"
+          "host_messaging": {
+            "type": "boolean",
+            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
+            "default": false,
+            "example": false
           }
         }
       },
@@ -51263,22 +51788,39 @@
           }
         }
       },
-      "UpdatePortoutStatus": {
-        "required": [
-          "reason"
-        ],
+      "PostPortRequestSupportingDocuments": {
         "type": "object",
         "properties": {
-          "reason": {
-            "type": "string",
-            "description": "Provide a reason if rejecting the port out request",
-            "example": "I do not recognize this transaction"
-          },
-          "host_messaging": {
-            "type": "boolean",
-            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
-            "default": false,
-            "example": false
+          "documents": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "required": [
+                "type",
+                "document_id"
+              ],
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "loa",
+                    "invoice"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "Identifies the type of the document",
+                  "example": "loa"
+                },
+                "document_id": {
+                  "type": "string",
+                  "description": "Identifies the associated document",
+                  "format": "uuid",
+                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+                }
+              }
+            },
+            "description": "List of supporting documents parameters"
           }
         }
       },
@@ -51645,39 +52187,12 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "PostPortRequestSupportingDocuments": {
+      "PostPortRequestComment": {
         "type": "object",
         "properties": {
-          "documents": {
-            "maxItems": 10,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "required": [
-                "type",
-                "document_id"
-              ],
-              "type": "object",
-              "properties": {
-                "type": {
-                  "enum": [
-                    "loa",
-                    "invoice"
-                  ],
-                  "type": "string",
-                  "additionalProperties": false,
-                  "description": "Identifies the type of the document",
-                  "example": "loa"
-                },
-                "document_id": {
-                  "type": "string",
-                  "description": "Identifies the associated document",
-                  "format": "uuid",
-                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-                }
-              }
-            },
-            "description": "List of supporting documents parameters"
+          "body": {
+            "type": "string",
+            "description": "Comment to post on this portout request"
           }
         }
       },
@@ -52162,12 +52677,15 @@
           }
         }
       },
-      "PostPortRequestComment": {
+      "PostPortabilityCheck": {
         "type": "object",
         "properties": {
-          "body": {
-            "type": "string",
-            "description": "Comment to post on this portout request"
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The list of +E.164 formatted phone numbers to check for portability"
           }
         }
       },
@@ -52265,15 +52783,31 @@
         "default": "en",
         "example": "en"
       },
-      "PostPortabilityCheck": {
+      "PostAssignMessagingProfileToCampaign_202": {
+        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
+        "required": [
+          "type"
+        ],
         "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
+          },
+          {
+            "$ref": "#/components/schemas/SettingsDataErrorMessage"
+          }
+        ],
         "properties": {
-          "phone_numbers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The list of +E.164 formatted phone numbers to check for portability"
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
+            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
           }
         }
       },
@@ -55147,32 +55681,11 @@
           }
         }
       },
-      "PostAssignMessagingProfileToCampaign_202": {
-        "title": "Response Assign Messaging Profile To Campaign Public Phonenumberassignmentbyprofile Post",
-        "required": [
-          "type"
-        ],
+      "GetPartnerCampaignSharingStatus_200": {
+        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
         "type": "object",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/AssignProfileToCampaignResponse"
-          },
-          {
-            "$ref": "#/components/schemas/SettingsDataErrorMessage"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "AssignProfileToCampaignResponse": "#/components/schemas/AssignProfileToCampaignResponse",
-            "SettingsDataErrorMessage": "#/components/schemas/SettingsDataErrorMessage"
-          }
+        "additionalProperties": {
+          "$ref": "#/components/schemas/CampaignSharingStatus"
         }
       },
       "FaxMediaProcessed": {
@@ -55612,13 +56125,6 @@
           }
         }
       },
-      "GetPartnerCampaignSharingStatus_200": {
-        "title": "Response Get Sharing Status Public Partnercampaign  Campaignid  Sharing Get",
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/CampaignSharingStatus"
-        }
-      },
       "OperatorConnectRefresh_202": {
         "title": "Operator Connect Refresh Response",
         "type": "object",
@@ -55632,6 +56138,22 @@
             "type": "string",
             "description": "A message describing the result of the operation",
             "example": "Operator connect refresh started"
+          }
+        }
+      },
+      "OperatorConnectRefresh_200": {
+        "title": "Operator Connect Refresh Response",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "description": "A message describing the result of the operation",
+            "example": "Operator connect refresh already in progress"
           }
         }
       },
@@ -55950,19 +56472,17 @@
         "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.",
         "default": "UDP"
       },
-      "OperatorConnectRefresh_200": {
-        "title": "Operator Connect Refresh Response",
+      "get_oauth_grants_200": {
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful",
-            "example": true
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuthGrant"
+            }
           },
-          "message": {
-            "type": "string",
-            "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh already in progress"
+          "meta": {
+            "$ref": "#/components/schemas/oauth_PaginationMeta"
           }
         }
       },
@@ -57753,13 +58273,13 @@
           }
         }
       },
-      "get_oauth_grants_200": {
+      "get_oauth_clients_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/OAuthGrant"
+              "$ref": "#/components/schemas/OAuthClient"
             }
           },
           "meta": {
@@ -59175,17 +59695,135 @@
           }
         }
       },
-      "get_oauth_clients_200": {
+      "post_oauth_register_400": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "invalid_client_metadata"
+          },
+          "error_description": {
+            "type": "string",
+            "example": "The client metadata was invalid"
+          },
+          "invalid_fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "Integration": {
+        "title": "Integration",
+        "required": [
+          "id",
+          "name",
+          "display_name",
+          "description",
+          "logo_url",
+          "status",
+          "available_tools"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "display_name": {
+            "title": "Display Name",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "logo_url": {
+            "title": "Logo Url",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "enum": [
+              "disconnected",
+              "connected"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "available_tools": {
+            "title": "Available Tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "IntegrationConnection": {
+        "title": "IntegrationConnection",
+        "required": [
+          "id",
+          "integration_id",
+          "allowed_tools"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "integration_id": {
+            "title": "Integration Id",
+            "type": "string"
+          },
+          "allowed_tools": {
+            "title": "Allowed Tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "IntegrationConnectionDeletedResponse": {
+        "title": "IntegrationConnectionDeletedResponse",
+        "type": "object",
+        "description": "Integration connection deletion response (204 No Content on success)"
+      },
+      "IntegrationConnectionResponse": {
+        "title": "IntegrationConnectionResponse",
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "data": {
+            "$ref": "#/components/schemas/IntegrationConnection"
+          }
+        }
+      },
+      "IntegrationConnectionsListResponse": {
+        "title": "IntegrationConnectionsListResponse",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "Data",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/OAuthClient"
+              "$ref": "#/components/schemas/IntegrationConnection"
             }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/oauth_PaginationMeta"
           }
         }
       },
@@ -59254,6 +59892,22 @@
           },
           "meta": {
             "$ref": "#/components/schemas/integration_secrets_Metadata"
+          }
+        }
+      },
+      "IntegrationsListResponse": {
+        "title": "IntegrationsListResponse",
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "Data",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Integration"
+            }
           }
         }
       },
@@ -59868,6 +60522,9 @@
             "additionalProperties": false,
             "description": "Whether a beep sound should be played when the participant joins and/or leaves the conference. Can be used to override the conference-level setting.",
             "example": "on_exit"
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         },
         "example": {
@@ -59915,6 +60572,9 @@
             "additionalProperties": false,
             "description": "Whether a beep sound should be played when the participant leaves the conference. Can be used to override the conference-level setting.",
             "example": "on_exit"
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         },
         "example": {
@@ -60235,6 +60895,65 @@
             "description": "The name of the country.",
             "example": "United States of America"
           }
+        }
+      },
+      "MCPServer": {
+        "title": "MCPServer",
+        "required": [
+          "id",
+          "name",
+          "type",
+          "url",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "api_key_ref": {
+            "title": "Api Key Ref",
+            "type": "string",
+            "nullable": true
+          },
+          "allowed_tools": {
+            "title": "Allowed Tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "MCPServerDeletedResponse": {
+        "title": "MCPServerDeletedResponse",
+        "type": "object",
+        "description": "MCP server deletion response (empty based on actual API)"
+      },
+      "MCPServersListResponse": {
+        "title": "MCPServersListResponse",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/MCPServer"
         }
       },
       "MMSFallback": {
@@ -61210,27 +61929,8 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "post_oauth_register_400": {
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "string",
-            "example": "invalid_client_metadata"
-          },
-          "error_description": {
-            "type": "string",
-            "example": "The client metadata was invalid"
-          },
-          "invalid_fields": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        }
+      "get_oauth_authorize_422": {
+        "type": "string"
       },
       "MediaResource": {
         "title": "Media Resource",
@@ -61353,7 +62053,7 @@
           }
         }
       },
-      "get_oauth_authorize_422": {
+      "get_oauth_authorize_404": {
         "type": "string"
       },
       "MessageDetailRecord": {
@@ -62265,7 +62965,7 @@
           }
         }
       },
-      "get_oauth_authorize_404": {
+      "get_oauth_authorize_400": {
         "type": "string"
       },
       "MobileNetworkOperator": {
@@ -62396,8 +63096,31 @@
           }
         }
       },
-      "get_oauth_authorize_400": {
-        "type": "string"
+      "PostNumbersFeatures_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "required": [
+                "phone_number",
+                "features"
+              ],
+              "type": "object",
+              "properties": {
+                "phone_number": {
+                  "type": "string"
+                },
+                "features": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "MonthDetail": {
         "required": [
@@ -64538,28 +65261,16 @@
           }
         }
       },
-      "PostNumbersFeatures_200": {
+      "PostNumbersFeatures": {
+        "required": [
+          "phone_numbers"
+        ],
         "type": "object",
         "properties": {
-          "data": {
+          "phone_numbers": {
             "type": "array",
             "items": {
-              "required": [
-                "phone_number",
-                "features"
-              ],
-              "type": "object",
-              "properties": {
-                "phone_number": {
-                  "type": "string"
-                },
-                "features": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "type": "string"
             }
           }
         }
@@ -65779,17 +66490,16 @@
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
       },
-      "PostNumbersFeatures": {
+      "updateNumberOrderPhoneNumberRequirementGroup": {
         "required": [
-          "phone_numbers"
+          "requirement_group_id"
         ],
         "type": "object",
         "properties": {
-          "phone_numbers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "requirement_group_id": {
+            "type": "string",
+            "description": "The ID of the requirement group to associate",
+            "format": "uuid"
           }
         }
       },
@@ -65813,16 +66523,17 @@
           }
         }
       },
-      "updateNumberOrderPhoneNumberRequirementGroup": {
-        "required": [
-          "requirement_group_id"
-        ],
+      "ListNotificationSettings_200": {
         "type": "object",
         "properties": {
-          "requirement_group_id": {
-            "type": "string",
-            "description": "The ID of the requirement group to associate",
-            "format": "uuid"
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationSetting"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -66609,6 +67320,9 @@
             "type": "string",
             "description": "Use this field to pause specific recording.",
             "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         }
       },
@@ -68158,13 +68872,13 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
-      "ListNotificationSettings_200": {
+      "FindNotificationsProfiles_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationSetting"
+              "$ref": "#/components/schemas/NotificationProfile"
             }
           },
           "meta": {
@@ -72098,13 +72812,13 @@
           }
         }
       },
-      "FindNotificationsProfiles_200": {
+      "FindNotificationsEvents_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationProfile"
+              "$ref": "#/components/schemas/NotificationEvent"
             }
           },
           "meta": {
@@ -72282,13 +72996,13 @@
           }
         }
       },
-      "FindNotificationsEvents_200": {
+      "FindNotificationsEventsConditions_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEvent"
+              "$ref": "#/components/schemas/NotificationEventCondition"
             }
           },
           "meta": {
@@ -72860,6 +73574,9 @@
             "type": "string",
             "description": "Use this field to resume specific recording.",
             "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         }
       },
@@ -75020,13 +75737,13 @@
           }
         }
       },
-      "FindNotificationsEventsConditions_200": {
+      "ListNotificationChannels_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEventCondition"
+              "$ref": "#/components/schemas/NotificationChannel"
             }
           },
           "meta": {
@@ -76382,6 +77099,9 @@
             "type": "string",
             "description": "The custom recording file name to be used instead of the default `call_leg_id`. Telnyx will still add a Unix timestamp suffix.",
             "example": "my_recording_file_name"
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         },
         "example": {
@@ -76789,6 +77509,36 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
+      "StopRecordingConferenceRequest": {
+        "title": "Stop Recording Request",
+        "type": "object",
+        "properties": {
+          "client_state": {
+            "type": "string",
+            "description": "Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.",
+            "example": "aGF2ZSBhIG5pY2UgZGF5ID1d"
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.",
+            "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          },
+          "recording_id": {
+            "type": "string",
+            "description": "Uniquely identifies the resource.",
+            "format": "uuid",
+            "example": "6e00ab49-9487-4364-8ad6-23965965afb2"
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
+          }
+        },
+        "example": {
+          "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
+          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
+          "recording_id": "6e00ab49-9487-4364-8ad6-23965965afb2"
+        }
+      },
       "StopRecordingRequest": {
         "title": "Stop Recording Request",
         "type": "object",
@@ -76863,20 +77613,6 @@
           "stream_id": "1edb94f9-7ef0-4150-b502-e0ebadfd9491"
         }
       },
-      "ListNotificationChannels_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationChannel"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
-          }
-        }
-      },
       "CreatePushCredential": {
         "required": [
           "type"
@@ -76903,6 +77639,9 @@
             "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
           }
         }
+      },
+      "DeleteVerificationRequest_200": {
+        "type": "object"
       },
       "StreamBidirectionalCodec": {
         "title": "Bidirectional Stream Codec",
@@ -76977,7 +77716,7 @@
         "default": "default",
         "example": "PCMA"
       },
-      "DeleteVerificationRequest_200": {
+      "DeleteAutorespConfig_200": {
         "type": "object"
       },
       "StreamStatus": {
@@ -77754,8 +78493,21 @@
           "role": "barge"
         }
       },
-      "DeleteAutorespConfig_200": {
-        "type": "object"
+      "GetMessage_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutboundMessagePayload"
+              },
+              {
+                "$ref": "#/components/schemas/InboundMessagePayload"
+              }
+            ]
+          }
+        }
       },
       "TFPhoneNumber": {
         "title": "PhoneNumber",
@@ -80334,19 +81086,14 @@
         "nullable": true,
         "example": "12"
       },
-      "GetMessage_200": {
+      "EnableManagedAccount": {
         "type": "object",
         "properties": {
-          "data": {
-            "type": "object",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/OutboundMessagePayload"
-              },
-              {
-                "$ref": "#/components/schemas/InboundMessagePayload"
-              }
-            ]
+          "reenable_all_connections": {
+            "type": "boolean",
+            "description": "When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.",
+            "default": false,
+            "example": true
           }
         }
       },
@@ -80436,17 +81183,6 @@
           }
         }
       },
-      "EnableManagedAccount": {
-        "type": "object",
-        "properties": {
-          "reenable_all_connections": {
-            "type": "boolean",
-            "description": "When true, all connections owned by this managed account will automatically be re-enabled. Note: Any connections that do not pass validations will not be re-enabled.",
-            "default": false,
-            "example": true
-          }
-        }
-      },
       "get_invoices_200": {
         "type": "object",
         "properties": {
@@ -80478,17 +81214,6 @@
             }
           }
         }
-      },
-      "TexmlStatusCallbackMethod": {
-        "enum": [
-          "GET",
-          "POST"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "HTTP method used to send status callbacks.",
-        "default": "POST",
-        "example": "GET"
       },
       "UpdateOutboundChannels_default": {
         "type": "object",
@@ -80527,6 +81252,37 @@
                 "meta": {
                   "type": "object"
                 }
+              }
+            }
+          }
+        }
+      },
+      "TexmlStatusCallbackMethod": {
+        "enum": [
+          "GET",
+          "POST"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "HTTP method used to send status callbacks.",
+        "default": "POST",
+        "example": "GET"
+      },
+      "UpdateOutboundChannels_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "channels": {
+                "type": "integer",
+                "description": "The number of channels set for the account",
+                "example": 7
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the response",
+                "example": "inbound_channels"
               }
             }
           }
@@ -80762,26 +81518,6 @@
           }
         }
       },
-      "UpdateOutboundChannels_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "channels": {
-                "type": "integer",
-                "description": "The number of channels set for the account",
-                "example": 7
-              },
-              "record_type": {
-                "type": "string",
-                "description": "Identifies the type of the response",
-                "example": "inbound_channels"
-              }
-            }
-          }
-        }
-      },
       "UpdateOutboundChannels": {
         "required": [
           "channels"
@@ -80792,6 +81528,26 @@
             "type": "integer",
             "description": "The new number of concurrent channels for the account",
             "example": 7
+          }
+        }
+      },
+      "ListInboundChannels_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "channels": {
+                "type": "integer",
+                "description": "The current number of concurrent channels set for the account",
+                "example": 7
+              },
+              "record_type": {
+                "type": "string",
+                "description": "Identifies the type of the response",
+                "example": "inbound_channels"
+              }
+            }
           }
         }
       },
@@ -81953,23 +82709,13 @@
         "default": 2,
         "example": 1
       },
-      "ListInboundChannels_200": {
+      "RefreshExternalConnectionUploads_200": {
+        "title": "Create Upload request Response",
         "type": "object",
         "properties": {
-          "data": {
-            "type": "object",
-            "properties": {
-              "channels": {
-                "type": "integer",
-                "description": "The current number of concurrent channels set for the account",
-                "example": 7
-              },
-              "record_type": {
-                "type": "string",
-                "description": "Identifies the type of the response",
-                "example": "inbound_channels"
-              }
-            }
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
           }
         }
       },
@@ -82872,6 +83618,9 @@
               "type": "string"
             },
             "description": "Array of unique call_control_ids the supervisor can whisper to. If none provided, the supervisor will join the conference as a monitoring participant only."
+          },
+          "region": {
+            "$ref": "#/components/schemas/ConferenceRegion"
           }
         },
         "example": {
@@ -83598,6 +84347,46 @@
           "connection_id": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
           "ip_address": "192.168.0.0",
           "port": 5060
+        }
+      },
+      "UpdateMCPServerRequest": {
+        "title": "UpdateMCPServerRequest",
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "api_key_ref": {
+            "title": "Api Key Ref",
+            "type": "string",
+            "nullable": true
+          },
+          "allowed_tools": {
+            "title": "Allowed Tools",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          }
         }
       },
       "UpdateManagedAccountGlobalChannelLimitRequest": {
@@ -84588,13 +85377,18 @@
           }
         }
       },
-      "RefreshExternalConnectionUploads_200": {
+      "CreateExternalConnectionUpload_202": {
         "title": "Create Upload request Response",
         "type": "object",
         "properties": {
           "success": {
             "type": "boolean",
             "description": "Describes wether or not the operation was successful"
+          },
+          "ticket_id": {
+            "type": "string",
+            "description": "Ticket id of the upload request",
+            "format": "uuid"
           }
         }
       },
@@ -85447,17 +86241,15 @@
           }
         }
       },
-      "CreateExternalConnectionUpload_202": {
-        "title": "Create Upload request Response",
+      "updateLocation": {
+        "required": [
+          "static_emergency_address_id"
+        ],
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
-          },
-          "ticket_id": {
+          "static_emergency_address_id": {
             "type": "string",
-            "description": "Ticket id of the upload request",
+            "description": "A new static emergency address ID to update the location with",
             "format": "uuid"
           }
         }
@@ -86947,16 +87739,13 @@
           }
         ]
       },
-      "updateLocation": {
-        "required": [
-          "static_emergency_address_id"
-        ],
+      "DeleteExternalConnectionLogMessage_200": {
+        "title": "Dismiss request was successful",
         "type": "object",
         "properties": {
-          "static_emergency_address_id": {
-            "type": "string",
-            "description": "A new static emergency address ID to update the location with",
-            "format": "uuid"
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful"
           }
         }
       },
@@ -87205,13 +87994,34 @@
         "nullable": true,
         "example": "https://failover.example.com"
       },
-      "DeleteExternalConnectionLogMessage_200": {
-        "title": "Dismiss request was successful",
+      "GetEnumEndpoint_200": {
+        "required": [
+          "type"
+        ],
         "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/EnumListResponse_Wrapper"
+          },
+          {
+            "$ref": "#/components/schemas/EnumObjectResponse"
+          },
+          {
+            "$ref": "#/components/schemas/EnumPaginatedResponse"
+          }
+        ],
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful"
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "EnumListResponse": "#/components/schemas/EnumListResponse_Wrapper",
+            "EnumObjectResponse": "#/components/schemas/EnumObjectResponse",
+            "EnumPaginatedResponse": "#/components/schemas/EnumPaginatedResponse"
           }
         }
       },
@@ -88113,37 +88923,6 @@
           }
         }
       },
-      "GetEnumEndpoint_200": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/EnumListResponse_Wrapper"
-          },
-          {
-            "$ref": "#/components/schemas/EnumObjectResponse"
-          },
-          {
-            "$ref": "#/components/schemas/EnumPaginatedResponse"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "EnumListResponse": "#/components/schemas/EnumListResponse_Wrapper",
-            "EnumObjectResponse": "#/components/schemas/EnumObjectResponse",
-            "EnumPaginatedResponse": "#/components/schemas/EnumPaginatedResponse"
-          }
-        }
-      },
       "getDocumentDownloadLink_200": {
         "required": [
           "data"
@@ -88169,6 +88948,19 @@
       "get_charges_breakdown_200": {
         "type": "string",
         "description": "CSV format of the charges breakdown"
+      },
+      "PatchChannelZone": {
+        "required": [
+          "channels"
+        ],
+        "type": "object",
+        "properties": {
+          "channels": {
+            "type": "integer",
+            "description": "The number of reserved channels",
+            "format": "int64"
+          }
+        }
       },
       "attempt": {
         "type": "object",
@@ -88362,16 +89154,30 @@
           }
         }
       },
-      "PatchChannelZone": {
+      "PostCampaign_200": {
+        "title": "Response Submit Campaign Public Campaignbuilder Post",
         "required": [
-          "channels"
+          "type"
         ],
         "type": "object",
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "$ref": "#/components/schemas/TelnyxCampaign_CSP"
+          }
+        ],
         "properties": {
-          "channels": {
-            "type": "integer",
-            "description": "The number of reserved channels",
-            "format": "int64"
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "TelnyxCampaign_CSP": "#/components/schemas/TelnyxCampaign_CSP"
           }
         }
       },
@@ -88421,32 +89227,9 @@
           }
         }
       },
-      "PostCampaign_200": {
-        "title": "Response Submit Campaign Public Campaignbuilder Post",
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "$ref": "#/components/schemas/TelnyxCampaign_CSP"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "TelnyxCampaign_CSP": "#/components/schemas/TelnyxCampaign_CSP"
-          }
-        }
+      "GetCampaignOsrAttributes_200": {
+        "title": "Response Get My Osr Campaign Attributes Public Campaign  Campaignid  Osr Attributes Get",
+        "type": "object"
       },
       "call_control_Error": {
         "required": [
@@ -89281,13 +90064,19 @@
           }
         }
       },
-      "GetCampaignOsrAttributes_200": {
-        "title": "Response Get My Osr Campaign Attributes Public Campaign  Campaignid  Osr Attributes Get",
-        "type": "object"
-      },
       "GetCampaignOperationStatus_200": {
         "title": "Response Get My Campaign Operation Status Public Campaign  Campaignid  Operationstatus Get",
         "type": "object"
+      },
+      "AppealCampaign_200": {
+        "type": "object",
+        "properties": {
+          "appealed_at": {
+            "type": "string",
+            "description": "Timestamp when the appeal was submitted",
+            "format": "date-time"
+          }
+        }
       },
       "connections_PaginationMeta": {
         "title": "Pagination Meta",
@@ -89311,16 +90100,6 @@
           }
         }
       },
-      "AppealCampaign_200": {
-        "type": "object",
-        "properties": {
-          "appealed_at": {
-            "type": "string",
-            "description": "Timestamp when the appeal was submitted",
-            "format": "date-time"
-          }
-        }
-      },
       "AppealCampaign": {
         "required": [
           "appeal_reason"
@@ -89333,6 +90112,9 @@
             "example": "The website has been updated to include the required privacy policy and terms of service."
           }
         }
+      },
+      "AcceptCampaign_200": {
+        "type": "object"
       },
       "customer_service_record_ResourceNotFoundError": {
         "type": "object",
@@ -89526,7 +90308,7 @@
           }
         }
       },
-      "AcceptCampaign_200": {
+      "RevetBrand_200": {
         "type": "object"
       },
       "external_voice_integrations_Error": {
@@ -89587,10 +90369,10 @@
           }
         }
       },
-      "RevetBrand_200": {
+      "PostOrderExternalVetting_200": {
         "type": "object"
       },
-      "PostOrderExternalVetting_200": {
+      "ListExternalVettings_200": {
         "type": "object"
       },
       "external_voice_integrations_PaginationMeta": {
@@ -89615,7 +90397,7 @@
           }
         }
       },
-      "ListExternalVettings_200": {
+      "DeleteBrand_200": {
         "type": "object"
       },
       "http": {
@@ -90097,9 +90879,6 @@
           }
         }
       },
-      "DeleteBrand_200": {
-        "type": "object"
-      },
       "ListBillingGroups_200": {
         "type": "object",
         "properties": {
@@ -90113,6 +90892,9 @@
             "$ref": "#/components/schemas/PaginationMeta"
           }
         }
+      },
+      "UpdateAuthenticationProvider_422": {
+        "type": "object"
       },
       "media_storage_Error": {
         "required": [
@@ -90251,10 +91033,10 @@
           }
         }
       },
-      "UpdateAuthenticationProvider_422": {
+      "UpdateAuthenticationProvider_404": {
         "type": "object"
       },
-      "UpdateAuthenticationProvider_404": {
+      "UpdateAuthenticationProvider_401": {
         "type": "object"
       },
       "netapps_Error": {
@@ -90523,7 +91305,7 @@
           }
         }
       },
-      "UpdateAuthenticationProvider_401": {
+      "GetAuthenticationProvider_422": {
         "type": "object"
       },
       "numbers_PaginationMetaSimple": {
@@ -90584,7 +91366,7 @@
           }
         }
       },
-      "GetAuthenticationProvider_422": {
+      "GetAuthenticationProvider_404": {
         "type": "object"
       },
       "payment_Error": {
@@ -90635,7 +91417,7 @@
           }
         }
       },
-      "GetAuthenticationProvider_404": {
+      "GetAuthenticationProvider_401": {
         "type": "object"
       },
       "portability_check_Error": {
@@ -90683,7 +91465,7 @@
           }
         }
       },
-      "GetAuthenticationProvider_401": {
+      "DeleteAuthenticationProvider_422": {
         "type": "object"
       },
       "programmable_fax_Error": {
@@ -90859,10 +91641,10 @@
         },
         "description": "The settings associated with the authentication provider."
       },
-      "DeleteAuthenticationProvider_422": {
+      "DeleteAuthenticationProvider_404": {
         "type": "object"
       },
-      "DeleteAuthenticationProvider_404": {
+      "DeleteAuthenticationProvider_401": {
         "type": "object"
       },
       "siprec_Error": {
@@ -90911,7 +91693,7 @@
           }
         }
       },
-      "DeleteAuthenticationProvider_401": {
+      "CreateAuthenticationProvider_422": {
         "type": "object"
       },
       "standard_MdrGetUsageReportsResponse": {
@@ -90953,7 +91735,7 @@
           }
         }
       },
-      "CreateAuthenticationProvider_422": {
+      "FindAuthenticationProviders_404": {
         "type": "object"
       },
       "toll_free_verification_EntityType": {
@@ -91105,9 +91887,6 @@
           }
         }
       },
-      "FindAuthenticationProviders_404": {
-        "type": "object"
-      },
       "FindAuthenticationProviders_401": {
         "type": "object"
       },
@@ -91127,6 +91906,9 @@
             "$ref": "#/components/schemas/PaginationMeta"
           }
         }
+      },
+      "delete_mcp_server_200": {
+        "type": "object"
       },
       "add_new_message_200": {
         "type": "object"
@@ -91667,6 +92449,20 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/TestRunResponse"
+        }
+      },
+      "ListMigrationSourceCoverage_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MigrationSourceCoverageParams"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMetaSimple"
+          }
         }
       },
       "ListMigrationSources_200": {
@@ -99598,6 +100394,21 @@
         "required": true,
         "schema": {
           "type": "string"
+        }
+      },
+      "ConferenceRegion": {
+        "name": "region",
+        "in": "query",
+        "description": "Region where the conference data is located",
+        "schema": {
+          "enum": [
+            "Australia",
+            "Europe",
+            "Middle East",
+            "US"
+          ],
+          "type": "string",
+          "additionalProperties": false
         }
       },
       "ConferenceSid": {

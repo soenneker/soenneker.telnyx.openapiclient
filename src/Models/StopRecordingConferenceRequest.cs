@@ -9,53 +9,47 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ConferenceHoldRequest : IAdditionalDataHolder, IParsable
+    public partial class StopRecordingConferenceRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The URL of a file to be played to the participants when they are put on hold. media_name and audio_url cannot be used together in one request.</summary>
+        /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AudioUrl { get; set; }
+        public string? ClientState { get; set; }
 #nullable restore
 #else
-        public string AudioUrl { get; set; }
+        public string ClientState { get; set; }
 #endif
-        /// <summary>List of unique identifiers and tokens for controlling the call. When empty all participants will be placed on hold.</summary>
+        /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CallControlIds { get; set; }
+        public string? CommandId { get; set; }
 #nullable restore
 #else
-        public List<string> CallControlIds { get; set; }
+        public string CommandId { get; set; }
 #endif
-        /// <summary>The media_name of a file to be played to the participants when they are put on hold. The media_name must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. The file must either be a WAV or MP3 file.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? MediaName { get; set; }
-#nullable restore
-#else
-        public string MediaName { get; set; }
-#endif
+        /// <summary>Uniquely identifies the resource.</summary>
+        public Guid? RecordingId { get; set; }
         /// <summary>Region where the conference data is located. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceHoldRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingConferenceRequest"/> and sets the default values.
         /// </summary>
-        public ConferenceHoldRequest()
+        public StopRecordingConferenceRequest()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceHoldRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingConferenceRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceHoldRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingConferenceRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceHoldRequest();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingConferenceRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,9 +59,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
-                { "call_control_ids", n => { CallControlIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "media_name", n => { MediaName = n.GetStringValue(); } },
+                { "client_state", n => { ClientState = n.GetStringValue(); } },
+                { "command_id", n => { CommandId = n.GetStringValue(); } },
+                { "recording_id", n => { RecordingId = n.GetGuidValue(); } },
                 { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); } },
             };
         }
@@ -78,9 +72,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("audio_url", AudioUrl);
-            writer.WriteCollectionOfPrimitiveValues<string>("call_control_ids", CallControlIds);
-            writer.WriteStringValue("media_name", MediaName);
+            writer.WriteStringValue("client_state", ClientState);
+            writer.WriteStringValue("command_id", CommandId);
+            writer.WriteGuidValue("recording_id", RecordingId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>("region", Region);
             writer.WriteAdditionalData(AdditionalData);
         }
