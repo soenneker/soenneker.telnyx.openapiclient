@@ -29178,6 +29178,37 @@
       }
     },
     "/queues/{queue_name}/calls/{call_control_id}": {
+      "delete": {
+        "summary": "Force remove a call from a queue",
+        "description": "Removes an inactive call from a queue. If the call is no longer active, use this command to remove it from the queue.",
+        "operationId": "RemoveQueueCall",
+        "tags": [
+          "Queue Commands"
+        ],
+        "parameters": [
+          {
+            "name": "queue_name",
+            "description": "Uniquely identifies the queue by name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/CallControlId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Call successfully removed from the queue"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          }
+        },
+        "x-latency-category": "interactive"
+      },
       "get": {
         "summary": "Retrieve a call from a queue",
         "description": "Retrieve an existing call from an existing queue",
@@ -29202,6 +29233,48 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/QueueCallResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          }
+        },
+        "x-latency-category": "interactive"
+      },
+      "patch": {
+        "summary": "Update queued call",
+        "description": "Update queued call's keep_after_hangup flag",
+        "operationId": "UpdateCallInQueue",
+        "tags": [
+          "Queue Commands"
+        ],
+        "parameters": [
+          {
+            "name": "queue_name",
+            "description": "Uniquely identifies the queue by name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/CallControlId"
+          }
+        ],
+        "requestBody": {
+          "description": "Update queued call request.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateQueuedCallRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Call has been successfully updated."
           },
           "404": {
             "$ref": "#/components/responses/NotFoundResponse"
@@ -70120,6 +70193,12 @@
             "type": "integer",
             "default": 100,
             "example": 200
+          },
+          "keep_after_hangup": {
+            "type": "boolean",
+            "description": "If set to true, the call will remain in the queue after hangup. In this case bridging to such call will fail with necessary information needed to re-establish the call.",
+            "default": false,
+            "example": true
           }
         },
         "example": {
@@ -100118,6 +100197,20 @@
             "description": "Identifies the requirement type that the `field_value` fulfills",
             "example": "59b0762a-b274-4f76-ac32-4d5cf0272e66"
           }
+        }
+      },
+      "UpdateQueuedCallRequest": {
+        "type": "object",
+        "title": "Update Queued Call Request",
+        "properties": {
+          "keep_after_hangup": {
+            "description": "Whether the call should remain in queue after hangup.",
+            "example": true,
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "keep_after_hangup": true
         }
       },
       "UpdateRegulatoryRequirement": {
