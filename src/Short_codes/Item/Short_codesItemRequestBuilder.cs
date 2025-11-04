@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Short_codes.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Short_codes.Item.Short_codesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Short_codes.Item.Short_codesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the settings for a specific short code. To unbind a short code from a profile, set the `messaging_profile_id` to `null` or an empty string.
+        /// Update the settings for a specific short code. To unbind a short code from a profile, set the `messaging_profile_id` to `null` or an empty string.To add or update tags, include the tags field as an array of strings.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Short_codes.Item.Short_codesPatchResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -101,7 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Short_codes.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update the settings for a specific short code. To unbind a short code from a profile, set the `messaging_profile_id` to `null` or an empty string.
+        /// Update the settings for a specific short code. To unbind a short code from a profile, set the `messaging_profile_id` to `null` or an empty string.To add or update tags, include the tags field as an array of strings.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
