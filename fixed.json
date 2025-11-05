@@ -2121,6 +2121,58 @@
         }
       }
     },
+    "/ai/assistants/{assistant_id}/chat/sms": {
+      "post": {
+        "tags": [
+          "Assistants"
+        ],
+        "summary": "Assistant Sms Chat",
+        "description": "Send an SMS message for an assistant. This endpoint: 1. Validates the assistant exists and has messaging profile configured 2. If should_create_conversation is true, creates a new conversation with metadata 3. Sends the SMS message 4. Updates conversation metadata if provided 5.. Returns the conversation ID",
+        "operationId": "assistant-sms-chat-assistants-assistant-id-chat-sms-post",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Assistant Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssistantSmsChatReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssistantSmsChatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ai/assistants/{assistant_id}/clone": {
       "post": {
         "tags": [
@@ -35867,6 +35919,61 @@
           }
         },
         "description": "Aligns with the OpenAI API:\nhttps://platform.openai.com/docs/api-reference/assistants/deleteAssistant"
+      },
+      "AssistantSmsChatReq": {
+        "title": "AssistantSmsChatReq",
+        "required": [
+          "from",
+          "to",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "title": "From",
+            "type": "string"
+          },
+          "to": {
+            "title": "To",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "conversation_metadata": {
+            "title": "Conversation Metadata",
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/UnionBranch"
+                },
+                {
+                  "$ref": "#/components/schemas/UnionBranch"
+                },
+                {
+                  "$ref": "#/components/schemas/UnionBranch"
+                }
+              ]
+            }
+          },
+          "should_create_conversation": {
+            "title": "Should Create Conversation",
+            "type": "boolean"
+          }
+        }
+      },
+      "AssistantSmsChatResponse": {
+        "title": "AssistantSmsChatResponse",
+        "type": "object",
+        "properties": {
+          "conversation_id": {
+            "title": "Conversation Id",
+            "type": "string"
+          }
+        }
       },
       "AssistantTestResponse": {
         "title": "AssistantTestResponse",
@@ -82211,6 +82318,43 @@
           "language": {
             "type": "string",
             "description": "The language of the audio to be transcribed. This is only applicable for `openai/whisper-large-v3-turbo` model. If not set, of if set to `auto`, the model will automatically detect the language. For the full list of supported languages, see the [whisper tokenizer](https://github.com/openai/whisper/blob/main/whisper/tokenizer.py)."
+          },
+          "api_key_ref": {
+            "title": "Api Key Ref",
+            "type": "string",
+            "description": "Referece to api key in Telnyx Portal -> Account -> Account Settings -> Integration Secrets"
+          },
+          "region": {
+            "title": "Region",
+            "type": "string",
+            "description": "Region on third party cloud providers( currently Azure) if using one of their models"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/TranscriptionSettingsConfig"
+          }
+        }
+      },
+      "TranscriptionSettingsConfig": {
+        "title": "TranscriptionSettingsConfig",
+        "type": "object",
+        "properties": {
+          "smart_format": {
+            "title": "Smart Format",
+            "type": "boolean"
+          },
+          "numerals": {
+            "title": "Numerals",
+            "type": "boolean"
+          },
+          "eot_threshold": {
+            "title": "Eot Threshold",
+            "type": "number",
+            "description": "Available only for deepgram/flux"
+          },
+          "eot_timeout_ms": {
+            "title": "Eot Timeout Ms",
+            "type": "integer",
+            "description": "Available only for deepgram/flux"
           }
         }
       },

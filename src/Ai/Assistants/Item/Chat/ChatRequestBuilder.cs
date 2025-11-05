@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat.Sms;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChatRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The sms property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat.Sms.SmsRequestBuilder Sms
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat.Sms.SmsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat.ChatRequestBuilder"/> and sets the default values.
         /// </summary>

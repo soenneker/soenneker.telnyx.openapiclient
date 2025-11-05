@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Referece to api key in Telnyx Portal -&gt; Account -&gt; Account Settings -&gt; Integration Secrets</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ApiKeyRef { get; set; }
+#nullable restore
+#else
+        public string ApiKeyRef { get; set; }
+#endif
         /// <summary>The language of the audio to be transcribed. This is only applicable for `openai/whisper-large-v3-turbo` model. If not set, of if set to `auto`, the model will automatically detect the language. For the full list of supported languages, see the [whisper tokenizer](https://github.com/openai/whisper/blob/main/whisper/tokenizer.py).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,6 +37,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Model { get; set; }
+#endif
+        /// <summary>Region on third party cloud providers( currently Azure) if using one of their models</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Region { get; set; }
+#nullable restore
+#else
+        public string Region { get; set; }
+#endif
+        /// <summary>The settings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig? Settings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig Settings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings"/> and sets the default values.
@@ -55,8 +79,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
+                { "region", n => { Region = n.GetStringValue(); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +93,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("model", Model);
+            writer.WriteStringValue("region", Region);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig>("settings", Settings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
