@@ -14,9 +14,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Available only for deepgram/flux</summary>
+        /// <summary>Available only for deepgram/flux. Confidence required to trigger an end of turn. Higher values = more reliable turn detection but slightly increased latency.</summary>
         public double? EotThreshold { get; set; }
-        /// <summary>Available only for deepgram/flux</summary>
+        /// <summary>Available only for deepgram/flux. Maximum milliseconds of silence before forcing an end of turn, regardless of confidence.</summary>
         public int? EotTimeoutMs { get; set; }
         /// <summary>The numerals property</summary>
         public bool? Numerals { get; set; }
