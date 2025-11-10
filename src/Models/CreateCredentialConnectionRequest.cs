@@ -26,6 +26,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AndroidPushCredentialId { get; set; }
 #endif
+        /// <summary>Specifies if call cost webhooks should be sent for this connection.</summary>
+        public bool? CallCostInWebhooks { get; set; }
         /// <summary>A user-assigned name to help manage the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -153,6 +155,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
                 { "android_push_credential_id", n => { AndroidPushCredentialId = n.GetStringValue(); } },
+                { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "default_on_hold_comfort_noise_enabled", n => { DefaultOnHoldComfortNoiseEnabled = n.GetBoolValue(); } },
                 { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); } },
@@ -183,6 +186,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("android_push_credential_id", AndroidPushCredentialId);
+            writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);

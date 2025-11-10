@@ -26,6 +26,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ApplicationName { get; set; }
 #endif
+        /// <summary>Specifies if call cost webhooks should be sent for this Call Control Application.</summary>
+        public bool? CallCostInWebhooks { get; set; }
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateCallControlApplicationRequest_dtmf_type? DtmfType { get; set; }
         /// <summary>Specifies whether calls to phone numbers associated with this connection should hangup after timing out.</summary>
@@ -101,6 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCallControlApplicationRequest_anchorsite_override>(); } },
                 { "application_name", n => { ApplicationName = n.GetStringValue(); } },
+                { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCallControlApplicationRequest_dtmf_type>(); } },
                 { "first_command_timeout", n => { FirstCommandTimeout = n.GetBoolValue(); } },
                 { "first_command_timeout_secs", n => { FirstCommandTimeoutSecs = n.GetIntValue(); } },
@@ -123,6 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCallControlApplicationRequest_anchorsite_override>("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("application_name", ApplicationName);
+            writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateCallControlApplicationRequest_dtmf_type>("dtmf_type", DtmfType);
             writer.WriteBoolValue("first_command_timeout", FirstCommandTimeout);
             writer.WriteIntValue("first_command_timeout_secs", FirstCommandTimeoutSecs);

@@ -22,6 +22,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
         /// <summary>Indicates whether call cost calculation is enabled.</summary>
         public bool? CallCostEnabled { get; set; }
+        /// <summary>Specifies if call cost webhooks should be sent for this connection.</summary>
+        public bool? CallCostInWebhooks { get; set; }
         /// <summary>A user-assigned name to help manage the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -207,6 +209,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "adjust_dtmf_timestamp", n => { AdjustDtmfTimestamp = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
                 { "call_cost_enabled", n => { CallCostEnabled = n.GetBoolValue(); } },
+                { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "default_on_hold_comfort_noise_enabled", n => { DefaultOnHoldComfortNoiseEnabled = n.GetBoolValue(); } },
@@ -251,6 +254,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("adjust_dtmf_timestamp", AdjustDtmfTimestamp);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteBoolValue("call_cost_enabled", CallCostEnabled);
+            writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("default_on_hold_comfort_noise_enabled", DefaultOnHoldComfortNoiseEnabled);
