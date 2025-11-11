@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat.Sms
         {
         }
         /// <summary>
-        /// Send an SMS message for an assistant. This endpoint: 1. Validates the assistant exists and has messaging profile configured 2. If should_create_conversation is true, creates a new conversation with metadata 3. Sends the SMS message 4. Updates conversation metadata if provided 5.. Returns the conversation ID
+        /// Send an SMS message for an assistant. This endpoint: 1. Validates the assistant exists and has messaging profile configured 2. If should_create_conversation is true, creates a new conversation with metadata 3. Sends the SMS message (If `text` is set, this will be sent. Otherwise, if this is the first message in the conversation and the assistant has a `greeting` configured, this will be sent. Otherwise the assistant will generate the text to send.) 4. Updates conversation metadata if provided 5. Returns the conversation ID
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat.Sms
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AssistantSmsChatResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Send an SMS message for an assistant. This endpoint: 1. Validates the assistant exists and has messaging profile configured 2. If should_create_conversation is true, creates a new conversation with metadata 3. Sends the SMS message 4. Updates conversation metadata if provided 5.. Returns the conversation ID
+        /// Send an SMS message for an assistant. This endpoint: 1. Validates the assistant exists and has messaging profile configured 2. If should_create_conversation is true, creates a new conversation with metadata 3. Sends the SMS message (If `text` is set, this will be sent. Otherwise, if this is the first message in the conversation and the assistant has a `greeting` configured, this will be sent. Otherwise the assistant will generate the text to send.) 4. Updates conversation metadata if provided 5. Returns the conversation ID
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

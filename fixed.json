@@ -2127,7 +2127,7 @@
           "Assistants"
         ],
         "summary": "Assistant Sms Chat",
-        "description": "Send an SMS message for an assistant. This endpoint: 1. Validates the assistant exists and has messaging profile configured 2. If should_create_conversation is true, creates a new conversation with metadata 3. Sends the SMS message 4. Updates conversation metadata if provided 5.. Returns the conversation ID",
+        "description": "Send an SMS message for an assistant. This endpoint: \n1. Validates the assistant exists and has messaging profile configured \n2. If should_create_conversation is true, creates a new conversation with metadata \n3. Sends the SMS message (If `text` is set, this will be sent. Otherwise, if this is the first message in the conversation and the assistant has a `greeting` configured, this will be sent. Otherwise the assistant will generate the text to send.) \n4. Updates conversation metadata if provided \n5. Returns the conversation ID",
         "operationId": "assistant-sms-chat-assistants-assistant-id-chat-sms-post",
         "parameters": [
           {
