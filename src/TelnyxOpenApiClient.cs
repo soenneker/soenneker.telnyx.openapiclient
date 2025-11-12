@@ -59,6 +59,7 @@ using Soenneker.Telnyx.OpenApiClient.Global_ip_protocols;
 using Soenneker.Telnyx.OpenApiClient.Global_ip_usage;
 using Soenneker.Telnyx.OpenApiClient.Global_ips;
 using Soenneker.Telnyx.OpenApiClient.Inbound_channels;
+using Soenneker.Telnyx.OpenApiClient.Inexplicit_number_orders;
 using Soenneker.Telnyx.OpenApiClient.Integration_secrets;
 using Soenneker.Telnyx.OpenApiClient.Inventory_coverage;
 using Soenneker.Telnyx.OpenApiClient.Invoices;
@@ -437,6 +438,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsRequestBuilder Inbound_channels
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Inbound_channels.Inbound_channelsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The inexplicit_number_orders property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Inexplicit_number_orders.Inexplicit_number_ordersRequestBuilder Inexplicit_number_orders
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Inexplicit_number_orders.Inexplicit_number_ordersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The integration_secrets property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Integration_secrets.Integration_secretsRequestBuilder Integration_secrets

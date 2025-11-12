@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>This is an alternative to `top_p` that [many prefer](https://github.com/huggingface/transformers/issues/27670). Must be in [0, 1].</summary>
         public double? MinP { get; set; }
-        /// <summary>The language model to chat with. If you are optimizing for speed + price, try `meta-llama/Meta-Llama-3.1-8B-Instruct`. For quality, try `meta-llama/Meta-Llama-3.1-70B-Instruct`. Or explore our [LLM Library](https://telnyx.com/products/llm-library).</summary>
+        /// <summary>The language model to chat with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
