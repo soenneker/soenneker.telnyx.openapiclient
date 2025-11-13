@@ -32,8 +32,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The direction of the audio stream to be noise suppressed.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection? Direction { get; set; }
-        /// <summary>The engine to use for noise suppression. A - rnnoise engine B - deepfilter engine.</summary>
+        /// <summary>The engine to use for noise suppression.For backward compatibility, engines A and B are also supported, but are deprecated: A - Denoiser B - DeepFilterNet</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine? NoiseSuppressionEngine { get; set; }
+        /// <summary>Configuration parameters for noise suppression engines.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig? NoiseSuppressionEngineConfig { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig NoiseSuppressionEngineConfig { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionStartBody"/> and sets the default values.
         /// </summary>
@@ -41,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Direction = global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection.Inbound;
-            NoiseSuppressionEngine = global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine.A;
+            NoiseSuppressionEngine = global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine.Denoiser;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -65,6 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection>(); } },
                 { "noise_suppression_engine", n => { NoiseSuppressionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine>(); } },
+                { "noise_suppression_engine_config", n => { NoiseSuppressionEngineConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,6 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection>("direction", Direction);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine>("noise_suppression_engine", NoiseSuppressionEngine);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig>("noise_suppression_engine_config", NoiseSuppressionEngineConfig);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

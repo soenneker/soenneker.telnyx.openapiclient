@@ -8145,7 +8145,7 @@
           }
         ],
         "requestBody": {
-          "description": "Start streaming media request",
+          "description": "Start noise suppression request",
           "content": {
             "application/json": {
               "schema": {
@@ -8177,7 +8177,7 @@
           }
         ],
         "requestBody": {
-          "description": "Start streaming media request",
+          "description": "Stop noise suppression request",
           "content": {
             "application/json": {
               "schema": {
@@ -63967,14 +63967,29 @@
       "NoiseSuppressionEngine": {
         "title": "Noise Suppression Engine",
         "enum": [
-          "A",
-          "B"
+          "Denoiser",
+          "DeepFilterNet"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The engine to use for noise suppression. \nA - rnnoise engine \nB - deepfilter engine.",
-        "default": "A",
-        "example": "A"
+        "description": "The engine to use for noise suppression.\nFor backward compatibility, engines A and B are also supported, but are deprecated:\n A - Denoiser\n B - DeepFilterNet",
+        "default": "Denoiser",
+        "example": "Denoiser"
+      },
+      "NoiseSuppressionEngineConfig": {
+        "title": "Noise Suppression Engine Configuration",
+        "type": "object",
+        "properties": {
+          "attenuation_limit": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The attenuation limit for noise suppression (0-100). Only applicable for DeepFilterNet.",
+            "default": 100,
+            "example": 100
+          }
+        },
+        "description": "Configuration parameters for noise suppression engines."
       },
       "NoiseSuppressionStartBody": {
         "title": "Noise Suppression Start Request",
@@ -63995,13 +64010,19 @@
           },
           "noise_suppression_engine": {
             "$ref": "#/components/schemas/NoiseSuppressionEngine"
+          },
+          "noise_suppression_engine_config": {
+            "$ref": "#/components/schemas/NoiseSuppressionEngineConfig"
           }
         },
         "example": {
           "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
           "direction": "both",
-          "noise_suppression_engine": "A"
+          "noise_suppression_engine": "DeepFilterNet",
+          "noise_suppression_engine_config": {
+            "attenuation_limit": 100
+          }
         }
       },
       "NoiseSuppressionStopBody": {
