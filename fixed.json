@@ -54149,6 +54149,19 @@
                 "type": "string",
                 "description": "Optional reference string for customer tracking.",
                 "example": "MY REF 001"
+              },
+              "av_scan_status": {
+                "enum": [
+                  "scanned",
+                  "infected",
+                  "pending_scan",
+                  "not_scanned"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The antivirus scan status of the document.",
+                "readOnly": true,
+                "example": "scanned"
               }
             }
           }
