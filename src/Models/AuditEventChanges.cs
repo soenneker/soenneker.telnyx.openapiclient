@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AuditEventChanges_from : IComposedTypeWrapper, IParsable
@@ -94,6 +94,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember1 AuditEventChangesFromMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember2? AuditEventChangesFromMember2 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember2 AuditEventChangesFromMember2 { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,6 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges.AuditEventChanges_from();
                 result.AuditEventChangesFromMember1 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember1();
+                result.AuditEventChangesFromMember2 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember2();
                 result.UnionBranch = new global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch();
                 return result;
             }
@@ -122,9 +131,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(AuditEventChangesFromMember1 != null || UnionBranch != null)
+                if(AuditEventChangesFromMember1 != null || AuditEventChangesFromMember2 != null || UnionBranch != null)
                 {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AuditEventChangesFromMember1, UnionBranch);
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AuditEventChangesFromMember1, AuditEventChangesFromMember2, UnionBranch);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -135,11 +144,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember1>(null, AuditEventChangesFromMember1, UnionBranch);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember1>(null, AuditEventChangesFromMember1, AuditEventChangesFromMember2, UnionBranch);
             }
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember1"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember2"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AuditEventChanges_to : IComposedTypeWrapper, IParsable
@@ -151,6 +160,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember1 AuditEventChangesToMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember2? AuditEventChangesToMember2 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember2 AuditEventChangesToMember2 { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -170,6 +187,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges.AuditEventChanges_to();
                 result.AuditEventChangesToMember1 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember1();
+                result.AuditEventChangesToMember2 = new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember2();
                 result.UnionBranch = new global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch();
                 return result;
             }
@@ -179,9 +197,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(AuditEventChangesToMember1 != null || UnionBranch != null)
+                if(AuditEventChangesToMember1 != null || AuditEventChangesToMember2 != null || UnionBranch != null)
                 {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AuditEventChangesToMember1, UnionBranch);
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AuditEventChangesToMember1, AuditEventChangesToMember2, UnionBranch);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -192,7 +210,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember1>(null, AuditEventChangesToMember1, UnionBranch);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember1>(null, AuditEventChangesToMember1, AuditEventChangesToMember2, UnionBranch);
             }
         }
     }

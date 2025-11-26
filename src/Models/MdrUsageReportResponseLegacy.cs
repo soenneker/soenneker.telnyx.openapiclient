@@ -20,10 +20,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The connections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrUsageReportResponseLegacy_connections? Connections { get; set; }
+        public List<string>? Connections { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MdrUsageReportResponseLegacy_connections Connections { get; set; }
+        public List<string> Connections { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "aggregation_type", n => { AggregationType = n.GetIntValue(); } },
-                { "connections", n => { Connections = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrUsageReportResponseLegacy_connections>(global::Soenneker.Telnyx.OpenApiClient.Models.MdrUsageReportResponseLegacy_connections.CreateFromDiscriminatorValue); } },
+                { "connections", n => { Connections = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
@@ -116,7 +116,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("aggregation_type", AggregationType);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MdrUsageReportResponseLegacy_connections>("connections", Connections);
+            writer.WriteCollectionOfPrimitiveValues<string>("connections", Connections);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("end_time", EndTime);
             writer.WriteGuidValue("id", Id);

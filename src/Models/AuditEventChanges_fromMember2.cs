@@ -9,29 +9,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CdrUsageReportResponseLegacy_connections : IAdditionalDataHolder, IParsable
+    public partial class AuditEventChanges_fromMember2 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The empty property</summary>
-        public bool? Empty { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacy_connections"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember2"/> and sets the default values.
         /// </summary>
-        public CdrUsageReportResponseLegacy_connections()
+        public AuditEventChanges_fromMember2()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacy_connections"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember2"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacy_connections CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CdrUsageReportResponseLegacy_connections();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_fromMember2();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,7 +39,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "empty", n => { Empty = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -51,7 +48,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("empty", Empty);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

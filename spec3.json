@@ -541,6 +541,7 @@
   "paths": {
     "/.well-known/oauth-authorization-server": {
       "get": {
+        "operationId": "GetOAuthAuthorizationServerMetadata",
         "tags": [
           "OAuth Discovery"
         ],
@@ -557,6 +558,26 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
           }
         },
         "x-latency-category": "responsive"
@@ -569,6 +590,7 @@
     },
     "/.well-known/oauth-protected-resource": {
       "get": {
+        "operationId": "GetOAuthProtectedResourceMetadata",
         "tags": [
           "OAuth Discovery"
         ],
@@ -582,6 +604,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ResourceMetadata"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
                 }
               }
             }
@@ -4036,8 +4078,7 @@
                 },
                 "size": {
                   "type": "integer",
-                  "maximum": 100,
-                  "exclusiveMinimum": true,
+                  "exclusiveMaximum": 100,
                   "minimum": 0,
                   "description": "Number of items per page",
                   "default": 20,
@@ -4399,8 +4440,7 @@
                 },
                 "size": {
                   "type": "integer",
-                  "maximum": 100,
-                  "exclusiveMinimum": true,
+                  "exclusiveMaximum": 100,
                   "minimum": 0,
                   "description": "Number of items per page",
                   "default": 20,
@@ -5958,6 +5998,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/AuditLogListResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/GenericErrorResponse"
@@ -11879,47 +11922,88 @@
             },
             "examples": {
               "filter[record_type]=messaging": {
-                "value": "messaging",
+                "value": {
+                  "record_type": "messaging"
+                },
                 "summary": "Searches for messaging detail records"
               },
               "filter[record_type]=verify": {
-                "value": "verify",
+                "value": {
+                  "record_type": "verify"
+                },
                 "summary": "Searches for verify detail records"
               },
               "filter[date_range]=today": {
-                "value": "today",
+                "value": {
+                  "record_type": "messaging",
+                  "date_range": "today"
+                },
                 "summary": "Searches for records with timestamp starting at `00:00:00` of the current day"
               },
               "filter[date_range]=yesterday": {
-                "value": "yesterday",
+                "value": {
+                  "record_type": "messaging",
+                  "date_range": "yesterday"
+                },
                 "summary": "Searches for records with timestamp starting at `00:00:00` of yesterday"
               },
               "filter[date_range]=last_month": {
-                "value": "last_month",
+                "value": {
+                  "record_type": "messaging",
+                  "date_range": "last_month"
+                },
                 "summary": "Searches for records with timestamp starting at `00:00:00` on the first day of the month"
               },
               "filter[created_at][gte]=2021-06-22": {
-                "value": "2021-06-22",
+                "value": {
+                  "record_type": "messaging",
+                  "created_at": {
+                    "gte": "2021-06-22"
+                  }
+                },
                 "summary": "Searches for records with `created_at` starting at `2021-06-22`"
               },
               "filter[created_at][lt]=2021-06-23": {
-                "value": "2021-06-23",
+                "value": {
+                  "record_type": "messaging",
+                  "created_at": {
+                    "lt": "2021-06-23"
+                  }
+                },
                 "summary": "Searches for records with `created_at` ending at `2021-06-22`"
               },
               "filter[direction]=inbound": {
-                "value": "inbound",
+                "value": {
+                  "record_type": "messaging",
+                  "direction": "inbound"
+                },
                 "summary": "Searches for records which have the property `direction` equal to `inbound`"
               },
               "filter[cld][contains]=456": {
-                "value": "456",
+                "value": {
+                  "record_type": "messaging",
+                  "cld": {
+                    "contains": "456"
+                  }
+                },
                 "summary": "Searches for records which have the property `cld` containing the pattern `456`"
               },
               "filter[cld][starts_with]=123": {
-                "value": "123",
+                "value": {
+                  "record_type": "messaging",
+                  "cld": {
+                    "starts_with": "123"
+                  }
+                },
                 "summary": "Searches for records which have the property `cld` starting with the prefix `123`"
               },
               "filter[cld][ends_with]=789": {
-                "value": "789",
+                "value": {
+                  "record_type": "messaging",
+                  "cld": {
+                    "ends_with": "789"
+                  }
+                },
                 "summary": "Searches for records which have the property `cld` ending with the suffix `789`"
               }
             }
@@ -11936,11 +12020,15 @@
             },
             "examples": {
               "sort=created_at": {
-                "value": "created_at",
+                "value": [
+                  "created_at"
+                ],
                 "summary": "Sorts search results using the `created_at` date-time in ascending order"
               },
               "sort=-created_at": {
-                "value": "created_at",
+                "value": [
+                  "-created_at"
+                ],
                 "summary": "Sorts search results using the `created_at` date-time in descending order"
               }
             }
@@ -12003,6 +12091,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DetailRecordsSearchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/detail-records_ErrorResponse"
                 }
               }
             }
@@ -15445,6 +15543,16 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/integration-secrets_ErrorResponse"
+                }
+              }
+            }
           }
         },
         "x-latency-category": "responsive"
@@ -16914,6 +17022,7 @@
         "tags": [
           "MDR Usage Reports"
         ],
+        "summary": "List MDR usage reports",
         "description": "Fetch all previous requests for MDR usage reports. ",
         "operationId": "getMdrUsageReports",
         "parameters": [
@@ -16948,6 +17057,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/standard_MdrGetUsageReportsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/standard_ErrorResponse"
                 }
               }
             }
@@ -17064,6 +17183,7 @@
         "tags": [
           "MDR Usage Reports"
         ],
+        "summary": "Get an MDR usage report",
         "description": "Fetch single MDR usage report by id.",
         "operationId": "getMdrUsageReport",
         "parameters": [
@@ -17294,6 +17414,7 @@
         "tags": [
           "Speech to text Usage Reports"
         ],
+        "summary": "Get speech to text usage report",
         "description": "Generate and fetch speech to text usage report synchronously. This endpoint will both generate and fetch the speech to text report over a specified time period. ",
         "operationId": "getSttUsageReportSync",
         "parameters": [
@@ -17326,6 +17447,16 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/standard_ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -17341,6 +17472,7 @@
         "tags": [
           "CDR Usage Reports"
         ],
+        "summary": "List CDR usage reports",
         "description": "Fetch all previous requests for cdr usage reports. ",
         "operationId": "getCdrUsageReports",
         "parameters": [
@@ -17375,6 +17507,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CdrGetUsageReportsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/standard_ErrorResponse"
                 }
               }
             }
@@ -17491,6 +17633,7 @@
         "tags": [
           "CDR Usage Reports"
         ],
+        "summary": "Get a CDR usage report",
         "description": "Fetch single cdr usage report by id.",
         "operationId": "getCdrUsageReport",
         "parameters": [
@@ -21978,6 +22121,7 @@
     },
     "/oauth/authorize": {
       "get": {
+        "operationId": "AuthorizeOAuth",
         "tags": [
           "OAuth Protocol"
         ],
@@ -22055,6 +22199,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Consent page displayed (when consent UI is embedded)"
+          },
           "302": {
             "description": "Redirect to consent page or client with authorization code/error"
           },
@@ -22094,6 +22241,7 @@
     },
     "/oauth/consent/{consent_token}": {
       "get": {
+        "operationId": "GetOAuthConsentToken",
         "tags": [
           "OAuth Protocol"
         ],
@@ -22142,6 +22290,7 @@
     },
     "/oauth/grants": {
       "post": {
+        "operationId": "CreateOAuthGrant",
         "tags": [
           "OAuth Protocol"
         ],
@@ -22189,6 +22338,7 @@
     },
     "/oauth/introspect": {
       "post": {
+        "operationId": "IntrospectOAuthToken",
         "tags": [
           "OAuth Protocol"
         ],
@@ -22257,6 +22407,7 @@
     },
     "/oauth/jwks": {
       "get": {
+        "operationId": "GetOAuthJWKS",
         "tags": [
           "OAuth Protocol"
         ],
@@ -22273,6 +22424,26 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
           }
         },
         "x-latency-category": "responsive"
@@ -22280,6 +22451,7 @@
     },
     "/oauth/register": {
       "post": {
+        "operationId": "RegisterOAuthClient",
         "tags": [
           "OAuth Protocol"
         ],
@@ -22342,6 +22514,7 @@
     },
     "/oauth/token": {
       "post": {
+        "operationId": "ExchangeOAuthToken",
         "tags": [
           "OAuth Protocol"
         ],
@@ -22430,6 +22603,7 @@
     },
     "/oauth_clients": {
       "get": {
+        "operationId": "ListOAuthClients",
         "tags": [
           "OAuth Clients"
         ],
@@ -22556,6 +22730,7 @@
         "x-latency-category": "responsive"
       },
       "post": {
+        "operationId": "CreateOAuthClient",
         "tags": [
           "OAuth Clients"
         ],
@@ -22628,6 +22803,7 @@
     },
     "/oauth_clients/{id}": {
       "delete": {
+        "operationId": "DeleteOAuthClient",
         "tags": [
           "OAuth Clients"
         ],
@@ -22668,6 +22844,7 @@
         "x-latency-category": "responsive"
       },
       "get": {
+        "operationId": "GetOAuthClient",
         "tags": [
           "OAuth Clients"
         ],
@@ -22720,6 +22897,7 @@
         "x-latency-category": "responsive"
       },
       "put": {
+        "operationId": "UpdateOAuthClient",
         "tags": [
           "OAuth Clients"
         ],
@@ -22794,6 +22972,7 @@
     },
     "/oauth_grants": {
       "get": {
+        "operationId": "ListOAuthGrants",
         "tags": [
           "OAuth Grants"
         ],
@@ -22848,6 +23027,26 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/oauth_Error"
+                }
+              }
+            }
           }
         },
         "x-latency-category": "responsive"
@@ -22855,6 +23054,7 @@
     },
     "/oauth_grants/{id}": {
       "delete": {
+        "operationId": "RevokeOAuthGrant",
         "tags": [
           "OAuth Grants"
         ],
@@ -22907,6 +23107,7 @@
         "x-latency-category": "responsive"
       },
       "get": {
+        "operationId": "GetOAuthGrant",
         "tags": [
           "OAuth Grants"
         ],
@@ -29782,7 +29983,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "no_aggregation",
+              "example": "NO_AGGREGATION",
               "enum": [
                 "NO_AGGREGATION",
                 "CONNECTION",
@@ -29797,7 +29998,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "no_breakdown",
+              "example": "NO_BREAKDOWN",
               "enum": [
                 "NO_BREAKDOWN",
                 "DID_VS_TOLL_FREE",
@@ -29811,7 +30012,9 @@
             "in": "query",
             "schema": {
               "type": "array",
-              "example": 1234567890123,
+              "example": [
+                1234567890123
+              ],
               "items": {
                 "type": "number",
                 "example": 1234567890123
@@ -29826,6 +30029,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CdrGetSyncUsageReportResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/reporting_ErrorResponse"
                 }
               }
             }
@@ -29913,6 +30126,16 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/reporting_ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -29947,6 +30170,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MdrPostUsageReportsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/reporting_ErrorResponse"
                 }
               }
             }
@@ -29993,7 +30226,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "profile",
+              "example": "PROFILE",
               "enum": [
                 "NO_AGGREGATION",
                 "PROFILE",
@@ -30006,7 +30239,9 @@
             "in": "query",
             "schema": {
               "type": "array",
-              "example": "My profile",
+              "example": [
+                "My profile"
+              ],
               "items": {
                 "type": "string",
                 "example": "My profile"
@@ -30021,6 +30256,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MdrGetSyncUsageReportResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/reporting_ErrorResponse"
                 }
               }
             }
@@ -30063,6 +30308,16 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/reporting_ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -30097,6 +30352,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MdrGetUsageReportsByIdResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/reporting_ErrorResponse"
                 }
               }
             }
@@ -30226,6 +30491,16 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/reporting_ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -30344,7 +30619,9 @@
                 "type": "string"
               },
               "description": "Field used to order the data. If no field is specified, default value is 'created_at'",
-              "example": "created_at",
+              "example": [
+                "created_at"
+              ],
               "default": [
                 "created_at"
               ]
@@ -30382,6 +30659,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ExternalWdrGetDetailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/wireless-public_ErrorResponse"
                 }
               }
             }
@@ -32352,6 +32639,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/BlackBoxTestResultsResponse"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "x-latency-category": "responsive"
@@ -36403,8 +36693,12 @@
               }
             },
             "examples": {
-              "dimensions=direction&dimensions=currency&dimensions=message_type": {
-                "value": "dimensions=direction&dimensions=currency&dimensions=message_type",
+              "dimensions=direction,currency,message_type": {
+                "value": [
+                  "direction",
+                  "currency",
+                  "message_type"
+                ],
                 "summary": "Dimensions aggregation list"
               }
             }
@@ -36421,8 +36715,11 @@
               }
             },
             "examples": {
-              "metrics=cost&metrics=billed_sec": {
-                "value": "metrics=cost&metrics=billed_sec",
+              "metrics=cost,billed_sec": {
+                "value": [
+                  "cost",
+                  "billed_sec"
+                ],
                 "summary": "Metrics aggregation list"
               }
             }
@@ -36526,16 +36823,16 @@
               }
             },
             "examples": {
-              "defaultOrder": {
-                "value": "",
-                "summary": "Default Order (No Sort)"
-              },
               "sort=created_at": {
-                "value": "created_at",
+                "value": [
+                  "created_at"
+                ],
                 "summary": "Sorts search results using the `created_at` date-time in ascending order"
               },
               "sort=-created_at": {
-                "value": "-created_at",
+                "value": [
+                  "-created_at"
+                ],
                 "summary": "Sorts search results using the `-created_at` date-time in descending order"
               }
             }
@@ -36582,7 +36879,6 @@
               "properties": {
                 "number": {
                   "title": "Page[Number]",
-                  "exclusiveMinimum": true,
                   "minimum": 1,
                   "type": "integer",
                   "default": 1
@@ -50138,16 +50434,6 @@
           }
         }
       },
-      "external-voice-integrations_GenericErrorResponse": {
-        "description": "Unexpected error",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/external-voice-integrations_Errors"
-            }
-          }
-        }
-      },
       "invoice_GenericErrorResponse": {
         "description": "Unexpected error",
         "content": {
@@ -50390,16 +50676,6 @@
                   ]
                 }
               }
-            }
-          }
-        }
-      },
-      "payment_GenericErrorResponse": {
-        "description": "Unexpected error",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/payment_Errors"
             }
           }
         }
@@ -51882,12 +52158,10 @@
             "title": "Rubric",
             "description": "Evaluation criteria used to assess test performance.",
             "example": [
-              [
-                {
-                  "criteria": "Responds within 30 seconds",
-                  "name": "Response Time"
-                }
-              ]
+              {
+                "criteria": "Responds within 30 seconds",
+                "name": "Response Time"
+              }
             ]
           },
           "created_at": {
@@ -51895,9 +52169,7 @@
             "format": "date-time",
             "title": "Created At",
             "description": "Timestamp when the test was created.",
-            "example": [
-              "2024-01-15T09:00:00Z"
-            ]
+            "example": "2024-01-15T09:00:00Z"
           }
         },
         "type": "object",
@@ -51991,7 +52263,7 @@
           },
           "timestamp_granularities[]": {
             "description": "The timestamp granularities to populate for this transcription. `response_format` must be set verbose_json to use timestamp granularities. Currently `segment` is supported.",
-            "example": "json",
+            "example": "segment",
             "type": "string",
             "enum": [
               "segment"
@@ -52080,11 +52352,13 @@
               {
                 "type": "array",
                 "items": {}
+              },
+              {
+                "type": "null"
               }
             ],
             "description": "The new value of the field. Can be any JSON type.",
-            "example": 12345,
-            "nullable": true
+            "example": 12345
           },
           "from": {
             "anyOf": [
@@ -52104,11 +52378,13 @@
               {
                 "type": "array",
                 "items": {}
+              },
+              {
+                "type": "null"
               }
             ],
             "description": "The previous value of the field. Can be any JSON type.",
-            "example": 54321,
-            "nullable": true
+            "example": 54321
           }
         }
       },
@@ -52139,10 +52415,12 @@
             "example": "550e8400-e29b-41d4-a716-446655440002"
           },
           "alternate_resource_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "An alternate identifier for a resource which may be considered unique enough to identify the resource but is not the primary identifier for the resource. For example, this field could be used to store the phone number value for a phone number when the primary database identifier is a separate distinct value.",
-            "example": "+14155551234",
-            "nullable": true
+            "example": "+14155551234"
           },
           "change_made_by": {
             "type": "string",
@@ -52153,10 +52431,13 @@
               "organization_member"
             ],
             "description": "Indicates if the change was made by Telnyx on your behalf, the organization owner, a member of your organization, or in the case of managed accounts, the account manager.",
-            "example": "organization_owner"
+            "example": "organization_member"
           },
           "changes": {
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "items": {
               "$ref": "#/components/schemas/AuditEventChanges"
             },
@@ -52167,8 +52448,7 @@
                 "to": "old value",
                 "from": "new value"
               }
-            ],
-            "nullable": true
+            ]
           },
           "organization_id": {
             "type": "string",
@@ -59544,6 +59824,41 @@
           }
         }
       },
+      "CampaignSuspendedEvent": {
+        "title": "Campaign Suspended Event",
+        "type": "object",
+        "properties": {
+          "campaignId": {
+            "title": "Campaignid",
+            "type": "string",
+            "description": "The ID of the campaign.",
+            "example": "4b30019a-9dca-a78d-1124-b080d7dedecc"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string",
+            "enum": [
+              "TELNYX_EVENT"
+            ],
+            "example": "TELNYX_EVENT"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "description": "Description of the event.",
+            "example": "Campaign has been marked as dormant"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string",
+            "enum": [
+              "DORMANT"
+            ],
+            "description": "The status of the campaign.",
+            "example": "DORMANT"
+          }
+        }
+      },
       "CanaryDeployRequest": {
         "properties": {
           "versions": {
@@ -60046,7 +60361,10 @@
           },
           "connections": {
             "type": "array",
-            "example": "[1234567890L, 9876543210L]",
+            "example": [
+              1234567890,
+              9876543210
+            ],
             "items": {
               "type": "integer",
               "format": "int64"
@@ -60124,15 +60442,12 @@
           "connections": {
             "uniqueItems": true,
             "type": "array",
-            "properties": {
-              "empty": {
-                "type": "boolean"
-              }
-            },
-            "example": "[1234567890L, 9876543210L]",
+            "example": [
+              "1234567890",
+              "9876543210"
+            ],
             "items": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           },
           "aggregation_type": {
@@ -60515,32 +60830,32 @@
           "id": "07a4dc5d-9b3b-4ba2-88a4-6ba172316c65",
           "record_type": "civic_address",
           "city_or_town": "Austin",
-          "city_or_town_alias": null,
+          "city_or_town_alias": "",
           "company_name": "Telnyx",
           "country": "US",
           "county_or_district": "US",
           "default_location_id": "18ded4bb-b694-44c1-a89b-a35b7acd4c9e",
           "description": "Austin Office",
           "house_number": "600",
-          "house_number_suffix": null,
+          "house_number_suffix": "",
           "locations": [
             {
               "id": "18ded4bb-b694-44c1-a89b-a35b7acd4c9e",
-              "additional_info": null,
+              "additional_info": "",
               "description": "Austin Office",
               "is_default": true
             },
             {
               "id": "d420a57f-c4ae-4697-87e1-fbefd9e86f72",
               "additional_info": "14th Floor",
-              "description": null,
+              "description": "",
               "is_default": false
             }
           ],
           "postal_or_zip_code": "78701",
           "state_or_province": "TX",
           "street_name": "Congress Street",
-          "street_suffix": null
+          "street_suffix": ""
         }
       },
       "ClientStateUpdateRequest": {
@@ -63300,18 +63615,22 @@
           },
           "webhook_event_url": {
             "description": "The URL where webhooks related to this connection will be sent.",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "default": null,
-            "nullable": true,
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails.",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "default": "",
-            "nullable": true,
             "example": "https://failover.example.com"
           },
           "webhook_api_version": {
@@ -63362,11 +63681,13 @@
       },
       "ConnectionAndroidPushCredentialId": {
         "title": "Android Push Credential Id",
-        "type": "string",
+        "type": [
+          "string",
+          "null"
+        ],
         "description": "The uuid of the push credential for Android",
         "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e",
-        "default": null,
-        "nullable": true
+        "default": null
       },
       "ConnectionId": {
         "description": "The ID of the connection used to send the fax.",
@@ -63380,11 +63701,13 @@
       },
       "ConnectionIosPushCredentialId": {
         "title": "Ios Push Credential Id",
-        "type": "string",
+        "type": [
+          "string",
+          "null"
+        ],
         "description": "The uuid of the push credential for Ios",
         "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836",
-        "default": null,
-        "nullable": true
+        "default": null
       },
       "ConnectionName": {
         "title": "Connection Name",
@@ -64072,10 +64395,7 @@
             "minLength": 1,
             "title": "Name",
             "description": "A descriptive name for the assistant test. This will be used to identify the test in the UI and reports.",
-            "example": [
-              "Customer Support Bot Test",
-              "Sales Assistant Evaluation"
-            ]
+            "example": "Customer Support Bot Test"
           },
           "description": {
             "type": "string",
@@ -64091,20 +64411,14 @@
             ],
             "description": "The communication channel through which the test will be conducted. Determines how the assistant will receive and respond to test messages.",
             "default": "web_chat",
-            "example": [
-              "web_chat",
-              "sms_chat"
-            ]
+            "example": "web_chat"
           },
           "destination": {
             "type": "string",
             "minLength": 1,
             "title": "Destination",
             "description": "The target destination for the test conversation. Format depends on the channel: phone number for SMS/voice, webhook URL for web chat, etc.",
-            "example": [
-              "+15551234567",
-              "assistant-id"
-            ]
+            "example": "+15551234567"
           },
           "max_duration_seconds": {
             "type": "integer",
@@ -64125,9 +64439,7 @@
             "minLength": 1,
             "title": "Instructions",
             "description": "Detailed instructions that define the test scenario and what the assistant should accomplish. This guides the test execution and evaluation.",
-            "example": [
-              "Act as a frustrated customer who received a damaged product. Ask for a refund and escalate if not satisfied with the initial response."
-            ]
+            "example": "Act as a frustrated customer who received a damaged product. Ask for a refund and escalate if not satisfied with the initial response."
           },
           "rubric": {
             "items": {
@@ -64153,16 +64465,14 @@
             "title": "Rubric",
             "description": "Evaluation criteria used to assess the assistant's performance. Each rubric item contains a name and specific criteria for evaluation.",
             "example": [
-              [
-                {
-                  "criteria": "Assistant responds within 30 seconds",
-                  "name": "Response Time"
-                },
-                {
-                  "criteria": "Provides correct product information",
-                  "name": "Accuracy"
-                }
-              ]
+              {
+                "criteria": "Assistant responds within 30 seconds",
+                "name": "Response Time"
+              },
+              {
+                "criteria": "Provides correct product information",
+                "name": "Accuracy"
+              }
             ]
           }
         },
@@ -64665,11 +64975,13 @@
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
-            "nullable": true,
             "default": ""
           },
           "webhook_api_version": {
@@ -64684,13 +64996,15 @@
             "default": "1"
           },
           "webhook_timeout_secs": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 30,
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25,
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "call_cost_in_webhooks": {
             "type": "boolean",
@@ -64724,7 +65038,7 @@
           "user_name": "myusername123",
           "anchorsite_override": "Latency",
           "connection_name": "my name",
-          "sip_uri_calling_preference": " disabled",
+          "sip_uri_calling_preference": "disabled",
           "default_on_hold_comfort_noise_enabled": false,
           "dtmf_type": "RFC 2833",
           "encode_contact_header_enabled": true,
@@ -64745,7 +65059,9 @@
           "inbound": {
             "ani_number_format": "+E.164",
             "dnis_number_format": "+e164",
-            "codecs": "G722",
+            "codecs": [
+              "G722"
+            ],
             "default_routing_method": "sequential",
             "channel_limit": 10,
             "generate_ringback_tone": true,
@@ -64810,25 +65126,34 @@
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
-            "nullable": true,
             "default": ""
           },
           "webhook_timeout_secs": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 30,
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25,
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "inbound": {
             "type": "object",
             "properties": {
+              "outbound_voice_profile_id": {
+                "type": "string",
+                "description": "The ID of the outbound voice profile to use for inbound calls.",
+                "example": "12345678-1234-1234-1234-123456789012"
+              },
               "channel_limit": {
                 "type": "integer",
                 "description": "When set, this will limit the number of concurrent inbound calls to phone numbers associated with this connection.",
@@ -64940,10 +65265,10 @@
             "$ref": "#/components/schemas/WebhookEventUrl"
           },
           "webhook_event_failover_url": {
-            "$ref": "#/components/schemas/WebhookEventFailoverUrl"
+            "$ref": "#/components/schemas/programmable-fax_WebhookEventFailoverUrl"
           },
           "webhook_timeout_secs": {
-            "$ref": "#/components/schemas/WebhookTimeoutSecs"
+            "$ref": "#/components/schemas/programmable-fax_WebhookTimeoutSecs"
           },
           "tags": {
             "type": "array",
@@ -65198,13 +65523,13 @@
             "channel_limit": 10,
             "generate_ringback_tone": true,
             "instant_ringback_enabled": true,
-            "ip_authentication_method": "token",
+            "ip_authentication_method": "credential-authentication",
             "ip_authentication_token": "aBcD1234",
             "localization": "string",
             "outbound_voice_profile_id": "1293384261075731499",
             "t38_reinvite_source": "customer",
             "tech_prefix": "0123",
-            "encrypted_media": "string",
+            "encrypted_media": "SRTP",
             "timeout_1xx_secs": 10,
             "timeout_2xx_secs": 10
           }
@@ -65230,11 +65555,13 @@
             "example": "example.com"
           },
           "port": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "description": "Port to use when connecting to this FQDN.",
             "default": 5060,
-            "example": 5060,
-            "nullable": true
+            "example": 5060
           },
           "dns_record_type": {
             "type": "string",
@@ -65445,7 +65772,9 @@
         "example": {
           "ani_number_format": "+E.164",
           "dnis_number_format": "+e164",
-          "codecs": "G722",
+          "codecs": [
+            "G722"
+          ],
           "default_routing_method": "sequential",
           "channel_limit": 10,
           "generate_ringback_tone": true,
@@ -65596,11 +65925,13 @@
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
-            "nullable": true,
             "default": ""
           },
           "webhook_api_version": {
@@ -65614,13 +65945,15 @@
             "default": "1"
           },
           "webhook_timeout_secs": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 30,
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25,
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "call_cost_in_webhooks": {
             "type": "boolean",
@@ -65830,16 +66163,20 @@
             "title": "Url"
           },
           "api_key_ref": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "title": "Api Key Ref"
           },
           "allowed_tools": {
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "items": {
               "type": "string"
             },
-            "nullable": true,
             "title": "Allowed Tools"
           }
         },
@@ -66630,8 +66967,8 @@
           "daily_spend_limit_enabled": true,
           "billing_group_id": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
           "calling_window": {
-            "start_time": "08:00",
-            "end_time": "20:00",
+            "start_time": "08:00:00",
+            "end_time": "20:00:00",
             "calls_per_cld": 5
           }
         },
@@ -66649,10 +66986,12 @@
             "$ref": "#/components/schemas/ServicePlan"
           },
           "concurrent_call_limit": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "description": "Must be no more than your global concurrent call limit. Null means no limit.",
-            "example": 10,
-            "nullable": true
+            "example": 10
           },
           "enabled": {
             "type": "boolean",
@@ -66707,32 +67046,34 @@
             "$ref": "#/components/schemas/OutboundCallRecording"
           },
           "billing_group_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uuid",
             "description": "The ID of the billing group associated with the outbound proflile. Defaults to null (for no group assigned).",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "calling_window": {
             "type": "object",
             "description": "(BETA) Specifies the time window and call limits for calls made using this outbound voice profile. Note that all times are UTC in 24-hour clock time.",
             "example": {
-              "start_time": "08:00",
-              "end_time": "20:00",
+              "start_time": "08:00:00",
+              "end_time": "20:00:00",
               "calls_per_cld": 5
             },
             "properties": {
               "start_time": {
                 "type": "string",
                 "description": "(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are allowed to start.",
-                "example": "08:00",
+                "example": "08:00:00",
                 "format": "time"
               },
               "end_time": {
                 "type": "string",
                 "description": "(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are no longer allowed to start.",
-                "example": "20:00",
+                "example": "20:00:00",
                 "format": "time"
               },
               "calls_per_cld": {
@@ -67834,11 +68175,13 @@
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
-            "nullable": true,
             "default": ""
           },
           "webhook_api_version": {
@@ -67852,13 +68195,15 @@
             "default": "1"
           },
           "webhook_timeout_secs": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 30,
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25,
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "call_cost_in_webhooks": {
             "type": "boolean",
@@ -67952,7 +68297,9 @@
         "example": {
           "ani_number_format": "+E.164",
           "dnis_number_format": "+e164",
-          "codecs": "G722",
+          "codecs": [
+            "G722"
+          ],
           "default_routing_method": "sequential",
           "channel_limit": 10,
           "generate_ringback_tone": true,
@@ -68061,9 +68408,11 @@
         },
         "properties": {
           "call_parking_enabled": {
-            "type": "boolean",
+            "type": [
+              "boolean",
+              "null"
+            ],
             "default": false,
-            "nullable": true,
             "description": "Forces all SIP calls originated on this connection to be \"parked\" instead of \"bridged\" to the destination specified on the URI. Parked calls will return ringback to the caller and will await for a Call Control command to define which action will be taken next."
           },
           "ani_override": {
@@ -70262,9 +70611,11 @@
                 "title": "Created At"
               },
               "finished_at": {
-                "type": "string",
-                "title": "Finished At",
-                "nullable": true
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Finished At"
               },
               "user_id": {
                 "type": "string",
@@ -70457,11 +70808,14 @@
         "description": "If `telephony` is enabled, the assistant will be able to make and receive calls. If `messaging` is enabled, the assistant will be able to send and receive messages."
       },
       "EncryptedMedia": {
-        "type": "string",
-        "enum": [
-          "SRTP"
+        "type": [
+          "string",
+          "null"
         ],
-        "nullable": true,
+        "enum": [
+          "SRTP",
+          null
+        ],
         "example": "SRTP",
         "description": "Enable use of SRTP for encryption. Cannot be set if the transport_portocol is TLS."
       },
@@ -70831,11 +71185,13 @@
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
-            "nullable": true,
             "default": ""
           },
           "webhook_api_version": {
@@ -70849,13 +71205,15 @@
             "default": "1"
           },
           "webhook_timeout_secs": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 30,
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25,
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "inbound": {
             "type": "object",
@@ -71100,18 +71458,6 @@
           }
         }
       },
-      "FailClusteringProcessRequest": {
-        "properties": {
-          "error": {
-            "type": "string"
-          }
-        },
-        "type": "object",
-        "required": [
-          "error"
-        ],
-        "title": "FailClusteringProcessRequest"
-      },
       "Fax": {
         "type": "object",
         "properties": {
@@ -71250,10 +71596,10 @@
             "$ref": "#/components/schemas/WebhookEventUrl"
           },
           "webhook_event_failover_url": {
-            "$ref": "#/components/schemas/WebhookEventFailoverUrl"
+            "$ref": "#/components/schemas/programmable-fax_WebhookEventFailoverUrl"
           },
           "webhook_timeout_secs": {
-            "$ref": "#/components/schemas/WebhookTimeoutSecs"
+            "$ref": "#/components/schemas/programmable-fax_WebhookTimeoutSecs"
           },
           "tags": {
             "type": "array",
@@ -71853,8 +72199,10 @@
             "description": "The Unix timestamp (in seconds) for when the fine-tuning job was created."
           },
           "finished_at": {
-            "type": "integer",
-            "nullable": true,
+            "type": [
+              "integer",
+              "null"
+            ],
             "description": "The Unix timestamp (in seconds) for when the fine-tuning job was finished. The value will be null if the fine-tuning job is still running."
           },
           "hyperparameters": {
@@ -71893,8 +72241,10 @@
             ]
           },
           "trained_tokens": {
-            "type": "integer",
-            "nullable": true,
+            "type": [
+              "integer",
+              "null"
+            ],
             "description": "The total number of billable tokens processed by this fine-tuning job. The value will be null if the fine-tuning job is still running."
           },
           "training_file": {
@@ -72242,7 +72592,7 @@
             "channel_limit": 10,
             "generate_ringback_tone": true,
             "instant_ringback_enabled": true,
-            "ip_authentication_method": "token",
+            "ip_authentication_method": "credential-authentication",
             "ip_authentication_token": "string",
             "localization": "string",
             "outbound_voice_profile_id": "1293384261075731499",
@@ -74176,40 +74526,51 @@
             ]
           },
           "default_routing_method": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "enum": [
               "sequential",
-              "round-robin"
+              "round-robin",
+              null
             ],
-            "nullable": true,
             "default": "sequential",
             "description": "Default routing method to be used when a number is associated with the connection. Must be one of the routing method types or null, other values are not allowed."
           },
           "default_primary_fqdn_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "int64",
-            "nullable": true,
             "default": null,
             "description": "The default primary FQDN to use for the number. Only settable if the connection is\nof FQDN type. Value must be the ID of an FQDN set on the connection."
           },
           "default_secondary_fqdn_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "int64",
-            "nullable": true,
             "default": null,
             "description": "The default secondary FQDN to use for the number. Only settable if the connection is\nof FQDN type. Value must be the ID of an FQDN set on the connection."
           },
           "default_tertiary_fqdn_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "int64",
-            "nullable": true,
             "default": null,
             "description": "The default tertiary FQDN to use for the number. Only settable if the connection is\nof FQDN type. Value must be the ID of an FQDN set on the connection."
           },
           "channel_limit": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "default": null,
-            "nullable": true,
             "description": "When set, this will limit the total number of inbound calls to phone numbers associated with this connection."
           },
           "generate_ringback_tone": {
@@ -74243,9 +74604,11 @@
             ]
           },
           "sip_subdomain": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "default": null,
-            "nullable": true,
             "description": "Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \"example.sip.telnyx.com\" can be called from any SIP endpoint by using the SIP URI \"sip:@example.sip.telnyx.com\" where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls."
           },
           "sip_subdomain_receive_settings": {
@@ -74306,7 +74669,9 @@
         "example": {
           "ani_number_format": "+E.164",
           "dns_number_format": "+e164",
-          "codecs": "G722",
+          "codecs": [
+            "G722"
+          ],
           "default_primary_ip_id": "192.168.0.0",
           "default_tertiary_ip_id": "192.168.0.0",
           "default_secondary_ip_id": "192.168.0.0",
@@ -75787,11 +76152,6 @@
         ],
         "title": "IntegrationConnection"
       },
-      "IntegrationConnectionDeletedResponse": {
-        "type": "object",
-        "description": "Integration connection deletion response (204 No Content on success)",
-        "title": "IntegrationConnectionDeletedResponse"
-      },
       "IntegrationConnectionResponse": {
         "type": "object",
         "properties": {
@@ -75851,7 +76211,6 @@
           "record_type",
           "id",
           "identifier",
-          "value",
           "created_at"
         ],
         "title": "IntegrationSecret"
@@ -76274,11 +76633,13 @@
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
-            "nullable": true,
             "default": ""
           },
           "webhook_api_version": {
@@ -76292,13 +76653,15 @@
             "default": "1"
           },
           "webhook_timeout_secs": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 30,
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25,
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "call_cost_in_webhooks": {
             "type": "boolean",
@@ -76895,16 +77258,20 @@
             "title": "Url"
           },
           "api_key_ref": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "title": "Api Key Ref"
           },
           "allowed_tools": {
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "items": {
               "type": "string"
             },
-            "nullable": true,
             "title": "Allowed Tools"
           },
           "created_at": {
@@ -76921,11 +77288,6 @@
           "created_at"
         ],
         "title": "MCPServer"
-      },
-      "MCPServerDeletedResponse": {
-        "type": "object",
-        "description": "MCP server deletion response (empty based on actual API)",
-        "title": "MCPServerDeletedResponse"
       },
       "MCPServersListResponse": {
         "type": "array",
@@ -77795,15 +78157,12 @@
           "connections": {
             "uniqueItems": true,
             "type": "array",
-            "properties": {
-              "empty": {
-                "type": "boolean"
-              }
-            },
-            "example": "[1234567890L, 9876543210L]",
+            "example": [
+              "1234567890",
+              "9876543210"
+            ],
             "items": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           },
           "aggregation_type": {
@@ -81332,9 +81691,11 @@
             "example": "normal"
           },
           "call_parking_enabled": {
-            "type": "boolean",
+            "type": [
+              "boolean",
+              "null"
+            ],
             "default": false,
-            "nullable": true,
             "description": "Forces all SIP calls originated on this connection to be \\\"parked\\\" instead of \\\"bridged\\\" to the destination specified on the URI. Parked calls will return ringback to the caller and will await for a Call Control command to define which action will be taken next."
           },
           "channel_limit": {
@@ -81413,9 +81774,11 @@
         "title": "Outbound Ip",
         "properties": {
           "call_parking_enabled": {
-            "type": "boolean",
+            "type": [
+              "boolean",
+              "null"
+            ],
             "default": false,
-            "nullable": true,
             "description": "Forces all SIP calls originated on this connection to be \"parked\" instead of \"bridged\" to the destination specified on the URI. Parked calls will return ringback to the caller and will await for a Call Control command to define which action will be taken next."
           },
           "ani_override": {
@@ -82323,8 +82686,8 @@
           },
           "billing_group_id": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
           "calling_window": {
-            "start_time": "08:00",
-            "end_time": "20:00",
+            "start_time": "08:00:00",
+            "end_time": "20:00:00",
             "calls_per_cld": 5
           },
           "created_at": "2018-02-02T22:25:27.521Z",
@@ -82359,10 +82722,12 @@
             "$ref": "#/components/schemas/ServicePlan"
           },
           "concurrent_call_limit": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "description": "Must be no more than your global concurrent call limit. Null means no limit.",
-            "example": 10,
-            "nullable": true
+            "example": 10
           },
           "enabled": {
             "type": "boolean",
@@ -82417,19 +82782,21 @@
             "$ref": "#/components/schemas/OutboundCallRecording"
           },
           "billing_group_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uuid",
             "description": "The ID of the billing group associated with the outbound proflile. Defaults to null (for no group assigned).",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "calling_window": {
             "type": "object",
             "description": "(BETA) Specifies the time window and call limits for calls made using this outbound voice profile. Note that all times are UTC in 24-hour clock time.",
             "example": {
-              "start_time": "08:00",
-              "end_time": "20:00",
+              "start_time": "08:00:00",
+              "end_time": "20:00:00",
               "calls_per_cld": 5
             },
             "properties": {
@@ -82656,22 +83023,22 @@
           "total_pages": {
             "type": "integer",
             "description": "Total number of pages.",
-            "example": "5"
+            "example": 5
           },
           "total_results": {
             "type": "integer",
             "description": "Total number of results.",
-            "example": "100"
+            "example": 100
           },
           "page_number": {
             "type": "integer",
             "description": "Selected page number.",
-            "example": "1"
+            "example": 1
           },
           "page_size": {
             "type": "integer",
             "description": "Records per single page",
-            "example": "20"
+            "example": 20
           }
         }
       },
@@ -92110,7 +92477,7 @@
           "downlink_data": {
             "type": "number",
             "description": "Number of megabytes downloaded",
-            "example": "0.1240"
+            "example": 0.124
           },
           "imsi": {
             "type": "string",
@@ -92170,12 +92537,12 @@
           "uplink_data": {
             "type": "number",
             "description": "Number of megabytes uploaded",
-            "example": "0.7653"
+            "example": 0.7653
           },
           "data_cost": {
             "type": "number",
             "description": "Data cost",
-            "example": "0.0292830"
+            "example": 0.029283
           },
           "record_type": {
             "type": "string",
@@ -96140,10 +96507,7 @@
             "type": "string",
             "title": "Triggered By",
             "description": "How this test run was initiated (manual, scheduled, or API).",
-            "example": [
-              "manual",
-              "cron"
-            ]
+            "example": "cron"
           },
           "completed_at": {
             "type": "string",
@@ -96177,9 +96541,7 @@
             "format": "date-time",
             "title": "Created At",
             "description": "Timestamp when the test run was created and queued.",
-            "example": [
-              "2024-01-15T10:30:00Z"
-            ]
+            "example": "2024-01-15T10:30:00Z"
           },
           "updated_at": {
             "type": "string",
@@ -96230,11 +96592,9 @@
             "title": "Data",
             "description": "Array of unique test suite names available to the user.",
             "example": [
-              [
-                "customer-support",
-                "sales-flow",
-                "onboarding"
-              ]
+              "customer-support",
+              "sales-flow",
+              "onboarding"
             ]
           }
         },
@@ -99469,11 +99829,13 @@
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
-            "nullable": true,
             "default": ""
           },
           "webhook_api_version": {
@@ -99487,13 +99849,15 @@
             "default": "1"
           },
           "webhook_timeout_secs": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 30,
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25,
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "call_cost_in_webhooks": {
             "type": "boolean",
@@ -99527,7 +99891,7 @@
           "user_name": "myusername123",
           "anchorsite_override": "Latency",
           "connection_name": "my name",
-          "sip_uri_calling_preference": " disabled",
+          "sip_uri_calling_preference": "disabled",
           "default_on_hold_comfort_noise_enabled": false,
           "dtmf_type": "RFC 2833",
           "encode_contact_header_enabled": true,
@@ -99552,7 +99916,9 @@
           "inbound": {
             "ani_number_format": "+E.164",
             "dnis_number_format": "+e164",
-            "codecs": "G722",
+            "codecs": [
+              "G722"
+            ],
             "default_routing_method": "sequential",
             "channel_limit": 10,
             "generate_ringback_tone": true,
@@ -99603,11 +99969,13 @@
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
-            "nullable": true,
             "default": ""
           },
           "tags": {
@@ -99622,13 +99990,15 @@
             ]
           },
           "webhook_timeout_secs": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 30,
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25,
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "inbound": {
             "type": "object",
@@ -99687,10 +100057,10 @@
             "$ref": "#/components/schemas/WebhookEventUrl"
           },
           "webhook_event_failover_url": {
-            "$ref": "#/components/schemas/WebhookEventFailoverUrl"
+            "$ref": "#/components/schemas/programmable-fax_WebhookEventFailoverUrl"
           },
           "webhook_timeout_secs": {
-            "$ref": "#/components/schemas/WebhookTimeoutSecs"
+            "$ref": "#/components/schemas/programmable-fax_WebhookTimeoutSecs"
           },
           "fax_email_recipient": {
             "$ref": "#/components/schemas/FaxEmailRecipient"
@@ -99913,11 +100283,13 @@
             "example": "example.com"
           },
           "port": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "description": "Port to use when connecting to this FQDN.",
             "default": 5060,
-            "example": 5060,
-            "nullable": true
+            "example": 5060
           },
           "dns_record_type": {
             "type": "string",
@@ -99989,11 +100361,13 @@
             "example": "https://example.com"
           },
           "webhook_event_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "example": "https://failover.example.com",
-            "nullable": true,
             "default": ""
           },
           "webhook_api_version": {
@@ -100007,13 +100381,15 @@
             "default": "1"
           },
           "webhook_timeout_secs": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 30,
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25,
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "call_cost_in_webhooks": {
             "type": "boolean",
@@ -100153,16 +100529,20 @@
             "title": "Url"
           },
           "api_key_ref": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "title": "Api Key Ref"
           },
           "allowed_tools": {
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "items": {
               "type": "string"
             },
-            "nullable": true,
             "title": "Allowed Tools"
           },
           "created_at": {
@@ -100498,8 +100878,8 @@
           "daily_spend_limit_enabled": true,
           "billing_group_id": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
           "calling_window": {
-            "start_time": "08:00",
-            "end_time": "20:00",
+            "start_time": "08:00:00",
+            "end_time": "20:00:00",
             "calls_per_cld": 5
           }
         },
@@ -100517,10 +100897,12 @@
             "$ref": "#/components/schemas/ServicePlan"
           },
           "concurrent_call_limit": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "description": "Must be no more than your global concurrent call limit. Null means no limit.",
-            "example": 10,
-            "nullable": true
+            "example": 10
           },
           "enabled": {
             "type": "boolean",
@@ -100575,32 +100957,34 @@
             "$ref": "#/components/schemas/OutboundCallRecording"
           },
           "billing_group_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uuid",
             "description": "The ID of the billing group associated with the outbound proflile. Defaults to null (for no group assigned).",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
-            "default": null,
-            "nullable": true
+            "default": null
           },
           "calling_window": {
             "type": "object",
             "description": "(BETA) Specifies the time window and call limits for calls made using this outbound voice profile.",
             "example": {
-              "start_time": "08:00",
-              "end_time": "20:00",
+              "start_time": "08:00:00",
+              "end_time": "20:00:00",
               "calls_per_cld": 5
             },
             "properties": {
               "start_time": {
                 "type": "string",
                 "description": "(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are allowed to start.",
-                "example": "08:00",
+                "example": "08:00:00",
                 "format": "time"
               },
               "end_time": {
                 "type": "string",
                 "description": "(BETA) The UTC time of day (in HH:MM format, 24-hour clock) when calls are no longer allowed to start.",
-                "example": "20:00",
+                "example": "20:00:00",
                 "format": "time"
               },
               "calls_per_cld": {
@@ -101431,7 +101815,12 @@
           "product_dimensions": {
             "type": "array",
             "description": "Telnyx Product Dimensions",
-            "example": "['mnc', 'mcc', 'sim_card_id', 'sim_group_name']",
+            "example": [
+              "mnc",
+              "mcc",
+              "sim_card_id",
+              "sim_group_name"
+            ],
             "items": {
               "type": "string"
             }
@@ -101439,7 +101828,13 @@
           "product_metrics": {
             "type": "array",
             "description": "Telnyx Product Metrics",
-            "example": "['uplink_data_bytes','downlink_data','downlink_data_bytes','uplink_data','data_cost']",
+            "example": [
+              "uplink_data_bytes",
+              "downlink_data",
+              "downlink_data_bytes",
+              "uplink_data",
+              "data_cost"
+            ],
             "items": {
               "type": "string"
             }
@@ -101447,7 +101842,6 @@
           "record_types": {
             "type": "array",
             "description": "Subproducts if applicable",
-            "example": "null",
             "items": {
               "$ref": "#/components/schemas/usage-reports_RecordType"
             }
@@ -103274,10 +103668,8 @@
           },
           "percentage": {
             "type": "number",
-            "maximum": 100.0,
-            "minimum": 0.0,
-            "exclusiveMaximum": true,
-            "exclusiveMinimum": true,
+            "exclusiveMaximum": 100.0,
+            "exclusiveMinimum": 0.0,
             "title": "Percentage",
             "description": "Percentage of traffic for this version [1-99]"
           }
@@ -103841,10 +104233,12 @@
       "WebhookEventFailoverUrl": {
         "title": "Webhook Event Failover URL",
         "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
-        "type": "string",
+        "type": [
+          "string",
+          "null"
+        ],
         "format": "uri",
         "default": "",
-        "nullable": true,
         "example": "https://failover.example.com"
       },
       "WebhookEventUrl": {
@@ -104192,11 +104586,13 @@
       },
       "WebhookTimeoutSecs": {
         "title": "Webhook Timeout Secs",
-        "type": "integer",
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Specifies how many seconds to wait before timing out a webhook.",
         "minimum": 0,
         "maximum": 30,
-        "nullable": true,
         "default": null,
         "example": 25
       },
@@ -104704,7 +105100,7 @@
           "amount": {
             "type": "string",
             "description": "Final cost. Cost is calculated as rate * unit",
-            "example": 0.1
+            "example": "0.1"
           },
           "currency": {
             "type": "string",
@@ -104726,7 +105122,7 @@
           "amount": {
             "type": "string",
             "description": "Rate from which cost is calculated",
-            "example": 0.1
+            "example": "0.1"
           },
           "currency": {
             "type": "string",
@@ -105897,13 +106293,6 @@
           }
         }
       },
-      "connections_IntId": {
-        "title": "Int ID",
-        "type": "string",
-        "format": "int64",
-        "description": "Uniquely identifies the resource.",
-        "example": "1293384261075731499"
-      },
       "connections_OutboundVoiceProfileId": {
         "title": "Outbound Voice Profile ID",
         "type": "string",
@@ -106017,6 +106406,34 @@
             "type": "object"
           }
         ]
+      },
+      "detail-records_Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "10011"
+          },
+          "title": {
+            "type": "string",
+            "example": "Bad Request"
+          },
+          "detail": {
+            "type": "string",
+            "example": "No matching record type was found matching given record type wirelessxx"
+          }
+        }
+      },
+      "detail-records_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/detail-records_Error"
+            }
+          }
+        }
       },
       "detail-records_PaginationMeta": {
         "type": "object",
@@ -106139,64 +106556,6 @@
         "type": "string",
         "description": "Additional street address information about the address such as, but not limited to, unit number or apartment number.",
         "example": "14th Floor"
-      },
-      "external-voice-integrations_Error": {
-        "required": [
-          "code",
-          "title"
-        ],
-        "properties": {
-          "code": {
-            "type": "string",
-            "format": "int64",
-            "example": "10015"
-          },
-          "title": {
-            "type": "string",
-            "example": "Invalid attribute"
-          },
-          "detail": {
-            "type": "string",
-            "example": "The value provided for the attribute is not valid. Check the value used and try again."
-          },
-          "source": {
-            "type": "object",
-            "properties": {
-              "pointer": {
-                "description": "JSON pointer (RFC6901) to the offending entity.",
-                "type": "string",
-                "format": "json-pointer",
-                "example": "/attribute"
-              },
-              "parameter": {
-                "description": "Indicates which parameter caused the error.",
-                "type": "string"
-              }
-            }
-          },
-          "meta": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "description": "URL with additional information on the error.",
-                "example": "https://developers.telnyx.com/docs/overview/errors/10015"
-              }
-            }
-          }
-        },
-        "type": "object"
-      },
-      "external-voice-integrations_Errors": {
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/external-voice-integrations_Error"
-            }
-          }
-        },
-        "type": "object"
       },
       "external-voice-integrations_IntId": {
         "title": "Int ID",
@@ -107220,52 +107579,6 @@
         "description": "The id from the Organization the authentication provider belongs to.",
         "example": "24b4a4bb-c4df-46ad-bbcb-23fc741c5ad7"
       },
-      "payment_Error": {
-        "required": [
-          "code",
-          "title"
-        ],
-        "properties": {
-          "code": {
-            "type": "string",
-            "format": "integer",
-            "example": "10007"
-          },
-          "title": {
-            "type": "string",
-            "example": "Unexpected error"
-          },
-          "detail": {
-            "type": "string",
-            "example": "An unexpected error occurred."
-          },
-          "source": {
-            "type": "object",
-            "properties": {
-              "pointer": {
-                "description": "JSON pointer (RFC6901) to the offending entity.",
-                "type": "string",
-                "format": "json-pointer",
-                "example": "/base"
-              },
-              "parameter": {
-                "description": "Indicates which query parameter caused the error.",
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "payment_Errors": {
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/payment_Error"
-            }
-          }
-        }
-      },
       "phone_number": {
         "type": "string",
         "description": "The phone number associated with the address.",
@@ -107376,6 +107689,25 @@
         ],
         "description": "Identifies the type of the resource."
       },
+      "programmable-fax_WebhookEventFailoverUrl": {
+        "title": "Webhook Event Failover URL",
+        "description": "The failover URL where webhooks related to this connection will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
+        "type": "string",
+        "format": "uri",
+        "default": "",
+        "nullable": true,
+        "example": "https://failover.example.com"
+      },
+      "programmable-fax_WebhookTimeoutSecs": {
+        "title": "Webhook Timeout Secs",
+        "type": "integer",
+        "description": "Specifies how many seconds to wait before timing out a webhook.",
+        "minimum": 0,
+        "maximum": 30,
+        "nullable": true,
+        "default": null,
+        "example": 25
+      },
       "push-notifications_Error": {
         "required": [
           "code",
@@ -107429,6 +107761,34 @@
           }
         },
         "type": "object"
+      },
+      "reporting_Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "10011"
+          },
+          "title": {
+            "type": "string",
+            "example": "Bad Request"
+          },
+          "detail": {
+            "type": "string",
+            "example": "Invalid parameter value"
+          }
+        }
+      },
+      "reporting_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/reporting_Error"
+            }
+          }
+        }
       },
       "reporting_PaginationMeta": {
         "type": "object",
@@ -107558,6 +107918,40 @@
         "description": "An optional boolean value specifying if verification of the address should be skipped or not. UserAddresses are generally used for shipping addresses, and failure to validate your shipping address will likely result in a failure to deliver SIM cards or other items ordered from Telnyx. Do not use this parameter unless you are sure that the address is correct even though it cannot be validated. If this is set to any value other than true, verification of the address will be attempted, and the user address will not be allowed if verification fails. If verification fails but suggested values are available that might make the address correct, they will be present in the response as well. If this value is set to true, then the verification will not be attempted. Defaults to false (verification will be performed).",
         "default": false
       },
+      "standard_Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Telnyx error code"
+          },
+          "detail": {
+            "type": "string",
+            "title": "Error details"
+          },
+          "title": {
+            "type": "string",
+            "title": "Error title"
+          }
+        },
+        "required": [
+          "detail"
+        ],
+        "title": "Error"
+      },
+      "standard_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/standard_Error"
+            },
+            "title": "Errors"
+          }
+        },
+        "title": "ErrorResponse"
+      },
       "standard_MdrGetUsageReportsResponse": {
         "type": "object",
         "properties": {
@@ -107683,7 +108077,11 @@
           "product_dimensions": {
             "type": "array",
             "description": "Telnyx Product Dimensions",
-            "example": "['direction', 'currency', 'message_type']",
+            "example": [
+              "direction",
+              "currency",
+              "message_type"
+            ],
             "items": {
               "type": "string"
             }
@@ -107691,7 +108089,10 @@
           "product_metrics": {
             "type": "array",
             "description": "Telnyx Product Metrics",
-            "example": "['cost', 'billed_sec']",
+            "example": [
+              "cost",
+              "billed_sec"
+            ],
             "items": {
               "type": "string"
             }
@@ -108269,6 +108670,34 @@
           }
         }
       },
+      "wireless-public_Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "10011"
+          },
+          "title": {
+            "type": "string",
+            "example": "Bad Request"
+          },
+          "detail": {
+            "type": "string",
+            "example": "Invalid parameter value"
+          }
+        }
+      },
+      "wireless-public_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/wireless-public_Error"
+            }
+          }
+        }
+      },
       "wireless-public_PaginationMeta": {
         "type": "object",
         "properties": {
@@ -108404,6 +108833,11 @@
         "type": "http",
         "scheme": "basic",
         "description": "OAuth client credentials (client_id:client_secret) via HTTP Basic Auth, or client credentials in request body for public clients"
+      },
+      "outbound-voice-profiles_bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   },
@@ -110226,7 +110660,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CampaignStatusUpdateEvent"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CampaignStatusUpdateEvent"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CampaignSuspendedEvent"
+                  }
+                ]
               }
             }
           }

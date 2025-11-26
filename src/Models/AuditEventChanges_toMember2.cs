@@ -9,37 +9,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CreateExternalConnectionRequest_inbound : IAdditionalDataHolder, IParsable
+    public partial class AuditEventChanges_toMember2 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>When set, this will limit the number of concurrent inbound calls to phone numbers associated with this connection.</summary>
-        public int? ChannelLimit { get; set; }
-        /// <summary>The ID of the outbound voice profile to use for inbound calls.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OutboundVoiceProfileId { get; set; }
-#nullable restore
-#else
-        public string OutboundVoiceProfileId { get; set; }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember2"/> and sets the default values.
         /// </summary>
-        public CreateExternalConnectionRequest_inbound()
+        public AuditEventChanges_toMember2()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember2"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_toMember2();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +39,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
-                { "outbound_voice_profile_id", n => { OutboundVoiceProfileId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -60,8 +48,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("channel_limit", ChannelLimit);
-            writer.WriteStringValue("outbound_voice_profile_id", OutboundVoiceProfileId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
