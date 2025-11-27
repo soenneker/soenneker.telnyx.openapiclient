@@ -37384,6 +37384,106 @@
           }
         }
       },
+      "AzureTranscriptionLanguage": {
+        "title": "Azure transcription engine list of languages",
+        "enum": [
+          "af",
+          "am",
+          "ar",
+          "bg",
+          "bn",
+          "bs",
+          "ca",
+          "cs",
+          "cy",
+          "da",
+          "de",
+          "el",
+          "en",
+          "es",
+          "et",
+          "eu",
+          "fa",
+          "fi",
+          "fr",
+          "ga",
+          "gl",
+          "gu",
+          "he",
+          "hi",
+          "hr",
+          "hu",
+          "hy",
+          "id",
+          "is",
+          "it",
+          "ja",
+          "ka",
+          "kk",
+          "km",
+          "kn",
+          "ko",
+          "lo",
+          "lt",
+          "lv",
+          "mk",
+          "ml",
+          "mn",
+          "mr",
+          "ms",
+          "mt",
+          "my",
+          "nb",
+          "ne",
+          "nl",
+          "pl",
+          "ps",
+          "pt",
+          "ro",
+          "ru",
+          "si",
+          "sk",
+          "sl",
+          "so",
+          "sq",
+          "sr",
+          "sv",
+          "sw",
+          "ta",
+          "te",
+          "th",
+          "tr",
+          "uk",
+          "ur",
+          "uz",
+          "vi",
+          "wuu",
+          "yue",
+          "zh",
+          "zu",
+          "auto"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Language to use for speech recognition",
+        "default": "en",
+        "example": "en"
+      },
+      "AzureTranscriptionRegion": {
+        "title": "Azure transcription engine list of regions",
+        "enum": [
+          "australiaeast",
+          "centralindia",
+          "eastus",
+          "northcentralus",
+          "westeurope",
+          "westus2"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Azure region to use for speech recognition",
+        "example": "eastus"
+      },
       "BackgroundTaskStatus": {
         "title": "BackgroundTaskStatus",
         "enum": [
@@ -44283,6 +44383,7 @@
           "error_code": {
             "type": "string",
             "description": "Unused",
+            "nullable": true,
             "example": null
           },
           "normalized_carrier": {
@@ -64851,6 +64952,7 @@
           "fraud": {
             "type": "string",
             "description": "Unused",
+            "nullable": true,
             "example": null
           },
           "carrier": {
@@ -82836,6 +82938,34 @@
           }
         }
       },
+      "TranscriptionEngineAzureConfig": {
+        "title": "Transcription engine Azure config",
+        "required": [
+          "transcription_engine",
+          "region"
+        ],
+        "type": "object",
+        "properties": {
+          "transcription_engine": {
+            "enum": [
+              "Azure"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Engine identifier for Azure transcription service"
+          },
+          "language": {
+            "$ref": "#/components/schemas/AzureTranscriptionLanguage"
+          },
+          "region": {
+            "$ref": "#/components/schemas/AzureTranscriptionRegion"
+          },
+          "api_key_ref": {
+            "type": "string",
+            "description": "Reference to the API key for authentication. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. The parameter is optional as defaults are available for some regions."
+          }
+        }
+      },
       "TranscriptionEngineBConfig": {
         "title": "Transcription engine B config",
         "type": "object",
@@ -83106,6 +83236,7 @@
               "Google",
               "Telnyx",
               "Deepgram",
+              "Azure",
               "A",
               "B"
             ],
@@ -83131,6 +83262,9 @@
                 "$ref": "#/components/schemas/TranscriptionEngineDeepgramConfig"
               },
               {
+                "$ref": "#/components/schemas/TranscriptionEngineAzureConfig"
+              },
+              {
                 "$ref": "#/components/schemas/TranscriptionEngineAConfig"
               },
               {
@@ -83148,6 +83282,7 @@
                 "Google": "#/components/schemas/TranscriptionEngineGoogleConfig",
                 "Telnyx": "#/components/schemas/TranscriptionEngineTelnyxConfig",
                 "Deepgram": "#/components/schemas/TranscriptionEngineDeepgramConfig",
+                "Azure": "#/components/schemas/TranscriptionEngineAzureConfig",
                 "A": "#/components/schemas/TranscriptionEngineAConfig",
                 "B": "#/components/schemas/TranscriptionEngineBConfig"
               }
@@ -105461,9 +105596,24 @@
         "scheme": "bearer"
       },
       "oauthClientAuth": {
-        "type": "http",
-        "description": "OAuth client credentials (client_id:client_secret) via HTTP Basic Auth, or client credentials in request body for public clients",
-        "scheme": "basic"
+        "type": "oauth2",
+        "description": "OAuth 2.0 authentication for Telnyx API and MCP integrations",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://api.telnyx.com/v2/oauth/token",
+            "scopes": {
+              "admin": "Administrative access to Telnyx resources"
+            }
+          },
+          "authorizationCode": {
+            "authorizationUrl": "https://api.telnyx.com/v2/oauth/authorize",
+            "tokenUrl": "https://api.telnyx.com/v2/oauth/token",
+            "refreshUrl": "https://api.telnyx.com/v2/oauth/token",
+            "scopes": {
+              "admin": "Administrative access to Telnyx resources"
+            }
+          }
+        }
       },
       "outbound-voice-profiles_bearerAuth": {
         "type": "http",

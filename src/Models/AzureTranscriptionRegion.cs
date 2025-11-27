@@ -3,33 +3,33 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Engine to use for speech recognition. Legacy values `A` - `Google`, `B` - `Telnyx` are supported for backward compatibility.</summary>
+    /// <summary>Azure region to use for speech recognition</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TranscriptionStartRequest_transcription_engine
+    public enum AzureTranscriptionRegion
     {
-        [EnumMember(Value = "Google")]
+        [EnumMember(Value = "australiaeast")]
         #pragma warning disable CS1591
-        Google,
+        Australiaeast,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Telnyx")]
+        [EnumMember(Value = "centralindia")]
         #pragma warning disable CS1591
-        Telnyx,
+        Centralindia,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Deepgram")]
+        [EnumMember(Value = "eastus")]
         #pragma warning disable CS1591
-        Deepgram,
+        Eastus,
         #pragma warning restore CS1591
-        [EnumMember(Value = "Azure")]
+        [EnumMember(Value = "northcentralus")]
         #pragma warning disable CS1591
-        Azure,
+        Northcentralus,
         #pragma warning restore CS1591
-        [EnumMember(Value = "A")]
+        [EnumMember(Value = "westeurope")]
         #pragma warning disable CS1591
-        A,
+        Westeurope,
         #pragma warning restore CS1591
-        [EnumMember(Value = "B")]
+        [EnumMember(Value = "westus2")]
         #pragma warning disable CS1591
-        B,
+        Westus2,
         #pragma warning restore CS1591
     }
 }

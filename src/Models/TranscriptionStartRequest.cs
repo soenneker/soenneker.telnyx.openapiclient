@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineGoogleConfig"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineTelnyxConfig"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranscriptionStartRequest_transcription_engine_config : IComposedTypeWrapper, IParsable
@@ -109,6 +109,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig TranscriptionEngineAConfig { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig? TranscriptionEngineAzureConfig { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig TranscriptionEngineAzureConfig { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,6 +164,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.TranscriptionEngineAConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig();
                 }
+                else if("Azure".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.TranscriptionEngineAzureConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig();
+                }
                 else if("B".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.TranscriptionEngineBConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig();
@@ -183,6 +195,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 if(TranscriptionEngineAConfig != null)
                 {
                     return TranscriptionEngineAConfig.GetFieldDeserializers();
+                }
+                else if(TranscriptionEngineAzureConfig != null)
+                {
+                    return TranscriptionEngineAzureConfig.GetFieldDeserializers();
                 }
                 else if(TranscriptionEngineBConfig != null)
                 {
@@ -212,6 +228,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 if(TranscriptionEngineAConfig != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAConfig>(null, TranscriptionEngineAConfig);
+                }
+                else if(TranscriptionEngineAzureConfig != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineAzureConfig>(null, TranscriptionEngineAzureConfig);
                 }
                 else if(TranscriptionEngineBConfig != null)
                 {
