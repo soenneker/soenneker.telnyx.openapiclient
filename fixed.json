@@ -77945,7 +77945,7 @@
         },
         "description": "Use this field to modify sound effects, for example adjust the pitch.",
         "example": {
-          "pitch": "0.8",
+          "pitch": 0.8,
           "semitone": -2,
           "octaves": 0.1,
           "track": "both"
@@ -82814,7 +82814,6 @@
             "call_control_id": "v2:7subYr8fLrXmaAXm8egeAMpoSJ72J3SGPUuome81-hQuaKRf9b7hKA",
             "call_leg_id": "5ca81340-5beb-11eb-ae45-02420a0f8b69",
             "call_session_id": "5ca81eee-5beb-11eb-ba6c-02420a0f8b69",
-            "client_state": null,
             "connection_id": "1240401930086254526",
             "transcription_data": {
               "confidence": 0.977219,
