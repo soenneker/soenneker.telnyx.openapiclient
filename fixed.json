@@ -33179,6 +33179,330 @@
         }
       }
     },
+    "/v2/mobile_phone_numbers": {
+      "get": {
+        "tags": [
+          "Mobile Phone Numbers"
+        ],
+        "summary": "List Mobile Phone Numbers",
+        "operationId": "listMobilePhoneNumbers",
+        "parameters": [
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "The page number to load",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "The size of the page",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/listMobilePhoneNumbers_200"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/mobile_phone_numbers/{id}": {
+      "get": {
+        "tags": [
+          "Mobile Phone Numbers"
+        ],
+        "summary": "Retrieve a Mobile Phone Number",
+        "operationId": "retrieveMobilePhoneNumber",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the mobile phone number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/MobilePhoneNumber"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Mobile Phone Numbers"
+        ],
+        "summary": "Update a Mobile Phone Number",
+        "operationId": "updateMobilePhoneNumber",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the mobile phone number",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MobilePhoneNumberUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/MobilePhoneNumber"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/mobile_voice_connections": {
+      "get": {
+        "tags": [
+          "Mobile Voice Connections"
+        ],
+        "summary": "List Mobile Voice Connections",
+        "operationId": "listMobileVoiceConnections",
+        "parameters": [
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "The page number to load",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "The size of the page",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter[connection_name][contains]",
+            "in": "query",
+            "description": "Filter by connection name containing the given string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort by field (e.g., created_at, connection_name, active). Prefix with - for descending order.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/listMobileVoiceConnections_200"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Mobile Voice Connections"
+        ],
+        "summary": "Create a Mobile Voice Connection",
+        "operationId": "createMobileVoiceConnection",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MobileVoiceConnectionCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/MobileVoiceConnection"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/mobile_voice_connections/{id}": {
+      "delete": {
+        "tags": [
+          "Mobile Voice Connections"
+        ],
+        "summary": "Delete a Mobile Voice Connection",
+        "operationId": "deleteMobileVoiceConnection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the mobile voice connection",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/MobileVoiceConnection"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Mobile Voice Connections"
+        ],
+        "summary": "Retrieve a Mobile Voice Connection",
+        "operationId": "retrieveMobileVoiceConnection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the mobile voice connection",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/MobileVoiceConnection"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Mobile Voice Connections"
+        ],
+        "summary": "Update a Mobile Voice Connection",
+        "operationId": "updateMobileVoiceConnection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the mobile voice connection",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MobileVoiceConnectionUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/MobileVoiceConnection"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/verifications/by_phone_number/{phone_number}": {
       "get": {
         "tags": [
@@ -64049,6 +64373,526 @@
         },
         "description": "A list of mobile network operators and the priority that should be applied when the SIM is connecting to the network."
       },
+      "MobilePhoneNumber": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifies the resource.",
+            "readOnly": true
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "mobile_phone_number"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "The +E.164-formatted phone number.",
+            "readOnly": true
+          },
+          "sim_card_id": {
+            "type": "string",
+            "description": "The ID of the SIM card associated with this number.",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string",
+            "description": "The status of the phone number.",
+            "readOnly": true
+          },
+          "connection_id": {
+            "type": "string",
+            "description": "The ID of the connection associated with this number.",
+            "format": "int64",
+            "nullable": true
+          },
+          "connection_name": {
+            "type": "string",
+            "description": "The name of the connection.",
+            "nullable": true,
+            "readOnly": true
+          },
+          "connection_type": {
+            "type": "string",
+            "description": "The type of the connection.",
+            "nullable": true,
+            "readOnly": true
+          },
+          "mobile_voice_enabled": {
+            "type": "boolean",
+            "description": "Indicates if mobile voice is enabled.",
+            "readOnly": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of tags associated with the number."
+          },
+          "customer_reference": {
+            "type": "string",
+            "description": "A customer reference string.",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was last updated.",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "call_forwarding": {
+            "type": "object",
+            "properties": {
+              "call_forwarding_enabled": {
+                "type": "boolean"
+              },
+              "forwards_to": {
+                "type": "string",
+                "nullable": true
+              },
+              "forwarding_type": {
+                "enum": [
+                  "always",
+                  "on-failure"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "nullable": true
+              }
+            }
+          },
+          "country_iso_alpha2": {
+            "type": "string",
+            "description": "The ISO 3166-1 alpha-2 country code of the number.",
+            "readOnly": true
+          },
+          "noise_suppression": {
+            "enum": [
+              "inbound",
+              "outbound",
+              "both",
+              "disabled"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The noise suppression setting."
+          },
+          "inbound_call_screening": {
+            "enum": [
+              "disabled",
+              "reject_calls",
+              "flag_calls"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The inbound call screening setting.",
+            "nullable": true
+          },
+          "caller_id_name_enabled": {
+            "type": "boolean",
+            "description": "Indicates if caller ID name is enabled."
+          },
+          "call_recording": {
+            "type": "object",
+            "properties": {
+              "inbound_call_recording_enabled": {
+                "type": "boolean"
+              },
+              "inbound_call_recording_channels": {
+                "enum": [
+                  "single",
+                  "dual"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              },
+              "inbound_call_recording_format": {
+                "enum": [
+                  "wav",
+                  "mp3"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              }
+            }
+          },
+          "cnam_listing": {
+            "type": "object",
+            "properties": {
+              "cnam_listing_enabled": {
+                "type": "boolean"
+              },
+              "cnam_listing_details": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          },
+          "outbound": {
+            "type": "object",
+            "properties": {
+              "interception_app_id": {
+                "type": "string",
+                "description": "The ID of the app that will intercept outbound calls.",
+                "format": "int64",
+                "nullable": true
+              },
+              "interception_app_name": {
+                "type": "string",
+                "description": "The name of the app that will intercept outbound calls.",
+                "nullable": true,
+                "readOnly": true
+              }
+            }
+          },
+          "inbound": {
+            "type": "object",
+            "properties": {
+              "interception_app_id": {
+                "type": "string",
+                "description": "The ID of the app that will intercept inbound calls.",
+                "format": "int64",
+                "nullable": true
+              },
+              "interception_app_name": {
+                "type": "string",
+                "description": "The name of the app that will intercept inbound calls.",
+                "nullable": true,
+                "readOnly": true
+              }
+            }
+          }
+        }
+      },
+      "MobilePhoneNumberUpdate": {
+        "type": "object",
+        "properties": {
+          "customer_reference": {
+            "type": "string",
+            "nullable": true
+          },
+          "connection_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "noise_suppression": {
+            "type": "boolean"
+          },
+          "inbound_call_screening": {
+            "enum": [
+              "disabled",
+              "reject_calls",
+              "flag_calls"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "caller_id_name_enabled": {
+            "type": "boolean"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "inbound": {
+            "type": "object",
+            "properties": {
+              "interception_app_id": {
+                "type": "string",
+                "description": "The ID of the CallControl or TeXML Application that will intercept inbound calls.",
+                "format": "int64",
+                "nullable": true
+              }
+            }
+          },
+          "outbound": {
+            "type": "object",
+            "properties": {
+              "interception_app_id": {
+                "type": "string",
+                "description": "The ID of the CallControl or TeXML Application that will intercept outbound calls.",
+                "format": "int64",
+                "nullable": true
+              }
+            }
+          },
+          "call_forwarding": {
+            "type": "object",
+            "properties": {
+              "forwards_to": {
+                "type": "string",
+                "nullable": true
+              },
+              "forwarding_type": {
+                "enum": [
+                  "always",
+                  "on-failure"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "nullable": true
+              },
+              "call_forwarding_enabled": {
+                "type": "boolean"
+              }
+            }
+          },
+          "cnam_listing": {
+            "type": "object",
+            "properties": {
+              "cnam_listing_enabled": {
+                "type": "boolean"
+              },
+              "cnam_listing_details": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          },
+          "call_recording": {
+            "type": "object",
+            "properties": {
+              "inbound_call_recording_enabled": {
+                "type": "boolean"
+              },
+              "inbound_call_recording_channels": {
+                "enum": [
+                  "single",
+                  "dual"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              },
+              "inbound_call_recording_format": {
+                "enum": [
+                  "wav",
+                  "mp3"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      },
+      "MobileVoiceConnection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifies the resource.",
+            "readOnly": true
+          },
+          "record_type": {
+            "enum": [
+              "mobile_voice_connection"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "mobile_voice_connection"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Indicates if the connection is active."
+          },
+          "connection_name": {
+            "type": "string",
+            "description": "The name of the connection."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of tags associated with the connection."
+          },
+          "webhook_event_url": {
+            "type": "string",
+            "description": "The URL where webhooks are sent.",
+            "nullable": true
+          },
+          "webhook_event_failover_url": {
+            "type": "string",
+            "description": "The failover URL where webhooks are sent.",
+            "nullable": true
+          },
+          "webhook_api_version": {
+            "enum": [
+              "1",
+              "2"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The API version for webhooks.",
+            "nullable": true
+          },
+          "webhook_timeout_secs": {
+            "type": "integer",
+            "description": "The timeout for webhooks in seconds.",
+            "nullable": true
+          },
+          "outbound": {
+            "type": "object",
+            "properties": {
+              "channel_limit": {
+                "type": "integer",
+                "nullable": true
+              },
+              "outbound_voice_profile_id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          },
+          "inbound": {
+            "type": "object",
+            "properties": {
+              "channel_limit": {
+                "type": "integer",
+                "nullable": true
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        }
+      },
+      "MobileVoiceConnectionCreate": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "default": true
+          },
+          "connection_name": {
+            "type": "string",
+            "default": "Telnyx Mobile Voice IMS"
+          },
+          "webhook_event_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "webhook_event_failover_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "webhook_api_version": {
+            "enum": [
+              "1",
+              "2"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "default": "2"
+          },
+          "webhook_timeout_secs": {
+            "type": "integer",
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "outbound": {
+            "type": "object",
+            "properties": {
+              "channel_limit": {
+                "type": "integer"
+              },
+              "outbound_voice_profile_id": {
+                "type": "string"
+              }
+            }
+          },
+          "inbound": {
+            "type": "object",
+            "properties": {
+              "channel_limit": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "MobileVoiceConnectionUpdate": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "connection_name": {
+            "type": "string"
+          },
+          "webhook_event_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "webhook_event_failover_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "webhook_api_version": {
+            "enum": [
+              "1",
+              "2"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "webhook_timeout_secs": {
+            "type": "integer"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "outbound": {
+            "type": "object",
+            "properties": {
+              "channel_limit": {
+                "type": "integer"
+              },
+              "outbound_voice_profile_id": {
+                "type": "string"
+              }
+            }
+          },
+          "inbound": {
+            "type": "object",
+            "properties": {
+              "channel_limit": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
       "ModelMetadata": {
         "title": "ModelMetadata",
         "required": [
@@ -92129,6 +92973,40 @@
           }
         }
       },
+      "mobile_phone_numbers_PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "total_pages": {
+            "type": "integer"
+          },
+          "total_results": {
+            "type": "integer"
+          },
+          "page_number": {
+            "type": "integer"
+          },
+          "page_size": {
+            "type": "integer"
+          }
+        }
+      },
+      "mobile_voice_connections_PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "total_pages": {
+            "type": "integer"
+          },
+          "total_results": {
+            "type": "integer"
+          },
+          "page_number": {
+            "type": "integer"
+          },
+          "page_size": {
+            "type": "integer"
+          }
+        }
+      },
       "UpdateAuthenticationProvider_404": {
         "type": "object"
       },
@@ -93745,6 +94623,34 @@
         "type": "string",
         "description": "CSV formatted data",
         "example": "user_id,direction,product,cost,billed_sec\n3ca7bd3d-7d82-4e07-9df4-009123068320,inbound,forking,0.000800,17.000000\n..."
+      },
+      "listMobilePhoneNumbers_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MobilePhoneNumber"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/mobile_phone_numbers_PaginationMeta"
+          }
+        }
+      },
+      "listMobileVoiceConnections_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MobileVoiceConnection"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/mobile_voice_connections_PaginationMeta"
+          }
+        }
       },
       "CreateVerifiedNumber": {
         "title": "Create Verified Number Request",
@@ -105888,6 +106794,14 @@
     {
       "name": "Mobile Network Operators",
       "description": "Mobile network operators operations"
+    },
+    {
+      "name": "Mobile Phone Numbers",
+      "description": "Mobile phone number operations"
+    },
+    {
+      "name": "Mobile Voice Connections",
+      "description": "Mobile voice connection operations"
     },
     {
       "name": "Monthly Charges",

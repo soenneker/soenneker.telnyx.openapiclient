@@ -150,6 +150,7 @@ using Soenneker.Telnyx.OpenApiClient.TextToSpeech;
 using Soenneker.Telnyx.OpenApiClient.Usage_reports;
 using Soenneker.Telnyx.OpenApiClient.User_addresses;
 using Soenneker.Telnyx.OpenApiClient.User_tags;
+using Soenneker.Telnyx.OpenApiClient.V2;
 using Soenneker.Telnyx.OpenApiClient.Verifications;
 using Soenneker.Telnyx.OpenApiClient.Verified_numbers;
 using Soenneker.Telnyx.OpenApiClient.Verify_profiles;
@@ -893,6 +894,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.User_tags.User_tagsRequestBuilder User_tags
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.User_tags.User_tagsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The v2 property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.V2.V2RequestBuilder V2
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.V2.V2RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The verifications property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Verifications.VerificationsRequestBuilder Verifications
