@@ -2101,12 +2101,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns success status when test is successfully deleted",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "description": "Returns success status when test is successfully deleted"
           },
           "422": {
             "description": "Validation Error",
@@ -2558,7 +2553,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/inference-embedding_Assistant"
+                }
               }
             }
           },
@@ -3091,12 +3088,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "description": "Successful Response"
           },
           "422": {
             "description": "Validation Error",
@@ -3610,7 +3602,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object"
+                }
               }
             }
           },
@@ -3853,10 +3847,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
+            "description": "Successful Response - Returns a PNG image of the cluster visualization.",
             "content": {
-              "application/json": {
-                "schema": {}
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
               }
             }
           },
@@ -4186,12 +4183,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "description": "Successful Response"
           },
           "422": {
             "description": "Validation Error",
@@ -4343,12 +4335,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "description": "Successful Response"
           },
           "422": {
             "description": "Validation Error",
@@ -4400,12 +4387,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "description": "Successful Response"
           },
           "422": {
             "description": "Validation Error",
@@ -4548,12 +4530,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "description": "Successful Response"
           },
           "422": {
             "description": "Validation Error",
@@ -4894,12 +4871,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "description": "Successful Response"
           },
           "422": {
             "description": "Validation Error",
@@ -5793,12 +5765,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "description": "Successful Response"
           },
           "422": {
             "description": "Validation Error",
@@ -7162,11 +7129,26 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Successful Response",
+          "204": {
+            "description": "Brand removed successfully"
+          },
+          "400": {
+            "description": "Brand cannot be deleted",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/10dlc_Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Brand not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/10dlc_Error"
+                }
               }
             }
           },
@@ -7328,7 +7310,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalVettingList"
+                }
               }
             }
           },
@@ -7378,7 +7362,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalVetting"
+                }
               }
             }
           },
@@ -7471,7 +7457,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/TelnyxBrand"
+                }
               }
             }
           },
@@ -9505,11 +9493,15 @@
           }
         ],
         "responses": {
-          "200": {
+          "202": {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "example": {}
+                }
               }
             }
           },
@@ -9875,8 +9867,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Response Get My Campaign Operation Status Public Campaign  Campaignid  Operationstatus Get",
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true,
+                  "example": {
+                    "10017": "APPROVED",
+                    "10035": "REVIEW"
+                  }
                 }
               }
             }
@@ -9920,8 +9916,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Response Get My Osr Campaign Attributes Public Campaign  Campaignid  Osr Attributes Get",
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true,
+                  "example": {
+                    "msg_class": "E",
+                    "status": "7",
+                    "brandId": "00000000-0000-0000-0000-000000000000"
+                  }
                 }
               }
             }
@@ -10009,15 +10010,27 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Response Submit Campaign Public Campaignbuilder Post",
-                  "anyOf": [
-                    {
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/components/schemas/TelnyxCampaign_CSP"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/TelnyxCampaign_CSP"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/10dlc_Error"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Insufficient Funds",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/10dlc_Error"
                 }
               }
             }
@@ -10106,6 +10119,15 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/GetGcbChannelZonesRequestResponse"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Resource not found"
           }
         },
         "x-latency-category": "interactive"
@@ -10148,6 +10170,15 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/PatchGcbChannelZoneRequestResponse"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Resource not found"
           },
           "default": {
             "$ref": "#/components/responses/voice-channels_GenericErrorResponse"
@@ -12239,6 +12270,16 @@
           "200": {
             "$ref": "#/components/responses/ListDocServiceDocumentLinksResponse"
           },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/documents_Errors"
+                }
+              }
+            }
+          },
           "default": {
             "$ref": "#/components/responses/documents_GenericErrorResponse"
           }
@@ -12268,6 +12309,16 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListDocServiceDocumentsResponse"
+          },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/documents_Errors"
+                }
+              }
+            }
           },
           "default": {
             "$ref": "#/components/responses/documents_GenericErrorResponse"
@@ -12328,6 +12379,16 @@
           "200": {
             "$ref": "#/components/responses/DocServiceDocumentResponse"
           },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/documents_Errors"
+                }
+              }
+            }
+          },
           "default": {
             "$ref": "#/components/responses/documents_GenericErrorResponse"
           }
@@ -12349,6 +12410,16 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/DocServiceDocumentResponse"
+          },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/documents_Errors"
+                }
+              }
+            }
           },
           "default": {
             "$ref": "#/components/responses/documents_GenericErrorResponse"
@@ -12382,6 +12453,16 @@
           "200": {
             "$ref": "#/components/responses/DocServiceDocumentResponse"
           },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/documents_Errors"
+                }
+              }
+            }
+          },
           "default": {
             "$ref": "#/components/responses/documents_GenericErrorResponse"
           }
@@ -12405,6 +12486,16 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/DownloadDocServiceDocumentResponse"
+          },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/documents_Errors"
+                }
+              }
+            }
           },
           "default": {
             "$ref": "#/components/responses/documents_GenericErrorResponse"
@@ -14555,6 +14646,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpAllowedPortListResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -14571,9 +14665,6 @@
           "Global IPs"
         ],
         "parameters": [
-          {
-            "$ref": "#/components/parameters/netapps_FilterConsolidated"
-          },
           {
             "name": "filter",
             "in": "query",
@@ -14630,6 +14721,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpHealthResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -14653,6 +14747,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/GlobalIpAssignmentListResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -14708,6 +14805,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpAssignmentResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -14729,6 +14829,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/GlobalIpAssignmentResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -14762,6 +14865,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpAssignmentResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -14778,9 +14884,6 @@
           "Global IPs"
         ],
         "parameters": [
-          {
-            "$ref": "#/components/parameters/netapps_FilterConsolidated"
-          },
           {
             "name": "filter",
             "in": "query",
@@ -14837,6 +14940,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpAssignmentUsageResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -14855,6 +14961,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/GlobalIpHealthCheckTypesResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -14879,6 +14988,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/GlobalIpHealthCheckListResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -14934,6 +15046,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpHealthCheckResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -14956,6 +15071,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpHealthCheckResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -14972,9 +15090,6 @@
           "Global IPs"
         ],
         "parameters": [
-          {
-            "$ref": "#/components/parameters/netapps_FilterConsolidated"
-          },
           {
             "name": "filter",
             "in": "query",
@@ -15012,6 +15127,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpLatencyResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -15031,6 +15149,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpProtocolListResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -15047,9 +15168,6 @@
           "Global IPs"
         ],
         "parameters": [
-          {
-            "$ref": "#/components/parameters/netapps_FilterConsolidated"
-          },
           {
             "name": "filter",
             "in": "query",
@@ -15087,6 +15205,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpUsageResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -15110,6 +15231,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/GlobalIpListResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -15165,6 +15289,9 @@
           "200": {
             "$ref": "#/components/responses/GlobalIpResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -15186,6 +15313,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/GlobalIpResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -15299,6 +15429,15 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Resource not found"
           },
           "default": {
             "description": "Unexpected error",
@@ -17698,6 +17837,15 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/GetGcbNumbersResponse"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Resource not found"
           }
         },
         "x-latency-category": "interactive"
@@ -17719,6 +17867,15 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/GetGcbNumbersResponse"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Resource not found"
           }
         },
         "x-latency-category": "interactive"
@@ -19674,7 +19831,10 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "string",
+                  "example": "OK"
+                }
               }
             }
           },
@@ -19956,12 +20116,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
+            "description": "Successful deleted"
+          },
+          "400": {
+            "description": "Bad Request",
+            "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
+          },
+          "404": {
+            "description": "Not Found",
+            "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
@@ -20469,6 +20632,9 @@
           "200": {
             "$ref": "#/components/responses/NetworkCoverageListResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -20509,6 +20675,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/NetworkListResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -20564,6 +20733,9 @@
           "200": {
             "$ref": "#/components/responses/NetworkResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -20585,6 +20757,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/NetworkResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -20618,6 +20793,9 @@
           "200": {
             "$ref": "#/components/responses/NetworkResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -20642,6 +20820,9 @@
           "200": {
             "$ref": "#/components/responses/DefaultGatewayResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -20663,6 +20844,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/DefaultGatewayResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -20695,6 +20879,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/DefaultGatewayResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -20748,6 +20935,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/NetworkInterfaceListResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -24003,6 +24193,9 @@
           "200": {
             "$ref": "#/components/responses/ListPhoneNumberBlocksJobsResponse"
           },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
@@ -24047,6 +24240,9 @@
               }
             }
           },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
@@ -24088,6 +24284,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
@@ -24488,6 +24687,9 @@
           "200": {
             "$ref": "#/components/responses/ListPhoneNumbersResponse"
           },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
@@ -24565,6 +24767,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListCsvDownloadsResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
@@ -24696,6 +24901,9 @@
           "200": {
             "$ref": "#/components/responses/CsvDownloadResponse"
           },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
@@ -24725,6 +24933,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/CsvDownloadResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
@@ -25541,6 +25752,9 @@
           "200": {
             "$ref": "#/components/responses/SlimListPhoneNumbersResponse"
           },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
@@ -25623,6 +25837,9 @@
           "200": {
             "$ref": "#/components/responses/ListPhoneNumbersWithVoiceSettingsResponse"
           },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
@@ -25647,6 +25864,9 @@
           "200": {
             "$ref": "#/components/responses/DeletePhoneNumberResponse"
           },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
@@ -25668,6 +25888,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/PhoneNumberResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
@@ -25701,6 +25924,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/PhoneNumberResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
@@ -25748,6 +25974,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
@@ -25811,6 +26040,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
@@ -25903,6 +26135,9 @@
           "200": {
             "$ref": "#/components/responses/PhoneNumberWithVoiceSettingsResponse"
           },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
@@ -25935,6 +26170,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/PhoneNumberWithVoiceSettingsResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
           "default": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
@@ -26197,6 +26435,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListPortingEventsResponse"
+          },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details."
           },
           "500": {
             "description": "Internal server error"
@@ -26637,9 +26878,6 @@
             "$ref": "#/components/parameters/QueryIncludePhoneNumbers"
           },
           {
-            "$ref": "#/components/parameters/porting-order_FilterConsolidated"
-          },
-          {
             "name": "filter",
             "in": "query",
             "style": "deepObject",
@@ -26842,9 +27080,6 @@
             "$ref": "#/components/parameters/porting-order_PageConsolidated"
           },
           {
-            "$ref": "#/components/parameters/porting-order_FilterConsolidated"
-          },
-          {
             "name": "filter",
             "in": "query",
             "style": "deepObject",
@@ -26860,10 +27095,7 @@
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": [
-                          "in-process",
-                          "submitted"
-                        ],
+                        "example": "in-process",
                         "enum": [
                           "activation-in-progress",
                           "cancel-pending",
@@ -27591,9 +27823,6 @@
             "$ref": "#/components/parameters/porting-order_PageConsolidated"
           },
           {
-            "$ref": "#/components/parameters/porting-order_FilterConsolidated"
-          },
-          {
             "name": "filter",
             "in": "query",
             "style": "deepObject",
@@ -28078,7 +28307,7 @@
                     "-created_at",
                     "created_at"
                   ],
-                  "example": false,
+                  "example": "created_at",
                   "description": "Specifies the sort order for results. If not given, results are sorted by created_at in descending order"
                 }
               }
@@ -28201,9 +28430,6 @@
             }
           },
           {
-            "$ref": "#/components/parameters/porting-order_FilterConsolidated"
-          },
-          {
             "$ref": "#/components/parameters/porting-order_PageConsolidated"
           },
           {
@@ -28239,7 +28465,7 @@
                     "-created_at",
                     "created_at"
                   ],
-                  "example": false,
+                  "example": "created_at",
                   "description": "Specifies the sort order for results. If not given, results are sorted by created_at in descending order"
                 }
               }
@@ -28353,9 +28579,6 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/porting-order_PageConsolidated"
-          },
-          {
-            "$ref": "#/components/parameters/porting-order_FilterConsolidated"
           },
           {
             "name": "filter",
@@ -28610,6 +28833,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListPortoutEventsResponse"
+          },
+          "422": {
+            "description": "Unprocessable entity. Check message field in response for details."
           },
           "500": {
             "description": "Internal server error"
@@ -29398,6 +29624,9 @@
           "200": {
             "$ref": "#/components/responses/PublicInternetGatewayListResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -29452,6 +29681,9 @@
           "200": {
             "$ref": "#/components/responses/PublicInternetGatewayResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -29473,6 +29705,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/PublicInternetGatewayResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -29883,6 +30118,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/RegionListResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -31026,6 +31264,16 @@
           "200": {
             "$ref": "#/components/responses/DocReqsListRequirementTypesResponse"
           },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/documents_Errors"
+                }
+              }
+            }
+          },
           "default": {
             "$ref": "#/components/responses/documents_GenericErrorResponse"
           }
@@ -31049,6 +31297,16 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/DocReqsRequirementTypeResponse"
+          },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/documents_Errors"
+                }
+              }
+            }
           },
           "default": {
             "$ref": "#/components/responses/documents_GenericErrorResponse"
@@ -31080,6 +31338,16 @@
           "200": {
             "$ref": "#/components/responses/ListRequirementsResponse"
           },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/documents_Errors"
+                }
+              }
+            }
+          },
           "default": {
             "$ref": "#/components/responses/documents_GenericErrorResponse"
           }
@@ -31103,6 +31371,16 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/DocReqsRequirementResponse"
+          },
+          "422": {
+            "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/documents_Errors"
+                }
+              }
+            }
           },
           "default": {
             "$ref": "#/components/responses/documents_GenericErrorResponse"
@@ -38597,6 +38875,9 @@
           "200": {
             "$ref": "#/components/responses/VirtualCrossConnectListResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -38651,6 +38932,9 @@
           "200": {
             "$ref": "#/components/responses/VirtualCrossConnectResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -38672,6 +38956,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/VirtualCrossConnectResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -38810,6 +39097,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/VirtualCrossConnectCoverageListResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -39008,6 +39298,9 @@
           "200": {
             "$ref": "#/components/responses/WireguardInterfaceListResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -39062,6 +39355,9 @@
           "200": {
             "$ref": "#/components/responses/WireguardInterfaceResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -39083,6 +39379,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/WireguardInterfaceResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -39125,6 +39424,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/WireguardPeerListResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -39180,6 +39482,9 @@
           "200": {
             "$ref": "#/components/responses/WireguardPeerResponse"
           },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
           }
@@ -39201,6 +39506,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/WireguardPeerResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -39268,6 +39576,9 @@
                 }
               }
             }
+          },
+          "422": {
+            "$ref": "#/components/responses/netapps_GenericErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/netapps_GenericErrorResponse"
@@ -41113,16 +41424,6 @@
           "type": "string"
         }
       },
-      "GcbPhoneNumber": {
-        "description": "The phone number to be looked up",
-        "in": "path",
-        "name": "phone_number",
-        "required": true,
-        "schema": {
-          "example": "+15554441234",
-          "type": "string"
-        }
-      },
       "Id": {
         "name": "id",
         "description": "Identifies the resource.",
@@ -41292,28 +41593,10 @@
           "type": "string"
         }
       },
-      "PathCommentID": {
-        "name": "id",
-        "in": "path",
-        "description": "Comment id",
-        "required": true,
-        "schema": {
-          "type": "string"
-        }
-      },
       "PathCustomerServiceRecordId": {
         "name": "customer_service_record_id",
         "in": "path",
         "description": "The ID of the customer service record",
-        "required": true,
-        "schema": {
-          "type": "string"
-        }
-      },
-      "PathPhoneNumber": {
-        "name": "phone_number",
-        "in": "path",
-        "description": "Phone number",
         "required": true,
         "schema": {
           "type": "string"
@@ -41742,15 +42025,6 @@
         },
         "name": "user_bundle_id",
         "in": "path"
-      },
-      "UserId": {
-        "name": "user_id",
-        "in": "path",
-        "description": "User identifier",
-        "required": true,
-        "schema": {
-          "type": "string"
-        }
       },
       "WirelessBlocklistId": {
         "name": "id",
@@ -42477,46 +42751,6 @@
           "type": "string"
         }
       },
-      "netapps_FilterConsolidated": {
-        "name": "filter",
-        "in": "query",
-        "style": "deepObject",
-        "explode": true,
-        "description": "Consolidated filter parameter (deepObject style). Originally: filter[timestamp][gt], filter[timestamp][lt]",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "timestamp": {
-              "oneOf": [
-                {
-                  "type": "string",
-                  "format": "date-time",
-                  "example": "2019-01-01T00:00:00.000Z",
-                  "description": "Filter by exact timestamp"
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "gt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Filter by timestamp greater than"
-                    },
-                    "lt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Filter by timestamp less than"
-                    }
-                  },
-                  "additionalProperties": false,
-                  "description": "Timestamp filtering operations"
-                }
-              ]
-            }
-          },
-          "additionalProperties": false
-        }
-      },
       "notifications_FilterConsolidated": {
         "name": "filter",
         "in": "query",
@@ -43185,7 +43419,7 @@
                 "phone_number": {
                   "type": "string",
                   "description": "A valid US phone number in E164 format.",
-                  "example": "+1234567890",
+                  "example": "+13035553000",
                   "pattern": "^\\+1\\d{10}$"
                 },
                 "webhook_url": {
@@ -43753,10 +43987,7 @@
               },
               "example": {
                 "expires_in_seconds": 3600,
-                "permissions": [
-                  "porting_order.document.read",
-                  "porting_order.document.update"
-                ]
+                "permissions": "porting_order.document.read"
               }
             }
           }
@@ -43867,7 +44098,7 @@
                   "items": {
                     "type": "string",
                     "description": "A valid US phone number in E164 format.",
-                    "example": "+1234567890",
+                    "example": "+13035553000",
                     "pattern": "^\\+1\\d{10}$"
                   }
                 }
@@ -44247,24 +44478,6 @@
           }
         },
         "description": "Successful Response"
-      },
-      "BulkUploadDocServiceDocumentsResponse": {
-        "description": "Successful response",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DocServiceDocument"
-                  }
-                }
-              }
-            }
-          }
-        }
       },
       "CallControlApplicationResponse": {
         "description": "Successful response with details about a call control application.",
@@ -45852,16 +46065,6 @@
           }
         }
       },
-      "GetGcbChannelZoneRequestResponse": {
-        "description": "Requested channel zone",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/GcbChannelZone"
-            }
-          }
-        }
-      },
       "GetGcbChannelZonesRequestResponse": {
         "description": "A list of channel zones",
         "content": {
@@ -45924,27 +46127,6 @@
                         }
                       }
                     }
-                  }
-                },
-                "meta": {
-                  "$ref": "#/components/schemas/PaginationMeta"
-                }
-              }
-            }
-          }
-        }
-      },
-      "GetGcbPhoneNumbersRequestResponse": {
-        "description": "A list of phone numbers",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/GcbPhoneNumber"
                   }
                 },
                 "meta": {
@@ -46607,6 +46789,7 @@
         "content": {
           "application/json": {
             "schema": {
+              "type": "object",
               "properties": {
                 "data": {
                   "type": "array",
@@ -48884,16 +49067,6 @@
           }
         }
       },
-      "PostGcbPhoneNumberRequestResponse": {
-        "description": "A new inserted phone number",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/GcbPhoneNumber"
-            }
-          }
-        }
-      },
       "PublicInternetGatewayListResponse": {
         "description": "Successful response",
         "content": {
@@ -49601,32 +49774,6 @@
               "properties": {
                 "data": {
                   "$ref": "#/components/schemas/PortingOrdersComment"
-                }
-              }
-            }
-          }
-        }
-      },
-      "ShowPortingPhoneNumber": {
-        "description": "Successful response",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/components/schemas/PortingPhoneNumber"
-                },
-                "meta": {
-                  "type": "object",
-                  "properties": {
-                    "porting_order_url": {
-                      "type": "string",
-                      "format": "uri",
-                      "description": "Link to list porting order",
-                      "example": "/porting_orders/a700d03c-4062-4091-8189-1b75216cf7a2"
-                    }
-                  }
                 }
               }
             }
@@ -51174,16 +51321,6 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/voice-channels_Errors"
-            }
-          }
-        }
-      },
-      "voicemail_GenericErrorResponse": {
-        "description": "Unexpected error",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/voicemail_Errors"
             }
           }
         }
@@ -55566,15 +55703,20 @@
           },
           "anchorsite_override": {
             "type": "string",
-            "description": "`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.\n",
+            "description": "<code>Latency</code> directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.\n",
             "enum": [
-              "\"Latency\"",
-              "\"Chicago, IL\"",
-              "\"Ashburn, VA\"",
-              "\"San Jose, CA\""
+              "Latency",
+              "Chicago, IL",
+              "Ashburn, VA",
+              "San Jose, CA",
+              "London, UK",
+              "Chennai, IN",
+              "Amsterdam, Netherlands",
+              "Toronto, Canada",
+              "Sydney, Australia"
             ],
-            "example": "\"Amsterdam, Netherlands\"",
-            "default": "\"Latency\""
+            "example": "Amsterdam, Netherlands",
+            "default": "Latency"
           },
           "application_name": {
             "type": "string",
@@ -55689,7 +55831,7 @@
         },
         "example": {
           "active": false,
-          "anchorsite_override": "\"Latency\"",
+          "anchorsite_override": "Latency",
           "application_name": "call-router",
           "created_at": "2018-02-02T22:25:27.521Z",
           "dtmf_type": "Inband",
@@ -64739,8 +64881,10 @@
             "additionalProperties": true
           },
           "region": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Geographic region (e.g., AMER, EMEA, APAC)"
           }
         },
@@ -65211,13 +65355,18 @@
             "type": "string",
             "description": "<code>Latency</code> directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.\n",
             "enum": [
-              "\"Latency\"",
-              "\"Chicago, IL\"",
-              "\"Ashburn, VA\"",
-              "\"San Jose, CA\""
+              "Latency",
+              "Chicago, IL",
+              "Ashburn, VA",
+              "San Jose, CA",
+              "London, UK",
+              "Chennai, IN",
+              "Amsterdam, Netherlands",
+              "Toronto, Canada",
+              "Sydney, Australia"
             ],
-            "example": "\"Amsterdam, Netherlands\"",
-            "default": "\"Latency\""
+            "example": "Amsterdam, Netherlands",
+            "default": "Latency"
           },
           "dtmf_type": {
             "type": "string",
@@ -65295,7 +65444,7 @@
           "application_name": "call-router",
           "webhook_event_url": "https://example.com",
           "active": false,
-          "anchorsite_override": "\"Latency\"",
+          "anchorsite_override": "Latency",
           "dtmf_type": "Inband",
           "first_command_timeout": true,
           "first_command_timeout_secs": 10,
@@ -67630,7 +67779,10 @@
             ]
           },
           "customer_reference": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "A customer-specified reference number for customer bookkeeping purposes",
             "example": "Acct 123abc"
           },
@@ -69179,12 +69331,18 @@
           },
           "error_message": {
             "description": "The error message in case status is `failed`. This field would be null in case of `pending` or `completed` status.",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "example": "CSR information not available."
           },
           "result": {
             "description": "The result of the CSR request. This field would be null in case of `pending` or `failed` status.",
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "carrier_name": {
                 "description": "The name of the carrier that the customer service record is for.",
@@ -70645,7 +70803,7 @@
             "description": "The Base64 encoded contents of the file you are uploading.",
             "type": "string",
             "format": "byte",
-            "example": "[Base64 encoded content]"
+            "example": "ZXhhbXBsZSBvZiBlbmNvZGVkIGNvbnRlbnQ="
           },
           "filename": {
             "description": "The filename of the document.",
@@ -71894,6 +72052,13 @@
             "type": "string",
             "description": "Vetting submission date. This is the date when the vetting request is generated in ISO 8601 format."
           }
+        }
+      },
+      "ExternalVettingList": {
+        "title": "External vetting list",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ExternalVetting"
         }
       },
       "ExternalWdrDetailRecordDto": {
@@ -73741,41 +73906,6 @@
           }
         }
       },
-      "GcbPhoneNumber": {
-        "title": "Phone Number object",
-        "required": [
-          "record_type",
-          "channel_zone_id",
-          "phone_number"
-        ],
-        "type": "object",
-        "properties": {
-          "record_type": {
-            "type": "string",
-            "enum": [
-              "channel_zone_phone_number"
-            ],
-            "example": "channel_zone_phone_number"
-          },
-          "channel_zone_id": {
-            "type": "string",
-            "example": "1653e6a1-4bfd-4857-97c6-6a51e1c34477"
-          },
-          "id": {
-            "type": "string",
-            "example": "3da3c749-bb7d-4ad6-acae-ca0d415ae08b"
-          },
-          "phone_number": {
-            "type": "string",
-            "example": "+15554441234"
-          },
-          "created_at": {
-            "type": "string",
-            "description": "ISO 8601 formatted date of when the phone number was created",
-            "example": "2019-01-23T18:10:02.574Z"
-          }
-        }
-      },
       "GenericError": {
         "properties": {
           "code": {
@@ -74092,7 +74222,7 @@
                 "type": "string",
                 "description": "The Global IP address.",
                 "readOnly": true,
-                "example": null
+                "example": "192.0.2.1"
               }
             }
           },
@@ -74310,7 +74440,7 @@
                 "type": "string",
                 "description": "The Global IP address.",
                 "readOnly": true,
-                "example": null
+                "example": "192.0.2.1"
               }
             }
           },
@@ -74321,7 +74451,7 @@
                 "type": "string",
                 "format": "uuid",
                 "description": "Location ID.",
-                "example": 1
+                "example": "a836125b-20b6-452e-9c03-2653f09c7ed7"
               },
               "name": {
                 "type": "string",
@@ -81707,9 +81837,11 @@
             "example": "toll_free"
           },
           "bundle_id": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid"
           },
           "sub_number_order_id": {
             "type": "string",
@@ -81831,16 +81963,18 @@
             "example": 1
           },
           "connection_id": {
-            "type": "string",
-            "example": null,
-            "description": "Identifies the connection associated with this phone number.",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Identifies the connection associated with this phone number."
           },
           "messaging_profile_id": {
-            "type": "string",
-            "example": null,
-            "description": "Identifies the messaging profile associated with the phone number.",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Identifies the messaging profile associated with the phone number."
           },
           "billing_group_id": {
             "type": "string",
@@ -81883,10 +82017,11 @@
                   "example": "number_order_phone_number"
                 },
                 "bundle_id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "example": null,
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uuid"
                 },
                 "regulatory_requirements": {
                   "type": "array",
@@ -85515,13 +85650,15 @@
             "description": "The inbound_call_screening setting is a phone number configuration option variable that allows users to configure their settings to block or flag fraudulent calls. It can be set to disabled, reject_calls, or flag_calls. This feature has an additional per-number monthly cost associated with it."
           },
           "source_type": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Indicates if the phone number was purchased or ported in. For some numbers this information may not be available.",
             "enum": [
               "number_order",
               "port_request"
             ],
-            "nullable": true,
             "readOnly": true
           },
           "deletion_lock_enabled": {
@@ -85863,21 +86000,6 @@
           "inbound_call_screening": "disabled"
         }
       },
-      "PhoneNumbersBulkUpdateError": {
-        "properties": {
-          "phone_number": {
-            "type": "string",
-            "description": "The phone number in e164 format."
-          },
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/numbers_Error"
-            }
-          }
-        },
-        "type": "object"
-      },
       "PhoneNumbersJob": {
         "type": "object",
         "properties": {
@@ -86122,8 +86244,10 @@
             "description": "Indicates whether to enable or disable emergency services on the numbers."
           },
           "emergency_address_id": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Identifies the address to be used with emergency services. Required if emergency_enabled is true, must be null or omitted if emergency_enabled is false."
           }
         },
@@ -86545,10 +86669,12 @@
             "example": "document_upload"
           },
           "action_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Optional URL for the action",
-            "example": "https://example.com/action",
-            "nullable": true
+            "example": "https://example.com/action"
           },
           "status": {
             "type": "string",
@@ -86563,10 +86689,12 @@
             ]
           },
           "cancel_reason": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Reason for cancellation if status is 'cancelled'",
-            "example": null,
-            "nullable": true
+            "example": null
           },
           "created_at": {
             "type": "string",
@@ -86947,12 +87075,18 @@
             "readOnly": true
           },
           "customer_reference": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "A customer-specified reference number for customer bookkeeping purposes",
             "example": "Acct 123abc"
           },
           "customer_group_reference": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "A customer-specified group reference for customer bookkeeping purposes",
             "example": "Group-456"
           },
@@ -86974,13 +87108,19 @@
             "$ref": "#/components/schemas/PortingOrderStatus"
           },
           "support_key": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "A key to reference this porting order when contacting Telnyx customer support. This information is not available in draft porting orders.",
             "example": "sr_123abc",
             "readOnly": true
           },
           "parent_support_key": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "A key to reference for the porting order group when contacting Telnyx customer support. This information is not available for porting orders in `draft` state",
             "example": "pr_123abc",
             "readOnly": true
@@ -87001,7 +87141,14 @@
             "$ref": "#/components/schemas/PortingOrderDocuments"
           },
           "misc": {
-            "$ref": "#/components/schemas/PortingOrderMisc"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PortingOrderMisc"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "end_user": {
             "$ref": "#/components/schemas/PortingOrderEndUser"
@@ -87053,7 +87200,10 @@
             "example": "40d68ba2-0847-4df2-be9c-b0e0cb673e75"
           },
           "webhook_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uri",
             "example": "https://example.com/porting_webhooks"
           },
@@ -87083,13 +87233,19 @@
         "type": "object",
         "properties": {
           "foc_datetime_requested": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "description": "ISO 8601 formatted Date/Time requested for the FOC date",
             "example": "2021-03-19T10:07:15.527Z"
           },
           "foc_datetime_actual": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "description": "ISO 8601 formatted Date/Time of the FOC date",
             "example": "2021-03-19T10:07:15.527Z"
@@ -87101,7 +87257,14 @@
             "example": true
           },
           "activation_status": {
-            "$ref": "#/components/schemas/PortingOrderActivationStatus"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PortingOrderActivationStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         }
       },
@@ -87130,13 +87293,19 @@
         "description": "Can be specified directly or via the `requirement_group_id` parameter.",
         "properties": {
           "loa": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uuid",
             "description": "Returned ID of the submitted LOA via the Documents endpoint",
             "example": "64ffb720-04c7-455b-92d6-20fcca92e935"
           },
           "invoice": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uuid",
             "description": "Returned ID of the submitted Invoice via the Documents endpoint",
             "example": "ce74b771-d23d-4960-81ec-8741b3862146"
@@ -87158,37 +87327,58 @@
         "type": "object",
         "properties": {
           "entity_name": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Person Name or Company name requesting the port",
             "example": "Porter McPortersen"
           },
           "auth_person_name": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Name of person authorizing the porting order",
             "example": "Porter McPortersen II"
           },
           "billing_phone_number": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Billing phone number associated with these phone numbers",
-            "example": 13035551234
+            "example": "13035551234"
           },
           "account_number": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The authorized person's account number with the current service provider",
             "example": "123abc"
           },
           "tax_identifier": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "European tax identification number. Applicable only in the European Union",
             "example": "1234abcd"
           },
           "pin_passcode": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "PIN/passcode possibly required by the old service provider for extra verification",
-            "example": 1234
+            "example": "1234"
           },
           "business_identifier": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "European business identification number. Applicable only in the European Union",
             "example": "abc123"
           }
@@ -87198,32 +87388,50 @@
         "type": "object",
         "properties": {
           "street_address": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "First line of billing address",
             "example": "600 Congress Avenue"
           },
           "extended_address": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Second line of billing address",
             "example": "14th Floor"
           },
           "locality": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "City or municipality of billing address",
             "example": "Austin"
           },
           "administrative_area": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "State, province, or similar of billing address",
             "example": "TX"
           },
           "postal_code": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Postal Code of billing address",
             "example": "78701"
           },
           "country_code": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "ISO3166-1 alpha-2 country code of billing address",
             "example": "US"
           }
@@ -87271,16 +87479,23 @@
             "$ref": "#/components/schemas/PortingOrderType"
           },
           "remaining_numbers_action": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Remaining numbers can be either kept with their current service provider or disconnected. 'new_billing_telephone_number' is required when 'remaining_numbers_action' is 'keep'.",
             "enum": [
               "keep",
-              "disconnect"
+              "disconnect",
+              null
             ],
             "example": "disconnect"
           },
           "new_billing_phone_number": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "New billing phone number for the remaining numbers. Used in case the current billing phone number is being ported to Telnyx. This will be set on your account with your current service provider and should be one of the numbers remaining on that account."
           }
         }
@@ -87289,22 +87504,34 @@
         "type": "object",
         "properties": {
           "billing_group_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "identifies the billing group to set on the numbers when ported",
             "example": "f1486bae-f067-460c-ad43-73a92848f902"
           },
           "connection_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "identifies the connection to set on the numbers when ported",
             "example": "f1486bae-f067-460c-ad43-73a92848f902"
           },
           "messaging_profile_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "identifies the messaging profile to set on the numbers when ported",
             "example": "f1486bae-f067-460c-ad43-73a92848f901"
           },
           "emergency_address_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "identifies the emergency address to set on the numbers when ported",
             "example": "f1486bae-f067-460c-ad43-73a92848f902"
           },
@@ -87519,12 +87746,18 @@
         "type": "object",
         "properties": {
           "user_rating": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "description": "Once an order is ported, cancellation is requested or the request is cancelled, the user may rate their experience",
             "example": 5
           },
           "user_comment": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "A comment related to the customer rating.",
             "example": "I loved my experience porting numbers with Telnyx"
           }
@@ -87746,7 +87979,7 @@
           "phone_number": {
             "type": "string",
             "description": "E164 formatted phone number",
-            "example": 13035550987
+            "example": "13035550987"
           },
           "porting_order_id": {
             "type": "string",
@@ -88265,7 +88498,10 @@
             "example": "00000000"
           },
           "reason": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The reason why the order is being rejected by the user. If the order is authorized, this field can be left null",
             "example": null
           },
@@ -100506,13 +100742,18 @@
             "type": "string",
             "description": "<code>Latency</code> directs Telnyx to route media through the site with the lowest round-trip time to the user's connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.\n",
             "enum": [
-              "\"Latency\"",
-              "\"Chicago, IL\"",
-              "\"Ashburn, VA\"",
-              "\"San Jose, CA\""
+              "Latency",
+              "Chicago, IL",
+              "Ashburn, VA",
+              "San Jose, CA",
+              "London, UK",
+              "Chennai, IN",
+              "Amsterdam, Netherlands",
+              "Toronto, Canada",
+              "Sydney, Australia"
             ],
-            "example": "\"Amsterdam, Netherlands\"",
-            "default": "\"Latency\""
+            "example": "Amsterdam, Netherlands",
+            "default": "Latency"
           },
           "dtmf_type": {
             "type": "string",
@@ -100596,7 +100837,7 @@
           "application_name": "call-router",
           "webhook_event_url": "https://example.com",
           "active": false,
-          "anchorsite_override": "\"Latency\"",
+          "anchorsite_override": "Latency",
           "dtmf_type": "Inband",
           "first_command_timeout": true,
           "first_command_timeout_secs": 10,
@@ -102308,7 +102549,14 @@
         "title": "UpdatePortingOrder",
         "properties": {
           "misc": {
-            "$ref": "#/components/schemas/PortingOrderMisc"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PortingOrderMisc"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "end_user": {
             "$ref": "#/components/schemas/PortingOrderEndUser"
@@ -105239,7 +105487,7 @@
       "VoicemailPrefResponse": {
         "type": "object",
         "example": {
-          "enabled": "true",
+          "enabled": true,
           "pin": "1234"
         },
         "properties": {
@@ -105250,7 +105498,7 @@
           },
           "pin": {
             "type": "string",
-            "example": 1234,
+            "example": "1234",
             "description": "The pin used for the voicemail."
           }
         }
@@ -105260,7 +105508,7 @@
         "properties": {
           "pin": {
             "type": "string",
-            "example": 1234,
+            "example": "1234",
             "description": "The pin used for voicemail"
           },
           "enabled": {
@@ -105716,7 +105964,10 @@
             "example": "John Doe"
           },
           "rejection_reason": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The reason why the order is being rejected by the user. If the order is authorized, this field can be left null",
             "example": null
           },
@@ -108761,52 +109012,6 @@
         "description": "The phone number associated with the address.",
         "example": "+12125559000"
       },
-      "portability-check_Error": {
-        "required": [
-          "code",
-          "title"
-        ],
-        "properties": {
-          "code": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          },
-          "source": {
-            "type": "object",
-            "properties": {
-              "pointer": {
-                "description": "JSON pointer (RFC6901) to the offending entity.",
-                "type": "string"
-              },
-              "parameter": {
-                "description": "Indicates which query parameter caused the error.",
-                "type": "string"
-              }
-            }
-          },
-          "meta": {
-            "type": "object",
-            "additionalProperties": true
-          }
-        },
-        "type": "object"
-      },
-      "portability-check_Errors": {
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/portability-check_Error"
-            }
-          }
-        },
-        "type": "object"
-      },
       "postal_code": {
         "type": "string",
         "description": "The postal code of the address.",
@@ -109632,52 +109837,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/voice-channels_Error"
-            }
-          }
-        },
-        "type": "object"
-      },
-      "voicemail_Error": {
-        "required": [
-          "code",
-          "title"
-        ],
-        "properties": {
-          "code": {
-            "type": "string",
-            "example": "10007"
-          },
-          "title": {
-            "type": "string",
-            "example": "Unexpected error"
-          },
-          "detail": {
-            "type": "string",
-            "example": "An unexpected error occurred."
-          },
-          "source": {
-            "type": "object",
-            "properties": {
-              "pointer": {
-                "description": "JSON pointer (RFC6901) to the offending entity.",
-                "type": "string",
-                "example": "/base"
-              },
-              "parameter": {
-                "description": "Indicates which query parameter caused the error.",
-                "type": "string"
-              }
-            }
-          }
-        },
-        "type": "object"
-      },
-      "voicemail_Errors": {
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/voicemail_Error"
             }
           }
         },

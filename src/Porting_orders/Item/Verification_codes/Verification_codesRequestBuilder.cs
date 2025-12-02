@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_orders.Item.Verification_codes
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Verification_codesRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[porting_order_id], filter[support_key], filter[status], filter[phone_number], filter[activation_status], filter[portability_status]</summary>
+            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[verified]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

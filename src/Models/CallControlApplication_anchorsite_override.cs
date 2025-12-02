@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
+    /// <summary>&lt;code&gt;Latency&lt;/code&gt; directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CallControlApplication_anchorsite_override
     {
@@ -22,6 +22,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "San Jose, CA")]
         #pragma warning disable CS1591
         SanJoseCA,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "London, UK")]
+        #pragma warning disable CS1591
+        LondonUK,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "Chennai, IN")]
+        #pragma warning disable CS1591
+        ChennaiIN,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "Amsterdam, Netherlands")]
+        #pragma warning disable CS1591
+        AmsterdamNetherlands,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "Toronto, Canada")]
+        #pragma warning disable CS1591
+        TorontoCanada,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "Sydney, Australia")]
+        #pragma warning disable CS1591
+        SydneyAustralia,
         #pragma warning restore CS1591
     }
 }
