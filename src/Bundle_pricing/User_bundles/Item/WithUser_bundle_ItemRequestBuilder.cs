@@ -45,6 +45,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse4XXError">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse5XXError">When receiving a 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -55,7 +60,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse401Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse404Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse422Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse4XXError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse5XXError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleCreateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a user bundle by its ID.
@@ -63,6 +76,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse4XXError">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse5XXError">When receiving a 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -73,7 +90,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Bundle_pricing.User_bundles.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse401Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse404Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse4XXError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse5XXError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.UserBundleResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deactivates a user bundle by its ID.

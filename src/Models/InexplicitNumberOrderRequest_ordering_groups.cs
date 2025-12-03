@@ -32,6 +32,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Country where you would like to purchase phone numbers. Allowable values: US, CA</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_country_iso? CountryIso { get; set; }
+        /// <summary>Filter to exclude phone numbers that are currently on hold/reserved for your account.</summary>
+        public bool? ExcludeHeldNumbers { get; set; }
         /// <summary>Filter for phone numbers that have the features to satisfy your use case (e.g., [&quot;voice&quot;])</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,6 +74,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PhoneNumberType { get; set; }
 #endif
+        /// <summary>Filter to exclude phone numbers that need additional time after to purchase to activate. Only applicable for +1 toll_free numbers.</summary>
+        public bool? Quickship { get; set; }
         /// <summary>Ordering strategy. Define what action should be taken if we don&apos;t have enough phone numbers to fulfill your request. Allowable values are: always = proceed with ordering phone numbers, regardless of current inventory levels; never = do not place any orders unless there are enough phone numbers to satisfy the request. If not specified, the always strategy will be enforced.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_strategy? Strategy { get; set; }
         /// <summary>
@@ -103,11 +107,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "administrative_area", n => { AdministrativeArea = n.GetStringValue(); } },
                 { "count_requested", n => { CountRequested = n.GetStringValue(); } },
                 { "country_iso", n => { CountryIso = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_country_iso>(); } },
+                { "exclude_held_numbers", n => { ExcludeHeldNumbers = n.GetBoolValue(); } },
                 { "features", n => { Features = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "locality", n => { Locality = n.GetStringValue(); } },
                 { "national_destination_code", n => { NationalDestinationCode = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_phone_number>(global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_phone_number.CreateFromDiscriminatorValue); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetStringValue(); } },
+                { "quickship", n => { Quickship = n.GetBoolValue(); } },
                 { "strategy", n => { Strategy = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_strategy>(); } },
             };
         }
@@ -121,11 +127,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("administrative_area", AdministrativeArea);
             writer.WriteStringValue("count_requested", CountRequested);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_country_iso>("country_iso", CountryIso);
+            writer.WriteBoolValue("exclude_held_numbers", ExcludeHeldNumbers);
             writer.WriteCollectionOfPrimitiveValues<string>("features", Features);
             writer.WriteStringValue("locality", Locality);
             writer.WriteStringValue("national_destination_code", NationalDestinationCode);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_phone_number>("phone_number", PhoneNumber);
             writer.WriteStringValue("phone_number_type", PhoneNumberType);
+            writer.WriteBoolValue("quickship", Quickship);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_strategy>("strategy", Strategy);
             writer.WriteAdditionalData(AdditionalData);
         }

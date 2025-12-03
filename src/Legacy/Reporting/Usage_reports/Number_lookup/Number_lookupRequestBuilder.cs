@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_l
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Number_lookupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/legacy/reporting/usage_reports/number_lookup{?page*,per_page*}", pathParameters)
+        public Number_lookupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/legacy/reporting/usage_reports/number_lookup", pathParameters)
         {
         }
         /// <summary>
@@ -43,46 +43,46 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_l
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Number_lookupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/legacy/reporting/usage_reports/number_lookup{?page*,per_page*}", rawUrl)
+        public Number_lookupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/legacy/reporting/usage_reports/number_lookup", rawUrl)
         {
         }
         /// <summary>
         /// Retrieve a paginated list of telco data usage reports
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataGetUsageReportsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupRequestBuilder.Number_lookupRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataGetUsageReportsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupRequestBuilder.Number_lookupRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataGetUsageReportsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataGetUsageReportsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataGetUsageReportsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Submit a new telco data usage report
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataPostUsageReportResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataUsageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataPostUsageReportResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataUsageRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataUsageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataPostUsageReportResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataUsageRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataPostUsageReportResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.TelcoDataPostUsageReportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a paginated list of telco data usage reports
@@ -91,11 +91,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_l
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupRequestBuilder.Number_lookupRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupRequestBuilder.Number_lookupRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -133,17 +133,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_l
         public global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Legacy.Reporting.Usage_reports.Number_lookup.Number_lookupRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Retrieve a paginated list of telco data usage reports
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Number_lookupRequestBuilderGetQueryParameters 
-        {
-            [QueryParameter("page")]
-            public int? Page { get; set; }
-            [QueryParameter("per_page")]
-            public int? PerPage { get; set; }
         }
     }
 }

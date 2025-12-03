@@ -5726,6 +5726,15 @@
           "200": {
             "$ref": "#/components/responses/UserBalanceResponse"
           },
+          "403": {
+            "$ref": "#/components/responses/billing_ForbiddenErrorResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/billing_UnprocessableEntityErrorResponse"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableErrorResponse"
+          },
           "default": {
             "$ref": "#/components/responses/billing_GenericErrorResponse"
           }
@@ -5778,15 +5787,11 @@
               }
             }
           },
-          "500": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/billing_group_Errors"
-                }
-              }
-            }
+          "400": {
+            "$ref": "#/components/responses/BadRequestErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
           }
         }
       },
@@ -5825,15 +5830,14 @@
               }
             }
           },
-          "500": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/billing_group_Errors"
-                }
-              }
-            }
+          "409": {
+            "$ref": "#/components/responses/ConflictErrorResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
           }
         }
       }
@@ -5875,15 +5879,20 @@
               }
             }
           },
-          "500": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/billing_group_Errors"
-                }
-              }
-            }
+          "403": {
+            "$ref": "#/components/responses/ForbiddenErrorResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundErrorResponse"
+          },
+          "409": {
+            "$ref": "#/components/responses/ConflictErrorResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
           }
         }
       },
@@ -5923,15 +5932,14 @@
               }
             }
           },
-          "500": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/billing_group_Errors"
-                }
-              }
-            }
+          "403": {
+            "$ref": "#/components/responses/ForbiddenErrorResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
           }
         }
       },
@@ -5983,15 +5991,17 @@
               }
             }
           },
-          "500": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/billing_group_Errors"
-                }
-              }
-            }
+          "403": {
+            "$ref": "#/components/responses/ForbiddenErrorResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundErrorResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
           }
         }
       }
@@ -6666,6 +6676,15 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/bundle-pricing_BadRequestErrorResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/bundle-pricing_GenericErrorResponse"
           }
         },
         "security": [
@@ -6696,6 +6715,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/bundle-pricing_NotFoundErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/bundle-pricing_GenericErrorResponse"
           }
         },
         "security": [
@@ -6729,6 +6757,15 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/bundle-pricing_BadRequestErrorResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/bundle-pricing_GenericErrorResponse"
           }
         },
         "security": [
@@ -6763,6 +6800,21 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/bundle-pricing_BadRequestErrorResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/bundle-pricing_NotFoundErrorResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/bundle-pricing_UnprocessableEntityErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/bundle-pricing_GenericErrorResponse"
           }
         },
         "security": [
@@ -6793,6 +6845,15 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/bundle-pricing_BadRequestErrorResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/bundle-pricing_GenericErrorResponse"
           }
         },
         "security": [
@@ -6823,6 +6884,18 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/bundle-pricing_NotFoundErrorResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/bundle-pricing_UnprocessableEntityErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/bundle-pricing_GenericErrorResponse"
           }
         },
         "security": [
@@ -6851,6 +6924,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/bundle-pricing_NotFoundErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/bundle-pricing_GenericErrorResponse"
           }
         },
         "security": [
@@ -6881,6 +6963,15 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/bundle-pricing_NotFoundErrorResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/bundle-pricing_GenericErrorResponse"
           }
         },
         "security": [
@@ -9036,7 +9127,7 @@
       "get": {
         "summary": "Get monthly charges breakdown",
         "description": "Retrieve a detailed breakdown of monthly charges for phone numbers in a specified date range. The date range cannot exceed 31 days.",
-        "operationId": "get_charges_breakdown",
+        "operationId": "GetMonthlyChargesBreakdown",
         "parameters": [
           {
             "name": "start_date",
@@ -9093,14 +9184,10 @@
             }
           },
           "400": {
-            "description": "Bad request - invalid date range or parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/charges_Errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/charges_BadRequestErrorResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/charges_UnprocessableEntityErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/charges_GenericErrorResponse"
@@ -9112,7 +9199,7 @@
       "get": {
         "summary": "Get monthly charges summary",
         "description": "Retrieve a summary of monthly charges for a specified date range. The date range cannot exceed 31 days.",
-        "operationId": "get_charges_summary",
+        "operationId": "GetMonthlyChargesSummary",
         "parameters": [
           {
             "name": "start_date",
@@ -9149,14 +9236,10 @@
             }
           },
           "400": {
-            "description": "Bad request - invalid date range or parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/charges_Errors"
-                }
-              }
-            }
+            "$ref": "#/components/responses/charges_BadRequestErrorResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/charges_UnprocessableEntityErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/charges_GenericErrorResponse"
@@ -10563,13 +10646,13 @@
             "$ref": "#/components/responses/ListCustomerServiceRecords"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_UnauthorizedErrorResponse"
           },
           "403": {
-            "$ref": "#/components/responses/ForbiddenErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_ForbiddenErrorResponse"
           },
           "422": {
-            "$ref": "#/components/responses/UnprocessableEntityErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_UnprocessableEntityErrorResponse"
           },
           "500": {
             "$ref": "#/components/responses/UnexpectedErrorResponse"
@@ -10591,13 +10674,13 @@
             "$ref": "#/components/responses/CreateCustomerServiceRecord"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_UnauthorizedErrorResponse"
           },
           "403": {
-            "$ref": "#/components/responses/ForbiddenErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_ForbiddenErrorResponse"
           },
           "422": {
-            "$ref": "#/components/responses/UnprocessableEntityErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_UnprocessableEntityErrorResponse"
           },
           "500": {
             "$ref": "#/components/responses/UnexpectedErrorResponse"
@@ -10621,13 +10704,13 @@
             "$ref": "#/components/responses/ListCustomerServiceRecordPhoneNumberCoverage"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_UnauthorizedErrorResponse"
           },
           "403": {
-            "$ref": "#/components/responses/ForbiddenErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_ForbiddenErrorResponse"
           },
           "422": {
-            "$ref": "#/components/responses/UnprocessableEntityErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_UnprocessableEntityErrorResponse"
           },
           "500": {
             "$ref": "#/components/responses/UnexpectedErrorResponse"
@@ -10653,10 +10736,10 @@
             "$ref": "#/components/responses/ShowCustomerServiceRecord"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_UnauthorizedErrorResponse"
           },
           "403": {
-            "$ref": "#/components/responses/ForbiddenErrorResponse"
+            "$ref": "#/components/responses/customer_service_record_ForbiddenErrorResponse"
           },
           "404": {
             "$ref": "#/components/responses/ResourceNotFoundErrorResponse"
@@ -14162,7 +14245,7 @@
       "get": {
         "summary": "List invoices",
         "description": "Retrieve a paginated list of invoices.",
-        "operationId": "get_invoices",
+        "operationId": "ListInvoices",
         "parameters": [
           {
             "name": "sort",
@@ -14210,10 +14293,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/get_invoices_200"
+                  "$ref": "#/components/schemas/ListInvoices_200"
                 }
               }
             }
+          },
+          "403": {
+            "$ref": "#/components/responses/invoice_ForbiddenErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/invoice_GenericErrorResponse"
@@ -14225,7 +14311,7 @@
       "get": {
         "summary": "Get invoice by ID",
         "description": "Retrieve a single invoice by its unique identifier.",
-        "operationId": "get_invoices_id",
+        "operationId": "GetInvoiceById",
         "parameters": [
           {
             "name": "id",
@@ -14255,6 +14341,15 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/InvoiceDetailResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/invoice_BadRequestErrorResponse"
+          },
+          "403": {
+            "$ref": "#/components/responses/invoice_ForbiddenErrorResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/invoice_NotFoundErrorResponse"
           },
           "default": {
             "$ref": "#/components/responses/invoice_GenericErrorResponse"
@@ -14673,6 +14768,9 @@
               }
             }
           },
+          "401": {
+            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
+          },
           "500": {
             "description": "Unexpected error",
             "content": {
@@ -14722,6 +14820,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
           },
           "500": {
             "description": "Unexpected error",
@@ -15350,33 +15451,13 @@
         "summary": "List telco data usage reports",
         "description": "Retrieve a paginated list of telco data usage reports",
         "operationId": "getTelcoDataUsageReports",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "per_page",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
-            "description": "Default",
+            "description": "Successfully retrieved telco data usage reports",
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
+                  "$ref": "#/components/schemas/TelcoDataGetUsageReportsResponse"
                 }
               }
             }
@@ -15406,14 +15487,12 @@
           }
         },
         "responses": {
-          "201": {
-            "description": "Default",
+          "200": {
+            "description": "Successfully submitted telco data usage report",
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
+                  "$ref": "#/components/schemas/TelcoDataPostUsageReportResponse"
                 }
               }
             }
@@ -15483,13 +15562,11 @@
         ],
         "responses": {
           "200": {
-            "description": "Default",
+            "description": "Successfully retrieved telco data usage report",
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "DefaultResponse",
-                  "type": "object",
-                  "description": "Default response schema"
+                  "$ref": "#/components/schemas/TelcoDataGetUsageReportByIdResponse"
                 }
               }
             }
@@ -34079,7 +34156,7 @@
             "$ref": "#/components/responses/UnauthorizedRequestErrorResponse"
           },
           "404": {
-            "$ref": "#/components/responses/NotFoundErrorResponse"
+            "$ref": "#/components/responses/verified-numbers_NotFoundErrorResponse"
           }
         }
       },
@@ -34120,7 +34197,7 @@
             "$ref": "#/components/responses/UnauthorizedRequestErrorResponse"
           },
           "404": {
-            "$ref": "#/components/responses/NotFoundErrorResponse"
+            "$ref": "#/components/responses/verified-numbers_NotFoundErrorResponse"
           }
         }
       }
@@ -34172,7 +34249,7 @@
             "$ref": "#/components/responses/UnauthorizedRequestErrorResponse"
           },
           "404": {
-            "$ref": "#/components/responses/NotFoundErrorResponse"
+            "$ref": "#/components/responses/verified-numbers_NotFoundErrorResponse"
           },
           "422": {
             "$ref": "#/components/responses/verified-numbers_UnprocessableEntityErrorResponse"
@@ -60396,6 +60473,14 @@
                   "additionalProperties": false,
                   "description": "Ordering strategy. Define what action should be taken if we don't have enough phone numbers to fulfill your request. Allowable values are: always = proceed with ordering phone numbers, regardless of current inventory levels; never = do not place any orders unless there are enough phone numbers to satisfy the request. If not specified, the always strategy will be enforced.",
                   "default": "always"
+                },
+                "quickship": {
+                  "type": "boolean",
+                  "description": "Filter to exclude phone numbers that need additional time after to purchase to activate. Only applicable for +1 toll_free numbers."
+                },
+                "exclude_held_numbers": {
+                  "type": "boolean",
+                  "description": "Filter to exclude phone numbers that are currently on hold/reserved for your account."
                 }
               }
             },
@@ -60503,6 +60588,14 @@
                   "type": "string",
                   "additionalProperties": false,
                   "description": "Ordering strategy used"
+                },
+                "quickship": {
+                  "type": "boolean",
+                  "description": "Filter to exclude phone numbers that need additional time after to purchase to activate. Only applicable for +1 toll_free numbers."
+                },
+                "exclude_held_numbers": {
+                  "type": "boolean",
+                  "description": "Filter to exclude phone numbers that are currently on hold/reserved for your account."
                 },
                 "error_reason": {
                   "type": "string",
@@ -80923,6 +81016,155 @@
           }
         }
       },
+      "TelcoDataAggregation": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of telco data lookup",
+            "example": "CNAM"
+          },
+          "total_dips": {
+            "type": "integer",
+            "description": "Total number of lookups performed",
+            "example": 3
+          },
+          "total_cost": {
+            "type": "number",
+            "description": "Total cost for this aggregation",
+            "example": 0.009
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency code",
+            "example": "USD"
+          }
+        }
+      },
+      "TelcoDataGetUsageReportByIdResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TelcoDataUsageReportResponse"
+          }
+        }
+      },
+      "TelcoDataGetUsageReportsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TelcoDataUsageReportResponse"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/standard_PaginationMeta"
+          }
+        }
+      },
+      "TelcoDataPostUsageReportResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TelcoDataUsageReportResponse"
+          }
+        }
+      },
+      "TelcoDataUsageRecord": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User ID",
+            "format": "uuid",
+            "example": "d37bdd47-f301-42ec-b2ad-5a0465bfb632"
+          },
+          "aggregations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TelcoDataAggregation"
+            },
+            "description": "List of aggregations by lookup type"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Record type identifier",
+            "example": "TelcoDataUsageRecord"
+          }
+        }
+      },
+      "TelcoDataUsageReportResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the report",
+            "format": "uuid",
+            "example": "9783f4d7-0bfc-427a-9d6b-bc659ad16e5b"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Start date of the report period",
+            "format": "date",
+            "example": "2025-11-01"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "End date of the report period",
+            "format": "date",
+            "example": "2025-12-01"
+          },
+          "aggregation_type": {
+            "type": "string",
+            "description": "Type of aggregation used in the report",
+            "example": "ALL"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the report",
+            "example": "COMPLETE"
+          },
+          "report_url": {
+            "type": "string",
+            "description": "URL to download the complete report",
+            "example": "https://portal-cdrs-usage.s3.amazonaws.com/telco_data_usage_report_2025-12-02.csv"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the report was created",
+            "format": "date-time",
+            "example": "2025-12-02T20:20:57.196925"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the report was last updated",
+            "format": "date-time",
+            "example": "2025-12-02T20:21:08.237091"
+          },
+          "managed_accounts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of managed account IDs included in the report",
+            "example": [ ]
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TelcoDataUsageRecord"
+            },
+            "description": "Array of usage records"
+          },
+          "record_type": {
+            "type": "string",
+            "description": "Record type identifier",
+            "example": "TelcoDataUsageReport"
+          }
+        },
+        "description": "Telco data usage report response"
+      },
       "TelcoDataUsageRequest": {
         "type": "object",
         "properties": {
@@ -88230,20 +88472,6 @@
           }
         }
       },
-      "UserBundleCreateRequest": {
-        "title": "UserBundleCreateRequest",
-        "required": [
-          "billing_bundle_id"
-        ],
-        "type": "object",
-        "properties": {
-          "billing_bundle_id": {
-            "title": "Billing Bundle Id",
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      },
       "UserBundleCreateResponse": {
         "title": "UserBundleCreateResponse",
         "required": [
@@ -88322,53 +88550,6 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/UserBundle"
-          }
-        }
-      },
-      "UserBundleSummary": {
-        "title": "UserBundleSummary",
-        "required": [
-          "id",
-          "active",
-          "user_id",
-          "created_at",
-          "billing_bundle",
-          "resources"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "Id",
-            "type": "string",
-            "format": "uuid"
-          },
-          "active": {
-            "title": "Active",
-            "type": "boolean"
-          },
-          "user_id": {
-            "title": "User Id",
-            "type": "string"
-          },
-          "created_at": {
-            "title": "Created At",
-            "type": "string",
-            "format": "date"
-          },
-          "updated_at": {
-            "title": "Updated At",
-            "type": "string",
-            "format": "date"
-          },
-          "billing_bundle": {
-            "$ref": "#/components/schemas/BillingBundleSummary"
-          },
-          "resources": {
-            "title": "Resources",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserBundleResourceSchema"
-            }
           }
         }
       },
@@ -91307,7 +91488,7 @@
           }
         }
       },
-      "get_invoices_200": {
+      "ListInvoices_200": {
         "type": "object",
         "properties": {
           "meta": {
@@ -91335,52 +91516,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Invoice"
-            }
-          }
-        }
-      },
-      "bundle_pricing_Error": {
-        "required": [
-          "code",
-          "title"
-        ],
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          },
-          "source": {
-            "type": "object",
-            "properties": {
-              "pointer": {
-                "type": "string",
-                "description": "JSON pointer (RFC6901) to the offending entity."
-              },
-              "parameter": {
-                "type": "string",
-                "description": "Indicates which query parameter caused the error.",
-                "example": "+15617819942"
-              }
-            }
-          },
-          "meta": {
-            "type": "object"
-          }
-        }
-      },
-      "bundle_pricing_Errors": {
-        "type": "object",
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/bundle_pricing_Error"
             }
           }
         }
@@ -93328,7 +93463,7 @@
           }
         }
       },
-      "get_charges_breakdown_200": {
+      "GetMonthlyChargesBreakdown_200": {
         "type": "string",
         "description": "CSV format of the charges breakdown"
       },
@@ -95348,6 +95483,16 @@
           }
         }
       },
+      "BadRequestErrorResponse": {
+        "description": "Invalid request parameters",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/billing_group_Errors"
+            }
+          }
+        }
+      },
       "BadRequestResponse": {
         "description": "Bad request, the request was unacceptable, often due to missing a required parameter.",
         "content": {
@@ -95820,6 +95965,16 @@
                   "phone_numbers_url": "/v2/porting_phone_numbers?filter[porting_order_id]=eef10fb8-f3df-4c67-97c5-e18179723222"
                 }
               }
+            }
+          }
+        }
+      },
+      "ConflictErrorResponse": {
+        "description": "Resource conflict or in use",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/billing_group_Errors"
             }
           }
         }
@@ -96680,19 +96835,11 @@
         }
       },
       "ForbiddenErrorResponse": {
-        "description": "You do not have permission to perform the requested action on the specified resource or resources.",
+        "description": "Insufficient permissions to access billing group",
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ForbiddenError"
-                  }
-                }
-              }
+              "$ref": "#/components/schemas/billing_group_Errors"
             }
           }
         }
@@ -98321,6 +98468,9 @@
                   "items": {
                     "$ref": "#/components/schemas/Ip"
                   }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/connections_PaginationMeta"
                 }
               }
             }
@@ -99768,11 +99918,11 @@
         }
       },
       "NotFoundErrorResponse": {
-        "description": "Resource Not Found",
+        "description": "Billing group not found",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/verified_numbers_Errors"
+              "$ref": "#/components/schemas/billing_group_Errors"
             }
           }
         }
@@ -100617,6 +100767,16 @@
           }
         }
       },
+      "ServiceUnavailableErrorResponse": {
+        "description": "Service temporarily unavailable",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/billing_Errors"
+            }
+          }
+        }
+      },
       "SharePortingOrder": {
         "description": "Successful response",
         "content": {
@@ -101232,7 +101392,7 @@
         }
       },
       "UnauthorizedErrorResponse": {
-        "description": "The required authentication headers were either invalid or not included in the request.",
+        "description": "Authentication required or invalid credentials",
         "content": {
           "application/json": {
             "schema": {
@@ -101241,7 +101401,18 @@
                 "errors": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UnauthorizedError"
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "detail": {
+                        "type": "string"
+                      }
+                    }
                   }
                 }
               }
@@ -101291,19 +101462,11 @@
         }
       },
       "UnprocessableEntityErrorResponse": {
-        "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+        "description": "Invalid request data",
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "errors": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/customer_service_record_UnprocessableEntityError"
-                  }
-                }
-              }
+              "$ref": "#/components/schemas/billing_group_Errors"
             }
           }
         }
@@ -101802,6 +101965,26 @@
           }
         }
       },
+      "billing-group_GenericErrorResponse": {
+        "description": "Unexpected error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/billing_group_Errors"
+            }
+          }
+        }
+      },
+      "billing_ForbiddenErrorResponse": {
+        "description": "Insufficient permissions to access balance information",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/billing_Errors"
+            }
+          }
+        }
+      },
       "billing_GenericErrorResponse": {
         "description": "Unexpected error",
         "content": {
@@ -101812,12 +101995,128 @@
           }
         }
       },
+      "billing_UnprocessableEntityErrorResponse": {
+        "description": "Invalid or missing account information",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/billing_Errors"
+            }
+          }
+        }
+      },
+      "bundle-pricing_BadRequestErrorResponse": {
+        "description": "Invalid request parameters",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "detail": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "bundle-pricing_GenericErrorResponse": {
         "description": "Unexpected error",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/bundle_pricing_Errors"
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "detail": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "bundle-pricing_NotFoundErrorResponse": {
+        "description": "Resource not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "detail": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "bundle-pricing_UnprocessableEntityErrorResponse": {
+        "description": "Request cannot be processed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "detail": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -101871,8 +102170,28 @@
           }
         }
       },
+      "charges_BadRequestErrorResponse": {
+        "description": "Invalid request parameters or date range",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/charges_Errors"
+            }
+          }
+        }
+      },
       "charges_GenericErrorResponse": {
         "description": "Unexpected error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/charges_Errors"
+            }
+          }
+        }
+      },
+      "charges_UnprocessableEntityErrorResponse": {
+        "description": "User account not found",
         "content": {
           "application/json": {
             "schema": {
@@ -101968,6 +102287,60 @@
           }
         }
       },
+      "customer_service_record_ForbiddenErrorResponse": {
+        "description": "You do not have permission to perform the requested action on the specified resource or resources.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ForbiddenError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "customer_service_record_UnauthorizedErrorResponse": {
+        "description": "The required authentication headers were either invalid or not included in the request.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UnauthorizedError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "customer_service_record_UnprocessableEntityErrorResponse": {
+        "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/customer_service_record_UnprocessableEntityError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "documents_GenericErrorResponse": {
         "description": "Unexpected error",
         "content": {
@@ -101988,8 +102361,38 @@
           }
         }
       },
+      "invoice_BadRequestErrorResponse": {
+        "description": "Invalid request parameters",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/invoice_Errors"
+            }
+          }
+        }
+      },
+      "invoice_ForbiddenErrorResponse": {
+        "description": "Insufficient permissions to access invoices",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/invoice_Errors"
+            }
+          }
+        }
+      },
       "invoice_GenericErrorResponse": {
         "description": "Unexpected error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/invoice_Errors"
+            }
+          }
+        }
+      },
+      "invoice_NotFoundErrorResponse": {
+        "description": "Invoice not found",
         "content": {
           "application/json": {
             "schema": {
@@ -102279,6 +102682,16 @@
       },
       "verified-numbers_GenericErrorResponse": {
         "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/verified_numbers_Errors"
+            }
+          }
+        }
+      },
+      "verified-numbers_NotFoundErrorResponse": {
+        "description": "Resource Not Found",
         "content": {
           "application/json": {
             "schema": {

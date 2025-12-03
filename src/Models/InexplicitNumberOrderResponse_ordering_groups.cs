@@ -44,6 +44,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ErrorReason { get; set; }
 #endif
+        /// <summary>Filter to exclude phone numbers that are currently on hold/reserved for your account.</summary>
+        public bool? ExcludeHeldNumbers { get; set; }
         /// <summary>Filter by area code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +94,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PhoneNumberType { get; set; }
 #endif
+        /// <summary>Filter to exclude phone numbers that need additional time after to purchase to activate. Only applicable for +1 toll_free numbers.</summary>
+        public bool? Quickship { get; set; }
         /// <summary>Status of the ordering group</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups_status? Status { get; set; }
         /// <summary>Ordering strategy used</summary>
@@ -129,12 +133,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "country_iso", n => { CountryIso = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "error_reason", n => { ErrorReason = n.GetStringValue(); } },
+                { "exclude_held_numbers", n => { ExcludeHeldNumbers = n.GetBoolValue(); } },
                 { "national_destination_code", n => { NationalDestinationCode = n.GetStringValue(); } },
                 { "orders", n => { Orders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups_orders>(global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups_orders.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phone_number[contains]", n => { PhoneNumberContains = n.GetStringValue(); } },
                 { "phone_number[ends_with]", n => { PhoneNumberEndsWith = n.GetStringValue(); } },
                 { "phone_number[starts_with]", n => { PhoneNumberStartsWith = n.GetStringValue(); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetStringValue(); } },
+                { "quickship", n => { Quickship = n.GetBoolValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups_status>(); } },
                 { "strategy", n => { Strategy = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups_strategy>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -153,12 +159,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("country_iso", CountryIso);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("error_reason", ErrorReason);
+            writer.WriteBoolValue("exclude_held_numbers", ExcludeHeldNumbers);
             writer.WriteStringValue("national_destination_code", NationalDestinationCode);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups_orders>("orders", Orders);
             writer.WriteStringValue("phone_number[contains]", PhoneNumberContains);
             writer.WriteStringValue("phone_number[ends_with]", PhoneNumberEndsWith);
             writer.WriteStringValue("phone_number[starts_with]", PhoneNumberStartsWith);
             writer.WriteStringValue("phone_number_type", PhoneNumberType);
+            writer.WriteBoolValue("quickship", Quickship);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups_status>("status", Status);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderResponse_ordering_groups_strategy>("strategy", Strategy);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
