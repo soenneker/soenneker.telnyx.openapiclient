@@ -1524,14 +1524,22 @@
         "operationId": "list_advanced_orders_v2",
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/responses/ListAdvancedOrderResponse"
-                }
-              }
-            }
+            "$ref": "#/components/responses/ListAdvancedOrderResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -1554,14 +1562,22 @@
         },
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/responses/AdvancedOrderResponse"
-                }
-              }
-            }
+            "$ref": "#/components/responses/AdvancedOrderResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -1598,14 +1614,22 @@
         },
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/responses/AdvancedOrderResponse"
-                }
-              }
-            }
+            "$ref": "#/components/responses/AdvancedOrderResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -1632,14 +1656,22 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/responses/AdvancedOrderResponse"
-                }
-              }
-            }
+            "$ref": "#/components/responses/AdvancedOrderResponse"
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -6435,7 +6467,19 @@
           "200": {
             "$ref": "#/components/responses/ListAvailablePhoneNumbersBlockResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -6556,7 +6600,19 @@
           "200": {
             "$ref": "#/components/responses/ListAvailablePhoneNumbersResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -7013,15 +7069,8 @@
               }
             }
           },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "This endpoint is used to list all brands associated with your organization.",
@@ -7064,6 +7113,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "This endpoint is used to create a new brand. A brand is an entity created by The Campaign Registry (TCR) that represents an organization or a company. It is this entity that TCR created campaigns will be associated with. Each brand creation will entail an upfront, non-refundable $4 expense.",
@@ -7109,6 +7161,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -7166,6 +7221,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -7207,6 +7265,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "Retrieve a brand by `brandId`.",
@@ -7259,6 +7320,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "Update a brand's attributes by `brandId`.",
@@ -7286,6 +7350,9 @@
         "responses": {
           "200": {
             "description": "Successful Response"
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -7330,6 +7397,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -7382,6 +7452,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -7434,6 +7507,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -7477,6 +7553,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "This operation allows you to revet the brand. However, revetting is allowed once after the successful brand registration and thereafter limited to once every 3 months.",
@@ -9508,6 +9587,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "Retrieve a list of campaigns associated with a supplied `brandId`.",
@@ -9558,6 +9640,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -9601,6 +9686,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -9645,6 +9733,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -9686,6 +9777,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "Retrieve campaign details by `campaignId`.",
@@ -9738,6 +9832,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "Update a campaign's properties by `campaignId`. **Please note:** only sample messages are editable.",
@@ -9802,7 +9899,7 @@
                   }
                 },
                 "example": {
-                  "appealed_at": "2025-08-06T15:30:45.123456"
+                  "appealed_at": "2025-08-06T15:30:45.123456+00:00"
                 }
               }
             }
@@ -9836,6 +9933,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -9873,7 +9973,10 @@
               }
             }
           },
-          "default": {
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
+          },
+          "5xx": {
             "description": "Unexpected Error",
             "content": {
               "application/json": {
@@ -9930,6 +10033,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "Retrieve campaign's operation status at MNO level.",
@@ -9980,6 +10086,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -10025,6 +10134,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -10088,6 +10200,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "Before creating a campaign, use the [Qualify By Usecase endpoint](https://developers.telnyx.com/api/messaging/10dlc/get-usecase-qualification) to ensure that the brand you want to assign a new campaign to is qualified for the desired use case of that campaign. **Please note:** After campaign creation, you'll only be able to edit the campaign's sample messages. Creating a campaign will entail an upfront, non-refundable three month's cost that will depend on the campaign's use case ([see 10DLC Costs section for details](https://developers.telnyx.com/docs/messaging/10dlc/concepts#10dlc-costs)).",
@@ -10141,6 +10256,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "This endpoint allows you to see whether or not the supplied brand is suitable for your desired campaign use case.",
@@ -10398,7 +10516,19 @@
           "200": {
             "$ref": "#/components/responses/listCommentsResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -10424,7 +10554,19 @@
           "200": {
             "$ref": "#/components/responses/CommentResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -10453,7 +10595,19 @@
           "200": {
             "$ref": "#/components/responses/CommentResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -10482,7 +10636,19 @@
           "200": {
             "$ref": "#/components/responses/ReadCommentResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -11409,7 +11575,19 @@
           "200": {
             "$ref": "#/components/responses/CountryCoverageResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -11440,7 +11618,19 @@
           "200": {
             "$ref": "#/components/responses/SpecificCountryResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -12647,14 +12837,20 @@
           "200": {
             "$ref": "#/components/responses/listDynamicEmergencyAddresses"
           },
+          "400": {
+            "$ref": "#/components/responses/emergency_BadRequestResponse"
+          },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/emergency_UnauthorizedResponse"
           },
           "404": {
-            "description": "Resource not found"
+            "$ref": "#/components/responses/emergency_NotFoundResponse"
           },
           "422": {
-            "description": "Unprocessable entity. Check message field in response for details."
+            "$ref": "#/components/responses/emergency_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/emergency_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -12680,14 +12876,20 @@
           "201": {
             "$ref": "#/components/responses/DynamicEmergencyAddressResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/emergency_BadRequestResponse"
+          },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/emergency_UnauthorizedResponse"
           },
           "404": {
-            "description": "Resource not found"
+            "$ref": "#/components/responses/emergency_NotFoundResponse"
           },
           "422": {
-            "description": "Unprocessable entity. Check message field in response for details."
+            "$ref": "#/components/responses/emergency_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/emergency_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -12717,14 +12919,20 @@
           "200": {
             "$ref": "#/components/responses/DynamicEmergencyAddressResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/emergency_BadRequestResponse"
+          },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/emergency_UnauthorizedResponse"
           },
           "404": {
-            "description": "Resource not found"
+            "$ref": "#/components/responses/emergency_NotFoundResponse"
           },
           "422": {
-            "description": "Unprocessable entity. Check message field in response for details."
+            "$ref": "#/components/responses/emergency_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/emergency_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -12752,14 +12960,20 @@
           "200": {
             "$ref": "#/components/responses/DynamicEmergencyAddressResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/emergency_BadRequestResponse"
+          },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/emergency_UnauthorizedResponse"
           },
           "404": {
-            "description": "Resource not found"
+            "$ref": "#/components/responses/emergency_NotFoundResponse"
           },
           "422": {
-            "description": "Unprocessable entity. Check message field in response for details."
+            "$ref": "#/components/responses/emergency_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/emergency_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -12807,14 +13021,20 @@
           "200": {
             "$ref": "#/components/responses/listDynamicEmergencyEndpoints"
           },
+          "400": {
+            "$ref": "#/components/responses/emergency_BadRequestResponse"
+          },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/emergency_UnauthorizedResponse"
           },
           "404": {
-            "description": "Resource not found"
+            "$ref": "#/components/responses/emergency_NotFoundResponse"
           },
           "422": {
-            "description": "Unprocessable entity. Check message field in response for details."
+            "$ref": "#/components/responses/emergency_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/emergency_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -12840,14 +13060,20 @@
           "201": {
             "$ref": "#/components/responses/DynamicEmergencyEndpointResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/emergency_BadRequestResponse"
+          },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/emergency_UnauthorizedResponse"
           },
           "404": {
-            "description": "Resource not found"
+            "$ref": "#/components/responses/emergency_NotFoundResponse"
           },
           "422": {
-            "description": "Unprocessable entity. Check message field in response for details."
+            "$ref": "#/components/responses/emergency_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/emergency_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -12877,14 +13103,20 @@
           "200": {
             "$ref": "#/components/responses/DynamicEmergencyEndpointResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/emergency_BadRequestResponse"
+          },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/emergency_UnauthorizedResponse"
           },
           "404": {
-            "description": "Resource not found"
+            "$ref": "#/components/responses/emergency_NotFoundResponse"
           },
           "422": {
-            "description": "Unprocessable entity. Check message field in response for details."
+            "$ref": "#/components/responses/emergency_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/emergency_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -12912,14 +13144,20 @@
           "200": {
             "$ref": "#/components/responses/DynamicEmergencyEndpointResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/emergency_BadRequestResponse"
+          },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/emergency_UnauthorizedResponse"
           },
           "404": {
-            "description": "Resource not found"
+            "$ref": "#/components/responses/emergency_NotFoundResponse"
           },
           "422": {
-            "description": "Unprocessable entity. Check message field in response for details."
+            "$ref": "#/components/responses/emergency_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/emergency_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -12991,6 +13229,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -15563,7 +15804,19 @@
           "200": {
             "$ref": "#/components/responses/InexplicitNumberOrdersResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -15590,7 +15843,19 @@
           "200": {
             "$ref": "#/components/responses/InexplicitNumberOrderResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -15621,7 +15886,19 @@
           "200": {
             "$ref": "#/components/responses/InexplicitNumberOrderResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -15958,7 +16235,19 @@
           "200": {
             "$ref": "#/components/responses/InventoryCoverageResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -18452,7 +18741,7 @@
           "200": {
             "$ref": "#/components/responses/MessageResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18480,7 +18769,7 @@
           "200": {
             "$ref": "#/components/responses/MessageResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18508,7 +18797,7 @@
           "200": {
             "$ref": "#/components/responses/MessageResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18536,7 +18825,7 @@
           "200": {
             "$ref": "#/components/responses/MessageResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18547,6 +18836,7 @@
       "get": {
         "summary": "Generate RCS deeplink",
         "description": "Generate a deeplink URL that can be used to start an RCS conversation with a specific agent.",
+        "operationId": "GenerateRCSDeeplink",
         "tags": [
           "RCS messaging"
         ],
@@ -18592,7 +18882,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18621,7 +18911,7 @@
           "200": {
             "$ref": "#/components/responses/MessageResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18649,7 +18939,7 @@
           "200": {
             "$ref": "#/components/responses/MessageResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18707,7 +18997,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18755,7 +19045,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18765,6 +19055,7 @@
     "/messaging/rcs/agents": {
       "get": {
         "summary": "List all RCS agents",
+        "operationId": "ListRCSAgents",
         "tags": [
           "RCS messaging"
         ],
@@ -18784,7 +19075,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18794,6 +19085,7 @@
     "/messaging/rcs/agents/{id}": {
       "get": {
         "summary": "Retrieve an RCS agent",
+        "operationId": "GetRCSAgentById",
         "tags": [
           "RCS messaging"
         ],
@@ -18819,7 +19111,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18827,6 +19119,7 @@
       },
       "patch": {
         "summary": "Modify an RCS agent",
+        "operationId": "UpdateRCSAgentById",
         "tags": [
           "RCS messaging"
         ],
@@ -18861,7 +19154,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18871,6 +19164,7 @@
     "/messaging/rcs/bulk_capabilities": {
       "post": {
         "summary": "List RCS capabilities of a given batch of phone numbers",
+        "operationId": "ListRCSCapabilitiesOfAPhoneNumbersBatch",
         "tags": [
           "RCS messaging"
         ],
@@ -18894,7 +19188,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18904,6 +19198,7 @@
     "/messaging/rcs/capabilities/{agent_id}/{phone_number}": {
       "get": {
         "summary": "List RCS capabilities of a phone number",
+        "operationId": "ListRCSCapabilitiesOfAPhoneNumber",
         "tags": [
           "RCS messaging"
         ],
@@ -18938,7 +19233,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -18949,6 +19244,7 @@
       "put": {
         "summary": "Invite a test number to an RCS agent",
         "description": "Adds a test phone number to an RCS agent for testing purposes.",
+        "operationId": "InviteATestNumberToRCS",
         "tags": [
           "RCS messaging"
         ],
@@ -18983,7 +19279,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19007,7 +19303,7 @@
           "200": {
             "$ref": "#/components/responses/ListMessagingHostedNumberOrdersResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19033,7 +19329,7 @@
           "200": {
             "$ref": "#/components/responses/MessagingHostedNumberOrderResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19116,7 +19412,7 @@
           "200": {
             "$ref": "#/components/responses/MessagingHostedNumberOrderResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19143,7 +19439,7 @@
           "200": {
             "$ref": "#/components/responses/MessagingHostedNumberOrderResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19190,7 +19486,7 @@
           "200": {
             "$ref": "#/components/responses/MessagingHostedNumberOrderResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19230,7 +19526,7 @@
           "200": {
             "$ref": "#/components/responses/ValidationCodesResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19277,7 +19573,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19306,7 +19602,7 @@
           "200": {
             "$ref": "#/components/responses/MessagingHostedNumberOrderResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19334,7 +19630,7 @@
           "200": {
             "$ref": "#/components/responses/BulkMessagingSettingsUpdatePhoneNumbersResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19363,7 +19659,7 @@
           "200": {
             "$ref": "#/components/responses/BulkMessagingSettingsUpdatePhoneNumbersResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19505,7 +19801,7 @@
           "200": {
             "$ref": "#/components/responses/ListMessagingProfilesResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19533,7 +19829,7 @@
           "200": {
             "$ref": "#/components/responses/MessagingProfileResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19556,7 +19852,7 @@
           "200": {
             "$ref": "#/components/responses/MessagingProfileResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19577,7 +19873,7 @@
           "200": {
             "$ref": "#/components/responses/MessagingProfileResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19609,7 +19905,7 @@
           "200": {
             "$ref": "#/components/responses/MessagingProfileResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19636,7 +19932,7 @@
           "200": {
             "$ref": "#/components/responses/ListMessagingProfilePhoneNumbersResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19663,7 +19959,7 @@
           "200": {
             "$ref": "#/components/responses/ListMessagingProfileShortCodesResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19794,7 +20090,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19851,7 +20147,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19899,7 +20195,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -19957,7 +20253,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -20026,7 +20322,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -20113,7 +20409,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
           }
         },
@@ -20148,7 +20444,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
           }
         },
@@ -20179,15 +20475,11 @@
           "200": {
             "description": "Successful deleted"
           },
-          "400": {
-            "description": "Bad Request",
-            "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
-          },
           "404": {
             "description": "Not Found",
             "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
           }
         },
@@ -20223,7 +20515,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
           }
         },
@@ -20269,7 +20561,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
           }
         },
@@ -20293,7 +20585,7 @@
           "200": {
             "$ref": "#/components/responses/ListMessagingUrlDomains"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -20306,6 +20598,7 @@
           "RCS messaging"
         ],
         "summary": "Send an RCS message",
+        "operationId": "SendRCSMessage",
         "requestBody": {
           "description": "RCS message body",
           "content": {
@@ -20328,7 +20621,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -21045,7 +21338,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21084,7 +21383,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21120,7 +21425,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21154,7 +21465,16 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/notifications_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21199,7 +21519,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21244,7 +21570,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21286,7 +21618,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21328,7 +21666,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21367,7 +21711,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21403,7 +21753,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21437,7 +21793,16 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/notifications_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21482,7 +21847,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21527,7 +21898,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21580,7 +21957,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21631,7 +22014,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21665,7 +22054,16 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/notifications_BadRequestResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/notifications_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/notifications_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/notifications_GenericErrorResponse"
           }
         },
@@ -21728,7 +22126,19 @@
           "200": {
             "$ref": "#/components/responses/ListNumberBlockOrdersResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -21755,7 +22165,19 @@
           "200": {
             "$ref": "#/components/responses/NumberBlockOrderResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -21785,7 +22207,19 @@
           "200": {
             "$ref": "#/components/responses/NumberBlockOrderResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -21853,7 +22287,19 @@
           "200": {
             "$ref": "#/components/responses/ListNumberOrderPhoneNumbersResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -21915,7 +22361,19 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -21945,7 +22403,19 @@
           "200": {
             "$ref": "#/components/responses/NumberOrderPhoneNumberResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -21983,7 +22453,19 @@
           "200": {
             "$ref": "#/components/responses/NumberOrderPhoneNumberResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -22052,7 +22534,19 @@
           "200": {
             "$ref": "#/components/responses/ListNumberOrdersResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -22080,7 +22574,19 @@
           "200": {
             "$ref": "#/components/responses/NumberOrderResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -22110,7 +22616,19 @@
           "200": {
             "$ref": "#/components/responses/NumberOrderResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -22148,7 +22666,19 @@
           "200": {
             "$ref": "#/components/responses/NumberOrderResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -22212,7 +22742,19 @@
           "200": {
             "$ref": "#/components/responses/ListNumberReservationsResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -22239,7 +22781,19 @@
           "200": {
             "$ref": "#/components/responses/NumberReservationResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -22269,7 +22823,19 @@
           "200": {
             "$ref": "#/components/responses/NumberReservationResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -22299,7 +22865,19 @@
           "200": {
             "$ref": "#/components/responses/NumberReservationResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -22368,6 +22946,18 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "security": [
@@ -23757,6 +24347,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -23806,6 +24399,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -23891,6 +24487,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "Retrieve all partner campaigns you have shared to Telnyx in a paginated fashion.\n\nThis endpoint is currently limited to only returning shared campaigns that Telnyx has accepted. In other words, shared but pending campaigns are currently omitted from the response from this endpoint.",
@@ -23935,6 +24534,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "Retrieve campaign details by `campaignId`.",
@@ -23987,6 +24589,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
         "description": "Update campaign details by `campaignId`. **Please note:** Only webhook urls are editable.",
@@ -24091,7 +24696,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
@@ -24128,7 +24733,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
@@ -24185,7 +24790,10 @@
               }
             }
           },
-          "default": {
+          "422": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
+          },
+          "4xx": {
             "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
@@ -24254,10 +24862,19 @@
           "200": {
             "$ref": "#/components/responses/ListPhoneNumberBlocksJobsResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -24301,10 +24918,19 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         }
@@ -24346,10 +24972,19 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -24420,7 +25055,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
@@ -24454,7 +25089,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
@@ -24484,7 +25119,7 @@
           "200": {
             "$ref": "#/components/responses/SinglePhoneNumberCampaign"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
@@ -24518,7 +25153,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
@@ -24563,7 +25198,7 @@
               }
             }
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/10dlc_GenericErrorResponse"
           }
         },
@@ -24748,10 +25383,19 @@
           "200": {
             "$ref": "#/components/responses/ListPhoneNumbersResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -24794,17 +25438,19 @@
               }
             }
           },
-          "422": {
-            "description": "Unprocessable Entity",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/numbers_Errors"
-                }
-              }
-            }
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
           },
-          "default": {
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -24829,10 +25475,19 @@
           "200": {
             "$ref": "#/components/responses/ListCsvDownloadsResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -24962,10 +25617,19 @@
           "200": {
             "$ref": "#/components/responses/CsvDownloadResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         }
@@ -24995,10 +25659,19 @@
           "200": {
             "$ref": "#/components/responses/CsvDownloadResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         }
@@ -25123,7 +25796,10 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -25203,7 +25879,10 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         }
@@ -25295,7 +25974,10 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         }
@@ -25517,7 +26199,10 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         }
@@ -25591,7 +26276,13 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -25615,7 +26306,7 @@
           "200": {
             "$ref": "#/components/responses/ListPhoneNumbersWithMessagingSettingsResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -25813,10 +26504,19 @@
           "200": {
             "$ref": "#/components/responses/SlimListPhoneNumbersResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -25898,10 +26598,19 @@
           "200": {
             "$ref": "#/components/responses/ListPhoneNumbersWithVoiceSettingsResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -25925,10 +26634,19 @@
           "200": {
             "$ref": "#/components/responses/DeletePhoneNumberResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -25950,10 +26668,19 @@
           "200": {
             "$ref": "#/components/responses/PhoneNumberResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -25986,10 +26713,19 @@
           "200": {
             "$ref": "#/components/responses/PhoneNumberResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -26036,10 +26772,19 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -26102,10 +26847,19 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -26134,7 +26888,7 @@
           "200": {
             "$ref": "#/components/responses/PhoneNumberWithMessagingSettingsResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -26172,7 +26926,7 @@
           "200": {
             "$ref": "#/components/responses/PhoneNumberWithMessagingSettingsResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -26196,10 +26950,19 @@
           "200": {
             "$ref": "#/components/responses/PhoneNumberWithVoiceSettingsResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -26232,10 +26995,19 @@
           "200": {
             "$ref": "#/components/responses/PhoneNumberWithVoiceSettingsResponse"
           },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
           "401": {
             "$ref": "#/components/responses/numbers_UnauthorizedResponse"
           },
-          "default": {
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -26377,7 +27149,19 @@
           "200": {
             "$ref": "#/components/responses/listRegulatoryRequirementsPhoneNumbers"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -30250,7 +31034,19 @@
           "200": {
             "$ref": "#/components/responses/listRegulatoryRequirements"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -31057,6 +31853,18 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -31136,6 +31944,18 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -31169,6 +31989,21 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -31200,6 +32035,21 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -31266,6 +32116,21 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -31299,6 +32164,21 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
+            "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -33027,7 +33907,7 @@
           "200": {
             "$ref": "#/components/responses/ListShortCodesResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -33050,7 +33930,7 @@
           "200": {
             "$ref": "#/components/responses/ShortCodeResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -33083,7 +33963,7 @@
           "200": {
             "$ref": "#/components/responses/ShortCodeResponse"
           },
-          "default": {
+          "4xx": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
           }
         },
@@ -34512,6 +35392,15 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Bucket or SSL certificate not found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -34552,6 +35441,15 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Bucket or SSL certificate not found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -34559,7 +35457,7 @@
       "put": {
         "summary": "Add SSL Certificate",
         "deprecated": false,
-        "description": "Uploads an SSL certificate and its matching secret so that you can use Telnyx\u2019s storage as your CDN.",
+        "description": "Uploads an SSL certificate and its matching secret so that you can use Telnyx's storage as your CDN.",
         "operationId": "AddStorageSSLCertificate",
         "tags": [
           "Bucket SSL Certificate"
@@ -34615,6 +35513,15 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Bucket not found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -34692,6 +35599,15 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Bucket not found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -34740,6 +35656,15 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Bucket not found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -34749,7 +35674,7 @@
       "post": {
         "summary": "Create Presigned Object URL",
         "deprecated": false,
-        "description": "Returns a timed and authenticated URL to get an object. This is the equivalent to AWS S3\u2019s \u201cpresigned\u201d URL. Please note that Telnyx performs authentication differently from AWS S3 and you MUST NOT use the presign method of AWS s3api CLI or sdk to generate the presigned URL. \n\nRefer to: https://developers.telnyx.com/docs/cloud-storage/presigned-urls\n",
+        "description": "Returns a timed and authenticated URL to download (GET) or upload (PUT) an object. This is the equivalent to AWS S3\u2019s \u201cpresigned\u201d URL. Please note that Telnyx performs authentication differently from AWS S3 and you MUST NOT use the presign method of AWS s3api CLI or SDK to generate the presigned URL. \n\nRefer to: https://developers.telnyx.com/docs/cloud-storage/presigned-urls\n",
         "operationId": "CreatePresignedObjectUrl",
         "tags": [
           "Presigned Object URLs"
@@ -34796,6 +35721,15 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Bucket or object not found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -34833,6 +35767,12 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -34870,6 +35810,12 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -34908,6 +35854,12 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -34950,6 +35902,15 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Migration source not found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -34990,6 +35951,15 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Migration source not found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -35027,6 +35997,12 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -35065,6 +36041,12 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -35107,6 +36089,15 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Migration not found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -35149,6 +36140,15 @@
               }
             },
             "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Migration not found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         },
         "x-latency-category": "responsive"
@@ -35206,7 +36206,19 @@
           "200": {
             "$ref": "#/components/responses/ListSubNumberOrdersResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -35266,7 +36278,19 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -35313,7 +36337,19 @@
           "200": {
             "$ref": "#/components/responses/SubNumberOrderResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -35351,7 +36387,19 @@
           "200": {
             "$ref": "#/components/responses/SubNumberOrderResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -35381,7 +36429,19 @@
           "200": {
             "$ref": "#/components/responses/SubNumberOrderResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -35412,7 +36472,16 @@
           "202": {
             "$ref": "#/components/responses/SubNumberOrdersReportResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         }
@@ -35444,7 +36513,19 @@
           "200": {
             "$ref": "#/components/responses/SubNumberOrdersReportResponse"
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         },
@@ -35487,7 +36568,19 @@
               }
             }
           },
-          "default": {
+          "400": {
+            "$ref": "#/components/responses/numbers_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/numbers_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/numbers_NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/numbers_UnprocessableEntity"
+          },
+          "500": {
             "$ref": "#/components/responses/numbers_GenericErrorResponse"
           }
         }
@@ -38659,6 +39752,9 @@
                 }
               }
             }
+          },
+          "4xx": {
+            "$ref": "#/components/responses/verify_GenericErrorResponse"
           }
         },
         "x-latency-category": "responsive"
@@ -44211,7 +45307,7 @@
     },
     "responses": {
       "10dlc_GenericErrorResponse": {
-        "description": "Unexpected error",
+        "description": "Generic response error",
         "content": {
           "application/json": {
             "schema": {
@@ -44283,97 +45379,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "properties": {
-                "country_code": {
-                  "type": "string",
-                  "maxLength": 2,
-                  "minLength": 2,
-                  "title": "Country Code",
-                  "default": "US"
-                },
-                "comments": {
-                  "type": "string",
-                  "maxLength": 255,
-                  "title": "Comments",
-                  "default": ""
-                },
-                "quantity": {
-                  "type": "integer",
-                  "maximum": 10000,
-                  "minimum": 1,
-                  "title": "Quantity",
-                  "default": 1
-                },
-                "area_code": {
-                  "type": "string",
-                  "maxLength": 3,
-                  "title": "Area Code",
-                  "default": ""
-                },
-                "phone_number_type": {
-                  "items": {
-                    "enum": [
-                      "local",
-                      "mobile",
-                      "toll_free",
-                      "shared_cost",
-                      "national",
-                      "landline"
-                    ]
-                  },
-                  "default": ""
-                },
-                "features": {
-                  "items": {
-                    "enum": [
-                      "sms",
-                      "mms",
-                      "voice",
-                      "fax",
-                      "emergency"
-                    ]
-                  },
-                  "type": "array",
-                  "uniqueItems": true,
-                  "title": "Features"
-                },
-                "customer_reference": {
-                  "type": "string",
-                  "title": "Customer Reference",
-                  "default": ""
-                },
-                "id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "title": "Id"
-                },
-                "status": {
-                  "items": {
-                    "type": "string",
-                    "enum": [
-                      "pending",
-                      "processing",
-                      "ordered"
-                    ]
-                  }
-                },
-                "orders": {
-                  "items": {
-                    "type": "string",
-                    "format": "uuid"
-                  },
-                  "type": "array",
-                  "uniqueItems": true,
-                  "title": "Orders"
-                },
-                "requirement_group_id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "title": "Requirement Group ID",
-                  "description": "The ID of the requirement group associated with this advanced order",
-                  "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-                }
-              }
+              "$ref": "#/components/schemas/AdvancedOrder"
             }
           }
         }
@@ -44922,8 +45928,8 @@
               "type": "object",
               "properties": {
                 "data": {
-                  "type": "array",
-                  "items": {
+                  "type": "object",
+                  "additionalProperties": {
                     "$ref": "#/components/schemas/CountryCoverage"
                   }
                 }
@@ -46868,7 +47874,7 @@
                 "data": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/responses/AdvancedOrderResponse"
+                    "$ref": "#/components/schemas/AdvancedOrder"
                   }
                 }
               }
@@ -46934,6 +47940,9 @@
                   }
                 },
                 "meta": {
+                  "$ref": "#/components/schemas/AvailablePhoneNumbersMetadata"
+                },
+                "metadata": {
                   "$ref": "#/components/schemas/AvailablePhoneNumbersMetadata"
                 }
               }
@@ -47598,28 +48607,6 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/NumberBlockOrder"
-                  }
-                },
-                "meta": {
-                  "$ref": "#/components/schemas/PaginationMeta"
-                }
-              }
-            }
-          }
-        }
-      },
-      "ListNumberOrderDocumentsResponse": {
-        "description": "Successful response with a list of number order documents.",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "title": "List Number Order Documents Response",
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/NumberOrderDocument"
                   }
                 },
                 "meta": {
@@ -48645,7 +49632,7 @@
                   }
                 },
                 "meta": {
-                  "$ref": "#/components/schemas/webhooks_PaginationMetaSimple"
+                  "$ref": "#/components/schemas/PaginationMetaSimple"
                 }
               }
             }
@@ -48720,22 +49707,6 @@
               "properties": {
                 "data": {
                   "$ref": "#/components/schemas/MessagingHostedNumberOrder"
-                }
-              }
-            }
-          }
-        }
-      },
-      "MessagingHostedNumberResponse": {
-        "description": "Successful response with details about a messaging hosted number.",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "title": "Retrieve Messaging Hosted Number Response",
-              "properties": {
-                "data": {
-                  "$ref": "#/components/schemas/HostedNumber"
                 }
               }
             }
@@ -48904,22 +49875,6 @@
               "properties": {
                 "data": {
                   "$ref": "#/components/schemas/NumberLookupRecord"
-                }
-              }
-            }
-          }
-        }
-      },
-      "NumberOrderDocumentResponse": {
-        "description": "Successful response with details about a number order document.",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "title": "Number Order Document Response",
-              "properties": {
-                "data": {
-                  "$ref": "#/components/schemas/NumberOrderDocument"
                 }
               }
             }
@@ -51265,8 +52220,48 @@
           }
         }
       },
+      "emergency_BadRequestResponse": {
+        "description": "Bad request, the request was unacceptable, often due to missing a required parameter.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/emergency_Errors"
+            }
+          }
+        }
+      },
       "emergency_GenericErrorResponse": {
         "description": "Unexpected error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/emergency_Errors"
+            }
+          }
+        }
+      },
+      "emergency_NotFoundResponse": {
+        "description": "The requested resource doesn't exist.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/emergency_Errors"
+            }
+          }
+        }
+      },
+      "emergency_UnauthorizedResponse": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/emergency_Errors"
+            }
+          }
+        }
+      },
+      "emergency_UnprocessableEntity": {
+        "description": "Unprocessable entity. Check the 'detail' field in response for details.",
         "content": {
           "application/json": {
             "schema": {
@@ -51470,8 +52465,38 @@
           }
         }
       },
+      "notifications_BadRequestResponse": {
+        "description": "Bad request, the request was unacceptable, often due to missing a required parameter.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/notifications_Errors"
+            }
+          }
+        }
+      },
       "notifications_GenericErrorResponse": {
         "description": "Unexpected error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/notifications_Errors"
+            }
+          }
+        }
+      },
+      "notifications_NotFoundResponse": {
+        "description": "The requested resource doesn't exist.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/notifications_Errors"
+            }
+          }
+        }
+      },
+      "notifications_UnprocessableEntity": {
+        "description": "Unprocessable entity. Check the 'detail' field in response for details.",
         "content": {
           "application/json": {
             "schema": {
@@ -51500,6 +52525,16 @@
           }
         }
       },
+      "numbers_BadRequestResponse": {
+        "description": "Bad request, the request was unacceptable, often due to missing a required parameter.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/numbers_Errors"
+            }
+          }
+        }
+      },
       "numbers_ForbiddenResponse": {
         "description": "Forbidden",
         "content": {
@@ -51517,6 +52552,16 @@
       },
       "numbers_GenericErrorResponse": {
         "description": "Unexpected error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/numbers_Errors"
+            }
+          }
+        }
+      },
+      "numbers_NotFoundResponse": {
+        "description": "The requested resource doesn't exist.",
         "content": {
           "application/json": {
             "schema": {
@@ -51551,6 +52596,16 @@
           }
         }
       },
+      "numbers_UnprocessableEntity": {
+        "description": "Unprocessable entity. Check the 'detail' field in response for details.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/numbers_Errors"
+            }
+          }
+        }
+      },
       "programmable-fax_GenericErrorResponse": {
         "description": "Unexpected error",
         "content": {
@@ -51575,7 +52630,7 @@
         }
       },
       "toll-free-verification_GenericErrorResponse": {
-        "description": "Unexpected error",
+        "description": "Generic error response",
         "content": {
           "application/json": {
             "schema": {
@@ -52298,6 +53353,101 @@
           "description",
           "event_date"
         ]
+      },
+      "AdvancedOrder": {
+        "type": "object",
+        "title": "Advanced Order",
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "maxLength": 2,
+            "minLength": 2,
+            "title": "Country Code",
+            "default": "US"
+          },
+          "comments": {
+            "type": "string",
+            "maxLength": 255,
+            "title": "Comments",
+            "default": ""
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 10000,
+            "minimum": 1,
+            "title": "Quantity",
+            "default": 1
+          },
+          "area_code": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Area Code",
+            "default": ""
+          },
+          "phone_number_type": {
+            "items": {
+              "enum": [
+                "local",
+                "mobile",
+                "toll_free",
+                "shared_cost",
+                "national",
+                "landline"
+              ]
+            },
+            "default": ""
+          },
+          "features": {
+            "items": {
+              "enum": [
+                "sms",
+                "mms",
+                "voice",
+                "fax",
+                "emergency"
+              ]
+            },
+            "type": "array",
+            "uniqueItems": true,
+            "title": "Features"
+          },
+          "customer_reference": {
+            "type": "string",
+            "title": "Customer Reference",
+            "default": ""
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "status": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "processing",
+                "ordered"
+              ]
+            }
+          },
+          "orders": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "uniqueItems": true,
+            "title": "Orders"
+          },
+          "requirement_group_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Requirement Group ID",
+            "description": "The ID of the requirement group associated with this advanced order",
+            "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+          }
+        }
       },
       "AdvancedOrderRequest": {
         "properties": {
@@ -54868,9 +56018,7 @@
             "type": "string",
             "format": "date-time",
             "description": "The time the usage was recorded",
-            "example": [
-              "2020-01-01T00:00:00Z"
-            ]
+            "example": "2020-01-01T00:00:00Z"
           }
         }
       },
@@ -54913,30 +56061,22 @@
           "bytes_sent": {
             "type": "integer",
             "description": "The number of bytes sent",
-            "example": [
-              123456
-            ]
+            "example": 123456
           },
           "bytes_received": {
             "type": "integer",
             "description": "The number of bytes received",
-            "example": [
-              123456
-            ]
+            "example": 123456
           },
           "ops": {
             "type": "integer",
             "description": "The number of operations",
-            "example": [
-              123456
-            ]
+            "example": 123456
           },
           "successful_ops": {
             "type": "integer",
             "description": "The number of successful operations",
-            "example": [
-              123456
-            ]
+            "example": 123456
           },
           "category": {
             "type": "string",
@@ -54953,9 +56093,7 @@
               "delete_obj"
             ],
             "description": "The category of the bucket operation",
-            "example": [
-              "put_obj"
-            ]
+            "example": "put_obj"
           }
         }
       },
@@ -54965,30 +56103,22 @@
           "bytes_sent": {
             "type": "integer",
             "description": "The number of bytes sent",
-            "example": [
-              123456
-            ]
+            "example": 123456
           },
           "bytes_received": {
             "type": "integer",
             "description": "The number of bytes received",
-            "example": [
-              123456
-            ]
+            "example": 123456
           },
           "ops": {
             "type": "integer",
             "description": "The number of operations",
-            "example": [
-              123456
-            ]
+            "example": 123456
           },
           "successful_ops": {
             "type": "integer",
             "description": "The number of successful operations",
-            "example": [
-              123456
-            ]
+            "example": 123456
           }
         }
       },
@@ -54998,31 +56128,23 @@
           "size": {
             "type": "integer",
             "description": "The size of the bucket in bytes",
-            "example": [
-              123456
-            ]
+            "example": 123456
           },
           "size_kb": {
             "type": "integer",
             "description": "The size of the bucket in kilobytes",
-            "example": [
-              123456
-            ]
+            "example": 123456
           },
           "num_objects": {
             "type": "integer",
             "description": "The number of objects in the bucket",
-            "example": [
-              123456
-            ]
+            "example": 123456
           },
           "timestamp": {
             "type": "string",
             "format": "date-time",
             "description": "The time the snapshot was taken",
-            "example": [
-              "2020-01-01T00:00:00Z"
-            ]
+            "example": "2020-01-01T00:00:00Z"
           }
         }
       },
@@ -67306,8 +68428,10 @@
           },
           "send_at": {
             "description": "ISO 8601 formatted date indicating when to send the message - accurate up till a minute.",
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time"
           }
         },
@@ -67392,17 +68516,21 @@
           },
           "webhook_url": {
             "description": "The URL where webhooks related to this messaging profile will be sent.",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
-            "default": "",
-            "nullable": true
+            "default": ""
           },
           "webhook_failover_url": {
             "description": "The failover URL where webhooks related to this messaging profile will be sent if sending to the primary URL fails.",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
-            "default": "",
-            "nullable": true
+            "default": ""
           },
           "webhook_api_version": {
             "description": "Determines which webhook format will be used, Telnyx API v1, v2, or a legacy 2010-04-01 format.",
@@ -67422,9 +68550,11 @@
           },
           "alpha_sender": {
             "description": "The alphanumeric sender ID to use when sending to destinations that require an alphanumeric sender ID.",
-            "type": "string",
-            "pattern": "^[A-Za-z0-9 ]{1,11}$",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[A-Za-z0-9 ]{1,11}$"
           },
           "daily_spend_limit": {
             "description": "The maximum amount of money (in USD) that can be spent by this profile before midnight UTC.",
@@ -67667,62 +68797,6 @@
         },
         "type": "object"
       },
-      "CreateNumberOrderDocumentRequest": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "example": "387d1e31-a218-4375-8151-103f2d5e2d2c",
-            "readOnly": true
-          },
-          "record_type": {
-            "type": "string",
-            "example": "number_order_document",
-            "readOnly": true
-          },
-          "file_id": {
-            "type": "string",
-            "description": "The id of the file to associate as a number order document.",
-            "example": "1e3c5822-0362-4702-8e46-5a129f0d3976"
-          },
-          "requirements_id": {
-            "type": "string",
-            "description": "Unique id for a requirement.",
-            "example": "36aaf27d-986b-493c-bd1b-de16af2e4292"
-          },
-          "customer_reference": {
-            "type": "string",
-            "description": "A customer reference string for customer look ups.",
-            "example": "MY REF 001"
-          },
-          "requirement_type": {
-            "type": "string",
-            "enum": [
-              "address_proof",
-              "identification",
-              "reg_form"
-            ],
-            "readOnly": true
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "An ISO 8901 datetime string denoting when the number order document was uploaded.",
-            "example": "2018-01-01T00:00:00.000000Z",
-            "readOnly": true
-          }
-        },
-        "example": {
-          "id": "387d1e31-a218-4375-8151-103f2d5e2d2c",
-          "record_type": "number_order_document",
-          "file_id": "1e3c5822-0362-4702-8e46-5a129f0d3976",
-          "requirements_id": "36aaf27d-986b-493c-bd1b-de16af2e4292",
-          "customer_reference": "MY REF 001",
-          "requirement_type": "address_proof",
-          "created_at": "2018-01-01T00:00:00.000000Z"
-        },
-        "type": "object"
-      },
       "CreateNumberOrderRequest": {
         "properties": {
           "phone_numbers": {
@@ -67851,11 +68925,8 @@
           }
         },
         "example": {
-          "from": "+18445550001",
           "messaging_profile_id": "abc85f64-5717-4562-b3fc-2c9600000000",
-          "to": [
-            "+13125550002"
-          ],
+          "to": "+13125550002",
           "text": "Hello, World!",
           "subject": "From Telnyx!",
           "media_urls": [
@@ -68386,7 +69457,6 @@
           "send_at": {
             "description": "ISO 8601 formatted date indicating when to send the message - accurate up till a minute.",
             "type": "string",
-            "nullable": false,
             "format": "date-time"
           }
         },
@@ -68788,9 +69858,11 @@
           },
           "custom_code": {
             "example": "43612",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Send a self-generated numeric code to the end-user",
-            "nullable": true,
             "default": null
           },
           "timeout_secs": {
@@ -68800,9 +69872,11 @@
           },
           "extension": {
             "example": "1www2WABCDw9",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Optional extension to dial after call is answered using DTMF digits. Valid digits are 0-9, A-D, *, and #. Pauses can be added using w (0.5s) and W (1s).",
-            "nullable": true,
             "default": null
           }
         }
@@ -68856,9 +69930,11 @@
           },
           "custom_code": {
             "example": "43612",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Send a self-generated numeric code to the end-user",
-            "nullable": true,
             "default": null
           },
           "timeout_secs": {
@@ -68983,9 +70059,11 @@
           },
           "alpha_sender": {
             "description": "The alphanumeric sender ID to use when sending to destinations that require an alphanumeric sender ID.",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "pattern": "^[A-Za-z0-9 ]{1,11}$",
-            "nullable": true,
             "default": "Telnyx"
           },
           "code_length": {
@@ -71915,17 +72993,46 @@
             }
           ]
         },
-        "example": "[\"BASIC_ACCOUNT\", \"SMALL_ACCOUNT\", \"MEDIUM_ACCOUNT\", \"LARGE_ACCOUNT\", \"KEY_ACCOUNT\"]"
+        "example": [
+          "BASIC_ACCOUNT",
+          "SMALL_ACCOUNT",
+          "MEDIUM_ACCOUNT",
+          "LARGE_ACCOUNT",
+          "KEY_ACCOUNT"
+        ]
       },
       "EnumObjectResponse": {
         "title": "EnumObjectResponse",
         "type": "object",
-        "example": "{\"AREIS\": \"AREIS\", \"BANDW\": \"Bandwidth\", \"SINCH\": \"Sinch\"}"
+        "example": {
+          "AREIS": "AREIS",
+          "BANDW": "Bandwidth",
+          "SINCH": "Sinch"
+        }
       },
       "EnumPaginatedResponse": {
         "title": "EnumPaginatedResponse",
         "type": "object",
-        "example": "{\"page\": 1, \"records\": [{\"isin\": \"US68243Q1067\", \"iso2\": \"US\", \"symbol\": \"FLWS\", \"exchange\": \"NASDAQ\", \"displayName\": \"1-800 FLOWERS.COM, Inc.\"}, {\"isin\": \"US88025U1097\", \"iso2\": \"US\", \"symbol\": \"TXG\", \"exchange\": \"NASDAQ\", \"displayName\": \"10X GENOMICS INC CLASS A\"}], \"totalRecords\": 2}"
+        "example": {
+          "page": 1,
+          "records": [
+            {
+              "isin": "US68243Q1067",
+              "iso2": "US",
+              "symbol": "FLWS",
+              "exchange": "NASDAQ",
+              "displayName": "1-800 FLOWERS.COM, Inc."
+            },
+            {
+              "isin": "US88025U1097",
+              "iso2": "US",
+              "symbol": "TXG",
+              "exchange": "NASDAQ",
+              "displayName": "10X GENOMICS INC CLASS A"
+            }
+          ],
+          "totalRecords": 2
+        }
       },
       "Error": {
         "required": [
@@ -75363,14 +76470,12 @@
         "title": "HangupToolParams"
       },
       "HostedNumber": {
-        "example": [
-          {
-            "record_type": "messaging_hosted_number",
-            "id": "bf6307bd-884d-4c1f-b6ea-c62b8c495d3c",
-            "phone_number": "+18665550001",
-            "status": "successful"
-          }
-        ],
+        "example": {
+          "record_type": "messaging_hosted_number",
+          "id": "bf6307bd-884d-4c1f-b6ea-c62b8c495d3c",
+          "phone_number": "+18665550001",
+          "status": "successful"
+        },
         "type": "object",
         "properties": {
           "record_type": {
@@ -75847,7 +76952,7 @@
           "record_type": "event",
           "id": "bf6307bd-884d-4c1f-b6ea-c62b8c495d3c",
           "event_type": "message.received",
-          "occurred_at": "date-time",
+          "occurred_at": "2019-01-23T18:10:02.574Z",
           "payload": {
             "record_type": "message",
             "direction": "inbound",
@@ -75880,16 +76985,16 @@
               "Greetings"
             ],
             "cost": {
-              "amount": 0.0051,
+              "amount": "0.0051",
               "currency": "USD"
             },
             "cost_breakdown": {
               "carrier_fee": {
-                "amount": 0.00305,
+                "amount": "0.00305",
                 "currency": "USD"
               },
               "rate": {
-                "amount": 0.00205,
+                "amount": "0.00205",
                 "currency": "USD"
               }
             },
@@ -75944,6 +77049,10 @@
             "description": "The type of message. This value can be either 'sms' or 'mms'."
           },
           "messaging_profile_id": {
+            "type": "string",
+            "description": "Unique identifier for a messaging profile."
+          },
+          "organization_id": {
             "type": "string",
             "description": "Unique identifier for a messaging profile."
           },
@@ -76067,6 +77176,13 @@
             "type": "string",
             "description": "Message body (i.e., content) as a non-empty string.\n\n**Required for SMS**"
           },
+          "subject": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Message subject."
+          },
           "media": {
             "type": "array",
             "items": {
@@ -76096,15 +77212,19 @@
             }
           },
           "webhook_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
-            "nullable": true,
             "description": "The URL where webhooks related to this message will be sent."
           },
           "webhook_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
-            "nullable": true,
             "description": "The failover URL where webhooks related to this message will be sent if sending to the primary URL fails."
           },
           "encoding": {
@@ -76125,8 +77245,10 @@
             }
           },
           "cost": {
-            "type": "object",
-            "nullable": true,
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "amount": {
                 "type": "string",
@@ -76141,8 +77263,10 @@
             }
           },
           "cost_breakdown": {
-            "type": "object",
-            "nullable": true,
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "carrier_fee": {
                 "type": "object",
@@ -76178,8 +77302,10 @@
             "description": "Detailed breakdown of the message cost components."
           },
           "tcr_campaign_id": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The Campaign Registry (TCR) campaign ID associated with the message."
           },
           "tcr_campaign_billable": {
@@ -76187,8 +77313,10 @@
             "description": "Indicates whether the TCR campaign is billable."
           },
           "tcr_campaign_registered": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The registration status of the TCR campaign.",
             "example": "REGISTERED"
           },
@@ -76198,22 +77326,28 @@
             "description": "ISO 8601 formatted date indicating when the message request was received."
           },
           "sent_at": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
-            "nullable": true,
             "description": "Not used for inbound messages."
           },
           "completed_at": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
-            "nullable": true,
             "description": "Not used for inbound messages."
           },
           "valid_until": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Not used for inbound messages.",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "errors": {
             "type": "array",
@@ -76256,16 +77390,16 @@
             "Greetings"
           ],
           "cost": {
-            "amount": 0.0051,
+            "amount": "0.0051",
             "currency": "USD"
           },
           "cost_breakdown": {
             "carrier_fee": {
-              "amount": 0.00305,
+              "amount": "0.00305",
               "currency": "USD"
             },
             "rate": {
-              "amount": 0.00205,
+              "amount": "0.00205",
               "currency": "USD"
             }
           },
@@ -76530,20 +77664,6 @@
             "type": "string",
             "format": "date-time",
             "description": "ISO 8601 formatted date indicating when the resource was updated"
-          }
-        }
-      },
-      "InexplicitNumberOrdersResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/InexplicitNumberOrderResponse"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -79633,8 +80753,10 @@
         }
       },
       "MessagingFeatureSet": {
-        "type": "object",
-        "nullable": true,
+        "type": [
+          "object",
+          "null"
+        ],
         "required": [
           "domestic_two_way",
           "international_inbound",
@@ -79697,8 +80819,10 @@
             "readOnly": true
           },
           "messaging_profile_id": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Automatically associate the number with this messaging profile ID when the order is complete."
           },
           "status": {
@@ -79763,15 +80887,19 @@
           },
           "webhook_url": {
             "description": "The URL where webhooks related to this messaging profile will be sent.",
-            "type": "string",
-            "format": "url",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "url"
           },
           "webhook_failover_url": {
             "description": "The failover URL where webhooks related to this messaging profile will be sent if sending to the primary URL fails.",
-            "type": "string",
-            "format": "url",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "url"
           },
           "webhook_api_version": {
             "description": "Determines which webhook format will be used, Telnyx API v1, v2, or a legacy 2010-04-01 format.",
@@ -79781,6 +80909,14 @@
               "2",
               "2010-04-01"
             ]
+          },
+          "health_webhook_url": {
+            "description": "DEPRECATED: health check url service checking",
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "url"
           },
           "whitelisted_destinations": {
             "description": "Destinations to which the messaging profile is allowed to send. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[\"*\"]`, all destinations will be allowed.",
@@ -79815,9 +80951,11 @@
           },
           "alpha_sender": {
             "description": "The alphanumeric sender ID to use when sending to destinations that require an alphanumeric sender ID.",
-            "type": "string",
-            "pattern": "^[A-Za-z0-9 ]{1,11}$",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[A-Za-z0-9 ]{1,11}$"
           },
           "daily_spend_limit": {
             "description": "The maximum amount of money (in USD) that can be spent by this profile before midnight UTC.",
@@ -79828,9 +80966,20 @@
             "description": "Whether to enforce the value configured by `daily_spend_limit`.",
             "type": "boolean"
           },
+          "redaction_enabled": {
+            "description": "Indicates whether message content redaction is enabled for this profile.",
+            "type": "boolean",
+            "default": false
+          },
+          "redaction_level": {
+            "description": "Determines how much information is redacted in messages for privacy or compliance purposes.",
+            "type": "integer",
+            "default": 2
+          },
           "mobile_only": {
             "description": "Send messages only to mobile phone numbers.",
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           }
         },
         "example": {
@@ -79868,171 +81017,6 @@
           "redaction_enabled": false,
           "redaction_level": 2,
           "mobile_only": false
-        }
-      },
-      "MessagingProfileDetailedMetric": {
-        "type": "object",
-        "properties": {
-          "timestamp": {
-            "type": "string",
-            "description": "The timestamp of the aggregated data.",
-            "example": "2019-01-23T18:10:02.574Z",
-            "readOnly": true
-          },
-          "metrics": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MessagingProfileMessageTypeMetrics"
-            }
-          }
-        }
-      },
-      "MessagingProfileDetailedMetrics": {
-        "type": "object",
-        "properties": {
-          "overview": {
-            "$ref": "#/components/schemas/MessagingProfileHighLevelMetrics"
-          },
-          "detailed": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MessagingProfileDetailedMetric"
-            }
-          }
-        },
-        "example": {
-          "detailed": [
-            {
-              "metrics": [
-                {
-                  "label": "longcode",
-                  "sent": 1000,
-                  "delivered": 990,
-                  "errors": 0.01,
-                  "received": 750
-                }
-              ],
-              "timestamp": "2019-01-23T18:10:02.574Z"
-            }
-          ],
-          "overview": {
-            "record_type": "messaging_profile_metrics",
-            "messaging_profile_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "phone_numbers": 250,
-            "outbound": {
-              "sent": 1000,
-              "delivered": 990,
-              "errors": 0.01
-            },
-            "inbound": {
-              "received": 850
-            }
-          }
-        }
-      },
-      "MessagingProfileHighLevelMetrics": {
-        "type": "object",
-        "example": {
-          "record_type": "messaging_profile_metrics",
-          "messaging_profile_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-          "phone_numbers": 250,
-          "outbound": {
-            "sent": 1000,
-            "delivered": 990,
-            "errors": 0.01
-          },
-          "inbound": {
-            "received": 850
-          }
-        },
-        "properties": {
-          "record_type": {
-            "type": "string",
-            "example": "messaging_profile_metrics",
-            "enum": [
-              "messaging_profile_metrics"
-            ],
-            "description": "Identifies the type of the resource.",
-            "readOnly": true
-          },
-          "messaging_profile_id": {
-            "type": "string",
-            "format": "uuid",
-            "description": "Identifies the type of resource.",
-            "readOnly": true
-          },
-          "phone_numbers": {
-            "type": "number",
-            "description": "The number of phone numbers associated with the messaging profile.",
-            "readOnly": true
-          },
-          "outbound": {
-            "type": "object",
-            "properties": {
-              "sent": {
-                "type": "number",
-                "description": "The number of outbound messages sent.",
-                "readOnly": true
-              },
-              "delivered": {
-                "type": "number",
-                "description": "The number of outbound messages successfully delivered.",
-                "readOnly": true
-              },
-              "error_ratio": {
-                "type": "number",
-                "description": "The ratio of messages sent that resulted in errors.",
-                "readOnly": true
-              }
-            }
-          },
-          "inbound": {
-            "type": "object",
-            "properties": {
-              "received": {
-                "type": "number",
-                "description": "The number of inbound messages received.",
-                "readOnly": true
-              }
-            }
-          }
-        }
-      },
-      "MessagingProfileMessageTypeMetrics": {
-        "type": "object",
-        "example": {
-          "label": "longcode",
-          "sent": 1000,
-          "delivered": 990,
-          "errors": 0.01,
-          "received": 750
-        },
-        "properties": {
-          "label": {
-            "type": "string",
-            "description": "The metric type.",
-            "readOnly": true
-          },
-          "sent": {
-            "type": "number",
-            "description": "The number of outbound messages sent.",
-            "readOnly": true
-          },
-          "delivered": {
-            "type": "number",
-            "description": "The number of outbound messages successfully delivered.",
-            "readOnly": true
-          },
-          "outbound_error_ratio": {
-            "type": "number",
-            "description": "The ratio of outbound messages sent that resulted in errors.",
-            "readOnly": true
-          },
-          "received": {
-            "type": "number",
-            "description": "The number of inbound messages received.",
-            "readOnly": true
-          }
         }
       },
       "MessagingSettings": {
@@ -80164,9 +81148,7 @@
             "format": "date-time",
             "description": "Time when data migration was last copied from the source.",
             "readOnly": true,
-            "example": [
-              "2020-01-01T00:00:00Z"
-            ]
+            "example": "2020-01-01T00:00:00Z"
           },
           "status": {
             "type": "string",
@@ -80201,18 +81183,14 @@
             "format": "date-time",
             "readOnly": true,
             "description": "Estimated time the migration will complete.",
-            "example": [
-              "2020-01-01T00:00:00Z"
-            ]
+            "example": "2020-01-01T00:00:00Z"
           },
           "created_at": {
             "type": "string",
             "format": "date-time",
             "description": "Time when data migration was created",
             "readOnly": true,
-            "example": [
-              "2020-01-01T00:00:00Z"
-            ]
+            "example": "2020-01-01T00:00:00Z"
           }
         },
         "required": [
@@ -81823,7 +82801,6 @@
       },
       "NumberHealthMetrics": {
         "type": "object",
-        "nullable": false,
         "required": [
           "message_count",
           "inbound_outbound_ratio",
@@ -81987,62 +82964,6 @@
             "readOnly": true
           }
         }
-      },
-      "NumberOrderDocument": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "example": "387d1e31-a218-4375-8151-103f2d5e2d2c",
-            "readOnly": true
-          },
-          "record_type": {
-            "type": "string",
-            "example": "number_order_document",
-            "readOnly": true
-          },
-          "file_id": {
-            "type": "string",
-            "description": "The id of the file to associate as a number order document.",
-            "example": "1e3c5822-0362-4702-8e46-5a129f0d3976"
-          },
-          "requirements_id": {
-            "type": "string",
-            "description": "Unique id for a requirement.",
-            "example": "36aaf27d-986b-493c-bd1b-de16af2e4292"
-          },
-          "customer_reference": {
-            "type": "string",
-            "description": "A customer reference string for customer look ups.",
-            "example": "MY REF 001"
-          },
-          "requirement_type": {
-            "type": "string",
-            "enum": [
-              "address_proof",
-              "identification",
-              "reg_form"
-            ],
-            "readOnly": true
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "An ISO 8901 datetime string denoting when the number order document was uploaded.",
-            "example": "2018-01-01T00:00:00.000000Z",
-            "readOnly": true
-          }
-        },
-        "example": {
-          "id": "387d1e31-a218-4375-8151-103f2d5e2d2c",
-          "record_type": "number_order_document",
-          "file_id": "1e3c5822-0362-4702-8e46-5a129f0d3976",
-          "requirements_id": "36aaf27d-986b-493c-bd1b-de16af2e4292",
-          "customer_reference": "MY REF 001",
-          "requirement_type": "address_proof",
-          "created_at": "2018-01-01T00:00:00.000000Z"
-        },
-        "type": "object"
       },
       "NumberOrderPhoneNumber": {
         "properties": {
@@ -82303,161 +83224,6 @@
           "meta"
         ]
       },
-      "NumberOrderWebhookPayload": {
-        "title": "Number Order Webhook Payload",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "example": "b1425b7e-92a2-4a24-a709-fdd0cc4293e8",
-            "description": "Unique identifier for the number order"
-          },
-          "record_type": {
-            "type": "string",
-            "example": "number_order",
-            "description": "Type of record"
-          },
-          "phone_numbers_count": {
-            "type": "integer",
-            "description": "The count of phone numbers in the number order.",
-            "example": 1
-          },
-          "connection_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "description": "Identifies the connection associated with this phone number."
-          },
-          "messaging_profile_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "description": "Identifies the messaging profile associated with the phone number."
-          },
-          "billing_group_id": {
-            "type": "string",
-            "example": null,
-            "description": "Identifies the billing group associated with the phone number.",
-            "nullable": true
-          },
-          "phone_numbers": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "format": "uuid",
-                  "example": "c7d55dc7-bca4-47d1-a739-9a45bbf8717f"
-                },
-                "phone_number": {
-                  "type": "string",
-                  "example": "+14803935977"
-                },
-                "country_code": {
-                  "type": "string",
-                  "example": "US",
-                  "description": "Country code of the phone number"
-                },
-                "phone_number_type": {
-                  "type": "string",
-                  "example": "local",
-                  "enum": [
-                    "local",
-                    "mobile",
-                    "national",
-                    "shared_cost",
-                    "toll_free"
-                  ]
-                },
-                "record_type": {
-                  "type": "string",
-                  "example": "number_order_phone_number"
-                },
-                "bundle_id": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "format": "uuid"
-                },
-                "regulatory_requirements": {
-                  "type": "array",
-                  "items": {
-                    "type": "object"
-                  }
-                },
-                "requirements_met": {
-                  "type": "boolean",
-                  "example": true
-                },
-                "requirements_status": {
-                  "type": "string",
-                  "example": "approved",
-                  "enum": [
-                    "pending",
-                    "approved",
-                    "cancelled",
-                    "deleted",
-                    "requirement-info-exception",
-                    "requirement-info-pending",
-                    "requirement-info-under-review"
-                  ]
-                },
-                "status": {
-                  "type": "string",
-                  "example": "success",
-                  "enum": [
-                    "pending",
-                    "success",
-                    "failure"
-                  ]
-                }
-              }
-            }
-          },
-          "sub_number_orders_ids": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "example": [
-              "01bdf068-363d-4878-8210-051761613cf0"
-            ]
-          },
-          "status": {
-            "type": "string",
-            "example": "success",
-            "enum": [
-              "pending",
-              "success",
-              "failure"
-            ]
-          },
-          "customer_reference": {
-            "type": "string",
-            "example": null,
-            "nullable": true
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2025-08-22T16:23:50.762227+00:00"
-          },
-          "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2025-08-22T16:23:50.762227+00:00"
-          },
-          "requirements_met": {
-            "type": "boolean",
-            "example": true
-          }
-        }
-      },
       "NumberOrderWithPhoneNumbers": {
         "title": "NumberOrder",
         "type": "object",
@@ -82544,50 +83310,11 @@
           }
         }
       },
-      "NumberOrdered": {
-        "type": "object",
-        "title": "Number Order Event Data",
-        "properties": {
-          "record_type": {
-            "type": "string",
-            "example": "event",
-            "enum": [
-              "event"
-            ],
-            "description": "Identifies the type of the resource."
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "description": "Identifies the type of resource."
-          },
-          "event_type": {
-            "type": "string",
-            "example": "number_order.complete",
-            "description": "The type of event being delivered."
-          },
-          "occurred_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "ISO 8601 formatted date indicating when the resource was created."
-          },
-          "payload": {
-            "$ref": "#/components/schemas/NumberOrder"
-          }
-        }
-      },
-      "NumberOrderedEvent": {
-        "type": "object",
-        "title": "Number Order Event",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/NumberOrdered"
-          }
-        }
-      },
       "NumberPoolSettings": {
-        "type": "object",
-        "nullable": true,
+        "type": [
+          "object",
+          "null"
+        ],
         "required": [
           "toll_free_weight",
           "long_code_weight",
@@ -83152,13 +83879,17 @@
             "$ref": "#/components/schemas/ToNumber"
           },
           "messaging_profile_id": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Unique identifier for a messaging profile."
           },
           "keyword": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The keyword that triggered the opt-out.",
             "example": "STOP"
           },
@@ -83166,7 +83897,7 @@
             "type": "string",
             "format": "date-time",
             "description": "The timestamp when the opt-out was created",
-            "example": "2025-04-28 12:00:38.631252"
+            "example": "2025-04-28 12:00:38.631252+00:00"
           }
         }
       },
@@ -83497,7 +84228,7 @@
           "record_type": "event",
           "id": "86f58db9-0fe3-4adc-9d1f-46e66e6e9323",
           "event_type": "message.sent",
-          "occurred_at": "date-time",
+          "occurred_at": "2019-01-23T18:10:02.574Z",
           "payload": {
             "record_type": "message",
             "direction": "outbound",
@@ -83537,16 +84268,16 @@
               "Greetings"
             ],
             "cost": {
-              "amount": 0.0051,
+              "amount": "0.0051",
               "currency": "USD"
             },
             "cost_breakdown": {
               "carrier_fee": {
-                "amount": 0.00305,
+                "amount": "0.00305",
                 "currency": "USD"
               },
               "rate": {
-                "amount": 0.00205,
+                "amount": "0.00205",
                 "currency": "USD"
               }
             },
@@ -83695,13 +84426,56 @@
               }
             }
           },
+          "cc": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "phone_number": {
+                  "type": "string",
+                  "format": "address",
+                  "description": "Receiving address (+E.164 formatted phone number or short code)."
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "queued",
+                    "sending",
+                    "sent",
+                    "delivered",
+                    "sending_failed",
+                    "delivery_failed",
+                    "delivery_unconfirmed"
+                  ]
+                },
+                "carrier": {
+                  "type": "string",
+                  "description": "The carrier of the receiver."
+                },
+                "line_type": {
+                  "type": "string",
+                  "description": "The line-type of the receiver.",
+                  "enum": [
+                    "Wireline",
+                    "Wireless",
+                    "VoWiFi",
+                    "VoIP",
+                    "Pre-Paid Wireless",
+                    ""
+                  ]
+                }
+              }
+            }
+          },
           "text": {
             "type": "string",
             "description": "Message body (i.e., content) as a non-empty string.\n\n**Required for SMS**"
           },
           "subject": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Subject of multimedia message"
           },
           "media": {
@@ -83715,34 +84489,44 @@
                   "description": "The url of the media requested to be sent."
                 },
                 "content_type": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "mime-type",
-                  "nullable": true,
                   "description": "The MIME type of the requested media."
                 },
                 "sha256": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The SHA256 hash of the requested media."
                 },
                 "size": {
-                  "type": "integer",
-                  "nullable": true,
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
                   "description": "The size of the requested media."
                 }
               }
             }
           },
           "webhook_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
-            "nullable": true,
             "description": "The URL where webhooks related to this message will be sent."
           },
           "webhook_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
-            "nullable": true,
             "description": "The failover URL where webhooks related to this message will be sent if sending to the primary URL fails."
           },
           "encoding": {
@@ -83763,8 +84547,10 @@
             }
           },
           "cost": {
-            "type": "object",
-            "nullable": true,
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "amount": {
                 "type": "string",
@@ -83779,8 +84565,10 @@
             }
           },
           "cost_breakdown": {
-            "type": "object",
-            "nullable": true,
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "carrier_fee": {
                 "type": "object",
@@ -83816,8 +84604,10 @@
             "description": "Detailed breakdown of the message cost components."
           },
           "tcr_campaign_id": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The Campaign Registry (TCR) campaign ID associated with the message."
           },
           "tcr_campaign_billable": {
@@ -83825,8 +84615,10 @@
             "description": "Indicates whether the TCR campaign is billable."
           },
           "tcr_campaign_registered": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The registration status of the TCR campaign.",
             "example": "REGISTERED"
           },
@@ -83836,20 +84628,28 @@
             "description": "ISO 8601 formatted date indicating when the message request was received."
           },
           "sent_at": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "description": "ISO 8601 formatted date indicating when the message was sent."
           },
           "completed_at": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "description": "ISO 8601 formatted date indicating when the message was finalized."
           },
           "valid_until": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Message must be out of the queue by this time or else it will be discarded and marked as 'sending_failed'. Once the message moves out of the queue, this field will be nulled",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "errors": {
             "type": "array",
@@ -83898,16 +84698,16 @@
             "Greetings"
           ],
           "cost": {
-            "amount": 0.0051,
+            "amount": "0.0051",
             "currency": "USD"
           },
           "cost_breakdown": {
             "carrier_fee": {
-              "amount": 0.00305,
+              "amount": "0.00305",
               "currency": "USD"
             },
             "rate": {
-              "amount": 0.00205,
+              "amount": "0.00205",
               "currency": "USD"
             }
           },
@@ -84033,13 +84833,60 @@
               }
             }
           },
+          "cc": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "phone_number": {
+                  "type": "string",
+                  "format": "address",
+                  "description": "Receiving address (+E.164 formatted phone number or short code)."
+                },
+                "status": {
+                  "type": "string",
+                  "description": "The delivery status of the message.",
+                  "enum": [
+                    "scheduled",
+                    "queued",
+                    "sending",
+                    "sent",
+                    "cancelled",
+                    "expired",
+                    "sending_failed",
+                    "delivery_unconfirmed",
+                    "delivered",
+                    "delivery_failed"
+                  ]
+                },
+                "carrier": {
+                  "type": "string",
+                  "description": "The carrier of the receiver."
+                },
+                "line_type": {
+                  "type": "string",
+                  "description": "The line-type of the receiver.",
+                  "enum": [
+                    "Wireline",
+                    "Wireless",
+                    "VoWiFi",
+                    "VoIP",
+                    "Pre-Paid Wireless",
+                    ""
+                  ]
+                }
+              }
+            }
+          },
           "text": {
             "type": "string",
             "description": "Message body (i.e., content) as a non-empty string.\n\n**Required for SMS**"
           },
           "subject": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Subject of multimedia message"
           },
           "media": {
@@ -84053,34 +84900,44 @@
                   "description": "The url of the media requested to be sent."
                 },
                 "content_type": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "mime-type",
-                  "nullable": true,
                   "description": "The MIME type of the requested media."
                 },
                 "sha256": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The SHA256 hash of the requested media."
                 },
                 "size": {
-                  "type": "integer",
-                  "nullable": true,
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
                   "description": "The size of the requested media."
                 }
               }
             }
           },
           "webhook_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
-            "nullable": true,
             "description": "The URL where webhooks related to this message will be sent."
           },
           "webhook_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
-            "nullable": true,
             "description": "The failover URL where webhooks related to this message will be sent if sending to the primary URL fails."
           },
           "encoding": {
@@ -84101,8 +84958,10 @@
             }
           },
           "cost": {
-            "type": "object",
-            "nullable": true,
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "amount": {
                 "type": "string",
@@ -84117,8 +84976,10 @@
             }
           },
           "cost_breakdown": {
-            "type": "object",
-            "nullable": true,
+            "type": [
+              "object",
+              "null"
+            ],
             "properties": {
               "carrier_fee": {
                 "type": "object",
@@ -84154,8 +85015,10 @@
             "description": "Detailed breakdown of the message cost components."
           },
           "tcr_campaign_id": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The Campaign Registry (TCR) campaign ID associated with the message."
           },
           "tcr_campaign_billable": {
@@ -84163,8 +85026,10 @@
             "description": "Indicates whether the TCR campaign is billable."
           },
           "tcr_campaign_registered": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The registration status of the TCR campaign.",
             "example": "REGISTERED"
           },
@@ -84174,20 +85039,28 @@
             "description": "ISO 8601 formatted date indicating when the message request was received."
           },
           "sent_at": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "description": "ISO 8601 formatted date indicating when the message was sent."
           },
           "completed_at": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "date-time",
             "description": "ISO 8601 formatted date indicating when the message was finalized."
           },
           "valid_until": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Message must be out of the queue by this time or else it will be discarded and marked as 'sending_failed'. Once the message moves out of the queue, this field will be nulled",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "errors": {
             "type": "array",
@@ -84229,8 +85102,8 @@
             "Greetings"
           ],
           "cost": {
-            "amount": 0.0,
-            "currency": null
+            "amount": "0.0",
+            "currency": "USD"
           },
           "cost_breakdown": null,
           "tcr_campaign_id": "TCPA3X7",
@@ -84662,27 +85535,19 @@
         "properties": {
           "page_number": {
             "type": "integer",
-            "example": [
-              2
-            ]
+            "example": 2
           },
           "page_size": {
             "type": "integer",
-            "example": [
-              25
-            ]
+            "example": 25
           },
           "total_pages": {
             "type": "integer",
-            "example": [
-              3
-            ]
+            "example": 3
           },
           "total_results": {
             "type": "integer",
-            "example": [
-              55
-            ]
+            "example": 55
           }
         }
       },
@@ -86011,14 +86876,18 @@
             "description": "The inbound_call_screening setting is a phone number configuration option variable that allows users to configure their settings to block or flag fraudulent calls. It can be set to disabled, reject_calls, or flag_calls. This feature has an additional per-number monthly cost associated with it."
           },
           "source_type": {
-            "type": [
-              "string",
-              "null"
-            ],
             "description": "Indicates if the phone number was purchased or ported in. For some numbers this information may not be available.",
-            "enum": [
-              "number_order",
-              "port_request"
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "number_order",
+                  "port_request"
+                ]
+              },
+              {
+                "type": "null"
+              }
             ],
             "readOnly": true
           },
@@ -86175,8 +87044,10 @@
             "readOnly": true
           },
           "messaging_profile_id": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Unique identifier for a messaging profile."
           },
           "created_at": {
@@ -89134,9 +90005,7 @@
             "description": "The time to live of the token in seconds",
             "minimum": 1,
             "maximum": 604800,
-            "example": [
-              60
-            ]
+            "example": 60
           }
         }
       },
@@ -89657,24 +90526,30 @@
             "example": "2ecf295b-36c6-4d43-ad05-71eb1e560518"
           },
           "profile_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uuid",
             "description": "Messaging profile ID associated with the RCS Agent",
-            "example": "4001932a-b8a3-42fc-9389-021be6388909",
-            "nullable": true
+            "example": "4001932a-b8a3-42fc-9389-021be6388909"
           },
           "webhook_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
             "description": "URL to receive RCS events",
-            "nullable": true,
             "example": "http://example.com"
           },
           "webhook_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
             "description": "Failover URL to receive RCS events",
-            "nullable": true,
             "example": "http://example.com"
           },
           "agent_name": {
@@ -89735,24 +90610,30 @@
         "type": "object",
         "properties": {
           "profile_id": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "uuid",
             "description": "Messaging profile ID associated with the RCS Agent",
-            "example": "4001932a-b8a3-42fc-9389-021be6388909",
-            "nullable": true
+            "example": "4001932a-b8a3-42fc-9389-021be6388909"
           },
           "webhook_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
             "description": "URL to receive RCS events",
-            "nullable": true,
             "example": "http://example.com"
           },
           "webhook_failover_url": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "format": "url",
             "description": "Failover URL to receive RCS events",
-            "nullable": true,
             "example": "http://example.com"
           }
         }
@@ -89895,48 +90776,6 @@
             "items": {
               "$ref": "#/components/schemas/RCSCardContent"
             }
-          }
-        }
-      },
-      "RCSComposeRecordingMessage": {
-        "type": "object",
-        "required": [
-          "phone_number",
-          "type"
-        ],
-        "description": "Initiate the recording and sending of an audio or video message.",
-        "properties": {
-          "phone_number": {
-            "type": "string",
-            "description": "phone number in +E.164 format",
-            "example": "+13125551234"
-          },
-          "type": {
-            "type": "string",
-            "description": "The type of the recording action.",
-            "enum": [
-              "COMPOSE_RECORDING_ACTION_TYPE_UNSPECIFIED",
-              "ACTION_TYPE_AUDIO",
-              "ACTION_TYPE_VIDEO"
-            ]
-          }
-        }
-      },
-      "RCSComposeTextMessage": {
-        "type": "object",
-        "required": [
-          "phone_number"
-        ],
-        "description": "Compose and send a text message.",
-        "properties": {
-          "phone_number": {
-            "type": "string",
-            "description": "phone number in +E.164 format",
-            "example": "+13125551234"
-          },
-          "text": {
-            "type": "string",
-            "description": "Draft to go into the send message text field."
           }
         }
       },
@@ -93254,25 +94093,19 @@
             "type": "string",
             "format": "date-time",
             "description": "The time the certificate is valid from",
-            "example": [
-              "2020-01-01T00:00:00Z"
-            ]
+            "example": "2020-01-01T00:00:00Z"
           },
           "valid_to": {
             "type": "string",
             "format": "date-time",
             "description": "The time the certificate is valid to",
-            "example": [
-              "2020-01-01T00:00:00Z"
-            ]
+            "example": "2020-01-01T00:00:00Z"
           },
           "created_at": {
             "type": "string",
             "format": "date-time",
             "description": "Time when SSL certificate was uploaded",
-            "example": [
-              "2020-01-01T00:00:00Z"
-            ]
+            "example": "2020-01-01T00:00:00Z"
           }
         }
       },
@@ -94040,9 +94873,19 @@
             "readOnly": true
           },
           "messaging_profile_id": {
-            "type": "string",
-            "nullable": true,
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Unique identifier for a messaging profile."
+          },
+          "tags": {
+            "type": [
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           },
           "created_at": {
             "type": "string",
@@ -96593,75 +97436,93 @@
           },
           "businessRegistrationNumber": {
             "title": "Businessregistrationnumber",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 500,
-            "nullable": true,
             "description": "Official business registration number (e.g., Employer Identification Number (EIN) in the U.S.). Required from January 2026.",
             "example": "12-3456789"
           },
           "businessRegistrationType": {
             "title": "Businessregistrationtype",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 500,
-            "nullable": true,
             "description": "Type of business registration being provided. Required from January 2026.",
             "example": "EIN"
           },
           "businessRegistrationCountry": {
             "title": "Businessregistrationcountry",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 2,
             "pattern": "^[A-Z]{2}$",
-            "nullable": true,
             "description": "ISO 3166-1 alpha-2 country code of the issuing business authority. Must be exactly 2 letters. Automatically converted to uppercase. Required from January 2026.",
             "example": "US"
           },
           "doingBusinessAs": {
             "title": "Doingbusinessas",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 500,
-            "nullable": true,
             "description": "Doing Business As (DBA) name if different from legal name",
             "example": "Acme Services"
           },
           "entityType": {
-            "allOf": [
+            "anyOf": [
               {
                 "$ref": "#/components/schemas/toll-free-verification_EntityType"
+              },
+              {
+                "type": "null"
               }
             ],
-            "nullable": true,
             "description": "Business entity classification. Must be one of the 5 valid enum values."
           },
           "optInConfirmationResponse": {
             "title": "Optinconfirmationresponse",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 500,
-            "nullable": true,
             "description": "Message sent to users confirming their opt-in to receive messages",
             "example": "You have successfully opted in to receive messages from Acme Corp"
           },
           "helpMessageResponse": {
             "title": "Helpmessageresponse",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 500,
-            "nullable": true,
             "description": "The message returned when users text 'HELP'",
             "example": "Reply HELP for assistance or STOP to unsubscribe. Contact: support@example.com"
           },
           "privacyPolicyURL": {
             "title": "Privacypolicyurl",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 500,
-            "nullable": true,
             "description": "URL pointing to the business's privacy policy. Plain string, no URL format validation.",
             "example": "https://example.com/privacy"
           },
           "termsAndConditionURL": {
             "title": "Termsandconditionurl",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 500,
-            "nullable": true,
             "description": "URL pointing to the business's terms and conditions. Plain string, no URL format validation.",
             "example": "https://example.com/terms"
           },
@@ -96673,9 +97534,11 @@
           },
           "optInKeywords": {
             "title": "Optinkeywords",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 500,
-            "nullable": true,
             "description": "Keywords used to collect and process consumer opt-ins",
             "example": "START, YES, SUBSCRIBE"
           }
@@ -102557,15 +103420,19 @@
           },
           "webhook_url": {
             "description": "The URL where webhooks related to this messaging profile will be sent.",
-            "type": "string",
-            "format": "url",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "url"
           },
           "webhook_failover_url": {
             "description": "The failover URL where webhooks related to this messaging profile will be sent if sending to the primary URL fails.",
-            "type": "string",
-            "format": "url",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "url"
           },
           "webhook_api_version": {
             "description": "Determines which webhook format will be used, Telnyx API v1, v2, or a legacy 2010-04-01 format.",
@@ -102609,9 +103476,11 @@
           },
           "alpha_sender": {
             "description": "The alphanumeric sender ID to use when sending to destinations that require an alphanumeric sender ID.",
-            "type": "string",
-            "pattern": "^[A-Za-z0-9 ]{1,11}$",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[A-Za-z0-9 ]{1,11}$"
           },
           "daily_spend_limit": {
             "description": "The maximum amount of money (in USD) that can be spent by this profile before midnight UTC.",
@@ -102662,62 +103531,6 @@
           },
           "v1_secret": "rP1VamejkU2v0qIUxntqLW2c"
         }
-      },
-      "UpdateNumberOrderDocumentRequest": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "example": "387d1e31-a218-4375-8151-103f2d5e2d2c",
-            "readOnly": true
-          },
-          "record_type": {
-            "type": "string",
-            "example": "number_order_document",
-            "readOnly": true
-          },
-          "file_id": {
-            "type": "string",
-            "description": "The id of the file to associate as a number order document.",
-            "example": "1e3c5822-0362-4702-8e46-5a129f0d3976"
-          },
-          "requirements_id": {
-            "type": "string",
-            "description": "Unique id for a requirement.",
-            "example": "36aaf27d-986b-493c-bd1b-de16af2e4292"
-          },
-          "customer_reference": {
-            "type": "string",
-            "description": "A customer reference string for customer look ups.",
-            "example": "MY REF 001"
-          },
-          "requirement_type": {
-            "type": "string",
-            "enum": [
-              "address_proof",
-              "identification",
-              "reg_form"
-            ],
-            "readOnly": true
-          },
-          "created_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "An ISO 8901 datetime string denoting when the number order document was uploaded.",
-            "example": "2018-01-01T00:00:00.000000Z",
-            "readOnly": true
-          }
-        },
-        "example": {
-          "id": "387d1e31-a218-4375-8151-103f2d5e2d2c",
-          "record_type": "number_order_document",
-          "file_id": "1e3c5822-0362-4702-8e46-5a129f0d3976",
-          "requirements_id": "36aaf27d-986b-493c-bd1b-de16af2e4292",
-          "customer_reference": "MY REF 001",
-          "requirement_type": "address_proof",
-          "created_at": "2018-01-01T00:00:00.000000Z"
-        },
-        "type": "object"
       },
       "UpdateNumberOrderPhoneNumberRequest": {
         "properties": {
@@ -103185,6 +103998,14 @@
           "messaging_profile_id": {
             "type": "string",
             "description": "Unique identifier for a messaging profile."
+          },
+          "tags": {
+            "type": [
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
           }
         },
         "example": {
@@ -103450,9 +104271,11 @@
           },
           "alpha_sender": {
             "description": "The alphanumeric sender ID to use when sending to destinations that require an alphanumeric sender ID.",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "pattern": "^[A-Za-z0-9 ]{1,11}$",
-            "nullable": true,
             "default": "Telnyx"
           },
           "code_length": {
@@ -103660,8 +104483,10 @@
         }
       },
       "UrlShortenerSettings": {
-        "type": "object",
-        "nullable": true,
+        "type": [
+          "object",
+          "null"
+        ],
         "required": [
           "domain"
         ],
@@ -104550,9 +105375,11 @@
           },
           "custom_code": {
             "example": "43612",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "Send a self-generated numeric code to the end-user",
-            "nullable": true,
             "default": null
           },
           "timeout_secs": {
@@ -105081,7 +105908,7 @@
                 "$ref": "#/components/schemas/TFVerificationStatus"
               }
             ],
-            "example": "Pending Customer Feedback"
+            "example": "Waiting For Customer"
           },
           "reason": {
             "title": "Reason",
@@ -105398,9 +106225,11 @@
           },
           "alpha_sender": {
             "description": "The alphanumeric sender ID to use when sending to destinations that require an alphanumeric sender ID.",
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "pattern": "^[A-Za-z0-9 ]{1,11}$",
-            "nullable": true,
             "default": "Telnyx"
           },
           "code_length": {
@@ -109349,27 +110178,6 @@
         "example": "1293384261075731499",
         "readOnly": true
       },
-      "numbers_PaginationMetaSimple": {
-        "type": "object",
-        "properties": {
-          "page_number": {
-            "type": "integer",
-            "example": 2
-          },
-          "page_size": {
-            "type": "integer",
-            "example": 25
-          },
-          "total_pages": {
-            "type": "integer",
-            "example": 3
-          },
-          "total_results": {
-            "type": "integer",
-            "example": 55
-          }
-        }
-      },
       "oauth_Error": {
         "type": "object",
         "properties": {
@@ -110391,27 +111199,6 @@
           }
         }
       },
-      "webhooks_PaginationMetaSimple": {
-        "type": "object",
-        "properties": {
-          "page_number": {
-            "type": "integer",
-            "example": 2
-          },
-          "page_size": {
-            "type": "integer",
-            "example": 25
-          },
-          "total_pages": {
-            "type": "integer",
-            "example": 3
-          },
-          "total_results": {
-            "type": "integer",
-            "example": 55
-          }
-        }
-      },
       "wireless-public_Error": {
         "type": "object",
         "properties": {
@@ -110562,11 +111349,6 @@
       }
     },
     "securitySchemes": {
-      "10dlc_bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
-      },
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer"

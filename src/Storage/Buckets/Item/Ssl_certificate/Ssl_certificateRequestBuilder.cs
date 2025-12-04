@@ -69,7 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificateGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Uploads an SSL certificate and its matching secret so that you can use Telnyx’s storage as your CDN.
+        /// Uploads an SSL certificate and its matching secret so that you can use Telnyx&apos;s storage as your CDN.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate.Ssl_certificatePutResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Ssl_certificate
             return requestInfo;
         }
         /// <summary>
-        /// Uploads an SSL certificate and its matching secret so that you can use Telnyx’s storage as your CDN.
+        /// Uploads an SSL certificate and its matching secret so that you can use Telnyx&apos;s storage as your CDN.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

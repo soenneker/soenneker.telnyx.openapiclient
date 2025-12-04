@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Item.Presigned_url
         {
         }
         /// <summary>
-        /// Returns a timed and authenticated URL to get an object. This is the equivalent to AWS S3’s “presigned” URL. Please note that Telnyx performs authentication differently from AWS S3 and you MUST NOT use the presign method of AWS s3api CLI or sdk to generate the presigned URL. Refer to: https://developers.telnyx.com/docs/cloud-storage/presigned-urls
+        /// Returns a timed and authenticated URL to download (GET) or upload (PUT) an object. This is the equivalent to AWS S3’s “presigned” URL. Please note that Telnyx performs authentication differently from AWS S3 and you MUST NOT use the presign method of AWS s3api CLI or SDK to generate the presigned URL. Refer to: https://developers.telnyx.com/docs/cloud-storage/presigned-urls
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrl"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Item.Presigned_url
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrl>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrl.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a timed and authenticated URL to get an object. This is the equivalent to AWS S3’s “presigned” URL. Please note that Telnyx performs authentication differently from AWS S3 and you MUST NOT use the presign method of AWS s3api CLI or sdk to generate the presigned URL. Refer to: https://developers.telnyx.com/docs/cloud-storage/presigned-urls
+        /// Returns a timed and authenticated URL to download (GET) or upload (PUT) an object. This is the equivalent to AWS S3’s “presigned” URL. Please note that Telnyx performs authentication differently from AWS S3 and you MUST NOT use the presign method of AWS s3api CLI or SDK to generate the presigned URL. Refer to: https://developers.telnyx.com/docs/cloud-storage/presigned-urls
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

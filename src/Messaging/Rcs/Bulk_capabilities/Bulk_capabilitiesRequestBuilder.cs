@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Bulk_capabilities
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Errors">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesBulk?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilityListRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -54,7 +54,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Bulk_capabilities
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Errors.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesBulk>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesBulk.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

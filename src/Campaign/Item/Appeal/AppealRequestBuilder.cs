@@ -43,6 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Campaign.Item.Appeal
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.C10dlc_Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.C10dlc_Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.C10dlc_Errors">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.AppealCampaign_200?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.AppealCampaign body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -59,6 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Campaign.Item.Appeal
                 { "400", global::Soenneker.Telnyx.OpenApiClient.Models.C10dlc_Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.C10dlc_Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.C10dlc_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AppealCampaign_200>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AppealCampaign_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
