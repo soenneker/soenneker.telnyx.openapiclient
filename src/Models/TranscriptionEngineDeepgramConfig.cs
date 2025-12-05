@@ -99,13 +99,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var mappingValue = parseNode.GetChildNode("transcription_model")?.GetStringValue();
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language();
-                if("DeepgramNova2TranscriptionLanguage_Wrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.DeepgramNova2TranscriptionLanguageWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage_Wrapper();
                 }
-                else if("DeepgramNova3TranscriptionLanguage_Wrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.DeepgramNova3TranscriptionLanguageWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper();
                 }

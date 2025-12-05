@@ -151,17 +151,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public static global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequest.ConferenceSpeakRequest_voice_settings CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceSpeakRequest.ConferenceSpeakRequest_voice_settings();
-                if("AWSVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("aws".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.AWSVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings();
                 }
-                else if("ElevenLabsVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("elevenlabs".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ElevenLabsVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings();
                 }
-                else if("TelnyxVoiceSettings".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("telnyx".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.TelnyxVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings();
                 }

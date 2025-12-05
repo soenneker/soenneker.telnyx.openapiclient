@@ -102,17 +102,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public static global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var mappingValue = parseNode.GetChildNode("backend")?.GetStringValue();
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CustomStorageConfiguration.CustomStorageConfiguration_configuration();
-                if("AzureConfigurationData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("azure".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.AzureConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData();
                 }
-                else if("GCSConfigurationData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("gcs".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.GCSConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.GCSConfigurationData();
                 }
-                else if("S3ConfigurationData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("s3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.S3ConfigurationData = new global::Soenneker.Telnyx.OpenApiClient.Models.S3ConfigurationData();
                 }

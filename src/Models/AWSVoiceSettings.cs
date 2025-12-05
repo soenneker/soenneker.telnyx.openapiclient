@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Voice settings provider type</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings"/> and sets the default values.
         /// </summary>
@@ -39,6 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings_type>(); } },
             };
         }
         /// <summary>
@@ -48,6 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

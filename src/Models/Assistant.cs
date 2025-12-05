@@ -154,29 +154,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public static global::Soenneker.Telnyx.OpenApiClient.Models.Assistant.Assistant_tools CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.Assistant.Assistant_tools();
-                if("BookAppointmentTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("book_appointment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.BookAppointmentTool = new global::Soenneker.Telnyx.OpenApiClient.Models.BookAppointmentTool();
                 }
-                else if("CheckAvailabilityTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("check_availability".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.CheckAvailabilityTool = new global::Soenneker.Telnyx.OpenApiClient.Models.CheckAvailabilityTool();
                 }
-                else if("HangupTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("hangup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.HangupTool = new global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool();
                 }
-                else if("RetrievalTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("retrieval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.RetrievalTool = new global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool();
                 }
-                else if("TransferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("transfer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.TransferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool();
                 }
-                else if("WebhookTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("webhook".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.WebhookTool = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool();
                 }

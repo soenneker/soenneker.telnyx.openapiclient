@@ -22,6 +22,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ApiKeyRef { get; set; }
 #endif
+        /// <summary>Voice settings provider type</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/> and sets the default values.
         /// </summary>
@@ -48,6 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings_type>(); } },
             };
         }
         /// <summary>
@@ -58,6 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

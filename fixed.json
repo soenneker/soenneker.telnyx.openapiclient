@@ -36746,6 +36746,9 @@
             "description": "The voice to be used by the voice assistant. Currently we support ElevenLabs, Telnyx and AWS voices.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.BaseModel.John`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration secret under `\"voice_settings\": {\"api_key_ref\": \"<secret_id>\"}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`"
           },
           "voice_settings": {
+            "required": [
+              "type"
+            ],
             "type": "object",
             "oneOf": [
               {
@@ -36758,7 +36761,20 @@
                 "$ref": "#/components/schemas/AWSVoiceSettings"
               }
             ],
-            "description": "The settings associated with the voice selected"
+            "properties": {
+              "type": {
+                "type": "string"
+              }
+            },
+            "description": "The settings associated with the voice selected",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+                "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+                "aws": "#/components/schemas/AWSVoiceSettings"
+              }
+            }
           },
           "greeting": {
             "type": "string",
@@ -36825,7 +36841,20 @@
       },
       "AWSVoiceSettings": {
         "title": "AWS Voice Settings",
-        "type": "object"
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "aws"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice settings provider type"
+          }
+        }
       },
       "AcceptSuggestionsRequest": {
         "type": "object",
@@ -37934,6 +37963,9 @@
           "tools": {
             "type": "array",
             "items": {
+              "required": [
+                "type"
+              ],
               "type": "object",
               "oneOf": [
                 {
@@ -37954,7 +37986,23 @@
                 {
                   "$ref": "#/components/schemas/RetrievalTool"
                 }
-              ]
+              ],
+              "properties": {
+                "type": {
+                  "type": "string"
+                }
+              },
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "book_appointment": "#/components/schemas/BookAppointmentTool",
+                  "check_availability": "#/components/schemas/CheckAvailabilityTool",
+                  "webhook": "#/components/schemas/WebhookTool",
+                  "hangup": "#/components/schemas/HangupTool",
+                  "transfer": "#/components/schemas/TransferTool",
+                  "retrieval": "#/components/schemas/RetrievalTool"
+                }
+              }
             },
             "description": "The tools that the voice assistant can use."
           }
@@ -39106,8 +39154,19 @@
       },
       "AzureConfigurationData": {
         "title": "Azure Blob Storage Configuration Data",
+        "required": [
+          "backend"
+        ],
         "type": "object",
         "properties": {
+          "backend": {
+            "enum": [
+              "azure"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Storage backend type"
+          },
           "bucket": {
             "type": "string",
             "description": "Name of the bucket to be used to store recording files."
@@ -49475,6 +49534,9 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
+            "required": [
+              "type"
+            ],
             "type": "object",
             "oneOf": [
               {
@@ -49487,7 +49549,20 @@
                 "$ref": "#/components/schemas/AWSVoiceSettings"
               }
             ],
-            "description": "The settings associated with the voice selected"
+            "properties": {
+              "type": {
+                "type": "string"
+              }
+            },
+            "description": "The settings associated with the voice selected",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+                "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+                "aws": "#/components/schemas/AWSVoiceSettings"
+              }
+            }
           },
           "language": {
             "enum": [
@@ -54641,6 +54716,9 @@
             "example": "gcs"
           },
           "configuration": {
+            "required": [
+              "backend"
+            ],
             "type": "object",
             "oneOf": [
               {
@@ -54652,7 +54730,20 @@
               {
                 "$ref": "#/components/schemas/AzureConfigurationData"
               }
-            ]
+            ],
+            "properties": {
+              "backend": {
+                "type": "string"
+              }
+            },
+            "discriminator": {
+              "propertyName": "backend",
+              "mapping": {
+                "gcs": "#/components/schemas/GCSConfigurationData",
+                "s3": "#/components/schemas/S3ConfigurationData",
+                "azure": "#/components/schemas/AzureConfigurationData"
+              }
+            }
           }
         }
       },
@@ -56519,8 +56610,19 @@
       },
       "ElevenLabsVoiceSettings": {
         "title": "ElevenLabs Voice Settings",
+        "required": [
+          "type"
+        ],
         "type": "object",
         "properties": {
+          "type": {
+            "enum": [
+              "elevenlabs"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice settings provider type"
+          },
           "api_key_ref": {
             "type": "string",
             "description": "The `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your ElevenLabs API key. Warning: Free plans are unlikely to work with this integration.",
@@ -58856,8 +58958,19 @@
       },
       "GCSConfigurationData": {
         "title": "Google Cloud Storage Configuration Data",
+        "required": [
+          "backend"
+        ],
         "type": "object",
         "properties": {
+          "backend": {
+            "enum": [
+              "gcs"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Storage backend type"
+          },
           "credentials": {
             "type": "string",
             "description": "Opaque credential token used to authenticate and authorize with storage provider."
@@ -58999,6 +59112,9 @@
             "description": "The voice to be used by the voice assistant. Currently we support ElevenLabs, Telnyx and AWS voices.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.BaseModel.John`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration secret under `\"voice_settings\": {\"api_key_ref\": \"<secret_id>\"}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`"
           },
           "voice_settings": {
+            "required": [
+              "type"
+            ],
             "type": "object",
             "oneOf": [
               {
@@ -59011,7 +59127,20 @@
                 "$ref": "#/components/schemas/AWSVoiceSettings"
               }
             ],
-            "description": "The settings associated with the voice selected"
+            "properties": {
+              "type": {
+                "type": "string"
+              }
+            },
+            "description": "The settings associated with the voice selected",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+                "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+                "aws": "#/components/schemas/AWSVoiceSettings"
+              }
+            }
           },
           "greeting": {
             "type": "string",
@@ -59250,6 +59379,9 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
+            "required": [
+              "type"
+            ],
             "type": "object",
             "oneOf": [
               {
@@ -59262,7 +59394,20 @@
                 "$ref": "#/components/schemas/AWSVoiceSettings"
               }
             ],
-            "description": "The settings associated with the voice selected"
+            "properties": {
+              "type": {
+                "type": "string"
+              }
+            },
+            "description": "The settings associated with the voice selected",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+                "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+                "aws": "#/components/schemas/AWSVoiceSettings"
+              }
+            }
           },
           "language": {
             "enum": [
@@ -74257,6 +74402,11 @@
             "title": "PublicInternetGateway",
             "type": "object",
             "properties": {
+              "region_code": {
+                "type": "string",
+                "description": "The region interface is deployed to.",
+                "example": "ashburn-va"
+              },
               "record_type": {
                 "type": "string",
                 "description": "Identifies the type of the resource.",
@@ -74293,9 +74443,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PublicInternetGateway"
-          },
-          {
-            "$ref": "#/components/schemas/RegionOut"
           }
         ]
       },
@@ -77080,8 +77227,19 @@
       },
       "S3ConfigurationData": {
         "title": "AWS S3 Storage Configuration Data",
+        "required": [
+          "backend"
+        ],
         "type": "object",
         "properties": {
+          "backend": {
+            "enum": [
+              "s3"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Storage backend type"
+          },
           "bucket": {
             "type": "string",
             "description": "Name of the bucket to be used to store recording files."
@@ -79921,6 +80079,9 @@
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
+            "required": [
+              "type"
+            ],
             "type": "object",
             "oneOf": [
               {
@@ -79933,7 +80094,20 @@
                 "$ref": "#/components/schemas/AWSVoiceSettings"
               }
             ],
-            "description": "The settings associated with the voice selected"
+            "properties": {
+              "type": {
+                "type": "string"
+              }
+            },
+            "description": "The settings associated with the voice selected",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
+                "telnyx": "#/components/schemas/TelnyxVoiceSettings",
+                "aws": "#/components/schemas/AWSVoiceSettings"
+              }
+            }
           },
           "language": {
             "enum": [
@@ -83324,8 +83498,19 @@
       },
       "TelnyxVoiceSettings": {
         "title": "Telnyx Voice Settings",
+        "required": [
+          "type"
+        ],
         "type": "object",
         "properties": {
+          "type": {
+            "enum": [
+              "telnyx"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice settings provider type"
+          },
           "voice_speed": {
             "maximum": 2.0,
             "minimum": 0.1,
@@ -85036,6 +85221,9 @@
             "default": "deepgram/nova-2"
           },
           "language": {
+            "required": [
+              "transcription_model"
+            ],
             "type": "object",
             "oneOf": [
               {
@@ -85045,7 +85233,19 @@
                 "$ref": "#/components/schemas/DeepgramNova3TranscriptionLanguage_Wrapper"
               }
             ],
-            "description": "Language to use for speech recognition. Available languages depend on the selected model."
+            "properties": {
+              "transcription_model": {
+                "type": "string"
+              }
+            },
+            "description": "Language to use for speech recognition. Available languages depend on the selected model.",
+            "discriminator": {
+              "propertyName": "transcription_model",
+              "mapping": {
+                "deepgram/nova-2": "#/components/schemas/DeepgramNova2TranscriptionLanguage",
+                "deepgram/nova-3": "#/components/schemas/DeepgramNova3TranscriptionLanguage"
+              }
+            }
           }
         }
       },
