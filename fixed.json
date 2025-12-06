@@ -18476,6 +18476,56 @@
         }
       }
     },
+    "/mobile_phone_numbers/messaging": {
+      "get": {
+        "tags": [
+          "Mobile Number Configurations"
+        ],
+        "summary": "List mobile phone numbers with messaging settings",
+        "operationId": "ListMobilePhoneNumbersWithMessagingSettings",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/MobileListPhoneNumbersWithMessagingSettingsResponse"
+          },
+          "4xx": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/mobile_phone_numbers/{id}/messaging": {
+      "get": {
+        "tags": [
+          "Mobile Number Configurations"
+        ],
+        "summary": "Retrieve a mobile phone number with messaging settings",
+        "operationId": "GetMobilePhoneNumberMessagingSettings",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifies the type of resource.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/MobilePhoneNumberWithMessagingSettingsResponse"
+          },
+          "4xx": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
     "/mobile_push_credentials": {
       "get": {
         "tags": [
@@ -66036,6 +66086,105 @@
           }
         }
       },
+      "MobilePhoneNumberWithMessagingSettings": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "enum": [
+              "messaging_phone_number",
+              "messaging_settings"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Identifies the type of the resource.",
+            "readOnly": true,
+            "example": "messaging_settings"
+          },
+          "id": {
+            "type": "string",
+            "description": "Identifies the type of resource.",
+            "readOnly": true
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "+E.164 formatted phone number.",
+            "format": "e164",
+            "readOnly": true
+          },
+          "messaging_profile_id": {
+            "type": "string",
+            "description": "Unique identifier for a messaging profile.",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was created.",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "country_code": {
+            "pattern": "^[A-Z]{2}$",
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code.",
+            "readOnly": true,
+            "example": "US"
+          },
+          "type": {
+            "enum": [
+              "longcode"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of the phone number",
+            "readOnly": true
+          },
+          "traffic_type": {
+            "type": "string",
+            "description": "The messaging traffic or use case for which the number is currently configured.",
+            "readOnly": true,
+            "example": "P2P"
+          },
+          "messaging_product": {
+            "type": "string",
+            "description": "The messaging product that the number is registered to use",
+            "example": "P2P"
+          },
+          "features": {
+            "type": "object",
+            "properties": {
+              "sms": {
+                "$ref": "#/components/schemas/MessagingFeatureSet"
+              }
+            },
+            "readOnly": true
+          }
+        },
+        "example": {
+          "record_type": "messaging_settings",
+          "id": "2126210528794641864",
+          "phone_number": "++13127367407",
+          "messaging_profile_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "created_at": "2019-01-23T18:10:02.574Z",
+          "updated_at": "2019-01-23T18:10:02.574Z",
+          "country_code": "US",
+          "type": "longcode",
+          "traffic_type": "P2P",
+          "messaging_product": "P2P",
+          "features": {
+            "sms": {
+              "domestic_two_way": true,
+              "international_inbound": true,
+              "international_outbound": true
+            }
+          }
+        }
+      },
       "MobileVoiceConnection": {
         "type": "object",
         "properties": {
@@ -71386,7 +71535,7 @@
           "created_at": "2019-01-23T18:10:02.574Z",
           "updated_at": "2019-01-23T18:10:02.574Z",
           "country_code": "US",
-          "type": "toll-free",
+          "type": "tollfree",
           "health": {
             "message_count": 122,
             "inbound_outbound_ratio": 0.43,
@@ -100578,6 +100727,44 @@
               "properties": {
                 "data": {
                   "$ref": "#/components/schemas/MessagingProfile"
+                }
+              }
+            }
+          }
+        }
+      },
+      "MobileListPhoneNumbersWithMessagingSettingsResponse": {
+        "description": "Successful response with a list of mobile phone numbers with messaging settings.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "title": "List Messaging Settings Response",
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MobilePhoneNumberWithMessagingSettings"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/PaginationMeta"
+                }
+              }
+            }
+          }
+        }
+      },
+      "MobilePhoneNumberWithMessagingSettingsResponse": {
+        "description": "Successful response with details about a mobile phone number.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "title": "Retrieve Mobile Messaging Settings Response",
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/MobilePhoneNumberWithMessagingSettings"
                 }
               }
             }

@@ -81,6 +81,7 @@ using Soenneker.Telnyx.OpenApiClient.Messaging_tollfree;
 using Soenneker.Telnyx.OpenApiClient.Messaging_url_domains;
 using Soenneker.Telnyx.OpenApiClient.Messsages;
 using Soenneker.Telnyx.OpenApiClient.Mobile_network_operators;
+using Soenneker.Telnyx.OpenApiClient.Mobile_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials;
 using Soenneker.Telnyx.OpenApiClient.Network_coverage;
 using Soenneker.Telnyx.OpenApiClient.Networks;
@@ -549,6 +550,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder Mobile_network_operators
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mobile_phone_numbers property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Mobile_phone_numbers.Mobile_phone_numbersRequestBuilder Mobile_phone_numbers
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Mobile_phone_numbers.Mobile_phone_numbersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The mobile_push_credentials property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials.Mobile_push_credentialsRequestBuilder Mobile_push_credentials
