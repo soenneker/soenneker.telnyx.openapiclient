@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{&quot;snuffleupagus&quot;: 5, &quot;systrom&quot;: 2, &quot;krieger&quot;: 1}`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting? KeywordsBoosting { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting KeywordsBoosting { get; set; }
+#endif
         /// <summary>Language to use for speech recognition. Available languages depend on the selected model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,6 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "keywords_boosting", n => { KeywordsBoosting = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language.CreateFromDiscriminatorValue); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine>(); } },
                 { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_model>(); } },
@@ -64,6 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting>("keywords_boosting", KeywordsBoosting);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language>("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_model>("transcription_model", TranscriptionModel);
