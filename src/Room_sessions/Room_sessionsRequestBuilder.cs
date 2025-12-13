@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Room_sessionsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[date_created_at][eq], filter[date_created_at][gte], filter[date_created_at][lte], filter[date_updated_at][eq], filter[date_updated_at][gte], filter[date_updated_at][lte], filter[date_ended_at][eq], filter[date_ended_at][gte], filter[date_ended_at][lte], filter[room_id], filter[active]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[date_created_at][eq], filter[date_created_at][gte], filter[date_created_at][lte], filter[date_updated_at][eq], filter[date_updated_at][gte], filter[date_updated_at][lte], filter[date_ended_at][eq], filter[date_ended_at][gte], filter[date_ended_at][lte], filter[room_id], filter[active]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions
             /// <summary>To decide if room participants should be included in the response.</summary>
             [QueryParameter("include_participants")]
             public bool? IncludeParticipants { get; set; }
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

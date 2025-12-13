@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CountRequested { get; set; }
 #endif
-        /// <summary>Country where you would like to purchase phone numbers. Allowable values: US, CA</summary>
+        /// <summary>&quot;Country where you would like to purchase phone numbers. Allowable values: US, CA&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_country_iso? CountryIso { get; set; }
         /// <summary>Filter to exclude phone numbers that are currently on hold/reserved for your account.</summary>
         public bool? ExcludeHeldNumbers { get; set; }
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Filter to exclude phone numbers that need additional time after to purchase to activate. Only applicable for +1 toll_free numbers.</summary>
         public bool? Quickship { get; set; }
-        /// <summary>Ordering strategy. Define what action should be taken if we don&apos;t have enough phone numbers to fulfill your request. Allowable values are: always = proceed with ordering phone numbers, regardless of current inventory levels; never = do not place any orders unless there are enough phone numbers to satisfy the request. If not specified, the always strategy will be enforced.</summary>
+        /// <summary>&quot;Ordering strategy. Define what action should be taken if we don&apos;t have enough phone numbers to fulfill your request. Allowable values are: always = proceed with ordering phone numbers, regardless of current inventory levels; never = do not place any orders unless there are enough phone numbers to satisfy the request. If not specified, the always strategy will be enforced.&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups_strategy? Strategy { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InexplicitNumberOrderRequest_ordering_groups"/> and sets the default values.

@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_network_operators
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Mobile_network_operatorsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter for mobile network operators (deepObject style). Originally: filter[name][starts_with], filter[name][contains], filter[name][ends_with], filter[country_code], filter[mcc], filter[mnc], filter[tadig], filter[network_preferences_enabled]</summary>
+            /// <summary>&quot;Consolidated filter parameter for mobile network operators (deepObject style). Originally: filter[name][starts_with], filter[name][contains], filter[name][ends_with], filter[country_code], filter[mcc], filter[mnc], filter[tadig], filter[network_preferences_enabled]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Mobile_network_operators
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated pagination parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated pagination parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

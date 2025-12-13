@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Represents the lifecycle of a test:  - &apos;pending&apos;: Test is waiting to be executed.  - &apos;starting&apos;: Test execution is initializing.  - &apos;running&apos;: Test is currently executing.  - &apos;passed&apos;: Test completed successfully.  - &apos;failed&apos;: Test executed but did not pass.  - &apos;error&apos;: An error occurred during test execution.</summary>
+    /// <summary>&quot;Represents the lifecycle of a test:  - &apos;pending&apos;: Test is waiting to be executed.  - &apos;starting&apos;: Test execution is initializing.  - &apos;running&apos;: Test is currently executing.  - &apos;passed&apos;: Test completed successfully.  - &apos;failed&apos;: Test executed but did not pass.  - &apos;error&apos;: An error occurred during test execution.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TestStatus
     {

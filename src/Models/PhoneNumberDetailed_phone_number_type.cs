@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The phone number&apos;s type.Note: For numbers purchased prior to July 2023 or when fetching a number&apos;s details immediately after a purchase completes, the legacy values `tollfree`, `shortcode` or `longcode` may be returned instead.</summary>
+    /// <summary>&quot;The phone number&apos;s type.Note: For numbers purchased prior to July 2023 or when fetching a number&apos;s details immediately after a purchase completes, the legacy values `tollfree`, `shortcode` or `longcode` may be returned instead.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum PhoneNumberDetailed_phone_number_type
     {

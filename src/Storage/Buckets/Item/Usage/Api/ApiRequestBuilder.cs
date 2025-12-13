@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Storage.Buckets.Item.Usage.Api
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ApiRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[start_time], filter[end_time]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[start_time], filter[end_time]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

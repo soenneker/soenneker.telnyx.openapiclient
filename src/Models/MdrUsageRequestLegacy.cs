@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Aggregation type: No aggregation = 0, By Messaging Profile = 1, By Tags = 2</summary>
+        /// <summary>&quot;Aggregation type: No aggregation = 0, By Messaging Profile = 1, By Tags = 2&quot;</summary>
         public int? AggregationType { get; set; }
         /// <summary>The end_time property</summary>
         public DateTimeOffset? EndTime { get; set; }

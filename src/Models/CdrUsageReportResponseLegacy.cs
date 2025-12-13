@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Aggregation type: All = 0, By Connections = 1, By Tags = 2, By Billing Group = 3</summary>
+        /// <summary>&quot;Aggregation type: All = 0, By Connections = 1, By Tags = 2, By Billing Group = 3&quot;</summary>
         public int? AggregationType { get; set; }
         /// <summary>The connections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public DateTimeOffset? EndTime { get; set; }
         /// <summary>Identifies the resource</summary>
         public Guid? Id { get; set; }
-        /// <summary>Product breakdown type: No breakdown = 0, DID vs Toll-free = 1, Country = 2, DID vs Toll-free per Country = 3</summary>
+        /// <summary>&quot;Product breakdown type: No breakdown = 0, DID vs Toll-free = 1, Country = 2, DID vs Toll-free per Country = 3&quot;</summary>
         public int? ProductBreakdown { get; set; }
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The start_time property</summary>
         public DateTimeOffset? StartTime { get; set; }
-        /// <summary>Status of the report: Pending = 1, Complete = 2, Failed = 3, Expired = 4</summary>
+        /// <summary>&quot;Status of the report: Pending = 1, Complete = 2, Failed = 3, Expired = 4&quot;</summary>
         public int? Status { get; set; }
         /// <summary>The updated_at property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }

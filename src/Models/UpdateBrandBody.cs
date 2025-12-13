@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CompanyName { get; set; }
 #endif
-        /// <summary>ISO2 2 characters country code. Example: US - United States</summary>
+        /// <summary>&quot;ISO2 2 characters country code. Example: US - United States&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Country { get; set; }

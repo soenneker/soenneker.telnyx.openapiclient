@@ -44,7 +44,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRecordType? RecordType { get; set; }
         /// <summary>The possible statuses of the verification request.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationStatus? Status { get; set; }
-        /// <summary>This is the number of seconds before the code of the request is expired. Once this request has expired, the code will no longer verify the user. Note: this will override the `default_verification_timeout_secs` on the Verify profile.</summary>
+        /// <summary>&quot;This is the number of seconds before the code of the request is expired. Once this request has expired, the code will no longer verify the user. Note: this will override the `default_verification_timeout_secs` on the Verify profile.&quot;</summary>
         public int? TimeoutSecs { get; set; }
         /// <summary>The possible types of verification.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationType? Type { get; set; }

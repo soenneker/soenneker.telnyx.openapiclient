@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The target destination for the test conversation. Format depends on the channel: phone number for SMS/voice, webhook URL for web chat, etc.</summary>
+        /// <summary>&quot;The target destination for the test conversation. Format depends on the channel: phone number for SMS/voice, webhook URL for web chat, etc.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Destination { get; set; }

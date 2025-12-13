@@ -156,7 +156,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Mdr_usage_reportsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

@@ -79,6 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fax_applications
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Programmable_fax_Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Fax_applications.Fax_applicationsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFaxApplicationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -93,6 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fax_applications
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Programmable_fax_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Fax_applications.Fax_applicationsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Fax_applications.Fax_applicationsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -152,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fax_applications
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Fax_applicationsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound_voice_profile_id]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound_voice_profile_id]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -162,7 +164,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fax_applications
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
@@ -172,7 +174,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Fax_applications
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;application_name&lt;/code&gt;: sorts the result by the    &lt;code&gt;application_name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-application_name&lt;/code&gt;: sorts the result by the    &lt;code&gt;application_name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
+            /// <summary>&quot;Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;application_name&lt;/code&gt;: sorts the result by the    &lt;code&gt;application_name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-application_name&lt;/code&gt;: sorts the result by the    &lt;code&gt;application_name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.&quot;</summary>
             [QueryParameter("sort")]
             public global::Soenneker.Telnyx.OpenApiClient.Fax_applications.GetSortQueryParameterType? Sort { get; set; }
         }

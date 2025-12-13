@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
-        /// <summary>This is necessary only if the model selected is from OpenAI. You would pass the `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your OpenAI API Key. Warning: Free plans are unlikely to work with this integration.</summary>
+        /// <summary>&quot;This is necessary only if the model selected is from OpenAI. You would pass the `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your OpenAI API Key. Warning: Free plans are unlikely to work with this integration.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OpenaiApiKeyRef { get; set; }
@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Assistant()
         {
             AdditionalData = new Dictionary<string, object>();
-            Model = "meta-llama/Meta-Llama-3.1-70B-Instruct";
+            Model = "Qwen/Qwen3-235B-A22B";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

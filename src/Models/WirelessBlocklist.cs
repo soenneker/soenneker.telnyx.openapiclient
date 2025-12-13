@@ -127,12 +127,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public static global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklist.WirelessBlocklist_values CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklist.WirelessBlocklist_values();
-                if("UnionBranch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.UnionBranch = new global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch();
-                }
+                result.UnionBranch = new global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch();
                 return result;
             }
             /// <summary>
@@ -143,7 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 if(UnionBranch != null)
                 {
-                    return UnionBranch.GetFieldDeserializers();
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(UnionBranch);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -154,10 +150,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(UnionBranch != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
-                }
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
             }
         }
     }

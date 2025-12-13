@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>ISO 8601 timestamp indicating when the first request attempt was initiated.</summary>
         public DateTimeOffset? StartedAt { get; set; }
-        /// <summary>Delivery status: &apos;delivered&apos; when successfuly delivered or &apos;failed&apos; if all attempts have failed.</summary>
+        /// <summary>&quot;Delivery status: &apos;delivered&apos; when successfuly delivered or &apos;failed&apos; if all attempts have failed.&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery_status? Status { get; set; }
         /// <summary>Uniquely identifies the user that owns the webhook_delivery record.</summary>
         public Guid? UserId { get; set; }

@@ -36,7 +36,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? DailySpendLimitEnabled { get; set; }
         /// <summary>Specifies whether the messaging profile is enabled or not.</summary>
         public bool? Enabled { get; set; }
-        /// <summary>DEPRECATED: health check url service checking</summary>
+        /// <summary>&quot;DEPRECATED: health check url service checking&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? HealthWebhookUrl { get; set; }

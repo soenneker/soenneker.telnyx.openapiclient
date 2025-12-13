@@ -103,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ota_updates
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Ota_updatesRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter for OTA updates (deepObject style). Originally: filter[status], filter[sim_card_id], filter[type]</summary>
+            /// <summary>&quot;Consolidated filter parameter for OTA updates (deepObject style). Originally: filter[status], filter[sim_card_id], filter[type]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -113,7 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ota_updates
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated pagination parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated pagination parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

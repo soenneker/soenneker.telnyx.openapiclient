@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests
         {
         }
         /// <summary>
-        /// This endpoint returns a list of Open Source and OpenAI models that are available for use. &lt;br /&gt;&lt;br /&gt; **Note**: Model `id`&apos;s will be in the form `{source}/{model_name}`. For example `openai/gpt-4` or `mistralai/Mistral-7B-Instruct-v0.1` consistent with HuggingFace naming conventions.
+        /// &quot;This endpoint returns a list of Open Source and OpenAI models that are available for use. &lt;br /&gt;&lt;br /&gt; **Note**: Model `id`&apos;s will be in the form `{source}/{model_name}`. For example `openai/gpt-4` or `mistralai/Mistral-7B-Instruct-v0.1` consistent with HuggingFace naming conventions.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ModelsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ModelsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ModelsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// This endpoint returns a list of Open Source and OpenAI models that are available for use. &lt;br /&gt;&lt;br /&gt; **Note**: Model `id`&apos;s will be in the form `{source}/{model_name}`. For example `openai/gpt-4` or `mistralai/Mistral-7B-Instruct-v0.1` consistent with HuggingFace naming conventions.
+        /// &quot;This endpoint returns a list of Open Source and OpenAI models that are available for use. &lt;br /&gt;&lt;br /&gt; **Note**: Model `id`&apos;s will be in the form `{source}/{model_name}`. For example `openai/gpt-4` or `mistralai/Mistral-7B-Instruct-v0.1` consistent with HuggingFace naming conventions.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

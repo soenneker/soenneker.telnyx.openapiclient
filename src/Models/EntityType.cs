@@ -23,5 +23,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         GOVERNMENT,
         #pragma warning restore CS1591
+        [EnumMember(Value = "SOLE_PROPRIETOR")]
+        #pragma warning disable CS1591
+        SOLE_PROPRIETOR,
+        #pragma warning restore CS1591
     }
 }

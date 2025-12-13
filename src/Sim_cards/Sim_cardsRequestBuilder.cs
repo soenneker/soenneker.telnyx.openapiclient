@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Sim_cardsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter for SIM cards (deepObject style). Originally: filter[tags], filter[iccid], filter[status]</summary>
+            /// <summary>&quot;Consolidated filter parameter for SIM cards (deepObject style). Originally: filter[tags], filter[iccid], filter[status]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -125,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards
             /// <summary>It includes the associated SIM card group object in the response when present.</summary>
             [QueryParameter("include_sim_card_group")]
             public bool? IncludeSimCardGroup { get; set; }
-            /// <summary>Consolidated pagination parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated pagination parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

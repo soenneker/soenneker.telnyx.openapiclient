@@ -139,7 +139,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Reports
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ReportsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[report_type], filter[status]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[report_type], filter[status]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Portouts.Reports
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

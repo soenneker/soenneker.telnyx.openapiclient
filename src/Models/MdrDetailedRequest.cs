@@ -31,7 +31,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<int?> Directions { get; set; }
 #endif
-        /// <summary>End time in ISO format. Note: If end time includes the last 4 hours, some MDRs might not appear in this report, due to wait time for downstream message delivery confirmation</summary>
+        /// <summary>&quot;End time in ISO format. Note: If end time includes the last 4 hours, some MDRs might not appear in this report, due to wait time for downstream message delivery confirmation&quot;</summary>
         public DateTimeOffset? EndTime { get; set; }
         /// <summary>List of filters to apply</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

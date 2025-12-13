@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -38,6 +39,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsRequestBuilder.ParticipantsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -48,7 +52,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists conference participants
@@ -84,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ParticipantsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[muted], filter[on_hold], filter[whispering]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[muted], filter[on_hold], filter[whispering]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -94,7 +104,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

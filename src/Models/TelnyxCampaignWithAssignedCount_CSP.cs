@@ -238,7 +238,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Sample5 { get; set; }
 #endif
-        /// <summary>Current campaign status. Possible values: ACTIVE, EXPIRED. A newly created campaign defaults to ACTIVE status. </summary>
+        /// <summary>&quot;Current campaign status. Possible values: ACTIVE, EXPIRED. A newly created campaign defaults to ACTIVE status. &quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }

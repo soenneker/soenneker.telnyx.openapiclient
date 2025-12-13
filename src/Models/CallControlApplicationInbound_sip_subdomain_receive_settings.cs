@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>This option can be enabled to receive calls from: &quot;Anyone&quot; (any SIP endpoint in the public Internet) or &quot;Only my connections&quot; (any connection assigned to the same Telnyx user).</summary>
+    /// <summary>&quot;This option can be enabled to receive calls from: \&quot;Anyone\&quot; (any SIP endpoint in the public Internet) or \&quot;Only my connections\&quot; (any connection assigned to the same Telnyx user).&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CallControlApplicationInbound_sip_subdomain_receive_settings
     {

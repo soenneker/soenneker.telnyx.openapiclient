@@ -161,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Csv_downloadsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
@@ -181,7 +181,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads
             /// <summary>Which format to use when generating the CSV file. The default for backwards compatibility is &apos;V1&apos;</summary>
             [QueryParameter("csv_format")]
             public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Csv_downloads.PostCsv_formatQueryParameterType? CsvFormat { get; set; }
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[has_bundle], filter[tag], filter[connection_id], filter[phone_number], filter[status], filter[voice.connection_name], filter[voice.usage_payment_method], filter[billing_group_id], filter[emergency_address_id], filter[customer_reference]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[has_bundle], filter[tag], filter[connection_id], filter[phone_number], filter[status], filter[voice.connection_name], filter[voice.usage_payment_method], filter[billing_group_id], filter[emergency_address_id], filter[customer_reference]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

@@ -158,7 +158,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Verified_numbersRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated page parameter (deepObject style). Use page[size] and page[number] in the query string. Originally: page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Use page[size] and page[number] in the query string. Originally: page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

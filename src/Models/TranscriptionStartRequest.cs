@@ -172,7 +172,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.TranscriptionEngineBConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineBConfig();
                 }
-                else if("Deepgram".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.TranscriptionEngineDeepgramConfig = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig();
                 }

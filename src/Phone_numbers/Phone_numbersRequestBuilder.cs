@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_numbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers{?filter*,page*,sort*}", pathParameters)
+        public Phone_numbersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers{?filter*,handle_messaging_profile_error*,page*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Phone_numbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers{?filter*,page*,sort*}", rawUrl)
+        public Phone_numbersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers{?filter*,handle_messaging_profile_error*,page*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -147,7 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_numbersRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[tag], filter[phone_number], filter[status], filter[country_iso_alpha2], filter[connection_id], filter[voice.connection_name], filter[voice.usage_payment_method], filter[billing_group_id], filter[emergency_address_id], filter[customer_reference], filter[number_type], filter[source]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[tag], filter[phone_number], filter[status], filter[country_iso_alpha2], filter[connection_id], filter[voice.connection_name], filter[voice.usage_payment_method], filter[billing_group_id], filter[emergency_address_id], filter[customer_reference], filter[number_type], filter[source]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -157,7 +157,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+            /// <summary>Although it is an infrequent occurrence, due to the highly distributed nature of the Telnyx platform, it is possible that there will be an issue when loading in Messaging Profile information. As such, when this parameter is set to `true` and an error in fetching this information occurs, messaging profile related fields will be omitted in the response and an error message will be included instead of returning a 503 error.</summary>
+            [QueryParameter("handle_messaging_profile_error")]
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.GetHandle_messaging_profile_errorQueryParameterType? HandleMessagingProfileError { get; set; }
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

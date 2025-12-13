@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         {
         }
         /// <summary>
-        /// Delete a verification requestA request may only be deleted when when the request is in the &quot;rejected&quot; state.* `HTTP 200`: request successfully deleted* `HTTP 400`: request exists but can&apos;t be deleted (i.e. not rejected)* `HTTP 404`: request unknown or already deleted
+        /// &quot;Delete a verification requestA request may only be deleted when when the request is in the \&quot;rejected\&quot; state.* `HTTP 200`: request successfully deleted* `HTTP 400`: request exists but can&apos;t be deleted (i.e. not rejected)* `HTTP 404`: request unknown or already deleted&quot;
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -107,7 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VerificationRequestEgress.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a verification requestA request may only be deleted when when the request is in the &quot;rejected&quot; state.* `HTTP 200`: request successfully deleted* `HTTP 400`: request exists but can&apos;t be deleted (i.e. not rejected)* `HTTP 404`: request unknown or already deleted
+        /// &quot;Delete a verification requestA request may only be deleted when when the request is in the \&quot;rejected\&quot; state.* `HTTP 200`: request successfully deleted* `HTTP 400`: request exists but can&apos;t be deleted (i.e. not rejected)* `HTTP 404`: request unknown or already deleted&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

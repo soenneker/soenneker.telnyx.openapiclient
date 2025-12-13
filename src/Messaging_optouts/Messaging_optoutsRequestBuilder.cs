@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Messaging_optoutsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated created_at parameter (deepObject style). Originally: created_at[gte], created_at[lte]</summary>
+            /// <summary>&quot;Consolidated created_at parameter (deepObject style). Originally: created_at[gte], created_at[lte]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("created_at")]
@@ -102,7 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
             [QueryParameter("created_at")]
             public string CreatedAt { get; set; }
 #endif
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[messaging_profile_id], filter[from]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[messaging_profile_id], filter[from]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_optouts
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

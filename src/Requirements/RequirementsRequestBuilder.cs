@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RequirementsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter for requirements (deepObject style). Originally: filter[country_code], filter[phone_number_type], filter[action]</summary>
+            /// <summary>&quot;Consolidated filter parameter for requirements (deepObject style). Originally: filter[country_code], filter[phone_number_type], filter[action]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
@@ -125,7 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirements
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
-            /// <summary>Consolidated sort parameter for requirements (deepObject style). Originally: sort[]</summary>
+            /// <summary>&quot;Consolidated sort parameter for requirements (deepObject style). Originally: sort[]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

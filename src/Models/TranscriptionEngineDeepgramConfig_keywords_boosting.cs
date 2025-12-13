@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{&quot;snuffleupagus&quot;: 5, &quot;systrom&quot;: 2, &quot;krieger&quot;: 1}`.
+    /// &quot;Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{\&quot;snuffleupagus\&quot;: 5, \&quot;systrom\&quot;: 2, \&quot;krieger\&quot;: 1}`.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TranscriptionEngineDeepgramConfig_keywords_boosting : IAdditionalDataHolder, IParsable

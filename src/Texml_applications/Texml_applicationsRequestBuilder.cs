@@ -83,6 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml_applications
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_scripting_ResourceNotFoundError">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Texml_applications.Texml_applicationsPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -99,6 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml_applications
                 { "401", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Call_scripting_ResourceNotFoundError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Texml_applications.Texml_applicationsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Texml_applications.Texml_applicationsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -158,7 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml_applications
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Texml_applicationsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[outbound_voice_profile_id], filter[friendly_name]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[outbound_voice_profile_id], filter[friendly_name]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -168,7 +170,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml_applications
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
@@ -178,7 +180,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml_applications
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;friendly_name&lt;/code&gt;: sorts the result by the    &lt;code&gt;friendly_name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-friendly_name&lt;/code&gt;: sorts the result by the    &lt;code&gt;friendly_name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
+            /// <summary>&quot;Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;friendly_name&lt;/code&gt;: sorts the result by the    &lt;code&gt;friendly_name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-friendly_name&lt;/code&gt;: sorts the result by the    &lt;code&gt;friendly_name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.&quot;</summary>
             [QueryParameter("sort")]
             public global::Soenneker.Telnyx.OpenApiClient.Texml_applications.GetSortQueryParameterType? Sort { get; set; }
         }

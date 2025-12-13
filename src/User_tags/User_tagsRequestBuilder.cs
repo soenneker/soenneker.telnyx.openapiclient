@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.User_tags
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class User_tagsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[starts_with]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[starts_with]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp_ani_number_format? AniNumberFormat { get; set; }
         /// <summary>When set, this will limit the total number of inbound calls to phone numbers associated with this connection.</summary>
         public int? ChannelLimit { get; set; }
-        /// <summary>Defines the list of codecs that Telnyx will send for inbound calls to a specific number on your portal account, in priority order. This only works when the Connection the number is assigned to uses Media Handling mode: default. OPUS and H.264 codecs are available only when using TCP or TLS transport for SIP.</summary>
+        /// <summary>&quot;Defines the list of codecs that Telnyx will send for inbound calls to a specific number on your portal account, in priority order. This only works when the Connection the number is assigned to uses Media Handling mode: default. OPUS and H.264 codecs are available only when using TCP or TLS transport for SIP.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Codecs { get; set; }
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? SipCompactHeadersEnabled { get; set; }
         /// <summary>Selects which `sip_region` to receive inbound calls from. If null, the default region (US) will be used.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp_sip_region? SipRegion { get; set; }
-        /// <summary>Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain &quot;example.sip.telnyx.com&quot; can be called from any SIP endpoint by using the SIP URI &quot;sip:@example.sip.telnyx.com&quot; where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.</summary>
+        /// <summary>&quot;Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \&quot;example.sip.telnyx.com\&quot; can be called from any SIP endpoint by using the SIP URI \&quot;sip:@example.sip.telnyx.com\&quot; where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SipSubdomain { get; set; }
@@ -74,11 +74,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string SipSubdomain { get; set; }
 #endif
-        /// <summary>This option can be enabled to receive calls from: &quot;Anyone&quot; (any SIP endpoint in the public Internet) or &quot;Only my connections&quot; (any connection assigned to the same Telnyx user).</summary>
+        /// <summary>&quot;This option can be enabled to receive calls from: \&quot;Anyone\&quot; (any SIP endpoint in the public Internet) or \&quot;Only my connections\&quot; (any connection assigned to the same Telnyx user).&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp_sip_subdomain_receive_settings? SipSubdomainReceiveSettings { get; set; }
         /// <summary>Time(sec) before aborting if connection is not made.</summary>
         public int? Timeout1xxSecs { get; set; }
-        /// <summary>Time(sec) before aborting if call is unanswered (min: 1, max: 600).</summary>
+        /// <summary>&quot;Time(sec) before aborting if call is unanswered (min: 1, max: 600).&quot;</summary>
         public int? Timeout2xxSecs { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp"/> and sets the default values.

@@ -90,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Detail_recordsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter records on a given record attribute and value. &lt;br/&gt;Example: filter[status]=delivered. &lt;br/&gt;Required: filter[record_type] must be specified.</summary>
+            /// <summary>&quot;Filter records on a given record attribute and value. &lt;br/&gt;Example: filter[status]=delivered. &lt;br/&gt;Required: filter[record_type] must be specified.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. &lt;br/&gt;Example: sort=-created_at</summary>
+            /// <summary>&quot;Specifies the sort order for results. &lt;br/&gt;Example: sort=-created_at&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

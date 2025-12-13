@@ -154,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events
             public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType? ConversationChannel { get; set; }
             [QueryParameter("from_date")]
             public DateTimeOffset? FromDate { get; set; }
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

@@ -58,6 +58,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Recordings.RecordingsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_recordings_Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_recordings_Errors">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_recordings_Errors">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_recordings_Errors">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_recordings_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,6 +75,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Call_recordings_Errors.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Telnyx.OpenApiClient.Models.Call_recordings_Errors.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Call_recordings_Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Call_recordings_Errors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Call_recordings_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Recordings.RecordingsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Recordings.RecordingsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -109,7 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RecordingsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[conference_id], filter[created_at][gte], filter[created_at][lte], filter[call_leg_id], filter[call_session_id], filter[from], filter[to], filter[connection_id], filter[sip_call_id]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[conference_id], filter[created_at][gte], filter[created_at][lte], filter[call_leg_id], filter[call_session_id], filter[from], filter[to], filter[connection_id], filter[sip_call_id]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -119,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Recordings
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

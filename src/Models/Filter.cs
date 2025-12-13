@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Query filter criteria. Note: The first filter object must specify filter_type as &apos;and&apos;. You cannot follow an &apos;or&apos; with another &apos;and&apos;.
+    /// &quot;Query filter criteria. Note: The first filter object must specify filter_type as &apos;and&apos;. You cannot follow an &apos;or&apos; with another &apos;and&apos;.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Filter : IAdditionalDataHolder, IParsable

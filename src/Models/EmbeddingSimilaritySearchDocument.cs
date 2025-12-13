@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Example document response from embedding service{  &quot;document_chunk&quot;: &quot;your status? This is Vanessa Bloome...&quot;,  &quot;distance&quot;: 0.18607724,  &quot;metadata&quot;: {    &quot;source&quot;: &quot;https://us-central-1.telnyxstorage.com/scripts/bee_movie_script.txt&quot;,    &quot;checksum&quot;: &quot;343054dd19bab39bbf6761a3d20f1daa&quot;,    &quot;embedding&quot;: &quot;openai/text-embedding-ada-002&quot;,    &quot;filename&quot;: &quot;bee_movie_script.txt&quot;,    &quot;certainty&quot;: 0.9069613814353943,    &quot;loader_metadata&quot;: {}  }}
+    /// &quot;Example document response from embedding service{  \&quot;document_chunk\&quot;: \&quot;your status? This is Vanessa Bloome...\&quot;,  \&quot;distance\&quot;: 0.18607724,  \&quot;metadata\&quot;: {    \&quot;source\&quot;: \&quot;https://us-central-1.telnyxstorage.com/scripts/bee_movie_script.txt\&quot;,    \&quot;checksum\&quot;: \&quot;343054dd19bab39bbf6761a3d20f1daa\&quot;,    \&quot;embedding\&quot;: \&quot;openai/text-embedding-ada-002\&quot;,    \&quot;filename\&quot;: \&quot;bee_movie_script.txt\&quot;,    \&quot;certainty\&quot;: 0.9069613814353943,    \&quot;loader_metadata\&quot;: {}  }}&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EmbeddingSimilaritySearchDocument : IAdditionalDataHolder, IParsable

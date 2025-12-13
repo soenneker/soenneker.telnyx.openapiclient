@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RecordingStatusCallback { get; set; }
 #endif
-        /// <summary>The changes to the recording&apos;s state that should generate a call to `RecoridngStatusCallback`. Can be: `in-progress`, `completed` and `absent`. Separate multiple values with a space. Defaults to `completed`.</summary>
+        /// <summary>&quot;The changes to the recording&apos;s state that should generate a call to `RecoridngStatusCallback`. Can be: `in-progress`, `completed` and `absent`. Separate multiple values with a space. Defaults to `completed`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RecordingStatusCallbackEvent { get; set; }

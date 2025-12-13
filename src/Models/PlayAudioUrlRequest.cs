@@ -58,9 +58,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MediaName { get; set; }
 #endif
-        /// <summary>When enabled, audio will be mixed on top of any other audio that is actively being played back. Note that `overlay: true` will only work if there is another audio file already being played on the call.</summary>
+        /// <summary>&quot;When enabled, audio will be mixed on top of any other audio that is actively being played back. Note that `overlay: true` will only work if there is another audio file already being played on the call.&quot;</summary>
         public bool? Overlay { get; set; }
-        /// <summary>Allows a user to provide base64 encoded mp3 or wav. Note: when using this parameter, `media_url` and `media_name` in the `playback_started` and `playback_ended` webhooks will be empty</summary>
+        /// <summary>&quot;Allows a user to provide base64 encoded mp3 or wav. Note: when using this parameter, `media_url` and `media_name` in the `playback_started` and `playback_ended` webhooks will be empty&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PlaybackContent { get; set; }

@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Usage_reports
             [QueryParameter("dimensions")]
             public string[] Dimensions { get; set; }
 #endif
-            /// <summary>The end date for the time range you are interested in. The maximum time range is 31 days. Format: YYYY-MM-DDTHH:mm:ssZ</summary>
+            /// <summary>&quot;The end date for the time range you are interested in. The maximum time range is 31 days. Format: YYYY-MM-DDTHH:mm:ssZ&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("end_date")]
@@ -154,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Usage_reports
             [QueryParameter("metrics")]
             public string[] Metrics { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
@@ -184,7 +184,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Usage_reports
             [QueryParameter("sort")]
             public string[] Sort { get; set; }
 #endif
-            /// <summary>The start date for the time range you are interested in. The maximum time range is 31 days. Format: YYYY-MM-DDTHH:mm:ssZ</summary>
+            /// <summary>&quot;The start date for the time range you are interested in. The maximum time range is 31 days. Format: YYYY-MM-DDTHH:mm:ssZ&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("start_date")]

@@ -52,6 +52,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesRequestBuilder.ConferencesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +64,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a conference from an existing call leg using a `call_control_id` and a conference name. Upon creating the conference, the call will be automatically bridged to the conference. Conferences will expire after all participants have left the conference or after 4 hours regardless of the number of active participants.**Expected Webhooks:**- `conference.created`- `conference.participant.joined`- `conference.participant.left`- `conference.ended`- `conference.recording.saved`- `conference.floor.changed`
@@ -71,6 +78,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -82,7 +91,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.ConferencesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists conferences. Conferences are created on demand, and will expire after all participants have left the conference or after 4 hours regardless of the number of active participants. Conferences are listed in descending order by `expires_at`.
@@ -140,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConferencesRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound.outbound_voice_profile_id], filter[leg_id], filter[application_session_id], filter[connection_id], filter[product], filter[failed], filter[from], filter[to], filter[name], filter[type], filter[occurred_at][eq/gt/gte/lt/lte], filter[status]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[application_name][contains], filter[outbound.outbound_voice_profile_id], filter[leg_id], filter[application_session_id], filter[connection_id], filter[product], filter[failed], filter[from], filter[to], filter[name], filter[type], filter[occurred_at][eq/gt/gte/lt/lte], filter[status]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -150,7 +164,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]

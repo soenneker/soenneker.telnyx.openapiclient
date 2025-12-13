@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{&quot;snuffleupagus&quot;: 5, &quot;systrom&quot;: 2, &quot;krieger&quot;: 1}`.</summary>
+        /// <summary>&quot;Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{\&quot;snuffleupagus\&quot;: 5, \&quot;systrom\&quot;: 2, \&quot;krieger\&quot;: 1}`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting? KeywordsBoosting { get; set; }
@@ -22,25 +22,27 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting KeywordsBoosting { get; set; }
 #endif
-        /// <summary>Language to use for speech recognition. Available languages depend on the selected model.</summary>
+        /// <summary>Language to use for speech recognition with nova-2 model</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage? Language { get; set; }
+        /// <summary>The transcription_engine property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine? TranscriptionEngine { get; set; }
+        /// <summary>The transcription_model property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_model? TranscriptionModel { get; set; }
+        /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language? Language { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language Language { get; set; }
+        public string Type { get; set; }
 #endif
-        /// <summary>Engine identifier for Deepgram transcription service</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine? TranscriptionEngine { get; set; }
-        /// <summary>The model to use for transcription.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_model? TranscriptionModel { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig"/> and sets the default values.
         /// </summary>
         public TranscriptionEngineDeepgramConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            TranscriptionModel = global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_model.DeepgramNova2;
+            Language = global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage.En;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -61,9 +63,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "keywords_boosting", n => { KeywordsBoosting = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting.CreateFromDiscriminatorValue); } },
-                { "language", n => { Language = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language.CreateFromDiscriminatorValue); } },
+                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>(); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine>(); } },
                 { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_model>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -74,85 +77,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting>("keywords_boosting", KeywordsBoosting);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language>("language", Language);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_model>("transcription_model", TranscriptionModel);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage_Wrapper"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class TranscriptionEngineDeepgramConfig_language : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage_Wrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage_Wrapper? DeepgramNova2TranscriptionLanguageWrapper { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage_Wrapper DeepgramNova2TranscriptionLanguageWrapper { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper? DeepgramNova3TranscriptionLanguageWrapper { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper DeepgramNova3TranscriptionLanguageWrapper { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("transcription_model")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig.TranscriptionEngineDeepgramConfig_language();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.DeepgramNova2TranscriptionLanguageWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage_Wrapper();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.DeepgramNova3TranscriptionLanguageWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(DeepgramNova2TranscriptionLanguageWrapper != null)
-                {
-                    return DeepgramNova2TranscriptionLanguageWrapper.GetFieldDeserializers();
-                }
-                else if(DeepgramNova3TranscriptionLanguageWrapper != null)
-                {
-                    return DeepgramNova3TranscriptionLanguageWrapper.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(DeepgramNova2TranscriptionLanguageWrapper != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage_Wrapper>(null, DeepgramNova2TranscriptionLanguageWrapper);
-                }
-                else if(DeepgramNova3TranscriptionLanguageWrapper != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper>(null, DeepgramNova3TranscriptionLanguageWrapper);
-                }
-            }
         }
     }
 }

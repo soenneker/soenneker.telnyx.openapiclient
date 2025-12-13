@@ -165,7 +165,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sub_number_orders.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[include_phone_numbers]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[include_phone_numbers]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

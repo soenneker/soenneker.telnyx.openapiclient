@@ -46,6 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Calls.Item
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Texml.Calls.Item.Application_PostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.DeprecatedInitiateCallRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -57,7 +58,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Calls.Item
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Texml.Calls.Item.Application_PostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Texml.Calls.Item.Application_PostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Texml.Calls.Item.Application_PostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Texml.Calls.Item.Application_PostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Initiate an outbound TeXML call. Telnyx will request TeXML from the XML Request URL configured for the connection in the Mission Control Portal.

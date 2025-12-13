@@ -55,13 +55,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string CountryIsoAlpha2 { get; private set; }
 #endif
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CreatedAt { get; private set; }
-#nullable restore
-#else
-        public string CreatedAt { get; private set; }
-#endif
+        public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>A customer reference string for customer look ups.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,7 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PhoneNumber { get; private set; }
 #endif
-        /// <summary>The phone number&apos;s type.Note: For numbers purchased prior to July 2023 or when fetching a number&apos;s details immediately after a purchase completes, the legacy values `tollfree`, `shortcode` or `longcode` may be returned instead.</summary>
+        /// <summary>&quot;The phone number&apos;s type.Note: For numbers purchased prior to July 2023 or when fetching a number&apos;s details immediately after a purchase completes, the legacy values `tollfree`, `shortcode` or `longcode` may be returned instead.&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_phone_number_type? PhoneNumberType { get; private set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was purchased.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -198,7 +192,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "country_iso_alpha2", n => { CountryIsoAlpha2 = n.GetStringValue(); } },
-                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "deletion_lock_enabled", n => { DeletionLockEnabled = n.GetBoolValue(); } },
                 { "emergency_address_id", n => { EmergencyAddressId = n.GetStringValue(); } },

@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_latency
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Global_ip_latencyRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[global_ip_id][in]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[global_ip_id][in]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

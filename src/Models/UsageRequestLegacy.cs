@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Aggregation type: All = 0, By Connections = 1, By Tags = 2, By Billing Group = 3</summary>
+        /// <summary>&quot;Aggregation type: All = 0, By Connections = 1, By Tags = 2, By Billing Group = 3&quot;</summary>
         public int? AggregationType { get; set; }
         /// <summary>List of connections to filter by</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<Guid?> ManagedAccounts { get; set; }
 #endif
-        /// <summary>Product breakdown type: No breakdown = 0, DID vs Toll-free = 1, Country = 2, DID vs Toll-free per Country = 3</summary>
+        /// <summary>&quot;Product breakdown type: No breakdown = 0, DID vs Toll-free = 1, Country = 2, DID vs Toll-free per Country = 3&quot;</summary>
         public int? ProductBreakdown { get; set; }
         /// <summary>Whether to select all managed accounts</summary>
         public bool? SelectAllManagedAccounts { get; set; }

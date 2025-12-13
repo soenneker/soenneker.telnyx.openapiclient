@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PhoneNumber { get; private set; }
 #endif
-        /// <summary>The phone number&apos;s type.Note: For numbers purchased prior to July 2023 or when fetching a number&apos;s details immediately after a purchase completes, the legacy values `tollfree`, `shortcode` or `longcode` may be returned instead.</summary>
+        /// <summary>&quot;The phone number&apos;s type.Note: For numbers purchased prior to July 2023 or when fetching a number&apos;s details immediately after a purchase completes, the legacy values `tollfree`, `shortcode` or `longcode` may be returned instead.&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SlimPhoneNumberDetailed_phone_number_type? PhoneNumberType { get; private set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was purchased.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

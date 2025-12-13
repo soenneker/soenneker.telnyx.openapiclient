@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Unique identifier for this specific test run execution.</summary>
         public Guid? RunId { get; set; }
-        /// <summary>Represents the lifecycle of a test:  - &apos;pending&apos;: Test is waiting to be executed.  - &apos;starting&apos;: Test execution is initializing.  - &apos;running&apos;: Test is currently executing.  - &apos;passed&apos;: Test completed successfully.  - &apos;failed&apos;: Test executed but did not pass.  - &apos;error&apos;: An error occurred during test execution.</summary>
+        /// <summary>&quot;Represents the lifecycle of a test:  - &apos;pending&apos;: Test is waiting to be executed.  - &apos;starting&apos;: Test execution is initializing.  - &apos;running&apos;: Test is currently executing.  - &apos;passed&apos;: Test completed successfully.  - &apos;failed&apos;: Test executed but did not pass.  - &apos;error&apos;: An error occurred during test execution.&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TestStatus? Status { get; set; }
         /// <summary>Identifier of the assistant test that was executed.</summary>
         public Guid? TestId { get; set; }

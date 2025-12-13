@@ -3,17 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The model to use for transcription.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public enum TranscriptionEngineDeepgramConfig_transcription_model
+    #pragma warning restore CS1591
     {
         [EnumMember(Value = "deepgram/nova-2")]
         #pragma warning disable CS1591
         DeepgramNova2,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "deepgram/nova-3")]
-        #pragma warning disable CS1591
-        DeepgramNova3,
         #pragma warning restore CS1591
     }
 }

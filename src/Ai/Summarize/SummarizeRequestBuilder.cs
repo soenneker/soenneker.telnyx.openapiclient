@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Summarize
         {
         }
         /// <summary>
-        /// Generate a summary of a file&apos;s contents.  Supports the following text formats: - PDF, HTML, txt, json, csv Supports the following media formats (billed for both the transcription and summary): - flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm- Up to 100 MB
+        /// &quot;Generate a summary of a file&apos;s contents.  Supports the following text formats: - PDF, HTML, txt, json, csv Supports the following media formats (billed for both the transcription and summary): - flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm- Up to 100 MB&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SummaryResponseData"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Summarize
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.SummaryResponseData>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.SummaryResponseData.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Generate a summary of a file&apos;s contents.  Supports the following text formats: - PDF, HTML, txt, json, csv Supports the following media formats (billed for both the transcription and summary): - flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm- Up to 100 MB
+        /// &quot;Generate a summary of a file&apos;s contents.  Supports the following text formats: - PDF, HTML, txt, json, csv Supports the following media formats (billed for both the transcription and summary): - flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm- Up to 100 MB&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

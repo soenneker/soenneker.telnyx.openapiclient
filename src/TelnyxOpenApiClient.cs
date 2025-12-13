@@ -18,14 +18,11 @@ using Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks;
 using Soenneker.Telnyx.OpenApiClient.Available_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Balance;
 using Soenneker.Telnyx.OpenApiClient.Billing_groups;
-using Soenneker.Telnyx.OpenApiClient.Brand;
 using Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions;
 using Soenneker.Telnyx.OpenApiClient.Bundle_pricing;
 using Soenneker.Telnyx.OpenApiClient.Call_control_applications;
 using Soenneker.Telnyx.OpenApiClient.Call_events;
 using Soenneker.Telnyx.OpenApiClient.Calls;
-using Soenneker.Telnyx.OpenApiClient.Campaign;
-using Soenneker.Telnyx.OpenApiClient.CampaignBuilder;
 using Soenneker.Telnyx.OpenApiClient.Channel_zones;
 using Soenneker.Telnyx.OpenApiClient.Charges_breakdown;
 using Soenneker.Telnyx.OpenApiClient.Charges_summary;
@@ -42,7 +39,6 @@ using Soenneker.Telnyx.OpenApiClient.Document_links;
 using Soenneker.Telnyx.OpenApiClient.Documents;
 using Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses;
 using Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints;
-using Soenneker.Telnyx.OpenApiClient.EnumNamespace;
 using Soenneker.Telnyx.OpenApiClient.External_connections;
 using Soenneker.Telnyx.OpenApiClient.Fax_applications;
 using Soenneker.Telnyx.OpenApiClient.Faxes;
@@ -99,15 +95,12 @@ using Soenneker.Telnyx.OpenApiClient.Numbers_features;
 using Soenneker.Telnyx.OpenApiClient.Oauth;
 using Soenneker.Telnyx.OpenApiClient.Oauth_clients;
 using Soenneker.Telnyx.OpenApiClient.Oauth_grants;
+using Soenneker.Telnyx.OpenApiClient.OneZerodlc;
 using Soenneker.Telnyx.OpenApiClient.Operator_connect;
 using Soenneker.Telnyx.OpenApiClient.Ota_updates;
 using Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles;
-using Soenneker.Telnyx.OpenApiClient.PartnerCampaign;
-using Soenneker.Telnyx.OpenApiClient.Partner_campaigns;
 using Soenneker.Telnyx.OpenApiClient.Payment;
-using Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile;
 using Soenneker.Telnyx.OpenApiClient.Phone_number_blocks;
-using Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements;
 using Soenneker.Telnyx.OpenApiClient.Portability_checks;
@@ -236,11 +229,6 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Billing_groups.Billing_groupsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The brand property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Brand.BrandRequestBuilder Brand
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Brand.BrandRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The bulk_sim_card_actions property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions.Bulk_sim_card_actionsRequestBuilder Bulk_sim_card_actions
         {
@@ -265,16 +253,6 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Calls.CallsRequestBuilder Calls
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Calls.CallsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The campaign property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Campaign.CampaignRequestBuilder Campaign
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Campaign.CampaignRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The campaignBuilder property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.CampaignBuilder.CampaignBuilderRequestBuilder CampaignBuilder
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.CampaignBuilder.CampaignBuilderRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The channel_zones property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Channel_zones.Channel_zonesRequestBuilder Channel_zones
@@ -355,11 +333,6 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder Dynamic_emergency_endpoints
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The enum property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.EnumRequestBuilder Enum
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.EnumNamespace.EnumRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The external_connections property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.External_connections.External_connectionsRequestBuilder External_connections
@@ -641,6 +614,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Oauth_grants.Oauth_grantsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The OneZerodlc property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.OneZerodlcRequestBuilder OneZerodlc
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.OneZerodlcRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The operator_connect property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Operator_connectRequestBuilder Operator_connect
         {
@@ -656,16 +634,6 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles.Outbound_voice_profilesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The partner_campaigns property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Partner_campaigns.Partner_campaignsRequestBuilder Partner_campaigns
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Partner_campaigns.Partner_campaignsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The partnerCampaign property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.PartnerCampaign.PartnerCampaignRequestBuilder PartnerCampaign
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.PartnerCampaign.PartnerCampaignRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The payment property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Payment.PaymentRequestBuilder Payment
         {
@@ -676,11 +644,6 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Phone_number_blocks.Phone_number_blocksRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The phone_number_campaigns property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder Phone_number_campaigns
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Phone_number_campaigns.Phone_number_campaignsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The phone_numbers property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Phone_numbersRequestBuilder Phone_numbers
         {
@@ -690,11 +653,6 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsRequestBuilder Phone_numbers_regulatory_requirements
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Phone_numbers_regulatory_requirements.Phone_numbers_regulatory_requirementsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The phoneNumberAssignmentByProfile property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder PhoneNumberAssignmentByProfile
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.PhoneNumberAssignmentByProfile.PhoneNumberAssignmentByProfileRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The portability_checks property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Portability_checks.Portability_checksRequestBuilder Portability_checks

@@ -3,9 +3,10 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Engine identifier for Deepgram transcription service</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public enum TranscriptionEngineDeepgramConfig_transcription_engine
+    #pragma warning restore CS1591
     {
         [EnumMember(Value = "Deepgram")]
         #pragma warning disable CS1591

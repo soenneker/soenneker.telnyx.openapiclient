@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Seti.Black_box_test_results
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Black_box_test_resultsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[product]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[product]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

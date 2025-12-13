@@ -52,7 +52,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles.Templates
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifyProfileMessageTemplateResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Errors">When receiving a 4XX status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Errors">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifyProfileMessageTemplateResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,7 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Verify_profiles.Templates
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Errors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Verify_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifyProfileMessageTemplateResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifyProfileMessageTemplateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

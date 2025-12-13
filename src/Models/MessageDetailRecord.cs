@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Mcc { get; set; }
 #endif
-        /// <summary>Describes the Messaging service used to send the message. Available services are: Short Message Service (SMS), Multimedia Messaging Service (MMS), and Rich Communication Services (RCS)</summary>
+        /// <summary>&quot;Describes the Messaging service used to send the message. Available services are: Short Message Service (SMS), Multimedia Messaging Service (MMS), and Rich Communication Services (RCS)&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessageDetailRecord_message_type? MessageType { get; set; }
         /// <summary>Mobile network code. Only available for certain products, such as Global Outbound-Only from Alphanumeric Sender ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

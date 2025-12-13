@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Time(sec) before aborting if connection is not made.</summary>
         public int? Timeout1xxSecs { get; set; }
-        /// <summary>Time(sec) before aborting if call is unanswered (min: 1, max: 600).</summary>
+        /// <summary>&quot;Time(sec) before aborting if call is unanswered (min: 1, max: 600).&quot;</summary>
         public int? Timeout2xxSecs { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn"/> and sets the default values.

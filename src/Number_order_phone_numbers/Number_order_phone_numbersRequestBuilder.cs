@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Number_order_phone_numbers
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Number_order_phone_numbersRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[country_code]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[country_code]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

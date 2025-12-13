@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Instructions { get; set; }
 #endif
-        /// <summary>This is only needed when using third-party inference providers. The `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your LLM provider&apos;s API key. Warning: Free plans are unlikely to work with this integration.</summary>
+        /// <summary>&quot;This is only needed when using third-party inference providers. The `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your LLM provider&apos;s API key. Warning: Free plans are unlikely to work with this integration.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LlmApiKeyRef { get; set; }

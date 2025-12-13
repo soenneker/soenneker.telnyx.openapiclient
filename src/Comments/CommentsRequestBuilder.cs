@@ -166,7 +166,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Comments
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CommentsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[comment_record_type], filter[comment_record_id]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[comment_record_type], filter[comment_record_id]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

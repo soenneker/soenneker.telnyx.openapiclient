@@ -105,7 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_types
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Requirement_typesRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter for requirement types (deepObject style). Originally: filter[name]</summary>
+            /// <summary>&quot;Consolidated filter parameter for requirement types (deepObject style). Originally: filter[name]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Requirement_types
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated sort parameter for requirement types (deepObject style). Originally: sort[]</summary>
+            /// <summary>&quot;Consolidated sort parameter for requirement types (deepObject style). Originally: sort[]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

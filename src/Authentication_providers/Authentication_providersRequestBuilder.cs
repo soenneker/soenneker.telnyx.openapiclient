@@ -154,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Authentication_providersRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
@@ -164,7 +164,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Authentication_providers
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt;-&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
+            /// <summary>&quot;Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt;-&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-name&lt;/code&gt;: sorts the result by the    &lt;code&gt;name&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.&quot;</summary>
             [QueryParameter("sort")]
             public global::Soenneker.Telnyx.OpenApiClient.Authentication_providers.GetSortQueryParameterType? Sort { get; set; }
         }

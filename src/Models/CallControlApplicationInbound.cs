@@ -18,7 +18,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? ChannelLimit { get; set; }
         /// <summary>When enabled Telnyx will include Shaken/Stir data in the Webhook for new inbound calls.</summary>
         public bool? ShakenStirEnabled { get; set; }
-        /// <summary>Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain &quot;example.sip.telnyx.com&quot; can be called from any SIP endpoint by using the SIP URI &quot;sip:@example.sip.telnyx.com&quot; where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.</summary>
+        /// <summary>&quot;Specifies a subdomain that can be used to receive Inbound calls to a Connection, in the same way a phone number is used, from a SIP endpoint. Example: the subdomain \&quot;example.sip.telnyx.com\&quot; can be called from any SIP endpoint by using the SIP URI \&quot;sip:@example.sip.telnyx.com\&quot; where the user part can be any alphanumeric value. Please note TLS encrypted calls are not allowed for subdomain calls.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SipSubdomain { get; set; }
@@ -26,7 +26,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string SipSubdomain { get; set; }
 #endif
-        /// <summary>This option can be enabled to receive calls from: &quot;Anyone&quot; (any SIP endpoint in the public Internet) or &quot;Only my connections&quot; (any connection assigned to the same Telnyx user).</summary>
+        /// <summary>&quot;This option can be enabled to receive calls from: \&quot;Anyone\&quot; (any SIP endpoint in the public Internet) or \&quot;Only my connections\&quot; (any connection assigned to the same Telnyx user).&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound_sip_subdomain_receive_settings? SipSubdomainReceiveSettings { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplicationInbound"/> and sets the default values.

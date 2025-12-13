@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Whether to select all managed accounts</summary>
         public bool? SelectAllManagedAccounts { get; set; }
-        /// <summary>Source of the report. Valid values: calls (default), call-control, fax-api, webrtc</summary>
+        /// <summary>&quot;Source of the report. Valid values: calls (default), call-control, fax-api, webrtc&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Source { get; set; }

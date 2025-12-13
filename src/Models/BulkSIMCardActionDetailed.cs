@@ -12,7 +12,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class BulkSIMCardActionDetailed : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The operation type. It can be one of the following: &lt;br/&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;bulk_set_public_ips&lt;/code&gt; - set a public IP for each specified SIM card.&lt;/li&gt;&lt;/ul&gt;</summary>
+        /// <summary>&quot;The operation type. It can be one of the following: &lt;br/&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;bulk_set_public_ips&lt;/code&gt; - set a public IP for each specified SIM card.&lt;/li&gt;&lt;/ul&gt;&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.BulkSIMCardActionDetailed_action_type? ActionType { get; private set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

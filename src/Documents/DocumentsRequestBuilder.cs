@@ -154,7 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DocumentsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter for documents (deepObject style). Originally: filter[filename][contains], filter[customer_reference][eq], filter[customer_reference][in][], filter[created_at][gt], filter[created_at][lt]</summary>
+            /// <summary>&quot;Consolidated filter parameter for documents (deepObject style). Originally: filter[filename][contains], filter[customer_reference][eq], filter[customer_reference][in][], filter[created_at][gt], filter[created_at][lt]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -164,7 +164,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents
             [QueryParameter("filter")]
             public string Filter { get; set; }
 #endif
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
@@ -174,7 +174,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Documents
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
-            /// <summary>Consolidated sort parameter for documents (deepObject style). Originally: sort[]</summary>
+            /// <summary>&quot;Consolidated sort parameter for documents (deepObject style). Originally: sort[]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

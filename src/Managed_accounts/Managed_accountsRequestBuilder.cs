@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Managed_accountsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated filter parameter (deepObject style). Originally: filter[email][contains], filter[email][eq], filter[organization_name][contains], filter[organization_name][eq]</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[email][contains], filter[email][eq], filter[organization_name][contains], filter[organization_name][eq]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]
@@ -164,7 +164,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts
             /// <summary>Specifies if cancelled accounts should be included in the results.</summary>
             [QueryParameter("include_cancelled_accounts")]
             public bool? IncludeCancelledAccounts { get; set; }
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[number], page[size]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
@@ -174,7 +174,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Managed_accounts
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
-            /// <summary>Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.</summary>
+            /// <summary>&quot;Specifies the sort order for results. By default sorting direction is ascending. To have the results sorted in descending order add the &lt;code&gt; -&lt;/code&gt; prefix.&lt;br/&gt;&lt;br/&gt;That is: &lt;ul&gt;  &lt;li&gt;    &lt;code&gt;email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in ascending order.  &lt;/li&gt;  &lt;li&gt;    &lt;code&gt;-email&lt;/code&gt;: sorts the result by the    &lt;code&gt;email&lt;/code&gt; field in descending order.  &lt;/li&gt;&lt;/ul&gt; &lt;br/&gt; If not given, results are sorted by &lt;code&gt;created_at&lt;/code&gt; in descending order.&quot;</summary>
             [QueryParameter("sort")]
             public global::Soenneker.Telnyx.OpenApiClient.Managed_accounts.GetSortQueryParameterType? Sort { get; set; }
         }

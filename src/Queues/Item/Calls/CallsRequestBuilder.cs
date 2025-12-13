@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -51,6 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsRequestBuilder.CallsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -61,7 +63,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls.CallsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve the list of calls in an existing queue
@@ -97,7 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Queues.Item.Calls
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CallsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]</summary>
+            /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[after], page[before], page[limit], page[size], page[number]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("page")]
