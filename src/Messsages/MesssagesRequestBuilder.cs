@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Messsages.Rcs;
+using Soenneker.Telnyx.OpenApiClient.Messsages.Whatsapp;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Messsages
         public global::Soenneker.Telnyx.OpenApiClient.Messsages.Rcs.RcsRequestBuilder Rcs
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messsages.Rcs.RcsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The whatsapp property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messsages.Whatsapp.WhatsappRequestBuilder Whatsapp
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messsages.Whatsapp.WhatsappRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messsages.MesssagesRequestBuilder"/> and sets the default values.
