@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Act
         {
         }
         /// <summary>
-        /// Upload file required for a messaging hosted number order
+        /// Upload hosted number document
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.File_upload.File_uploadPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Act
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.File_upload.File_uploadPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Item.Actions.File_upload.File_uploadPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Upload file required for a messaging hosted number order
+        /// Upload hosted number document
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

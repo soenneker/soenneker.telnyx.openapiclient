@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns
         {
         }
         /// <summary>
-        /// Retrieve All Phone Number Campaigns
+        /// List phone number campaigns
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaignPaginated"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -95,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberCampaign.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve All Phone Number Campaigns
+        /// List phone number campaigns
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -145,7 +145,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns
             return new global::Soenneker.Telnyx.OpenApiClient.OneZerodlc.Phone_number_campaigns.Phone_number_campaignsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieve All Phone Number Campaigns
+        /// List phone number campaigns
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Phone_number_campaignsRequestBuilderGetQueryParameters 

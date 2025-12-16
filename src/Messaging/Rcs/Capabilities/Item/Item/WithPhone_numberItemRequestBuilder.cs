@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Capabilities.Item.Item
         {
         }
         /// <summary>
-        /// List RCS capabilities of a phone number
+        /// Check RCS capabilities
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesSingle"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Capabilities.Item.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesSingle>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesSingle.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List RCS capabilities of a phone number
+        /// Check RCS capabilities
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

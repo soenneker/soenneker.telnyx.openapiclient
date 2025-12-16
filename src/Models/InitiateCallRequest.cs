@@ -148,6 +148,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent? StatusCallbackEvent { get; set; }
         /// <summary>HTTP request type used for `StatusCallback`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod? StatusCallbackMethod { get; set; }
+        /// <summary>The call control ID of the existing call to supervise. When provided, the created leg will be added to the specified call in supervising mode. Status callbacks and action callbacks will NOT be sent for the supervising leg.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SuperviseCallSid { get; set; }
+#nullable restore
+#else
+        public string SuperviseCallSid { get; set; }
+#endif
+        /// <summary>&quot;The supervising role for the new leg. Determines the audio behavior: barge (hear both sides), whisper (only hear supervisor), monitor (hear both sides but supervisor muted). Default: barge&quot;</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SupervisingRole? SupervisingRole { get; set; }
         /// <summary>The phone number of the called party. Phone numbers are formatted with a `+` and country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -180,6 +190,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             SipRegion = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SipRegion.US;
             StatusCallbackEvent = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent.Completed;
             StatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod.POST;
+            SupervisingRole = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SupervisingRole.Barge;
             UrlMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_UrlMethod.POST;
         }
         /// <summary>
@@ -231,6 +242,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "StatusCallback", n => { StatusCallback = n.GetStringValue(); } },
                 { "StatusCallbackEvent", n => { StatusCallbackEvent = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent>(); } },
                 { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod>(); } },
+                { "SuperviseCallSid", n => { SuperviseCallSid = n.GetStringValue(); } },
+                { "SupervisingRole", n => { SupervisingRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SupervisingRole>(); } },
                 { "To", n => { To = n.GetStringValue(); } },
                 { "Trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_Trim>(); } },
                 { "Url", n => { Url = n.GetStringValue(); } },
@@ -275,6 +288,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("StatusCallback", StatusCallback);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent>("StatusCallbackEvent", StatusCallbackEvent);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
+            writer.WriteStringValue("SuperviseCallSid", SuperviseCallSid);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SupervisingRole>("SupervisingRole", SupervisingRole);
             writer.WriteStringValue("To", To);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_Trim>("Trim", Trim);
             writer.WriteStringValue("Url", Url);

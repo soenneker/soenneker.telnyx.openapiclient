@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Bulk_capabilities
         {
         }
         /// <summary>
-        /// List RCS capabilities of a given batch of phone numbers
+        /// Check RCS capabilities (batch)
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesBulk"/></returns>
         /// <param name="body">The request body</param>
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging.Rcs.Bulk_capabilities
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesBulk>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.RCSCapabilitiesBulk.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List RCS capabilities of a given batch of phone numbers
+        /// Check RCS capabilities (batch)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

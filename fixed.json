@@ -1087,7 +1087,7 @@
         "tags": [
           "Campaign"
         ],
-        "summary": "Deactivate My Campaign",
+        "summary": "Deactivate campaign",
         "description": "Terminate a campaign. Note that once deactivated, a campaign cannot be restored.",
         "operationId": "DeactivateCampaign",
         "parameters": [
@@ -1131,7 +1131,7 @@
         "tags": [
           "Campaign"
         ],
-        "summary": "Get My Campaign",
+        "summary": "Get campaign",
         "description": "Retrieve campaign details by `campaignId`.",
         "operationId": "GetCampaign",
         "parameters": [
@@ -1175,7 +1175,7 @@
         "tags": [
           "Campaign"
         ],
-        "summary": "Update My Campaign",
+        "summary": "Update campaign",
         "description": "Update a campaign's properties by `campaignId`. **Please note:** only sample messages are editable.",
         "operationId": "UpdateCampaign",
         "parameters": [
@@ -1359,7 +1359,7 @@
         "tags": [
           "Campaign"
         ],
-        "summary": "Get My Campaign Operation Status",
+        "summary": "Get campaign operation status",
         "description": "Retrieve campaign's operation status at MNO level.",
         "operationId": "GetCampaignOperationStatus",
         "parameters": [
@@ -1405,7 +1405,7 @@
         "tags": [
           "Campaign"
         ],
-        "summary": "Get My Osr Campaign Attributes",
+        "summary": "Get OSR campaign attributes",
         "operationId": "GetCampaignOsrAttributes",
         "parameters": [
           {
@@ -1680,7 +1680,7 @@
         "tags": [
           "Shared Campaigns"
         ],
-        "summary": "Get Partner Campaigns Shared By User",
+        "summary": "List shared partner campaigns",
         "description": "Get all partner campaigns you have shared to Telnyx in a paginated fashion\n\nThis endpoint is currently limited to only returning shared campaigns that Telnyx\nhas accepted. In other words, shared but pending campaigns are currently omitted\nfrom the response from this endpoint.",
         "operationId": "GetPartnerCampaignsSharedByUser",
         "parameters": [
@@ -2108,7 +2108,7 @@
         "tags": [
           "Phone Number Campaigns"
         ],
-        "summary": "Retrieve All Phone Number Campaigns",
+        "summary": "List phone number campaigns",
         "operationId": "GetAllPhoneNumberCampaigns",
         "parameters": [
           {
@@ -17815,7 +17815,7 @@
     "/messages/rcs/deeplinks/{agent_id}": {
       "get": {
         "tags": [
-          "RCS messaging"
+          "RCS"
         ],
         "summary": "Generate RCS deeplink",
         "description": "Generate a deeplink URL that can be used to start an RCS conversation with a specific agent.",
@@ -18016,7 +18016,7 @@
     "/messaging/rcs/agents": {
       "get": {
         "tags": [
-          "RCS messaging"
+          "RCS"
         ],
         "summary": "List all RCS agents",
         "operationId": "ListRCSAgents",
@@ -18045,7 +18045,7 @@
     "/messaging/rcs/agents/{id}": {
       "get": {
         "tags": [
-          "RCS messaging"
+          "RCS"
         ],
         "summary": "Retrieve an RCS agent",
         "operationId": "GetRCSAgentById",
@@ -18078,7 +18078,7 @@
       },
       "patch": {
         "tags": [
-          "RCS messaging"
+          "RCS"
         ],
         "summary": "Modify an RCS agent",
         "operationId": "UpdateRCSAgentById",
@@ -18122,9 +18122,9 @@
     "/messaging/rcs/bulk_capabilities": {
       "post": {
         "tags": [
-          "RCS messaging"
+          "RCS"
         ],
-        "summary": "List RCS capabilities of a given batch of phone numbers",
+        "summary": "Check RCS capabilities (batch)",
         "operationId": "ListRCSCapabilitiesOfAPhoneNumbersBatch",
         "requestBody": {
           "content": {
@@ -18155,9 +18155,9 @@
     "/messaging/rcs/capabilities/{agent_id}/{phone_number}": {
       "get": {
         "tags": [
-          "RCS messaging"
+          "RCS"
         ],
-        "summary": "List RCS capabilities of a phone number",
+        "summary": "Check RCS capabilities",
         "operationId": "ListRCSCapabilitiesOfAPhoneNumber",
         "parameters": [
           {
@@ -18199,9 +18199,9 @@
     "/messaging/rcs/test_number_invite/{id}/{phone_number}": {
       "put": {
         "tags": [
-          "RCS messaging"
+          "RCS"
         ],
-        "summary": "Invite a test number to an RCS agent",
+        "summary": "Add RCS test number",
         "description": "Adds a test phone number to an RCS agent for testing purposes.",
         "operationId": "InviteATestNumberToRCS",
         "parameters": [
@@ -18244,7 +18244,7 @@
     "/messaging_hosted_number_orders": {
       "get": {
         "tags": [
-          "Messaging Hosted Number"
+          "Hosted Numbers"
         ],
         "summary": "List messaging hosted number orders",
         "operationId": "ListMessagingHostedNumberOrders",
@@ -18264,7 +18264,7 @@
       },
       "post": {
         "tags": [
-          "Messaging Hosted Number"
+          "Hosted Numbers"
         ],
         "summary": "Create a messaging hosted number order",
         "operationId": "CreateMessagingHostedNumberOrder",
@@ -18291,9 +18291,9 @@
     "/messaging_hosted_number_orders/eligibility_numbers_check": {
       "post": {
         "tags": [
-          "Messaging Hosted Number"
+          "Hosted Numbers"
         ],
-        "summary": "Check eligibility of phone numbers for hosted messaging",
+        "summary": "Check hosted messaging eligibility",
         "operationId": "CheckEligibilityNumbers",
         "requestBody": {
           "description": "Phone numbers to check eligibility",
@@ -18342,7 +18342,7 @@
     "/messaging_hosted_number_orders/{id}": {
       "delete": {
         "tags": [
-          "Messaging Hosted Number"
+          "Hosted Numbers"
         ],
         "summary": "Delete a messaging hosted number order",
         "description": "Delete a messaging hosted number order and all associated phone numbers.",
@@ -18369,7 +18369,7 @@
       },
       "get": {
         "tags": [
-          "Messaging Hosted Number"
+          "Hosted Numbers"
         ],
         "summary": "Retrieve a messaging hosted number order",
         "operationId": "GetMessagingHostedNumberOrder",
@@ -18397,9 +18397,9 @@
     "/messaging_hosted_number_orders/{id}/actions/file_upload": {
       "post": {
         "tags": [
-          "Messaging Hosted Number"
+          "Hosted Numbers"
         ],
-        "summary": "Upload file required for a messaging hosted number order",
+        "summary": "Upload hosted number document",
         "operationId": "UploadMessagingHostedNumberOrderFile",
         "parameters": [
           {
@@ -18443,9 +18443,9 @@
     "/messaging_hosted_number_orders/{id}/validation_codes": {
       "post": {
         "tags": [
-          "Messaging Hosted Number"
+          "Hosted Numbers"
         ],
-        "summary": "Validate the verification codes for the hosted numbers order",
+        "summary": "Validate hosted number codes",
         "description": "Validate the verification codes sent to the numbers of the hosted order. The verification codes must be created in the verification codes endpoint.",
         "operationId": "ValidateVerificationCodesForMessagingHostedNumberOrder",
         "parameters": [
@@ -18482,9 +18482,9 @@
     "/messaging_hosted_number_orders/{id}/verification_codes": {
       "post": {
         "tags": [
-          "Messaging Hosted Number"
+          "Hosted Numbers"
         ],
-        "summary": "Create verification codes for the hosted numbers order",
+        "summary": "Create hosted number verification codes",
         "description": "Create verification codes to validate numbers of the hosted order. The verification codes will be sent to the numbers of the hosted order.",
         "operationId": "CreateVerificationCodesForMessagingHostedNumberOrder",
         "parameters": [
@@ -18528,7 +18528,7 @@
     "/messaging_hosted_numbers/{id}": {
       "delete": {
         "tags": [
-          "Messaging Hosted Number"
+          "Hosted Numbers"
         ],
         "summary": "Delete a messaging hosted number",
         "operationId": "DeleteMessagingHostedNumber",
@@ -18556,9 +18556,9 @@
     "/messaging_numbers_bulk_updates": {
       "post": {
         "tags": [
-          "Number Configurations"
+          "Number Settings"
         ],
-        "summary": "Update the messaging profile of multiple phone numbers",
+        "summary": "Bulk update phone number profiles",
         "operationId": "BulkUpdateMessagingSettingsOnPhoneNumbers",
         "requestBody": {
           "content": {
@@ -18582,7 +18582,7 @@
     "/messaging_numbers_bulk_updates/{order_id}": {
       "get": {
         "tags": [
-          "Number Configurations"
+          "Number Settings"
         ],
         "summary": "Retrieve bulk update status",
         "operationId": "GetBulkUpdateMessagingSettingsOnPhoneNumbersStatus",
@@ -18610,7 +18610,7 @@
     "/messaging_optouts": {
       "get": {
         "tags": [
-          "Advanced OptIn/OptOut"
+          "Opt-Out Management"
         ],
         "summary": "List opt-outs",
         "description": "Retrieve a list of opt-out blocks.",
@@ -18709,7 +18709,7 @@
     "/messaging_profiles": {
       "get": {
         "tags": [
-          "Messaging Profiles"
+          "Profiles"
         ],
         "summary": "List messaging profiles",
         "operationId": "ListMessagingProfiles",
@@ -18745,7 +18745,7 @@
       },
       "post": {
         "tags": [
-          "Messaging Profiles"
+          "Profiles"
         ],
         "summary": "Create a messaging profile",
         "operationId": "CreateMessagingProfile",
@@ -18772,7 +18772,7 @@
     "/messaging_profiles/{id}": {
       "delete": {
         "tags": [
-          "Messaging Profiles"
+          "Profiles"
         ],
         "summary": "Delete a messaging profile",
         "operationId": "DeleteMessagingProfile",
@@ -18792,7 +18792,7 @@
       },
       "get": {
         "tags": [
-          "Messaging Profiles"
+          "Profiles"
         ],
         "summary": "Retrieve a messaging profile",
         "operationId": "RetrieveMessagingProfile",
@@ -18812,7 +18812,7 @@
       },
       "patch": {
         "tags": [
-          "Messaging Profiles"
+          "Profiles"
         ],
         "summary": "Update a messaging profile",
         "operationId": "UpdateMessagingProfile",
@@ -18844,7 +18844,7 @@
     "/messaging_profiles/{id}/phone_numbers": {
       "get": {
         "tags": [
-          "Messaging Profiles"
+          "Profiles"
         ],
         "summary": "List phone numbers associated with a messaging profile",
         "operationId": "ListProfilePhoneNumbers",
@@ -18869,7 +18869,7 @@
     "/messaging_profiles/{id}/short_codes": {
       "get": {
         "tags": [
-          "Messaging Profiles"
+          "Profiles"
         ],
         "summary": "List short codes associated with a messaging profile",
         "operationId": "ListProfileShortCodes",
@@ -18894,7 +18894,7 @@
     "/messaging_profiles/{profile_id}/autoresp_configs": {
       "get": {
         "tags": [
-          "Advanced OptIn/OptOut"
+          "Opt-Out Management"
         ],
         "summary": "List Auto-Response Settings",
         "operationId": "GetAutorespConfigs",
@@ -19021,9 +19021,9 @@
       },
       "post": {
         "tags": [
-          "Advanced OptIn/OptOut"
+          "Opt-Out Management"
         ],
-        "summary": "Create Auto-Reponse Setting",
+        "summary": "Create auto-response setting",
         "operationId": "CreateAutorespConfig",
         "parameters": [
           {
@@ -19078,7 +19078,7 @@
     "/messaging_profiles/{profile_id}/autoresp_configs/{autoresp_cfg_id}": {
       "delete": {
         "tags": [
-          "Advanced OptIn/OptOut"
+          "Opt-Out Management"
         ],
         "summary": "Delete Auto-Response Setting",
         "operationId": "DeleteAutorespConfig",
@@ -19122,7 +19122,7 @@
       },
       "get": {
         "tags": [
-          "Advanced OptIn/OptOut"
+          "Opt-Out Management"
         ],
         "summary": "Get Auto-Response Setting",
         "operationId": "GetAutorespConfig",
@@ -19179,7 +19179,7 @@
       },
       "put": {
         "tags": [
-          "Advanced OptIn/OptOut"
+          "Opt-Out Management"
         ],
         "summary": "Update Auto-Response Setting",
         "operationId": "UpdateAutoRespConfig",
@@ -19248,7 +19248,7 @@
     "/messaging_tollfree/verification/requests": {
       "get": {
         "tags": [
-          "Messaging Tollfree Verification"
+          "Verification Requests"
         ],
         "summary": "List Verification Requests",
         "description": "Get a list of previously-submitted tollfree verification requests",
@@ -19328,7 +19328,7 @@
       },
       "post": {
         "tags": [
-          "Messaging Tollfree Verification"
+          "Verification Requests"
         ],
         "summary": "Submit Verification Request",
         "description": "Submit a new tollfree verification request",
@@ -19362,7 +19362,7 @@
     "/messaging_tollfree/verification/requests/{id}": {
       "delete": {
         "tags": [
-          "Messaging Tollfree Verification"
+          "Verification Requests"
         ],
         "summary": "Delete Verification Request",
         "description": "\"Delete a verification request\n\nA request may only be deleted when when the request is in the \\\"rejected\\\" state.\n\n* `HTTP 200`: request successfully deleted\n* `HTTP 400`: request exists but can't be deleted (i.e. not rejected)\n* `HTTP 404`: request unknown or already deleted\"",
@@ -19390,7 +19390,7 @@
       },
       "get": {
         "tags": [
-          "Messaging Tollfree Verification"
+          "Verification Requests"
         ],
         "summary": "Get Verification Request",
         "description": "Get a single verification request by its ID.",
@@ -19425,7 +19425,7 @@
       },
       "patch": {
         "tags": [
-          "Messaging Tollfree Verification"
+          "Verification Requests"
         ],
         "summary": "Update Verification Request",
         "description": "Update an existing tollfree verification request. This is particularly useful when there are pending customer actions to be taken.",
@@ -19493,7 +19493,7 @@
     "/messsages/rcs": {
       "post": {
         "tags": [
-          "RCS messaging"
+          "RCS"
         ],
         "summary": "Send an RCS message",
         "operationId": "SendRCSMessage",
@@ -24240,7 +24240,7 @@
     "/phone_numbers/messaging": {
       "get": {
         "tags": [
-          "Number Configurations"
+          "Number Settings"
         ],
         "summary": "List phone numbers with messaging settings",
         "operationId": "ListPhoneNumbersWithMessagingSettings",
@@ -24792,7 +24792,7 @@
     "/phone_numbers/{id}/messaging": {
       "get": {
         "tags": [
-          "Number Configurations"
+          "Number Settings"
         ],
         "summary": "Retrieve a phone number with messaging settings",
         "operationId": "GetPhoneNumberMessagingSettings",
@@ -24818,7 +24818,7 @@
       },
       "patch": {
         "tags": [
-          "Number Configurations"
+          "Number Settings"
         ],
         "summary": "Update the messaging profile and/or messaging product of a phone number",
         "operationId": "UpdatePhoneNumberMessagingSettings",
@@ -62590,6 +62590,23 @@
             "description": "Defines the SIP region to be used for the call.",
             "default": "US",
             "example": "Canada"
+          },
+          "SuperviseCallSid": {
+            "type": "string",
+            "description": "The call control ID of the existing call to supervise. When provided, the created leg will be added to the specified call in supervising mode. Status callbacks and action callbacks will NOT be sent for the supervising leg.",
+            "example": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg"
+          },
+          "SupervisingRole": {
+            "enum": [
+              "barge",
+              "whisper",
+              "monitor"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "\"The supervising role for the new leg. Determines the audio behavior: barge (hear both sides), whisper (only hear supervisor), monitor (hear both sides but supervisor muted). Default: barge\"",
+            "default": "barge",
+            "example": "monitor"
           }
         },
         "example": {
@@ -110121,10 +110138,6 @@
       "description": "Operations to work with Address records. Address records are emergency-validated addresses meant to be associated with phone numbers. They are validated for emergency usage purposes at creation time, although you may validate them separately with a custom workflow using the ValidateAddress operation separately. Address records are not usable for physical orders, such as for Telnyx SIM cards, please use UserAddress for that. It is not possible to entirely skip emergency service validation for Address records; if an emergency provider for a phone number rejects the address then it cannot be used on a phone number. To prevent records from getting out of sync, Address records are immutable and cannot be altered once created. If you realize you need to alter an address, a new record must be created with the differing address."
     },
     {
-      "name": "Advanced OptIn/OptOut",
-      "description": "Advanced OptIn/OptOut"
-    },
-    {
       "name": "Assistants",
       "description": "Configure AI assistant specifications"
     },
@@ -110297,6 +110310,10 @@
       "description": "Global IPs"
     },
     {
+      "name": "Hosted Numbers",
+      "description": "Manage your messaging hosted numbers"
+    },
+    {
       "name": "IP Addresses",
       "description": "IP Address Operations"
     },
@@ -110349,18 +110366,6 @@
       "description": "Messages"
     },
     {
-      "name": "Messaging Hosted Number",
-      "description": "Manage your messaging hosted numbers"
-    },
-    {
-      "name": "Messaging Profiles",
-      "description": "Messaging profiles"
-    },
-    {
-      "name": "Messaging Tollfree Verification",
-      "description": "Manage your tollfree verification requests"
-    },
-    {
       "name": "Messaging URL Domains",
       "description": "Messaging URL Domains"
     },
@@ -110389,10 +110394,6 @@
       "description": "Notification settings operations"
     },
     {
-      "name": "Number Configurations",
-      "description": "Configure your phone numbers"
-    },
-    {
       "name": "Number Lookup",
       "description": "Look up phone number data"
     },
@@ -110401,8 +110402,16 @@
       "description": "Number portout operations"
     },
     {
+      "name": "Number Settings",
+      "description": "Configure your phone numbers"
+    },
+    {
       "name": "OTA updates",
       "description": "OTA updates operations"
+    },
+    {
+      "name": "Opt-Out Management",
+      "description": "Opt-Out Management"
     },
     {
       "name": "Outbound Voice Profiles",
@@ -110453,6 +110462,10 @@
       "description": "Private Wireless Gateways operations"
     },
     {
+      "name": "Profiles",
+      "description": "Messaging profiles"
+    },
+    {
       "name": "Programmable Fax Applications",
       "description": "Fax Applications operations"
     },
@@ -110473,7 +110486,7 @@
       "description": "Queue commands operations"
     },
     {
-      "name": "RCS messaging",
+      "name": "RCS",
       "description": "Send RCS messages"
     },
     {
@@ -110595,6 +110608,10 @@
     {
       "name": "UserAddresses",
       "description": "Operations for working with UserAddress records. UserAddress records are stored addresses that users can use for non-emergency-calling purposes, such as for shipping addresses for orders of wireless SIMs (or other physical items). They cannot be used for emergency calling and are distinct from Address records, which are used on phone numbers."
+    },
+    {
+      "name": "Verification Requests",
+      "description": "Manage your tollfree verification requests"
     },
     {
       "name": "Verified Numbers",

@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigsResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create Auto-Reponse Setting
+        /// Create auto-response setting
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AutorespConfigResponseSchema"/></returns>
         /// <param name="body">The request body</param>
@@ -114,7 +114,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_config
             return requestInfo;
         }
         /// <summary>
-        /// Create Auto-Reponse Setting
+        /// Create auto-response setting
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
