@@ -75,7 +75,6 @@ using Soenneker.Telnyx.OpenApiClient.Messaging_optouts;
 using Soenneker.Telnyx.OpenApiClient.Messaging_profiles;
 using Soenneker.Telnyx.OpenApiClient.Messaging_tollfree;
 using Soenneker.Telnyx.OpenApiClient.Messaging_url_domains;
-using Soenneker.Telnyx.OpenApiClient.Messsages;
 using Soenneker.Telnyx.OpenApiClient.Mobile_network_operators;
 using Soenneker.Telnyx.OpenApiClient.Mobile_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Mobile_push_credentials;
@@ -513,11 +512,6 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_url_domains.Messaging_url_domainsRequestBuilder Messaging_url_domains
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_url_domains.Messaging_url_domainsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The messsages property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Messsages.MesssagesRequestBuilder Messsages
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Messsages.MesssagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The mobile_network_operators property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Mobile_network_operators.Mobile_network_operatorsRequestBuilder Mobile_network_operators

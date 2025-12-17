@@ -10,6 +10,7 @@ using Soenneker.Telnyx.OpenApiClient.Messages.Number_pool;
 using Soenneker.Telnyx.OpenApiClient.Messages.Rcs;
 using Soenneker.Telnyx.OpenApiClient.Messages.Schedule;
 using Soenneker.Telnyx.OpenApiClient.Messages.Short_code;
+using Soenneker.Telnyx.OpenApiClient.Messages.Whatsapp;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -53,6 +54,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Short_code.Short_codeRequestBuilder Short_code
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Short_code.Short_codeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The whatsapp property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Whatsapp.WhatsappRequestBuilder Whatsapp
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Whatsapp.WhatsappRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.messages.item collection</summary>
         /// <param name="position">The id of the message to cancel</param>

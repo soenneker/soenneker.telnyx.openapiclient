@@ -17812,6 +17812,40 @@
         }
       }
     },
+    "/messages/rcs": {
+      "post": {
+        "tags": [
+          "RCS"
+        ],
+        "summary": "Send an RCS message",
+        "operationId": "SendRCSMessage",
+        "requestBody": {
+          "description": "RCS message body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RCSMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RCSResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
     "/messages/rcs/deeplinks/{agent_id}": {
       "get": {
         "tags": [
@@ -17914,6 +17948,40 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/MessageResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/messages/whatsapp": {
+      "post": {
+        "tags": [
+          "Whatsapp messaging"
+        ],
+        "summary": "Send a Whatsapp message",
+        "operationId": "SendWhatsappMessage",
+        "requestBody": {
+          "description": "Whatsapp message body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhatsappMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WhatsappResponse"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
@@ -19483,74 +19551,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListMessagingUrlDomains"
-          },
-          "4XX": {
-            "$ref": "#/components/responses/messaging_GenericErrorResponse"
-          }
-        }
-      }
-    },
-    "/messsages/rcs": {
-      "post": {
-        "tags": [
-          "RCS"
-        ],
-        "summary": "Send an RCS message",
-        "operationId": "SendRCSMessage",
-        "requestBody": {
-          "description": "RCS message body",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RCSMessage"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RCSResponse"
-                }
-              }
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/messaging_GenericErrorResponse"
-          }
-        }
-      }
-    },
-    "/messsages/whatsapp": {
-      "post": {
-        "tags": [
-          "Whatsapp messaging"
-        ],
-        "summary": "Send a Whatsapp message",
-        "operationId": "SendWhatsappMessage",
-        "requestBody": {
-          "description": "Whatsapp message body",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WhatsappMessage"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WhatsappResponse"
-                }
-              }
-            }
           },
           "4XX": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
@@ -29645,6 +29645,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListRoomCompositionsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         }
       },
@@ -29838,6 +29841,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListRoomParticipantsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         }
       }
@@ -30091,6 +30097,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListRoomRecordingsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         }
       }
@@ -30267,6 +30276,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListRoomSessionsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         }
       }
@@ -30334,6 +30346,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ActionSuccessResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         },
         "security": [ ]
@@ -30373,6 +30388,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ActionSuccessResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         },
         "security": [ ]
@@ -30412,6 +30430,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ActionSuccessResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         },
         "security": [ ]
@@ -30451,6 +30472,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ActionSuccessResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         },
         "security": [ ]
@@ -30569,6 +30593,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListRoomParticipantsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         }
       }
@@ -30661,6 +30688,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListRoomsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         }
       },
@@ -31003,6 +31033,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListRoomSessionsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/video_GenericErrorResponse"
           }
         }
       }
@@ -47855,116 +47888,6 @@
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
       },
-      "CompositionCompleted": {
-        "title": "Composition Completed",
-        "type": "object",
-        "properties": {
-          "record_type": {
-            "enum": [
-              "event"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "An identifier for the type of the resource.",
-            "example": "event"
-          },
-          "event_type": {
-            "enum": [
-              "video.room.composition.completed"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The type of event being delivered.",
-            "example": "video.room.composition.completed"
-          },
-          "id": {
-            "type": "string",
-            "description": "Uniquely identify the event.",
-            "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-          },
-          "occurred_at": {
-            "type": "string",
-            "description": "ISO 8601 datetime of when the event occurred.",
-            "format": "date-time",
-            "example": "2018-02-02T22:25:27.521992Z"
-          },
-          "payload": {
-            "type": "object",
-            "properties": {
-              "composition_id": {
-                "type": "string",
-                "description": "Composition ID that identifies the room composition.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "download_url": {
-                "type": "string",
-                "description": "Url to download the room composition.",
-                "example": "https://www.example.com"
-              },
-              "duration_secs": {
-                "type": "integer",
-                "description": "Room composition duration in seconds.",
-                "example": 67
-              },
-              "format": {
-                "type": "string",
-                "description": "Format of the room composition.",
-                "example": "mp4"
-              },
-              "resolution": {
-                "type": "string",
-                "description": "Format of the room composition.",
-                "example": "1280x720"
-              },
-              "room_id": {
-                "type": "string",
-                "description": "Room ID associated with the room composition.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "session_id": {
-                "type": "string",
-                "description": "Session ID associated with the room composition.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-              },
-              "size_mb": {
-                "type": "number",
-                "description": "Room composition size in MB.",
-                "format": "float",
-                "example": 10.5
-              }
-            }
-          }
-        },
-        "example": {
-          "record_type": "event",
-          "event_type": "video.room.composition.completed",
-          "id": "d51754fc-6888-4b0e-8f29-fc3ae41250cd",
-          "occurred_at": "2022-03-02 04:47:29.980874Z",
-          "payload": {
-            "composition_id": "5970ce77-4aeb-4e18-ac8c-3effca0c145a",
-            "download_url": "https://www.example.com",
-            "duration_secs": 53,
-            "format": "mp4",
-            "resolution": "1280x720",
-            "room_id": "2fbf2c0d-b6aa-463f-aeed-83ce298be978",
-            "session_id": "7c4da191-2600-4df6-a35e-0ecae6caa5d3",
-            "size_mb": 2.6
-          }
-        }
-      },
-      "CompositionCompletedEvent": {
-        "title": "Composition Completed Event",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/CompositionCompleted"
-          }
-        }
-      },
       "Conference": {
         "title": "Conference",
         "required": [
@@ -53774,21 +53697,18 @@
             "type": "string",
             "description": "The desired format of the room composition.",
             "default": "mp4",
-            "nullable": true,
             "example": "mp4"
           },
           "resolution": {
             "type": "string",
             "description": "The desired resolution (width/height in pixels) of the resulting video of the room composition. Both width and height are required to be between 16 and 1280; and width * height should not exceed 1280 * 720",
             "default": "1280x720",
-            "nullable": true,
             "example": "800x600"
           },
           "session_id": {
             "type": "string",
             "description": "id of the room session associated with the room composition.",
             "format": "uuid",
-            "nullable": true,
             "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777b0"
           },
           "video_layout": {
@@ -53808,7 +53728,6 @@
             "type": "string",
             "description": "The failover URL where webhooks related to this room composition will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "format": "uri",
-            "nullable": true,
             "example": "https://failover.example.com"
           },
           "webhook_timeout_secs": {
@@ -53816,8 +53735,6 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
-            "default": null,
-            "nullable": true,
             "example": 25
           }
         }
@@ -53854,7 +53771,6 @@
             "type": "string",
             "description": "The failover URL where webhooks related to this room will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "format": "uri",
-            "nullable": true,
             "example": "https://failover.example.com"
           },
           "webhook_timeout_secs": {
@@ -53862,8 +53778,6 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
-            "default": null,
-            "nullable": true,
             "example": 25
           }
         }
@@ -70538,188 +70452,6 @@
           }
         }
       },
-      "ParticipantJoined": {
-        "title": "Participant Joined",
-        "type": "object",
-        "properties": {
-          "record_type": {
-            "enum": [
-              "event"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "An identifier for the type of the resource.",
-            "example": "event"
-          },
-          "event_type": {
-            "enum": [
-              "video.room.participant.joined"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The type of event being delivered.",
-            "example": "video.room.participant.joined"
-          },
-          "id": {
-            "type": "string",
-            "description": "Uniquely identify the event.",
-            "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-          },
-          "occurred_at": {
-            "type": "string",
-            "description": "ISO 8601 datetime of when the event occurred.",
-            "format": "date-time",
-            "example": "2018-02-02T22:25:27.521992Z"
-          },
-          "payload": {
-            "type": "object",
-            "properties": {
-              "session_id": {
-                "type": "string",
-                "description": "Session ID that identifies the session where the participant joined.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-              },
-              "room_id": {
-                "type": "string",
-                "description": "Room ID that identifies the room where the participant joined.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "context": {
-                "type": "string",
-                "description": "Context provided to the given participant through the client SDK",
-                "example": "Alice"
-              },
-              "participant_id": {
-                "type": "string",
-                "description": "Participant ID that identifies the participant that joined.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              }
-            }
-          }
-        },
-        "example": {
-          "record_type": "event",
-          "event_type": "video.room.session.started",
-          "id": "6b61621f-62e0-4aad-ab11-9fd19e272e73",
-          "occurred_at": "2018-02-02T22:25:27.521992Z",
-          "payload": {
-            "session_id": "7b61621f-62e0-4aad-ab11-9fd19e272e73",
-            "room_id": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "participant_id": "5ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "context": "Alice"
-          }
-        }
-      },
-      "ParticipantJoinedEvent": {
-        "title": "Participant Joined Event",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/ParticipantJoined"
-          }
-        }
-      },
-      "ParticipantLeft": {
-        "title": "Participant Left",
-        "type": "object",
-        "properties": {
-          "record_type": {
-            "enum": [
-              "event"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "An identifier for the type of the resource.",
-            "example": "event"
-          },
-          "event_type": {
-            "enum": [
-              "video.room.participant.left"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The type of event being delivered.",
-            "example": "video.room.participant.left"
-          },
-          "id": {
-            "type": "string",
-            "description": "Uniquely identify the event.",
-            "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-          },
-          "occurred_at": {
-            "type": "string",
-            "description": "ISO 8601 datetime of when the event occurred.",
-            "format": "date-time",
-            "example": "2018-02-02T22:25:27.521992Z"
-          },
-          "payload": {
-            "type": "object",
-            "properties": {
-              "session_id": {
-                "type": "string",
-                "description": "Session ID that identifies the session where the participant left.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-              },
-              "room_id": {
-                "type": "string",
-                "description": "Room ID that identifies the room where the participant left.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "context": {
-                "type": "string",
-                "description": "Context provided to the given participant through the client SDK",
-                "example": "Alice"
-              },
-              "participant_id": {
-                "type": "string",
-                "description": "Participant ID that identifies the participant that left.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "duration_secs": {
-                "type": "integer",
-                "description": "The duration in seconds of the participant in the session",
-                "example": 245
-              },
-              "left_reason": {
-                "type": "string",
-                "description": "The reason why the participant left",
-                "example": "kicked"
-              }
-            }
-          }
-        },
-        "example": {
-          "record_type": "event",
-          "event_type": "video.room.session.started",
-          "id": "6b61621f-62e0-4aad-ab11-9fd19e272e73",
-          "occurred_at": "2018-02-02T22:25:27.521992Z",
-          "payload": {
-            "session_id": "7b61621f-62e0-4aad-ab11-9fd19e272e73",
-            "room_id": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "participant_id": "5ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "context": "Alice",
-            "duration_secs": 34,
-            "left_reason": "kick"
-          }
-        }
-      },
-      "ParticipantLeftEvent": {
-        "title": "Participant Left Event",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/ParticipantLeft"
-          }
-        }
-      },
       "ParticipantResource": {
         "title": "Participant resource",
         "type": "object",
@@ -70905,7 +70637,6 @@
             "type": "string",
             "description": "The failover URL where webhooks related to this room will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "format": "uri",
-            "nullable": true,
             "example": "https://failover.example.com"
           },
           "webhook_timeout_secs": {
@@ -70913,8 +70644,6 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
-            "default": null,
-            "nullable": true,
             "example": 25
           }
         }
@@ -76663,128 +76392,6 @@
         "additionalProperties": false,
         "description": "Identifies record type."
       },
-      "RecordingCompleted": {
-        "title": "Recording Completed",
-        "type": "object",
-        "properties": {
-          "record_type": {
-            "enum": [
-              "event"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "An identifier for the type of the resource.",
-            "example": "event"
-          },
-          "event_type": {
-            "enum": [
-              "video.room.recording.completed"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The type of event being delivered.",
-            "example": "video.room.recording.completed"
-          },
-          "id": {
-            "type": "string",
-            "description": "Uniquely identify the event.",
-            "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-          },
-          "occurred_at": {
-            "type": "string",
-            "description": "ISO 8601 datetime of when the event occurred.",
-            "format": "date-time",
-            "example": "2018-02-02T22:25:27.521992Z"
-          },
-          "payload": {
-            "type": "object",
-            "properties": {
-              "session_id": {
-                "type": "string",
-                "description": "Session ID associated with the recording.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-              },
-              "room_id": {
-                "type": "string",
-                "description": "Room ID associated with the recording.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "participant_id": {
-                "type": "string",
-                "description": "Participant ID associated with the recording.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "recording_id": {
-                "type": "string",
-                "description": "Recording ID that identifies the recording.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "type": {
-                "enum": [
-                  "audio",
-                  "video"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "description": "Type of the recording.",
-                "example": "audio"
-              },
-              "size_mb": {
-                "type": "number",
-                "description": "Recording size in MB.",
-                "format": "float",
-                "example": 10.5
-              },
-              "download_url": {
-                "type": "string",
-                "description": "Url to download the recording.",
-                "example": "https://www.example.com"
-              },
-              "codec": {
-                "type": "string",
-                "description": "Codec used for the recording.",
-                "example": "opus"
-              },
-              "duration_secs": {
-                "type": "integer",
-                "description": "Recording duration in seconds.",
-                "example": 67
-              }
-            }
-          }
-        },
-        "example": {
-          "record_type": "event",
-          "event_type": "video.room.recording.started",
-          "id": "6b61621f-62e0-4aad-ab11-9fd19e272e73",
-          "occurred_at": "2018-02-02T22:25:27.521992Z",
-          "payload": {
-            "session_id": "7b61621f-62e0-4aad-ab11-9fd19e272e73",
-            "room_id": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "participant_id": "5ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "recording_id": "1ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "type": "audio",
-            "download_url": "https://www.example.com",
-            "duration_secs": 3660,
-            "size_mb": 5.6,
-            "codec": "opus"
-          }
-        }
-      },
-      "RecordingCompletedEvent": {
-        "title": "Recording Completed Event",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/RecordingCompleted"
-          }
-        }
-      },
       "RecordingResponse": {
         "title": "RecordingResponse",
         "type": "object",
@@ -76915,103 +76522,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Defines how the recording was created."
-      },
-      "RecordingStarted": {
-        "title": "Recording Started",
-        "type": "object",
-        "properties": {
-          "record_type": {
-            "enum": [
-              "event"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "An identifier for the type of the resource.",
-            "example": "event"
-          },
-          "event_type": {
-            "enum": [
-              "video.room.recording.started"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The type of event being delivered.",
-            "example": "video.room.recording.started"
-          },
-          "id": {
-            "type": "string",
-            "description": "Uniquely identify the event.",
-            "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-          },
-          "occurred_at": {
-            "type": "string",
-            "description": "ISO 8601 datetime of when the event occurred.",
-            "format": "date-time",
-            "example": "2018-02-02T22:25:27.521992Z"
-          },
-          "payload": {
-            "type": "object",
-            "properties": {
-              "session_id": {
-                "type": "string",
-                "description": "Session ID associated with the recording.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-              },
-              "room_id": {
-                "type": "string",
-                "description": "Room ID associated with the recording.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "participant_id": {
-                "type": "string",
-                "description": "Participant ID associated with the recording.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "recording_id": {
-                "type": "string",
-                "description": "Recording ID associated with the recording.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "type": {
-                "enum": [
-                  "audio",
-                  "video"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "description": "Type of the recording.",
-                "example": "audio"
-              }
-            }
-          }
-        },
-        "example": {
-          "record_type": "event",
-          "event_type": "video.room.recording.started",
-          "id": "6b61621f-62e0-4aad-ab11-9fd19e272e73",
-          "occurred_at": "2018-02-02T22:25:27.521992Z",
-          "payload": {
-            "session_id": "7b61621f-62e0-4aad-ab11-9fd19e272e73",
-            "room_id": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "participant_id": "5ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "recording_id": "1ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "type": "audio"
-          }
-        }
-      },
-      "RecordingStartedEvent": {
-        "title": "Recording Started Event",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/RecordingStarted"
-          }
-        }
       },
       "OperatorConnectRefresh_202": {
         "title": "Operator Connect Refresh Response",
@@ -77918,7 +77428,6 @@
             "type": "string",
             "description": "The failover URL where webhooks related to this room will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "format": "uri",
-            "nullable": true,
             "example": "https://failover.example.com"
           },
           "webhook_timeout_secs": {
@@ -77926,8 +77435,6 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
-            "default": null,
-            "nullable": true,
             "example": 25
           },
           "record_type": {
@@ -78071,7 +77578,6 @@
             "type": "string",
             "description": "The failover URL where webhooks related to this room composition will be sent if sending to the primary URL fails. Must include a scheme, such as 'https'.",
             "format": "uri",
-            "nullable": true,
             "example": "https://failover.example.com"
           },
           "webhook_timeout_secs": {
@@ -78079,8 +77585,6 @@
             "minimum": 0,
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
-            "default": null,
-            "nullable": true,
             "example": 25
           },
           "record_type": {
@@ -78091,7 +77595,7 @@
         },
         "example": {
           "completed_at": "2022-02-25T05:39:56.377426Z",
-          "download_url": null,
+          "download_url": "https://example.com",
           "duration_secs": 84,
           "ended_at": "2022-02-24T23:22:24.577677Z",
           "format": "mp4",
@@ -78108,7 +77612,7 @@
             "first": {
               "height": 720,
               "video_sources": [
-                "*"
+                "7b61621f-62e0-4aad-ab11-9fd19e272e73"
               ],
               "width": 1280,
               "x_pos": 0,
@@ -80037,162 +79541,6 @@
         "description": "Indicates the coverage of the termination regions.",
         "default": "global",
         "example": "global"
-      },
-      "SessionEnded": {
-        "title": "Session Ended",
-        "type": "object",
-        "properties": {
-          "record_type": {
-            "enum": [
-              "event"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "An identifier for the type of the resource.",
-            "example": "event"
-          },
-          "event_type": {
-            "enum": [
-              "video.room.session.ended"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The type of event being delivered.",
-            "example": "video.room.session.ended"
-          },
-          "id": {
-            "type": "string",
-            "description": "Uniquely identify the event.",
-            "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-          },
-          "occurred_at": {
-            "type": "string",
-            "description": "ISO 8601 datetime of when the event occurred.",
-            "format": "date-time",
-            "example": "2018-02-02T22:25:27.521992Z"
-          },
-          "payload": {
-            "type": "object",
-            "properties": {
-              "session_id": {
-                "type": "string",
-                "description": "Session ID that identifies the session that ended.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-              },
-              "room_id": {
-                "type": "string",
-                "description": "Room ID that identifies the room where the session ended.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              },
-              "duration_secs": {
-                "type": "integer",
-                "description": "The duration in seconds of the session",
-                "example": 245
-              },
-              "ended_reason": {
-                "type": "string",
-                "description": "The reason why the session ended",
-                "example": "stale"
-              }
-            }
-          }
-        },
-        "example": {
-          "record_type": "event",
-          "event_type": "video.room.session.ended",
-          "id": "6b61621f-62e0-4aad-ab11-9fd19e272e73",
-          "occurred_at": "2018-02-02T22:25:27.521992Z",
-          "payload": {
-            "session_id": "7b61621f-62e0-4aad-ab11-9fd19e272e73",
-            "room_id": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0",
-            "duration_secs": 235,
-            "ended_reason": "stale"
-          }
-        }
-      },
-      "SessionEndedEvent": {
-        "title": "Session Ended Event",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/SessionEnded"
-          }
-        }
-      },
-      "SessionStarted": {
-        "title": "Session Started",
-        "type": "object",
-        "properties": {
-          "record_type": {
-            "enum": [
-              "event"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "An identifier for the type of the resource.",
-            "example": "event"
-          },
-          "event_type": {
-            "enum": [
-              "video.room.session.started"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The type of event being delivered.",
-            "example": "video.room.session.started"
-          },
-          "id": {
-            "type": "string",
-            "description": "Uniquely identify the event.",
-            "format": "uuid",
-            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-          },
-          "occurred_at": {
-            "type": "string",
-            "description": "ISO 8601 datetime of when the event occurred.",
-            "format": "date-time",
-            "example": "2018-02-02T22:25:27.521992Z"
-          },
-          "payload": {
-            "type": "object",
-            "properties": {
-              "session_id": {
-                "type": "string",
-                "description": "Session ID that identifies the session that started.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-              },
-              "room_id": {
-                "type": "string",
-                "description": "Room ID that identifies the room where the session started.",
-                "format": "uuid",
-                "example": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-              }
-            }
-          }
-        },
-        "example": {
-          "record_type": "event",
-          "event_type": "video.room.session.started",
-          "id": "6b61621f-62e0-4aad-ab11-9fd19e272e73",
-          "occurred_at": "2018-02-02T22:25:27.521992Z",
-          "payload": {
-            "session_id": "7b61621f-62e0-4aad-ab11-9fd19e272e73",
-            "room_id": "0ccc7b54-4df3-4bca-a65a-35a1ecc777f0"
-          }
-        }
-      },
-      "SessionStartedEvent": {
-        "title": "Session Started Event",
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/SessionStarted"
-          }
-        }
       },
       "SettingsDataErrorMessage": {
         "title": "SettingsDataErrorMessage",
@@ -91961,14 +91309,12 @@
             "type": "integer",
             "description": "X axis value (in pixels) of the region's upper left corner relative to the upper left corner of the whole room composition viewport.",
             "default": 0,
-            "nullable": true,
             "example": 100
           },
           "y_pos": {
             "type": "integer",
             "description": "Y axis value (in pixels) of the region's upper left corner relative to the upper left corner of the whole room composition viewport.",
             "default": 0,
-            "nullable": true,
             "example": 100
           },
           "z_pos": {
@@ -91977,21 +91323,18 @@
             "type": "integer",
             "description": "Regions with higher z_pos values are stacked on top of regions with lower z_pos values",
             "default": 0,
-            "nullable": true,
             "example": 1
           },
           "height": {
             "minimum": 16,
             "type": "integer",
             "description": "Height of the video region",
-            "nullable": true,
             "example": 360
           },
           "width": {
             "minimum": 16,
             "type": "integer",
             "description": "Width of the video region",
-            "nullable": true,
             "example": 480
           },
           "max_columns": {
@@ -91999,7 +91342,6 @@
             "minimum": 1,
             "type": "integer",
             "description": "Maximum number of columns of the region's placement grid. By default, the region has as many columns as needed to layout all the specified video sources.",
-            "nullable": true,
             "example": 3
           },
           "max_rows": {
@@ -92007,7 +91349,6 @@
             "minimum": 1,
             "type": "integer",
             "description": "Maximum number of rows of the region's placement grid. By default, the region has as many rows as needed to layout all the specified video sources.",
-            "nullable": true,
             "example": 3
           },
           "video_sources": {
@@ -93502,7 +92843,7 @@
           "message_id": {
             "type": "string"
           },
-          "empji": {
+          "emoji": {
             "type": "string"
           }
         }
@@ -106121,6 +105462,26 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/verify_Errors"
+            }
+          }
+        }
+      },
+      "video_GenericErrorResponse": {
+        "description": "Unexpected error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Error"
+                }
+              }
             }
           }
         }
