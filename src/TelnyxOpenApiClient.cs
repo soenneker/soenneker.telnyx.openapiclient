@@ -133,6 +133,7 @@ using Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_orders;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards;
 using Soenneker.Telnyx.OpenApiClient.Siprec_connectors;
+using Soenneker.Telnyx.OpenApiClient.SpeechToText;
 using Soenneker.Telnyx.OpenApiClient.Storage;
 using Soenneker.Telnyx.OpenApiClient.Sub_number_orders;
 using Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report;
@@ -802,6 +803,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Siprec_connectorsRequestBuilder Siprec_connectors
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Siprec_connectorsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The speechToText property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.SpeechToText.SpeechToTextRequestBuilder SpeechToText
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.SpeechToText.SpeechToTextRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The storage property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Storage.StorageRequestBuilder Storage

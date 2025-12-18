@@ -36,6 +36,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? PrackEnabled { get; set; }
         /// <summary>When enabled the SIP Connection will receive the Identity header with Shaken/Stir data in the SIP INVITE message of inbound calls, even when using UDP transport.</summary>
         public bool? ShakenStirEnabled { get; set; }
+        /// <summary>When enabled, allows multiple devices to ring simultaneously on incoming calls.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_simultaneous_ringing? SimultaneousRinging { get; set; }
         /// <summary>Defaults to true.</summary>
         public bool? SipCompactHeadersEnabled { get; set; }
         /// <summary>Time(sec) before aborting if connection is not made.</summary>
@@ -50,6 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             AniNumberFormat = global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_ani_number_format.E164National;
             DnisNumberFormat = global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_dnis_number_format.E164;
+            SimultaneousRinging = global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_simultaneous_ringing.Disabled;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -77,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "isup_headers_enabled", n => { IsupHeadersEnabled = n.GetBoolValue(); } },
                 { "prack_enabled", n => { PrackEnabled = n.GetBoolValue(); } },
                 { "shaken_stir_enabled", n => { ShakenStirEnabled = n.GetBoolValue(); } },
+                { "simultaneous_ringing", n => { SimultaneousRinging = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_simultaneous_ringing>(); } },
                 { "sip_compact_headers_enabled", n => { SipCompactHeadersEnabled = n.GetBoolValue(); } },
                 { "timeout_1xx_secs", n => { Timeout1xxSecs = n.GetIntValue(); } },
                 { "timeout_2xx_secs", n => { Timeout2xxSecs = n.GetIntValue(); } },
@@ -97,6 +101,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("isup_headers_enabled", IsupHeadersEnabled);
             writer.WriteBoolValue("prack_enabled", PrackEnabled);
             writer.WriteBoolValue("shaken_stir_enabled", ShakenStirEnabled);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_simultaneous_ringing>("simultaneous_ringing", SimultaneousRinging);
             writer.WriteBoolValue("sip_compact_headers_enabled", SipCompactHeadersEnabled);
             writer.WriteIntValue("timeout_1xx_secs", Timeout1xxSecs);
             writer.WriteIntValue("timeout_2xx_secs", Timeout2xxSecs);
