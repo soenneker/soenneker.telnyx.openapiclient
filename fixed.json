@@ -34146,6 +34146,120 @@
         }
       }
     },
+    "/texml/Accounts/{account_sid}/Queues": {
+      "post": {
+        "tags": [
+          "TeXML REST Commands"
+        ],
+        "summary": "Create a new queue",
+        "description": "Creates a new queue resource.",
+        "operationId": "CreateTexmlQueue",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AccountSid"
+          }
+        ],
+        "requestBody": {
+          "description": "Create Queue request object",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateQueueRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetQueueResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/call-scripting_NotFoundResponse"
+          }
+        }
+      }
+    },
+    "/texml/Accounts/{account_sid}/Queues/{queue_sid}": {
+      "delete": {
+        "tags": [
+          "TeXML REST Commands"
+        ],
+        "summary": "Delete a queue resource",
+        "description": "Delete a queue resource.",
+        "operationId": "DeleteTexmlQueue",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AccountSid"
+          },
+          {
+            "$ref": "#/components/parameters/QueueSid"
+          }
+        ],
+        "responses": {
+          "404": {
+            "$ref": "#/components/responses/call-scripting_NotFoundResponse"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "TeXML REST Commands"
+        ],
+        "summary": "Fetch a queue resource",
+        "description": "Returns a queue resource.",
+        "operationId": "GetTexmlQueue",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AccountSid"
+          },
+          {
+            "$ref": "#/components/parameters/QueueSid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetQueueResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/call-scripting_NotFoundResponse"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TeXML REST Commands"
+        ],
+        "summary": "Update a queue resource",
+        "description": "Updates a queue resource.",
+        "operationId": "UpdateTexmlQueue",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AccountSid"
+          },
+          {
+            "$ref": "#/components/parameters/QueueSid"
+          }
+        ],
+        "requestBody": {
+          "description": "Update Queue request object",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateQueueRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetQueueResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/call-scripting_NotFoundResponse"
+          }
+        }
+      }
+    },
     "/texml/Accounts/{account_sid}/Recordings.json": {
       "get": {
         "tags": [
@@ -39087,12 +39201,10 @@
               },
               {
                 "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
-                "nullable": true
               }
             ],
             "description": "The new value of the field. Can be any JSON type.",
+            "nullable": true,
             "example": 12345
           },
           "from": {
@@ -39112,12 +39224,10 @@
               },
               {
                 "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
-                "nullable": true
               }
             ],
             "description": "The previous value of the field. Can be any JSON type.",
+            "nullable": true,
             "example": 54321
           }
         },
@@ -53700,6 +53810,26 @@
             "type": "string",
             "example": "Please, let me know when the port completes"
           }
+        }
+      },
+      "CreateQueueRequest": {
+        "title": "Create Queue Request",
+        "type": "object",
+        "properties": {
+          "MaxSize": {
+            "type": "integer",
+            "description": "The maximum size of the queue.",
+            "example": 10
+          },
+          "FriendlyName": {
+            "type": "string",
+            "description": "A human readable name for the queue.",
+            "example": "Support Queue"
+          }
+        },
+        "example": {
+          "MaxSize": 10,
+          "FriendlyName": "Support Queue"
         }
       },
       "CreateRoomClientTokenRequest": {
@@ -71476,12 +71606,10 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
-                "nullable": true
               }
             ],
             "description": "Indicates if the phone number was purchased or ported in. For some numbers this information may not be available.",
+            "nullable": true,
             "readOnly": true
           },
           "deletion_lock_enabled": {
@@ -73624,11 +73752,9 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/PortingOrderMisc"
-              },
-              {
-                "nullable": true
               }
-            ]
+            ],
+            "nullable": true
           },
           "end_user": {
             "$ref": "#/components/schemas/PortingOrderEndUser"
@@ -73737,11 +73863,9 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/PortingOrderActivationStatus_Wrapper"
-              },
-              {
-                "nullable": true
               }
-            ]
+            ],
+            "nullable": true
           }
         }
       },
@@ -75625,6 +75749,72 @@
           "queue_position": 3,
           "queue_id": "ae1626cc-6f42-11ea-becd-02420a0f8b69",
           "is_alive": true
+        }
+      },
+      "QueueResource": {
+        "title": "Queue resource",
+        "type": "object",
+        "properties": {
+          "account_sid": {
+            "type": "string",
+            "description": "The id of the account the resource belongs to.",
+            "example": "4e71926f-8f13-450e-b91c-23c2ef786aa6"
+          },
+          "average_wait_time": {
+            "type": "integer",
+            "description": "The average wait time in seconds for members in the queue.",
+            "example": 30
+          },
+          "current_size": {
+            "type": "integer",
+            "description": "The current number of members in the queue.",
+            "example": 3
+          },
+          "date_created": {
+            "type": "string",
+            "description": "The timestamp of when the resource was created.",
+            "example": "Fri, 27 Oct 2023 07:41:58 +0000"
+          },
+          "date_updated": {
+            "type": "string",
+            "description": "The timestamp of when the resource was last updated.",
+            "example": "Fri, 27 Oct 2023 07:41:58 +0000"
+          },
+          "max_size": {
+            "type": "integer",
+            "description": "The maximum size of the queue.",
+            "example": 10
+          },
+          "sid": {
+            "type": "string",
+            "description": "The unique identifier of the queue.",
+            "example": "my-queue"
+          },
+          "uri": {
+            "type": "string",
+            "description": "The relative URI for this queue.",
+            "example": "/Accounts/4e71926f-8f13-450e-b91c-23c2ef786aa6/Queues/my-queue.json"
+          },
+          "subresource_uris": {
+            "type": "object",
+            "description": "A list of related resources identified by their relative URIs.",
+            "example": {
+              "members": "/Accounts/4e71926f-8f13-450e-b91c-23c2ef786aa6/Queues/my-queue/Members.json"
+            }
+          }
+        },
+        "example": {
+          "account_sid": "4e71926f-8f13-450e-b91c-23c2ef786aa6",
+          "average_wait_time": 30,
+          "current_size": 3,
+          "date_created": "Fri, 27 Oct 2023 07:41:58 +0000",
+          "date_updated": "Fri, 27 Oct 2023 07:41:58 +0000",
+          "max_size": 10,
+          "sid": "my-queue",
+          "uri": "/Accounts/4e71926f-8f13-450e-b91c-23c2ef786aa6/Queues/my-queue.json",
+          "subresource_uris": {
+            "members": "/Accounts/4e71926f-8f13-450e-b91c-23c2ef786aa6/Queues/my-queue/Members.json"
+          }
         }
       },
       "RCSAction": {
@@ -82355,12 +82545,10 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/toll_free_verification_EntityType_Wrapper"
-              },
-              {
-                "nullable": true
               }
             ],
-            "description": "Business entity classification. Must be one of the 5 valid enum values."
+            "description": "Business entity classification. Must be one of the 5 valid enum values.",
+            "nullable": true
           },
           "optInConfirmationResponse": {
             "title": "Optinconfirmationresponse",
@@ -88911,11 +89099,9 @@
             "anyOf": [
               {
                 "$ref": "#/components/schemas/PortingOrderMisc"
-              },
-              {
-                "nullable": true
               }
-            ]
+            ],
+            "nullable": true
           },
           "end_user": {
             "$ref": "#/components/schemas/PortingOrderEndUser"
@@ -88994,6 +89180,20 @@
           }
         },
         "description": "Specifies a value for a requirement on the Porting Order."
+      },
+      "UpdateQueueRequest": {
+        "title": "Update Queue Request",
+        "type": "object",
+        "properties": {
+          "MaxSize": {
+            "type": "integer",
+            "description": "The maximum size of the queue.",
+            "example": 10
+          }
+        },
+        "example": {
+          "MaxSize": 10
+        }
       },
       "UpdateQueuedCallRequest": {
         "title": "Update Queued Call Request",
@@ -99381,6 +99581,16 @@
           }
         }
       },
+      "GetQueueResponse": {
+        "description": "Queue resource.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/QueueResource"
+            }
+          }
+        }
+      },
       "GetReleaseResponse": {
         "description": "Successful response",
         "content": {
@@ -107017,6 +107227,15 @@
         "schema": {
           "type": "boolean",
           "default": true
+        }
+      },
+      "QueueSid": {
+        "name": "queue_sid",
+        "in": "path",
+        "description": "The QueueSid that identifies the call queue.",
+        "required": true,
+        "schema": {
+          "type": "string"
         }
       },
       "RecordingId": {

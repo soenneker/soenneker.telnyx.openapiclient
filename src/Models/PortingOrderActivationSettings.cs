@@ -15,10 +15,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The activation_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus_Wrapper? ActivationStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings_activation_status? ActivationStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus_Wrapper ActivationStatus { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings_activation_status ActivationStatus { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -53,7 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "activation_status", n => { ActivationStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus_Wrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus_Wrapper.CreateFromDiscriminatorValue); } },
+                { "activation_status", n => { ActivationStatus = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings_activation_status>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings_activation_status.CreateFromDiscriminatorValue); } },
                 { "fast_port_eligible", n => { FastPortEligible = n.GetBoolValue(); } },
                 { "foc_datetime_actual", n => { FocDatetimeActual = n.GetDateTimeOffsetValue(); } },
                 { "foc_datetime_requested", n => { FocDatetimeRequested = n.GetDateTimeOffsetValue(); } },
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationStatus_Wrapper>("activation_status", ActivationStatus);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderActivationSettings_activation_status>("activation_status", ActivationStatus);
             writer.WriteDateTimeOffsetValue("foc_datetime_actual", FocDatetimeActual);
             writer.WriteDateTimeOffsetValue("foc_datetime_requested", FocDatetimeRequested);
             writer.WriteAdditionalData(AdditionalData);

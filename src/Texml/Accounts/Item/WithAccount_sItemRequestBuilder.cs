@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Calls;
 using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences;
+using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues;
 using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Recordings;
 using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.RecordingsJson;
 using Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Transcriptions;
@@ -29,6 +30,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item
         public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.ConferencesRequestBuilder Conferences
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Conferences.ConferencesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The Queues property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.QueuesRequestBuilder Queues
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Queues.QueuesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The Recordings property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.Item.Recordings.RecordingsRequestBuilder Recordings
