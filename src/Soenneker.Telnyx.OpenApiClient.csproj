@@ -14,7 +14,7 @@
         <AssemblyName>Soenneker.Telnyx.OpenApiClient</AssemblyName>
         <PackageId>Soenneker.Telnyx.OpenApiClient</PackageId>
         <PackageTags>telnyx openapiclient openapi telephony sms voice schema telnyxopenapiclient util csharp dotnet c# .net</PackageTags>
-        <Copyright>Copyright © 2025 Jake Soenneker</Copyright>
+        <Copyright>Copyright © 2025-2026 Jake Soenneker</Copyright>
         <Authors>Jake Soenneker</Authors>
         <Company>https://soenneker.com</Company>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
