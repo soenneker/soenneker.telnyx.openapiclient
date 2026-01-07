@@ -1498,7 +1498,7 @@
           "Campaign"
         ],
         "summary": "Submit Campaign",
-        "description": "Before creating a campaign, use the [Qualify By Usecase endpoint](https://developers.telnyx.com/api/messaging/10dlc/get-usecase-qualification) to ensure that the brand you want to assign a new campaign to is qualified for the desired use case of that campaign. **Please note:** After campaign creation, you'll only be able to edit the campaign's sample messages. Creating a campaign will entail an upfront, non-refundable three month's cost that will depend on the campaign's use case ([see 10DLC Costs section for details](https://developers.telnyx.com/docs/messaging/10dlc/concepts#10dlc-costs)).",
+        "description": "Before creating a campaign, use the [Qualify By Usecase endpoint](https://developers.telnyx.com/api-reference/campaign/qualify-by-usecase) to ensure that the brand you want to assign a new campaign to is qualified for the desired use case of that campaign. **Please note:** After campaign creation, you'll only be able to edit the campaign's sample messages. Creating a campaign will entail an upfront, non-refundable three month's cost that will depend on the campaign's use case ([see 10DLC Costs section for details](https://developers.telnyx.com/api-reference/campaign/get-campaign-cost)).",
         "operationId": "PostCampaign",
         "requestBody": {
           "content": {
@@ -50495,6 +50495,48 @@
           }
         }
       },
+      "ConnectionNoiseSuppression": {
+        "enum": [
+          "inbound",
+          "outbound",
+          "both",
+          "disabled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Controls when noise suppression is applied to calls. When set to 'inbound', noise suppression is applied to incoming audio. When set to 'outbound', it's applied to outgoing audio. When set to 'both', it's applied in both directions. When set to 'disabled', noise suppression is turned off.",
+        "example": "both"
+      },
+      "ConnectionNoiseSuppressionDetails": {
+        "type": "object",
+        "properties": {
+          "engine": {
+            "enum": [
+              "denoiser",
+              "deep_filter_net",
+              "deep_filter_net_large",
+              "krisp_viva_tel",
+              "krisp_viva_tel_lite",
+              "krisp_viva_promodel",
+              "krisp_viva_ss"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The noise suppression engine to use. 'denoiser' is the default engine. 'deep_filter_net' and 'deep_filter_net_large' are alternative engines with different performance characteristics. Krisp engines ('krisp_viva_tel', 'krisp_viva_tel_lite', 'krisp_viva_promodel', 'krisp_viva_ss') provide advanced noise suppression capabilities.",
+            "default": "denoiser",
+            "example": "deep_filter_net"
+          },
+          "attenuation_limit": {
+            "multipleOf": 10,
+            "maximum": 100,
+            "minimum": 0,
+            "type": "integer",
+            "description": "\"The attenuation limit value for the selected engine. Default values vary by engine: 0 for 'denoiser', 80 for 'deep_filter_net', 'deep_filter_net_large', and all Krisp engines ('krisp_viva_tel', 'krisp_viva_tel_lite', 'krisp_viva_promodel', 'krisp_viva_ss').\"",
+            "example": 80
+          }
+        },
+        "description": "Configuration options for noise suppression. These settings are stored regardless of the noise_suppression value, but only take effect when noise_suppression is not 'disabled'. If you disable noise suppression and later re-enable it, the previously configured settings will be used."
+      },
       "ConnectionRtcpSettings": {
         "title": "Connection RTCP Settings",
         "type": "object",
@@ -51789,6 +51831,12 @@
           },
           "outbound": {
             "$ref": "#/components/schemas/CredentialOutbound"
+          },
+          "noise_suppression": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppression"
+          },
+          "noise_suppression_details": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
           }
         },
         "example": {
@@ -51841,6 +51889,11 @@
             "localization": "US",
             "t38_reinvite_source": "customer",
             "outbound_voice_profile_id": "1293384261075731499"
+          },
+          "noise_suppression": "both",
+          "noise_suppression_details": {
+            "engine": "deep_filter_net",
+            "attenuation_limit": 80
           }
         }
       },
@@ -52239,6 +52292,12 @@
           },
           "outbound": {
             "$ref": "#/components/schemas/OutboundFqdn"
+          },
+          "noise_suppression": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppression"
+          },
+          "noise_suppression_details": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
           }
         },
         "example": {
@@ -52302,6 +52361,11 @@
             "encrypted_media": "SRTP",
             "timeout_1xx_secs": 10,
             "timeout_2xx_secs": 10
+          },
+          "noise_suppression": "both",
+          "noise_suppression_details": {
+            "engine": "deep_filter_net",
+            "attenuation_limit": 80
           }
         }
       },
@@ -52748,6 +52812,12 @@
           },
           "outbound": {
             "$ref": "#/components/schemas/OutboundIp"
+          },
+          "noise_suppression": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppression"
+          },
+          "noise_suppression_details": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
           }
         },
         "example": {
@@ -52809,6 +52879,11 @@
             "ip_authentication_method": "token",
             "ip_authentication_token": "string",
             "outbound_voice_profile_id": "1293384261075731499"
+          },
+          "noise_suppression": "both",
+          "noise_suppression_details": {
+            "engine": "deep_filter_net",
+            "attenuation_limit": 80
           }
         }
       },
@@ -54904,6 +54979,12 @@
           },
           "outbound": {
             "$ref": "#/components/schemas/CredentialOutbound"
+          },
+          "noise_suppression": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppression"
+          },
+          "noise_suppression_details": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
           }
         },
         "example": {
@@ -54964,6 +55045,11 @@
             "localization": "string",
             "t38_reinvite_source": "customer",
             "outbound_voice_profile_id": "1293384261075731499"
+          },
+          "noise_suppression": "both",
+          "noise_suppression_details": {
+            "engine": "deep_filter_net",
+            "attenuation_limit": 80
           }
         }
       },
@@ -59292,8 +59378,7 @@
             "description": "Indicates whether call cost calculation is enabled."
           },
           "noise_suppression": {
-            "type": "boolean",
-            "description": "Indicates whether noise suppression is enabled."
+            "$ref": "#/components/schemas/ConnectionNoiseSuppression"
           },
           "send_normalized_timestamps": {
             "type": "boolean",
@@ -59357,6 +59442,9 @@
           },
           "outbound": {
             "$ref": "#/components/schemas/OutboundFqdn"
+          },
+          "noise_suppression_details": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
           }
         },
         "example": {
@@ -59421,6 +59509,11 @@
             "outbound_voice_profile_id": "1293384261075731499",
             "t38_reinvite_source": "customer",
             "tech_prefix": "string"
+          },
+          "noise_suppression": "both",
+          "noise_suppression_details": {
+            "engine": "deep_filter_net",
+            "attenuation_limit": 80
           }
         }
       },
@@ -63611,6 +63704,12 @@
           },
           "outbound": {
             "$ref": "#/components/schemas/OutboundIp"
+          },
+          "noise_suppression": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppression"
+          },
+          "noise_suppression_details": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
           }
         },
         "example": {
@@ -63678,6 +63777,11 @@
             "ip_authentication_method": "token",
             "ip_authentication_token": "string",
             "outbound_voice_profile_id": "1293384261075731499"
+          },
+          "noise_suppression": "both",
+          "noise_suppression_details": {
+            "engine": "deep_filter_net",
+            "attenuation_limit": 80
           }
         }
       },
@@ -87898,6 +88002,12 @@
           },
           "outbound": {
             "$ref": "#/components/schemas/CredentialOutbound"
+          },
+          "noise_suppression": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppression"
+          },
+          "noise_suppression_details": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
           }
         },
         "example": {
@@ -87954,6 +88064,11 @@
             "localization": "US",
             "t38_reinvite_source": "customer",
             "outbound_voice_profile_id": "1293384261075731499"
+          },
+          "noise_suppression": "both",
+          "noise_suppression_details": {
+            "engine": "deep_filter_net",
+            "attenuation_limit": 80
           }
         }
       },
@@ -88227,6 +88342,12 @@
           },
           "outbound": {
             "$ref": "#/components/schemas/OutboundFqdn"
+          },
+          "noise_suppression": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppression"
+          },
+          "noise_suppression_details": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
           }
         },
         "example": {
@@ -88273,6 +88394,11 @@
             "timeout_1xx_secs": 10,
             "timeout_2xx_secs": 10,
             "shaken_stir_enabled": true
+          },
+          "noise_suppression": "both",
+          "noise_suppression_details": {
+            "engine": "deep_filter_net",
+            "attenuation_limit": 80
           }
         }
       },
@@ -88414,6 +88540,12 @@
           },
           "outbound": {
             "$ref": "#/components/schemas/OutboundIp"
+          },
+          "noise_suppression": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppression"
+          },
+          "noise_suppression_details": {
+            "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
           }
         },
         "example": {
@@ -88475,6 +88607,11 @@
             "ip_authentication_method": "token",
             "ip_authentication_token": "string",
             "outbound_voice_profile_id": "1293384261075731499"
+          },
+          "noise_suppression": "both",
+          "noise_suppression_details": {
+            "engine": "deep_filter_net",
+            "attenuation_limit": 80
           }
         }
       },

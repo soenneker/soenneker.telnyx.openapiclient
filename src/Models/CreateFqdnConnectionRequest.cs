@@ -62,6 +62,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>When enabled, the connection will be created for Microsoft Teams Direct Routing. A *.mstsbc.telnyx.tech FQDN will be created for the connection automatically.</summary>
         public bool? MicrosoftTeamsSbc { get; set; }
+        /// <summary>Controls when noise suppression is applied to calls. When set to &apos;inbound&apos;, noise suppression is applied to incoming audio. When set to &apos;outbound&apos;, it&apos;s applied to outgoing audio. When set to &apos;both&apos;, it&apos;s applied in both directions. When set to &apos;disabled&apos;, noise suppression is turned off.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppression? NoiseSuppression { get; set; }
+        /// <summary>Configuration options for noise suppression. These settings are stored regardless of the noise_suppression value, but only take effect when noise_suppression is not &apos;disabled&apos;. If you disable noise suppression and later re-enable it, the previously configured settings will be used.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails? NoiseSuppressionDetails { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails NoiseSuppressionDetails { get; set; }
+#endif
         /// <summary>Enable on-net T38 if you prefer the sender and receiver negotiating T38 directly if both are on the Telnyx network. If this is disabled, Telnyx will be able to use T38 on just one leg of the call depending on each leg&apos;s settings.</summary>
         public bool? OnnetT38PassthroughEnabled { get; set; }
         /// <summary>The outbound property</summary>
@@ -151,6 +161,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn.CreateFromDiscriminatorValue); } },
                 { "ios_push_credential_id", n => { IosPushCredentialId = n.GetStringValue(); } },
                 { "microsoft_teams_sbc", n => { MicrosoftTeamsSbc = n.GetBoolValue(); } },
+                { "noise_suppression", n => { NoiseSuppression = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppression>(); } },
+                { "noise_suppression_details", n => { NoiseSuppressionDetails = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails.CreateFromDiscriminatorValue); } },
                 { "onnet_t38_passthrough_enabled", n => { OnnetT38PassthroughEnabled = n.GetBoolValue(); } },
                 { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn.CreateFromDiscriminatorValue); } },
                 { "rtcp_settings", n => { RtcpSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings.CreateFromDiscriminatorValue); } },
@@ -181,6 +193,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn>("inbound", Inbound);
             writer.WriteStringValue("ios_push_credential_id", IosPushCredentialId);
             writer.WriteBoolValue("microsoft_teams_sbc", MicrosoftTeamsSbc);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppression>("noise_suppression", NoiseSuppression);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails>("noise_suppression_details", NoiseSuppressionDetails);
             writer.WriteBoolValue("onnet_t38_passthrough_enabled", OnnetT38PassthroughEnabled);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundFqdn>("outbound", Outbound);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionRtcpSettings>("rtcp_settings", RtcpSettings);
