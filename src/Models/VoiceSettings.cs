@@ -30,6 +30,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.VoiceSettings_background_audio BackgroundAudio { get; set; }
 #endif
+        /// <summary>Determines how closely the AI should adhere to the original voice when attempting to replicate it. Only applicable when using ElevenLabs.</summary>
+        public double? SimilarityBoost { get; set; }
+        /// <summary>Adjusts speech velocity. 1.0 is default speed; values less than 1.0 slow speech; values greater than 1.0 accelerate it. Only applicable when using ElevenLabs.</summary>
+        public double? Speed { get; set; }
+        /// <summary>Determines the style exaggeration of the voice. Amplifies speaker style but consumes additional resources when set above 0. Only applicable when using ElevenLabs.</summary>
+        public double? Style { get; set; }
+        /// <summary>Determines how stable the voice is and the randomness between each generation. Lower values create a broader emotional range; higher values produce more consistent, monotonous output. Only applicable when using ElevenLabs.</summary>
+        public double? Temperature { get; set; }
+        /// <summary>Amplifies similarity to the original speaker voice. Increases computational load and latency slightly. Only applicable when using ElevenLabs.</summary>
+        public bool? UseSpeakerBoost { get; set; }
         /// <summary>The voice to be used by the voice assistant. Check the full list of [available voices](https://developers.telnyx.com/api/call-control/list-text-to-speech-voices) via our voices API.To use ElevenLabs, you must reference your ElevenLabs API key as an integration secret under the `api_key_ref` field. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. For Telnyx voices, use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;` (e.g. Telnyx.KokoroTTS.af_heart)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,6 +77,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "background_audio", n => { BackgroundAudio = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.VoiceSettings_background_audio>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.VoiceSettings_background_audio.CreateFromDiscriminatorValue); } },
+                { "similarity_boost", n => { SimilarityBoost = n.GetDoubleValue(); } },
+                { "speed", n => { Speed = n.GetDoubleValue(); } },
+                { "style", n => { Style = n.GetDoubleValue(); } },
+                { "temperature", n => { Temperature = n.GetDoubleValue(); } },
+                { "use_speaker_boost", n => { UseSpeakerBoost = n.GetBoolValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
                 { "voice_speed", n => { VoiceSpeed = n.GetDoubleValue(); } },
             };
@@ -80,6 +95,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.VoiceSettings_background_audio>("background_audio", BackgroundAudio);
+            writer.WriteDoubleValue("similarity_boost", SimilarityBoost);
+            writer.WriteDoubleValue("speed", Speed);
+            writer.WriteDoubleValue("style", Style);
+            writer.WriteDoubleValue("temperature", Temperature);
+            writer.WriteBoolValue("use_speaker_boost", UseSpeakerBoost);
             writer.WriteStringValue("voice", Voice);
             writer.WriteDoubleValue("voice_speed", VoiceSpeed);
             writer.WriteAdditionalData(AdditionalData);

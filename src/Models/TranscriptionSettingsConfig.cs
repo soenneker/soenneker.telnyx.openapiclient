@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Available only for deepgram/flux. Confidence threshold for eager end of turn detection. Must be lower than or equal to eot_threshold. Setting this equal to eot_threshold effectively disables eager end of turn.</summary>
+        public double? EagerEotThreshold { get; set; }
         /// <summary>Available only for deepgram/flux. Confidence required to trigger an end of turn. Higher values = more reliable turn detection but slightly increased latency.</summary>
         public double? EotThreshold { get; set; }
         /// <summary>Available only for deepgram/flux. Maximum milliseconds of silence before forcing an end of turn, regardless of confidence.</summary>
@@ -47,6 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "eager_eot_threshold", n => { EagerEotThreshold = n.GetDoubleValue(); } },
                 { "eot_threshold", n => { EotThreshold = n.GetDoubleValue(); } },
                 { "eot_timeout_ms", n => { EotTimeoutMs = n.GetIntValue(); } },
                 { "numerals", n => { Numerals = n.GetBoolValue(); } },
@@ -60,6 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDoubleValue("eager_eot_threshold", EagerEotThreshold);
             writer.WriteDoubleValue("eot_threshold", EotThreshold);
             writer.WriteIntValue("eot_timeout_ms", EotTimeoutMs);
             writer.WriteBoolValue("numerals", Numerals);
