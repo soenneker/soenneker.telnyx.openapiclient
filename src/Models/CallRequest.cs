@@ -237,10 +237,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest.CallRequest_to? To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_to? To { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest.CallRequest_to To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_to To { get; set; }
 #endif
         /// <summary>Enable transcription upon call answer. The default value is false.</summary>
         public bool? Transcription { get; set; }
@@ -348,7 +348,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "supervisor_role", n => { SupervisorRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_supervisor_role>(); } },
                 { "time_limit_secs", n => { TimeLimitSecs = n.GetIntValue(); } },
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
-                { "to", n => { To = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest.CallRequest_to>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest.CallRequest_to.CreateFromDiscriminatorValue); } },
+                { "to", n => { To = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_to>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_to.CreateFromDiscriminatorValue); } },
                 { "transcription", n => { Transcription = n.GetBoolValue(); } },
                 { "transcription_config", n => { TranscriptionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -409,67 +409,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_supervisor_role>("supervisor_role", SupervisorRole);
             writer.WriteIntValue("time_limit_secs", TimeLimitSecs);
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest.CallRequest_to>("to", To);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_to>("to", To);
             writer.WriteBoolValue("transcription", Transcription);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest>("transcription_config", TranscriptionConfig);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_url_method>("webhook_url_method", WebhookUrlMethod);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CallRequest_to : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest.CallRequest_to"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest.CallRequest_to CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest.CallRequest_to();
-                if("UnionBranch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.UnionBranch = new global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(UnionBranch != null)
-                {
-                    return UnionBranch.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(UnionBranch != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
-                }
-            }
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum UnionBranch_value
+    public enum WirelessBlocklistsGetAll_200_data_value
     #pragma warning restore CS1591
     {
         [EnumMember(Value = "all")]

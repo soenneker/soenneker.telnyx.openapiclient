@@ -37862,9 +37862,6 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
-                "$ref": "#/components/schemas/UnionBranch"
               }
             ],
             "description": "Either a list of participant id to perform the action on, or the keyword \"all\" to perform the action on all participant."
@@ -38918,12 +38915,6 @@
               "anyOf": [
                 {
                   "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
                 }
               ]
             }
@@ -39193,16 +39184,7 @@
                 "$ref": "#/components/schemas/UnionBranch"
               },
               {
-                "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
-                "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
                 "type": "object"
-              },
-              {
-                "$ref": "#/components/schemas/UnionBranch"
               }
             ],
             "description": "The new value of the field. Can be any JSON type.",
@@ -39216,16 +39198,7 @@
                 "$ref": "#/components/schemas/UnionBranch"
               },
               {
-                "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
-                "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
                 "type": "object"
-              },
-              {
-                "$ref": "#/components/schemas/UnionBranch"
               }
             ],
             "description": "The previous value of the field. Can be any JSON type.",
@@ -44769,9 +44742,6 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
-                "$ref": "#/components/schemas/UnionBranch"
               }
             ],
             "description": "The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings"
@@ -47509,9 +47479,6 @@
           "content": {
             "type": "object",
             "oneOf": [
-              {
-                "$ref": "#/components/schemas/UnionBranch"
-              },
               {
                 "$ref": "#/components/schemas/UnionBranch"
               }
@@ -53363,15 +53330,6 @@
               "anyOf": [
                 {
                   "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
                 }
               ]
             }
@@ -54062,12 +54020,6 @@
             "additionalProperties": {
               "type": "object",
               "anyOf": [
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
                 {
                   "$ref": "#/components/schemas/UnionBranch"
                 }
@@ -79451,12 +79403,6 @@
               "anyOf": [
                 {
                   "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
                 }
               ]
             }
@@ -79533,12 +79479,6 @@
             "additionalProperties": {
               "type": "object",
               "anyOf": [
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
                 {
                   "$ref": "#/components/schemas/UnionBranch"
                 }
@@ -90769,9 +90709,6 @@
               "anyOf": [
                 {
                   "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
                 }
               ]
             }
@@ -93593,12 +93530,6 @@
             "items": {
               "type": "object",
               "anyOf": [
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
                 {
                   "$ref": "#/components/schemas/UnionBranch"
                 }
@@ -97504,12 +97435,6 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
-                "$ref": "#/components/schemas/UnionBranch"
-              },
-              {
-                "$ref": "#/components/schemas/UnionBranch"
               }
             ]
           },
@@ -97542,12 +97467,6 @@
             "items": {
               "type": "object",
               "anyOf": [
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
                 {
                   "$ref": "#/components/schemas/UnionBranch"
                 }
@@ -97586,12 +97505,6 @@
             "items": {
               "type": "object",
               "anyOf": [
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
-                {
-                  "$ref": "#/components/schemas/UnionBranch"
-                },
                 {
                   "$ref": "#/components/schemas/UnionBranch"
                 }
