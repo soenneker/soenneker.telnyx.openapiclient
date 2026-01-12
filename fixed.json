@@ -19587,7 +19587,7 @@
     "/mobile_phone_numbers/messaging": {
       "get": {
         "tags": [
-          "Mobile Number Configurations"
+          "Mobile Number Settings"
         ],
         "summary": "List mobile phone numbers with messaging settings",
         "operationId": "ListMobilePhoneNumbersWithMessagingSettings",
@@ -19609,7 +19609,7 @@
     "/mobile_phone_numbers/{id}/messaging": {
       "get": {
         "tags": [
-          "Mobile Number Configurations"
+          "Mobile Number Settings"
         ],
         "summary": "Retrieve a mobile phone number with messaging settings",
         "operationId": "GetMobilePhoneNumberMessagingSettings",
