@@ -34147,6 +34147,42 @@
       }
     },
     "/texml/Accounts/{account_sid}/Queues": {
+      "get": {
+        "tags": [
+          "TeXML REST Commands"
+        ],
+        "summary": "List queue resources",
+        "description": "Lists queue resources.",
+        "operationId": "GetTexmlQueues",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AccountSid"
+          },
+          {
+            "$ref": "#/components/parameters/Page"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          },
+          {
+            "$ref": "#/components/parameters/PageToken"
+          },
+          {
+            "$ref": "#/components/parameters/DateCreated"
+          },
+          {
+            "$ref": "#/components/parameters/DateUpdated"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetQueuesResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/call-scripting_NotFoundResponse"
+          }
+        }
+      },
       "post": {
         "tags": [
           "TeXML REST Commands"
@@ -75875,6 +75911,63 @@
           }
         }
       },
+      "QueueResourceIndex": {
+        "title": "Multiple queue resources",
+        "type": "object",
+        "properties": {
+          "queues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QueueResource"
+            }
+          },
+          "end": {
+            "type": "integer",
+            "description": "The number of the last element on the page, zero-indexed.",
+            "example": 19
+          },
+          "first_page_uri": {
+            "type": "string",
+            "description": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Queues.json?Page=0&PageSize=1",
+            "example": "accepted"
+          },
+          "next_page_uri": {
+            "type": "string",
+            "description": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Queues.json?Page=1&PageSize=1&PageToken=MTY4AjgyNDkwNzIxMQ",
+            "example": "accepted"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Current page number, zero-indexed.",
+            "example": 0
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "The number of items on the page",
+            "example": 20
+          },
+          "start": {
+            "type": "integer",
+            "description": "The number of the first element on the page, zero-indexed.",
+            "example": 0
+          },
+          "uri": {
+            "type": "string",
+            "description": "The URI of the current page.",
+            "example": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Queues.json?Page=0&PageSize=1"
+          }
+        },
+        "example": {
+          "queues": [ ],
+          "end": 0,
+          "first_page_uri": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Queues.json?Page=0&PageSize=1",
+          "next_page_uri": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Queues.json?Page=1&PageSize=1&PageToken=MTY4AjgyNDkwNzIxMQ",
+          "page": 0,
+          "page_size": 1,
+          "start": 0,
+          "uri": "/v2/texml/Accounts/61bf923e-5e4d-4595-a110-56190ea18a1b/Queues.json?Page=0&PageSize=1"
+        }
+      },
       "RCSAction": {
         "type": "object",
         "properties": {
@@ -79705,6 +79798,13 @@
             "type": "boolean",
             "description": "The flag to enable monochrome, true black and white fax results.",
             "default": false
+          },
+          "black_threshold": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer",
+            "description": "The black threshold percentage for monochrome faxes. Only applicable if `monochrome` is set to `true`.",
+            "default": 95
           },
           "store_media": {
             "type": "boolean",
@@ -99730,6 +99830,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/QueueResource"
+            }
+          }
+        }
+      },
+      "GetQueuesResponse": {
+        "description": "Multiple queue resources.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/QueueResourceIndex"
             }
           }
         }
