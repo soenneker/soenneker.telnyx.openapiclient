@@ -129,6 +129,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string BusinessZip { get; set; }
 #endif
+        /// <summary>Campaign Verify Authorization Token required for Political use case submissions starting February 17, 2026. This token is validated by Zipwhip and must be provided for all Political use case verifications after the deadline.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignVerifyAuthorizationToken { get; set; }
+#nullable restore
+#else
+        public string CampaignVerifyAuthorizationToken { get; set; }
+#endif
         /// <summary>A URL, including the scheme, pointing to the corporate website</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -293,6 +301,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "businessRegistrationType", n => { BusinessRegistrationType = n.GetStringValue(); } },
                 { "businessState", n => { BusinessState = n.GetStringValue(); } },
                 { "businessZip", n => { BusinessZip = n.GetStringValue(); } },
+                { "campaignVerifyAuthorizationToken", n => { CampaignVerifyAuthorizationToken = n.GetStringValue(); } },
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "doingBusinessAs", n => { DoingBusinessAs = n.GetStringValue(); } },
                 { "entityType", n => { EntityType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest_entityType>(global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest_entityType.CreateFromDiscriminatorValue); } },
@@ -334,6 +343,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("businessRegistrationType", BusinessRegistrationType);
             writer.WriteStringValue("businessState", BusinessState);
             writer.WriteStringValue("businessZip", BusinessZip);
+            writer.WriteStringValue("campaignVerifyAuthorizationToken", CampaignVerifyAuthorizationToken);
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteStringValue("doingBusinessAs", DoingBusinessAs);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TFVerificationRequest_entityType>("entityType", EntityType);

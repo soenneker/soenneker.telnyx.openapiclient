@@ -774,6 +774,62 @@
       }
     },
     "/10dlc/brand/{brandId}/smsOtp": {
+      "get": {
+        "tags": [
+          "Brands"
+        ],
+        "summary": "Get Brand SMS OTP Status by Brand ID",
+        "description": "Query the status of an SMS OTP (One-Time Password) for Sole Proprietor brand verification using the Brand ID.\n\nThis endpoint allows you to check the delivery and verification status of an OTP sent during the Sole Proprietor brand verification process by looking it up with the brand ID.\n\nThe response includes delivery status, verification dates, and detailed delivery information.\n\n**Note:** This is an alternative to the `/10dlc/brand/smsOtp/{referenceId}` endpoint when you have the Brand ID but not the reference ID.",
+        "operationId": "GetBrandSmsOtpStatusByBrandId",
+        "parameters": [
+          {
+            "name": "brandId",
+            "in": "path",
+            "description": "The Brand ID for which to query OTP status",
+            "required": true,
+            "schema": {
+              "title": "Brandid",
+              "type": "string",
+              "example": "4b20019b-043a-78f8-0657-b3be3f4b4002"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BrandSmsOtpStatus"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "OTP status not found for this brand",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/10dlc_GenericErrorResponse"
+          }
+        }
+      },
       "post": {
         "tags": [
           "Brands"
@@ -53310,6 +53366,11 @@
             "type": "boolean",
             "description": "Send messages only to mobile phone numbers.",
             "default": false
+          },
+          "smart_encoding": {
+            "type": "boolean",
+            "description": "Enables automatic character encoding optimization for SMS messages. When enabled, the system automatically selects the most efficient encoding (GSM-7 or UCS-2) based on message content to maximize character limits and minimize costs.",
+            "default": false
           }
         },
         "example": {
@@ -65941,6 +66002,11 @@
           "mobile_only": {
             "type": "boolean",
             "description": "Send messages only to mobile phone numbers.",
+            "default": false
+          },
+          "smart_encoding": {
+            "type": "boolean",
+            "description": "Enables automatic character encoding optimization for SMS messages. When enabled, the system automatically selects the most efficient encoding (GSM-7 or UCS-2) based on message content to maximize character limits and minimize costs.",
             "default": false
           }
         },
@@ -82795,6 +82861,14 @@
             "description": "Keywords used to collect and process consumer opt-ins",
             "nullable": true,
             "example": "START, YES, SUBSCRIBE"
+          },
+          "campaignVerifyAuthorizationToken": {
+            "title": "Campaignverifyauthorizationtoken",
+            "maxLength": 500,
+            "type": "string",
+            "description": "Campaign Verify Authorization Token required for Political use case submissions starting February 17, 2026. This token is validated by Zipwhip and must be provided for all Political use case verifications after the deadline.",
+            "nullable": true,
+            "example": "cv_token_abc123xyz"
           }
         },
         "description": "The body of a tollfree verification request"
@@ -89019,6 +89093,11 @@
             "type": "boolean",
             "description": "Send messages only to mobile phone numbers.",
             "default": false
+          },
+          "smart_encoding": {
+            "type": "boolean",
+            "description": "Enables automatic character encoding optimization for SMS messages. When enabled, the system automatically selects the most efficient encoding (GSM-7 or UCS-2) based on message content to maximize character limits and minimize costs.",
+            "default": false
           }
         },
         "example": {
@@ -91140,6 +91219,14 @@
             "type": "string",
             "example": "START, YES, SUBSCRIBE"
           },
+          "campaignVerifyAuthorizationToken": {
+            "title": "Campaignverifyauthorizationtoken",
+            "maxLength": 500,
+            "type": "string",
+            "description": "Campaign Verify Authorization Token required for Political use case submissions starting February 17, 2026",
+            "nullable": true,
+            "example": "cv_token_abc123xyz"
+          },
           "id": {
             "title": "Id",
             "type": "string",
@@ -91339,6 +91426,14 @@
             "title": "Optinkeywords",
             "type": "string",
             "example": "START, YES, SUBSCRIBE"
+          },
+          "campaignVerifyAuthorizationToken": {
+            "title": "Campaignverifyauthorizationtoken",
+            "maxLength": 500,
+            "type": "string",
+            "description": "Campaign Verify Authorization Token required for Political use case submissions starting February 17, 2026",
+            "nullable": true,
+            "example": "cv_token_abc123xyz"
           },
           "id": {
             "title": "Id",

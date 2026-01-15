@@ -34,6 +34,33 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.SmsOtp
         {
         }
         /// <summary>
+        /// Query the status of an SMS OTP (One-Time Password) for Sole Proprietor brand verification using the Brand ID.This endpoint allows you to check the delivery and verification status of an OTP sent during the Sole Proprietor brand verification process by looking it up with the brand ID.The response includes delivery status, verification dates, and detailed delivery information.**Note:** This is an alternative to the `/10dlc/brand/smsOtp/{referenceId}` endpoint when you have the Brand ID but not the reference ID.
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.BrandSmsOtpStatus"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.C10dlc_Errors">When receiving a 4XX status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BrandSmsOtpStatus?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.BrandSmsOtpStatus> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.C10dlc_Errors.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.BrandSmsOtpStatus>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.BrandSmsOtpStatus.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Trigger or re-trigger an SMS OTP (One-Time Password) for Sole Proprietor brand verification.**Important Notes:*** Only allowed for Sole Proprietor (`SOLE_PROPRIETOR`) brands* Triggers generation of a one-time password sent to the `mobilePhone` number in the brand&apos;s profile* Campaigns cannot be created until OTP verification is complete* US/CA numbers only for real OTPs; mock brands can use non-US/CA numbers for testing* Returns a `referenceId` that can be used to check OTP status via the GET `/10dlc/brand/smsOtp/{referenceId}` endpoint**Use Cases:*** Initial OTP trigger after Sole Proprietor brand creation* Re-triggering OTP if the user didn&apos;t receive or needs a new code
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TriggerBrandSmsOtpResponse"/></returns>
@@ -90,6 +117,25 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.SmsOtp
                 { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.C10dlc_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Query the status of an SMS OTP (One-Time Password) for Sole Proprietor brand verification using the Brand ID.This endpoint allows you to check the delivery and verification status of an OTP sent during the Sole Proprietor brand verification process by looking it up with the brand ID.The response includes delivery status, verification dates, and detailed delivery information.**Note:** This is an alternative to the `/10dlc/brand/smsOtp/{referenceId}` endpoint when you have the Brand ID but not the reference ID.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
         }
         /// <summary>
         /// Trigger or re-trigger an SMS OTP (One-Time Password) for Sole Proprietor brand verification.**Important Notes:*** Only allowed for Sole Proprietor (`SOLE_PROPRIETOR`) brands* Triggers generation of a one-time password sent to the `mobilePhone` number in the brand&apos;s profile* Campaigns cannot be created until OTP verification is complete* US/CA numbers only for real OTPs; mock brands can use non-US/CA numbers for testing* Returns a `referenceId` that can be used to check OTP status via the GET `/10dlc/brand/smsOtp/{referenceId}` endpoint**Use Cases:*** Initial OTP trigger after Sole Proprietor brand creation* Re-triggering OTP if the user didn&apos;t receive or needs a new code

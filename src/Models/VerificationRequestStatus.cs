@@ -129,6 +129,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string BusinessZip { get; set; }
 #endif
+        /// <summary>Campaign Verify Authorization Token required for Political use case submissions starting February 17, 2026</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CampaignVerifyAuthorizationToken { get; set; }
+#nullable restore
+#else
+        public string CampaignVerifyAuthorizationToken { get; set; }
+#endif
         /// <summary>The corporateWebsite property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -303,6 +311,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "businessRegistrationType", n => { BusinessRegistrationType = n.GetStringValue(); } },
                 { "businessState", n => { BusinessState = n.GetStringValue(); } },
                 { "businessZip", n => { BusinessZip = n.GetStringValue(); } },
+                { "campaignVerifyAuthorizationToken", n => { CampaignVerifyAuthorizationToken = n.GetStringValue(); } },
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "doingBusinessAs", n => { DoingBusinessAs = n.GetStringValue(); } },
@@ -349,6 +358,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("businessRegistrationType", BusinessRegistrationType);
             writer.WriteStringValue("businessState", BusinessState);
             writer.WriteStringValue("businessZip", BusinessZip);
+            writer.WriteStringValue("campaignVerifyAuthorizationToken", CampaignVerifyAuthorizationToken);
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteStringValue("doingBusinessAs", DoingBusinessAs);
