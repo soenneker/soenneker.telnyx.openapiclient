@@ -96,6 +96,7 @@ using Soenneker.Telnyx.OpenApiClient.Oauth_clients;
 using Soenneker.Telnyx.OpenApiClient.Oauth_grants;
 using Soenneker.Telnyx.OpenApiClient.OneZerodlc;
 using Soenneker.Telnyx.OpenApiClient.Operator_connect;
+using Soenneker.Telnyx.OpenApiClient.Organizations;
 using Soenneker.Telnyx.OpenApiClient.Ota_updates;
 using Soenneker.Telnyx.OpenApiClient.Outbound_voice_profiles;
 using Soenneker.Telnyx.OpenApiClient.Payment;
@@ -618,6 +619,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Operator_connectRequestBuilder Operator_connect
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Operator_connect.Operator_connectRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The organizations property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Organizations.OrganizationsRequestBuilder Organizations
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Organizations.OrganizationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The ota_updates property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ota_updates.Ota_updatesRequestBuilder Ota_updates
