@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? Temperature { get; set; }
         /// <summary>Amplifies similarity to the original speaker voice. Increases computational load and latency slightly. Only applicable when using ElevenLabs.</summary>
         public bool? UseSpeakerBoost { get; set; }
-        /// <summary>The voice to be used by the voice assistant. Check the full list of [available voices](https://developers.telnyx.com/api/call-control/list-text-to-speech-voices) via our voices API.To use ElevenLabs, you must reference your ElevenLabs API key as an integration secret under the `api_key_ref` field. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. For Telnyx voices, use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;` (e.g. Telnyx.KokoroTTS.af_heart)</summary>
+        /// <summary>The voice to be used by the voice assistant. Check the full list of [available voices](https://developers.telnyx.com/api/call-control/list-text-to-speech-voices) via our voices API.To use ElevenLabs, you must reference your ElevenLabs API key as an integration secret under the `api_key_ref` field. See [integration secrets documentation](https://developers.telnyx.com/api-reference/integration-secrets/create-a-secret) for details. For Telnyx voices, use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;` (e.g. Telnyx.KokoroTTS.af_heart)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Voice { get; set; }

@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The direction of the audio stream to be noise suppressed.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionDirection? Direction { get; set; }
-        /// <summary>The engine to use for noise suppression.For backward compatibility, engines A and B are also supported, but are deprecated: A - Denoiser B - DeepFilterNet</summary>
+        /// <summary>The engine to use for noise suppression.For backward compatibility, engines A, B, and C are also supported, but are deprecated: A - Denoiser B - DeepFilterNet C - Krisp</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngine? NoiseSuppressionEngine { get; set; }
         /// <summary>Configuration parameters for noise suppression engines.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
