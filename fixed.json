@@ -8980,6 +8980,42 @@
         }
       }
     },
+    "/calls/{call_control_id}/actions/ai_assistant_add_messages": {
+      "post": {
+        "tags": [
+          "Call Commands"
+        ],
+        "summary": "Add messages to AI Assistant",
+        "description": "Add messages to the conversation started by an AI assistant on the call.",
+        "operationId": "CallAddMessagesToAIAssistant",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CallControlId"
+          }
+        ],
+        "requestBody": {
+          "description": "AI Assistant add messages request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AIAssistantAddMessagesRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CallControlCommandResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/call-control_GenericErrorResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
+          }
+        }
+      }
+    },
     "/calls/{call_control_id}/actions/ai_assistant_start": {
       "post": {
         "tags": [
@@ -18106,7 +18142,7 @@
           "Messages"
         ],
         "summary": "Retrieve a message",
-        "description": "\"Note: This API endpoint can only retrieve messages that are no older than 10 days since their creation. If you require messages older than this, please generate an [MDR report.](https://developers.telnyx.com/api/v1/mission-control/add-mdr-request)\"",
+        "description": "\"Note: This API endpoint can only retrieve messages that are no older than 10 days since their creation. If you require messages older than this, please generate an [MDR report.](https://developers.telnyx.com/api-reference/mdr-usage-reports/create-mdr-usage-report)\"",
         "operationId": "GetMessage",
         "parameters": [
           {
@@ -22805,7 +22841,7 @@
           "External Connections"
         ],
         "summary": "Refresh Operator Connect integration",
-        "description": "This endpoint will make an asynchronous request to refresh the Operator Connect integration with Microsoft Teams for the current user. This will create new external connections on the user's account if needed, and/or report the integration results as [log messages](https://developers.telnyx.com/api/external-voice-integrations/list-external-connection-log-messages).",
+        "description": "This endpoint will make an asynchronous request to refresh the Operator Connect integration with Microsoft Teams for the current user. This will create new external connections on the user's account if needed, and/or report the integration results as [log messages](https://developers.telnyx.com/api-reference/external-connections/list-all-log-messages#list-all-log-messages).",
         "operationId": "OperatorConnectRefresh",
         "responses": {
           "200": {
@@ -32055,7 +32091,7 @@
           "SIM Cards"
         ],
         "summary": "Request bulk setting SIM card public IPs.",
-        "description": "This API triggers an asynchronous operation to set a public IP for each of the specified SIM cards.<br/>\nFor each SIM Card a SIM Card Action will be generated. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.\n",
+        "description": "This API triggers an asynchronous operation to set a public IP for each of the specified SIM cards.<br/>\nFor each SIM Card a SIM Card Action will be generated. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API.\n",
         "operationId": "SetPublicIPsBulk",
         "requestBody": {
           "content": {
@@ -32211,7 +32247,7 @@
           "SIM Cards"
         ],
         "summary": "Request a SIM card disable",
-        "description": "This API disables a SIM card, disconnecting it from the network and making it impossible to consume data.<br/>\nThe API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the disabled state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.\n",
+        "description": "This API disables a SIM card, disconnecting it from the network and making it impossible to consume data.<br/>\nThe API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the disabled state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API.\n",
         "operationId": "DisableSimCard",
         "parameters": [
           {
@@ -32234,7 +32270,7 @@
           "SIM Cards"
         ],
         "summary": "Request a SIM card enable",
-        "description": "This API enables a SIM card, connecting it to the network and making it possible to consume data.<br/>\nTo enable a SIM card, it must be associated with a SIM card group.<br/>\nThe API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the enabled state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.\n",
+        "description": "This API enables a SIM card, connecting it to the network and making it possible to consume data.<br/>\nTo enable a SIM card, it must be associated with a SIM card group.<br/>\nThe API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the enabled state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API.\n",
         "operationId": "EnableSimCard",
         "parameters": [
           {
@@ -32260,7 +32296,7 @@
           "SIM Cards"
         ],
         "summary": "Request removing a SIM card public IP",
-        "description": "This API removes an existing public IP from a SIM card. <br/><br/>\n The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.",
+        "description": "This API removes an existing public IP from a SIM card. <br/><br/>\n The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API.",
         "operationId": "RemoveSimCardPublicIp",
         "parameters": [
           {
@@ -32283,7 +32319,7 @@
           "SIM Cards"
         ],
         "summary": "Request setting a SIM card public IP",
-        "description": "This API makes a SIM card reachable on the public internet by mapping a random public IP to the SIM card. <br/><br/>\n The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API. <br/><br/>\n Setting a Public IP to a SIM Card incurs a charge and will only succeed if the account has sufficient funds.",
+        "description": "This API makes a SIM card reachable on the public internet by mapping a random public IP to the SIM card. <br/><br/>\n The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API. <br/><br/>\n Setting a Public IP to a SIM Card incurs a charge and will only succeed if the account has sufficient funds.",
         "operationId": "SetSimCardPublicIp",
         "parameters": [
           {
@@ -32315,7 +32351,7 @@
           "SIM Cards"
         ],
         "summary": "Request setting a SIM card to standby",
-        "description": "The SIM card will be able to connect to the network once the process to set it to standby has been completed, thus making it possible to consume data.<br/>\nTo set a SIM card to standby, it must be associated with SIM card group.<br/>\nThe API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the standby state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.\n",
+        "description": "The SIM card will be able to connect to the network once the process to set it to standby has been completed, thus making it possible to consume data.<br/>\nTo set a SIM card to standby, it must be associated with SIM card group.<br/>\nThe API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the standby state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API.\n",
         "operationId": "SetSimCardStandby",
         "parameters": [
           {
@@ -37786,6 +37822,74 @@
         "additionalProperties": false,
         "description": "An enumeration."
       },
+      "AIAssistantAddMessagesRequest": {
+        "title": "AI Assistant Add Messages Request",
+        "type": "object",
+        "properties": {
+          "client_state": {
+            "type": "string",
+            "description": "Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.",
+            "example": "aGF2ZSBhIG5pY2UgZGF5ID1d"
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.",
+            "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "required": [
+                "role"
+              ],
+              "type": "object",
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/UserMessage"
+                },
+                {
+                  "$ref": "#/components/schemas/AssistantMessage"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessage"
+                },
+                {
+                  "$ref": "#/components/schemas/SystemMessage"
+                },
+                {
+                  "$ref": "#/components/schemas/DeveloperMessage"
+                }
+              ],
+              "properties": {
+                "role": {
+                  "type": "string"
+                }
+              },
+              "discriminator": {
+                "propertyName": "role",
+                "mapping": {
+                  "user": "#/components/schemas/UserMessage",
+                  "assistant": "#/components/schemas/AssistantMessage",
+                  "tool": "#/components/schemas/ToolMessage",
+                  "system": "#/components/schemas/SystemMessage",
+                  "developer": "#/components/schemas/DeveloperMessage"
+                }
+              }
+            },
+            "description": "The messages to add to the conversation."
+          }
+        },
+        "example": {
+          "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
+          "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
+          "messages": [
+            {
+              "role": "system",
+              "content": "Get the user's favorite color"
+            }
+          ]
+        }
+      },
       "AIAssistantStartRequest": {
         "type": "object",
         "properties": {
@@ -39138,6 +39242,42 @@
           }
         },
         "description": "Aligns with the OpenAI API:\nhttps://platform.openai.com/docs/api-reference/assistants/deleteAssistant"
+      },
+      "AssistantMessage": {
+        "title": "Assistant Message",
+        "required": [
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "enum": [
+              "assistant"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The role of the messages author, in this case `assistant`."
+          },
+          "content": {
+            "type": "string",
+            "description": "The contents of the assistant message. Required unless `tool_calls`"
+          },
+          "tool_calls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ToolCall"
+            },
+            "description": "The tool calls generated by the model, such as function calls."
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MessageMetadata"
+          }
+        },
+        "description": "Messages sent by the model in response to user messages.",
+        "example": {
+          "role": "assistant",
+          "content": "Hello, I'm John."
+        }
       },
       "AssistantSmsChatReq": {
         "title": "AssistantSmsChatReq",
@@ -51422,7 +51562,7 @@
           },
           "greeting": {
             "type": "string",
-            "description": "Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
+            "description": "Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables). Use an empty string to have the assistant wait for the user to speak first. Use the special value `<assistant-speaks-first-with-model-generated-message>` to have the assistant generate the greeting based on the system instructions."
           },
           "llm_api_key_ref": {
             "type": "string",
@@ -56369,6 +56509,36 @@
           "meta": {
             "$ref": "#/components/schemas/detail_records_PaginationMeta"
           }
+        }
+      },
+      "DeveloperMessage": {
+        "title": "Developer Message",
+        "required": [
+          "role",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "enum": [
+              "developer"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The role of the messages author, in this case developer."
+          },
+          "content": {
+            "type": "string",
+            "description": "The contents of the developer message."
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MessageMetadata"
+          }
+        },
+        "description": "Developer-provided instructions that the model should follow, regardless of messages sent by the user.",
+        "example": {
+          "role": "developer",
+          "content": "Get the user's favorite color"
         }
       },
       "DialConferenceParticipantRequest": {
@@ -65935,6 +66105,10 @@
           }
         }
       },
+      "MessageMetadata": {
+        "type": "object",
+        "description": "Metadata to add to the message"
+      },
       "MessageTemplateResponseDataWrapper": {
         "title": "MessageTemplateResponseDataWrapper",
         "type": "object",
@@ -66217,6 +66391,12 @@
           "delivery_status_webhook_url": {
             "type": "string",
             "description": "The URL where webhooks related to delivery statused for assistant messages will be sent."
+          },
+          "conversation_inactivity_minutes": {
+            "maximum": 10000000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "If more than this many minutes have passed since the last message, the assistant will start a new conversation instead of continuing the existing one."
           }
         }
       },
@@ -82898,6 +83078,36 @@
           "role": "barge"
         }
       },
+      "SystemMessage": {
+        "title": "System Message",
+        "required": [
+          "role",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "enum": [
+              "system"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The role of the messages author, in this case `system`."
+          },
+          "content": {
+            "type": "string",
+            "description": "The contents of the system message."
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MessageMetadata"
+          }
+        },
+        "description": "Developer-provided instructions that the model should follow, regardless of messages sent by the user.",
+        "example": {
+          "role": "system",
+          "content": "Get the user's favorite color"
+        }
+      },
       "AuthorizeOAuth_404": {
         "type": "string"
       },
@@ -83563,6 +83773,7 @@
           },
           "noise_suppression": {
             "enum": [
+              "krisp",
               "deepfilternet",
               "disabled"
             ],
@@ -83597,6 +83808,57 @@
             "type": "integer",
             "description": "Maximum duration in seconds for the AI assistant to participate on the call. When this limit is reached the assistant will be stopped. This limit does not apply to portions of a call without an active assistant (for instance, a call transferred to a human representative).",
             "default": 1800
+          },
+          "user_idle_timeout_secs": {
+            "maximum": 14400,
+            "minimum": 30,
+            "type": "integer",
+            "description": "Maximum duration in seconds of end user silence on the call. When this limit is reached the assistant will be stopped. This limit does not apply to portions of a call without an active assistant (for instance, a call transferred to a human representative)."
+          },
+          "voicemail_detection": {
+            "type": "object",
+            "properties": {
+              "on_voicemail_detected": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "enum": [
+                      "stop_assistant",
+                      "leave_message_and_stop_assistant",
+                      "continue_assistant"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "description": "The action to take when voicemail is detected."
+                  },
+                  "voicemail_message": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "prompt",
+                          "message"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false,
+                        "description": "The type of voicemail message. Use 'prompt' to have the assistant generate a message based on a prompt, or 'message' to leave a specific message."
+                      },
+                      "prompt": {
+                        "type": "string",
+                        "description": "The prompt to use for generating the voicemail message. Only applicable when type is 'prompt'."
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "The specific message to leave as voicemail. Only applicable when type is 'message'."
+                      }
+                    },
+                    "description": "Configuration for the voicemail message to leave. Only applicable when action is 'leave_message_and_stop_assistant'."
+                  }
+                },
+                "description": "Action to take when voicemail is detected."
+              }
+            },
+            "description": "\"Configuration for voicemail detection (AMD - Answering Machine Detection) on outgoing calls. These settings only apply if AMD is enabled on the Dial command. See [TeXML Dial documentation](https://developers.telnyx.com/api-reference/texml-rest-commands/initiate-an-outbound-call) for enabling AMD. Recommended settings: MachineDetection=Enable, AsyncAmd=true, DetectionMode=Premium.\""
           }
         }
       },
@@ -86178,6 +86440,85 @@
           }
         }
       },
+      "ToolCall": {
+        "title": "Tool Call",
+        "required": [
+          "id",
+          "type",
+          "function"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The ID of the tool call."
+          },
+          "type": {
+            "enum": [
+              "function"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of the tool. Currently, only `function` is supported."
+          },
+          "function": {
+            "required": [
+              "name"
+            ],
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name of the function to call."
+              }
+            },
+            "description": "The function that the model called."
+          }
+        },
+        "description": "A call to a function tool created by the model.",
+        "example": {
+          "id": "call_123",
+          "type": "function",
+          "function": {
+            "name": "get_weather"
+          }
+        }
+      },
+      "ToolMessage": {
+        "title": "Tool Message",
+        "required": [
+          "role",
+          "content",
+          "tool_call_id"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "enum": [
+              "tool"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The role of the messages author, in this case `tool`."
+          },
+          "content": {
+            "type": "string",
+            "description": "The contents of the tool message."
+          },
+          "tool_call_id": {
+            "type": "string",
+            "description": "Tool call that this message is responding to."
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MessageMetadata"
+          }
+        },
+        "example": {
+          "role": "tool",
+          "content": "Hello, I'm John.",
+          "tool_call_id": "call_123"
+        }
+      },
       "TotalSummary": {
         "required": [
           "new_mrc",
@@ -87637,7 +87978,7 @@
           },
           "greeting": {
             "type": "string",
-            "description": "Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
+            "description": "Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables). Use an empty string to have the assistant wait for the user to speak first. Use the special value `<assistant-speaks-first-with-model-generated-message>` to have the assistant generate the greeting based on the system instructions."
           },
           "llm_api_key_ref": {
             "type": "string",
@@ -91031,6 +91372,36 @@
           "meta": {
             "$ref": "#/components/schemas/PaginationMeta"
           }
+        }
+      },
+      "UserMessage": {
+        "title": "User message.",
+        "required": [
+          "role",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "enum": [
+              "user"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The role of the messages author, in this case `user`."
+          },
+          "content": {
+            "type": "string",
+            "description": "The contents of the user message."
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MessageMetadata"
+          }
+        },
+        "description": "Messages sent by an end user",
+        "example": {
+          "role": "user",
+          "content": "Hello, I would like some help."
         }
       },
       "UserRequirement": {
@@ -95961,7 +96332,7 @@
           },
           "greeting": {
             "type": "string",
-            "description": "Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)"
+            "description": "Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables). Use an empty string to have the assistant wait for the user to speak first. Use the special value `<assistant-speaks-first-with-model-generated-message>` to have the assistant generate the greeting based on the system instructions."
           },
           "llm_api_key_ref": {
             "type": "string",
@@ -96247,6 +96618,17 @@
               ],
               "type": "object"
             }
+          },
+          "async": {
+            "type": "boolean",
+            "description": "If async, the assistant will move forward without waiting for your server to respond.",
+            "default": false
+          },
+          "timeout_ms": {
+            "maximum": 10000,
+            "minimum": 500,
+            "type": "integer",
+            "description": "The maximum number of milliseconds to wait for the webhook to respond. Only applicable when async is false."
           }
         }
       },

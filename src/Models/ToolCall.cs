@@ -7,47 +7,48 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// A call to a function tool created by the model.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class MessagingSettings : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class ToolCall : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>If more than this many minutes have passed since the last message, the assistant will start a new conversation instead of continuing the existing one.</summary>
-        public int? ConversationInactivityMinutes { get; set; }
-        /// <summary>Default Messaging Profile used for messaging exchanges with your assistant. This will be created automatically on assistant creation.</summary>
+        /// <summary>The function that the model called.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultMessagingProfileId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_function? Function { get; set; }
 #nullable restore
 #else
-        public string DefaultMessagingProfileId { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_function Function { get; set; }
 #endif
-        /// <summary>The URL where webhooks related to delivery statused for assistant messages will be sent.</summary>
+        /// <summary>The ID of the tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeliveryStatusWebhookUrl { get; set; }
+        public string? Id { get; set; }
 #nullable restore
 #else
-        public string DeliveryStatusWebhookUrl { get; set; }
+        public string Id { get; set; }
 #endif
+        /// <summary>The type of the tool. Currently, only `function` is supported.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_type? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall"/> and sets the default values.
         /// </summary>
-        public MessagingSettings()
+        public ToolCall()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,9 +58,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "conversation_inactivity_minutes", n => { ConversationInactivityMinutes = n.GetIntValue(); } },
-                { "default_messaging_profile_id", n => { DefaultMessagingProfileId = n.GetStringValue(); } },
-                { "delivery_status_webhook_url", n => { DeliveryStatusWebhookUrl = n.GetStringValue(); } },
+                { "function", n => { Function = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_function>(global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_function.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_type>(); } },
             };
         }
         /// <summary>
@@ -69,9 +70,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("conversation_inactivity_minutes", ConversationInactivityMinutes);
-            writer.WriteStringValue("default_messaging_profile_id", DefaultMessagingProfileId);
-            writer.WriteStringValue("delivery_status_webhook_url", DeliveryStatusWebhookUrl);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_function>("function", Function);
+            writer.WriteStringValue("id", Id);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

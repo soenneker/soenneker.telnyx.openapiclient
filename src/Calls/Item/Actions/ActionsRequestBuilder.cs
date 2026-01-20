@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_add_messages;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer;
@@ -50,6 +51,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The ai_assistant_add_messages property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_add_messages.Ai_assistant_add_messagesRequestBuilder Ai_assistant_add_messages
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_add_messages.Ai_assistant_add_messagesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The ai_assistant_start property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startRequestBuilder Ai_assistant_start
         {

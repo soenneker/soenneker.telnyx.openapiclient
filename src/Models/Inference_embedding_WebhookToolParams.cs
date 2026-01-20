@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>If async, the assistant will move forward without waiting for your server to respond.</summary>
+        public bool? Async { get; set; }
         /// <summary>The body parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the body of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +66,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters QueryParameters { get; set; }
 #endif
+        /// <summary>The maximum number of milliseconds to wait for the webhook to respond. Only applicable when async is false.</summary>
+        public int? TimeoutMs { get; set; }
         /// <summary>&quot;The URL of the external tool to be called. This URL is going to be used by the assistant. The URL can be templated like: `https://example.com/api/v1/{id}`, where `{id}` is a placeholder for a value that will be provided by the assistant if `path_parameters` are provided with the `id` attribute.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,6 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "async", n => { Async = n.GetBoolValue(); } },
                 { "body_parameters", n => { BodyParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_body_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_body_parameters.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "headers", n => { Headers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_headers>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_headers.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -105,6 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "path_parameters", n => { PathParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_path_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_path_parameters.CreateFromDiscriminatorValue); } },
                 { "query_parameters", n => { QueryParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters.CreateFromDiscriminatorValue); } },
+                { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -115,6 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("async", Async);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_body_parameters>("body_parameters", BodyParameters);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_headers>("headers", Headers);
@@ -122,6 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_path_parameters>("path_parameters", PathParameters);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters>("query_parameters", QueryParameters);
+            writer.WriteIntValue("timeout_ms", TimeoutMs);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

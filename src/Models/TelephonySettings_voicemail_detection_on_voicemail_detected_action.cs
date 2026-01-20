@@ -3,21 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The noise suppression engine to use. Use &apos;disabled&apos; to turn off noise suppression.</summary>
+    /// <summary>The action to take when voicemail is detected.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TelephonySettings_noise_suppression
+    public enum TelephonySettings_voicemail_detection_on_voicemail_detected_action
     {
-        [EnumMember(Value = "krisp")]
+        [EnumMember(Value = "stop_assistant")]
         #pragma warning disable CS1591
-        Krisp,
+        Stop_assistant,
         #pragma warning restore CS1591
-        [EnumMember(Value = "deepfilternet")]
+        [EnumMember(Value = "leave_message_and_stop_assistant")]
         #pragma warning disable CS1591
-        Deepfilternet,
+        Leave_message_and_stop_assistant,
         #pragma warning restore CS1591
-        [EnumMember(Value = "disabled")]
+        [EnumMember(Value = "continue_assistant")]
         #pragma warning disable CS1591
-        Disabled,
+        Continue_assistant,
         #pragma warning restore CS1591
     }
 }

@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_standby
         {
         }
         /// <summary>
-        /// The SIM card will be able to connect to the network once the process to set it to standby has been completed, thus making it possible to consume data.&lt;br/&gt;To set a SIM card to standby, it must be associated with SIM card group.&lt;br/&gt;The API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the standby state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.
+        /// The SIM card will be able to connect to the network once the process to set it to standby has been completed, thus making it possible to consume data.&lt;br/&gt;To set a SIM card to standby, it must be associated with SIM card group.&lt;br/&gt;The API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the standby state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_standby.Set_standbyPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_standby
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_standby.Set_standbyPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_standby.Set_standbyPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The SIM card will be able to connect to the network once the process to set it to standby has been completed, thus making it possible to consume data.&lt;br/&gt;To set a SIM card to standby, it must be associated with SIM card group.&lt;br/&gt;The API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the standby state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api/wireless/list-sim-card-actions) API.
+        /// The SIM card will be able to connect to the network once the process to set it to standby has been completed, thus making it possible to consume data.&lt;br/&gt;To set a SIM card to standby, it must be associated with SIM card group.&lt;br/&gt;The API will trigger an asynchronous operation called a SIM Card Action. Transitioning to the standby state may take a period of time. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

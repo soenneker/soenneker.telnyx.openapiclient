@@ -36,6 +36,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? SupportsUnauthenticatedWebCalls { get; set; }
         /// <summary>Maximum duration in seconds for the AI assistant to participate on the call. When this limit is reached the assistant will be stopped. This limit does not apply to portions of a call without an active assistant (for instance, a call transferred to a human representative).</summary>
         public int? TimeLimitSecs { get; set; }
+        /// <summary>Maximum duration in seconds of end user silence on the call. When this limit is reached the assistant will be stopped. This limit does not apply to portions of a call without an active assistant (for instance, a call transferred to a human representative).</summary>
+        public int? UserIdleTimeoutSecs { get; set; }
+        /// <summary>&quot;Configuration for voicemail detection (AMD - Answering Machine Detection) on outgoing calls. These settings only apply if AMD is enabled on the Dial command. See [TeXML Dial documentation](https://developers.telnyx.com/api-reference/texml-rest-commands/initiate-an-outbound-call) for enabling AMD. Recommended settings: MachineDetection=Enable, AsyncAmd=true, DetectionMode=Premium.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_voicemail_detection? VoicemailDetection { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_voicemail_detection VoicemailDetection { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings"/> and sets the default values.
         /// </summary>
@@ -66,6 +76,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "noise_suppression_config", n => { NoiseSuppressionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config.CreateFromDiscriminatorValue); } },
                 { "supports_unauthenticated_web_calls", n => { SupportsUnauthenticatedWebCalls = n.GetBoolValue(); } },
                 { "time_limit_secs", n => { TimeLimitSecs = n.GetIntValue(); } },
+                { "user_idle_timeout_secs", n => { UserIdleTimeoutSecs = n.GetIntValue(); } },
+                { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_voicemail_detection>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_voicemail_detection.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -80,6 +92,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config>("noise_suppression_config", NoiseSuppressionConfig);
             writer.WriteBoolValue("supports_unauthenticated_web_calls", SupportsUnauthenticatedWebCalls);
             writer.WriteIntValue("time_limit_secs", TimeLimitSecs);
+            writer.WriteIntValue("user_idle_timeout_secs", UserIdleTimeoutSecs);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_voicemail_detection>("voicemail_detection", VoicemailDetection);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
