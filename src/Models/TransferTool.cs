@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The transfer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams? Transfer { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams? Transfer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams Transfer { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams Transfer { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool_type? Type { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "transfer", n => { Transfer = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams.CreateFromDiscriminatorValue); } },
+                { "transfer", n => { Transfer = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool_type>(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferToolParams>("transfer", Transfer);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams>("transfer", Transfer);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

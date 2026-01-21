@@ -7479,10 +7479,10 @@
             "$ref": "#/components/responses/AuditLogListResponse"
           },
           "401": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/AuditLogsGenericErrorResponse"
           },
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/AuditLogsGenericErrorResponse"
           }
         }
       }
@@ -8073,7 +8073,7 @@
             "$ref": "#/components/responses/ServiceUnavailableErrorResponse"
           },
           "default": {
-            "$ref": "#/components/responses/billing_GenericErrorResponse"
+            "$ref": "#/components/responses/GenericErrorResponse"
           }
         }
       }
@@ -8128,7 +8128,7 @@
             "$ref": "#/components/responses/BadRequestErrorResponse"
           },
           "default": {
-            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
+            "$ref": "#/components/responses/GenericErrorResponse"
           }
         }
       },
@@ -8174,7 +8174,7 @@
             "$ref": "#/components/responses/UnprocessableEntityErrorResponse"
           },
           "default": {
-            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
+            "$ref": "#/components/responses/GenericErrorResponse"
           }
         }
       }
@@ -8229,7 +8229,7 @@
             "$ref": "#/components/responses/UnprocessableEntityErrorResponse"
           },
           "default": {
-            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
+            "$ref": "#/components/responses/GenericErrorResponse"
           }
         }
       },
@@ -8276,7 +8276,7 @@
             "$ref": "#/components/responses/NotFoundErrorResponse"
           },
           "default": {
-            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
+            "$ref": "#/components/responses/GenericErrorResponse"
           }
         }
       },
@@ -8338,7 +8338,7 @@
             "$ref": "#/components/responses/UnprocessableEntityErrorResponse"
           },
           "default": {
-            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
+            "$ref": "#/components/responses/GenericErrorResponse"
           }
         }
       }
@@ -11844,7 +11844,7 @@
         ],
         "responses": {
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -11871,7 +11871,7 @@
             "$ref": "#/components/responses/CredentialsResponseBody"
           },
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -11901,7 +11901,7 @@
             "$ref": "#/components/responses/CredentialsResponseBody"
           },
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -11931,7 +11931,7 @@
             "$ref": "#/components/responses/CredentialsResponseBody"
           },
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -15819,7 +15819,7 @@
             "$ref": "#/components/responses/InvoiceDetailResponse"
           },
           "400": {
-            "$ref": "#/components/responses/invoice_BadRequestErrorResponse"
+            "$ref": "#/components/responses/BadRequestErrorResponse"
           },
           "403": {
             "$ref": "#/components/responses/invoice_ForbiddenErrorResponse"
@@ -16245,14 +16245,14 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
+            "$ref": "#/components/responses/GenericErrorResponse"
           },
           "500": {
             "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/billing_group_Errors"
+                  "$ref": "#/components/schemas/Errors"
                 }
               }
             }
@@ -16298,14 +16298,14 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/billing-group_GenericErrorResponse"
+            "$ref": "#/components/responses/GenericErrorResponse"
           },
           "500": {
             "description": "Unexpected error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/billing_group_Errors"
+                  "$ref": "#/components/schemas/Errors"
                 }
               }
             }
@@ -28294,7 +28294,7 @@
             "$ref": "#/components/responses/ListRecordingTranscriptionsResponse"
           },
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -28323,7 +28323,7 @@
             "$ref": "#/components/responses/RecordingTranscriptionResponse"
           },
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -28350,7 +28350,7 @@
             "$ref": "#/components/responses/RecordingTranscriptionResponse"
           },
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -28444,7 +28444,7 @@
             "$ref": "#/components/responses/RecordingsResponseBody"
           },
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -28474,7 +28474,7 @@
         },
         "responses": {
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -28503,7 +28503,7 @@
             "$ref": "#/components/responses/RecordingResponseBody"
           },
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -28530,7 +28530,7 @@
             "$ref": "#/components/responses/RecordingResponseBody"
           },
           "default": {
-            "$ref": "#/components/responses/GenericErrorResponse"
+            "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
           "401": {
             "$ref": "#/components/responses/call-recordings_UnauthorizedResponse"
@@ -39151,7 +39151,7 @@
                   "$ref": "#/components/schemas/TransferTool"
                 },
                 {
-                  "$ref": "#/components/schemas/RetrievalTool"
+                  "$ref": "#/components/schemas/CallControlRetrievalTool"
                 }
               ],
               "properties": {
@@ -39167,7 +39167,7 @@
                   "webhook": "#/components/schemas/WebhookTool",
                   "hangup": "#/components/schemas/HangupTool",
                   "transfer": "#/components/schemas/TransferTool",
-                  "retrieval": "#/components/schemas/RetrievalTool"
+                  "retrieval": "#/components/schemas/CallControlRetrievalTool"
                 }
               }
             },
@@ -39418,7 +39418,7 @@
           "type": "object",
           "oneOf": [
             {
-              "$ref": "#/components/schemas/WebhookTool"
+              "$ref": "#/components/schemas/inference_embedding_WebhookTool"
             },
             {
               "$ref": "#/components/schemas/RetrievalTool"
@@ -39430,7 +39430,7 @@
               "$ref": "#/components/schemas/HangupTool"
             },
             {
-              "$ref": "#/components/schemas/TransferTool"
+              "$ref": "#/components/schemas/inference_embedding_TransferTool"
             },
             {
               "$ref": "#/components/schemas/SIPReferTool"
@@ -39706,6 +39706,17 @@
           },
           "meta": {
             "$ref": "#/components/schemas/audit_logs_PaginationMeta"
+          }
+        }
+      },
+      "AuditLogsErrors": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/audit_logs_Error"
+            }
           }
         }
       },
@@ -41373,11 +41384,11 @@
         "type": "object",
         "properties": {
           "bucket_ids": {
-            "title": "Bucket Ids",
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "List of [embedded storage buckets](https://developers.telnyx.com/api-reference/embeddings/embed-documents) to use for retrieval-augmented generation."
           },
           "max_num_results": {
             "type": "integer",
@@ -42715,6 +42726,26 @@
           }
         }
       },
+      "CallControlBucketIds": {
+        "title": "BucketIds",
+        "required": [
+          "bucket_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "bucket_ids": {
+            "title": "Bucket Ids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "max_num_results": {
+            "type": "integer",
+            "description": "The maximum number of results to retrieve as context for the language model."
+          }
+        }
+      },
       "CallControlCommandResult": {
         "title": "Call Control Command Result",
         "type": "object",
@@ -42782,6 +42813,226 @@
           "text": {
             "type": "string",
             "description": "The text to convert to speech"
+          }
+        }
+      },
+      "CallControlRetrievalTool": {
+        "title": "RetrievalTool",
+        "required": [
+          "type",
+          "retrieval"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "retrieval"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "retrieval": {
+            "$ref": "#/components/schemas/CallControlBucketIds"
+          }
+        }
+      },
+      "CallControlTransferToolParams": {
+        "title": "TransferToolParams",
+        "required": [
+          "targets",
+          "from"
+        ],
+        "type": "object",
+        "properties": {
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the target.",
+                  "example": "Support"
+                },
+                "to": {
+                  "type": "string",
+                  "description": "The destination number or SIP URI of the call.",
+                  "example": "+13129457420"
+                }
+              }
+            },
+            "description": "The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to."
+          },
+          "from": {
+            "type": "string",
+            "description": "Number or SIP URI placing the call.",
+            "example": "+35319605860"
+          }
+        }
+      },
+      "CallControlWebhookToolParams": {
+        "title": "WebhookToolParams",
+        "required": [
+          "url",
+          "name",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the tool."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the tool."
+          },
+          "url": {
+            "type": "string",
+            "description": "\"The URL of the external tool to be called. This URL is going to be used by the assistant. The URL can be templated like: `https://example.com/api/v1/{id}`, where `{id}` is a placeholder for a value that will be provided by the assistant if `path_parameters` are provided with the `id` attribute.\"",
+            "example": "https://example.com/api/v1/function"
+          },
+          "method": {
+            "enum": [
+              "GET",
+              "POST",
+              "PUT",
+              "DELETE",
+              "PATCH"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The HTTP method to be used when calling the external tool.",
+            "default": "POST"
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The value of the header. Note that we support mustache templating for the value. For example you can use `Bearer {{#integration_secret}}test-secret{{/integration_secret}}` to pass the value of the integration secret as the bearer token."
+                }
+              }
+            },
+            "description": "The headers to be sent to the external tool."
+          },
+          "body_parameters": {
+            "type": "object",
+            "properties": {
+              "properties": {
+                "type": "object",
+                "description": "The properties of the body parameters."
+              },
+              "required": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The required properties of the body parameters."
+              },
+              "type": {
+                "enum": [
+                  "object"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              }
+            },
+            "description": "The body parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the body of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format",
+            "example": {
+              "properties": {
+                "age": {
+                  "description": "The age of the customer.",
+                  "type": "integer"
+                },
+                "location": {
+                  "description": "The location of the customer.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "age",
+                "location"
+              ],
+              "type": "object"
+            }
+          },
+          "path_parameters": {
+            "type": "object",
+            "properties": {
+              "properties": {
+                "type": "object",
+                "description": "The properties of the path parameters."
+              },
+              "required": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The required properties of the path parameters."
+              },
+              "type": {
+                "enum": [
+                  "object"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              }
+            },
+            "description": "The path parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the path of the request if the URL contains a placeholder for a value. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format",
+            "example": {
+              "properties": {
+                "id": {
+                  "description": "The id of the customer.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "type": "object"
+            }
+          },
+          "query_parameters": {
+            "type": "object",
+            "properties": {
+              "properties": {
+                "type": "object",
+                "description": "The properties of the query parameters."
+              },
+              "required": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The required properties of the query parameters."
+              },
+              "type": {
+                "enum": [
+                  "object"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              }
+            },
+            "description": "The query parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the query of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format",
+            "example": {
+              "properties": {
+                "page": {
+                  "description": "The page number.",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "page"
+              ],
+              "type": "object"
+            }
           }
         }
       },
@@ -58213,7 +58464,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/audit_logs_Error"
+              "$ref": "#/components/schemas/billing_group_Error"
             }
           }
         }
@@ -62907,6 +63158,61 @@
             "type": "string",
             "description": "ISO 8601 formatted date indicating when the resource was updated",
             "format": "date-time"
+          }
+        }
+      },
+      "InferenceEmbeddingTransferToolParams": {
+        "title": "TransferToolParams",
+        "required": [
+          "targets",
+          "from"
+        ],
+        "type": "object",
+        "properties": {
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the target.",
+                  "example": "Support"
+                },
+                "to": {
+                  "type": "string",
+                  "description": "The destination number or SIP URI of the call.",
+                  "example": "+13129457420"
+                }
+              }
+            },
+            "description": "The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to."
+          },
+          "from": {
+            "type": "string",
+            "description": "Number or SIP URI placing the call.",
+            "example": "+35319605860"
+          },
+          "warm_transfer_instructions": {
+            "type": "string",
+            "description": "Natural language instructions for your agent for how to provide context for the transfer recipient.",
+            "example": "Briefly greet the transfer recipient and provide any relevant information from the call. Let them know you will bridge the call right after."
+          },
+          "custom_headers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The value of the header. Note that we support mustache templating for the value. For example you can use `{{#integration_secret}}test-secret{{/integration_secret}}` to pass the value of the integration secret."
+                }
+              }
+            },
+            "description": "Custom headers to be added to the SIP INVITE for the transfer command."
           }
         }
       },
@@ -78306,7 +78612,7 @@
             "additionalProperties": false
           },
           "retrieval": {
-            "$ref": "#/components/schemas/inference_embedding_BucketIds"
+            "$ref": "#/components/schemas/BucketIds"
           }
         }
       },
@@ -78326,7 +78632,7 @@
             "additionalProperties": false
           },
           "retrieval": {
-            "$ref": "#/components/schemas/inference_embedding_BucketIds"
+            "$ref": "#/components/schemas/BucketIds"
           }
         }
       },
@@ -87679,41 +87985,7 @@
             "additionalProperties": false
           },
           "transfer": {
-            "$ref": "#/components/schemas/inference_embedding_TransferToolParams"
-          }
-        }
-      },
-      "TransferToolParams": {
-        "title": "TransferToolParams",
-        "required": [
-          "targets",
-          "from"
-        ],
-        "type": "object",
-        "properties": {
-          "targets": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "description": "The name of the target.",
-                  "example": "Support"
-                },
-                "to": {
-                  "type": "string",
-                  "description": "The destination number or SIP URI of the call.",
-                  "example": "+13129457420"
-                }
-              }
-            },
-            "description": "The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to."
-          },
-          "from": {
-            "type": "string",
-            "description": "Number or SIP URI placing the call.",
-            "example": "+35319605860"
+            "$ref": "#/components/schemas/CallControlTransferToolParams"
           }
         }
       },
@@ -93562,7 +93834,7 @@
             "additionalProperties": false
           },
           "webhook": {
-            "$ref": "#/components/schemas/inference_embedding_WebhookToolParams"
+            "$ref": "#/components/schemas/CallControlWebhookToolParams"
           }
         }
       },
@@ -93611,7 +93883,7 @@
                 },
                 "value": {
                   "type": "string",
-                  "description": "The value of the header. Note that we support mustache templating for the value. For example you can use `Bearer {{#integration_secret}}test-secret{{/integration_secret}}` to pass the value of the integration secret as the bearer token."
+                  "description": "The value of the header. Note that we support mustache templating for the value. For example you can use `Bearer {{#integration_secret}}test-secret{{/integration_secret}}` to pass the value of the integration secret as the bearer token. [Telnyx signature headers](https://developers.telnyx.com/docs/voice/programmable-voice/voice-api-webhooks) will be automatically added to the request."
                 }
               }
             },
@@ -93729,6 +94001,17 @@
               ],
               "type": "object"
             }
+          },
+          "async": {
+            "type": "boolean",
+            "description": "If async, the assistant will move forward without waiting for your server to respond.",
+            "default": false
+          },
+          "timeout_ms": {
+            "maximum": 10000,
+            "minimum": 500,
+            "type": "integer",
+            "description": "The maximum number of milliseconds to wait for the webhook to respond. Only applicable when async is false."
           }
         }
       },
@@ -94907,17 +95190,6 @@
           },
           "meta": {
             "type": "object"
-          }
-        }
-      },
-      "billing_group_Errors": {
-        "type": "object",
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/billing_group_Error"
-            }
           }
         }
       },
@@ -96380,255 +96652,43 @@
           }
         }
       },
-      "inference_embedding_BucketIds": {
-        "title": "BucketIds",
+      "inference_embedding_TransferTool": {
+        "title": "TransferTool",
         "required": [
-          "bucket_ids"
+          "type",
+          "transfer"
         ],
         "type": "object",
         "properties": {
-          "bucket_ids": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "List of [embedded storage buckets](https://developers.telnyx.com/api-reference/embeddings/embed-documents) to use for retrieval-augmented generation."
-          },
-          "max_num_results": {
-            "type": "integer",
-            "description": "The maximum number of results to retrieve as context for the language model."
-          }
-        }
-      },
-      "inference_embedding_TransferToolParams": {
-        "title": "TransferToolParams",
-        "required": [
-          "targets",
-          "from"
-        ],
-        "type": "object",
-        "properties": {
-          "targets": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "description": "The name of the target.",
-                  "example": "Support"
-                },
-                "to": {
-                  "type": "string",
-                  "description": "The destination number or SIP URI of the call.",
-                  "example": "+13129457420"
-                }
-              }
-            },
-            "description": "The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to."
-          },
-          "from": {
-            "type": "string",
-            "description": "Number or SIP URI placing the call.",
-            "example": "+35319605860"
-          },
-          "warm_transfer_instructions": {
-            "type": "string",
-            "description": "Natural language instructions for your agent for how to provide context for the transfer recipient.",
-            "example": "Briefly greet the transfer recipient and provide any relevant information from the call. Let them know you will bridge the call right after."
-          },
-          "custom_headers": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "string",
-                  "description": "The value of the header. Note that we support mustache templating for the value. For example you can use `{{#integration_secret}}test-secret{{/integration_secret}}` to pass the value of the integration secret."
-                }
-              }
-            },
-            "description": "Custom headers to be added to the SIP INVITE for the transfer command."
-          }
-        }
-      },
-      "inference_embedding_WebhookToolParams": {
-        "title": "WebhookToolParams",
-        "required": [
-          "url",
-          "name",
-          "description"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name of the tool."
-          },
-          "description": {
-            "type": "string",
-            "description": "The description of the tool."
-          },
-          "url": {
-            "type": "string",
-            "description": "\"The URL of the external tool to be called. This URL is going to be used by the assistant. The URL can be templated like: `https://example.com/api/v1/{id}`, where `{id}` is a placeholder for a value that will be provided by the assistant if `path_parameters` are provided with the `id` attribute.\"",
-            "example": "https://example.com/api/v1/function"
-          },
-          "method": {
+          "type": {
             "enum": [
-              "GET",
-              "POST",
-              "PUT",
-              "DELETE",
-              "PATCH"
+              "transfer"
             ],
             "type": "string",
-            "additionalProperties": false,
-            "description": "The HTTP method to be used when calling the external tool.",
-            "default": "POST"
+            "additionalProperties": false
           },
-          "headers": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "string",
-                  "description": "The value of the header. Note that we support mustache templating for the value. For example you can use `Bearer {{#integration_secret}}test-secret{{/integration_secret}}` to pass the value of the integration secret as the bearer token. [Telnyx signature headers](https://developers.telnyx.com/docs/voice/programmable-voice/voice-api-webhooks) will be automatically added to the request."
-                }
-              }
-            },
-            "description": "The headers to be sent to the external tool."
+          "transfer": {
+            "$ref": "#/components/schemas/InferenceEmbeddingTransferToolParams"
+          }
+        }
+      },
+      "inference_embedding_WebhookTool": {
+        "title": "WebhookTool",
+        "required": [
+          "type",
+          "webhook"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "webhook"
+            ],
+            "type": "string",
+            "additionalProperties": false
           },
-          "body_parameters": {
-            "type": "object",
-            "properties": {
-              "properties": {
-                "type": "object",
-                "description": "The properties of the body parameters."
-              },
-              "required": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "The required properties of the body parameters."
-              },
-              "type": {
-                "enum": [
-                  "object"
-                ],
-                "type": "string",
-                "additionalProperties": false
-              }
-            },
-            "description": "The body parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the body of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format",
-            "example": {
-              "properties": {
-                "age": {
-                  "description": "The age of the customer.",
-                  "type": "integer"
-                },
-                "location": {
-                  "description": "The location of the customer.",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "age",
-                "location"
-              ],
-              "type": "object"
-            }
-          },
-          "path_parameters": {
-            "type": "object",
-            "properties": {
-              "properties": {
-                "type": "object",
-                "description": "The properties of the path parameters."
-              },
-              "required": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "The required properties of the path parameters."
-              },
-              "type": {
-                "enum": [
-                  "object"
-                ],
-                "type": "string",
-                "additionalProperties": false
-              }
-            },
-            "description": "The path parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the path of the request if the URL contains a placeholder for a value. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format",
-            "example": {
-              "properties": {
-                "id": {
-                  "description": "The id of the customer.",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "id"
-              ],
-              "type": "object"
-            }
-          },
-          "query_parameters": {
-            "type": "object",
-            "properties": {
-              "properties": {
-                "type": "object",
-                "description": "The properties of the query parameters."
-              },
-              "required": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "The required properties of the query parameters."
-              },
-              "type": {
-                "enum": [
-                  "object"
-                ],
-                "type": "string",
-                "additionalProperties": false
-              }
-            },
-            "description": "The query parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the query of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format",
-            "example": {
-              "properties": {
-                "page": {
-                  "description": "The page number.",
-                  "type": "integer"
-                }
-              },
-              "required": [
-                "page"
-              ],
-              "type": "object"
-            }
-          },
-          "async": {
-            "type": "boolean",
-            "description": "If async, the assistant will move forward without waiting for your server to respond.",
-            "default": false
-          },
-          "timeout_ms": {
-            "maximum": 10000,
-            "minimum": 500,
-            "type": "integer",
-            "description": "The maximum number of milliseconds to wait for the webhook to respond. Only applicable when async is false."
+          "webhook": {
+            "$ref": "#/components/schemas/WebhookToolParams"
           }
         }
       },
@@ -98834,6 +98894,16 @@
           }
         }
       },
+      "AuditLogsGenericErrorResponse": {
+        "description": "Unexpected error.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/AuditLogsErrors"
+            }
+          }
+        }
+      },
       "AutoRechargePrefResponse": {
         "description": "Successful response",
         "content": {
@@ -98854,7 +98924,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/billing_group_Errors"
+              "$ref": "#/components/schemas/invoice_Errors"
             }
           }
         }
@@ -99374,7 +99444,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/billing_group_Errors"
+              "$ref": "#/components/schemas/Errors"
             }
           }
         }
@@ -100239,7 +100309,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/billing_group_Errors"
+              "$ref": "#/components/schemas/Errors"
             }
           }
         }
@@ -100296,11 +100366,11 @@
         }
       },
       "GenericErrorResponse": {
-        "description": "Unexpected error.",
+        "description": "Unexpected error",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/call_recordings_Errors"
+              "$ref": "#/components/schemas/billing_Errors"
             }
           }
         }
@@ -103412,7 +103482,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/billing_group_Errors"
+              "$ref": "#/components/schemas/Errors"
             }
           }
         }
@@ -105052,7 +105122,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/billing_group_Errors"
+              "$ref": "#/components/schemas/Errors"
             }
           }
         }
@@ -105868,28 +105938,8 @@
           }
         }
       },
-      "billing-group_GenericErrorResponse": {
-        "description": "Unexpected error",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/billing_group_Errors"
-            }
-          }
-        }
-      },
       "billing_ForbiddenErrorResponse": {
         "description": "Insufficient permissions to access balance information",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/billing_Errors"
-            }
-          }
-        }
-      },
-      "billing_GenericErrorResponse": {
-        "description": "Unexpected error",
         "content": {
           "application/json": {
             "schema": {
@@ -106030,6 +106080,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/call_control_Errors"
+            }
+          }
+        }
+      },
+      "call-recordings_GenericErrorResponse": {
+        "description": "Unexpected error.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/call_recordings_Errors"
             }
           }
         }
@@ -106514,16 +106574,6 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/emergency_Errors"
-            }
-          }
-        }
-      },
-      "invoice_BadRequestErrorResponse": {
-        "description": "Invalid request parameters",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/invoice_Errors"
             }
           }
         }

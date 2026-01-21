@@ -9,37 +9,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class RetrievalTool : IAdditionalDataHolder, IParsable
+    public partial class CallControlBucketIds : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The retrieval property</summary>
+        /// <summary>The bucket_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BucketIds? Retrieval { get; set; }
+        public List<string>? BucketIds { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.BucketIds Retrieval { get; set; }
+        public List<string> BucketIds { get; set; }
 #endif
-        /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool_type? Type { get; set; }
+        /// <summary>The maximum number of results to retrieve as context for the language model.</summary>
+        public int? MaxNumResults { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlBucketIds"/> and sets the default values.
         /// </summary>
-        public RetrievalTool()
+        public CallControlBucketIds()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlBucketIds"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.CallControlBucketIds CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.CallControlBucketIds();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +49,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "retrieval", n => { Retrieval = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketIds>(global::Soenneker.Telnyx.OpenApiClient.Models.BucketIds.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool_type>(); } },
+                { "bucket_ids", n => { BucketIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "max_num_results", n => { MaxNumResults = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -60,8 +60,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.BucketIds>("retrieval", Retrieval);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool_type>("type", Type);
+            writer.WriteCollectionOfPrimitiveValues<string>("bucket_ids", BucketIds);
+            writer.WriteIntValue("max_num_results", MaxNumResults);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,17 +11,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// The query parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the query of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Inference_embedding_WebhookToolParams_query_parameters : IAdditionalDataHolder, IParsable
+    public partial class WebhookToolParams_query_parameters : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The properties of the query parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters_properties? Properties { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters_properties? Properties { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters_properties Properties { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters_properties Properties { get; set; }
 #endif
         /// <summary>The required properties of the query parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,23 +32,23 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public List<string> Required { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters_type? Type { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters_type? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters"/> and sets the default values.
         /// </summary>
-        public Inference_embedding_WebhookToolParams_query_parameters()
+        public WebhookToolParams_query_parameters()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,9 +58,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "properties", n => { Properties = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters_properties>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters_properties.CreateFromDiscriminatorValue); } },
+                { "properties", n => { Properties = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters_properties>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters_properties.CreateFromDiscriminatorValue); } },
                 { "required", n => { Required = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters_type>(); } },
             };
         }
         /// <summary>
@@ -70,9 +70,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters_properties>("properties", Properties);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters_properties>("properties", Properties);
             writer.WriteCollectionOfPrimitiveValues<string>("required", Required);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams_query_parameters_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

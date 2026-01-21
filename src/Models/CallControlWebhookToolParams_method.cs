@@ -5,7 +5,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>The HTTP method to be used when calling the external tool.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum Inference_embedding_WebhookToolParams_method
+    public enum CallControlWebhookToolParams_method
     {
         [EnumMember(Value = "GET")]
         #pragma warning disable CS1591

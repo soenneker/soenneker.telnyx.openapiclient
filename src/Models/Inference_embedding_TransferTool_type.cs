@@ -5,12 +5,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum Inference_embedding_WebhookToolParams_path_parameters_type
+    public enum Inference_embedding_TransferTool_type
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "object")]
+        [EnumMember(Value = "transfer")]
         #pragma warning disable CS1591
-        Object,
+        Transfer,
         #pragma warning restore CS1591
     }
 }
