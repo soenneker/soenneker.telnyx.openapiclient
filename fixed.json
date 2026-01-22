@@ -31688,8 +31688,7 @@
             "description": "A valid SIM card group name.",
             "schema": {
               "type": "string",
-              "format": "uuid",
-              "example": "1119e3cb-f39d-4254-ad38-9080d5fe90a9"
+              "example": "My Test Group"
             }
           },
           {
@@ -76356,7 +76355,7 @@
           },
           "error_code": {
             "type": "string",
-            "description": "This attribute is an [error code](https://developers.telnyx.com/api/errors) related to the failure reason.",
+            "description": "This attribute is an [error code](https://developers.telnyx.com/development/api-fundamentals/api-errors) related to the failure reason.",
             "default": null,
             "nullable": true,
             "readOnly": true,
@@ -107852,8 +107851,6 @@
         "name": "filter",
         "in": "query",
         "description": "\"Consolidated filter parameter for mobile network operators (deepObject style). Originally: filter[name][starts_with], filter[name][contains], filter[name][ends_with], filter[country_code], filter[mcc], filter[mnc], filter[tadig], filter[network_preferences_enabled]\"",
-        "style": "deepObject",
-        "explode": true,
         "schema": {
           "type": "object",
           "properties": {
@@ -107910,8 +107907,6 @@
         "name": "filter",
         "in": "query",
         "description": "\"Consolidated filter parameter for OTA updates (deepObject style). Originally: filter[status], filter[sim_card_id], filter[type]\"",
-        "style": "deepObject",
-        "explode": true,
         "schema": {
           "type": "object",
           "properties": {
@@ -108154,8 +108149,6 @@
         "name": "filter",
         "in": "query",
         "description": "\"Consolidated filter parameter for SIM card actions (deepObject style). Originally: filter[sim_card_id], filter[status], filter[bulk_sim_card_action_id], filter[action_type]\"",
-        "style": "deepObject",
-        "explode": true,
         "schema": {
           "type": "object",
           "properties": {
@@ -108202,28 +108195,19 @@
       "FilterSIMCardConsolidated": {
         "name": "filter",
         "in": "query",
-        "description": "\"Consolidated filter parameter for SIM cards (deepObject style). Originally: filter[tags], filter[iccid], filter[status]\"",
-        "style": "deepObject",
-        "explode": true,
+        "description": "\"Consolidated filter parameter for SIM cards (deepObject style). Originally: filter[iccid], filter[msisdn], filter[status], filter[tags]\"",
         "schema": {
           "type": "object",
           "properties": {
-            "tags": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "description": "\"A list of SIM card tags to filter on.<br/><br/>\n If the SIM card contains <b><i>all</i></b> of the given <code>tags</code> they will be found.<br/><br/>\nFor example, if the SIM cards have the following tags: <ul>\n  <li><code>['customers', 'staff', 'test']</code>\n  <li><code>['test']</code></li>\n  <li><code>['customers']</code></li>\n</ul>\nSearching for <code>['customers', 'test']</code> returns only the first because it's the only one with both tags.<br/> Searching for <code>test</code> returns the first two SIMs, because both of them have such tag.<br/> Searching for <code>customers</code> returns the first and last SIMs.<br/>\n\"",
-              "example": [
-                "personal",
-                "customers",
-                "active-customers"
-              ]
-            },
             "iccid": {
               "type": "string",
               "description": "A search string to partially match for the SIM card's ICCID.",
               "example": "89310410106543789301"
+            },
+            "msisdn": {
+              "type": "string",
+              "description": "A search string to match for the SIM card's MSISDN.",
+              "example": "+13109976224"
             },
             "status": {
               "type": "array",
@@ -108239,6 +108223,18 @@
                 "additionalProperties": false
               },
               "description": "Filter by a SIM card's status."
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "\"A list of SIM card tags to filter on.<br/><br/>\n If the SIM card contains <b><i>all</i></b> of the given <code>tags</code> they will be found.<br/><br/>\nFor example, if the SIM cards have the following tags: <ul>\n  <li><code>['customers', 'staff', 'test']</code>\n  <li><code>['test']</code></li>\n  <li><code>['customers']</code></li>\n</ul>\nSearching for <code>['customers', 'test']</code> returns only the first because it's the only one with both tags.<br/> Searching for <code>test</code> returns the first two SIMs, because both of them have such tag.<br/> Searching for <code>customers</code> returns the first and last SIMs.<br/>\n\"",
+              "example": [
+                "personal",
+                "customers",
+                "active-customers"
+              ]
             }
           }
         }
@@ -108267,8 +108263,6 @@
         "name": "filter",
         "in": "query",
         "description": "\"Consolidated filter parameter for SIM card orders (deepObject style). Originally: filter[created_at], filter[updated_at], filter[quantity], filter[cost.amount], filter[cost.currency], filter[address.id], filter[address.street_address], filter[address.extended_address], filter[address.locality], filter[address.administrative_area], filter[address.country_code], filter[address.postal_code]\"",
-        "style": "deepObject",
-        "explode": true,
         "schema": {
           "type": "object",
           "properties": {
@@ -110461,8 +110455,6 @@
         "name": "page",
         "in": "query",
         "description": "\"Consolidated pagination parameter (deepObject style). Originally: page[number], page[size]\"",
-        "style": "deepObject",
-        "explode": true,
         "schema": {
           "type": "object",
           "properties": {

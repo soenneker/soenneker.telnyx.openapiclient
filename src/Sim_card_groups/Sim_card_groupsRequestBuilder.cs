@@ -151,8 +151,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_card_groups
         public partial class Sim_card_groupsRequestBuilderGetQueryParameters 
         {
             /// <summary>A valid SIM card group name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("filter%5Bname%5D")]
-            public Guid? Filtername { get; set; }
+            public string? Filtername { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bname%5D")]
+            public string Filtername { get; set; }
+#endif
             /// <summary>A Private Wireless Gateway ID associated with the group.</summary>
             [QueryParameter("filter%5Bprivate_wireless_gateway_id%5D")]
             public Guid? FilterprivateWirelessGatewayId { get; set; }
