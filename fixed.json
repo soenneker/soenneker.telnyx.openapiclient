@@ -51115,6 +51115,34 @@
         "nullable": true,
         "example": "ec0c8e5d-439e-4620-a0c1-9d9c8d02a836"
       },
+      "ConnectionJitterBuffer": {
+        "type": "object",
+        "properties": {
+          "enable_jitter_buffer": {
+            "type": "boolean",
+            "description": "Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled.",
+            "default": false,
+            "example": true
+          },
+          "jitterbuffer_msec_min": {
+            "maximum": 400,
+            "minimum": 40,
+            "type": "integer",
+            "description": "The minimum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.",
+            "default": 60,
+            "example": 60
+          },
+          "jitterbuffer_msec_max": {
+            "maximum": 400,
+            "minimum": 40,
+            "type": "integer",
+            "description": "The maximum jitter buffer size in milliseconds. Must be between 40 and 400. Has no effect if enable_jitter_buffer is not true.",
+            "default": 200,
+            "example": 200
+          }
+        },
+        "description": "Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering."
+      },
       "ListMigrations_200": {
         "type": "object",
         "properties": {
@@ -52474,6 +52502,9 @@
           },
           "noise_suppression_details": {
             "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
+          },
+          "jitter_buffer": {
+            "$ref": "#/components/schemas/ConnectionJitterBuffer"
           }
         },
         "example": {
@@ -52498,7 +52529,7 @@
           "rtcp_settings": {
             "port": "rtcp-mux",
             "capture_enabled": true,
-            "report_frequency_seconds": 10
+            "report_frequency_secs": 10
           },
           "inbound": {
             "ani_number_format": "+E.164",
@@ -52506,7 +52537,6 @@
             "codecs": [
               "G722"
             ],
-            "default_routing_method": "sequential",
             "channel_limit": 10,
             "generate_ringback_tone": true,
             "isup_headers_enabled": true,
@@ -52531,6 +52561,11 @@
           "noise_suppression_details": {
             "engine": "deep_filter_net",
             "attenuation_limit": 80
+          },
+          "jitter_buffer": {
+            "enable_jitter_buffer": true,
+            "jitterbuffer_msec_min": 60,
+            "jitterbuffer_msec_max": 200
           }
         }
       },
@@ -52935,6 +52970,9 @@
           },
           "noise_suppression_details": {
             "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
+          },
+          "jitter_buffer": {
+            "$ref": "#/components/schemas/ConnectionJitterBuffer"
           }
         },
         "example": {
@@ -52969,7 +53007,6 @@
             "codecs": [
               "G722"
             ],
-            "default_routing_method": "sequential",
             "channel_limit": 10,
             "generate_ringback_tone": true,
             "isup_headers_enabled": true,
@@ -53003,6 +53040,11 @@
           "noise_suppression_details": {
             "engine": "deep_filter_net",
             "attenuation_limit": 80
+          },
+          "jitter_buffer": {
+            "enable_jitter_buffer": true,
+            "jitterbuffer_msec_min": 60,
+            "jitterbuffer_msec_max": 200
           }
         }
       },
@@ -53455,6 +53497,9 @@
           },
           "noise_suppression_details": {
             "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
+          },
+          "jitter_buffer": {
+            "$ref": "#/components/schemas/ConnectionJitterBuffer"
           }
         },
         "example": {
@@ -53483,13 +53528,12 @@
             "capture_enabled": true,
             "report_frequency_secs": 10
           },
-          "inbound:": {
+          "inbound": {
             "ani_number_format": "+E.164",
-            "dns_number_format": "+e164",
-            "codecs": "G722",
-            "default_primary_ip_id": "192.168.0.0",
-            "default_tertiary_ip_id": "192.168.0.0",
-            "default_secondary_ip_id": "192.168.0.0",
+            "dnis_number_format": "+e164",
+            "codecs": [
+              "G722"
+            ],
             "default_routing_method": "sequential",
             "channel_limit": 10,
             "generate_ringback_tone": true,
@@ -53521,6 +53565,11 @@
           "noise_suppression_details": {
             "engine": "deep_filter_net",
             "attenuation_limit": 80
+          },
+          "jitter_buffer": {
+            "enable_jitter_buffer": true,
+            "jitterbuffer_msec_min": 60,
+            "jitterbuffer_msec_max": 200
           }
         }
       },
@@ -55553,6 +55602,12 @@
             "description": "Enable on-net T38 if you prefer the sender and receiver negotiating T38 directly if both are on the Telnyx network. If this is disabled, Telnyx will be able to use T38 on just one leg of the call depending on each leg's settings.",
             "default": false
           },
+          "ios_push_credential_id": {
+            "$ref": "#/components/schemas/ConnectionIosPushCredentialId"
+          },
+          "android_push_credential_id": {
+            "$ref": "#/components/schemas/ConnectionAndroidPushCredentialId"
+          },
           "webhook_event_url": {
             "type": "string",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
@@ -55612,6 +55667,9 @@
           },
           "noise_suppression_details": {
             "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
+          },
+          "jitter_buffer": {
+            "$ref": "#/components/schemas/ConnectionJitterBuffer"
           }
         },
         "example": {
@@ -55644,7 +55702,7 @@
           "rtcp_settings": {
             "port": "rtp+1",
             "capture_enabled": true,
-            "report_frequency_seconds": 10
+            "report_frequency_secs": 10
           },
           "inbound": {
             "ani_number_format": "+E.164",
@@ -55677,6 +55735,11 @@
           "noise_suppression_details": {
             "engine": "deep_filter_net",
             "attenuation_limit": 80
+          },
+          "jitter_buffer": {
+            "enable_jitter_buffer": true,
+            "jitterbuffer_msec_min": 60,
+            "jitterbuffer_msec_max": 200
           }
         }
       },
@@ -55721,6 +55784,15 @@
               "OPUS",
               "H.264"
             ]
+          },
+          "default_routing_method": {
+            "enum": [
+              "sequential",
+              "round-robin"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Default routing method to be used when a number is associated with the connection. Must be one of the routing method types or left blank, other values are not allowed."
           },
           "channel_limit": {
             "type": "integer",
@@ -60006,6 +60078,12 @@
             "description": "Enable on-net T38 if you prefer that the sender and receiver negotiate T38 directly when both are on the Telnyx network. If this is disabled, Telnyx will be able to use T38 on just one leg of the call according to each leg's settings.",
             "default": false
           },
+          "ios_push_credential_id": {
+            "$ref": "#/components/schemas/ConnectionIosPushCredentialId"
+          },
+          "android_push_credential_id": {
+            "$ref": "#/components/schemas/ConnectionAndroidPushCredentialId"
+          },
           "user_name": {
             "type": "string",
             "description": "The username for the FQDN connection."
@@ -60102,6 +60180,9 @@
           },
           "noise_suppression_details": {
             "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
+          },
+          "jitter_buffer": {
+            "$ref": "#/components/schemas/ConnectionJitterBuffer"
           }
         },
         "example": {
@@ -60140,7 +60221,6 @@
             "codecs": [
               "G722"
             ],
-            "default_routing_method": "sequential",
             "channel_limit": 10,
             "generate_ringback_tone": true,
             "isup_headers_enabled": true,
@@ -60171,6 +60251,11 @@
           "noise_suppression_details": {
             "engine": "deep_filter_net",
             "attenuation_limit": 80
+          },
+          "jitter_buffer": {
+            "enable_jitter_buffer": true,
+            "jitterbuffer_msec_min": 60,
+            "jitterbuffer_msec_max": 200
           }
         }
       },
@@ -62394,7 +62479,7 @@
         },
         "example": {
           "ani_number_format": "+E.164",
-          "dns_number_format": "+e164",
+          "dnis_number_format": "+e164",
           "codecs": [
             "G722"
           ],
@@ -64360,6 +64445,12 @@
             "default": false,
             "example": false
           },
+          "ios_push_credential_id": {
+            "$ref": "#/components/schemas/ConnectionIosPushCredentialId"
+          },
+          "android_push_credential_id": {
+            "$ref": "#/components/schemas/ConnectionAndroidPushCredentialId"
+          },
           "webhook_event_url": {
             "type": "string",
             "description": "The URL where webhooks related to this connection will be sent. Must include a scheme, such as 'https'.",
@@ -64429,6 +64520,9 @@
           },
           "noise_suppression_details": {
             "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
+          },
+          "jitter_buffer": {
+            "$ref": "#/components/schemas/ConnectionJitterBuffer"
           }
         },
         "example": {
@@ -64501,6 +64595,11 @@
           "noise_suppression_details": {
             "engine": "deep_filter_net",
             "attenuation_limit": 80
+          },
+          "jitter_buffer": {
+            "enable_jitter_buffer": true,
+            "jitterbuffer_msec_min": 60,
+            "jitterbuffer_msec_max": 200
           }
         }
       },
@@ -89146,6 +89245,9 @@
           },
           "noise_suppression_details": {
             "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
+          },
+          "jitter_buffer": {
+            "$ref": "#/components/schemas/ConnectionJitterBuffer"
           }
         },
         "example": {
@@ -89174,7 +89276,7 @@
           "rtcp_settings": {
             "port": "rtcp-mux",
             "capture_enabled": true,
-            "report_frequency_seconds": 10
+            "report_frequency_secs": 10
           },
           "inbound": {
             "ani_number_format": "+E.164",
@@ -89182,7 +89284,6 @@
             "codecs": [
               "G722"
             ],
-            "default_routing_method": "sequential",
             "channel_limit": 10,
             "generate_ringback_tone": true,
             "isup_headers_enabled": true,
@@ -89207,6 +89308,11 @@
           "noise_suppression_details": {
             "engine": "deep_filter_net",
             "attenuation_limit": 80
+          },
+          "jitter_buffer": {
+            "enable_jitter_buffer": true,
+            "jitterbuffer_msec_min": 60,
+            "jitterbuffer_msec_max": 200
           }
         }
       },
@@ -89486,6 +89592,9 @@
           },
           "noise_suppression_details": {
             "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
+          },
+          "jitter_buffer": {
+            "$ref": "#/components/schemas/ConnectionJitterBuffer"
           }
         },
         "example": {
@@ -89520,7 +89629,6 @@
             "codecs": [
               "G722"
             ],
-            "default_routing_method": "sequential",
             "channel_limit": 10,
             "generate_ringback_tone": true,
             "isup_headers_enabled": true,
@@ -89537,6 +89645,11 @@
           "noise_suppression_details": {
             "engine": "deep_filter_net",
             "attenuation_limit": 80
+          },
+          "jitter_buffer": {
+            "enable_jitter_buffer": true,
+            "jitterbuffer_msec_min": 60,
+            "jitterbuffer_msec_max": 200
           }
         }
       },
@@ -89684,6 +89797,9 @@
           },
           "noise_suppression_details": {
             "$ref": "#/components/schemas/ConnectionNoiseSuppressionDetails"
+          },
+          "jitter_buffer": {
+            "$ref": "#/components/schemas/ConnectionJitterBuffer"
           }
         },
         "example": {
@@ -89712,13 +89828,12 @@
             "capture_enabled": true,
             "report_frequency_secs": 10
           },
-          "inbound:": {
+          "inbound": {
             "ani_number_format": "+E.164",
-            "dns_number_format": "+e164",
-            "codecs": "G722",
-            "default_primary_ip_id": "192.168.0.0",
-            "default_tertiary_ip_id": "192.168.0.0",
-            "default_secondary_ip_id": "192.168.0.0",
+            "dnis_number_format": "+e164",
+            "codecs": [
+              "G722"
+            ],
             "default_routing_method": "sequential",
             "channel_limit": 10,
             "generate_ringback_tone": true,
@@ -89750,6 +89865,11 @@
           "noise_suppression_details": {
             "engine": "deep_filter_net",
             "attenuation_limit": 80
+          },
+          "jitter_buffer": {
+            "enable_jitter_buffer": true,
+            "jitterbuffer_msec_min": 60,
+            "jitterbuffer_msec_max": 200
           }
         }
       },
@@ -104139,17 +104259,14 @@
                     }
                   },
                   "example": {
-                    "data": {
-                      "record_type": "registration_status",
-                      "status": "Expired",
-                      "sip_username": "rogerp",
-                      "ip_address": "190.106.106.121",
-                      "transport": "UDP",
-                      "port": 37223,
-                      "user_agent": "Z 5.4.12 v2.10.13.2-mod",
-                      "last_registration": "2021-09-28T15:11:02",
-                      "id": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-                    }
+                    "record_type": "registration_status",
+                    "status": "Expired",
+                    "sip_username": "rogerp",
+                    "ip_address": "190.106.106.121",
+                    "transport": "UDP",
+                    "port": 37223,
+                    "user_agent": "Z 5.4.12 v2.10.13.2-mod",
+                    "last_registration": "2021-09-28T15:11:02"
                   }
                 }
               }

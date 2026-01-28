@@ -20,6 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? AdjustDtmfTimestamp { get; set; }
         /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
+        /// <summary>The uuid of the push credential for Android</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AndroidPushCredentialId { get; set; }
+#nullable restore
+#else
+        public string AndroidPushCredentialId { get; set; }
+#endif
         /// <summary>Indicates whether call cost calculation is enabled.</summary>
         public bool? CallCostEnabled { get; set; }
         /// <summary>Specifies if call cost webhooks should be sent for this connection.</summary>
@@ -67,6 +75,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn Inbound { get; set; }
+#endif
+        /// <summary>The uuid of the push credential for Ios</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IosPushCredentialId { get; set; }
+#nullable restore
+#else
+        public string IosPushCredentialId { get; set; }
+#endif
+        /// <summary>Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer? JitterBuffer { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer JitterBuffer { get; set; }
 #endif
         /// <summary>The connection is enabled for Microsoft Teams Direct Routing.</summary>
         public bool? MicrosoftTeamsSbc { get; set; }
@@ -216,6 +240,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "adjust_dtmf_timestamp", n => { AdjustDtmfTimestamp = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
+                { "android_push_credential_id", n => { AndroidPushCredentialId = n.GetStringValue(); } },
                 { "call_cost_enabled", n => { CallCostEnabled = n.GetBoolValue(); } },
                 { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
@@ -228,6 +253,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "ignore_dtmf_duration", n => { IgnoreDtmfDuration = n.GetBoolValue(); } },
                 { "ignore_mark_bit", n => { IgnoreMarkBit = n.GetBoolValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn.CreateFromDiscriminatorValue); } },
+                { "ios_push_credential_id", n => { IosPushCredentialId = n.GetStringValue(); } },
+                { "jitter_buffer", n => { JitterBuffer = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer.CreateFromDiscriminatorValue); } },
                 { "microsoft_teams_sbc", n => { MicrosoftTeamsSbc = n.GetBoolValue(); } },
                 { "noise_suppression", n => { NoiseSuppression = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppression>(); } },
                 { "noise_suppression_details", n => { NoiseSuppressionDetails = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails.CreateFromDiscriminatorValue); } },
@@ -262,6 +289,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteBoolValue("adjust_dtmf_timestamp", AdjustDtmfTimestamp);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
+            writer.WriteStringValue("android_push_credential_id", AndroidPushCredentialId);
             writer.WriteBoolValue("call_cost_enabled", CallCostEnabled);
             writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("connection_name", ConnectionName);
@@ -274,6 +302,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("ignore_dtmf_duration", IgnoreDtmfDuration);
             writer.WriteBoolValue("ignore_mark_bit", IgnoreMarkBit);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn>("inbound", Inbound);
+            writer.WriteStringValue("ios_push_credential_id", IosPushCredentialId);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer>("jitter_buffer", JitterBuffer);
             writer.WriteBoolValue("microsoft_teams_sbc", MicrosoftTeamsSbc);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppression>("noise_suppression", NoiseSuppression);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails>("noise_suppression_details", NoiseSuppressionDetails);

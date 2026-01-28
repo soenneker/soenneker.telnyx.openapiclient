@@ -26,6 +26,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> Codecs { get; set; }
 #endif
+        /// <summary>Default routing method to be used when a number is associated with the connection. Must be one of the routing method types or left blank, other values are not allowed.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_default_routing_method? DefaultRoutingMethod { get; set; }
         /// <summary>The dnis_number_format property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_dnis_number_format? DnisNumberFormat { get; set; }
         /// <summary>Generate ringback tone through 183 session progress message with early media.</summary>
@@ -75,6 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "ani_number_format", n => { AniNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_ani_number_format>(); } },
                 { "channel_limit", n => { ChannelLimit = n.GetIntValue(); } },
                 { "codecs", n => { Codecs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "default_routing_method", n => { DefaultRoutingMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_default_routing_method>(); } },
                 { "dnis_number_format", n => { DnisNumberFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_dnis_number_format>(); } },
                 { "generate_ringback_tone", n => { GenerateRingbackTone = n.GetBoolValue(); } },
                 { "isup_headers_enabled", n => { IsupHeadersEnabled = n.GetBoolValue(); } },
@@ -96,6 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_ani_number_format>("ani_number_format", AniNumberFormat);
             writer.WriteIntValue("channel_limit", ChannelLimit);
             writer.WriteCollectionOfPrimitiveValues<string>("codecs", Codecs);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_default_routing_method>("default_routing_method", DefaultRoutingMethod);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CredentialInbound_dnis_number_format>("dnis_number_format", DnisNumberFormat);
             writer.WriteBoolValue("generate_ringback_tone", GenerateRingbackTone);
             writer.WriteBoolValue("isup_headers_enabled", IsupHeadersEnabled);

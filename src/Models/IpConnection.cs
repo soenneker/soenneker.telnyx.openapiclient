@@ -18,6 +18,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
+        /// <summary>The uuid of the push credential for Android</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AndroidPushCredentialId { get; set; }
+#nullable restore
+#else
+        public string AndroidPushCredentialId { get; set; }
+#endif
         /// <summary>Specifies if call cost webhooks should be sent for this connection.</summary>
         public bool? CallCostInWebhooks { get; set; }
         /// <summary>The connection_name property</summary>
@@ -59,6 +67,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp Inbound { get; set; }
+#endif
+        /// <summary>The uuid of the push credential for Ios</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IosPushCredentialId { get; set; }
+#nullable restore
+#else
+        public string IosPushCredentialId { get; set; }
+#endif
+        /// <summary>Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer? JitterBuffer { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer JitterBuffer { get; set; }
 #endif
         /// <summary>Controls when noise suppression is applied to calls. When set to &apos;inbound&apos;, noise suppression is applied to incoming audio. When set to &apos;outbound&apos;, it&apos;s applied to outgoing audio. When set to &apos;both&apos;, it&apos;s applied in both directions. When set to &apos;disabled&apos;, noise suppression is turned off.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppression? NoiseSuppression { get; set; }
@@ -165,6 +189,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
+                { "android_push_credential_id", n => { AndroidPushCredentialId = n.GetStringValue(); } },
                 { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
@@ -174,6 +199,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp.CreateFromDiscriminatorValue); } },
+                { "ios_push_credential_id", n => { IosPushCredentialId = n.GetStringValue(); } },
+                { "jitter_buffer", n => { JitterBuffer = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer.CreateFromDiscriminatorValue); } },
                 { "noise_suppression", n => { NoiseSuppression = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppression>(); } },
                 { "noise_suppression_details", n => { NoiseSuppressionDetails = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails.CreateFromDiscriminatorValue); } },
                 { "onnet_t38_passthrough_enabled", n => { OnnetT38PassthroughEnabled = n.GetBoolValue(); } },
@@ -198,6 +225,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
+            writer.WriteStringValue("android_push_credential_id", AndroidPushCredentialId);
             writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("connection_name", ConnectionName);
             writer.WriteStringValue("created_at", CreatedAt);
@@ -207,6 +235,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundIp>("inbound", Inbound);
+            writer.WriteStringValue("ios_push_credential_id", IosPushCredentialId);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer>("jitter_buffer", JitterBuffer);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppression>("noise_suppression", NoiseSuppression);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails>("noise_suppression_details", NoiseSuppressionDetails);
             writer.WriteBoolValue("onnet_t38_passthrough_enabled", OnnetT38PassthroughEnabled);

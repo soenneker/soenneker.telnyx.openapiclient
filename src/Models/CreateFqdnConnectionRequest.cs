@@ -60,6 +60,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string IosPushCredentialId { get; set; }
 #endif
+        /// <summary>Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer? JitterBuffer { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer JitterBuffer { get; set; }
+#endif
         /// <summary>When enabled, the connection will be created for Microsoft Teams Direct Routing. A *.mstsbc.telnyx.tech FQDN will be created for the connection automatically.</summary>
         public bool? MicrosoftTeamsSbc { get; set; }
         /// <summary>Controls when noise suppression is applied to calls. When set to &apos;inbound&apos;, noise suppression is applied to incoming audio. When set to &apos;outbound&apos;, it&apos;s applied to outgoing audio. When set to &apos;both&apos;, it&apos;s applied in both directions. When set to &apos;disabled&apos;, noise suppression is turned off.</summary>
@@ -160,6 +168,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "encrypted_media", n => { EncryptedMedia = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>(); } },
                 { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn.CreateFromDiscriminatorValue); } },
                 { "ios_push_credential_id", n => { IosPushCredentialId = n.GetStringValue(); } },
+                { "jitter_buffer", n => { JitterBuffer = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer.CreateFromDiscriminatorValue); } },
                 { "microsoft_teams_sbc", n => { MicrosoftTeamsSbc = n.GetBoolValue(); } },
                 { "noise_suppression", n => { NoiseSuppression = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppression>(); } },
                 { "noise_suppression_details", n => { NoiseSuppressionDetails = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails>(global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails.CreateFromDiscriminatorValue); } },
@@ -192,6 +201,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EncryptedMedia>("encrypted_media", EncryptedMedia);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundFqdn>("inbound", Inbound);
             writer.WriteStringValue("ios_push_credential_id", IosPushCredentialId);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionJitterBuffer>("jitter_buffer", JitterBuffer);
             writer.WriteBoolValue("microsoft_teams_sbc", MicrosoftTeamsSbc);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppression>("noise_suppression", NoiseSuppression);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConnectionNoiseSuppressionDetails>("noise_suppression_details", NoiseSuppressionDetails);
