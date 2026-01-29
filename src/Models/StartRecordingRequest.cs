@@ -52,16 +52,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? TimeoutSecs { get; set; }
         /// <summary>Enable post recording transcription. The default value is false.</summary>
         public bool? Transcription { get; set; }
-        /// <summary>Engine to use for speech recognition. `A` - `Google`</summary>
+        /// <summary>&quot;Engine to use for speech recognition. `A` - `Google`, `B` - `Telnyx`, `deepgram/nova-3` - `Deepgram Nova-3`. Note: `deepgram/nova-3` supports only `en` and `en-{Region}` languages.&quot;</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_transcription_engine? TranscriptionEngine { get; set; }
+        /// <summary>The transcription_language property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest.StartRecordingRequest_transcription_language? TranscriptionLanguage { get; set; }
 #nullable restore
 #else
-        public string TranscriptionEngine { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest.StartRecordingRequest_transcription_language TranscriptionLanguage { get; set; }
 #endif
-        /// <summary>Language to use for speech recognition</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong? TranscriptionLanguage { get; set; }
         /// <summary>Defines maximum number of speakers in the conversation. Applies to `google` engine only.</summary>
         public int? TranscriptionMaxSpeakerCount { get; set; }
         /// <summary>Defines minimum number of speakers in the conversation. Applies to `google` engine only.</summary>
@@ -79,8 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             RecordingTrack = global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_recording_track.Both;
-            TranscriptionEngine = "A";
-            TranscriptionLanguage = global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong.EnUS;
+            TranscriptionEngine = global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_transcription_engine.A;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -110,8 +109,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "recording_track", n => { RecordingTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_recording_track>(); } },
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
                 { "transcription", n => { Transcription = n.GetBoolValue(); } },
-                { "transcription_engine", n => { TranscriptionEngine = n.GetStringValue(); } },
-                { "transcription_language", n => { TranscriptionLanguage = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong>(); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_transcription_engine>(); } },
+                { "transcription_language", n => { TranscriptionLanguage = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest.StartRecordingRequest_transcription_language>(global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest.StartRecordingRequest_transcription_language.CreateFromDiscriminatorValue); } },
                 { "transcription_max_speaker_count", n => { TranscriptionMaxSpeakerCount = n.GetIntValue(); } },
                 { "transcription_min_speaker_count", n => { TranscriptionMinSpeakerCount = n.GetIntValue(); } },
                 { "transcription_profanity_filter", n => { TranscriptionProfanityFilter = n.GetBoolValue(); } },
@@ -136,14 +135,109 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_recording_track>("recording_track", RecordingTrack);
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
             writer.WriteBoolValue("transcription", Transcription);
-            writer.WriteStringValue("transcription_engine", TranscriptionEngine);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong>("transcription_language", TranscriptionLanguage);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_transcription_engine>("transcription_engine", TranscriptionEngine);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest.StartRecordingRequest_transcription_language>("transcription_language", TranscriptionLanguage);
             writer.WriteIntValue("transcription_max_speaker_count", TranscriptionMaxSpeakerCount);
             writer.WriteIntValue("transcription_min_speaker_count", TranscriptionMinSpeakerCount);
             writer.WriteBoolValue("transcription_profanity_filter", TranscriptionProfanityFilter);
             writer.WriteBoolValue("transcription_speaker_diarization", TranscriptionSpeakerDiarization);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest_trim>("trim", Trim);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage_Wrapper"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class StartRecordingRequest_transcription_language : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper? DeepgramNova3TranscriptionLanguageWrapper { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper DeepgramNova3TranscriptionLanguageWrapper { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper? GoogleTranscriptionLanguageLongWrapper { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper GoogleTranscriptionLanguageLongWrapper { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage_Wrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage_Wrapper? TelnyxTranscriptionLanguageWrapper { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage_Wrapper TelnyxTranscriptionLanguageWrapper { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest.StartRecordingRequest_transcription_language"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest.StartRecordingRequest_transcription_language CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("transcription_engine")?.GetStringValue();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest.StartRecordingRequest_transcription_language();
+                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.DeepgramNova3TranscriptionLanguageWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper();
+                }
+                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.GoogleTranscriptionLanguageLongWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper();
+                }
+                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.TelnyxTranscriptionLanguageWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage_Wrapper();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(DeepgramNova3TranscriptionLanguageWrapper != null)
+                {
+                    return DeepgramNova3TranscriptionLanguageWrapper.GetFieldDeserializers();
+                }
+                else if(GoogleTranscriptionLanguageLongWrapper != null)
+                {
+                    return GoogleTranscriptionLanguageLongWrapper.GetFieldDeserializers();
+                }
+                else if(TelnyxTranscriptionLanguageWrapper != null)
+                {
+                    return TelnyxTranscriptionLanguageWrapper.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(DeepgramNova3TranscriptionLanguageWrapper != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper>(null, DeepgramNova3TranscriptionLanguageWrapper);
+                }
+                else if(GoogleTranscriptionLanguageLongWrapper != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper>(null, GoogleTranscriptionLanguageLongWrapper);
+                }
+                else if(TelnyxTranscriptionLanguageWrapper != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage_Wrapper>(null, TelnyxTranscriptionLanguageWrapper);
+                }
+            }
         }
     }
 }
