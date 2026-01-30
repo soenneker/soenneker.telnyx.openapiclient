@@ -39468,22 +39468,23 @@
         "properties": {
           "file": {
             "type": "string",
-            "description": "\"The audio file object to transcribe, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm. File uploads are limited to 100 MB. Cannot be used together with `file_url`\"",
+            "description": "\"The audio file object to transcribe, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm. File uploads are limited to 100 MB. Cannot be used together with `file_url`. Note: `deepgram/nova-3` only supports mp3 and wav formats.\"",
             "format": "binary"
           },
           "file_url": {
             "type": "string",
-            "description": "\"Link to audio file in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm. Support for hosted files is limited to 100MB. Cannot be used together with `file`\"",
+            "description": "\"Link to audio file in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm. Support for hosted files is limited to 100MB. Cannot be used together with `file`. Note: `deepgram/nova-3` only supports mp3 and wav formats.\"",
             "example": "https://example.com/file.mp3"
           },
           "model": {
             "enum": [
               "distil-whisper/distil-large-v2",
-              "openai/whisper-large-v3-turbo"
+              "openai/whisper-large-v3-turbo",
+              "deepgram/nova-3"
             ],
             "type": "string",
             "additionalProperties": false,
-            "description": "ID of the model to use. `distil-whisper/distil-large-v2` is lower latency but English-only. `openai/whisper-large-v3-turbo` is multi-lingual but slightly higher latency.",
+            "description": "ID of the model to use. `distil-whisper/distil-large-v2` is lower latency but English-only. `openai/whisper-large-v3-turbo` is multi-lingual but slightly higher latency. `deepgram/nova-3` supports English variants (en, en-US, en-GB, en-AU, en-NZ, en-IN) and only accepts mp3/wav files.",
             "default": "distil-whisper/distil-large-v2",
             "example": "distil-whisper/distil-large-v2"
           },
@@ -39506,6 +39507,19 @@
             "additionalProperties": false,
             "description": "The timestamp granularities to populate for this transcription. `response_format` must be set verbose_json to use timestamp granularities. Currently `segment` is supported.",
             "example": "segment"
+          },
+          "language": {
+            "type": "string",
+            "description": "\"The language of the audio to be transcribed. For `deepgram/nova-3`, only English variants are supported: `en`, `en-US`, `en-GB`, `en-AU`, `en-NZ`, `en-IN`. For `openai/whisper-large-v3-turbo`, supports multiple languages. `distil-whisper/distil-large-v2` does not support language parameter.\"",
+            "example": "en-US"
+          },
+          "model_config": {
+            "type": "object",
+            "description": "Additional model-specific configuration parameters. Only allowed with `deepgram/nova-3` model. Can include Deepgram-specific options such as `smart_format`, `punctuate`, `diarize`, `utterance`, `numerals`, and `language`. If `language` is provided both as a top-level parameter and in `model_config`, the top-level parameter takes precedence.",
+            "example": {
+              "smart_format": true,
+              "punctuate": true
+            }
           }
         }
       },
