@@ -14,13 +14,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The result property</summary>
+        /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse_data? Data { get; set; }
 #nullable restore
 #else
-        public string Result { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse_data Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "result", n => { Result = n.GetStringValue(); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse_data>(global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse_data.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("result", Result);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Cancel.CancelPostResponse_data>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

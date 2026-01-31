@@ -64,6 +64,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CoachingCallSidLegacy { get; set; }
 #endif
+        /// <summary>The unique identifier for the conference.</summary>
+        public Guid? ConferenceSid { get; set; }
         /// <summary>The timestamp of when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,6 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "coaching", n => { Coaching = n.GetBoolValue(); } },
                 { "coaching_call_sid", n => { CoachingCallSid = n.GetStringValue(); } },
                 { "coaching_call_sid_legacy", n => { CoachingCallSidLegacy = n.GetStringValue(); } },
+                { "conference_sid", n => { ConferenceSid = n.GetGuidValue(); } },
                 { "date_created", n => { DateCreated = n.GetStringValue(); } },
                 { "date_updated", n => { DateUpdated = n.GetStringValue(); } },
                 { "end_conference_on_exit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
@@ -151,6 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("coaching", Coaching);
             writer.WriteStringValue("coaching_call_sid", CoachingCallSid);
             writer.WriteStringValue("coaching_call_sid_legacy", CoachingCallSidLegacy);
+            writer.WriteGuidValue("conference_sid", ConferenceSid);
             writer.WriteStringValue("date_created", DateCreated);
             writer.WriteStringValue("date_updated", DateUpdated);
             writer.WriteBoolValue("end_conference_on_exit", EndConferenceOnExit);
