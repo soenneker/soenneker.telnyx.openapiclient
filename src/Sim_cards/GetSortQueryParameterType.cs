@@ -12,9 +12,5 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards
         #pragma warning disable CS1591
         Current_billing_period_consumed_dataAmount,
         #pragma warning restore CS1591
-        [EnumMember(Value = "-current_billing_period_consumed_data.amount")]
-        #pragma warning disable CS1591
-        Minus_current_billing_period_consumed_dataAmount,
-        #pragma warning restore CS1591
     }
 }

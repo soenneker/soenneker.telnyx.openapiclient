@@ -39,7 +39,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Detail_records_ErrorResponse">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Detail_records.Detail_recordsRequestBuilder.Detail_recordsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -50,11 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Detail_records
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Detail_records_ErrorResponse.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.DetailRecordsSearchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Search for any detail record across the Telnyx Platform

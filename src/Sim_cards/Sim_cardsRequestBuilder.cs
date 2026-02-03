@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Sim_cardsRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Consolidated filter parameter for SIM cards (deepObject style). Originally: filter[iccid], filter[msisdn], filter[status], filter[tags]&quot;</summary>
+            /// <summary>&quot;Consolidated filter parameter for SIM cards (deepObject style). Originally: filter[tags], filter[iccid], filter[status]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

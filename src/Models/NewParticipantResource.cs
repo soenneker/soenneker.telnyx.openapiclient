@@ -40,8 +40,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CoachingCallSid { get; set; }
 #endif
-        /// <summary>The unique identifier for the conference.</summary>
-        public Guid? ConferenceSid { get; set; }
         /// <summary>Whether the conference ends when the participant leaves.</summary>
         public bool? EndConferenceOnExit { get; set; }
         /// <summary>Whether the participant is on hold.</summary>
@@ -87,7 +85,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_sid", n => { CallSid = n.GetStringValue(); } },
                 { "coaching", n => { Coaching = n.GetBoolValue(); } },
                 { "coaching_call_sid", n => { CoachingCallSid = n.GetStringValue(); } },
-                { "conference_sid", n => { ConferenceSid = n.GetGuidValue(); } },
                 { "end_conference_on_exit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "hold", n => { Hold = n.GetBoolValue(); } },
                 { "muted", n => { Muted = n.GetBoolValue(); } },
@@ -106,7 +103,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("call_sid", CallSid);
             writer.WriteBoolValue("coaching", Coaching);
             writer.WriteStringValue("coaching_call_sid", CoachingCallSid);
-            writer.WriteGuidValue("conference_sid", ConferenceSid);
             writer.WriteBoolValue("end_conference_on_exit", EndConferenceOnExit);
             writer.WriteBoolValue("hold", Hold);
             writer.WriteBoolValue("muted", Muted);

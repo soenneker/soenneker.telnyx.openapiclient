@@ -24,9 +24,5 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Declined,
         #pragma warning restore CS1591
-        [EnumMember(Value = "expired")]
-        #pragma warning disable CS1591
-        Expired,
-        #pragma warning restore CS1591
     }
 }

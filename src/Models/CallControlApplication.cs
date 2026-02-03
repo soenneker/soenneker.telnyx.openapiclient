@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? Active { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&lt;code&gt;Latency&lt;/code&gt; directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
+        /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_anchorsite_override? AnchorsiteOverride { get; set; }
         /// <summary>A user-assigned name to help manage the application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -26,8 +26,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ApplicationName { get; set; }
 #endif
-        /// <summary>Specifies if call cost webhooks should be sent for this Call Control Application.</summary>
-        public bool? CallCostInWebhooks { get; set; }
         /// <summary>ISO 8601 formatted date of when the resource was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -138,7 +136,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_anchorsite_override>(); } },
                 { "application_name", n => { ApplicationName = n.GetStringValue(); } },
-                { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_dtmf_type>(); } },
                 { "first_command_timeout", n => { FirstCommandTimeout = n.GetBoolValue(); } },
@@ -166,7 +163,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_anchorsite_override>("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("application_name", ApplicationName);
-            writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlApplication_dtmf_type>("dtmf_type", DtmfType);
             writer.WriteBoolValue("first_command_timeout", FirstCommandTimeout);

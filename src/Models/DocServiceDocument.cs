@@ -12,8 +12,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     public partial class DocServiceDocument : global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceRecord, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The antivirus scan status of the document.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_av_scan_status? AvScanStatus { get; private set; }
         /// <summary>The document&apos;s content_type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,7 +72,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "av_scan_status", n => { AvScanStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocument_av_scan_status>(); } },
                 { "content_type", n => { ContentType = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },

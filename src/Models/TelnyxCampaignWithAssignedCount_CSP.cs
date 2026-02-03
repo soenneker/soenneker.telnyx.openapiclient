@@ -254,7 +254,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? SubscriberOptin { get; set; }
         /// <summary>Does campaign support subscriber opt-out keyword(s)?</summary>
         public bool? SubscriberOptout { get; set; }
-        /// <summary>Campaign sub-usecases. Must be of defined valid sub-usecase types. Use `/10dlc/enum/usecase` operation to retrieve list of valid sub-usecases</summary>
+        /// <summary>Campaign sub-usecases. Must be of defined valid sub-usecase types. Use `/registry/enum/usecase` operation to retrieve list of valid sub-usecases</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SubUsecases { get; set; }
@@ -288,7 +288,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string TermsAndConditionsLink { get; set; }
 #endif
-        /// <summary>Campaign usecase. Must be of defined valid types. Use `/10dlc/enum/usecase` operation to retrieve usecases available for given brand.</summary>
+        /// <summary>Campaign usecase. Must be of defined valid types. Use `/registry/enum/usecase` operation to retrieve usecases available for given brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Usecase { get; set; }

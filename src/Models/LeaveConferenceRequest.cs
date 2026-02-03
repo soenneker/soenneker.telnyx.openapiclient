@@ -32,8 +32,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CommandId { get; set; }
 #endif
-        /// <summary>Region where the conference data is located. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.LeaveConferenceRequest"/> and sets the default values.
         /// </summary>
@@ -62,7 +60,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "beep_enabled", n => { BeepEnabled = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.LeaveConferenceRequest_beep_enabled>(); } },
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); } },
             };
         }
         /// <summary>
@@ -75,7 +72,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.LeaveConferenceRequest_beep_enabled>("beep_enabled", BeepEnabled);
             writer.WriteStringValue("call_control_id", CallControlId);
             writer.WriteStringValue("command_id", CommandId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>("region", Region);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

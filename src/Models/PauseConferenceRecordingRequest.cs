@@ -30,8 +30,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RecordingId { get; set; }
 #endif
-        /// <summary>Region where the conference data is located. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PauseConferenceRecordingRequest"/> and sets the default values.
         /// </summary>
@@ -59,7 +57,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "recording_id", n => { RecordingId = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); } },
             };
         }
         /// <summary>
@@ -71,7 +68,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("recording_id", RecordingId);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>("region", Region);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

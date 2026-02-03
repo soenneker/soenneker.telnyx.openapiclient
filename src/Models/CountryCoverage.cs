@@ -72,14 +72,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Supports quickship</summary>
         public bool? Quickship { get; set; }
-        /// <summary>Geographic region (e.g., AMER, EMEA, APAC)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Region { get; set; }
-#nullable restore
-#else
-        public string Region { get; set; }
-#endif
         /// <summary>Supports reservable</summary>
         public bool? Reservable { get; set; }
         /// <summary>The shared_cost property</summary>
@@ -134,7 +126,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "p2p", n => { P2p = n.GetBoolValue(); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "quickship", n => { Quickship = n.GetBoolValue(); } },
-                { "region", n => { Region = n.GetStringValue(); } },
                 { "reservable", n => { Reservable = n.GetBoolValue(); } },
                 { "shared_cost", n => { SharedCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost.CreateFromDiscriminatorValue); } },
                 { "toll_free", n => { TollFree = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free.CreateFromDiscriminatorValue); } },
@@ -158,7 +149,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("p2p", P2p);
             writer.WriteCollectionOfPrimitiveValues<string>("phone_number_type", PhoneNumberType);
             writer.WriteBoolValue("quickship", Quickship);
-            writer.WriteStringValue("region", Region);
             writer.WriteBoolValue("reservable", Reservable);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost>("shared_cost", SharedCost);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free>("toll_free", TollFree);

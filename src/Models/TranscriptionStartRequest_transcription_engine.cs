@@ -3,26 +3,10 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Engine to use for speech recognition. Legacy values `A` - `Google`, `B` - `Telnyx` are supported for backward compatibility.</summary>
+    /// <summary>Engine to use for speech recognition. `A` - `Google`, `B` - `Telnyx`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TranscriptionStartRequest_transcription_engine
     {
-        [EnumMember(Value = "Google")]
-        #pragma warning disable CS1591
-        Google,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "Telnyx")]
-        #pragma warning disable CS1591
-        Telnyx,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "Deepgram")]
-        #pragma warning disable CS1591
-        Deepgram,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "Azure")]
-        #pragma warning disable CS1591
-        Azure,
-        #pragma warning restore CS1591
         [EnumMember(Value = "A")]
         #pragma warning disable CS1591
         A,

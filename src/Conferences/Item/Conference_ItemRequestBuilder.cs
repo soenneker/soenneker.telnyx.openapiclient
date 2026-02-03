@@ -5,7 +5,6 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants;
-using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -34,7 +33,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Conference_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}{?region*}", pathParameters)
+        public Conference_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}", pathParameters)
         {
         }
         /// <summary>
@@ -42,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Conference_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}{?region*}", rawUrl)
+        public Conference_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/conferences/{conference_%2Did}", rawUrl)
         {
         }
         /// <summary>
@@ -51,22 +50,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_GetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_GetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_ItemRequestBuilder.Conference_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_GetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_GetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_ItemRequestBuilder.Conference_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_GetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_GetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_GetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_GetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_GetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve an existing conference
@@ -75,11 +69,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_ItemRequestBuilder.Conference_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_ItemRequestBuilder.Conference_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -95,16 +89,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item
         public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_ItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Conference_ItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Retrieve an existing conference
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Conference_ItemRequestBuilderGetQueryParameters 
-        {
-            /// <summary>Region where the conference data is located</summary>
-            [QueryParameter("region")]
-            public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.GetRegionQueryParameterType? Region { get; set; }
         }
     }
 }

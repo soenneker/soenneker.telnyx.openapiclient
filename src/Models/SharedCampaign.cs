@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
-        /// <summary>Campaign usecase. Must be of defined valid types. Use `/10dlc/enum/usecase` operation to retrieve usecases available for given brand.</summary>
+        /// <summary>Campaign usecase. Must be of defined valid types. Use `/registry/enum/usecase` operation to retrieve usecases available for given brand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Usecase { get; set; }

@@ -4,7 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.ConversationsInsights;
-using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.Message;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.Messages;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -24,11 +23,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.ConversationsInsights.ConversationsInsightsRequestBuilder ConversationsInsights
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.ConversationsInsights.ConversationsInsightsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The message property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.Message.MessageRequestBuilder Message
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.Message.MessageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The messages property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Conversations.Item.Messages.MessagesRequestBuilder Messages

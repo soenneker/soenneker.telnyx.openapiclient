@@ -14,13 +14,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The data property</summary>
+        /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh.RefreshPostResponse_data? Data { get; set; }
+        public string? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh.RefreshPostResponse_data Data { get; set; }
+        public string Result { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh.RefreshPostResponse"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh.RefreshPostResponse_data>(global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh.RefreshPostResponse_data.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Faxes.Item.Actions.Refresh.RefreshPostResponse_data>("data", Data);
+            writer.WriteStringValue("result", Result);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

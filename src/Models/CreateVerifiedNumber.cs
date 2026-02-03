@@ -14,14 +14,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Optional DTMF extension sequence to dial after the call is answered. This parameter enables verification of phone numbers behind IVR systems that require extension dialing. Valid characters: digits 0-9, letters A-D, symbols * and #. Pauses: w = 0.5 second pause, W = 1 second pause. Maximum length: 50 characters. Only works with &apos;call&apos; verification method.&quot;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Extension { get; set; }
-#nullable restore
-#else
-        public string Extension { get; set; }
-#endif
         /// <summary>The phone_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +49,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "extension", n => { Extension = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "verification_method", n => { VerificationMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumber_verification_method>(); } },
             };
@@ -69,7 +60,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("extension", Extension);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumber_verification_method>("verification_method", VerificationMethod);
             writer.WriteAdditionalData(AdditionalData);

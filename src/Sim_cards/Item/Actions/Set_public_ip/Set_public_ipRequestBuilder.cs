@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip
         {
         }
         /// <summary>
-        /// This API makes a SIM card reachable on the public internet by mapping a random public IP to the SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API. &lt;br/&gt;&lt;br/&gt; Setting a Public IP to a SIM Card incurs a charge and will only succeed if the account has sufficient funds.
+        /// This API makes a SIM card reachable on the public internet by mapping a random public IP to the SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developersdev.telnyx.com/docs/api/v2/wireless/SIM-Card-Actions#ListSIMCardActions) API. &lt;br/&gt;&lt;br/&gt; Setting a Public IP to a SIM Card incurs a charge and will only succeed if the account has sufficient funds.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// This API makes a SIM card reachable on the public internet by mapping a random public IP to the SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API. &lt;br/&gt;&lt;br/&gt; Setting a Public IP to a SIM Card incurs a charge and will only succeed if the account has sufficient funds.
+        /// This API makes a SIM card reachable on the public internet by mapping a random public IP to the SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developersdev.telnyx.com/docs/api/v2/wireless/SIM-Card-Actions#ListSIMCardActions) API. &lt;br/&gt;&lt;br/&gt; Setting a Public IP to a SIM Card incurs a charge and will only succeed if the account has sufficient funds.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip
             return new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Item.Actions.Set_public_ip.Set_public_ipRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// This API makes a SIM card reachable on the public internet by mapping a random public IP to the SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API. &lt;br/&gt;&lt;br/&gt; Setting a Public IP to a SIM Card incurs a charge and will only succeed if the account has sufficient funds.
+        /// This API makes a SIM card reachable on the public internet by mapping a random public IP to the SIM card. &lt;br/&gt;&lt;br/&gt; The API will trigger an asynchronous operation called a SIM Card Action. The status of the SIM Card Action can be followed through the [List SIM Card Action](https://developersdev.telnyx.com/docs/api/v2/wireless/SIM-Card-Actions#ListSIMCardActions) API. &lt;br/&gt;&lt;br/&gt; Setting a Public IP to a SIM Card incurs a charge and will only succeed if the account has sufficient funds.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Set_public_ipRequestBuilderPostQueryParameters 

@@ -34,8 +34,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format? Format { get; set; }
         /// <summary>If enabled, a beep sound will be played at the start of a recording.</summary>
         public bool? PlayBeep { get; set; }
-        /// <summary>Region where the conference data is located. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_trim? Trim { get; set; }
         /// <summary>
@@ -67,7 +65,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "custom_file_name", n => { CustomFileName = n.GetStringValue(); } },
                 { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format>(); } },
                 { "play_beep", n => { PlayBeep = n.GetBoolValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); } },
                 { "trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_trim>(); } },
             };
         }
@@ -82,7 +79,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("custom_file_name", CustomFileName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format>("format", Format);
             writer.WriteBoolValue("play_beep", PlayBeep);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>("region", Region);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_trim>("trim", Trim);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -62,8 +62,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Whether the participant should be muted immediately after joining the conference. Defaults to &quot;false&quot;.</summary>
         public bool? Mute { get; set; }
-        /// <summary>Region where the conference data is located. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get; set; }
         /// <summary>Whether the conference should end after the participant leaves the conference. NOTE this doesn&apos;t hang up the other participants. Defaults to &quot;false&quot;.</summary>
         public bool? SoftEndConferenceOnExit { get; set; }
         /// <summary>Whether the conference should be started after the participant joins the conference. Defaults to &quot;false&quot;.</summary>
@@ -112,7 +110,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "hold_audio_url", n => { HoldAudioUrl = n.GetStringValue(); } },
                 { "hold_media_name", n => { HoldMediaName = n.GetStringValue(); } },
                 { "mute", n => { Mute = n.GetBoolValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); } },
                 { "soft_end_conference_on_exit", n => { SoftEndConferenceOnExit = n.GetBoolValue(); } },
                 { "start_conference_on_enter", n => { StartConferenceOnEnter = n.GetBoolValue(); } },
                 { "supervisor_role", n => { SupervisorRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.JoinConferenceRequest_supervisor_role>(); } },
@@ -135,7 +132,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("hold_audio_url", HoldAudioUrl);
             writer.WriteStringValue("hold_media_name", HoldMediaName);
             writer.WriteBoolValue("mute", Mute);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>("region", Region);
             writer.WriteBoolValue("soft_end_conference_on_exit", SoftEndConferenceOnExit);
             writer.WriteBoolValue("start_conference_on_enter", StartConferenceOnEnter);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.JoinConferenceRequest_supervisor_role>("supervisor_role", SupervisorRole);

@@ -34,13 +34,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Hangup
         {
         }
         /// <summary>
-        /// Hang up the call.**Expected Webhooks:**- `call.hangup`- `call.recording.saved`
+        /// Hang up the call.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/hangup-call#callbacks) below):**- `call.hangup`- `call.recording.saved`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Hangup.HangupPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,13 +54,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Hangup
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Hangup.HangupPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Hangup.HangupPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Hang up the call.**Expected Webhooks:**- `call.hangup`- `call.recording.saved`
+        /// Hang up the call.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/hangup-call#callbacks) below):**- `call.hangup`- `call.recording.saved`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

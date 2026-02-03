@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Ai.Audio.Transcriptions
 {
-    /// <summary>ID of the model to use. `distil-whisper/distil-large-v2` is lower latency but English-only. `openai/whisper-large-v3-turbo` is multi-lingual but slightly higher latency. `deepgram/nova-3` supports English variants (en, en-US, en-GB, en-AU, en-NZ, en-IN) and only accepts mp3/wav files.</summary>
+    /// <summary>ID of the model to use. `distil-whisper/distil-large-v2` is lower latency but English-only. `openai/whisper-large-v3-turbo` is multi-lingual but slightly higher latency.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AudioTranscriptionRequestPostRequestBody
     {
@@ -14,10 +14,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Audio.Transcriptions
         [EnumMember(Value = "openai/whisper-large-v3-turbo")]
         #pragma warning disable CS1591
         OpenaiWhisperLargeV3Turbo,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "deepgram/nova-3")]
-        #pragma warning disable CS1591
-        DeepgramNova3,
         #pragma warning restore CS1591
     }
 }

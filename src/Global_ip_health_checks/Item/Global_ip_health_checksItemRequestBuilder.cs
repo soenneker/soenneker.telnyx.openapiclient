@@ -39,7 +39,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item.Global_ip_health_checksDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,7 +52,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item.Global_ip_health_checksDeleteResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item.Global_ip_health_checksDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -64,7 +62,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +75,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Global_ip_health_checks.Item.Global_ip_health_checksGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

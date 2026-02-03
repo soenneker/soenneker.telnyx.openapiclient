@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -17,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Country_coverage
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Country_coverageGetResponse_data? Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage>? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Country_coverageGetResponse_data Data { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage> Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Country_coverageGetResponse"/> and sets the default values.
@@ -47,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Country_coverage
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Country_coverageGetResponse_data>(global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Country_coverageGetResponse_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Country_coverage
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Country_coverage.Country_coverageGetResponse_data>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

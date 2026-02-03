@@ -70,8 +70,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Sets the region where the conference data will be hosted. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_region? Region { get; set; }
         /// <summary>Whether the conference should be started on creation. If the conference isn&apos;t started all participants that join are automatically put on hold. Defaults to &quot;true&quot;.</summary>
         public bool? StartConferenceOnCreate { get; set; }
         /// <summary>
@@ -110,7 +108,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "hold_media_name", n => { HoldMediaName = n.GetStringValue(); } },
                 { "max_participants", n => { MaxParticipants = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_region>(); } },
                 { "start_conference_on_create", n => { StartConferenceOnCreate = n.GetBoolValue(); } },
             };
         }
@@ -131,7 +128,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("hold_media_name", HoldMediaName);
             writer.WriteIntValue("max_participants", MaxParticipants);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateConferenceRequest_region>("region", Region);
             writer.WriteBoolValue("start_conference_on_create", StartConferenceOnCreate);
             writer.WriteAdditionalData(AdditionalData);
         }

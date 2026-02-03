@@ -111,7 +111,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PostalCode { get; set; }
 #endif
         /// <summary>An optional boolean value specifying if verification of the address should be skipped or not. UserAddresses are generally used for shipping addresses, and failure to validate your shipping address will likely result in a failure to deliver SIM cards or other items ordered from Telnyx. Do not use this parameter unless you are sure that the address is correct even though it cannot be validated. If this is set to any value other than true, verification of the address will be attempted, and the user address will not be allowed if verification fails. If verification fails but suggested values are available that might make the address correct, they will be present in the response as well. If this value is set to true, then the verification will not be attempted. Defaults to false (verification will be performed).</summary>
-        public bool? SkipAddressVerification { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SkipAddressVerification { get; set; }
+#nullable restore
+#else
+        public string SkipAddressVerification { get; set; }
+#endif
         /// <summary>The primary street address information about the user address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -157,7 +163,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "neighborhood", n => { Neighborhood = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "postal_code", n => { PostalCode = n.GetStringValue(); } },
-                { "skip_address_verification", n => { SkipAddressVerification = n.GetBoolValue(); } },
+                { "skip_address_verification", n => { SkipAddressVerification = n.GetStringValue(); } },
                 { "street_address", n => { StreetAddress = n.GetStringValue(); } },
             };
         }
@@ -180,7 +186,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("neighborhood", Neighborhood);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteStringValue("postal_code", PostalCode);
-            writer.WriteBoolValue("skip_address_verification", SkipAddressVerification);
+            writer.WriteStringValue("skip_address_verification", SkipAddressVerification);
             writer.WriteStringValue("street_address", StreetAddress);
             writer.WriteAdditionalData(AdditionalData);
         }

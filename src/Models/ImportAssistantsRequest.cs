@@ -22,14 +22,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ApiKeyRef { get; set; }
 #endif
-        /// <summary>Optional list of assistant IDs to import from the external provider. If not provided, all assistants will be imported.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? ImportIds { get; set; }
-#nullable restore
-#else
-        public List<string> ImportIds { get; set; }
-#endif
         /// <summary>The external provider to import assistants from.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest_provider? Provider { get; set; }
         /// <summary>
@@ -58,7 +50,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
-                { "import_ids", n => { ImportIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest_provider>(); } },
             };
         }
@@ -70,7 +61,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
-            writer.WriteCollectionOfPrimitiveValues<string>("import_ids", ImportIds);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ImportAssistantsRequest_provider>("provider", Provider);
             writer.WriteAdditionalData(AdditionalData);
         }

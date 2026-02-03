@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibil
         {
         }
         /// <summary>
-        /// Check hosted messaging eligibility
+        /// Check eligibility of phone numbers for hosted messaging
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders.Eligibil
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.EligibilityNumbersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Check hosted messaging eligibility
+        /// Check eligibility of phone numbers for hosted messaging
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

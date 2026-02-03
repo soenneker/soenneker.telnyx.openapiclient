@@ -23,14 +23,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ips
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.Ip> Data { get; set; }
 #endif
-        /// <summary>The meta property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Connections_PaginationMeta? Meta { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Connections_PaginationMeta Meta { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ips.IpsGetResponse"/> and sets the default values.
         /// </summary>
@@ -57,7 +49,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ips
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Ip>(global::Soenneker.Telnyx.OpenApiClient.Models.Ip.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Connections_PaginationMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.Connections_PaginationMeta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +59,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ips
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Ip>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Connections_PaginationMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

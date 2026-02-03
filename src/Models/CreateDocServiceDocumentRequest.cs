@@ -7,52 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadInline"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadURL"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class CreateDocServiceDocumentRequest : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class CreateDocServiceDocumentRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A customer reference string for customer look ups.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadInline"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomerReference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadInline? DocServiceDocumentUploadInline { get; set; }
 #nullable restore
 #else
-        public string CustomerReference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadInline DocServiceDocumentUploadInline { get; set; }
 #endif
-        /// <summary>Alternatively, instead of the URL you can provide the Base64 encoded contents of the file you are uploading.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadURL"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public byte[]? File { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadURL? DocServiceDocumentUploadURL { get; set; }
 #nullable restore
 #else
-        public byte[] File { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadURL DocServiceDocumentUploadURL { get; set; }
 #endif
-        /// <summary>The filename of the document.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Filename { get; set; }
-#nullable restore
-#else
-        public string Filename { get; set; }
-#endif
-        /// <summary>If the file is already hosted publicly, you can provide a URL and have the documents service fetch it for you.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Url { get; set; }
-#nullable restore
-#else
-        public string Url { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateDocServiceDocumentRequest"/> and sets the default values.
-        /// </summary>
-        public CreateDocServiceDocumentRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -61,7 +37,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.CreateDocServiceDocumentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.CreateDocServiceDocumentRequest();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Telnyx.OpenApiClient.Models.CreateDocServiceDocumentRequest();
+            if("DocServiceDocumentUploadInline".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DocServiceDocumentUploadInline = new global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadInline();
+            }
+            else if("DocServiceDocumentUploadURL".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DocServiceDocumentUploadURL = new global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadURL();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,13 +55,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(DocServiceDocumentUploadInline != null)
             {
-                { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
-                { "file", n => { File = n.GetByteArrayValue(); } },
-                { "filename", n => { Filename = n.GetStringValue(); } },
-                { "url", n => { Url = n.GetStringValue(); } },
-            };
+                return DocServiceDocumentUploadInline.GetFieldDeserializers();
+            }
+            else if(DocServiceDocumentUploadURL != null)
+            {
+                return DocServiceDocumentUploadURL.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -84,11 +72,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("customer_reference", CustomerReference);
-            writer.WriteByteArrayValue("file", File);
-            writer.WriteStringValue("filename", Filename);
-            writer.WriteStringValue("url", Url);
-            writer.WriteAdditionalData(AdditionalData);
+            if(DocServiceDocumentUploadInline != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadInline>(null, DocServiceDocumentUploadInline);
+            }
+            else if(DocServiceDocumentUploadURL != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DocServiceDocumentUploadURL>(null, DocServiceDocumentUploadURL);
+            }
         }
     }
 }

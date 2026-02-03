@@ -26,18 +26,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The previous value of the field. Can be any JSON type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_from? From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? From { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_from From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch From { get; set; }
 #endif
         /// <summary>The new value of the field. Can be any JSON type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_to? To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? To { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_to To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch To { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges"/> and sets the default values.
@@ -65,8 +65,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "field", n => { Field = n.GetStringValue(); } },
-                { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_from>(global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_from.CreateFromDiscriminatorValue); } },
-                { "to", n => { To = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_to>(global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_to.CreateFromDiscriminatorValue); } },
+                { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "to", n => { To = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -77,8 +77,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("field", Field);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_from>("from", From);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuditEventChanges_to>("to", To);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("from", From);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("to", To);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

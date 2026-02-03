@@ -15,9 +15,5 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Vapi,
         #pragma warning restore CS1591
-        [EnumMember(Value = "retell")]
-        #pragma warning disable CS1591
-        Retell,
-        #pragma warning restore CS1591
     }
 }

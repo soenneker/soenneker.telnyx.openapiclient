@@ -31,14 +31,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_numbers
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumbersMetadata Meta { get; set; }
 #endif
-        /// <summary>The metadata property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumbersMetadata? Metadata { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumbersMetadata Metadata { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Available_phone_numbers.Available_phone_numbersGetResponse"/> and sets the default values.
         /// </summary>
@@ -66,7 +58,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_numbers
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumbersMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumbersMetadata.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumbersMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumbersMetadata.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,7 +69,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Available_phone_numbers
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumber>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumbersMetadata>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumbersMetadata>("metadata", Metadata);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

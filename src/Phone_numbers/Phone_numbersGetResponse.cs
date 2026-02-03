@@ -23,14 +23,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed> Data { get; set; }
 #endif
-        /// <summary>The errors property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Error>? Errors { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Error> Errors { get; set; }
-#endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +57,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Error>(global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Error.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta.CreateFromDiscriminatorValue); } },
             };
         }
@@ -77,7 +68,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Numbers_Error>("errors", Errors);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMeta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -34,47 +34,38 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop
         {
         }
         /// <summary>
-        /// Stop recording the conference.**Expected Webhooks:**- `conference.recording.saved`
+        /// Stop recording the conference.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/stop-conference-recording#callbacks) below):**- `conference.recording.saved`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingConferenceRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingConferenceRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Stop recording the conference.**Expected Webhooks:**- `conference.recording.saved`
+        /// Stop recording the conference.**Expected Webhooks (see [callback schema](https://developers.telnyx.com/api/call-control/stop-conference-recording#callbacks) below):**- `conference.recording.saved`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingConferenceRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingConferenceRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.StopRecordingRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

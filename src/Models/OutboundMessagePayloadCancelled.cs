@@ -14,14 +14,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The cc property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cc>? Cc { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cc> Cc { get; set; }
-#endif
         /// <summary>ISO 8601 formatted date indicating when the message was finalized.</summary>
         public DateTimeOffset? CompletedAt { get; set; }
         /// <summary>The cost property</summary>
@@ -189,7 +181,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cc", n => { Cc = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cc>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cc.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "cost", n => { Cost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cost.CreateFromDiscriminatorValue); } },
                 { "cost_breakdown", n => { CostBreakdown = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cost_breakdown>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cost_breakdown.CreateFromDiscriminatorValue); } },
@@ -225,7 +216,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cc>("cc", Cc);
             writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cost>("cost", Cost);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadCancelled_cost_breakdown>("cost_breakdown", CostBreakdown);

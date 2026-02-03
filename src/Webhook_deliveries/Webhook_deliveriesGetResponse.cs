@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Webhook_deliveries
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMetaSimple? Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Webhooks_PaginationMetaSimple? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMetaSimple Meta { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Webhooks_PaginationMetaSimple Meta { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Webhook_deliveriesGetResponse"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Webhook_deliveries
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery>(global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMetaSimple>(global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMetaSimple.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhooks_PaginationMetaSimple>(global::Soenneker.Telnyx.OpenApiClient.Models.Webhooks_PaginationMetaSimple.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Webhook_deliveries
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PaginationMetaSimple>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhooks_PaginationMetaSimple>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

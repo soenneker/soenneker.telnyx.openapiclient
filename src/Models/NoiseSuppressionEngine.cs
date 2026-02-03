@@ -3,21 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The engine to use for noise suppression.For backward compatibility, engines A, B, and C are also supported, but are deprecated: A - Denoiser B - DeepFilterNet C - Krisp</summary>
+    /// <summary>The engine to use for noise suppression. A - rnnoise engine B - deepfilter engine.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum NoiseSuppressionEngine
     {
-        [EnumMember(Value = "Denoiser")]
+        [EnumMember(Value = "A")]
         #pragma warning disable CS1591
-        Denoiser,
+        A,
         #pragma warning restore CS1591
-        [EnumMember(Value = "DeepFilterNet")]
+        [EnumMember(Value = "B")]
         #pragma warning disable CS1591
-        DeepFilterNet,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "Krisp")]
-        #pragma warning disable CS1591
-        Krisp,
+        B,
         #pragma warning restore CS1591
     }
 }

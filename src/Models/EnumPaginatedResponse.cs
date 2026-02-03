@@ -14,18 +14,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The page property</summary>
-        public int? Page { get; set; }
-        /// <summary>The records property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse_records>? Records { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse_records> Records { get; set; }
-#endif
-        /// <summary>The totalRecords property</summary>
-        public int? TotalRecords { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse"/> and sets the default values.
         /// </summary>
@@ -51,9 +39,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "page", n => { Page = n.GetIntValue(); } },
-                { "records", n => { Records = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse_records>(global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse_records.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "totalRecords", n => { TotalRecords = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -63,9 +48,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("page", Page);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse_records>("records", Records);
-            writer.WriteIntValue("totalRecords", TotalRecords);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

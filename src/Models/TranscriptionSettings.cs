@@ -14,7 +14,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The language of the audio to be transcribed. If not set, of if set to `auto`, the model will automatically detect the language.</summary>
+        /// <summary>The language of the audio to be transcribed. This is only applicable for `openai/whisper-large-v3-turbo` model. If not set, of if set to `auto`, the model will automatically detect the language. For the full list of supported languages, see the [whisper tokenizer](https://github.com/openai/whisper/blob/main/whisper/tokenizer.py).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Language { get; set; }
@@ -22,23 +22,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>The speech to text model to be used by the voice assistant. All the deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking but is English-only.- `deepgram/nova-3` is multi-lingual with automatic language detection but slightly higher latency.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings_model? Model { get; set; }
-        /// <summary>Region on third party cloud providers (currently Azure) if using one of their models</summary>
+        /// <summary>The speech to text model to be used by the voice assistant.- `distil-whisper/distil-large-v2` is lower latency but English-only.- `openai/whisper-large-v3-turbo` is multi-lingual with automatic language detection but slightly higher latency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Region { get; set; }
+        public string? Model { get; set; }
 #nullable restore
 #else
-        public string Region { get; set; }
-#endif
-        /// <summary>The settings property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig? Settings { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig Settings { get; set; }
+        public string Model { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings"/> and sets the default values.
@@ -66,9 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "language", n => { Language = n.GetStringValue(); } },
-                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings_model>(); } },
-                { "region", n => { Region = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -79,9 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("language", Language);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings_model>("model", Model);
-            writer.WriteStringValue("region", Region);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettingsConfig>("settings", Settings);
+            writer.WriteStringValue("model", Model);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

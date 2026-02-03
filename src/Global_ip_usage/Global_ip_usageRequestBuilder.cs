@@ -39,7 +39,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_usage
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Global_ip_usage.Global_ip_usageGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,7 +52,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_usage
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Global_ip_usage.Global_ip_usageGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Global_ip_usage.Global_ip_usageGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -92,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Global_ip_usage
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Global_ip_usageRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[global_ip_id][in]&quot;</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[timestamp][gt], filter[timestamp][lt]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

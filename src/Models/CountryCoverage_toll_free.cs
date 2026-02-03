@@ -22,8 +22,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> Features { get; set; }
 #endif
-        /// <summary>The full_pstn_replacement property</summary>
-        public bool? FullPstnReplacement { get; set; }
         /// <summary>The international_sms property</summary>
         public bool? InternationalSms { get; set; }
         /// <summary>The p2p property</summary>
@@ -58,7 +56,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "features", n => { Features = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "full_pstn_replacement", n => { FullPstnReplacement = n.GetBoolValue(); } },
                 { "international_sms", n => { InternationalSms = n.GetBoolValue(); } },
                 { "p2p", n => { P2p = n.GetBoolValue(); } },
                 { "quickship", n => { Quickship = n.GetBoolValue(); } },
@@ -73,7 +70,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("features", Features);
-            writer.WriteBoolValue("full_pstn_replacement", FullPstnReplacement);
             writer.WriteBoolValue("international_sms", InternationalSms);
             writer.WriteBoolValue("p2p", P2p);
             writer.WriteBoolValue("quickship", Quickship);

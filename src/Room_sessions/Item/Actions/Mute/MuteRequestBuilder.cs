@@ -40,7 +40,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.Mute
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Mute4XXError">When receiving a 4XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.Mute.MutePostResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -52,11 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.Mute
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "4XX", global::Soenneker.Telnyx.OpenApiClient.Models.Mute4XXError.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.Mute.MutePostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.Mute.MutePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.Mute.MutePostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Room_sessions.Item.Actions.Mute.MutePostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -8,34 +8,26 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjecToObjecttResponse"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectToStringResponse"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumStringListResponse_Wrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumListResponse_Wrapper"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetEnumEndpoint_200 : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumListResponse_Wrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper? EnumObjectListResponseWrapper { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumListResponse_Wrapper? EnumListResponseWrapper { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper EnumObjectListResponseWrapper { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumListResponse_Wrapper EnumListResponseWrapper { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjecToObjecttResponse"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjecToObjecttResponse? EnumObjecToObjecttResponse { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse? EnumObjectResponse { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjecToObjecttResponse EnumObjecToObjecttResponse { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectToStringResponse"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectToStringResponse? EnumObjectToStringResponse { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectToStringResponse EnumObjectToStringResponse { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse EnumObjectResponse { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,14 +36,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse EnumPaginatedResponse { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumStringListResponse_Wrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumStringListResponse_Wrapper? EnumStringListResponseWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EnumStringListResponse_Wrapper EnumStringListResponseWrapper { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,25 +47,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.GetEnumEndpoint_200();
-            if("EnumObjecToObjecttResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("EnumListResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EnumObjecToObjecttResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjecToObjecttResponse();
+                result.EnumListResponseWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumListResponse_Wrapper();
             }
-            else if("EnumObjectListResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("EnumObjectResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EnumObjectListResponseWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper();
-            }
-            else if("EnumObjectToStringResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.EnumObjectToStringResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectToStringResponse();
+                result.EnumObjectResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse();
             }
             else if("EnumPaginatedResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EnumPaginatedResponse = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse();
-            }
-            else if("EnumStringListResponse".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.EnumStringListResponseWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.EnumStringListResponse_Wrapper();
             }
             return result;
         }
@@ -91,25 +67,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(EnumObjectListResponseWrapper != null)
+            if(EnumListResponseWrapper != null)
             {
-                return EnumObjectListResponseWrapper.GetFieldDeserializers();
+                return EnumListResponseWrapper.GetFieldDeserializers();
             }
-            else if(EnumObjecToObjecttResponse != null)
+            else if(EnumObjectResponse != null)
             {
-                return EnumObjecToObjecttResponse.GetFieldDeserializers();
-            }
-            else if(EnumObjectToStringResponse != null)
-            {
-                return EnumObjectToStringResponse.GetFieldDeserializers();
+                return EnumObjectResponse.GetFieldDeserializers();
             }
             else if(EnumPaginatedResponse != null)
             {
                 return EnumPaginatedResponse.GetFieldDeserializers();
-            }
-            else if(EnumStringListResponseWrapper != null)
-            {
-                return EnumStringListResponseWrapper.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -120,25 +88,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(EnumObjectListResponseWrapper != null)
+            if(EnumListResponseWrapper != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper>(null, EnumObjectListResponseWrapper);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumListResponse_Wrapper>(null, EnumListResponseWrapper);
             }
-            else if(EnumObjecToObjecttResponse != null)
+            else if(EnumObjectResponse != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjecToObjecttResponse>(null, EnumObjecToObjecttResponse);
-            }
-            else if(EnumObjectToStringResponse != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectToStringResponse>(null, EnumObjectToStringResponse);
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectResponse>(null, EnumObjectResponse);
             }
             else if(EnumPaginatedResponse != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumPaginatedResponse>(null, EnumPaginatedResponse);
-            }
-            else if(EnumStringListResponseWrapper != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EnumStringListResponse_Wrapper>(null, EnumStringListResponseWrapper);
             }
         }
     }

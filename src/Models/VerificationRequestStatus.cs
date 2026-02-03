@@ -23,8 +23,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AdditionalInformation { get; set; }
 #endif
-        /// <summary>The ageGatedContent property</summary>
-        public bool? AgeGatedContent { get; set; }
         /// <summary>The businessAddr1 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,30 +87,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string BusinessName { get; set; }
 #endif
-        /// <summary>The businessRegistrationCountry property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BusinessRegistrationCountry { get; set; }
-#nullable restore
-#else
-        public string BusinessRegistrationCountry { get; set; }
-#endif
-        /// <summary>The businessRegistrationNumber property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BusinessRegistrationNumber { get; set; }
-#nullable restore
-#else
-        public string BusinessRegistrationNumber { get; set; }
-#endif
-        /// <summary>The businessRegistrationType property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? BusinessRegistrationType { get; set; }
-#nullable restore
-#else
-        public string BusinessRegistrationType { get; set; }
-#endif
         /// <summary>The businessState property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -129,14 +103,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string BusinessZip { get; set; }
 #endif
-        /// <summary>Campaign Verify Authorization Token required for Political use case submissions starting February 17, 2026</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CampaignVerifyAuthorizationToken { get; set; }
-#nullable restore
-#else
-        public string CampaignVerifyAuthorizationToken { get; set; }
-#endif
         /// <summary>The corporateWebsite property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -147,24 +113,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The createdAt property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The doingBusinessAs property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DoingBusinessAs { get; set; }
-#nullable restore
-#else
-        public string DoingBusinessAs { get; set; }
-#endif
-        /// <summary>Business entity classification</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Toll_free_verification_EntityType? EntityType { get; set; }
-        /// <summary>The helpMessageResponse property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? HelpMessageResponse { get; set; }
-#nullable restore
-#else
-        public string HelpMessageResponse { get; set; }
-#endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
         /// <summary>The isvReseller property</summary>
@@ -177,22 +125,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Message Volume Enums</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Volume? MessageVolume { get; set; }
-        /// <summary>The optInConfirmationResponse property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OptInConfirmationResponse { get; set; }
-#nullable restore
-#else
-        public string OptInConfirmationResponse { get; set; }
-#endif
-        /// <summary>The optInKeywords property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OptInKeywords { get; set; }
-#nullable restore
-#else
-        public string OptInKeywords { get; set; }
-#endif
         /// <summary>The optInWorkflow property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -217,14 +149,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber> PhoneNumbers { get; set; }
 #endif
-        /// <summary>The privacyPolicyURL property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PrivacyPolicyURL { get; set; }
-#nullable restore
-#else
-        public string PrivacyPolicyURL { get; set; }
-#endif
         /// <summary>The productionMessageContent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -240,14 +164,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Reason { get; set; }
-#endif
-        /// <summary>The termsAndConditionURL property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TermsAndConditionURL { get; set; }
-#nullable restore
-#else
-        public string TermsAndConditionURL { get; set; }
 #endif
         /// <summary>The updatedAt property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -297,7 +213,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "additionalInformation", n => { AdditionalInformation = n.GetStringValue(); } },
-                { "ageGatedContent", n => { AgeGatedContent = n.GetBoolValue(); } },
                 { "businessAddr1", n => { BusinessAddr1 = n.GetStringValue(); } },
                 { "businessAddr2", n => { BusinessAddr2 = n.GetStringValue(); } },
                 { "businessCity", n => { BusinessCity = n.GetStringValue(); } },
@@ -306,29 +221,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "businessContactLastName", n => { BusinessContactLastName = n.GetStringValue(); } },
                 { "businessContactPhone", n => { BusinessContactPhone = n.GetStringValue(); } },
                 { "businessName", n => { BusinessName = n.GetStringValue(); } },
-                { "businessRegistrationCountry", n => { BusinessRegistrationCountry = n.GetStringValue(); } },
-                { "businessRegistrationNumber", n => { BusinessRegistrationNumber = n.GetStringValue(); } },
-                { "businessRegistrationType", n => { BusinessRegistrationType = n.GetStringValue(); } },
                 { "businessState", n => { BusinessState = n.GetStringValue(); } },
                 { "businessZip", n => { BusinessZip = n.GetStringValue(); } },
-                { "campaignVerifyAuthorizationToken", n => { CampaignVerifyAuthorizationToken = n.GetStringValue(); } },
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "doingBusinessAs", n => { DoingBusinessAs = n.GetStringValue(); } },
-                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Toll_free_verification_EntityType>(); } },
-                { "helpMessageResponse", n => { HelpMessageResponse = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
                 { "messageVolume", n => { MessageVolume = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>(); } },
-                { "optInConfirmationResponse", n => { OptInConfirmationResponse = n.GetStringValue(); } },
-                { "optInKeywords", n => { OptInKeywords = n.GetStringValue(); } },
                 { "optInWorkflow", n => { OptInWorkflow = n.GetStringValue(); } },
                 { "optInWorkflowImageURLs", n => { OptInWorkflowImageURLs = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>(global::Soenneker.Telnyx.OpenApiClient.Models.Url.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phoneNumbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "privacyPolicyURL", n => { PrivacyPolicyURL = n.GetStringValue(); } },
                 { "productionMessageContent", n => { ProductionMessageContent = n.GetStringValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "termsAndConditionURL", n => { TermsAndConditionURL = n.GetStringValue(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "useCase", n => { UseCase = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>(); } },
                 { "useCaseSummary", n => { UseCaseSummary = n.GetStringValue(); } },
@@ -344,7 +248,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("additionalInformation", AdditionalInformation);
-            writer.WriteBoolValue("ageGatedContent", AgeGatedContent);
             writer.WriteStringValue("businessAddr1", BusinessAddr1);
             writer.WriteStringValue("businessAddr2", BusinessAddr2);
             writer.WriteStringValue("businessCity", BusinessCity);
@@ -353,29 +256,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("businessContactLastName", BusinessContactLastName);
             writer.WriteStringValue("businessContactPhone", BusinessContactPhone);
             writer.WriteStringValue("businessName", BusinessName);
-            writer.WriteStringValue("businessRegistrationCountry", BusinessRegistrationCountry);
-            writer.WriteStringValue("businessRegistrationNumber", BusinessRegistrationNumber);
-            writer.WriteStringValue("businessRegistrationType", BusinessRegistrationType);
             writer.WriteStringValue("businessState", BusinessState);
             writer.WriteStringValue("businessZip", BusinessZip);
-            writer.WriteStringValue("campaignVerifyAuthorizationToken", CampaignVerifyAuthorizationToken);
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
-            writer.WriteStringValue("doingBusinessAs", DoingBusinessAs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Toll_free_verification_EntityType>("entityType", EntityType);
-            writer.WriteStringValue("helpMessageResponse", HelpMessageResponse);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("isvReseller", IsvReseller);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>("messageVolume", MessageVolume);
-            writer.WriteStringValue("optInConfirmationResponse", OptInConfirmationResponse);
-            writer.WriteStringValue("optInKeywords", OptInKeywords);
             writer.WriteStringValue("optInWorkflow", OptInWorkflow);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Url>("optInWorkflowImageURLs", OptInWorkflowImageURLs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.TFPhoneNumber>("phoneNumbers", PhoneNumbers);
-            writer.WriteStringValue("privacyPolicyURL", PrivacyPolicyURL);
             writer.WriteStringValue("productionMessageContent", ProductionMessageContent);
             writer.WriteStringValue("reason", Reason);
-            writer.WriteStringValue("termsAndConditionURL", TermsAndConditionURL);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UseCaseCategories>("useCase", UseCase);
             writer.WriteStringValue("useCaseSummary", UseCaseSummary);
