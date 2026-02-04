@@ -16,14 +16,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Timestamp when the appeal was submitted</summary>
         public DateTimeOffset? AppealedAt { get; set; }
-        /// <summary>Previous campaign status (currently always null)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PreviousStatus { get; set; }
-#nullable restore
-#else
-        public string PreviousStatus { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AppealCampaign_200"/> and sets the default values.
         /// </summary>
@@ -50,7 +42,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "appealed_at", n => { AppealedAt = n.GetDateTimeOffsetValue(); } },
-                { "previous_status", n => { PreviousStatus = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -61,7 +52,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("appealed_at", AppealedAt);
-            writer.WriteStringValue("previous_status", PreviousStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

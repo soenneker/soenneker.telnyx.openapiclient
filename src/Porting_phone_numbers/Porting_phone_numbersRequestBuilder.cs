@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Porting_phone_numbersRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[porting_order_id], filter[support_key], filter[status], filter[phone_number], filter[activation_status], filter[portability_status]&quot;</summary>
+            /// <summary>&quot;Consolidated filter parameter (deepObject style). Originally: filter[porting_order_status]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("filter")]

@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifiedNumbersResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.ListVerifiedNumbersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Initiates phone number verification procedure.
+        /// Initiates phone number verification procedure. Supports DTMF extension dialing for voice calls to numbers behind IVR systems.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifiedNumberResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -122,7 +122,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Verified_numbers
             return requestInfo;
         }
         /// <summary>
-        /// Initiates phone number verification procedure.
+        /// Initiates phone number verification procedure. Supports DTMF extension dialing for voice calls to numbers behind IVR systems.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

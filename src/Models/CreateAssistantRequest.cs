@@ -46,7 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?> EnabledFeatures { get; set; }
 #endif
-        /// <summary>Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables)</summary>
+        /// <summary>Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables). Use an empty string to have the assistant wait for the user to speak first. Use the special value `&lt;assistant-speaks-first-with-model-generated-message&gt;` to have the assistant generate the greeting based on the system instructions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Greeting { get; set; }
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Instructions { get; set; }
 #endif
-        /// <summary>&quot;This is only needed when using third-party inference providers. The `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) that refers to your LLM provider&apos;s API key. Warning: Free plans are unlikely to work with this integration.&quot;</summary>
+        /// <summary>&quot;This is only needed when using third-party inference providers. The `identifier` for an integration secret [/v2/integration_secrets](https://developers.telnyx.com/api-reference/integration-secrets/create-a-secret) that refers to your LLM provider&apos;s API key. Warning: Free plans are unlikely to work with this integration.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LlmApiKeyRef { get; set; }
@@ -86,7 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings MessagingSettings { get; set; }
 #endif
-        /// <summary>ID of the model to use. You can use the [Get models API](https://developers.telnyx.com/api/inference/inference-embedding/get-models-public-models-get) to see all of your available models,</summary>
+        /// <summary>ID of the model to use. You can use the [Get models API](https://developers.telnyx.com/api-reference/chat/get-available-models) to see all of your available models,</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Model { get; set; }
@@ -142,6 +142,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings VoiceSettings { get; set; }
 #endif
+        /// <summary>Configuration settings for the assistant&apos;s web widget.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings? WidgetSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings WidgetSettings { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest"/> and sets the default values.
         /// </summary>
@@ -183,6 +191,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest.Assistants>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest.Assistants.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings.CreateFromDiscriminatorValue); } },
                 { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.CreateFromDiscriminatorValue); } },
+                { "widget_settings", n => { WidgetSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -208,10 +217,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest.Assistants>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>("transcription", Transcription);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WidgetSettings>("widget_settings", WidgetSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Assistants : IComposedTypeWrapper, IParsable
@@ -240,6 +250,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool HangupTool { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool? InferenceEmbeddingTransferTool { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool InferenceEmbeddingTransferTool { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool? InferenceEmbeddingWebhookTool { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool InferenceEmbeddingWebhookTool { get; set; }
+#endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -248,6 +274,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool RetrievalTool { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool? SendMessageTool { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool SendMessageTool { get; set; }
+#endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -255,22 +289,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool SIPReferTool { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool? TransferTool { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool TransferTool { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool? WebhookTool { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool WebhookTool { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -294,6 +312,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.HangupTool = new global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool();
                 }
+                else if("inference_embedding_TransferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.InferenceEmbeddingTransferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool();
+                }
+                else if("inference_embedding_WebhookTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.InferenceEmbeddingWebhookTool = new global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool();
+                }
                 else if("RetrievalTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.RetrievalTool = new global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool();
@@ -302,13 +328,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.SIPReferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool();
                 }
-                else if("TransferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("SendMessageTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.TransferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool();
-                }
-                else if("WebhookTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.WebhookTool = new global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool();
+                    result.SendMessageTool = new global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool();
                 }
                 return result;
             }
@@ -330,21 +352,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     return HangupTool.GetFieldDeserializers();
                 }
+                else if(InferenceEmbeddingTransferTool != null)
+                {
+                    return InferenceEmbeddingTransferTool.GetFieldDeserializers();
+                }
+                else if(InferenceEmbeddingWebhookTool != null)
+                {
+                    return InferenceEmbeddingWebhookTool.GetFieldDeserializers();
+                }
                 else if(RetrievalTool != null)
                 {
                     return RetrievalTool.GetFieldDeserializers();
                 }
+                else if(SendMessageTool != null)
+                {
+                    return SendMessageTool.GetFieldDeserializers();
+                }
                 else if(SIPReferTool != null)
                 {
                     return SIPReferTool.GetFieldDeserializers();
-                }
-                else if(TransferTool != null)
-                {
-                    return TransferTool.GetFieldDeserializers();
-                }
-                else if(WebhookTool != null)
-                {
-                    return WebhookTool.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -367,21 +393,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool>(null, HangupTool);
                 }
+                else if(InferenceEmbeddingTransferTool != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool>(null, InferenceEmbeddingTransferTool);
+                }
+                else if(InferenceEmbeddingWebhookTool != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool>(null, InferenceEmbeddingWebhookTool);
+                }
                 else if(RetrievalTool != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool>(null, RetrievalTool);
                 }
+                else if(SendMessageTool != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool>(null, SendMessageTool);
+                }
                 else if(SIPReferTool != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool>(null, SIPReferTool);
-                }
-                else if(TransferTool != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferTool>(null, TransferTool);
-                }
-                else if(WebhookTool != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool>(null, WebhookTool);
                 }
             }
         }

@@ -90,6 +90,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceStatusCallbackMethod? ConferenceStatusCallbackMethod { get; set; }
         /// <summary>Whether to trim any leading and trailing silence from the conference recording. Defaults to `trim-silence`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceTrim? ConferenceTrim { get; set; }
+        /// <summary>Custom HTTP headers to be sent with the call. Each header should be an object with &apos;name&apos; and &apos;value&apos; properties.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_CustomHeaders>? CustomHeaders { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_CustomHeaders> CustomHeaders { get; set; }
+#endif
         /// <summary>Whether participant shall be bridged to conference before the participant answers (from early media if available). Defaults to `false`.</summary>
         public bool? EarlyMedia { get; set; }
         /// <summary>Whether to end the conference when the participant leaves. Defaults to `false`.</summary>
@@ -248,6 +256,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "ConferenceStatusCallbackEvent", n => { ConferenceStatusCallbackEvent = n.GetStringValue(); } },
                 { "ConferenceStatusCallbackMethod", n => { ConferenceStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceStatusCallbackMethod>(); } },
                 { "ConferenceTrim", n => { ConferenceTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceTrim>(); } },
+                { "CustomHeaders", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_CustomHeaders>(global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_CustomHeaders.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "EarlyMedia", n => { EarlyMedia = n.GetBoolValue(); } },
                 { "EndConferenceOnExit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "From", n => { From = n.GetStringValue(); } },
@@ -302,6 +311,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("ConferenceStatusCallbackEvent", ConferenceStatusCallbackEvent);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceStatusCallbackMethod>("ConferenceStatusCallbackMethod", ConferenceStatusCallbackMethod);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_ConferenceTrim>("ConferenceTrim", ConferenceTrim);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_CustomHeaders>("CustomHeaders", CustomHeaders);
             writer.WriteBoolValue("EarlyMedia", EarlyMedia);
             writer.WriteBoolValue("EndConferenceOnExit", EndConferenceOnExit);
             writer.WriteStringValue("From", From);

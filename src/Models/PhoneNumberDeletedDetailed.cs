@@ -62,6 +62,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CustomerReference { get; set; }
 #endif
+        /// <summary>Indicates whether deletion lock is enabled for this number. When enabled, this prevents the phone number from being deleted via the API or Telnyx portal.</summary>
+        public bool? DeletionLockEnabled { get; private set; }
         /// <summary>Identifies the emergency address associated with the phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -184,6 +186,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
+                { "deletion_lock_enabled", n => { DeletionLockEnabled = n.GetBoolValue(); } },
                 { "emergency_address_id", n => { EmergencyAddressId = n.GetStringValue(); } },
                 { "emergency_enabled", n => { EmergencyEnabled = n.GetBoolValue(); } },
                 { "external_pin", n => { ExternalPin = n.GetStringValue(); } },

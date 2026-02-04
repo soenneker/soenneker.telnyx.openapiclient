@@ -23,5 +23,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         SanJoseCA,
         #pragma warning restore CS1591
+        [EnumMember(Value = "London, UK")]
+        #pragma warning disable CS1591
+        LondonUK,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "Chennai, IN")]
+        #pragma warning disable CS1591
+        ChennaiIN,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "Amsterdam, Netherlands")]
+        #pragma warning disable CS1591
+        AmsterdamNetherlands,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "Toronto, Canada")]
+        #pragma warning disable CS1591
+        TorontoCanada,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "Sydney, Australia")]
+        #pragma warning disable CS1591
+        SydneyAustralia,
+        #pragma warning restore CS1591
     }
 }

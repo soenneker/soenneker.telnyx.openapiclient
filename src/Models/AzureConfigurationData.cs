@@ -30,6 +30,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Storage backend type</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData_backend? Backend { get; set; }
         /// <summary>Name of the bucket to be used to store recording files.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "account_key", n => { AccountKey = n.GetStringValue(); } },
                 { "account_name", n => { AccountName = n.GetStringValue(); } },
+                { "backend", n => { Backend = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData_backend>(); } },
                 { "bucket", n => { Bucket = n.GetStringValue(); } },
             };
         }
@@ -77,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account_key", AccountKey);
             writer.WriteStringValue("account_name", AccountName);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureConfigurationData_backend>("backend", Backend);
             writer.WriteStringValue("bucket", Bucket);
             writer.WriteAdditionalData(AdditionalData);
         }

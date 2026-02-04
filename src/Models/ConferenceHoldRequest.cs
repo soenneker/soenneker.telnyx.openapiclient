@@ -38,6 +38,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MediaName { get; set; }
 #endif
+        /// <summary>Region where the conference data is located. Defaults to the region defined in user&apos;s data locality settings (Europe or US).</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion? Region { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceHoldRequest"/> and sets the default values.
         /// </summary>
@@ -66,6 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
                 { "call_control_ids", n => { CallControlIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "media_name", n => { MediaName = n.GetStringValue(); } },
+                { "region", n => { Region = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>(); } },
             };
         }
         /// <summary>
@@ -78,6 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("audio_url", AudioUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("call_control_ids", CallControlIds);
             writer.WriteStringValue("media_name", MediaName);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceRegion>("region", Region);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

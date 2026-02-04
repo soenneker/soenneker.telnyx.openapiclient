@@ -84,6 +84,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MessagingProfileId { get; set; }
 #endif
+        /// <summary>Unique identifier for a messaging profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; set; }
+#nullable restore
+#else
+        public string OrganizationId { get; set; }
+#endif
         /// <summary>Number of parts into which the message&apos;s body must be split.</summary>
         public int? Parts { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the message request was received.</summary>
@@ -92,6 +100,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload_record_type? RecordType { get; set; }
         /// <summary>Not used for inbound messages.</summary>
         public DateTimeOffset? SentAt { get; set; }
+        /// <summary>Message subject.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Subject { get; set; }
+#nullable restore
+#else
+        public string Subject { get; set; }
+#endif
         /// <summary>Tags associated with the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -190,10 +206,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "media", n => { Media = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload_media>(global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload_media.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "parts", n => { Parts = n.GetIntValue(); } },
                 { "received_at", n => { ReceivedAt = n.GetDateTimeOffsetValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload_record_type>(); } },
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
+                { "subject", n => { Subject = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "tcr_campaign_billable", n => { TcrCampaignBillable = n.GetBoolValue(); } },
                 { "tcr_campaign_id", n => { TcrCampaignId = n.GetStringValue(); } },
@@ -224,10 +242,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload_media>("media", Media);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
+            writer.WriteStringValue("organization_id", OrganizationId);
             writer.WriteIntValue("parts", Parts);
             writer.WriteDateTimeOffsetValue("received_at", ReceivedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InboundMessagePayload_record_type>("record_type", RecordType);
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
+            writer.WriteStringValue("subject", Subject);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteBoolValue("tcr_campaign_billable", TcrCampaignBillable);
             writer.WriteStringValue("tcr_campaign_id", TcrCampaignId);

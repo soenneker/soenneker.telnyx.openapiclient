@@ -47,12 +47,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls
         {
         }
         /// <summary>
-        /// Dial a number or SIP URI from a given connection. A successful response will include a `call_leg_id` which can be used to correlate the command with subsequent webhooks.**Expected Webhooks (see [schema](https://developers.telnyx.com/api/call-control/dial-call#callbacks) below):**- `call.initiated`- `call.answered` or `call.hangup`- `call.machine.detection.ended` if `answering_machine_detection` was requested- `call.machine.greeting.ended` if `answering_machine_detection` was requested to detect the end of machine greeting- `call.machine.premium.detection.ended` if `answering_machine_detection=premium` was requested- `call.machine.premium.greeting.ended` if `answering_machine_detection=premium` was requested and a beep was detected- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was setWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.
+        /// Dial a number or SIP URI from a given connection. A successful response will include a `call_leg_id` which can be used to correlate the command with subsequent webhooks.**Expected Webhooks:**- `call.initiated`- `call.answered` or `call.hangup`- `call.machine.detection.ended` if `answering_machine_detection` was requested- `call.machine.greeting.ended` if `answering_machine_detection` was requested to detect the end of machine greeting- `call.machine.premium.detection.ended` if `answering_machine_detection=premium` was requested- `call.machine.premium.greeting.ended` if `answering_machine_detection=premium` was requested and a beep was detected- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was setWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 503 status code</exception>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,12 +71,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
                 { "XXX", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Calls.CallsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Dial a number or SIP URI from a given connection. A successful response will include a `call_leg_id` which can be used to correlate the command with subsequent webhooks.**Expected Webhooks (see [schema](https://developers.telnyx.com/api/call-control/dial-call#callbacks) below):**- `call.initiated`- `call.answered` or `call.hangup`- `call.machine.detection.ended` if `answering_machine_detection` was requested- `call.machine.greeting.ended` if `answering_machine_detection` was requested to detect the end of machine greeting- `call.machine.premium.detection.ended` if `answering_machine_detection=premium` was requested- `call.machine.premium.greeting.ended` if `answering_machine_detection=premium` was requested and a beep was detected- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was setWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.
+        /// Dial a number or SIP URI from a given connection. A successful response will include a `call_leg_id` which can be used to correlate the command with subsequent webhooks.**Expected Webhooks:**- `call.initiated`- `call.answered` or `call.hangup`- `call.machine.detection.ended` if `answering_machine_detection` was requested- `call.machine.greeting.ended` if `answering_machine_detection` was requested to detect the end of machine greeting- `call.machine.premium.detection.ended` if `answering_machine_detection=premium` was requested- `call.machine.premium.greeting.ended` if `answering_machine_detection=premium` was requested and a beep was detected- `streaming.started`, `streaming.stopped` or `streaming.failed` if `stream_url` was setWhen the `record` parameter is set to `record-from-answer`, the response will include a `recording_id` field.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

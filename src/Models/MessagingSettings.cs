@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>If more than this many minutes have passed since the last message, the assistant will start a new conversation instead of continuing the existing one.</summary>
+        public int? ConversationInactivityMinutes { get; set; }
         /// <summary>Default Messaging Profile used for messaging exchanges with your assistant. This will be created automatically on assistant creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,6 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "conversation_inactivity_minutes", n => { ConversationInactivityMinutes = n.GetIntValue(); } },
                 { "default_messaging_profile_id", n => { DefaultMessagingProfileId = n.GetStringValue(); } },
                 { "delivery_status_webhook_url", n => { DeliveryStatusWebhookUrl = n.GetStringValue(); } },
             };
@@ -66,6 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("conversation_inactivity_minutes", ConversationInactivityMinutes);
             writer.WriteStringValue("default_messaging_profile_id", DefaultMessagingProfileId);
             writer.WriteStringValue("delivery_status_webhook_url", DeliveryStatusWebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

@@ -39,6 +39,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Reporting_ErrorResponse">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportsResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -49,7 +50,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Reporting_ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportsResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrDeleteUsageReportsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Fetch a single messaging usage report by id
@@ -57,6 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Item
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportsByIdResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Reporting_ErrorResponse">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportsByIdResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -67,7 +73,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Reports.Mdr_usage_reports.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportsByIdResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportsByIdResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Telnyx.OpenApiClient.Models.Reporting_ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportsByIdResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.MdrGetUsageReportsByIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete messaging usage report by id

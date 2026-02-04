@@ -62,6 +62,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string From { get; set; }
 #endif
+        /// <summary>Indicates whether the call is still active in the queue.</summary>
+        public bool? IsAlive { get; set; }
         /// <summary>Unique identifier of the queue the call is in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,6 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "enqueued_at", n => { EnqueuedAt = n.GetStringValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
+                { "is_alive", n => { IsAlive = n.GetBoolValue(); } },
                 { "queue_id", n => { QueueId = n.GetStringValue(); } },
                 { "queue_position", n => { QueuePosition = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall_record_type>(); } },
@@ -135,6 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("enqueued_at", EnqueuedAt);
             writer.WriteStringValue("from", From);
+            writer.WriteBoolValue("is_alive", IsAlive);
             writer.WriteStringValue("queue_id", QueueId);
             writer.WriteIntValue("queue_position", QueuePosition);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.QueueCall_record_type>("record_type", RecordType);

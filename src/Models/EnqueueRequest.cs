@@ -30,6 +30,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CommandId { get; set; }
 #endif
+        /// <summary>If set to true, the call will remain in the queue after hangup. In this case bridging to such call will fail with necessary information needed to re-establish the call.</summary>
+        public bool? KeepAfterHangup { get; set; }
         /// <summary>The maximum number of calls allowed in the queue at a given time. Can&apos;t be modified for an existing queue.</summary>
         public int? MaxSize { get; set; }
         /// <summary>The number of seconds after which the call will be removed from the queue.</summary>
@@ -69,6 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
+                { "keep_after_hangup", n => { KeepAfterHangup = n.GetBoolValue(); } },
                 { "max_size", n => { MaxSize = n.GetIntValue(); } },
                 { "max_wait_time_secs", n => { MaxWaitTimeSecs = n.GetIntValue(); } },
                 { "queue_name", n => { QueueName = n.GetStringValue(); } },
@@ -83,6 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
+            writer.WriteBoolValue("keep_after_hangup", KeepAfterHangup);
             writer.WriteIntValue("max_size", MaxSize);
             writer.WriteIntValue("max_wait_time_secs", MaxWaitTimeSecs);
             writer.WriteStringValue("queue_name", QueueName);

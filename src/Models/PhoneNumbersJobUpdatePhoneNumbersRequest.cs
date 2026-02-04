@@ -38,6 +38,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CustomerReference { get; set; }
 #endif
+        /// <summary>Indicates whether to enable or disable the deletion lock on each phone number. When enabled, this prevents the phone number from being deleted via the API or Telnyx portal.</summary>
+        public bool? DeletionLockEnabled { get; set; }
         /// <summary>If someone attempts to port your phone number away from Telnyx and your phone number has an external PIN set, we will attempt to verify that you provided the correct external PIN to the winning carrier. Note that not all carriers cooperate with this security mechanism.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,6 +102,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "billing_group_id", n => { BillingGroupId = n.GetStringValue(); } },
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
+                { "deletion_lock_enabled", n => { DeletionLockEnabled = n.GetBoolValue(); } },
                 { "external_pin", n => { ExternalPin = n.GetStringValue(); } },
                 { "hd_voice_enabled", n => { HdVoiceEnabled = n.GetBoolValue(); } },
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -117,6 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("billing_group_id", BillingGroupId);
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("customer_reference", CustomerReference);
+            writer.WriteBoolValue("deletion_lock_enabled", DeletionLockEnabled);
             writer.WriteStringValue("external_pin", ExternalPin);
             writer.WriteBoolValue("hd_voice_enabled", HdVoiceEnabled);
             writer.WriteCollectionOfPrimitiveValues<string>("phone_numbers", PhoneNumbers);

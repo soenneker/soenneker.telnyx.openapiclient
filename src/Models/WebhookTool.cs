@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The webhook property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams? Webhook { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams? Webhook { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams Webhook { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams Webhook { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool"/> and sets the default values.
@@ -50,7 +50,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool_type>(); } },
-                { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams.CreateFromDiscriminatorValue); } },
+                { "webhook", n => { Webhook = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookTool_type>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookToolParams>("webhook", Webhook);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlWebhookToolParams>("webhook", Webhook);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,6 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>`Latency` directs Telnyx to route media through the site with the lowest round-trip time to the user&apos;s connection. Telnyx calculates this time using ICMP ping messages. This can be disabled by specifying a site to handle all media.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride? AnchorsiteOverride { get; set; }
+        /// <summary>Specifies if call cost webhooks should be sent for this TeXML Application.</summary>
+        public bool? CallCostInWebhooks { get; set; }
         /// <summary>Sets the type of DTMF digits sent from Telnyx to this Connection. Note that DTMF digits sent to Telnyx will be accepted in all formats.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType? DtmfType { get; set; }
         /// <summary>Specifies whether calls to phone numbers associated with this connection should hangup after timing out.</summary>
@@ -115,6 +117,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
+                { "call_cost_in_webhooks", n => { CallCostInWebhooks = n.GetBoolValue(); } },
                 { "dtmf_type", n => { DtmfType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>(); } },
                 { "first_command_timeout", n => { FirstCommandTimeout = n.GetBoolValue(); } },
                 { "first_command_timeout_secs", n => { FirstCommandTimeoutSecs = n.GetIntValue(); } },
@@ -138,6 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
+            writer.WriteBoolValue("call_cost_in_webhooks", CallCostInWebhooks);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DtmfType>("dtmf_type", DtmfType);
             writer.WriteBoolValue("first_command_timeout", FirstCommandTimeout);
             writer.WriteIntValue("first_command_timeout_secs", FirstCommandTimeoutSecs);

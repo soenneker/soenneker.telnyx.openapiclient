@@ -16,6 +16,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the billing group associated with the outbound proflile. Defaults to null (for no group assigned).</summary>
         public Guid? BillingGroupId { get; set; }
+        /// <summary>(BETA) Specifies the time window and call limits for calls made using this outbound voice profile. Note that all times are UTC in 24-hour clock time.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateOutboundVoiceProfileRequest_calling_window? CallingWindow { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateOutboundVoiceProfileRequest_calling_window CallingWindow { get; set; }
+#endif
         /// <summary>The call_recording property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,6 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "billing_group_id", n => { BillingGroupId = n.GetGuidValue(); } },
                 { "call_recording", n => { CallRecording = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording.CreateFromDiscriminatorValue); } },
+                { "calling_window", n => { CallingWindow = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateOutboundVoiceProfileRequest_calling_window>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateOutboundVoiceProfileRequest_calling_window.CreateFromDiscriminatorValue); } },
                 { "concurrent_call_limit", n => { ConcurrentCallLimit = n.GetIntValue(); } },
                 { "daily_spend_limit", n => { DailySpendLimit = n.GetStringValue(); } },
                 { "daily_spend_limit_enabled", n => { DailySpendLimitEnabled = n.GetBoolValue(); } },
@@ -121,6 +130,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("billing_group_id", BillingGroupId);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateOutboundVoiceProfileRequest_calling_window>("calling_window", CallingWindow);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundCallRecording>("call_recording", CallRecording);
             writer.WriteIntValue("concurrent_call_limit", ConcurrentCallLimit);
             writer.WriteStringValue("daily_spend_limit", DailySpendLimit);
