@@ -32,6 +32,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config NoiseSuppressionConfig { get; set; }
 #endif
+        /// <summary>Configuration for call recording format and channel settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings? RecordingSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings RecordingSettings { get; set; }
+#endif
         /// <summary>When enabled, allows users to interact with your AI assistant directly from your website without requiring authentication. This is required for FE widgets that work with assistants that have telephony enabled.</summary>
         public bool? SupportsUnauthenticatedWebCalls { get; set; }
         /// <summary>Maximum duration in seconds for the AI assistant to participate on the call. When this limit is reached the assistant will be stopped. This limit does not apply to portions of a call without an active assistant (for instance, a call transferred to a human representative).</summary>
@@ -74,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "default_texml_app_id", n => { DefaultTexmlAppId = n.GetStringValue(); } },
                 { "noise_suppression", n => { NoiseSuppression = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression>(); } },
                 { "noise_suppression_config", n => { NoiseSuppressionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config.CreateFromDiscriminatorValue); } },
+                { "recording_settings", n => { RecordingSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings.CreateFromDiscriminatorValue); } },
                 { "supports_unauthenticated_web_calls", n => { SupportsUnauthenticatedWebCalls = n.GetBoolValue(); } },
                 { "time_limit_secs", n => { TimeLimitSecs = n.GetIntValue(); } },
                 { "user_idle_timeout_secs", n => { UserIdleTimeoutSecs = n.GetIntValue(); } },
@@ -90,6 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("default_texml_app_id", DefaultTexmlAppId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression>("noise_suppression", NoiseSuppression);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config>("noise_suppression_config", NoiseSuppressionConfig);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings>("recording_settings", RecordingSettings);
             writer.WriteBoolValue("supports_unauthenticated_web_calls", SupportsUnauthenticatedWebCalls);
             writer.WriteIntValue("time_limit_secs", TimeLimitSecs);
             writer.WriteIntValue("user_idle_timeout_secs", UserIdleTimeoutSecs);

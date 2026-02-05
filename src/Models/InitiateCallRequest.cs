@@ -158,6 +158,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>&quot;The supervising role for the new leg. Determines the audio behavior: barge (hear both sides), whisper (only hear supervisor), monitor (hear both sides but supervisor muted). Default: barge&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SupervisingRole? SupervisingRole { get; set; }
+        /// <summary>TeXML to be used as instructions for the call. If provided, the call will execute these instructions instead of fetching from the Url.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Texml { get; set; }
+#nullable restore
+#else
+        public string Texml { get; set; }
+#endif
         /// <summary>The phone number of the called party. Phone numbers are formatted with a `+` and country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -244,6 +252,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "StatusCallbackMethod", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod>(); } },
                 { "SuperviseCallSid", n => { SuperviseCallSid = n.GetStringValue(); } },
                 { "SupervisingRole", n => { SupervisingRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SupervisingRole>(); } },
+                { "Texml", n => { Texml = n.GetStringValue(); } },
                 { "To", n => { To = n.GetStringValue(); } },
                 { "Trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_Trim>(); } },
                 { "Url", n => { Url = n.GetStringValue(); } },
@@ -290,6 +299,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod>("StatusCallbackMethod", StatusCallbackMethod);
             writer.WriteStringValue("SuperviseCallSid", SuperviseCallSid);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SupervisingRole>("SupervisingRole", SupervisingRole);
+            writer.WriteStringValue("Texml", Texml);
             writer.WriteStringValue("To", To);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_Trim>("Trim", Trim);
             writer.WriteStringValue("Url", Url);

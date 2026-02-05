@@ -63451,6 +63451,11 @@
             "description": "\"The supervising role for the new leg. Determines the audio behavior: barge (hear both sides), whisper (only hear supervisor), monitor (hear both sides but supervisor muted). Default: barge\"",
             "default": "barge",
             "example": "monitor"
+          },
+          "Texml": {
+            "type": "string",
+            "description": "TeXML to be used as instructions for the call. If provided, the call will execute these instructions instead of fetching from the Url.",
+            "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Say>Hello</Say></Response>"
           }
         },
         "example": {
@@ -84165,6 +84170,32 @@
               }
             },
             "description": "\"Configuration for voicemail detection (AMD - Answering Machine Detection) on outgoing calls. These settings only apply if AMD is enabled on the Dial command. See [TeXML Dial documentation](https://developers.telnyx.com/api-reference/texml-rest-commands/initiate-an-outbound-call) for enabling AMD. Recommended settings: MachineDetection=Enable, AsyncAmd=true, DetectionMode=Premium.\""
+          },
+          "recording_settings": {
+            "type": "object",
+            "properties": {
+              "channels": {
+                "enum": [
+                  "single",
+                  "dual"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The number of channels for the recording. 'single' for mono, 'dual' for stereo.",
+                "default": "dual"
+              },
+              "format": {
+                "enum": [
+                  "wav",
+                  "mp3"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The format of the recording file.",
+                "default": "mp3"
+              }
+            },
+            "description": "Configuration for call recording format and channel settings."
           }
         }
       },
