@@ -38,6 +38,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targets> Targets { get; set; }
 #endif
+        /// <summary>Configuration for voicemail detection (AMD - Answering Machine Detection) on the transferred call. Allows the assistant to detect when a voicemail system answers the transferred call and take appropriate action.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection? VoicemailDetection { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection VoicemailDetection { get; set; }
+#endif
         /// <summary>Natural language instructions for your agent for how to provide context for the transfer recipient.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_custom_headers>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_custom_headers.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "targets", n => { Targets = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targets>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targets.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection.CreateFromDiscriminatorValue); } },
                 { "warm_transfer_instructions", n => { WarmTransferInstructions = n.GetStringValue(); } },
             };
         }
@@ -87,6 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_custom_headers>("custom_headers", CustomHeaders);
             writer.WriteStringValue("from", From);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targets>("targets", Targets);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection>("voicemail_detection", VoicemailDetection);
             writer.WriteStringValue("warm_transfer_instructions", WarmTransferInstructions);
             writer.WriteAdditionalData(AdditionalData);
         }

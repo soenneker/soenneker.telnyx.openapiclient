@@ -182,20 +182,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public static global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest.StartRecordingRequest_transcription_language CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("transcription_engine")?.GetStringValue();
                 var result = new global::Soenneker.Telnyx.OpenApiClient.Models.StartRecordingRequest.StartRecordingRequest_transcription_language();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.DeepgramNova3TranscriptionLanguageWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.GoogleTranscriptionLanguageLongWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.TelnyxTranscriptionLanguageWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage_Wrapper();
-                }
+                result.DeepgramNova3TranscriptionLanguageWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper();
+                result.GoogleTranscriptionLanguageLongWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper();
+                result.TelnyxTranscriptionLanguageWrapper = new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage_Wrapper();
                 return result;
             }
             /// <summary>
@@ -204,17 +194,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(DeepgramNova3TranscriptionLanguageWrapper != null)
+                if(DeepgramNova3TranscriptionLanguageWrapper != null || GoogleTranscriptionLanguageLongWrapper != null || TelnyxTranscriptionLanguageWrapper != null)
                 {
-                    return DeepgramNova3TranscriptionLanguageWrapper.GetFieldDeserializers();
-                }
-                else if(GoogleTranscriptionLanguageLongWrapper != null)
-                {
-                    return GoogleTranscriptionLanguageLongWrapper.GetFieldDeserializers();
-                }
-                else if(TelnyxTranscriptionLanguageWrapper != null)
-                {
-                    return TelnyxTranscriptionLanguageWrapper.GetFieldDeserializers();
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(DeepgramNova3TranscriptionLanguageWrapper, GoogleTranscriptionLanguageLongWrapper, TelnyxTranscriptionLanguageWrapper);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -225,18 +207,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(DeepgramNova3TranscriptionLanguageWrapper != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper>(null, DeepgramNova3TranscriptionLanguageWrapper);
-                }
-                else if(GoogleTranscriptionLanguageLongWrapper != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper>(null, GoogleTranscriptionLanguageLongWrapper);
-                }
-                else if(TelnyxTranscriptionLanguageWrapper != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxTranscriptionLanguage_Wrapper>(null, TelnyxTranscriptionLanguageWrapper);
-                }
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper>(null, DeepgramNova3TranscriptionLanguageWrapper, GoogleTranscriptionLanguageLongWrapper, TelnyxTranscriptionLanguageWrapper);
             }
         }
     }

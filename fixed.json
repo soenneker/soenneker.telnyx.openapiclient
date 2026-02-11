@@ -51280,9 +51280,9 @@
             "additionalProperties": {
               "type": "string"
             },
-            "description": "Metadata associated with the conversation. Telnyx provides several pieces of metadata, but customers can also add their own.",
+            "description": "Metadata associated with the conversation. Telnyx provides several pieces of metadata, but customers can also add their own. The reserved field `ai_disabled` (boolean) can be set to `true` to prevent AI-generated responses on this conversation. When `ai_disabled` is `true`, calls to the chat endpoint will return a 400 error. Set to `false` or remove the field to re-enable AI responses. This is useful when a human agent needs to take over the conversation mid-stream (e.g., a technician stepping in while AI was messaging a resident).",
             "example": {
-              "telnyx_conversation_channel": "phone_call",
+              "telnyx_conversation_channel": "sms",
               "telnyx_agent_target": "+13128675309",
               "telnyx_end_user_target": "+13128675309",
               "assistant_id": "assistant-123"
@@ -52310,7 +52310,7 @@
             "additionalProperties": {
               "type": "string"
             },
-            "description": "Metadata associated with the conversation."
+            "description": "Metadata associated with the conversation. Set `ai_disabled` to `true` to create the conversation with AI message responses disabled."
           }
         }
       },
@@ -60290,26 +60290,12 @@
             "$ref": "#/components/schemas/TranscriptionConfig"
           },
           "language": {
-            "required": [
-              "transcription.model"
-            ],
             "type": "object",
             "oneOf": [
               {
                 "$ref": "#/components/schemas/GoogleTranscriptionLanguage_Wrapper"
               }
-            ],
-            "properties": {
-              "transcription.model": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "transcription.model",
-              "mapping": {
-                "google": "#/components/schemas/GoogleTranscriptionLanguage"
-              }
-            }
+            ]
           },
           "voice": {
             "type": "string",
@@ -63155,6 +63141,128 @@
               }
             },
             "description": "Custom headers to be added to the SIP INVITE for the transfer command."
+          },
+          "voicemail_detection": {
+            "type": "object",
+            "properties": {
+              "detection_mode": {
+                "enum": [
+                  "disabled",
+                  "detect"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The AMD detection mode to use. 'detect' enables answering machine detection (works best when warm transfer instructions are also set). 'disabled' turns off AMD detection."
+              },
+              "on_voicemail_detected": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "enum": [
+                      "stop_transfer",
+                      "leave_message_and_stop_transfer",
+                      "continue_transfer"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "description": "The action to take when voicemail is detected. 'stop_transfer' hangs up immediately. 'leave_message_and_stop_transfer' leaves a message then hangs up. 'continue_transfer' bridges the call despite voicemail detection."
+                  },
+                  "voicemail_message": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "message",
+                          "warm_transfer_instructions"
+                        ],
+                        "type": "string",
+                        "additionalProperties": false,
+                        "description": "The type of voicemail message. Use 'message' to leave a specific TTS message, or 'warm_transfer_instructions' to play the warm transfer audio."
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "The specific message to leave as voicemail (converted to speech). Only applicable when type is 'message'."
+                      }
+                    },
+                    "description": "Configuration for the voicemail message to leave. Only applicable when action is 'leave_message_and_stop_transfer'."
+                  }
+                },
+                "description": "Action to take when voicemail is detected on the transferred call."
+              },
+              "detection_config": {
+                "type": "object",
+                "properties": {
+                  "greeting_silence_duration_millis": {
+                    "maximum": 50000,
+                    "minimum": 500,
+                    "type": "integer",
+                    "description": "Duration of silence after the greeting to wait before considering the greeting complete."
+                  },
+                  "greeting_total_analysis_time_millis": {
+                    "maximum": 300000,
+                    "minimum": 500,
+                    "type": "integer",
+                    "description": "Maximum time to spend analyzing the greeting."
+                  },
+                  "after_greeting_silence_millis": {
+                    "maximum": 5000,
+                    "minimum": 100,
+                    "type": "integer",
+                    "description": "Duration of silence after greeting detection before finalizing the result."
+                  },
+                  "between_words_silence_millis": {
+                    "maximum": 5000,
+                    "minimum": 10,
+                    "type": "integer",
+                    "description": "Maximum silence duration between words during greeting."
+                  },
+                  "greeting_duration_millis": {
+                    "maximum": 10000,
+                    "minimum": 100,
+                    "type": "integer",
+                    "description": "Expected duration of greeting speech."
+                  },
+                  "initial_silence_millis": {
+                    "maximum": 500000,
+                    "minimum": 100,
+                    "type": "integer",
+                    "description": "Maximum silence duration at the start of the call before speech."
+                  },
+                  "maximum_number_of_words": {
+                    "maximum": 50,
+                    "minimum": 1,
+                    "type": "integer",
+                    "description": "Maximum number of words expected in a human greeting."
+                  },
+                  "maximum_word_length_millis": {
+                    "maximum": 5000,
+                    "minimum": 50,
+                    "type": "integer",
+                    "description": "Maximum duration of a single word."
+                  },
+                  "silence_threshold": {
+                    "maximum": 1000,
+                    "minimum": 1,
+                    "type": "integer",
+                    "description": "Audio level threshold for silence detection."
+                  },
+                  "total_analysis_time_millis": {
+                    "maximum": 60000,
+                    "minimum": 500,
+                    "type": "integer",
+                    "description": "Total time allowed for AMD analysis."
+                  },
+                  "min_word_length_millis": {
+                    "maximum": 1000,
+                    "minimum": 1,
+                    "type": "integer",
+                    "description": "Minimum duration for audio to be considered a word."
+                  }
+                },
+                "description": "Advanced AMD detection configuration parameters. All values are optional - Telnyx will use defaults if not specified."
+              }
+            },
+            "description": "Configuration for voicemail detection (AMD - Answering Machine Detection) on the transferred call. Allows the assistant to detect when a voicemail system answers the transferred call and take appropriate action."
           }
         }
       },
@@ -66731,25 +66839,25 @@
           "total_pages": {
             "type": "number",
             "description": "Total number of pages based on pagination settings",
-            "format": "double",
+            "format": "integer",
             "example": 13
           },
           "total_results": {
             "type": "number",
             "description": "Total number of results",
-            "format": "double",
+            "format": "integer",
             "example": 13
           },
           "page_number": {
             "type": "number",
             "description": "Current Page based on pagination settings (included when defaults are used.)",
-            "format": "double",
+            "format": "integer",
             "example": 3
           },
           "page_size": {
             "type": "number",
             "description": "Number of results to return per page based on pagination settings (included when defaults are used.)",
-            "format": "double",
+            "format": "integer",
             "example": 1
           }
         }
@@ -82113,11 +82221,8 @@
             "example": "A"
           },
           "transcription_language": {
-            "required": [
-              "transcription_engine"
-            ],
             "type": "object",
-            "oneOf": [
+            "anyOf": [
               {
                 "$ref": "#/components/schemas/GoogleTranscriptionLanguageLong_Wrapper"
               },
@@ -82127,20 +82232,7 @@
               {
                 "$ref": "#/components/schemas/DeepgramNova3TranscriptionLanguage_Wrapper"
               }
-            ],
-            "properties": {
-              "transcription_engine": {
-                "type": "string"
-              }
-            },
-            "discriminator": {
-              "propertyName": "transcription_engine",
-              "mapping": {
-                "A": "#/components/schemas/GoogleTranscriptionLanguageLong",
-                "B": "#/components/schemas/TelnyxTranscriptionLanguage",
-                "deepgram/nova-3": "#/components/schemas/DeepgramNova3TranscriptionLanguage"
-              }
-            }
+            ]
           },
           "transcription_profanity_filter": {
             "type": "boolean",
@@ -82179,7 +82271,7 @@
           "timeout_secs": 0,
           "transcription": true,
           "transcription_engine": "B",
-          "transcription_language": "en-US"
+          "transcription_language": "en"
         }
       },
       "StartSiprecRequest": {
@@ -89037,7 +89129,7 @@
             "additionalProperties": {
               "type": "string"
             },
-            "description": "Metadata associated with the conversation."
+            "description": "Metadata associated with the conversation. Set `ai_disabled` to `true` to stop AI from responding to messages (e.g., when a human agent takes over). Set to `false` to re-enable AI responses."
           }
         }
       },
@@ -109871,16 +109963,7 @@
             {
               "type": "string"
             }
-          ],
-          "discriminator": {
-            "propertyName": "transcription_engine",
-            "mapping": {
-              "Google": "#/components/schemas/google_models",
-              "Telnyx": "#/components/schemas/telnyx_models",
-              "Deepgram": "#/components/schemas/deepgram_models",
-              "Azure": "#/components/schemas/azure_models"
-            }
-          }
+          ]
         }
       },
       "notifications_FilterConsolidated": {

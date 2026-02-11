@@ -14,14 +14,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The transcriptionModel property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TranscriptionModel { get; set; }
-#nullable restore
-#else
-        public string TranscriptionModel { get; set; }
-#endif
         /// <summary>Language to use for speech recognition</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage? Value { get; set; }
         /// <summary>
@@ -50,7 +42,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "transcription.model", n => { TranscriptionModel = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage>(); } },
             };
         }
@@ -61,7 +52,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("transcription.model", TranscriptionModel);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -20,7 +20,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Guid? Id { get; set; }
         /// <summary>The datetime of the latest message in the conversation.</summary>
         public DateTimeOffset? LastMessageAt { get; set; }
-        /// <summary>Metadata associated with the conversation. Telnyx provides several pieces of metadata, but customers can also add their own.</summary>
+        /// <summary>Metadata associated with the conversation. Telnyx provides several pieces of metadata, but customers can also add their own. The reserved field `ai_disabled` (boolean) can be set to `true` to prevent AI-generated responses on this conversation. When `ai_disabled` is `true`, calls to the chat endpoint will return a 400 error. Set to `false` or remove the field to re-enable AI responses. This is useful when a human agent needs to take over the conversation mid-stream (e.g., a technician stepping in while AI was messaging a resident).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.Conversation_metadata? Metadata { get; set; }
