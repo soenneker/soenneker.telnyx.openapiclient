@@ -7,45 +7,48 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>
-    /// Use this field to modify sound effects, for example adjust the pitch.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SoundModifications : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class OpenAIEmbeddingData : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Adjust the pitch in octaves, values should be between -1 and 1, default 0</summary>
-        public float? Octaves { get; set; }
-        /// <summary>Set the pitch directly, value should be &gt; 0, default 1 (lower = lower tone)</summary>
-        public float? Pitch { get; set; }
-        /// <summary>Adjust the pitch in semitones, values should be between -14 and 14, default 0</summary>
-        public float? Semitone { get; set; }
-        /// <summary>The track to which the sound modifications will be applied. Accepted values are `inbound` or `outbound`</summary>
+        /// <summary>The embedding vector</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Track { get; set; }
+        public List<double?>? Embedding { get; set; }
 #nullable restore
 #else
-        public string Track { get; set; }
+        public List<double?> Embedding { get; set; }
+#endif
+        /// <summary>The index of the embedding in the list of embeddings</summary>
+        public int? Index { get; set; }
+        /// <summary>The object type, always &apos;embedding&apos;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Object { get; set; }
+#nullable restore
+#else
+        public string Object { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingData"/> and sets the default values.
         /// </summary>
-        public SoundModifications()
+        public OpenAIEmbeddingData()
         {
             AdditionalData = new Dictionary<string, object>();
-            Track = "outbound";
+            Object = "embedding";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingData();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,10 +58,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "octaves", n => { Octaves = n.GetFloatValue(); } },
-                { "pitch", n => { Pitch = n.GetFloatValue(); } },
-                { "semitone", n => { Semitone = n.GetFloatValue(); } },
-                { "track", n => { Track = n.GetStringValue(); } },
+                { "embedding", n => { Embedding = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
+                { "index", n => { Index = n.GetIntValue(); } },
+                { "object", n => { Object = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -68,10 +70,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteFloatValue("octaves", Octaves);
-            writer.WriteFloatValue("pitch", Pitch);
-            writer.WriteFloatValue("semitone", Semitone);
-            writer.WriteStringValue("track", Track);
+            writer.WriteCollectionOfPrimitiveValues<double?>("embedding", Embedding);
+            writer.WriteIntValue("index", Index);
+            writer.WriteStringValue("object", Object);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

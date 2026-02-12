@@ -11,7 +11,9 @@ using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings;
 using Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning;
 using Soenneker.Telnyx.OpenApiClient.Ai.Integrations;
 using Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers;
+using Soenneker.Telnyx.OpenApiClient.Ai.Missions;
 using Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests;
+using Soenneker.Telnyx.OpenApiClient.Ai.Openai;
 using Soenneker.Telnyx.OpenApiClient.Ai.Summarize;
 using System.Collections.Generic;
 using System.IO;
@@ -70,10 +72,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers.Mcp_serversRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The missions property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Missions.MissionsRequestBuilder Missions
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Missions.MissionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The models property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests.ModelsRequestBuilder Models
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests.ModelsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The openai property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.OpenaiRequestBuilder Openai
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.OpenaiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The summarize property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Summarize.SummarizeRequestBuilder Summarize

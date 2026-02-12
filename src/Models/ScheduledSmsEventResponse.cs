@@ -40,6 +40,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>A map of dynamic variable names to values. These variables can be referenced in the assistant&apos;s instructions and messages using {{variable_name}} syntax.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_dynamic_variables? DynamicVariables { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_dynamic_variables DynamicVariables { get; set; }
+#endif
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,6 +125,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "conversation_id", n => { ConversationId = n.GetStringValue(); } },
                 { "conversation_metadata", n => { ConversationMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_conversation_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_conversation_metadata.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_dynamic_variables.CreateFromDiscriminatorValue); } },
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "retry_count", n => { RetryCount = n.GetIntValue(); } },
                 { "scheduled_at_fixed_datetime", n => { ScheduledAtFixedDatetime = n.GetDateTimeOffsetValue(); } },
@@ -139,6 +148,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("conversation_id", ConversationId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_conversation_metadata>("conversation_metadata", ConversationMetadata);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledSmsEventResponse_dynamic_variables>("dynamic_variables", DynamicVariables);
             writer.WriteCollectionOfPrimitiveValues<string>("errors", Errors);
             writer.WriteIntValue("retry_count", RetryCount);
             writer.WriteDateTimeOffsetValue("scheduled_at_fixed_datetime", ScheduledAtFixedDatetime);

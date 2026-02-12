@@ -7,45 +7,47 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>
-    /// Use this field to modify sound effects, for example adjust the pitch.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SoundModifications : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class TelnyxAgentData : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Adjust the pitch in octaves, values should be between -1 and 1, default 0</summary>
-        public float? Octaves { get; set; }
-        /// <summary>Set the pitch directly, value should be &gt; 0, default 1 (lower = lower tone)</summary>
-        public float? Pitch { get; set; }
-        /// <summary>Adjust the pitch in semitones, values should be between -14 and 14, default 0</summary>
-        public float? Semitone { get; set; }
-        /// <summary>The track to which the sound modifications will be applied. Accepted values are `inbound` or `outbound`</summary>
+        /// <summary>The created_at property</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The run_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Track { get; set; }
+        public string? RunId { get; set; }
 #nullable restore
 #else
-        public string Track { get; set; }
+        public string RunId { get; set; }
+#endif
+        /// <summary>The telnyx_agent_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TelnyxAgentId { get; set; }
+#nullable restore
+#else
+        public string TelnyxAgentId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAgentData"/> and sets the default values.
         /// </summary>
-        public SoundModifications()
+        public TelnyxAgentData()
         {
             AdditionalData = new Dictionary<string, object>();
-            Track = "outbound";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAgentData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAgentData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.SoundModifications();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxAgentData();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,10 +57,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "octaves", n => { Octaves = n.GetFloatValue(); } },
-                { "pitch", n => { Pitch = n.GetFloatValue(); } },
-                { "semitone", n => { Semitone = n.GetFloatValue(); } },
-                { "track", n => { Track = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "run_id", n => { RunId = n.GetStringValue(); } },
+                { "telnyx_agent_id", n => { TelnyxAgentId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -68,10 +69,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteFloatValue("octaves", Octaves);
-            writer.WriteFloatValue("pitch", Pitch);
-            writer.WriteFloatValue("semitone", Semitone);
-            writer.WriteStringValue("track", Track);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("run_id", RunId);
+            writer.WriteStringValue("telnyx_agent_id", TelnyxAgentId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

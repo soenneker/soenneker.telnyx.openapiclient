@@ -22,6 +22,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_conversation_metadata ConversationMetadata { get; set; }
 #endif
+        /// <summary>A map of dynamic variable names to values. These variables can be referenced in the assistant&apos;s instructions and messages using {{variable_name}} syntax.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_dynamic_variables? DynamicVariables { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_dynamic_variables DynamicVariables { get; set; }
+#endif
         /// <summary>The datetime at which the event should be scheduled. Formatted as ISO 8601.</summary>
         public DateTimeOffset? ScheduledAtFixedDatetime { get; set; }
         /// <summary>The phone number, SIP URI, to schedule the call or text from.</summary>
@@ -76,6 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "conversation_metadata", n => { ConversationMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_conversation_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_conversation_metadata.CreateFromDiscriminatorValue); } },
+                { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_dynamic_variables.CreateFromDiscriminatorValue); } },
                 { "scheduled_at_fixed_datetime", n => { ScheduledAtFixedDatetime = n.GetDateTimeOffsetValue(); } },
                 { "telnyx_agent_target", n => { TelnyxAgentTarget = n.GetStringValue(); } },
                 { "telnyx_conversation_channel", n => { TelnyxConversationChannel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>(); } },
@@ -91,6 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_conversation_metadata>("conversation_metadata", ConversationMetadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateScheduledEventRequest_dynamic_variables>("dynamic_variables", DynamicVariables);
             writer.WriteDateTimeOffsetValue("scheduled_at_fixed_datetime", ScheduledAtFixedDatetime);
             writer.WriteStringValue("telnyx_agent_target", TelnyxAgentTarget);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationChannelType>("telnyx_conversation_channel", TelnyxConversationChannel);
