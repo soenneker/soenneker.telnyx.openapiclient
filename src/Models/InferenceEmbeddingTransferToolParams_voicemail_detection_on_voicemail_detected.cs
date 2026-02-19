@@ -13,7 +13,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InferenceEmbeddingTransferToolParams_voicemail_detection_on_voicemail_detected : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The action to take when voicemail is detected. &apos;stop_transfer&apos; hangs up immediately. &apos;leave_message_and_stop_transfer&apos; leaves a message then hangs up. &apos;continue_transfer&apos; bridges the call despite voicemail detection.</summary>
+        /// <summary>The action to take when voicemail is detected. &apos;stop_transfer&apos; hangs up immediately. &apos;leave_message_and_stop_transfer&apos; leaves a message then hangs up.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection_on_voicemail_detected_action? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

@@ -41642,6 +41642,9 @@
             },
             {
               "$ref": "#/components/schemas/SendMessageTool"
+            },
+            {
+              "$ref": "#/components/schemas/SkipTurnTool"
             }
           ]
         },
@@ -52973,7 +52976,7 @@
           },
           "voice": {
             "type": "string",
-            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`\n\nFor service_level basic, you may define the gender of the speaker (male or female).\"",
+            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`.  Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`\n- **Minimax:** Use `Minimax.<ModelId>.<VoiceId>` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Optional parameters: `speed` (float, default 1.0), `vol` (float, default 1.0), `pitch` (integer, default 0). \n- **Resemble:** Use `Resemble.<ModelId>.<VoiceId>` (e.g., `Resemble.Pro.my_voice`). Supported models: `Pro` (multilingual) and `Turbo` (English only).\"",
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
@@ -52990,6 +52993,9 @@
               },
               {
                 "$ref": "#/components/schemas/AWSVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/MinimaxVoiceSettings"
               }
             ],
             "properties": {
@@ -53003,7 +53009,8 @@
               "mapping": {
                 "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
                 "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-                "aws": "#/components/schemas/AWSVoiceSettings"
+                "aws": "#/components/schemas/AWSVoiceSettings",
+                "minimax": "#/components/schemas/MinimaxVoiceSettings"
               }
             }
           },
@@ -53488,11 +53495,12 @@
               "krisp_viva_tel",
               "krisp_viva_tel_lite",
               "krisp_viva_promodel",
-              "krisp_viva_ss"
+              "krisp_viva_ss",
+              "quail_voice_focus"
             ],
             "type": "string",
             "additionalProperties": false,
-            "description": "The noise suppression engine to use. 'denoiser' is the default engine. 'deep_filter_net' and 'deep_filter_net_large' are alternative engines with different performance characteristics. Krisp engines ('krisp_viva_tel', 'krisp_viva_tel_lite', 'krisp_viva_promodel', 'krisp_viva_ss') provide advanced noise suppression capabilities.",
+            "description": "The noise suppression engine to use. 'denoiser' is the default engine. 'deep_filter_net' and 'deep_filter_net_large' are alternative engines with different performance characteristics. Krisp engines ('krisp_viva_tel', 'krisp_viva_tel_lite', 'krisp_viva_promodel', 'krisp_viva_ss') provide advanced noise suppression capabilities. 'quail_voice_focus' provides Quail-based voice focus noise suppression.",
             "default": "denoiser",
             "example": "deep_filter_net"
           },
@@ -53501,7 +53509,7 @@
             "maximum": 100,
             "minimum": 0,
             "type": "integer",
-            "description": "\"The attenuation limit value for the selected engine. Default values vary by engine: 0 for 'denoiser', 80 for 'deep_filter_net', 'deep_filter_net_large', and all Krisp engines ('krisp_viva_tel', 'krisp_viva_tel_lite', 'krisp_viva_promodel', 'krisp_viva_ss').\"",
+            "description": "\"The attenuation limit value for the selected engine. Default values vary by engine: 0 for 'denoiser', 80 for 'deep_filter_net', 'deep_filter_net_large', and all Krisp engines ('krisp_viva_tel', 'krisp_viva_tel_lite', 'krisp_viva_promodel', 'krisp_viva_ss'), 100 for 'quail_voice_focus'.\"",
             "example": 80
           }
         },
@@ -55997,6 +56005,17 @@
             "type": "boolean",
             "description": "Automatically detect if an SMS message is unusually long and exceeds a recommended limit of message parts.",
             "default": false
+          },
+          "encoding": {
+            "enum": [
+              "auto",
+              "gsm7",
+              "ucs2"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Encoding to use for the message. `auto` (default) uses smart encoding to automatically select the most efficient encoding. `gsm7` forces GSM-7 encoding (returns 400 if message contains characters that cannot be encoded). `ucs2` forces UCS-2 encoding and disables smart encoding. When set, this overrides the messaging profile's `smart_encoding` setting.",
+            "default": "auto"
           }
         },
         "example": {
@@ -56160,6 +56179,17 @@
             "description": "ISO 8601 formatted date indicating when to send the message - accurate up till a minute.",
             "format": "date-time",
             "nullable": true
+          },
+          "encoding": {
+            "enum": [
+              "auto",
+              "gsm7",
+              "ucs2"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Encoding to use for the message. `auto` (default) uses smart encoding to automatically select the most efficient encoding. `gsm7` forces GSM-7 encoding (returns 400 if message contains characters that cannot be encoded). `ucs2` forces UCS-2 encoding and disables smart encoding. When set, this overrides the messaging profile's `smart_encoding` setting.",
+            "default": "auto"
           }
         },
         "example": {
@@ -56675,6 +56705,17 @@
             "type": "boolean",
             "description": "Automatically detect if an SMS message is unusually long and exceeds a recommended limit of message parts.",
             "default": false
+          },
+          "encoding": {
+            "enum": [
+              "auto",
+              "gsm7",
+              "ucs2"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Encoding to use for the message. `auto` (default) uses smart encoding to automatically select the most efficient encoding. `gsm7` forces GSM-7 encoding (returns 400 if message contains characters that cannot be encoded). `ucs2` forces UCS-2 encoding and disables smart encoding. When set, this overrides the messaging profile's `smart_encoding` setting.",
+            "default": "auto"
           }
         },
         "example": {
@@ -57331,6 +57372,17 @@
             "type": "boolean",
             "description": "Automatically detect if an SMS message is unusually long and exceeds a recommended limit of message parts.",
             "default": false
+          },
+          "encoding": {
+            "enum": [
+              "auto",
+              "gsm7",
+              "ucs2"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Encoding to use for the message. `auto` (default) uses smart encoding to automatically select the most efficient encoding. `gsm7` forces GSM-7 encoding (returns 400 if message contains characters that cannot be encoded). `ucs2` forces UCS-2 encoding and disables smart encoding. When set, this overrides the messaging profile's `smart_encoding` setting.",
+            "default": "auto"
           }
         },
         "example": {
@@ -58869,6 +58921,56 @@
           }
         }
       },
+      "DeepgramNova2Config": {
+        "title": "DeepgramNova2Config",
+        "required": [
+          "transcription_engine",
+          "transcription_model"
+        ],
+        "type": "object",
+        "properties": {
+          "transcription_engine": {
+            "enum": [
+              "Deepgram"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "transcription_model": {
+            "enum": [
+              "deepgram/nova-2"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "language": {
+            "$ref": "#/components/schemas/DeepgramNova2TranscriptionLanguage"
+          },
+          "keywords_boosting": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "description": "Boost intensifier for the keyword. Higher values increase recognition confidence."
+            },
+            "description": "\"Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{\\\"snuffleupagus\\\": 5, \\\"systrom\\\": 2, \\\"krieger\\\": 1}`.\"",
+            "example": {
+              "snuffleupagus": 5,
+              "systrom": 2,
+              "krieger": 1
+            }
+          }
+        },
+        "example": {
+          "transcription_engine": "Deepgram",
+          "transcription_model": "deepgram/nova-2",
+          "language": "en",
+          "keywords_boosting": {
+            "snuffleupagus": 5,
+            "systrom": 2,
+            "krieger": 1
+          }
+        }
+      },
       "DeepgramNova2TranscriptionLanguage": {
         "title": "Deepgram nova-2 transcription engine list of languages",
         "enum": [
@@ -58932,6 +59034,56 @@
         "description": "Language to use for speech recognition with nova-2 model",
         "default": "en",
         "example": "en"
+      },
+      "DeepgramNova3Config": {
+        "title": "DeepgramNova3Config",
+        "required": [
+          "transcription_engine",
+          "transcription_model"
+        ],
+        "type": "object",
+        "properties": {
+          "transcription_engine": {
+            "enum": [
+              "Deepgram"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "transcription_model": {
+            "enum": [
+              "deepgram/nova-3"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "language": {
+            "$ref": "#/components/schemas/DeepgramNova3TranscriptionLanguage"
+          },
+          "keywords_boosting": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "description": "Boost intensifier for the keyword. Higher values increase recognition confidence."
+            },
+            "description": "\"Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{\\\"snuffleupagus\\\": 5, \\\"systrom\\\": 2, \\\"krieger\\\": 1}`.\"",
+            "example": {
+              "snuffleupagus": 5,
+              "systrom": 2,
+              "krieger": 1
+            }
+          }
+        },
+        "example": {
+          "transcription_engine": "Deepgram",
+          "transcription_model": "deepgram/nova-3",
+          "language": "en",
+          "keywords_boosting": {
+            "snuffleupagus": 5,
+            "systrom": 2,
+            "krieger": 1
+          }
+        }
       },
       "DeepgramNova3TranscriptionLanguage": {
         "title": "Deepgram nova-3 transcription engine list of languages",
@@ -59158,6 +59310,11 @@
             "type": "boolean",
             "description": "Whether to end the conference when the participant leaves. Defaults to `false`.",
             "example": true
+          },
+          "Label": {
+            "type": "string",
+            "description": "A unique label for the participant that will be added to the conference. The label can be used to reference the participant for updates via the TeXML REST API.",
+            "example": "customer"
           },
           "EarlyMedia": {
             "type": "boolean",
@@ -63192,7 +63349,7 @@
           },
           "voice": {
             "type": "string",
-            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`\n\nFor service_level basic, you may define the gender of the speaker (male or female).\"",
+            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`.  Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`\n- **Minimax:** Use `Minimax.<ModelId>.<VoiceId>` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Optional parameters: `speed` (float, default 1.0), `vol` (float, default 1.0), `pitch` (integer, default 0). \n- **Resemble:** Use `Resemble.<ModelId>.<VoiceId>` (e.g., `Resemble.Pro.my_voice`). Supported models: `Pro` (multilingual) and `Turbo` (English only).\"",
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
@@ -63209,6 +63366,9 @@
               },
               {
                 "$ref": "#/components/schemas/AWSVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/MinimaxVoiceSettings"
               }
             ],
             "properties": {
@@ -63222,7 +63382,8 @@
               "mapping": {
                 "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
                 "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-                "aws": "#/components/schemas/AWSVoiceSettings"
+                "aws": "#/components/schemas/AWSVoiceSettings",
+                "minimax": "#/components/schemas/MinimaxVoiceSettings"
               }
             }
           },
@@ -64229,161 +64390,6 @@
         "description": "Language to use for speech recognition",
         "default": "en",
         "example": "en"
-      },
-      "GoogleTranscriptionLanguageLong": {
-        "title": "Google transcription engine list of languages",
-        "enum": [
-          "af-ZA",
-          "am-ET",
-          "ar-AE",
-          "ar-BH",
-          "ar-DZ",
-          "ar-EG",
-          "ar-IL",
-          "ar-IQ",
-          "ar-JO",
-          "ar-KW",
-          "ar-LB",
-          "ar-MA",
-          "ar-MR",
-          "ar-OM",
-          "ar-PS",
-          "ar-QA",
-          "ar-SA",
-          "ar-TN",
-          "ar-YE",
-          "az-AZ",
-          "bg-BG",
-          "bn-BD",
-          "bn-IN",
-          "bs-BA",
-          "ca-ES",
-          "cs-CZ",
-          "da-DK",
-          "de-AT",
-          "de-CH",
-          "de-DE",
-          "el-GR",
-          "en-AU",
-          "en-CA",
-          "en-GB",
-          "en-GH",
-          "en-HK",
-          "en-IE",
-          "en-IN",
-          "en-KE",
-          "en-NG",
-          "en-NZ",
-          "en-PH",
-          "en-PK",
-          "en-SG",
-          "en-TZ",
-          "en-US",
-          "en-ZA",
-          "es-AR",
-          "es-BO",
-          "es-CL",
-          "es-CO",
-          "es-CR",
-          "es-DO",
-          "es-EC",
-          "es-ES",
-          "es-GT",
-          "es-HN",
-          "es-MX",
-          "es-NI",
-          "es-PA",
-          "es-PE",
-          "es-PR",
-          "es-PY",
-          "es-SV",
-          "es-US",
-          "es-UY",
-          "es-VE",
-          "et-EE",
-          "eu-ES",
-          "fa-IR",
-          "fi-FI",
-          "fil-PH",
-          "fr-BE",
-          "fr-CA",
-          "fr-CH",
-          "fr-FR",
-          "gl-ES",
-          "gu-IN",
-          "hi-IN",
-          "hr-HR",
-          "hu-HU",
-          "hy-AM",
-          "id-ID",
-          "is-IS",
-          "it-CH",
-          "it-IT",
-          "iw-IL",
-          "ja-JP",
-          "jv-ID",
-          "ka-GE",
-          "kk-KZ",
-          "km-KH",
-          "kn-IN",
-          "ko-KR",
-          "lo-LA",
-          "lt-LT",
-          "lv-LV",
-          "mk-MK",
-          "ml-IN",
-          "mn-MN",
-          "mr-IN",
-          "ms-MY",
-          "my-MM",
-          "ne-NP",
-          "nl-BE",
-          "nl-NL",
-          "no-NO",
-          "pa-Guru-IN",
-          "pl-PL",
-          "pt-BR",
-          "pt-PT",
-          "ro-RO",
-          "ru-RU",
-          "rw-RW",
-          "si-LK",
-          "sk-SK",
-          "sl-SI",
-          "sq-AL",
-          "sr-RS",
-          "ss-latn-za",
-          "st-ZA",
-          "su-ID",
-          "sv-SE",
-          "sw-KE",
-          "sw-TZ",
-          "ta-IN",
-          "ta-LK",
-          "ta-MY",
-          "ta-SG",
-          "te-IN",
-          "th-TH",
-          "tn-latn-za",
-          "tr-TR",
-          "ts-ZA",
-          "uk-UA",
-          "ur-IN",
-          "ur-PK",
-          "uz-UZ",
-          "ve-ZA",
-          "vi-VN",
-          "xh-ZA",
-          "yue-Hant-HK",
-          "zh",
-          "zh-TW",
-          "zu-ZA"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Language to use for speech recognition",
-        "default": "en-US",
-        "example": "en-US"
       },
       "HTTPValidationError": {
         "title": "HTTPValidationError",
@@ -65775,11 +65781,11 @@
               "detection_mode": {
                 "enum": [
                   "disabled",
-                  "detect"
+                  "premium"
                 ],
                 "type": "string",
                 "additionalProperties": false,
-                "description": "The AMD detection mode to use. 'detect' enables answering machine detection (works best when warm transfer instructions are also set). 'disabled' turns off AMD detection."
+                "description": "The AMD detection mode to use. 'premium' enables premium answering machine detection. 'disabled' turns off AMD detection."
               },
               "on_voicemail_detected": {
                 "type": "object",
@@ -65787,12 +65793,11 @@
                   "action": {
                     "enum": [
                       "stop_transfer",
-                      "leave_message_and_stop_transfer",
-                      "continue_transfer"
+                      "leave_message_and_stop_transfer"
                     ],
                     "type": "string",
                     "additionalProperties": false,
-                    "description": "The action to take when voicemail is detected. 'stop_transfer' hangs up immediately. 'leave_message_and_stop_transfer' leaves a message then hangs up. 'continue_transfer' bridges the call despite voicemail detection."
+                    "description": "The action to take when voicemail is detected. 'stop_transfer' hangs up immediately. 'leave_message_and_stop_transfer' leaves a message then hangs up."
                   },
                   "voicemail_message": {
                     "type": "object",
@@ -69555,6 +69560,43 @@
           "bucket_name": {
             "type": "string",
             "description": "Bucket name to migrate the data from."
+          }
+        }
+      },
+      "MinimaxVoiceSettings": {
+        "title": "Minimax Voice Settings",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "minimax"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice settings provider type"
+          },
+          "speed": {
+            "type": "number",
+            "description": "Speech speed multiplier. Default is 1.0.",
+            "format": "float",
+            "default": 1.0,
+            "example": 1.0
+          },
+          "vol": {
+            "type": "number",
+            "description": "Speech volume multiplier. Default is 1.0.",
+            "format": "float",
+            "default": 1.0,
+            "example": 1.0
+          },
+          "pitch": {
+            "type": "integer",
+            "description": "Voice pitch adjustment. Default is 0.",
+            "default": 0,
+            "example": 0
           }
         }
       },
@@ -73517,6 +73559,10 @@
               "$ref": "#/components/schemas/messaging_Error"
             },
             "description": "These errors may point at addressees when referring to unsuccessful/unconfirmed delivery statuses."
+          },
+          "smart_encoding_applied": {
+            "type": "boolean",
+            "description": "Indicates whether smart encoding was applied to this message. When `true`, one or more Unicode characters were automatically replaced with GSM-7 equivalents to reduce segment count and cost. The original message text is preserved in webhooks."
           }
         },
         "example": {
@@ -73907,6 +73953,10 @@
               "$ref": "#/components/schemas/messaging_Error"
             },
             "description": "These errors may point at addressees when referring to unsuccessful/unconfirmed delivery statuses."
+          },
+          "smart_encoding_applied": {
+            "type": "boolean",
+            "description": "Indicates whether smart encoding was applied to this message. When `true`, one or more Unicode characters were automatically replaced with GSM-7 equivalents to reduce segment count and cost. The original message text is preserved in webhooks."
           }
         },
         "example": {
@@ -84657,6 +84707,37 @@
           }
         }
       },
+      "SkipTurnTool": {
+        "title": "SkipTurnTool",
+        "required": [
+          "type",
+          "skip_turn"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "skip_turn"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "skip_turn": {
+            "$ref": "#/components/schemas/SkipTurnToolParams"
+          }
+        }
+      },
+      "SkipTurnToolParams": {
+        "title": "SkipTurnToolParams",
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "The description of the function that will be passed to the assistant.",
+            "default": "This tool is used to skip the assistant turn without producing a response."
+          }
+        }
+      },
       "SlimPhoneNumberDetailed": {
         "type": "object",
         "properties": {
@@ -84926,7 +85007,7 @@
           },
           "voice": {
             "type": "string",
-            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n - **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`\n\nFor service_level basic, you may define the gender of the speaker (male or female).\"",
+            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`.  Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`\n- **Minimax:** Use `Minimax.<ModelId>.<VoiceId>` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Optional parameters: `speed` (float, default 1.0), `vol` (float, default 1.0), `pitch` (integer, default 0). \n- **Resemble:** Use `Resemble.<ModelId>.<VoiceId>` (e.g., `Resemble.Pro.my_voice`). Supported models: `Pro` (multilingual) and `Turbo` (English only).\"",
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
@@ -84943,6 +85024,9 @@
               },
               {
                 "$ref": "#/components/schemas/AWSVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/MinimaxVoiceSettings"
               }
             ],
             "properties": {
@@ -84956,7 +85040,8 @@
               "mapping": {
                 "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
                 "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-                "aws": "#/components/schemas/AWSVoiceSettings"
+                "aws": "#/components/schemas/AWSVoiceSettings",
+                "minimax": "#/components/schemas/MinimaxVoiceSettings"
               }
             }
           },
@@ -85218,18 +85303,7 @@
             "example": "A"
           },
           "transcription_language": {
-            "type": "object",
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/GoogleTranscriptionLanguageLong_Wrapper"
-              },
-              {
-                "$ref": "#/components/schemas/TelnyxTranscriptionLanguage_Wrapper"
-              },
-              {
-                "$ref": "#/components/schemas/DeepgramNova3TranscriptionLanguage_Wrapper"
-              }
-            ]
+            "$ref": "#/components/schemas/TranscriptionLanguage"
           },
           "transcription_profanity_filter": {
             "type": "boolean",
@@ -90422,119 +90496,30 @@
       },
       "TranscriptionEngineDeepgramConfig": {
         "required": [
-          "type"
+          "transcription_model"
         ],
         "type": "object",
         "oneOf": [
           {
-            "title": "Deepgram Nova-2 config",
-            "required": [
-              "transcription_engine",
-              "transcription_model"
-            ],
-            "type": "object",
-            "properties": {
-              "transcription_engine": {
-                "enum": [
-                  "Deepgram"
-                ],
-                "type": "string",
-                "additionalProperties": false
-              },
-              "transcription_model": {
-                "enum": [
-                  "deepgram/nova-2"
-                ],
-                "type": "string",
-                "additionalProperties": false
-              },
-              "language": {
-                "$ref": "#/components/schemas/DeepgramNova2TranscriptionLanguage"
-              },
-              "keywords_boosting": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "number",
-                  "description": "Boost intensifier for the keyword. Higher values increase recognition confidence."
-                },
-                "description": "\"Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{\\\"snuffleupagus\\\": 5, \\\"systrom\\\": 2, \\\"krieger\\\": 1}`.\"",
-                "example": {
-                  "snuffleupagus": 5,
-                  "systrom": 2,
-                  "krieger": 1
-                }
-              }
-            },
-            "example": {
-              "transcription_engine": "Deepgram",
-              "transcription_model": "deepgram/nova-2",
-              "language": "en",
-              "keywords_boosting": {
-                "snuffleupagus": 5,
-                "systrom": 2,
-                "krieger": 1
-              }
-            }
+            "$ref": "#/components/schemas/DeepgramNova2Config"
           },
           {
-            "title": "Deepgram Nova-3 config",
-            "required": [
-              "transcription_engine",
-              "transcription_model"
-            ],
-            "type": "object",
-            "properties": {
-              "transcription_engine": {
-                "enum": [
-                  "Deepgram"
-                ],
-                "type": "string",
-                "additionalProperties": false
-              },
-              "transcription_model": {
-                "enum": [
-                  "deepgram/nova-3"
-                ],
-                "type": "string",
-                "additionalProperties": false
-              },
-              "language": {
-                "$ref": "#/components/schemas/DeepgramNova3TranscriptionLanguage"
-              },
-              "keywords_boosting": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "number",
-                  "description": "Boost intensifier for the keyword. Higher values increase recognition confidence."
-                },
-                "description": "\"Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{\\\"snuffleupagus\\\": 5, \\\"systrom\\\": 2, \\\"krieger\\\": 1}`.\"",
-                "example": {
-                  "snuffleupagus": 5,
-                  "systrom": 2,
-                  "krieger": 1
-                }
-              }
-            },
-            "example": {
-              "transcription_engine": "Deepgram",
-              "transcription_model": "deepgram/nova-3",
-              "language": "en",
-              "keywords_boosting": {
-                "snuffleupagus": 5,
-                "systrom": 2,
-                "krieger": 1
-              }
-            }
+            "$ref": "#/components/schemas/DeepgramNova3Config"
           }
         ],
         "properties": {
-          "type": {
+          "transcription_model": {
+            "title": "transcription_model",
             "type": "string",
             "description": "Union discriminator"
           }
         },
         "discriminator": {
-          "propertyName": "type"
+          "propertyName": "transcription_model",
+          "mapping": {
+            "DeepgramNova2Config": "#/components/schemas/DeepgramNova2Config",
+            "DeepgramNova3Config": "#/components/schemas/DeepgramNova3Config"
+          }
         }
       },
       "TranscriptionEngineGoogleConfig": {
@@ -90676,6 +90661,261 @@
             "$ref": "#/components/schemas/Transcription"
           }
         }
+      },
+      "TranscriptionLanguage": {
+        "title": "Transcription Language",
+        "enum": [
+          "af",
+          "af-ZA",
+          "am",
+          "am-ET",
+          "ar",
+          "ar-AE",
+          "ar-BH",
+          "ar-DZ",
+          "ar-EG",
+          "ar-IL",
+          "ar-IQ",
+          "ar-JO",
+          "ar-KW",
+          "ar-LB",
+          "ar-MA",
+          "ar-MR",
+          "ar-OM",
+          "ar-PS",
+          "ar-QA",
+          "ar-SA",
+          "ar-TN",
+          "ar-YE",
+          "as",
+          "auto_detect",
+          "az",
+          "az-AZ",
+          "ba",
+          "be",
+          "bg",
+          "bg-BG",
+          "bn",
+          "bn-BD",
+          "bn-IN",
+          "bo",
+          "br",
+          "bs",
+          "bs-BA",
+          "ca",
+          "ca-ES",
+          "cs",
+          "cs-CZ",
+          "cy",
+          "da",
+          "da-DK",
+          "de",
+          "de-AT",
+          "de-CH",
+          "de-DE",
+          "el",
+          "el-GR",
+          "en",
+          "en-AU",
+          "en-CA",
+          "en-GB",
+          "en-GH",
+          "en-HK",
+          "en-IE",
+          "en-IN",
+          "en-KE",
+          "en-NG",
+          "en-NZ",
+          "en-PH",
+          "en-PK",
+          "en-SG",
+          "en-TZ",
+          "en-US",
+          "en-ZA",
+          "es",
+          "es-419",
+          "es-AR",
+          "es-BO",
+          "es-CL",
+          "es-CO",
+          "es-CR",
+          "es-DO",
+          "es-EC",
+          "es-ES",
+          "es-GT",
+          "es-HN",
+          "es-MX",
+          "es-NI",
+          "es-PA",
+          "es-PE",
+          "es-PR",
+          "es-PY",
+          "es-SV",
+          "es-US",
+          "es-UY",
+          "es-VE",
+          "et",
+          "et-EE",
+          "eu",
+          "eu-ES",
+          "fa",
+          "fa-IR",
+          "fi",
+          "fi-FI",
+          "fil-PH",
+          "fo",
+          "fr",
+          "fr-BE",
+          "fr-CA",
+          "fr-CH",
+          "fr-FR",
+          "gl",
+          "gl-ES",
+          "gu",
+          "gu-IN",
+          "ha",
+          "haw",
+          "he",
+          "hi",
+          "hi-IN",
+          "hr",
+          "hr-HR",
+          "ht",
+          "hu",
+          "hu-HU",
+          "hy",
+          "hy-AM",
+          "id",
+          "id-ID",
+          "is",
+          "is-IS",
+          "it",
+          "it-CH",
+          "it-IT",
+          "iw-IL",
+          "ja",
+          "ja-JP",
+          "jv-ID",
+          "jw",
+          "ka",
+          "ka-GE",
+          "kk",
+          "kk-KZ",
+          "km",
+          "km-KH",
+          "kn",
+          "kn-IN",
+          "ko",
+          "ko-KR",
+          "la",
+          "lb",
+          "ln",
+          "lo",
+          "lo-LA",
+          "lt",
+          "lt-LT",
+          "lv",
+          "lv-LV",
+          "mg",
+          "mi",
+          "mk",
+          "mk-MK",
+          "ml",
+          "ml-IN",
+          "mn",
+          "mn-MN",
+          "mr",
+          "mr-IN",
+          "ms",
+          "ms-MY",
+          "mt",
+          "my",
+          "my-MM",
+          "ne",
+          "ne-NP",
+          "nl",
+          "nl-BE",
+          "nl-NL",
+          "nn",
+          "no",
+          "no-NO",
+          "oc",
+          "pa",
+          "pa-Guru-IN",
+          "pl",
+          "pl-PL",
+          "ps",
+          "pt",
+          "pt-BR",
+          "pt-PT",
+          "ro",
+          "ro-RO",
+          "ru",
+          "ru-RU",
+          "rw-RW",
+          "sa",
+          "sd",
+          "si",
+          "si-LK",
+          "sk",
+          "sk-SK",
+          "sl",
+          "sl-SI",
+          "sn",
+          "so",
+          "sq",
+          "sq-AL",
+          "sr",
+          "sr-RS",
+          "ss-latn-za",
+          "st-ZA",
+          "su",
+          "su-ID",
+          "sv",
+          "sv-SE",
+          "sw",
+          "sw-KE",
+          "sw-TZ",
+          "ta",
+          "ta-IN",
+          "ta-LK",
+          "ta-MY",
+          "ta-SG",
+          "te",
+          "te-IN",
+          "tg",
+          "th",
+          "th-TH",
+          "tk",
+          "tl",
+          "tn-latn-za",
+          "tr",
+          "tr-TR",
+          "ts-ZA",
+          "tt",
+          "uk",
+          "uk-UA",
+          "ur",
+          "ur-IN",
+          "ur-PK",
+          "uz",
+          "uz-UZ",
+          "ve-ZA",
+          "vi",
+          "vi-VN",
+          "xh-ZA",
+          "yi",
+          "yo",
+          "yue-Hant-HK",
+          "zh",
+          "zh-TW",
+          "zu-ZA"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "\"Language code for transcription. Note: Not all languages are supported by all transcription engines (google, telnyx, deepgram). See engine-specific documentation for supported values.\"",
+        "default": "en-US",
+        "example": "en-US"
       },
       "TranscriptionSettings": {
         "type": "object",
@@ -102103,39 +102343,6 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/PortingOrderActivationStatus"
-          }
-        }
-      },
-      "GoogleTranscriptionLanguageLong_Wrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/GoogleTranscriptionLanguageLong"
-          }
-        }
-      },
-      "TelnyxTranscriptionLanguage_Wrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/TelnyxTranscriptionLanguage"
-          }
-        }
-      },
-      "DeepgramNova3TranscriptionLanguage_Wrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/DeepgramNova3TranscriptionLanguage"
           }
         }
       },

@@ -26,15 +26,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage? Language { get; set; }
         /// <summary>The transcription_engine property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine? TranscriptionEngine { get; set; }
-        /// <summary>The transcription_model property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_model? TranscriptionModel { get; set; }
         /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public string? TranscriptionModel { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public string TranscriptionModel { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig"/> and sets the default values.
@@ -65,8 +63,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "keywords_boosting", n => { KeywordsBoosting = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>(); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine>(); } },
-                { "transcription_model", n => { TranscriptionModel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_model>(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "transcription_model", n => { TranscriptionModel = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -79,8 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting>("keywords_boosting", KeywordsBoosting);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_model>("transcription_model", TranscriptionModel);
-            writer.WriteStringValue("type", Type);
+            writer.WriteStringValue("transcription_model", TranscriptionModel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

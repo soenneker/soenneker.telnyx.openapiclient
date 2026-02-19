@@ -23,7 +23,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection_detection_config DetectionConfig { get; set; }
 #endif
-        /// <summary>The AMD detection mode to use. &apos;detect&apos; enables answering machine detection (works best when warm transfer instructions are also set). &apos;disabled&apos; turns off AMD detection.</summary>
+        /// <summary>The AMD detection mode to use. &apos;premium&apos; enables premium answering machine detection. &apos;disabled&apos; turns off AMD detection.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection_detection_mode? DetectionMode { get; set; }
         /// <summary>Action to take when voicemail is detected on the transferred call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

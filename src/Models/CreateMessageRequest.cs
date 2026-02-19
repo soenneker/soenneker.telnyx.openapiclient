@@ -16,6 +16,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Automatically detect if an SMS message is unusually long and exceeds a recommended limit of message parts.</summary>
         public bool? AutoDetect { get; set; }
+        /// <summary>Encoding to use for the message. `auto` (default) uses smart encoding to automatically select the most efficient encoding. `gsm7` forces GSM-7 encoding (returns 400 if message contains characters that cannot be encoded). `ucs2` forces UCS-2 encoding and disables smart encoding. When set, this overrides the messaging profile&apos;s `smart_encoding` setting.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest_encoding? Encoding { get; set; }
         /// <summary>Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).**Required if sending with a phone number, short code, or alphanumeric sender ID.**</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public CreateMessageRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            Encoding = global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest_encoding.Auto;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -112,6 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auto_detect", n => { AutoDetect = n.GetBoolValue(); } },
+                { "encoding", n => { Encoding = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest_encoding>(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "media_urls", n => { MediaUrls = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
@@ -133,6 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("auto_detect", AutoDetect);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessageRequest_encoding>("encoding", Encoding);
             writer.WriteStringValue("from", From);
             writer.WriteCollectionOfPrimitiveValues<string>("media_urls", MediaUrls);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);

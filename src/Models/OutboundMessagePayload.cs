@@ -94,6 +94,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_record_type? RecordType { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the message was sent.</summary>
         public DateTimeOffset? SentAt { get; set; }
+        /// <summary>Indicates whether smart encoding was applied to this message. When `true`, one or more Unicode characters were automatically replaced with GSM-7 equivalents to reduce segment count and cost. The original message text is preserved in webhooks.</summary>
+        public bool? SmartEncodingApplied { get; set; }
         /// <summary>Subject of multimedia message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -205,6 +207,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "received_at", n => { ReceivedAt = n.GetDateTimeOffsetValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_record_type>(); } },
                 { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
+                { "smart_encoding_applied", n => { SmartEncodingApplied = n.GetBoolValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "tcr_campaign_billable", n => { TcrCampaignBillable = n.GetBoolValue(); } },
@@ -241,6 +244,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("received_at", ReceivedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_record_type>("record_type", RecordType);
             writer.WriteDateTimeOffsetValue("sent_at", SentAt);
+            writer.WriteBoolValue("smart_encoding_applied", SmartEncodingApplied);
             writer.WriteStringValue("subject", Subject);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteBoolValue("tcr_campaign_billable", TcrCampaignBillable);

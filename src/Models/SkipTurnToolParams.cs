@@ -9,30 +9,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class DeepgramNova3TranscriptionLanguage_Wrapper : IAdditionalDataHolder, IParsable
+    public partial class SkipTurnToolParams : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Language to use for speech recognition with nova-3 model</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage? Value { get; set; }
+        /// <summary>The description of the function that will be passed to the assistant.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams"/> and sets the default values.
         /// </summary>
-        public DeepgramNova3TranscriptionLanguage_Wrapper()
+        public SkipTurnToolParams()
         {
             AdditionalData = new Dictionary<string, object>();
-            Value = global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage.En;
+            Description = "This tool is used to skip the assistant turn without producing a response.";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage_Wrapper();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnToolParams();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -52,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova3TranscriptionLanguage>("value", Value);
+            writer.WriteStringValue("description", Description);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

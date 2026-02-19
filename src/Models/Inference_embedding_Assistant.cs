@@ -245,7 +245,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Assistants : IComposedTypeWrapper, IParsable
@@ -314,6 +314,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool SIPReferTool { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool? SkipTurnTool { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool SkipTurnTool { get; set; }
+#endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
@@ -356,6 +364,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.SendMessageTool = new global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool();
                 }
+                else if("SkipTurnTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.SkipTurnTool = new global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool();
+                }
                 return result;
             }
             /// <summary>
@@ -395,6 +407,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if(SIPReferTool != null)
                 {
                     return SIPReferTool.GetFieldDeserializers();
+                }
+                else if(SkipTurnTool != null)
+                {
+                    return SkipTurnTool.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -436,6 +452,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if(SIPReferTool != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool>(null, SIPReferTool);
+                }
+                else if(SkipTurnTool != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool>(null, SkipTurnTool);
                 }
             }
         }

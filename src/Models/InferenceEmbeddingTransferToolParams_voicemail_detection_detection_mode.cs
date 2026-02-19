@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The AMD detection mode to use. &apos;detect&apos; enables answering machine detection (works best when warm transfer instructions are also set). &apos;disabled&apos; turns off AMD detection.</summary>
+    /// <summary>The AMD detection mode to use. &apos;premium&apos; enables premium answering machine detection. &apos;disabled&apos; turns off AMD detection.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum InferenceEmbeddingTransferToolParams_voicemail_detection_detection_mode
     {
@@ -11,9 +11,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Disabled,
         #pragma warning restore CS1591
-        [EnumMember(Value = "detect")]
+        [EnumMember(Value = "premium")]
         #pragma warning disable CS1591
-        Detect,
+        Premium,
         #pragma warning restore CS1591
     }
 }

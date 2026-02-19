@@ -110,6 +110,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string From { get; set; }
 #endif
+        /// <summary>A unique label for the participant that will be added to the conference. The label can be used to reference the participant for updates via the TeXML REST API.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Label { get; set; }
+#nullable restore
+#else
+        public string Label { get; set; }
+#endif
         /// <summary>Whether to detect if a human or an answering machine picked up the call. Use `Enable` if you would like to ne notified as soon as the called party is identified. Use `DetectMessageEnd`, if you would like to leave a message on an answering machine.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_MachineDetection? MachineDetection { get; set; }
         /// <summary>If initial silence duration is greater than this value, consider it a machine. Ignored when `premium` detection is used.</summary>
@@ -260,6 +268,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "EarlyMedia", n => { EarlyMedia = n.GetBoolValue(); } },
                 { "EndConferenceOnExit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "From", n => { From = n.GetStringValue(); } },
+                { "Label", n => { Label = n.GetStringValue(); } },
                 { "MachineDetection", n => { MachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_MachineDetection>(); } },
                 { "MachineDetectionSilenceTimeout", n => { MachineDetectionSilenceTimeout = n.GetIntValue(); } },
                 { "MachineDetectionSpeechEndThreshold", n => { MachineDetectionSpeechEndThreshold = n.GetIntValue(); } },
@@ -315,6 +324,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("EarlyMedia", EarlyMedia);
             writer.WriteBoolValue("EndConferenceOnExit", EndConferenceOnExit);
             writer.WriteStringValue("From", From);
+            writer.WriteStringValue("Label", Label);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_MachineDetection>("MachineDetection", MachineDetection);
             writer.WriteIntValue("MachineDetectionSilenceTimeout", MachineDetectionSilenceTimeout);
             writer.WriteIntValue("MachineDetectionSpeechEndThreshold", MachineDetectionSpeechEndThreshold);

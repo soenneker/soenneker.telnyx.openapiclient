@@ -9,30 +9,35 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class GoogleTranscriptionLanguageLong_Wrapper : IAdditionalDataHolder, IParsable
+    public partial class MinimaxVoiceSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Language to use for speech recognition</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong? Value { get; set; }
+        /// <summary>Voice pitch adjustment. Default is 0.</summary>
+        public int? Pitch { get; set; }
+        /// <summary>Speech speed multiplier. Default is 1.0.</summary>
+        public float? Speed { get; set; }
+        /// <summary>Voice settings provider type</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings_type? Type { get; set; }
+        /// <summary>Speech volume multiplier. Default is 1.0.</summary>
+        public float? Vol { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings"/> and sets the default values.
         /// </summary>
-        public GoogleTranscriptionLanguageLong_Wrapper()
+        public MinimaxVoiceSettings()
         {
             AdditionalData = new Dictionary<string, object>();
-            Value = global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong.EnUS;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong_Wrapper();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +47,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong>(); } },
+                { "pitch", n => { Pitch = n.GetIntValue(); } },
+                { "speed", n => { Speed = n.GetFloatValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings_type>(); } },
+                { "vol", n => { Vol = n.GetFloatValue(); } },
             };
         }
         /// <summary>
@@ -52,7 +60,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguageLong>("value", Value);
+            writer.WriteIntValue("pitch", Pitch);
+            writer.WriteFloatValue("speed", Speed);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings_type>("type", Type);
+            writer.WriteFloatValue("vol", Vol);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

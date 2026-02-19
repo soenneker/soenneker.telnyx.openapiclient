@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The noise suppression engine to use. &apos;denoiser&apos; is the default engine. &apos;deep_filter_net&apos; and &apos;deep_filter_net_large&apos; are alternative engines with different performance characteristics. Krisp engines (&apos;krisp_viva_tel&apos;, &apos;krisp_viva_tel_lite&apos;, &apos;krisp_viva_promodel&apos;, &apos;krisp_viva_ss&apos;) provide advanced noise suppression capabilities.</summary>
+    /// <summary>The noise suppression engine to use. &apos;denoiser&apos; is the default engine. &apos;deep_filter_net&apos; and &apos;deep_filter_net_large&apos; are alternative engines with different performance characteristics. Krisp engines (&apos;krisp_viva_tel&apos;, &apos;krisp_viva_tel_lite&apos;, &apos;krisp_viva_promodel&apos;, &apos;krisp_viva_ss&apos;) provide advanced noise suppression capabilities. &apos;quail_voice_focus&apos; provides Quail-based voice focus noise suppression.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ConnectionNoiseSuppressionDetails_engine
     {
@@ -34,6 +34,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "krisp_viva_ss")]
         #pragma warning disable CS1591
         Krisp_viva_ss,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "quail_voice_focus")]
+        #pragma warning disable CS1591
+        Quail_voice_focus,
         #pragma warning restore CS1591
     }
 }
