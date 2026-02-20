@@ -166,6 +166,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Texml { get; set; }
 #endif
+        /// <summary>The maximum duration of the call in seconds. The minimum value is 30 and the maximum value is 14400 (4 hours). Default is 14400 seconds.</summary>
+        public int? TimeLimit { get; set; }
+        /// <summary>The number of seconds to wait for the called party to answer the call before the call is canceled. The minimum value is 5 and the maximum value is 120. Default is 30 seconds.</summary>
+        public int? Timeout { get; set; }
         /// <summary>The phone number of the called party. Phone numbers are formatted with a `+` and country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -253,6 +257,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "SuperviseCallSid", n => { SuperviseCallSid = n.GetStringValue(); } },
                 { "SupervisingRole", n => { SupervisingRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SupervisingRole>(); } },
                 { "Texml", n => { Texml = n.GetStringValue(); } },
+                { "TimeLimit", n => { TimeLimit = n.GetIntValue(); } },
+                { "Timeout", n => { Timeout = n.GetIntValue(); } },
                 { "To", n => { To = n.GetStringValue(); } },
                 { "Trim", n => { Trim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_Trim>(); } },
                 { "Url", n => { Url = n.GetStringValue(); } },
@@ -300,6 +306,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("SuperviseCallSid", SuperviseCallSid);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SupervisingRole>("SupervisingRole", SupervisingRole);
             writer.WriteStringValue("Texml", Texml);
+            writer.WriteIntValue("TimeLimit", TimeLimit);
+            writer.WriteIntValue("Timeout", Timeout);
             writer.WriteStringValue("To", To);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_Trim>("Trim", Trim);
             writer.WriteStringValue("Url", Url);

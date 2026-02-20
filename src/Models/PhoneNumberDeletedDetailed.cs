@@ -82,6 +82,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ExternalPin { get; set; }
 #endif
+        /// <summary>Indicates whether HD voice is enabled for this number.</summary>
+        public bool? HdVoiceEnabled { get; private set; }
         /// <summary>Identifies the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -190,6 +192,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "emergency_address_id", n => { EmergencyAddressId = n.GetStringValue(); } },
                 { "emergency_enabled", n => { EmergencyEnabled = n.GetBoolValue(); } },
                 { "external_pin", n => { ExternalPin = n.GetStringValue(); } },
+                { "hd_voice_enabled", n => { HdVoiceEnabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
                 { "messaging_profile_name", n => { MessagingProfileName = n.GetStringValue(); } },

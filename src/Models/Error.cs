@@ -22,13 +22,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Code { get; set; }
 #endif
-        /// <summary>The detail property</summary>
+        /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Detail { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public string Detail { get; set; }
+        public string Description { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetStringValue(); } },
-                { "detail", n => { Detail = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta>(global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_source>(global::Soenneker.Telnyx.OpenApiClient.Models.Error_source.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
-            writer.WriteStringValue("detail", Detail);
+            writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta>("meta", Meta);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_source>("source", Source);
             writer.WriteStringValue("title", Title);

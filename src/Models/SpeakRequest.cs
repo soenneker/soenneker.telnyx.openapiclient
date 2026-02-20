@@ -32,6 +32,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The language you want spoken. This parameter is ignored when a `Polly.*` voice is specified.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_language? Language { get; set; }
+        /// <summary>The loop property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount? Loop { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount Loop { get; set; }
+#endif
         /// <summary>The text or SSML to be converted into speech. There is a 3,000 character limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,6 +60,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Stop { get; set; }
 #endif
+        /// <summary>Specifies which legs of the call should receive the spoken audio.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_target_legs? TargetLegs { get; set; }
         /// <summary>&quot;Specifies the voice used in speech synthesis.- Define voices using the format `&lt;Provider&gt;.&lt;Model&gt;.&lt;VoiceId&gt;`. Specifying only the provider will give default values for voice_id and model_id. **Supported Providers:**- **AWS:** Use `AWS.Polly.&lt;VoiceId&gt;` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.- **Azure:** Use `Azure.&lt;VoiceId&gt;. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)- **ElevenLabs:** Use `ElevenLabs.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\&quot;voice_settings\&quot;: {\&quot;api_key_ref\&quot;: \&quot;&lt;secret_identifier&gt;\&quot;}`.  Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).- **Telnyx:** Use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;`- **Minimax:** Use `Minimax.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Optional parameters: `speed` (float, default 1.0), `vol` (float, default 1.0), `pitch` (integer, default 0). - **Resemble:** Use `Resemble.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `Resemble.Pro.my_voice`). Supported models: `Pro` (multilingual) and `Turbo` (English only).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,6 +86,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             PayloadType = global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_payload_type.Text;
             ServiceLevel = global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_service_level.Premium;
+            TargetLegs = global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_target_legs.Self;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -98,10 +109,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_language>(); } },
+                { "loop", n => { Loop = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount>(global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount.CreateFromDiscriminatorValue); } },
                 { "payload", n => { Payload = n.GetStringValue(); } },
                 { "payload_type", n => { PayloadType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_payload_type>(); } },
                 { "service_level", n => { ServiceLevel = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_service_level>(); } },
                 { "stop", n => { Stop = n.GetStringValue(); } },
+                { "target_legs", n => { TargetLegs = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_target_legs>(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
                 { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest.SpeakRequest_voice_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest.SpeakRequest_voice_settings.CreateFromDiscriminatorValue); } },
             };
@@ -116,10 +129,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_language>("language", Language);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount>("loop", Loop);
             writer.WriteStringValue("payload", Payload);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_payload_type>("payload_type", PayloadType);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_service_level>("service_level", ServiceLevel);
             writer.WriteStringValue("stop", Stop);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_target_legs>("target_legs", TargetLegs);
             writer.WriteStringValue("voice", Voice);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest.SpeakRequest_voice_settings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);

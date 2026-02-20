@@ -94,6 +94,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ParkAfterUnbridge { get; set; }
 #endif
+        /// <summary>The list of comma-separated codecs in order of preference to be used during the call. The codecs supported are `G722`, `PCMU`, `PCMA`, `G729`, `OPUS`, `VP8`, `H264`, `AMR-WB`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PreferredCodecs { get; set; }
+#nullable restore
+#else
+        public string PreferredCodecs { get; set; }
+#endif
         /// <summary>Start recording automatically after an event. Disabled by default.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record? Record { get; set; }
         /// <summary>Defines which channel should be recorded (&apos;single&apos; or &apos;dual&apos;) when `record` is specified.</summary>
@@ -172,6 +180,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string To { get; set; }
 #endif
+        /// <summary>A map of event types to retry policies. Each retry policy contains an array of `retries_ms` specifying the delays between retry attempts in milliseconds. Maximum 5 retries, total delay cannot exceed 60 seconds.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_retries_policies? WebhookRetriesPolicies { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_retries_policies WebhookRetriesPolicies { get; set; }
+#endif
         /// <summary>Use this field to override the URL for which Telnyx will send subsequent webhooks to for this call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -182,6 +198,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>HTTP request type used for `webhook_url`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_url_method? WebhookUrlMethod { get; set; }
+        /// <summary>A map of event types to webhook URLs. When an event of the specified type occurs, the webhook URL associated with that event type will be called instead of `webhook_url`. Events not mapped here will use the default `webhook_url`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls? WebhookUrls { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls WebhookUrls { get; set; }
+#endif
+        /// <summary>HTTP request method to invoke `webhook_urls`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls_method? WebhookUrlsMethod { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest"/> and sets the default values.
         /// </summary>
@@ -197,6 +223,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             SipRegion = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_region.US;
             SipTransportProtocol = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_sip_transport_protocol.UDP;
             WebhookUrlMethod = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_url_method.POST;
+            WebhookUrlsMethod = global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls_method.POST;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -229,6 +256,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "media_name", n => { MediaName = n.GetStringValue(); } },
                 { "mute_dtmf", n => { MuteDtmf = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf>(); } },
                 { "park_after_unbridge", n => { ParkAfterUnbridge = n.GetStringValue(); } },
+                { "preferred_codecs", n => { PreferredCodecs = n.GetStringValue(); } },
                 { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record>(); } },
                 { "record_channels", n => { RecordChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_channels>(); } },
                 { "record_custom_file_name", n => { RecordCustomFileName = n.GetStringValue(); } },
@@ -247,8 +275,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "time_limit_secs", n => { TimeLimitSecs = n.GetIntValue(); } },
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
+                { "webhook_retries_policies", n => { WebhookRetriesPolicies = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_retries_policies>(global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_retries_policies.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
                 { "webhook_url_method", n => { WebhookUrlMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_url_method>(); } },
+                { "webhook_urls", n => { WebhookUrls = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls>(global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls.CreateFromDiscriminatorValue); } },
+                { "webhook_urls_method", n => { WebhookUrlsMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls_method>(); } },
             };
         }
         /// <summary>
@@ -271,6 +302,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("media_name", MediaName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf>("mute_dtmf", MuteDtmf);
             writer.WriteStringValue("park_after_unbridge", ParkAfterUnbridge);
+            writer.WriteStringValue("preferred_codecs", PreferredCodecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record>("record", Record);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_channels>("record_channels", RecordChannels);
             writer.WriteStringValue("record_custom_file_name", RecordCustomFileName);
@@ -289,8 +321,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("time_limit_secs", TimeLimitSecs);
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
             writer.WriteStringValue("to", To);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_retries_policies>("webhook_retries_policies", WebhookRetriesPolicies);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_url_method>("webhook_url_method", WebhookUrlMethod);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls>("webhook_urls", WebhookUrls);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_webhook_urls_method>("webhook_urls_method", WebhookUrlsMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

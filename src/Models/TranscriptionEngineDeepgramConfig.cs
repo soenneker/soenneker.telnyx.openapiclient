@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether to send also interim results. If set to false, only final results will be sent.</summary>
+        public bool? InterimResults { get; set; }
         /// <summary>&quot;Keywords and their respective intensifiers (boosting values) to improve transcription accuracy for specific words or phrases. The intensifier should be a numeric value. Example: `{\&quot;snuffleupagus\&quot;: 5, \&quot;systrom\&quot;: 2, \&quot;krieger\&quot;: 1}`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,6 +36,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string TranscriptionModel { get; set; }
 #endif
+        /// <summary>Number of milliseconds of silence to consider an utterance ended. Ranges from 0 to 5000 ms.</summary>
+        public int? UtteranceEndMs { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig"/> and sets the default values.
         /// </summary>
@@ -60,10 +64,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "interim_results", n => { InterimResults = n.GetBoolValue(); } },
                 { "keywords_boosting", n => { KeywordsBoosting = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>(); } },
                 { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine>(); } },
                 { "transcription_model", n => { TranscriptionModel = n.GetStringValue(); } },
+                { "utterance_end_ms", n => { UtteranceEndMs = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -73,10 +79,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("interim_results", InterimResults);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_keywords_boosting>("keywords_boosting", KeywordsBoosting);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeepgramNova2TranscriptionLanguage>("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionEngineDeepgramConfig_transcription_engine>("transcription_engine", TranscriptionEngine);
             writer.WriteStringValue("transcription_model", TranscriptionModel);
+            writer.WriteIntValue("utterance_end_ms", UtteranceEndMs);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

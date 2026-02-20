@@ -14,52 +14,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_AnnounceMethod? AnnounceMethod { get; set; }
-        /// <summary>The URL to call to announce something to the participant. The URL may return an MP3 fileo a WAV file, or a TwiML document that contains `&lt;Play&gt;`, `&lt;Say&gt;`, `&lt;Pause&gt;`, or `&lt;Redirect&gt;` verbs.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AnnounceUrl { get; set; }
-#nullable restore
-#else
-        public string AnnounceUrl { get; set; }
-#endif
-        /// <summary>Whether to play a notification beep to the conference when the participant exits.</summary>
-        public bool? BeepOnExit { get; set; }
-        /// <summary>The SID of the participant who is being coached. The participant being coached is the only participant who can hear the participant who is coaching.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CallSidToCoach { get; set; }
-#nullable restore
-#else
-        public string CallSidToCoach { get; set; }
-#endif
-        /// <summary>Whether the participant is coaching another call. When `true`, `CallSidToCoach` has to be given.</summary>
-        public bool? Coaching { get; set; }
-        /// <summary>Whether to end the conference when the participant leaves.</summary>
+        /// <summary>Whether entry/exit beeps are enabled for this participant.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_beep_enabled? BeepEnabled { get; set; }
+        /// <summary>Whether the conference should end when this participant exits.</summary>
         public bool? EndConferenceOnExit { get; set; }
-        /// <summary>Whether the participant should be on hold.</summary>
-        public bool? Hold { get; set; }
-        /// <summary>The HTTP method to use when calling the `HoldUrl`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_HoldMethod? HoldMethod { get; set; }
-        /// <summary>The URL to be called using the `HoldMethod` for music that plays when the participant is on hold. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `&lt;Play&gt;`, `&lt;Say&gt;`, `&lt;Pause&gt;`, or `&lt;Redirect&gt;` verbs.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? HoldUrl { get; set; }
-#nullable restore
-#else
-        public string HoldUrl { get; set; }
-#endif
-        /// <summary>Whether the participant should be muted.</summary>
-        public bool? Muted { get; set; }
-        /// <summary>The URL to call for an audio file to play while the participant is waiting for the conference to start.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? WaitUrl { get; set; }
-#nullable restore
-#else
-        public string WaitUrl { get; set; }
-#endif
+        /// <summary>Whether the conference should soft-end when this participant exits. A soft end will stop new participants from joining but allow existing participants to remain.</summary>
+        public bool? SoftEndConferenceOnExit { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest"/> and sets the default values.
         /// </summary>
@@ -85,17 +45,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "AnnounceMethod", n => { AnnounceMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_AnnounceMethod>(); } },
-                { "AnnounceUrl", n => { AnnounceUrl = n.GetStringValue(); } },
-                { "BeepOnExit", n => { BeepOnExit = n.GetBoolValue(); } },
-                { "CallSidToCoach", n => { CallSidToCoach = n.GetStringValue(); } },
-                { "Coaching", n => { Coaching = n.GetBoolValue(); } },
-                { "EndConferenceOnExit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
-                { "Hold", n => { Hold = n.GetBoolValue(); } },
-                { "HoldMethod", n => { HoldMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_HoldMethod>(); } },
-                { "HoldUrl", n => { HoldUrl = n.GetStringValue(); } },
-                { "Muted", n => { Muted = n.GetBoolValue(); } },
-                { "WaitUrl", n => { WaitUrl = n.GetStringValue(); } },
+                { "beep_enabled", n => { BeepEnabled = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_beep_enabled>(); } },
+                { "end_conference_on_exit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
+                { "soft_end_conference_on_exit", n => { SoftEndConferenceOnExit = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -105,17 +57,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_AnnounceMethod>("AnnounceMethod", AnnounceMethod);
-            writer.WriteStringValue("AnnounceUrl", AnnounceUrl);
-            writer.WriteBoolValue("BeepOnExit", BeepOnExit);
-            writer.WriteStringValue("CallSidToCoach", CallSidToCoach);
-            writer.WriteBoolValue("Coaching", Coaching);
-            writer.WriteBoolValue("EndConferenceOnExit", EndConferenceOnExit);
-            writer.WriteBoolValue("Hold", Hold);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_HoldMethod>("HoldMethod", HoldMethod);
-            writer.WriteStringValue("HoldUrl", HoldUrl);
-            writer.WriteBoolValue("Muted", Muted);
-            writer.WriteStringValue("WaitUrl", WaitUrl);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateConferenceParticipantRequest_beep_enabled>("beep_enabled", BeepEnabled);
+            writer.WriteBoolValue("end_conference_on_exit", EndConferenceOnExit);
+            writer.WriteBoolValue("soft_end_conference_on_exit", SoftEndConferenceOnExit);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

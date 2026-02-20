@@ -16,6 +16,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An ISO 8901 datetime string denoting when the individual number reservation was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
+        /// <summary>Errors the reservation could happen upon</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Errors { get; private set; }
+#nullable restore
+#else
+        public string Errors { get; private set; }
+#endif
         /// <summary>An ISO 8901 datetime string for when the individual number reservation is going to expire</summary>
         public DateTimeOffset? ExpiredAt { get; private set; }
         /// <summary>The id property</summary>
@@ -66,6 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "errors", n => { Errors = n.GetStringValue(); } },
                 { "expired_at", n => { ExpiredAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },

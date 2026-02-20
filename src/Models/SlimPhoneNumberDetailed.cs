@@ -82,6 +82,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ExternalPin { get; set; }
 #endif
+        /// <summary>Indicates whether HD voice is enabled for this number.</summary>
+        public bool? HdVoiceEnabled { get; private set; }
         /// <summary>Identifies the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,6 +124,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.SlimPhoneNumberDetailed_status? Status { get; private set; }
         /// <summary>Indicates whether T38 Fax Gateway for inbound calls to this number.</summary>
         public bool? T38FaxGatewayEnabled { get; private set; }
+        /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UpdatedAt { get; private set; }
+#nullable restore
+#else
+        public string UpdatedAt { get; private set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SlimPhoneNumberDetailed"/> and sets the default values.
         /// </summary>
@@ -161,6 +171,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "emergency_enabled", n => { EmergencyEnabled = n.GetBoolValue(); } },
                 { "emergency_status", n => { EmergencyStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SlimPhoneNumberDetailed_emergency_status>(); } },
                 { "external_pin", n => { ExternalPin = n.GetStringValue(); } },
+                { "hd_voice_enabled", n => { HdVoiceEnabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SlimPhoneNumberDetailed_inbound_call_screening>(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
@@ -169,6 +180,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SlimPhoneNumberDetailed_status>(); } },
                 { "t38_fax_gateway_enabled", n => { T38FaxGatewayEnabled = n.GetBoolValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
         /// <summary>

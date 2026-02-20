@@ -30,6 +30,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.Feature> Features { get; set; }
 #endif
+        /// <summary>The phone_number property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PhoneNumber { get; set; }
+#nullable restore
+#else
+        public string PhoneNumber { get; set; }
+#endif
         /// <summary>The range property</summary>
         public int? Range { get; set; }
         /// <summary>The record_type property</summary>
@@ -41,14 +49,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation> RegionInformation { get; set; }
-#endif
-        /// <summary>The starting_number property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? StartingNumber { get; set; }
-#nullable restore
-#else
-        public string StartingNumber { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberBlock"/> and sets the default values.
@@ -77,10 +77,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "cost_information", n => { CostInformation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation>(global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation.CreateFromDiscriminatorValue); } },
                 { "features", n => { Features = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>(global::Soenneker.Telnyx.OpenApiClient.Models.Feature.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "range", n => { Range = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberBlock_record_type>(); } },
                 { "region_information", n => { RegionInformation = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>(global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "starting_number", n => { StartingNumber = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -92,10 +92,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CostInformation>("cost_information", CostInformation);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Feature>("features", Features);
+            writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteIntValue("range", Range);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AvailablePhoneNumberBlock_record_type>("record_type", RecordType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RegionInformation>("region_information", RegionInformation);
-            writer.WriteStringValue("starting_number", StartingNumber);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

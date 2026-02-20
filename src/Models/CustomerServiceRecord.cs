@@ -54,6 +54,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_status? Status { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? UpdatedAt { get; private set; }
+        /// <summary>Callback URL to receive webhook notifications.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebhookUrl { get; set; }
+#nullable restore
+#else
+        public string WebhookUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord"/> and sets the default values.
         /// </summary>
@@ -87,6 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "result", n => { Result = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_status>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -100,6 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_result>("result", Result);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CustomerServiceRecord_status>("status", Status);
+            writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

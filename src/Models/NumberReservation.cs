@@ -24,6 +24,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CustomerReference { get; set; }
 #endif
+        /// <summary>Errors the reservation could happen upon</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Errors { get; private set; }
+#nullable restore
+#else
+        public string Errors { get; private set; }
+#endif
         /// <summary>The id property</summary>
         public Guid? Id { get; private set; }
         /// <summary>The phone_numbers property</summary>
@@ -73,6 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "customer_reference", n => { CustomerReference = n.GetStringValue(); } },
+                { "errors", n => { Errors = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ReservedPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.ReservedPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },

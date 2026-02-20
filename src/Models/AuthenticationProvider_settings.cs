@@ -23,6 +23,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AssertionConsumerServiceUrl { get; set; }
 #endif
+        /// <summary>Mapping of SAML attribute names used by the identity provider (IdP).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings_idp_attribute_names? IdpAttributeNames { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings_idp_attribute_names IdpAttributeNames { get; set; }
+#endif
         /// <summary>The certificate fingerprint for the identity provider (IdP)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,6 +41,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The algorithm used to generate the identity provider&apos;s (IdP) certificate fingerprint</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings_idp_cert_fingerprint_algorithm? IdpCertFingerprintAlgorithm { get; set; }
+        /// <summary>The full X.509 certificate for the identity provider (IdP).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdpCertificate { get; set; }
+#nullable restore
+#else
+        public string IdpCertificate { get; set; }
+#endif
         /// <summary>The Entity ID for the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,6 +56,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string IdpEntityId { get; set; }
+#endif
+        /// <summary>The Single Logout (SLO) target URL for the identity provider (IdP).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdpSloTargetUrl { get; set; }
+#nullable restore
+#else
+        public string IdpSloTargetUrl { get; set; }
 #endif
         /// <summary>The SSO target url for the identity provider (IdP).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,6 +81,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string NameIdentifierFormat { get; set; }
 #endif
+        /// <summary>Whether group provisioning is enabled for this authentication provider.</summary>
+        public bool? ProvisionGroups { get; set; }
         /// <summary>The Entity ID for the service provider (Telnyx).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +90,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string ServiceProviderEntityId { get; set; }
+#endif
+        /// <summary>The login URL for the service provider (Telnyx). Users navigate to this URL to initiate SSO login.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServiceProviderLoginUrl { get; set; }
+#nullable restore
+#else
+        public string ServiceProviderLoginUrl { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings"/> and sets the default values.
@@ -92,12 +126,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assertion_consumer_service_url", n => { AssertionConsumerServiceUrl = n.GetStringValue(); } },
+                { "idp_attribute_names", n => { IdpAttributeNames = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings_idp_attribute_names>(global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings_idp_attribute_names.CreateFromDiscriminatorValue); } },
                 { "idp_cert_fingerprint", n => { IdpCertFingerprint = n.GetStringValue(); } },
                 { "idp_cert_fingerprint_algorithm", n => { IdpCertFingerprintAlgorithm = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings_idp_cert_fingerprint_algorithm>(); } },
+                { "idp_certificate", n => { IdpCertificate = n.GetStringValue(); } },
                 { "idp_entity_id", n => { IdpEntityId = n.GetStringValue(); } },
+                { "idp_slo_target_url", n => { IdpSloTargetUrl = n.GetStringValue(); } },
                 { "idp_sso_target_url", n => { IdpSsoTargetUrl = n.GetStringValue(); } },
                 { "name_identifier_format", n => { NameIdentifierFormat = n.GetStringValue(); } },
+                { "provision_groups", n => { ProvisionGroups = n.GetBoolValue(); } },
                 { "service_provider_entity_id", n => { ServiceProviderEntityId = n.GetStringValue(); } },
+                { "service_provider_login_url", n => { ServiceProviderLoginUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -108,12 +147,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assertion_consumer_service_url", AssertionConsumerServiceUrl);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings_idp_attribute_names>("idp_attribute_names", IdpAttributeNames);
             writer.WriteStringValue("idp_cert_fingerprint", IdpCertFingerprint);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AuthenticationProvider_settings_idp_cert_fingerprint_algorithm>("idp_cert_fingerprint_algorithm", IdpCertFingerprintAlgorithm);
+            writer.WriteStringValue("idp_certificate", IdpCertificate);
             writer.WriteStringValue("idp_entity_id", IdpEntityId);
+            writer.WriteStringValue("idp_slo_target_url", IdpSloTargetUrl);
             writer.WriteStringValue("idp_sso_target_url", IdpSsoTargetUrl);
             writer.WriteStringValue("name_identifier_format", NameIdentifierFormat);
+            writer.WriteBoolValue("provision_groups", ProvisionGroups);
             writer.WriteStringValue("service_provider_entity_id", ServiceProviderEntityId);
+            writer.WriteStringValue("service_provider_login_url", ServiceProviderLoginUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

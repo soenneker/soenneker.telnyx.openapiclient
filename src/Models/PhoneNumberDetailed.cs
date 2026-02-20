@@ -86,6 +86,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ExternalPin { get; set; }
 #endif
+        /// <summary>Indicates whether HD voice is enabled for this number.</summary>
+        public bool? HdVoiceEnabled { get; private set; }
         /// <summary>Identifies the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -158,6 +160,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> Tags { get; set; }
 #endif
+        /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UpdatedAt { get; private set; }
+#nullable restore
+#else
+        public string UpdatedAt { get; private set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed"/> and sets the default values.
         /// </summary>
@@ -199,6 +209,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "emergency_enabled", n => { EmergencyEnabled = n.GetBoolValue(); } },
                 { "emergency_status", n => { EmergencyStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_emergency_status>(); } },
                 { "external_pin", n => { ExternalPin = n.GetStringValue(); } },
+                { "hd_voice_enabled", n => { HdVoiceEnabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "inbound_call_screening", n => { InboundCallScreening = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_inbound_call_screening>(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
@@ -211,6 +222,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberDetailed_status>(); } },
                 { "t38_fax_gateway_enabled", n => { T38FaxGatewayEnabled = n.GetBoolValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
         /// <summary>

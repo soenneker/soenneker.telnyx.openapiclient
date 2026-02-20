@@ -42,6 +42,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RecordType { get; private set; }
 #endif
+        /// <summary>The resolution of the room composition.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Resolution { get; set; }
+#nullable restore
+#else
+        public string Resolution { get; set; }
+#endif
         /// <summary>Identify the room associated with the room composition.</summary>
         public Guid? RoomId { get; set; }
         /// <summary>Identify the room session associated with the room composition.</summary>
@@ -115,6 +123,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_format>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
+                { "resolution", n => { Resolution = n.GetStringValue(); } },
                 { "room_id", n => { RoomId = n.GetGuidValue(); } },
                 { "session_id", n => { SessionId = n.GetGuidValue(); } },
                 { "size_mb", n => { SizeMb = n.GetFloatValue(); } },
@@ -142,6 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("ended_at", EndedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RoomComposition_format>("format", Format);
             writer.WriteGuidValue("id", Id);
+            writer.WriteStringValue("resolution", Resolution);
             writer.WriteGuidValue("room_id", RoomId);
             writer.WriteGuidValue("session_id", SessionId);
             writer.WriteFloatValue("size_mb", SizeMb);

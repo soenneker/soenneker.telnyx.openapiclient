@@ -114,6 +114,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration PhoneNumberConfiguration { get; set; }
 #endif
+        /// <summary>List of phone numbers associated with this porting order</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber>? PhoneNumbers { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber> PhoneNumbers { get; set; }
+#endif
         /// <summary>The type of the phone number</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_phone_number_type? PhoneNumberType { get; set; }
         /// <summary>Count of phone numbers associated with this porting order</summary>
@@ -212,6 +220,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "parent_support_key", n => { ParentSupportKey = n.GetStringValue(); } },
                 { "phone_number_configuration", n => { PhoneNumberConfiguration = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration.CreateFromDiscriminatorValue); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_phone_number_type>(); } },
+                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "porting_phone_numbers_count", n => { PortingPhoneNumbersCount = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirements", n => { Requirements = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -240,6 +249,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderMessaging>("messaging", Messaging);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_misc>("misc", Misc);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderPhoneNumberConfiguration>("phone_number_configuration", PhoneNumberConfiguration);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumber>("phone_numbers", PhoneNumbers);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrder_phone_number_type>("phone_number_type", PhoneNumberType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirement>("requirements", Requirements);
             writer.WriteBoolValue("requirements_met", RequirementsMet);

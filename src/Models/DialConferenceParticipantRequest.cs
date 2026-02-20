@@ -24,6 +24,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>HTTP request type used for `AmdStatusCallback`. Defaults to `POST`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_AmdStatusCallbackMethod? AmdStatusCallbackMethod { get; set; }
+        /// <summary>The SID of the TeXML application that will handle the new participant&apos;s call. Required unless joining an existing conference by its ConferenceSid.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ApplicationSid { get; set; }
+#nullable restore
+#else
+        public string ApplicationSid { get; set; }
+#endif
         /// <summary>Whether to play a notification beep to the conference when the participant enters and exits.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_Beep? Beep { get; set; }
         /// <summary>To be used as the caller id name (SIP From Display Name) presented to the destination (`To` number). The string should have a maximum of 128 characters, containing only letters, numbers, spaces, and `-_~!.+` special characters. If ommited, the display name will be the same as the number in the `From` field.</summary>
@@ -249,6 +257,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "AmdStatusCallback", n => { AmdStatusCallback = n.GetStringValue(); } },
                 { "AmdStatusCallbackMethod", n => { AmdStatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_AmdStatusCallbackMethod>(); } },
+                { "ApplicationSid", n => { ApplicationSid = n.GetStringValue(); } },
                 { "Beep", n => { Beep = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_Beep>(); } },
                 { "CallSidToCoach", n => { CallSidToCoach = n.GetStringValue(); } },
                 { "CallerId", n => { CallerId = n.GetStringValue(); } },
@@ -305,6 +314,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("AmdStatusCallback", AmdStatusCallback);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_AmdStatusCallbackMethod>("AmdStatusCallbackMethod", AmdStatusCallbackMethod);
+            writer.WriteStringValue("ApplicationSid", ApplicationSid);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialConferenceParticipantRequest_Beep>("Beep", Beep);
             writer.WriteStringValue("CallerId", CallerId);
             writer.WriteStringValue("CallSidToCoach", CallSidToCoach);

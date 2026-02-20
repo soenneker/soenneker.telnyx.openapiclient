@@ -30,6 +30,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CommandId { get; set; }
 #endif
+        /// <summary>Custom parameters to be sent as part of the WebSocket connection.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest_custom_parameters>? CustomParameters { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest_custom_parameters> CustomParameters { get; set; }
+#endif
         /// <summary>The dialogflow_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,6 +48,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Enables Dialogflow for the current call. The default value is false.</summary>
         public bool? EnableDialogflow { get; set; }
+        /// <summary>An authentication token to be sent as part of the WebSocket connection. Maximum length is 4000 characters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StreamAuthToken { get; set; }
+#nullable restore
+#else
+        public string StreamAuthToken { get; set; }
+#endif
         /// <summary>Indicates codec for bidirectional streaming RTP payloads. Used only with stream_bidirectional_mode=rtp. Case sensitive.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec? StreamBidirectionalCodec { get; set; }
         /// <summary>Configures method of bidirectional streaming (mp3, rtp).</summary>
@@ -92,8 +108,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
+                { "custom_parameters", n => { CustomParameters = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest_custom_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest_custom_parameters.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "dialogflow_config", n => { DialogflowConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig.CreateFromDiscriminatorValue); } },
                 { "enable_dialogflow", n => { EnableDialogflow = n.GetBoolValue(); } },
+                { "stream_auth_token", n => { StreamAuthToken = n.GetStringValue(); } },
                 { "stream_bidirectional_codec", n => { StreamBidirectionalCodec = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec>(); } },
                 { "stream_bidirectional_mode", n => { StreamBidirectionalMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode>(); } },
                 { "stream_bidirectional_sampling_rate", n => { StreamBidirectionalSamplingRate = n.GetIntValue(); } },
@@ -112,8 +130,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.StartStreamingRequest_custom_parameters>("custom_parameters", CustomParameters);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig>("dialogflow_config", DialogflowConfig);
             writer.WriteBoolValue("enable_dialogflow", EnableDialogflow);
+            writer.WriteStringValue("stream_auth_token", StreamAuthToken);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalCodec>("stream_bidirectional_codec", StreamBidirectionalCodec);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StreamBidirectionalMode>("stream_bidirectional_mode", StreamBidirectionalMode);
             writer.WriteIntValue("stream_bidirectional_sampling_rate", StreamBidirectionalSamplingRate);

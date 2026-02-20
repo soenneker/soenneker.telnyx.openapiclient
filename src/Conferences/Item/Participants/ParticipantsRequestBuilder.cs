@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.Item;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ParticipantsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.conferences.item.participants.item collection</summary>
+        /// <param name="position">Uniquely identifies the participant by their ID or label.</param>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.Item.WithParticipant_ItemRequestBuilder"/></returns>
+        public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.Item.WithParticipant_ItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("participant_id", position);
+                return new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.Item.WithParticipant_ItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Participants.ParticipantsRequestBuilder"/> and sets the default values.
         /// </summary>

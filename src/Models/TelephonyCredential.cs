@@ -88,6 +88,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string UpdatedAt { get; set; }
 #endif
+        /// <summary>Identifies the user this credential is associated with.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserId { get; set; }
+#nullable restore
+#else
+        public string UserId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelephonyCredential"/> and sets the default values.
         /// </summary>
@@ -123,6 +131,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "sip_password", n => { SipPassword = n.GetStringValue(); } },
                 { "sip_username", n => { SipUsername = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -142,6 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("sip_password", SipPassword);
             writer.WriteStringValue("sip_username", SipUsername);
             writer.WriteStringValue("updated_at", UpdatedAt);
+            writer.WriteStringValue("user_id", UserId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

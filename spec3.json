@@ -12198,8 +12198,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "int64",
-              "example": "1293384261075731499"
+              "example": "1293384261075731499",
+              "x-format": "int64"
             }
           }
         ],
@@ -12234,8 +12234,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "int64",
-              "example": "1293384261075731499"
+              "example": "1293384261075731499",
+              "x-format": "int64"
             }
           }
         ],
@@ -12270,8 +12270,8 @@
             "required": true,
             "schema": {
               "type": "string",
-              "format": "int64",
-              "example": "1293384261075731499"
+              "example": "1293384261075731499",
+              "x-format": "int64"
             }
           }
         ],
@@ -14361,6 +14361,100 @@
         "x-latency-category": "interactive"
       }
     },
+    "/conferences/{id}/actions/end": {
+      "post": {
+        "summary": "End a conference",
+        "description": "End a conference and terminate all active participants.",
+        "operationId": "EndConference",
+        "tags": [
+          "Conference Commands"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Uniquely identifies the conference.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EndConferenceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ConferenceCommandResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
+          }
+        },
+        "x-endpoint-cost": 0.01,
+        "x-latency-category": "interactive"
+      }
+    },
+    "/conferences/{id}/actions/gather_using_audio": {
+      "post": {
+        "summary": "Gather DTMF using audio prompt in a conference",
+        "description": "Play an audio file to a specific conference participant and gather DTMF input.",
+        "operationId": "ConferenceGatherUsingAudio",
+        "tags": [
+          "Conference Commands"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Uniquely identifies the conference.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConferenceGatherUsingAudioRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ConferenceCommandResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
+          }
+        },
+        "x-endpoint-cost": 0.01,
+        "x-latency-category": "interactive"
+      }
+    },
     "/conferences/{id}/actions/hold": {
       "post": {
         "summary": "Hold conference participants",
@@ -14772,6 +14866,53 @@
         "x-latency-category": "interactive"
       }
     },
+    "/conferences/{id}/actions/send_dtmf": {
+      "post": {
+        "summary": "Send DTMF to conference participants",
+        "description": "Send DTMF tones to one or more conference participants.",
+        "operationId": "ConferenceSendDTMF",
+        "tags": [
+          "Conference Commands"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Uniquely identifies the conference.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConferenceSendDTMFRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ConferenceCommandResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
+          }
+        },
+        "x-endpoint-cost": 0.01,
+        "x-latency-category": "interactive"
+      }
+    },
     "/conferences/{id}/actions/speak": {
       "post": {
         "summary": "Speak text to conference participants",
@@ -14997,6 +15138,121 @@
             "$ref": "#/components/responses/UnprocessableEntityResponse"
           }
         },
+        "x-latency-category": "interactive"
+      }
+    },
+    "/conferences/{id}/participants/{participant_id}": {
+      "get": {
+        "summary": "Retrieve a conference participant",
+        "description": "Retrieve details of a specific conference participant by their ID or label.",
+        "operationId": "RetrieveConferenceParticipant",
+        "tags": [
+          "Conference Commands"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Uniquely identifies the conference.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "participant_id",
+            "in": "path",
+            "required": true,
+            "description": "Uniquely identifies the participant by their ID or label.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConferenceParticipantResource"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
+          }
+        },
+        "x-endpoint-cost": 0.01,
+        "x-latency-category": "interactive"
+      },
+      "patch": {
+        "summary": "Update a conference participant",
+        "description": "Update properties of a conference participant.",
+        "operationId": "UpdateConferenceParticipant",
+        "tags": [
+          "Conference Commands"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Uniquely identifies the conference.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "participant_id",
+            "in": "path",
+            "required": true,
+            "description": "Uniquely identifies the participant.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateConferenceParticipantRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConferenceParticipantResource"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
+          }
+        },
+        "x-endpoint-cost": 0.01,
         "x-latency-category": "interactive"
       }
     },
@@ -23320,7 +23576,7 @@
             "example": "+447766****",
             "schema": {
               "type": "string",
-              "format": "boolean"
+              "x-format": "boolean"
             }
           },
           {
@@ -40748,7 +41004,7 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateConferenceParticipantRequest"
+                "$ref": "#/components/schemas/call-scripting_UpdateConferenceParticipantRequest"
               }
             }
           }
@@ -45260,9 +45516,9 @@
               "properties": {
                 "eq": {
                   "type": "string",
-                  "format": "E164",
                   "example": "+1234567890",
-                  "description": "The phone number to filter log messages for or \"null\" to filter for logs without a phone number"
+                  "description": "The phone number to filter log messages for or \"null\" to filter for logs without a phone number",
+                  "x-format": "E164"
                 },
                 "contains": {
                   "type": "string",
@@ -45493,9 +45749,9 @@
               "properties": {
                 "eq": {
                   "type": "string",
-                  "format": "E164",
                   "example": "+1234567890",
-                  "description": "The phone number to filter by"
+                  "description": "The phone number to filter by",
+                  "x-format": "E164"
                 },
                 "contains": {
                   "type": "string",
@@ -45836,8 +46092,8 @@
         "required": true,
         "schema": {
           "type": "string",
-          "format": "int64",
-          "example": "1517907029795014409"
+          "example": "1517907029795014409",
+          "x-format": "int64"
         }
       },
       "FriendlyName": {
@@ -46645,9 +46901,9 @@
             },
             "outbound.outbound_voice_profile_id": {
               "type": "string",
-              "format": "int64",
               "example": "1293384261075731499",
-              "description": "Identifies the associated outbound voice profile."
+              "description": "Identifies the associated outbound voice profile.",
+              "x-format": "int64"
             },
             "leg_id": {
               "type": "string",
@@ -46895,9 +47151,9 @@
             },
             "outbound_voice_profile_id": {
               "type": "string",
-              "format": "int64",
               "example": "1293384261075731499",
-              "description": "Identifies the associated outbound voice profile."
+              "description": "Identifies the associated outbound voice profile.",
+              "x-format": "int64"
             }
           }
         }
@@ -46949,8 +47205,8 @@
         "required": true,
         "schema": {
           "type": "string",
-          "format": "int64",
-          "example": "1293384261075731499"
+          "example": "1293384261075731499",
+          "x-format": "int64"
         }
       },
       "customer_service_record_FilterConsolidated": {
@@ -47134,9 +47390,9 @@
         "in": "path",
         "required": true,
         "schema": {
-          "format": "int64",
           "type": "string",
-          "example": "1293384261075731499"
+          "example": "1293384261075731499",
+          "x-format": "int64"
         }
       },
       "id": {
@@ -51721,7 +51977,7 @@
                     "phone_number_type": "local",
                     "phone_numbers": [
                       {
-                        "activation_status": null,
+                        "activation_status": "Activate RDY",
                         "phone_number": "{e.164 TN}",
                         "phone_number_type": "local",
                         "portability_status": "confirmed",
@@ -51729,7 +51985,7 @@
                         "porting_order_status": "draft",
                         "record_type": "porting_phone_number",
                         "requirements_status": "requirement-info-pending",
-                        "support_key": null
+                        "support_key": "sr_10b316"
                       }
                     ],
                     "porting_phone_numbers_count": 1,
@@ -54316,17 +54572,19 @@
               }
             },
             "example": {
-              "id": "03a35311-ad92-46b3-95d7-8ad6dccf2d7c",
-              "porting_order_id": "fd4b86c8-497d-4c6d-9609-a789e4e14cfe",
-              "expires_in_seconds": 3600,
-              "permissions": [
-                "porting_order.document.read",
-                "porting_order.document.update"
-              ],
-              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk4OTQ2NzcsImlzdCI6MTY4OTg5MTA3NywicGVybWlzc2lvbnMiOlsicG9ydGluZ19vcmRlci5kb2N1bWVudC5yZWFkIl0sInBvcnRpbmdfb3JkZXJfaWQiOiJmZDRiODZjOC00OTdkLTRjNmQtOTYwOS1hNzg5ZTRlMTRjZmUifQ.CT0HRF6OLj7VPZ8p5Y_0S8rOL8SEUznwJJkR-YReKwc",
-              "record_type": "porting_order_sharing_token",
-              "expires_at": "2023-07-20T23:11:17Z",
-              "created_at": "2023-07-20T22:11:17.292573Z"
+              "data": {
+                "id": "03a35311-ad92-46b3-95d7-8ad6dccf2d7c",
+                "porting_order_id": "fd4b86c8-497d-4c6d-9609-a789e4e14cfe",
+                "expires_in_seconds": 3600,
+                "permissions": [
+                  "porting_order.document.read",
+                  "porting_order.document.update"
+                ],
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk4OTQ2NzcsImlzdCI6MTY4OTg5MTA3NywicGVybWlzc2lvbnMiOlsicG9ydGluZ19vcmRlci5kb2N1bWVudC5yZWFkIl0sInBvcnRpbmdfb3JkZXJfaWQiOiJmZDRiODZjOC00OTdkLTRjNmQtOTYwOS1hNzg5ZTRlMTRjZmUifQ.CT0HRF6OLj7VPZ8p5Y_0S8rOL8SEUznwJJkR-YReKwc",
+                "record_type": "porting_order_sharing_token",
+                "expires_at": "2023-07-20T23:11:17Z",
+                "created_at": "2023-07-20T22:11:17.292573Z"
+              }
             }
           }
         }
@@ -57736,9 +57994,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "Uniquely identifies the address.",
-            "example": "1293384261075731499"
+            "example": "1293384261075731499",
+            "x-format": "int64"
           },
           "record_type": {
             "type": "string",
@@ -59188,6 +59446,12 @@
           "active": {
             "$ref": "#/components/schemas/active"
           },
+          "activated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the authentication provider was activated.",
+            "format": "date-time",
+            "example": "2018-02-02T22:25:27.521Z"
+          },
           "settings": {
             "type": "object",
             "description": "The settings associated with the authentication provider.",
@@ -59203,6 +59467,12 @@
                 "description": "The Entity ID for the service provider (Telnyx).",
                 "format": "uri",
                 "example": "https://api.telnyx.com/sso/saml/metadata/myorg"
+              },
+              "service_provider_login_url": {
+                "type": "string",
+                "description": "The login URL for the service provider (Telnyx). Users navigate to this URL to initiate SSO login.",
+                "format": "uri",
+                "example": "https://api.telnyx.com/sso/myorg"
               },
               "idp_entity_id": {
                 "type": "string",
@@ -59237,6 +59507,29 @@
                 "type": "string",
                 "description": "The name identifier format associated with the authentication provider. This must be the same for both the Identity Provider (IdP) and the service provider (Telnyx).",
                 "example": "urn:oasis:names:tc:SAML:1.1:nameid-format"
+              },
+              "idp_slo_target_url": {
+                "type": "string",
+                "description": "The Single Logout (SLO) target URL for the identity provider (IdP).",
+                "format": "uri",
+                "example": "https://myorg.myidp.com/trust/saml2/http-redirect/slo"
+              },
+              "idp_certificate": {
+                "type": "string",
+                "description": "The full X.509 certificate for the identity provider (IdP).",
+                "example": "-----BEGIN CERTIFICATE-----\nMIIC...\n-----END CERTIFICATE-----"
+              },
+              "idp_attribute_names": {
+                "type": "object",
+                "description": "Mapping of SAML attribute names used by the identity provider (IdP).",
+                "example": {
+                  "email": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
+                }
+              },
+              "provision_groups": {
+                "type": "boolean",
+                "description": "Whether group provisioning is enabled for this authentication provider.",
+                "example": false
               }
             }
           },
@@ -59368,14 +59661,14 @@
           "threshold_amount": {
             "type": "string",
             "example": "104.00",
-            "format": "decimal",
-            "description": "The threshold amount at which the account will be recharged."
+            "description": "The threshold amount at which the account will be recharged.",
+            "x-format": "decimal"
           },
           "recharge_amount": {
             "type": "string",
             "example": "104.00",
-            "format": "decimal",
-            "description": "The amount to recharge the account, the actual recharge amount will be the amount necessary to reach the threshold amount plus the recharge amount."
+            "description": "The amount to recharge the account, the actual recharge amount will be the amount necessary to reach the threshold amount plus the recharge amount.",
+            "x-format": "decimal"
           },
           "enabled": {
             "type": "boolean",
@@ -59403,14 +59696,14 @@
           "threshold_amount": {
             "type": "string",
             "example": "104.00",
-            "format": "decimal",
-            "description": "The threshold amount at which the account will be recharged."
+            "description": "The threshold amount at which the account will be recharged.",
+            "x-format": "decimal"
           },
           "recharge_amount": {
             "type": "string",
             "example": "104.00",
-            "format": "decimal",
-            "description": "The amount to recharge the account, the actual recharge amount will be the amount necessary to reach the threshold amount plus the recharge amount."
+            "description": "The amount to recharge the account, the actual recharge amount will be the amount necessary to reach the threshold amount plus the recharge amount.",
+            "x-format": "decimal"
           },
           "enabled": {
             "type": "boolean",
@@ -59652,7 +59945,7 @@
               "available_phone_number_block"
             ]
           },
-          "starting_number": {
+          "phone_number": {
             "type": "string",
             "example": "+19705555000"
           },
@@ -60901,7 +61194,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "format": "+E.164"
+              "x-format": "+E.164"
             },
             "description": "Phoned numbers updated successfully."
           },
@@ -60909,7 +61202,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "format": "+E.164"
+              "x-format": "+E.164"
             },
             "description": "Phone numbers pending to be updated."
           },
@@ -60917,7 +61210,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "format": "+E.164"
+              "x-format": "+E.164"
             },
             "description": "Phone numbers that failed to update."
           }
@@ -60949,7 +61242,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "format": "+E.164"
+              "x-format": "+E.164"
             },
             "description": "The list of phone numbers to update."
           }
@@ -61953,8 +62246,8 @@
           },
           "id": {
             "type": "string",
-            "format": "int64",
-            "example": "1293384261075731499"
+            "example": "1293384261075731499",
+            "x-format": "int64"
           },
           "inbound": {
             "$ref": "#/components/schemas/CallControlApplicationInbound"
@@ -62097,9 +62390,9 @@
           },
           "outbound_voice_profile_id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the associated outbound voice profile.",
-            "example": "1293384261075731499"
+            "example": "1293384261075731499",
+            "x-format": "int64"
           }
         }
       },
@@ -65343,6 +65636,12 @@
               "Middle East"
             ],
             "example": "Canada"
+          },
+          "stream_auth_token": {
+            "description": "An authentication token to be sent as part of the WebSocket connection when using streaming. Maximum length is 4000 characters.",
+            "type": "string",
+            "maxLength": 4000,
+            "example": "your-auth-token"
           }
         }
       },
@@ -67753,7 +68052,7 @@
           "city_or_town_alias": "",
           "company_name": "Telnyx",
           "country": "US",
-          "county_or_district": "US",
+          "country_or_district": "US",
           "default_location_id": "18ded4bb-b694-44c1-a89b-a35b7acd4c9e",
           "description": "Austin Office",
           "house_number": "600",
@@ -68599,6 +68898,110 @@
           }
         }
       },
+      "ConferenceGatherUsingAudioRequest": {
+        "type": "object",
+        "title": "Conference Gather Using Audio Request",
+        "required": [
+          "call_control_id"
+        ],
+        "properties": {
+          "call_control_id": {
+            "description": "Unique identifier and token for controlling the call leg that will receive the gather prompt.",
+            "type": "string",
+            "example": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg"
+          },
+          "audio_url": {
+            "description": "The URL of the audio file to play as the gather prompt. Must be WAV or MP3 format.",
+            "type": "string",
+            "example": "http://example.com/gather_prompt.wav"
+          },
+          "media_name": {
+            "description": "The name of the media file uploaded to the Media Storage API to play as the gather prompt.",
+            "type": "string"
+          },
+          "minimum_digits": {
+            "description": "Minimum number of digits to gather.",
+            "type": "integer",
+            "default": 1,
+            "minimum": 1,
+            "example": 1
+          },
+          "maximum_digits": {
+            "description": "Maximum number of digits to gather.",
+            "type": "integer",
+            "default": 128,
+            "minimum": 1,
+            "example": 10
+          },
+          "maximum_tries": {
+            "description": "Maximum number of times to play the prompt if no input is received.",
+            "type": "integer",
+            "default": 3,
+            "minimum": 1,
+            "example": 3
+          },
+          "timeout_millis": {
+            "description": "Duration in milliseconds to wait for input before timing out.",
+            "type": "integer",
+            "default": 60000,
+            "example": 30000
+          },
+          "terminating_digit": {
+            "description": "Digit that terminates gathering.",
+            "type": "string",
+            "default": "#",
+            "example": "#"
+          },
+          "valid_digits": {
+            "description": "Digits that are valid for gathering. All other digits will be ignored.",
+            "type": "string",
+            "default": "0123456789#*",
+            "example": "0123456789"
+          },
+          "inter_digit_timeout_millis": {
+            "description": "Duration in milliseconds to wait between digits.",
+            "type": "integer",
+            "default": 5000,
+            "example": 3000
+          },
+          "initial_timeout_millis": {
+            "description": "Duration in milliseconds to wait for the first digit before timing out.",
+            "type": "integer",
+            "example": 10000
+          },
+          "stop_playback_on_dtmf": {
+            "description": "Whether to stop the audio playback when a DTMF digit is received.",
+            "type": "boolean",
+            "default": true,
+            "example": true
+          },
+          "invalid_audio_url": {
+            "description": "URL of audio file to play when invalid input is received.",
+            "type": "string"
+          },
+          "invalid_media_name": {
+            "description": "Name of media file to play when invalid input is received.",
+            "type": "string"
+          },
+          "gather_id": {
+            "description": "Identifier for this gather command. Will be included in the gather ended webhook. Maximum 100 characters.",
+            "type": "string",
+            "maxLength": 100
+          },
+          "client_state": {
+            "description": "Use this field to add state to every subsequent webhook. Must be a valid Base-64 encoded string.",
+            "type": "string",
+            "example": "aGF2ZSBhIG5pY2UgZGF5ID1d"
+          }
+        },
+        "example": {
+          "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+          "audio_url": "http://example.com/gather_prompt.wav",
+          "minimum_digits": 1,
+          "maximum_digits": 4,
+          "timeout_millis": 30000
+        }
+      },
       "ConferenceHoldRequest": {
         "type": "object",
         "title": "Conference Hold Request",
@@ -68650,6 +69053,74 @@
           "call_control_ids": [
             "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg"
           ]
+        }
+      },
+      "ConferenceParticipant": {
+        "type": "object",
+        "title": "Conference Participant",
+        "properties": {
+          "id": {
+            "description": "Uniquely identifies the participant.",
+            "type": "string"
+          },
+          "call_control_id": {
+            "description": "Unique identifier and token for controlling the participant's call leg.",
+            "type": "string"
+          },
+          "call_leg_id": {
+            "description": "Unique identifier for the call leg.",
+            "type": "string"
+          },
+          "conference_id": {
+            "description": "Unique identifier for the conference.",
+            "type": "string"
+          },
+          "label": {
+            "description": "Label assigned to the participant when joining.",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status of the participant.",
+            "type": "string",
+            "enum": [
+              "joining",
+              "joined",
+              "left"
+            ]
+          },
+          "muted": {
+            "description": "Whether the participant is muted.",
+            "type": "boolean"
+          },
+          "on_hold": {
+            "description": "Whether the participant is on hold.",
+            "type": "boolean"
+          },
+          "whisper_call_control_ids": {
+            "description": "List of call control IDs this participant is whispering to.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_at": {
+            "description": "Timestamp when the participant joined.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "description": "Timestamp when the participant was last updated.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_conference_on_exit": {
+            "description": "Whether the conference ends when this participant exits.",
+            "type": "boolean"
+          },
+          "soft_end_conference_on_exit": {
+            "description": "Whether the conference soft-ends when this participant exits.",
+            "type": "boolean"
+          }
         }
       },
       "ConferenceParticipantDetailRecord": {
@@ -69146,6 +69617,15 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/ConferenceParticipantPlaybackStarted"
+          }
+        }
+      },
+      "ConferenceParticipantResource": {
+        "type": "object",
+        "title": "Conference Participant Resource",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ConferenceParticipant"
           }
         }
       },
@@ -70067,6 +70547,47 @@
           }
         }
       },
+      "ConferenceSendDTMFRequest": {
+        "type": "object",
+        "title": "Conference Send DTMF Request",
+        "required": [
+          "digits"
+        ],
+        "properties": {
+          "digits": {
+            "description": "DTMF digits to send. Valid characters: 0-9, A-D, *, #, w (0.5s pause), W (1s pause).",
+            "type": "string",
+            "example": "1234#"
+          },
+          "call_control_ids": {
+            "description": "Array of participant call control IDs to send DTMF to. When empty, DTMF will be sent to all participants.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg"
+            ]
+          },
+          "duration_millis": {
+            "description": "Duration of each DTMF digit in milliseconds.",
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 500,
+            "default": 250,
+            "example": 250
+          },
+          "client_state": {
+            "description": "Use this field to add state to every subsequent webhook. Must be a valid Base-64 encoded string.",
+            "type": "string",
+            "example": "aGF2ZSBhIG5pY2UgZGF5ID1d"
+          }
+        },
+        "example": {
+          "digits": "1234#",
+          "duration_millis": 250
+        }
+      },
       "ConferenceSid": {
         "type": [
           "string",
@@ -70407,9 +70928,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the specific resource.",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
+            "x-format": "int64"
           },
           "record_type": {
             "type": "string",
@@ -71127,65 +71648,62 @@
           }
         },
         "example": {
-          "United States of America": {
-            "code": "US",
-            "numbers": true,
+          "code": "US",
+          "numbers": true,
+          "features": [
+            "hd_voice",
+            "emergency",
+            "voice",
+            "mms",
+            "fax",
+            "sms",
+            "international_sms"
+          ],
+          "phone_number_type": [
+            "local",
+            "local",
+            "local",
+            "toll_free"
+          ],
+          "reservable": true,
+          "quickship": true,
+          "international_sms": true,
+          "p2p": true,
+          "local": {
             "features": [
               "hd_voice",
-              "emergency",
+              "voice",
+              "international_sms",
+              "mms",
+              "fax",
+              "sms",
+              "emergency"
+            ],
+            "reservable": true,
+            "quickship": false,
+            "international_sms": true,
+            "p2p": true,
+            "full_pstn_replacement": true
+          },
+          "toll_free": {
+            "features": [
               "voice",
               "mms",
               "fax",
               "sms",
-              "international_sms"
-            ],
-            "phone_number_type": [
-              "local",
-              "local",
-              "local",
-              "local",
-              "toll_free"
+              "emergency"
             ],
             "reservable": true,
             "quickship": true,
-            "international_sms": true,
-            "p2p": true,
-            "local": {
-              "features": [
-                "hd_voice",
-                "voice",
-                "international_sms",
-                "mms",
-                "fax",
-                "sms",
-                "emergency"
-              ],
-              "reservable": true,
-              "quickship": false,
-              "international_sms": true,
-              "p2p": true,
-              "full_pstn_replacement": true
-            },
-            "toll_free": {
-              "features": [
-                "voice",
-                "mms",
-                "fax",
-                "sms",
-                "emergency"
-              ],
-              "reservable": true,
-              "quickship": true,
-              "international_sms": false,
-              "p2p": false,
-              "full_pstn_replacement": false
-            },
-            "mobile": {},
-            "national": {},
-            "inventory_coverage": true,
-            "shared_cost": {},
-            "region": "AMER"
-          }
+            "international_sms": false,
+            "p2p": false,
+            "full_pstn_replacement": false
+          },
+          "mobile": {},
+          "national": {},
+          "inventory_coverage": true,
+          "shared_cost": {},
+          "region": "AMER"
         }
       },
       "CreateAndroidPushCredentialRequest": {
@@ -72600,8 +73118,8 @@
         "properties": {
           "from": {
             "type": "string",
-            "format": "address",
-            "description": "Phone number, in +E.164 format, used to send the message."
+            "description": "Phone number, in +E.164 format, used to send the message.",
+            "x-format": "address"
           },
           "to": {
             "description": "A list of destinations. No more than 8 destinations are allowed.",
@@ -73102,8 +73620,8 @@
         "properties": {
           "from": {
             "type": "string",
-            "format": "address",
-            "description": "Phone number, in +E.164 format, used to send the message."
+            "description": "Phone number, in +E.164 format, used to send the message.",
+            "x-format": "address"
           },
           "to": {
             "$ref": "#/components/schemas/ToNumber"
@@ -73266,8 +73784,8 @@
         "properties": {
           "from": {
             "type": "string",
-            "format": "address",
-            "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).\n\n**Required if sending with a phone number, short code, or alphanumeric sender ID.**\n"
+            "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).\n\n**Required if sending with a phone number, short code, or alphanumeric sender ID.**\n",
+            "x-format": "address"
           },
           "messaging_profile_id": {
             "type": "string",
@@ -73383,7 +73901,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "format": "+E.164"
+              "x-format": "+E.164"
             },
             "description": "Phone numbers to be used for hosted messaging."
           },
@@ -73967,7 +74485,8 @@
               "status": "pending",
               "created_at": "2018-01-01T00:00:00.000000Z",
               "updated_at": "2018-01-01T00:00:00.000000Z",
-              "expired_at": "2018-01-01T00:00:00.000000Z"
+              "expired_at": "2018-01-01T00:00:00.000000Z",
+              "errors": "Number is already on hold"
             }
           ],
           "status": "pending",
@@ -74438,8 +74957,8 @@
         "properties": {
           "from": {
             "type": "string",
-            "format": "address",
-            "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).\n\n**Required if sending with a phone number, short code, or alphanumeric sender ID.**\n"
+            "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).\n\n**Required if sending with a phone number, short code, or alphanumeric sender ID.**\n",
+            "x-format": "address"
           },
           "messaging_profile_id": {
             "type": "string",
@@ -74520,8 +75039,8 @@
         "properties": {
           "from": {
             "type": "string",
-            "format": "address",
-            "description": "Phone number, in +E.164 format, used to send the message."
+            "description": "Phone number, in +E.164 format, used to send the message.",
+            "x-format": "address"
           },
           "to": {
             "$ref": "#/components/schemas/ToNumber"
@@ -75177,7 +75696,7 @@
               "properties": {
                 "phone_number": {
                   "type": "string",
-                  "format": "+E.164",
+                  "x-format": "+E.164",
                   "description": "Phone number for which the verification code was created"
                 },
                 "verification_code_id": {
@@ -75219,9 +75738,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the type of resource.",
-            "example": "1293384261075731499"
+            "example": "1293384261075731499",
+            "x-format": "int64"
           },
           "record_type": {
             "type": "string",
@@ -75913,6 +76432,11 @@
               }
             }
           },
+          "webhook_url": {
+            "type": "string",
+            "description": "Callback URL to receive webhook notifications.",
+            "example": "https://example.com/webhook"
+          },
           "record_type": {
             "type": "string",
             "example": "customer_service_record",
@@ -76081,6 +76605,20 @@
               "deepgram/nova-2"
             ]
           },
+          "interim_results": {
+            "type": "boolean",
+            "default": false,
+            "example": true,
+            "description": "Whether to send also interim results. If set to false, only final results will be sent."
+          },
+          "utterance_end_ms": {
+            "type": "integer",
+            "default": 1000,
+            "example": 800,
+            "minimum": 0,
+            "maximum": 5000,
+            "description": "Number of milliseconds of silence to consider an utterance ended. Ranges from 0 to 5000 ms."
+          },
           "language": {
             "$ref": "#/components/schemas/DeepgramNova2TranscriptionLanguage"
           },
@@ -76192,6 +76730,20 @@
             "enum": [
               "deepgram/nova-3"
             ]
+          },
+          "interim_results": {
+            "type": "boolean",
+            "default": false,
+            "example": true,
+            "description": "Whether to send also interim results. If set to false, only final results will be sent."
+          },
+          "utterance_end_ms": {
+            "type": "integer",
+            "default": 1000,
+            "example": 800,
+            "minimum": 0,
+            "maximum": 5000,
+            "description": "Number of milliseconds of silence to consider an utterance ended. Ranges from 0 to 5000 ms."
           },
           "language": {
             "$ref": "#/components/schemas/DeepgramNova3TranscriptionLanguage"
@@ -76543,6 +77095,11 @@
               "GET",
               "POST"
             ]
+          },
+          "ApplicationSid": {
+            "description": "The SID of the TeXML application that will handle the new participant's call. Required unless joining an existing conference by its ConferenceSid.",
+            "example": "1846572522338780702",
+            "type": "string"
           },
           "CancelPlaybackOnMachineDetection": {
             "description": "Whether to cancel ongoing playback on `machine` detection. Defaults to `true`.",
@@ -77471,7 +78028,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "format": "+E.164",
+              "x-format": "+E.164",
               "description": "Phone number to check eligibility"
             },
             "description": "List of phone numbers to check eligibility"
@@ -77800,6 +78357,18 @@
         "example": "SRTP",
         "description": "Enable use of SRTP for encryption. Cannot be set if the transport_portocol is TLS."
       },
+      "EndConferenceRequest": {
+        "type": "object",
+        "title": "End Conference Request",
+        "properties": {
+          "command_id": {
+            "description": "Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same conference.",
+            "type": "string",
+            "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          }
+        },
+        "example": {}
+      },
       "EnqueueRequest": {
         "type": "object",
         "title": "Enqueue Request",
@@ -77969,12 +78538,12 @@
         "properties": {
           "code": {
             "type": "string",
-            "format": "int64"
+            "x-format": "int64"
           },
           "title": {
             "type": "string"
           },
-          "detail": {
+          "description": {
             "type": "string"
           },
           "source": {
@@ -79663,9 +80232,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the resource.",
-            "example": "1293384261075731499"
+            "example": "1293384261075731499",
+            "x-format": "int64"
           },
           "record_type": {
             "type": "string",
@@ -79723,9 +80292,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the resource.",
-            "example": "1293384261075731499"
+            "example": "1293384261075731499",
+            "x-format": "int64"
           },
           "record_type": {
             "type": "string",
@@ -80196,10 +80765,16 @@
             "$ref": "#/components/schemas/InterruptionSettings"
           },
           "user_response_timeout_ms": {
-            "description": "The number of milliseconds to wait for a user response before the voice assistant times out and check if the user is still there.",
+            "description": "The maximum time in milliseconds to wait for user response before timing out.",
             "type": "integer",
             "default": 10000,
-            "example": 5000
+            "example": 15000
+          },
+          "gather_ended_speech": {
+            "description": "Text that will be played when the gathering has finished. There is a 3,000 character limit.",
+            "type": "string",
+            "maxLength": 3000,
+            "example": "Thank you for providing the information."
           }
         },
         "example": {
@@ -81574,7 +82149,7 @@
           },
           "phone_number": {
             "type": "string",
-            "format": "+E.164",
+            "x-format": "+E.164",
             "description": "The messaging hosted phone number (+E.164 format)"
           },
           "status": {
@@ -81734,7 +82309,7 @@
               "string",
               "null"
             ],
-            "format": "int64",
+            "x-format": "int64",
             "default": null,
             "description": "The default primary FQDN to use for the number. Only settable if the connection is\nof FQDN type. Value must be the ID of an FQDN set on the connection."
           },
@@ -81743,7 +82318,7 @@
               "string",
               "null"
             ],
-            "format": "int64",
+            "x-format": "int64",
             "default": null,
             "description": "The default secondary FQDN to use for the number. Only settable if the connection is\nof FQDN type. Value must be the ID of an FQDN set on the connection."
           },
@@ -81752,7 +82327,7 @@
               "string",
               "null"
             ],
-            "format": "int64",
+            "x-format": "int64",
             "default": null,
             "description": "The default tertiary FQDN to use for the number. Only settable if the connection is\nof FQDN type. Value must be the ID of an FQDN set on the connection."
           },
@@ -82154,8 +82729,8 @@
               "properties": {
                 "phone_number": {
                   "type": "string",
-                  "format": "address",
-                  "description": "Receiving address (+E.164 formatted phone number or short code)."
+                  "description": "Receiving address (+E.164 formatted phone number or short code).",
+                  "x-format": "address"
                 },
                 "status": {
                   "type": "string",
@@ -82196,8 +82771,8 @@
               "properties": {
                 "phone_number": {
                   "type": "string",
-                  "format": "address",
-                  "description": "Receiving address (+E.164 formatted phone number or short code)."
+                  "description": "Receiving address (+E.164 formatted phone number or short code).",
+                  "x-format": "address"
                 },
                 "status": {
                   "type": "string",
@@ -82235,8 +82810,8 @@
             "properties": {
               "phone_number": {
                 "type": "string",
-                "format": "address",
-                "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code)."
+                "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).",
+                "x-format": "address"
               },
               "status": {
                 "type": "string",
@@ -82286,8 +82861,8 @@
                 },
                 "content_type": {
                   "type": "string",
-                  "format": "mime-type",
-                  "description": "The MIME type of the requested media."
+                  "description": "The MIME type of the requested media.",
+                  "x-format": "mime-type"
                 },
                 "size": {
                   "type": "integer",
@@ -82343,13 +82918,13 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
-                "description": "The amount deducted from your account."
+                "description": "The amount deducted from your account.",
+                "x-format": "decimal"
               },
               "currency": {
                 "type": "string",
-                "format": "iso4217",
-                "description": "The ISO 4217 currency identifier."
+                "description": "The ISO 4217 currency identifier.",
+                "x-format": "iso4217"
               }
             }
           },
@@ -82364,13 +82939,13 @@
                 "properties": {
                   "amount": {
                     "type": "string",
-                    "format": "decimal",
-                    "description": "The carrier fee amount."
+                    "description": "The carrier fee amount.",
+                    "x-format": "decimal"
                   },
                   "currency": {
                     "type": "string",
-                    "format": "iso4217",
-                    "description": "The ISO 4217 currency identifier."
+                    "description": "The ISO 4217 currency identifier.",
+                    "x-format": "iso4217"
                   }
                 }
               },
@@ -82379,13 +82954,13 @@
                 "properties": {
                   "amount": {
                     "type": "string",
-                    "format": "decimal",
-                    "description": "The rate amount applied."
+                    "description": "The rate amount applied.",
+                    "x-format": "decimal"
                   },
                   "currency": {
                     "type": "string",
-                    "format": "iso4217",
-                    "description": "The ISO 4217 currency identifier."
+                    "description": "The ISO 4217 currency identifier.",
+                    "x-format": "iso4217"
                   }
                 }
               }
@@ -83218,6 +83793,23 @@
             ],
             "default": "barge"
           },
+          "Timeout": {
+            "description": "The number of seconds to wait for the called party to answer the call before the call is canceled. The minimum value is 5 and the maximum value is 120. Default is 30 seconds.",
+            "example": 60,
+            "type": "integer",
+            "minimum": 5,
+            "maximum": 120,
+            "default": 30,
+            "x-stainless-param": "timeout_seconds"
+          },
+          "TimeLimit": {
+            "description": "The maximum duration of the call in seconds. The minimum value is 30 and the maximum value is 14400 (4 hours). Default is 14400 seconds.",
+            "example": 3600,
+            "type": "integer",
+            "minimum": 30,
+            "maximum": 14400,
+            "default": 14400
+          },
           "Texml": {
             "description": "TeXML to be used as instructions for the call. If provided, the call will execute these instructions instead of fetching from the Url.",
             "example": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Say>Hello</Say></Response>",
@@ -83936,9 +84528,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the type of resource.",
-            "example": "1293384261075731499"
+            "example": "1293384261075731499",
+            "x-format": "int64"
           },
           "record_type": {
             "type": "string",
@@ -83987,9 +84579,9 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "int64",
             "description": "Identifies the type of resource.",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58",
+            "x-format": "int64"
           },
           "record_type": {
             "type": "string",
@@ -84620,8 +85212,8 @@
         "properties": {
           "code": {
             "type": "string",
-            "format": "int64",
-            "example": "10015"
+            "example": "10015",
+            "x-format": "int64"
           },
           "title": {
             "type": "string",
@@ -84651,10 +85243,10 @@
                 "example": "+12345678"
               },
               "external_connection_id": {
-                "format": "int64",
                 "type": "string",
                 "example": "1293384261075731499",
-                "description": "The external connection the log message is associated with, if any."
+                "description": "The external connection the log message is associated with, if any.",
+                "x-format": "int64"
               },
               "ticket_id": {
                 "type": "string",
@@ -84879,27 +85471,27 @@
           },
           "balance": {
             "type": "string",
-            "format": "decimal",
             "description": "The account's current balance.",
-            "example": "300.00"
+            "example": "300.00",
+            "x-format": "decimal"
           },
           "credit_limit": {
             "type": "string",
-            "format": "decimal",
             "description": "The account's credit limit.",
-            "example": "100.00"
+            "example": "100.00",
+            "x-format": "decimal"
           },
           "available_credit": {
             "type": "string",
-            "format": "decimal",
             "description": "Available amount to spend (balance + credit limit)",
-            "example": "400.00"
+            "example": "400.00",
+            "x-format": "decimal"
           },
           "currency": {
             "type": "string",
-            "format": "iso4217",
             "description": "The ISO 4217 currency identifier.",
-            "example": "USD"
+            "example": "USD",
+            "x-format": "iso4217"
           }
         },
         "example": {
@@ -86629,6 +87221,58 @@
             "type": "integer",
             "example": 0,
             "default": 0
+          },
+          "language_boost": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Enhances recognition for specific languages and dialects during MiniMax TTS synthesis. Default is null (no boost). Set to 'auto' for automatic language detection.",
+            "enum": [
+              null,
+              "auto",
+              "Chinese",
+              "Chinese,Yue",
+              "English",
+              "Arabic",
+              "Russian",
+              "Spanish",
+              "French",
+              "Portuguese",
+              "German",
+              "Turkish",
+              "Dutch",
+              "Ukrainian",
+              "Vietnamese",
+              "Indonesian",
+              "Japanese",
+              "Italian",
+              "Korean",
+              "Thai",
+              "Polish",
+              "Romanian",
+              "Greek",
+              "Czech",
+              "Finnish",
+              "Hindi",
+              "Bulgarian",
+              "Danish",
+              "Hebrew",
+              "Malay",
+              "Persian",
+              "Slovak",
+              "Swedish",
+              "Croatian",
+              "Filipino",
+              "Hungarian",
+              "Norwegian",
+              "Slovenian",
+              "Catalan",
+              "Nynorsk",
+              "Tamil",
+              "Afrikaans"
+            ],
+            "default": null
           }
         },
         "required": [
@@ -86994,7 +87638,7 @@
               "null"
             ],
             "description": "The ID of the connection associated with this number.",
-            "format": "int64"
+            "x-format": "int64"
           },
           "connection_name": {
             "type": [
@@ -87143,7 +87787,7 @@
                   "null"
                 ],
                 "description": "The ID of the app that will intercept outbound calls.",
-                "format": "int64"
+                "x-format": "int64"
               },
               "interception_app_name": {
                 "type": [
@@ -87164,7 +87808,7 @@
                   "null"
                 ],
                 "description": "The ID of the app that will intercept inbound calls.",
-                "format": "int64"
+                "x-format": "int64"
               },
               "interception_app_name": {
                 "type": [
@@ -87222,7 +87866,7 @@
                   "null"
                 ],
                 "description": "The ID of the CallControl or TeXML Application that will intercept inbound calls.",
-                "format": "int64"
+                "x-format": "int64"
               }
             }
           },
@@ -87235,7 +87879,7 @@
                   "null"
                 ],
                 "description": "The ID of the CallControl or TeXML Application that will intercept outbound calls.",
-                "format": "int64"
+                "x-format": "int64"
               }
             }
           },
@@ -87340,9 +87984,9 @@
           },
           "phone_number": {
             "type": "string",
-            "format": "e164",
             "description": "+E.164 formatted phone number.",
-            "readOnly": true
+            "readOnly": true,
+            "x-format": "e164"
           },
           "messaging_profile_id": {
             "type": [
@@ -89062,6 +89706,12 @@
             "example": "2018-01-01T00:00:00.000000Z",
             "readOnly": true
           },
+          "errors": {
+            "type": "string",
+            "description": "Errors the reservation could happen upon",
+            "example": "Number is already on hold",
+            "readOnly": true
+          },
           "updated_at": {
             "type": "string",
             "format": "date-time",
@@ -89082,7 +89732,7 @@
               "created_at": "2018-01-01T00:00:00.000000Z",
               "updated_at": "2018-01-01T00:00:00.000000Z",
               "expired_at": "2018-01-01T00:00:00.000000Z",
-              "errors": ""
+              "errors": "Number is already on hold"
             }
           ],
           "status": "pending",
@@ -89724,8 +90374,8 @@
         "properties": {
           "from": {
             "type": "string",
-            "format": "address",
-            "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code)."
+            "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).",
+            "x-format": "address"
           },
           "to": {
             "$ref": "#/components/schemas/ToNumber"
@@ -90001,8 +90651,8 @@
           "ani_override": {
             "title": "ANI override type",
             "type": "string",
-            "format": "E.164",
-            "description": "Set a phone number as the ani_override value to override caller id number on outbound calls."
+            "description": "Set a phone number as the ani_override value to override caller id number on outbound calls.",
+            "x-format": "E.164"
           },
           "ani_override_type": {
             "title": "ANI override type",
@@ -90363,8 +91013,8 @@
             "properties": {
               "phone_number": {
                 "type": "string",
-                "format": "address",
-                "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code)."
+                "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).",
+                "x-format": "address"
               },
               "carrier": {
                 "type": "string",
@@ -90391,8 +91041,8 @@
               "properties": {
                 "phone_number": {
                   "type": "string",
-                  "format": "address",
-                  "description": "Receiving address (+E.164 formatted phone number or short code)."
+                  "description": "Receiving address (+E.164 formatted phone number or short code).",
+                  "x-format": "address"
                 },
                 "status": {
                   "type": "string",
@@ -90434,8 +91084,8 @@
               "properties": {
                 "phone_number": {
                   "type": "string",
-                  "format": "address",
-                  "description": "Receiving address (+E.164 formatted phone number or short code)."
+                  "description": "Receiving address (+E.164 formatted phone number or short code).",
+                  "x-format": "address"
                 },
                 "status": {
                   "type": "string",
@@ -90494,7 +91144,7 @@
                     "string",
                     "null"
                   ],
-                  "format": "mime-type",
+                  "x-format": "mime-type",
                   "description": "The MIME type of the requested media."
                 },
                 "sha256": {
@@ -90555,13 +91205,13 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
-                "description": "The amount deducted from your account."
+                "description": "The amount deducted from your account.",
+                "x-format": "decimal"
               },
               "currency": {
                 "type": "string",
-                "format": "iso4217",
-                "description": "The ISO 4217 currency identifier."
+                "description": "The ISO 4217 currency identifier.",
+                "x-format": "iso4217"
               }
             }
           },
@@ -90576,13 +91226,13 @@
                 "properties": {
                   "amount": {
                     "type": "string",
-                    "format": "decimal",
-                    "description": "The carrier fee amount."
+                    "description": "The carrier fee amount.",
+                    "x-format": "decimal"
                   },
                   "currency": {
                     "type": "string",
-                    "format": "iso4217",
-                    "description": "The ISO 4217 currency identifier."
+                    "description": "The ISO 4217 currency identifier.",
+                    "x-format": "iso4217"
                   }
                 }
               },
@@ -90591,13 +91241,13 @@
                 "properties": {
                   "amount": {
                     "type": "string",
-                    "format": "decimal",
-                    "description": "The rate amount applied."
+                    "description": "The rate amount applied.",
+                    "x-format": "decimal"
                   },
                   "currency": {
                     "type": "string",
-                    "format": "iso4217",
-                    "description": "The ISO 4217 currency identifier."
+                    "description": "The ISO 4217 currency identifier.",
+                    "x-format": "iso4217"
                   }
                 }
               }
@@ -90772,8 +91422,8 @@
             "properties": {
               "phone_number": {
                 "type": "string",
-                "format": "address",
-                "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code)."
+                "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).",
+                "x-format": "address"
               },
               "carrier": {
                 "type": "string",
@@ -90800,8 +91450,8 @@
               "properties": {
                 "phone_number": {
                   "type": "string",
-                  "format": "address",
-                  "description": "Receiving address (+E.164 formatted phone number or short code)."
+                  "description": "Receiving address (+E.164 formatted phone number or short code).",
+                  "x-format": "address"
                 },
                 "status": {
                   "type": "string",
@@ -90845,8 +91495,8 @@
               "properties": {
                 "phone_number": {
                   "type": "string",
-                  "format": "address",
-                  "description": "Receiving address (+E.164 formatted phone number or short code)."
+                  "description": "Receiving address (+E.164 formatted phone number or short code).",
+                  "x-format": "address"
                 },
                 "status": {
                   "type": "string",
@@ -90909,7 +91559,7 @@
                     "string",
                     "null"
                   ],
-                  "format": "mime-type",
+                  "x-format": "mime-type",
                   "description": "The MIME type of the requested media."
                 },
                 "sha256": {
@@ -90970,13 +91620,13 @@
             "properties": {
               "amount": {
                 "type": "string",
-                "format": "decimal",
-                "description": "The amount deducted from your account."
+                "description": "The amount deducted from your account.",
+                "x-format": "decimal"
               },
               "currency": {
                 "type": "string",
-                "format": "iso4217",
-                "description": "The ISO 4217 currency identifier."
+                "description": "The ISO 4217 currency identifier.",
+                "x-format": "iso4217"
               }
             }
           },
@@ -90991,13 +91641,13 @@
                 "properties": {
                   "amount": {
                     "type": "string",
-                    "format": "decimal",
-                    "description": "The carrier fee amount."
+                    "description": "The carrier fee amount.",
+                    "x-format": "decimal"
                   },
                   "currency": {
                     "type": "string",
-                    "format": "iso4217",
-                    "description": "The ISO 4217 currency identifier."
+                    "description": "The ISO 4217 currency identifier.",
+                    "x-format": "iso4217"
                   }
                 }
               },
@@ -91006,13 +91656,13 @@
                 "properties": {
                   "amount": {
                     "type": "string",
-                    "format": "decimal",
-                    "description": "The rate amount applied."
+                    "description": "The rate amount applied.",
+                    "x-format": "decimal"
                   },
                   "currency": {
                     "type": "string",
-                    "format": "iso4217",
-                    "description": "The ISO 4217 currency identifier."
+                    "description": "The ISO 4217 currency identifier.",
+                    "x-format": "iso4217"
                   }
                 }
               }
@@ -92493,6 +93143,11 @@
             "description": "ISO 8601 formatted date indicating when the resource was updated.",
             "readOnly": true
           },
+          "hd_voice_enabled": {
+            "type": "boolean",
+            "description": "Indicates whether HD voice is enabled for this number.",
+            "readOnly": true
+          },
           "phone_number_type": {
             "type": "string",
             "description": "The phone number's type.",
@@ -92736,6 +93391,16 @@
             "default": "disabled",
             "description": "The inbound_call_screening setting is a phone number configuration option variable that allows users to configure their settings to block or flag fraudulent calls. It can be set to disabled, reject_calls, or flag_calls. This feature has an additional per-number monthly cost associated with it."
           },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "readOnly": true
+          },
+          "hd_voice_enabled": {
+            "type": "boolean",
+            "description": "Indicates whether HD voice is enabled for this number.",
+            "readOnly": true
+          },
           "source_type": {
             "description": "Indicates if the phone number was purchased or ported in. For some numbers this information may not be available.",
             "anyOf": [
@@ -92913,9 +93578,9 @@
           },
           "phone_number": {
             "type": "string",
-            "format": "e164",
             "description": "+E.164 formatted phone number.",
-            "readOnly": true
+            "readOnly": true,
+            "x-format": "e164"
           },
           "messaging_profile_id": {
             "type": [
@@ -94923,6 +95588,13 @@
             "description": "Identifies the old service provider",
             "example": "Unreal Communications",
             "readOnly": true
+          },
+          "phone_numbers": {
+            "type": "array",
+            "description": "List of phone numbers associated with this porting order",
+            "items": {
+              "$ref": "#/components/schemas/PortingPhoneNumber"
+            }
           },
           "documents": {
             "$ref": "#/components/schemas/PortingOrderDocuments"
@@ -98593,8 +99265,8 @@
           },
           "to": {
             "type": "string",
-            "format": "address",
-            "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code)."
+            "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).",
+            "x-format": "address"
           },
           "message_id": {
             "type": "string",
@@ -98677,6 +99349,12 @@
             "type": "string",
             "format": "uuid",
             "example": "12ade33a-21c0-473b-b055-b3c836e1c292",
+            "readOnly": true
+          },
+          "errors": {
+            "type": "string",
+            "description": "Errors the reservation could happen upon",
+            "example": "Number is already on hold",
             "readOnly": true
           },
           "record_type": {
@@ -99095,6 +99773,11 @@
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25,
             "default": null
+          },
+          "resolution": {
+            "type": "string",
+            "description": "The resolution of the room composition.",
+            "example": "1280x720"
           },
           "record_type": {
             "type": "string",
@@ -102038,6 +102721,16 @@
             ],
             "readOnly": true
           },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date indicating when the resource was updated.",
+            "readOnly": true
+          },
+          "hd_voice_enabled": {
+            "type": "boolean",
+            "description": "Indicates whether HD voice is enabled for this number.",
+            "readOnly": true
+          },
           "inbound_call_screening": {
             "type": "string",
             "enum": [
@@ -102216,6 +102909,21 @@
             "description": "Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.",
             "type": "string",
             "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          },
+          "loop": {
+            "$ref": "#/components/schemas/Loopcount",
+            "description": "The number of times to play the audio file. Use `infinity` to loop indefinitely. Defaults to 1."
+          },
+          "target_legs": {
+            "description": "Specifies which legs of the call should receive the spoken audio.",
+            "type": "string",
+            "enum": [
+              "self",
+              "opposite",
+              "both"
+            ],
+            "default": "self",
+            "example": "both"
           }
         },
         "example": {
@@ -102582,6 +103290,39 @@
             "description": "Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.",
             "type": "string",
             "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          },
+          "custom_parameters": {
+            "description": "Custom parameters to be sent as part of the WebSocket connection.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the custom parameter."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The value of the custom parameter."
+                }
+              }
+            },
+            "example": [
+              {
+                "name": "param1",
+                "value": "value1"
+              },
+              {
+                "name": "param2",
+                "value": "value2"
+              }
+            ]
+          },
+          "stream_auth_token": {
+            "description": "An authentication token to be sent as part of the WebSocket connection. Maximum length is 4000 characters.",
+            "type": "string",
+            "maxLength": 4000,
+            "example": "your-auth-token"
           }
         },
         "example": {
@@ -104275,6 +105016,11 @@
             "type": "string",
             "description": "ISO-8601 formatted date indicating when the resource was created.",
             "example": "2018-02-02T22:25:27.521Z"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Identifies the user this credential is associated with.",
+            "example": "user-id"
           },
           "updated_at": {
             "type": "string",
@@ -106952,9 +107698,9 @@
       },
       "ToNumber": {
         "type": "string",
-        "format": "address",
         "description": "Receiving address (+E.164 formatted phone number or short code).",
-        "example": "+E.164"
+        "example": "+E.164",
+        "x-format": "address"
       },
       "TokenRequest": {
         "type": "object",
@@ -108393,6 +109139,59 @@
               "Middle East"
             ],
             "example": "Canada"
+          },
+          "preferred_codecs": {
+            "description": "The list of comma-separated codecs in order of preference to be used during the call. The codecs supported are `G722`, `PCMU`, `PCMA`, `G729`, `OPUS`, `VP8`, `H264`, `AMR-WB`.",
+            "type": "string",
+            "example": "G722,PCMU,PCMA,G729,OPUS,VP8,H264"
+          },
+          "webhook_urls": {
+            "description": "A map of event types to webhook URLs. When an event of the specified type occurs, the webhook URL associated with that event type will be called instead of `webhook_url`. Events not mapped here will use the default `webhook_url`.",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uri"
+            },
+            "example": {
+              "call.answered": "https://www.example.com/webhooks/answered",
+              "call.hangup": "https://www.example.com/webhooks/hangup"
+            }
+          },
+          "webhook_urls_method": {
+            "description": "HTTP request method to invoke `webhook_urls`.",
+            "type": "string",
+            "enum": [
+              "POST",
+              "GET"
+            ],
+            "default": "POST",
+            "example": "POST"
+          },
+          "webhook_retries_policies": {
+            "description": "A map of event types to retry policies. Each retry policy contains an array of `retries_ms` specifying the delays between retry attempts in milliseconds. Maximum 5 retries, total delay cannot exceed 60 seconds.",
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "retries_ms": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "maxItems": 5,
+                  "description": "Array of delays in milliseconds between retry attempts. Total sum cannot exceed 60000ms."
+                }
+              }
+            },
+            "example": {
+              "call.answered": {
+                "retries_ms": [
+                  1000,
+                  2000,
+                  5000
+                ]
+              }
+            }
           }
         }
       },
@@ -108577,7 +109376,7 @@
         "properties": {
           "code": {
             "type": "string",
-            "format": "int64"
+            "x-format": "int64"
           },
           "title": {
             "type": "string"
@@ -109310,72 +110109,31 @@
         "type": "object",
         "title": "Update Conference Participant Request",
         "properties": {
-          "Muted": {
-            "description": "Whether the participant should be muted.",
-            "example": true,
-            "type": "boolean"
+          "end_conference_on_exit": {
+            "description": "Whether the conference should end when this participant exits.",
+            "type": "boolean",
+            "example": false
           },
-          "Hold": {
-            "description": "Whether the participant should be on hold.",
-            "example": true,
-            "type": "boolean"
+          "soft_end_conference_on_exit": {
+            "description": "Whether the conference should soft-end when this participant exits. A soft end will stop new participants from joining but allow existing participants to remain.",
+            "type": "boolean",
+            "example": false
           },
-          "HoldUrl": {
-            "description": "The URL to be called using the `HoldMethod` for music that plays when the participant is on hold. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `<Play>`, `<Say>`, `<Pause>`, or `<Redirect>` verbs.",
-            "example": "https://www.example.com/hold-music.xml",
-            "type": "string"
-          },
-          "HoldMethod": {
-            "description": "The HTTP method to use when calling the `HoldUrl`.",
-            "example": "POST",
-            "enum": [
-              "GET",
-              "POST"
-            ],
-            "type": "string"
-          },
-          "AnnounceUrl": {
-            "description": "The URL to call to announce something to the participant. The URL may return an MP3 fileo a WAV file, or a TwiML document that contains `<Play>`, `<Say>`, `<Pause>`, or `<Redirect>` verbs.",
-            "example": "https://www.example.com/announce.xml",
-            "type": "string"
-          },
-          "AnnounceMethod": {
-            "description": "The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.",
-            "example": "GET",
+          "beep_enabled": {
+            "description": "Whether entry/exit beeps are enabled for this participant.",
             "type": "string",
             "enum": [
-              "GET",
-              "POST"
-            ]
-          },
-          "WaitUrl": {
-            "description": "The URL to call for an audio file to play while the participant is waiting for the conference to start.",
-            "example": "https://www.example.com/wait_music.mp3",
-            "type": "string"
-          },
-          "BeepOnExit": {
-            "description": "Whether to play a notification beep to the conference when the participant exits.",
-            "example": false,
-            "type": "boolean"
-          },
-          "EndConferenceOnExit": {
-            "description": "Whether to end the conference when the participant leaves.",
-            "example": false,
-            "type": "boolean"
-          },
-          "Coaching": {
-            "description": "Whether the participant is coaching another call. When `true`, `CallSidToCoach` has to be given.",
-            "example": false,
-            "type": "boolean"
-          },
-          "CallSidToCoach": {
-            "description": "The SID of the participant who is being coached. The participant being coached is the only participant who can hear the participant who is coaching.",
-            "example": "v3:9X2vxPDFY2RHSJ1EdMS0RHRksMTg7ldNxdjWbVr9zBjbGjGsSe-aiQ",
-            "type": "string"
+              "always",
+              "never",
+              "on_enter",
+              "on_exit"
+            ],
+            "example": "always"
           }
         },
         "example": {
-          "BeepOnExit": false
+          "end_conference_on_exit": true,
+          "beep_enabled": "never"
         }
       },
       "UpdateConferenceRequest": {
@@ -110811,6 +111569,10 @@
             "type": "string",
             "description": "A customer reference string for customer look ups.",
             "example": "MY REF 001"
+          },
+          "address_id": {
+            "type": "string",
+            "description": "Identifies the address associated with the phone number."
           },
           "connection_id": {
             "type": "string",
@@ -112385,7 +113147,7 @@
               "properties": {
                 "phone_number": {
                   "type": "string",
-                  "format": "+E.164"
+                  "x-format": "+E.164"
                 },
                 "status": {
                   "type": "string",
@@ -112422,7 +113184,7 @@
               "properties": {
                 "phone_number": {
                   "type": "string",
-                  "format": "+E.164"
+                  "x-format": "+E.164"
                 },
                 "code": {
                   "type": "string"
@@ -112532,7 +113294,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "format": "+E.164"
+              "x-format": "+E.164"
             }
           },
           "verification_method": {
@@ -113870,6 +114632,58 @@
             "default": 1.0,
             "description": "Adjusts speech velocity. 1.0 is default speed; values less than 1.0 slow speech; values greater than 1.0 accelerate it. Only applicable when using ElevenLabs."
           },
+          "language_boost": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Enhances recognition for specific languages and dialects during MiniMax TTS synthesis. Default is null (no boost). Set to 'auto' for automatic language detection. Only applicable when using MiniMax voices.",
+            "enum": [
+              null,
+              "auto",
+              "Chinese",
+              "Chinese,Yue",
+              "English",
+              "Arabic",
+              "Russian",
+              "Spanish",
+              "French",
+              "Portuguese",
+              "German",
+              "Turkish",
+              "Dutch",
+              "Ukrainian",
+              "Vietnamese",
+              "Indonesian",
+              "Japanese",
+              "Italian",
+              "Korean",
+              "Thai",
+              "Polish",
+              "Romanian",
+              "Greek",
+              "Czech",
+              "Finnish",
+              "Hindi",
+              "Bulgarian",
+              "Danish",
+              "Hebrew",
+              "Malay",
+              "Persian",
+              "Slovak",
+              "Swedish",
+              "Croatian",
+              "Filipino",
+              "Hungarian",
+              "Norwegian",
+              "Slovenian",
+              "Catalan",
+              "Nynorsk",
+              "Tamil",
+              "Afrikaans"
+            ],
+            "default": null
+          },
           "background_audio": {
             "description": "Optional background audio to play on the call. Use a predefined media bed, or supply a looped MP3 URL. If a media URL is chosen in the portal, customers can preview it before saving.",
             "oneOf": [
@@ -114699,7 +115513,7 @@
               "properties": {
                 "phone": {
                   "type": "string",
-                  "format": "E+164"
+                  "x-format": "E+164"
                 },
                 "type": {
                   "type": "string"
@@ -115120,8 +115934,8 @@
                 "properties": {
                   "phone_number": {
                     "type": "string",
-                    "format": "address",
-                    "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code)."
+                    "description": "Sending address (+E.164 formatted phone number, alphanumeric sender ID, or short code).",
+                    "x-format": "address"
                   },
                   "status": {
                     "type": "string",
@@ -116055,6 +116869,78 @@
           }
         }
       },
+      "call-scripting_UpdateConferenceParticipantRequest": {
+        "type": "object",
+        "title": "Update Conference Participant Request",
+        "properties": {
+          "Muted": {
+            "description": "Whether the participant should be muted.",
+            "example": true,
+            "type": "boolean"
+          },
+          "Hold": {
+            "description": "Whether the participant should be on hold.",
+            "example": true,
+            "type": "boolean"
+          },
+          "HoldUrl": {
+            "description": "The URL to be called using the `HoldMethod` for music that plays when the participant is on hold. The URL may return an MP3 file, a WAV file, or a TwiML document that contains `<Play>`, `<Say>`, `<Pause>`, or `<Redirect>` verbs.",
+            "example": "https://www.example.com/hold-music.xml",
+            "type": "string"
+          },
+          "HoldMethod": {
+            "description": "The HTTP method to use when calling the `HoldUrl`.",
+            "example": "POST",
+            "enum": [
+              "GET",
+              "POST"
+            ],
+            "type": "string"
+          },
+          "AnnounceUrl": {
+            "description": "The URL to call to announce something to the participant. The URL may return an MP3 fileo a WAV file, or a TwiML document that contains `<Play>`, `<Say>`, `<Pause>`, or `<Redirect>` verbs.",
+            "example": "https://www.example.com/announce.xml",
+            "type": "string"
+          },
+          "AnnounceMethod": {
+            "description": "The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.",
+            "example": "GET",
+            "type": "string",
+            "enum": [
+              "GET",
+              "POST"
+            ]
+          },
+          "WaitUrl": {
+            "description": "The URL to call for an audio file to play while the participant is waiting for the conference to start.",
+            "example": "https://www.example.com/wait_music.mp3",
+            "type": "string"
+          },
+          "BeepOnExit": {
+            "description": "Whether to play a notification beep to the conference when the participant exits.",
+            "example": false,
+            "type": "boolean"
+          },
+          "EndConferenceOnExit": {
+            "description": "Whether to end the conference when the participant leaves.",
+            "example": false,
+            "type": "boolean"
+          },
+          "Coaching": {
+            "description": "Whether the participant is coaching another call. When `true`, `CallSidToCoach` has to be given.",
+            "example": false,
+            "type": "boolean"
+          },
+          "CallSidToCoach": {
+            "description": "The SID of the participant who is being coached. The participant being coached is the only participant who can hear the participant who is coaching.",
+            "example": "v3:9X2vxPDFY2RHSJ1EdMS0RHRksMTg7ldNxdjWbVr9zBjbGjGsSe-aiQ",
+            "type": "string"
+          }
+        },
+        "example": {
+          "BeepOnExit": false
+        }
+      },
       "call-scripting_UpdateConferenceRequest": {
         "type": "object",
         "title": "Update Conference Request",
@@ -116718,9 +117604,9 @@
       "connections_OutboundVoiceProfileId": {
         "title": "Outbound Voice Profile ID",
         "type": "string",
-        "format": "int64",
         "description": "Identifies the associated outbound voice profile.",
-        "example": "1293384261075731499"
+        "example": "1293384261075731499",
+        "x-format": "int64"
       },
       "connections_PaginationMeta": {
         "title": "Pagination Meta",
@@ -116989,16 +117875,16 @@
       "external-voice-integrations_IntId": {
         "title": "Int ID",
         "type": "string",
-        "format": "int64",
         "description": "Uniquely identifies the resource.",
-        "example": "1293384261075731499"
+        "example": "1293384261075731499",
+        "x-format": "int64"
       },
       "external-voice-integrations_OutboundVoiceProfileId": {
         "title": "Outbound Voice Profile ID",
         "type": "string",
         "description": "Identifies the associated outbound voice profile.",
-        "format": "int64",
-        "example": "1293384261075731499"
+        "example": "1293384261075731499",
+        "x-format": "int64"
       },
       "external-voice-integrations_PaginationMeta": {
         "title": "Pagination Meta",
@@ -117435,7 +118321,7 @@
         "properties": {
           "code": {
             "type": "string",
-            "format": "integer"
+            "x-format": "integer"
           },
           "title": {
             "type": "string"
@@ -117670,7 +118556,7 @@
         "properties": {
           "code": {
             "type": "string",
-            "format": "int64"
+            "x-format": "int64"
           },
           "title": {
             "type": "string"
@@ -118758,7 +119644,7 @@
               },
               "payload": {
                 "type": "object",
-                "properties": {}
+                "additionalProperties": true
               }
             },
             "example": {

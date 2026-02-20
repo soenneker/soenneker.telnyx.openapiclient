@@ -3,17 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The HTTP method to use when calling the `HoldUrl`.</summary>
+    /// <summary>HTTP request method to invoke `webhook_urls`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum UpdateConferenceParticipantRequest_HoldMethod
+    public enum TransferCallRequest_webhook_urls_method
     {
-        [EnumMember(Value = "GET")]
-        #pragma warning disable CS1591
-        GET,
-        #pragma warning restore CS1591
         [EnumMember(Value = "POST")]
         #pragma warning disable CS1591
         POST,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "GET")]
+        #pragma warning disable CS1591
+        GET,
         #pragma warning restore CS1591
     }
 }

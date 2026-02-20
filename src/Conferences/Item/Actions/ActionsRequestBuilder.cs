@@ -2,6 +2,8 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.End;
+using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Gather_using_audio;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Hold;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Join;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Leave;
@@ -11,6 +13,7 @@ using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_pause;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_resume;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_start;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop;
+using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Send_dtmf;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Stop;
 using Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Unhold;
@@ -28,6 +31,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The end property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.End.EndRequestBuilder End
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.End.EndRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The gather_using_audio property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Gather_using_audio.Gather_using_audioRequestBuilder Gather_using_audio
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Gather_using_audio.Gather_using_audioRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The hold property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Hold.HoldRequestBuilder Hold
         {
@@ -72,6 +85,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions
         public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopRequestBuilder Record_stop
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Record_stop.Record_stopRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The send_dtmf property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Send_dtmf.Send_dtmfRequestBuilder Send_dtmf
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Send_dtmf.Send_dtmfRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The speak property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Conferences.Item.Actions.Speak.SpeakRequestBuilder Speak

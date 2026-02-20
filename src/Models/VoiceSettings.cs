@@ -30,6 +30,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.VoiceSettings_background_audio BackgroundAudio { get; set; }
 #endif
+        /// <summary>Enhances recognition for specific languages and dialects during MiniMax TTS synthesis. Default is null (no boost). Set to &apos;auto&apos; for automatic language detection. Only applicable when using MiniMax voices.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings_language_boost? LanguageBoost { get; set; }
         /// <summary>Determines how closely the AI should adhere to the original voice when attempting to replicate it. Only applicable when using ElevenLabs.</summary>
         public double? SimilarityBoost { get; set; }
         /// <summary>Adjusts speech velocity. 1.0 is default speed; values less than 1.0 slow speech; values greater than 1.0 accelerate it. Only applicable when using ElevenLabs.</summary>
@@ -56,6 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public VoiceSettings()
         {
             AdditionalData = new Dictionary<string, object>();
+            LanguageBoost = global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings_language_boost.Auto;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -77,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "background_audio", n => { BackgroundAudio = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.VoiceSettings_background_audio>(global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.VoiceSettings_background_audio.CreateFromDiscriminatorValue); } },
+                { "language_boost", n => { LanguageBoost = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings_language_boost>(); } },
                 { "similarity_boost", n => { SimilarityBoost = n.GetDoubleValue(); } },
                 { "speed", n => { Speed = n.GetDoubleValue(); } },
                 { "style", n => { Style = n.GetDoubleValue(); } },
@@ -95,6 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings.VoiceSettings_background_audio>("background_audio", BackgroundAudio);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettings_language_boost>("language_boost", LanguageBoost);
             writer.WriteDoubleValue("similarity_boost", SimilarityBoost);
             writer.WriteDoubleValue("speed", Speed);
             writer.WriteDoubleValue("style", Style);

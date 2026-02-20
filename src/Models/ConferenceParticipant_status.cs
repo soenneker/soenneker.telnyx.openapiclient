@@ -3,17 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>The HTTP method used to call the `AnnounceUrl`. Defaults to `POST`.</summary>
+    /// <summary>Status of the participant.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum UpdateConferenceParticipantRequest_AnnounceMethod
+    public enum ConferenceParticipant_status
     {
-        [EnumMember(Value = "GET")]
+        [EnumMember(Value = "joining")]
         #pragma warning disable CS1591
-        GET,
+        Joining,
         #pragma warning restore CS1591
-        [EnumMember(Value = "POST")]
+        [EnumMember(Value = "joined")]
         #pragma warning disable CS1591
-        POST,
+        Joined,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "left")]
+        #pragma warning disable CS1591
+        Left,
         #pragma warning restore CS1591
     }
 }
