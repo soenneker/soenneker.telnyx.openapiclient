@@ -46,6 +46,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The rcs property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRCSRequest? Rcs { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRCSRequest Rcs { get; set; }
+#endif
         /// <summary>The sms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,6 +107,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "flashcall", n => { Flashcall = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "rcs", n => { Rcs = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRCSRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRCSRequest.CreateFromDiscriminatorValue); } },
                 { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest.CreateFromDiscriminatorValue); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -115,6 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest>("flashcall", Flashcall);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRCSRequest>("rcs", Rcs);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest>("sms", Sms);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);

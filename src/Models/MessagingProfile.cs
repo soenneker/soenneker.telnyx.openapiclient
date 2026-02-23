@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The AI assistant ID associated with this messaging profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AiAssistantId { get; set; }
+#nullable restore
+#else
+        public string AiAssistantId { get; set; }
+#endif
         /// <summary>The alphanumeric sender ID to use when sending to destinations that require an alphanumeric sender ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,12 +76,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings NumberPoolSettings { get; set; }
 #endif
+        /// <summary>The organization that owns this messaging profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrganizationId { get; set; }
+#nullable restore
+#else
+        public string OrganizationId { get; set; }
+#endif
         /// <summary>Identifies the type of the resource.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile_record_type? RecordType { get; private set; }
         /// <summary>Indicates whether message content redaction is enabled for this profile.</summary>
         public bool? RedactionEnabled { get; set; }
         /// <summary>Determines how much information is redacted in messages for privacy or compliance purposes.</summary>
         public int? RedactionLevel { get; set; }
+        /// <summary>The resource group ID associated with this messaging profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceGroupId { get; set; }
+#nullable restore
+#else
+        public string ResourceGroupId { get; set; }
+#endif
         /// <summary>Enables automatic character encoding optimization for SMS messages. When enabled, the system automatically selects the most efficient encoding (GSM-7 or UCS-2) based on message content to maximize character limits and minimize costs.</summary>
         public bool? SmartEncoding { get; set; }
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
@@ -145,6 +169,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ai_assistant_id", n => { AiAssistantId = n.GetStringValue(); } },
                 { "alpha_sender", n => { AlphaSender = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "daily_spend_limit", n => { DailySpendLimit = n.GetStringValue(); } },
@@ -157,9 +182,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "mobile_only", n => { MobileOnly = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number_pool_settings", n => { NumberPoolSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings.CreateFromDiscriminatorValue); } },
+                { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingProfile_record_type>(); } },
                 { "redaction_enabled", n => { RedactionEnabled = n.GetBoolValue(); } },
                 { "redaction_level", n => { RedactionLevel = n.GetIntValue(); } },
+                { "resource_group_id", n => { ResourceGroupId = n.GetStringValue(); } },
                 { "smart_encoding", n => { SmartEncoding = n.GetBoolValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url_shortener_settings", n => { UrlShortenerSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings.CreateFromDiscriminatorValue); } },
@@ -177,6 +204,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("ai_assistant_id", AiAssistantId);
             writer.WriteStringValue("alpha_sender", AlphaSender);
             writer.WriteStringValue("daily_spend_limit", DailySpendLimit);
             writer.WriteBoolValue("daily_spend_limit_enabled", DailySpendLimitEnabled);
@@ -187,8 +215,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("mobile_only", MobileOnly);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings>("number_pool_settings", NumberPoolSettings);
+            writer.WriteStringValue("organization_id", OrganizationId);
             writer.WriteBoolValue("redaction_enabled", RedactionEnabled);
             writer.WriteIntValue("redaction_level", RedactionLevel);
+            writer.WriteStringValue("resource_group_id", ResourceGroupId);
             writer.WriteBoolValue("smart_encoding", SmartEncoding);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>("url_shortener_settings", UrlShortenerSettings);
             writer.WriteStringValue("v1_secret", V1Secret);

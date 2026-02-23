@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The AI assistant ID to associate with this messaging profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AiAssistantId { get; set; }
+#nullable restore
+#else
+        public string AiAssistantId { get; set; }
+#endif
         /// <summary>The alphanumeric sender ID to use when sending to destinations that require an alphanumeric sender ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,6 +42,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? DailySpendLimitEnabled { get; set; }
         /// <summary>Specifies whether the messaging profile is enabled or not.</summary>
         public bool? Enabled { get; set; }
+        /// <summary>A URL to receive health check webhooks for numbers in this profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? HealthWebhookUrl { get; set; }
+#nullable restore
+#else
+        public string HealthWebhookUrl { get; set; }
+#endif
         /// <summary>enables SMS fallback for MMS messages.</summary>
         public bool? MmsFallBackToSms { get; set; }
         /// <summary>enables automated resizing of MMS media.</summary>
@@ -55,6 +71,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings NumberPoolSettings { get; set; }
+#endif
+        /// <summary>The resource group ID to associate with this messaging profile.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceGroupId { get; set; }
+#nullable restore
+#else
+        public string ResourceGroupId { get; set; }
 #endif
         /// <summary>Enables automatic character encoding optimization for SMS messages. When enabled, the system automatically selects the most efficient encoding (GSM-7 or UCS-2) based on message content to maximize character limits and minimize costs.</summary>
         public bool? SmartEncoding { get; set; }
@@ -118,15 +142,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ai_assistant_id", n => { AiAssistantId = n.GetStringValue(); } },
                 { "alpha_sender", n => { AlphaSender = n.GetStringValue(); } },
                 { "daily_spend_limit", n => { DailySpendLimit = n.GetStringValue(); } },
                 { "daily_spend_limit_enabled", n => { DailySpendLimitEnabled = n.GetBoolValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "health_webhook_url", n => { HealthWebhookUrl = n.GetStringValue(); } },
                 { "mms_fall_back_to_sms", n => { MmsFallBackToSms = n.GetBoolValue(); } },
                 { "mms_transcoding", n => { MmsTranscoding = n.GetBoolValue(); } },
                 { "mobile_only", n => { MobileOnly = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number_pool_settings", n => { NumberPoolSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings.CreateFromDiscriminatorValue); } },
+                { "resource_group_id", n => { ResourceGroupId = n.GetStringValue(); } },
                 { "smart_encoding", n => { SmartEncoding = n.GetBoolValue(); } },
                 { "url_shortener_settings", n => { UrlShortenerSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings.CreateFromDiscriminatorValue); } },
                 { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessagingProfileRequest_webhook_api_version>(); } },
@@ -142,15 +169,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("ai_assistant_id", AiAssistantId);
             writer.WriteStringValue("alpha_sender", AlphaSender);
             writer.WriteStringValue("daily_spend_limit", DailySpendLimit);
             writer.WriteBoolValue("daily_spend_limit_enabled", DailySpendLimitEnabled);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteStringValue("health_webhook_url", HealthWebhookUrl);
             writer.WriteBoolValue("mms_fall_back_to_sms", MmsFallBackToSms);
             writer.WriteBoolValue("mms_transcoding", MmsTranscoding);
             writer.WriteBoolValue("mobile_only", MobileOnly);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberPoolSettings>("number_pool_settings", NumberPoolSettings);
+            writer.WriteStringValue("resource_group_id", ResourceGroupId);
             writer.WriteBoolValue("smart_encoding", SmartEncoding);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UrlShortenerSettings>("url_shortener_settings", UrlShortenerSettings);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateMessagingProfileRequest_webhook_api_version>("webhook_api_version", WebhookApiVersion);

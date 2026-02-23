@@ -12,6 +12,7 @@ using Soenneker.Telnyx.OpenApiClient.Actions;
 using Soenneker.Telnyx.OpenApiClient.Addresses;
 using Soenneker.Telnyx.OpenApiClient.Advanced_orders;
 using Soenneker.Telnyx.OpenApiClient.Ai;
+using Soenneker.Telnyx.OpenApiClient.Alphanumeric_sender_ids;
 using Soenneker.Telnyx.OpenApiClient.Audit_events;
 using Soenneker.Telnyx.OpenApiClient.Authentication_providers;
 using Soenneker.Telnyx.OpenApiClient.Available_phone_number_blocks;
@@ -72,6 +73,7 @@ using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_number_orders;
 using Soenneker.Telnyx.OpenApiClient.Messaging_hosted_numbers;
 using Soenneker.Telnyx.OpenApiClient.Messaging_numbers_bulk_updates;
 using Soenneker.Telnyx.OpenApiClient.Messaging_optouts;
+using Soenneker.Telnyx.OpenApiClient.Messaging_profile_metrics;
 using Soenneker.Telnyx.OpenApiClient.Messaging_profiles;
 using Soenneker.Telnyx.OpenApiClient.Messaging_tollfree;
 using Soenneker.Telnyx.OpenApiClient.Messaging_url_domains;
@@ -199,6 +201,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Ai.AiRequestBuilder Ai
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.AiRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The alphanumeric_sender_ids property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Alphanumeric_sender_ids.Alphanumeric_sender_idsRequestBuilder Alphanumeric_sender_ids
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Alphanumeric_sender_ids.Alphanumeric_sender_idsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The audit_events property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Audit_events.Audit_eventsRequestBuilder Audit_events
@@ -499,6 +506,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_optouts.Messaging_optoutsRequestBuilder Messaging_optouts
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_optouts.Messaging_optoutsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The messaging_profile_metrics property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profile_metrics.Messaging_profile_metricsRequestBuilder Messaging_profile_metrics
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_profile_metrics.Messaging_profile_metricsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The messaging_profiles property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Messaging_profilesRequestBuilder Messaging_profiles

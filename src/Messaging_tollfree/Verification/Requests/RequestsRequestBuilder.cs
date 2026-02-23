@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RequestsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_tollfree/verification/requests?page={page}&page_size={page_size}{&date_end*,date_start*,phone_number*,status*}", pathParameters)
+        public RequestsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_tollfree/verification/requests?page={page}&page_size={page_size}{&business_name*,date_end*,date_start*,phone_number*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RequestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_tollfree/verification/requests?page={page}&page_size={page_size}{&date_end*,date_start*,phone_number*,status*}", rawUrl)
+        public RequestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_tollfree/verification/requests?page={page}&page_size={page_size}{&business_name*,date_end*,date_start*,phone_number*,status*}", rawUrl)
         {
         }
         /// <summary>
@@ -150,6 +150,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RequestsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter verification requests by business name</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("business_name")]
+            public string? BusinessName { get; set; }
+#nullable restore
+#else
+            [QueryParameter("business_name")]
+            public string BusinessName { get; set; }
+#endif
             [QueryParameter("date_end")]
             public DateTimeOffset? DateEnd { get; set; }
             [QueryParameter("date_start")]

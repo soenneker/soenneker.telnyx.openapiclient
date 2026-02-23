@@ -35,7 +35,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Messaging_profilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles{?filter*,page*}", pathParameters)
+        public Messaging_profilesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles{?filter*,filter%5Bname%5D%5Bcontains%5D*,filter%5Bname%5D%5Beq%5D*,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Messaging_profilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles{?filter*,page*}", rawUrl)
+        public Messaging_profilesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/messaging_profiles{?filter*,filter%5Bname%5D%5Bcontains%5D*,filter%5Bname%5D%5Beq%5D*,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -159,6 +159,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles
 #else
             [QueryParameter("filter")]
             public string Filter { get; set; }
+#endif
+            /// <summary>Filter profiles by name containing the given string.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bname%5D%5Bcontains%5D")]
+            public string? Filternamecontains { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bname%5D%5Bcontains%5D")]
+            public string Filternamecontains { get; set; }
+#endif
+            /// <summary>Filter profiles by exact name match.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bname%5D%5Beq%5D")]
+            public string? Filternameeq { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bname%5D%5Beq%5D")]
+            public string Filternameeq { get; set; }
 #endif
             /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

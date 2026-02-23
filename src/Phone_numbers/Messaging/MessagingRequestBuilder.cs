@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/messaging{?page*}", pathParameters)
+        public MessagingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/messaging{?filter%5Bmessaging_profile_id%5D*,filter%5Bphone_number%5D*,filter%5Bphone_number%5D%5Bcontains%5D*,filter%5Btype%5D*,page*,sort%5Bphone_number%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/messaging{?page*}", rawUrl)
+        public MessagingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/phone_numbers/messaging{?filter%5Bmessaging_profile_id%5D*,filter%5Bphone_number%5D*,filter%5Bphone_number%5D%5Bcontains%5D*,filter%5Btype%5D*,page*,sort%5Bphone_number%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -90,6 +90,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MessagingRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter by messaging profile ID.</summary>
+            [QueryParameter("filter%5Bmessaging_profile_id%5D")]
+            public Guid? FiltermessagingProfileId { get; set; }
+            /// <summary>Filter by exact phone number (supports comma-separated list).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bphone_number%5D")]
+            public string? FilterphoneNumber { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bphone_number%5D")]
+            public string FilterphoneNumber { get; set; }
+#endif
+            /// <summary>Filter by phone number substring.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%5Bphone_number%5D%5Bcontains%5D")]
+            public string? FilterphoneNumbercontains { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%5Bphone_number%5D%5Bcontains%5D")]
+            public string FilterphoneNumbercontains { get; set; }
+#endif
+            /// <summary>Filter by phone number type.</summary>
+            [QueryParameter("filter%5Btype%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.GetFilterTypeQueryParameterType? Filtertype { get; set; }
             /// <summary>&quot;Consolidated page parameter (deepObject style). Originally: page[number], page[size]&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,6 +126,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging
             [QueryParameter("page")]
             public string Page { get; set; }
 #endif
+            /// <summary>Sort by phone number.</summary>
+            [QueryParameter("sort%5Bphone_number%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Phone_numbers.Messaging.GetSortPhone_numberQueryParameterType? SortphoneNumber { get; set; }
         }
     }
 }

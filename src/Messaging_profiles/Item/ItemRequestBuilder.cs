@@ -3,7 +3,10 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Actions;
+using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids;
 using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs;
+using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics;
 using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Short_codes;
 using Soenneker.Telnyx.OpenApiClient.Models;
@@ -20,10 +23,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The actions property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Actions.ActionsRequestBuilder Actions
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Actions.ActionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The alphanumeric_sender_ids property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsRequestBuilder Alphanumeric_sender_ids
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Alphanumeric_sender_ids.Alphanumeric_sender_idsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The autoresp_configs property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder Autoresp_configs
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Autoresp_configs.Autoresp_configsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The metrics property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics.MetricsRequestBuilder Metrics
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Metrics.MetricsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The phone_numbers property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messaging_profiles.Item.Phone_numbers.Phone_numbersRequestBuilder Phone_numbers

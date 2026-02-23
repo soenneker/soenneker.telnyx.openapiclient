@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The name that identifies the application requesting 2fa in the verification message.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppName { get; set; }
+#nullable restore
+#else
+        public string AppName { get; set; }
+#endif
         /// <summary>For every request that is initiated via this Verify profile, this sets the number of seconds before a verification request code expires. Once the verification request expires, the user cannot use the code to verify their identity.</summary>
         public int? DefaultVerificationTimeoutSecs { get; set; }
         /// <summary>
@@ -41,6 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "app_name", n => { AppName = n.GetStringValue(); } },
                 { "default_verification_timeout_secs", n => { DefaultVerificationTimeoutSecs = n.GetIntValue(); } },
             };
         }
@@ -51,6 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("app_name", AppName);
             writer.WriteIntValue("default_verification_timeout_secs", DefaultVerificationTimeoutSecs);
             writer.WriteAdditionalData(AdditionalData);
         }

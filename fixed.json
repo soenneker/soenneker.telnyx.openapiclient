@@ -1880,7 +1880,7 @@
                 "brandDisplayName",
                 "-brandDisplayName",
                 "tcrBrandId",
-                "-tcrBranId",
+                "-tcrBrandId",
                 "tcrCampaignId",
                 "-tcrCampaignId",
                 "createdAt",
@@ -9724,6 +9724,146 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/alphanumeric_sender_ids": {
+      "get": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "List alphanumeric sender IDs",
+        "description": "List all alphanumeric sender IDs for the authenticated user.",
+        "operationId": "ListAlphanumericSenderIds",
+        "parameters": [
+          {
+            "name": "filter[messaging_profile_id]",
+            "in": "query",
+            "description": "Filter by messaging profile ID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "Page size.",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ListAlphanumericSenderIdsResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/messaging_UnprocessableEntityResponse"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "Create an alphanumeric sender ID",
+        "description": "Create a new alphanumeric sender ID associated with a messaging profile.",
+        "operationId": "CreateAlphanumericSenderId",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAlphanumericSenderIdRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/AlphanumericSenderIdResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/messaging_UnprocessableEntityResponse"
+          }
+        }
+      }
+    },
+    "/alphanumeric_sender_ids/{id}": {
+      "delete": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "Delete an alphanumeric sender ID",
+        "description": "Delete an alphanumeric sender ID and disassociate it from its messaging profile.",
+        "operationId": "DeleteAlphanumericSenderId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The identifier of the alphanumeric sender ID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/AlphanumericSenderIdResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/messaging_NotFoundResponse"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "Retrieve an alphanumeric sender ID",
+        "description": "Retrieve a specific alphanumeric sender ID.",
+        "operationId": "GetAlphanumericSenderId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The identifier of the alphanumeric sender ID.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/AlphanumericSenderIdResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/messaging_NotFoundResponse"
           }
         }
       }
@@ -20342,6 +20482,86 @@
         }
       }
     },
+    "/messages/alphanumeric_sender_id": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Send a message using an alphanumeric sender ID",
+        "description": "Send an SMS message using an alphanumeric sender ID. This is SMS only.",
+        "operationId": "SendAlphanumericSenderIdMessage",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendAlphanumericSenderIdMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with the sent message.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OutboundMessageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/messaging_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/messaging_UnprocessableEntityResponse"
+          }
+        }
+      }
+    },
+    "/messages/group/{message_id}": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Retrieve group MMS messages",
+        "description": "Retrieve all messages in a group MMS conversation by the group message ID.",
+        "operationId": "GetGroupMmsMessages",
+        "parameters": [
+          {
+            "name": "message_id",
+            "in": "path",
+            "description": "The group message ID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with group MMS messages.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGroupMmsMessages_200"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/messaging_NotFoundResponse"
+          }
+        }
+      }
+    },
     "/messages/group_mms": {
       "post": {
         "tags": [
@@ -21204,6 +21424,87 @@
         }
       }
     },
+    "/messaging_hosted_numbers": {
+      "get": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "List messaging hosted numbers",
+        "description": "List all hosted numbers associated with the authenticated user.",
+        "operationId": "ListMessagingHostedNumbers",
+        "parameters": [
+          {
+            "name": "filter[messaging_profile_id]",
+            "in": "query",
+            "description": "Filter by messaging profile ID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "filter[phone_number]",
+            "in": "query",
+            "description": "Filter by exact phone number.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[phone_number][contains]",
+            "in": "query",
+            "description": "Filter by phone number substring.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort[phone_number]",
+            "in": "query",
+            "description": "Sort by phone number.",
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of hosted numbers.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMessagingHostedNumbers_200"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          }
+        }
+      }
+    },
     "/messaging_hosted_numbers/{id}": {
       "delete": {
         "tags": [
@@ -21228,6 +21529,99 @@
           },
           "4XX": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "Retrieve a messaging hosted number",
+        "description": "Retrieve a specific messaging hosted number by its ID or phone number.",
+        "operationId": "GetMessagingHostedNumber",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID or phone number of the hosted number.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a hosted number.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/PhoneNumberWithMessagingSettings"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/messaging_NotFoundResponse"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "Update a messaging hosted number",
+        "description": "Update the messaging settings for a hosted number.",
+        "operationId": "UpdateMessagingHostedNumber",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID or phone number of the hosted number.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePhoneNumberMessagingSettingsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with the updated hosted number.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/PhoneNumberWithMessagingSettings"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/messaging_NotFoundResponse"
           }
         }
       }
@@ -21385,6 +21779,54 @@
         }
       }
     },
+    "/messaging_profile_metrics": {
+      "get": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "List high-level messaging profile metrics",
+        "description": "List high-level metrics for all messaging profiles belonging to the authenticated user.",
+        "operationId": "GetProfileMetrics",
+        "parameters": [
+          {
+            "name": "time_frame",
+            "in": "query",
+            "description": "The time frame for metrics.",
+            "schema": {
+              "enum": [
+                "1h",
+                "3h",
+                "24h",
+                "3d",
+                "7d",
+                "30d"
+              ],
+              "type": "string",
+              "additionalProperties": false,
+              "default": "24h"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with high-level profile metrics.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetProfileMetrics_200"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/messaging_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          }
+        }
+      }
+    },
     "/messaging_profiles": {
       "get": {
         "tags": [
@@ -21411,6 +21853,22 @@
           },
           {
             "$ref": "#/components/parameters/PageConsolidated"
+          },
+          {
+            "name": "filter[name][eq]",
+            "in": "query",
+            "description": "Filter profiles by exact name match.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[name][contains]",
+            "in": "query",
+            "description": "Filter profiles by name containing the given string.",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -21516,6 +21974,154 @@
           },
           "4XX": {
             "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/messaging_profiles/{id}/actions/regenerate_secret": {
+      "post": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "Regenerate messaging profile secret",
+        "description": "Regenerate the v1 secret for a messaging profile.",
+        "operationId": "RegenerateMessagingProfileSecret",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The identifier of the messaging profile.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/MessagingProfileResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/messaging_NotFoundResponse"
+          }
+        }
+      }
+    },
+    "/messaging_profiles/{id}/alphanumeric_sender_ids": {
+      "get": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "List alphanumeric sender IDs for a messaging profile",
+        "description": "List all alphanumeric sender IDs associated with a specific messaging profile.",
+        "operationId": "ListProfileAlphanumericSenderIds",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The identifier of the messaging profile.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ListAlphanumericSenderIdsResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/messaging_NotFoundResponse"
+          }
+        }
+      }
+    },
+    "/messaging_profiles/{id}/metrics": {
+      "get": {
+        "tags": [
+          "Messaging"
+        ],
+        "summary": "Get detailed messaging profile metrics",
+        "description": "Get detailed metrics for a specific messaging profile, broken down by time interval.",
+        "operationId": "GetDetailedProfileMetrics",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The identifier of the messaging profile.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "time_frame",
+            "in": "query",
+            "description": "The time frame for metrics.",
+            "schema": {
+              "enum": [
+                "1h",
+                "3h",
+                "24h",
+                "3d",
+                "7d",
+                "30d"
+              ],
+              "type": "string",
+              "additionalProperties": false,
+              "default": "24h"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with detailed profile metrics.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/ProfileMetrics"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/messaging_BadRequestResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/messaging_UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/messaging_NotFoundResponse"
           }
         }
       }
@@ -21987,6 +22593,15 @@
               "title": "Phone Number",
               "type": "string"
             }
+          },
+          {
+            "name": "business_name",
+            "in": "query",
+            "description": "Filter verification requests by business name",
+            "schema": {
+              "title": "Business Name",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -22137,6 +22752,64 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/VerificationRequestEgress"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/toll-free-verification_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/messaging_tollfree/verification/requests/{id}/status_history": {
+      "get": {
+        "tags": [
+          "Verification Requests"
+        ],
+        "summary": "Get Verification Request Status History",
+        "description": "Get the history of status changes for a verification request.\n\nReturns a paginated list of historical status changes including the reason for each change and when it occurred.",
+        "operationId": "GetVerificationStatusHistory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "title": "Id",
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "title": "Page Number",
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "title": "Page Size",
+              "minimum": 1,
+              "type": "integer",
+              "description": "Request this many records per page. This value is automatically clamped if the provided value is too large."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Paginated_VerificationStatusHistoryEntry_"
                 }
               }
             }
@@ -27018,6 +27691,58 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/PageConsolidated"
+          },
+          {
+            "name": "filter[messaging_profile_id]",
+            "in": "query",
+            "description": "Filter by messaging profile ID.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "filter[phone_number]",
+            "in": "query",
+            "description": "Filter by exact phone number (supports comma-separated list).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[phone_number][contains]",
+            "in": "query",
+            "description": "Filter by phone number substring.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[type]",
+            "in": "query",
+            "description": "Filter by phone number type.",
+            "schema": {
+              "enum": [
+                "tollfree",
+                "longcode",
+                "shortcode"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "sort[phone_number]",
+            "in": "query",
+            "description": "Sort by phone number.",
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
           }
         ],
         "responses": {
@@ -40646,18 +41371,22 @@
           }
         }
       },
-      "ListMigrationSourceCoverage_200": {
+      "ValidateRegistrationCodes": {
         "type": "object",
         "properties": {
-          "data": {
+          "registration_codes": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MigrationSourceCoverageParams"
+              "type": "string"
             }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMetaSimple"
           }
+        },
+        "description": "The object containing the Array of SIM card registration codes.",
+        "example": {
+          "registration_codes": [
+            "123456780",
+            "1231231230"
+          ]
         }
       },
       "ActionsParticipantsRequest": {
@@ -41134,6 +41863,44 @@
           }
         }
       },
+      "AlphanumericSenderId": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "enum": [
+              "alphanumeric_sender_id"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "alphanumeric_sender_id"
+          },
+          "id": {
+            "type": "string",
+            "description": "Uniquely identifies the alphanumeric sender ID resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "alphanumeric_sender_id": {
+            "type": "string",
+            "description": "The alphanumeric sender ID string.",
+            "example": "MyCompany"
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "The organization that owns this sender ID."
+          },
+          "messaging_profile_id": {
+            "type": "string",
+            "description": "The messaging profile this sender ID belongs to.",
+            "format": "uuid"
+          },
+          "us_long_code_fallback": {
+            "type": "string",
+            "description": "A US long code number to use as fallback when sending to US destinations.",
+            "example": "+15551234567"
+          }
+        }
+      },
       "AltBusinessIdType": {
         "title": "AltBusinessIdType",
         "enum": [
@@ -41446,17 +42213,19 @@
           "send_silence_when_idle": true
         }
       },
-      "GetBucketUsage_200": {
+      "SetPublicIPsBulk": {
+        "required": [
+          "sim_card_ids"
+        ],
         "type": "object",
         "properties": {
-          "data": {
+          "sim_card_ids": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BucketUsage"
+              "type": "string",
+              "description": "Identifies the resource.",
+              "format": "uuid"
             }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMetaSimple"
           }
         }
       },
@@ -42793,63 +43562,85 @@
         "type": "string",
         "additionalProperties": false
       },
-      "GetStorageAPIUsage_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BucketAPIUsageResponse"
-            }
-          }
-        }
-      },
-      "AddStorageSSLCertificate": {
-        "type": "object",
-        "properties": {
-          "certificate": {
-            "type": "string",
-            "description": "The SSL certificate file",
-            "format": "binary"
-          },
-          "private_key": {
-            "type": "string",
-            "description": "The private key file",
-            "format": "binary"
-          }
-        }
-      },
-      "ValidateRegistrationCodes": {
-        "type": "object",
-        "properties": {
-          "registration_codes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "description": "The object containing the Array of SIM card registration codes.",
-        "example": {
-          "registration_codes": [
-            "123456780",
-            "1231231230"
-          ]
-        }
-      },
-      "SetPublicIPsBulk": {
+      "PreviewSimCardOrders": {
         "required": [
-          "sim_card_ids"
+          "quantity",
+          "address_id"
         ],
         "type": "object",
         "properties": {
-          "sim_card_ids": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "Identifies the resource.",
-              "format": "uuid"
-            }
+          "quantity": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
+            "example": 21
+          },
+          "address_id": {
+            "type": "string",
+            "description": "Uniquely identifies the address for the order.",
+            "example": "1293384261075731499"
+          }
+        }
+      },
+      "SetWirelessBlocklistForSimCardGroup": {
+        "required": [
+          "wireless_blocklist_id"
+        ],
+        "type": "object",
+        "properties": {
+          "wireless_blocklist_id": {
+            "type": "string",
+            "description": "The identification of the related Wireless Blocklist resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          }
+        }
+      },
+      "SetPrivateWirelessGatewayForSimCardGroup": {
+        "required": [
+          "private_wireless_gateway_id"
+        ],
+        "type": "object",
+        "properties": {
+          "private_wireless_gateway_id": {
+            "type": "string",
+            "description": "The identification of the related Private Wireless Gateway resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          }
+        }
+      },
+      "PostSimCardDataUsageNotification": {
+        "required": [
+          "sim_card_id",
+          "threshold"
+        ],
+        "type": "object",
+        "properties": {
+          "sim_card_id": {
+            "type": "string",
+            "description": "The identification UUID of the related SIM card resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "threshold": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "example": "2048.1"
+              },
+              "unit": {
+                "enum": [
+                  "MB",
+                  "GB"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "example": "MB"
+              }
+            },
+            "description": "Data usage threshold that will trigger the notification."
           }
         }
       },
@@ -43841,23 +44632,31 @@
           "park_after_unbridge": "self"
         }
       },
-      "PreviewSimCardOrders": {
-        "required": [
-          "quantity",
-          "address_id"
-        ],
+      "UpdateRequirementGroup": {
         "type": "object",
         "properties": {
-          "quantity": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
-            "example": 21
-          },
-          "address_id": {
+          "customer_reference": {
             "type": "string",
-            "description": "Uniquely identifies the address for the order.",
-            "example": "1293384261075731499"
+            "description": "Reference for the customer",
+            "example": "0002"
+          },
+          "regulatory_requirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "requirement_id": {
+                  "type": "string",
+                  "description": "Unique identifier for the regulatory requirement",
+                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
+                },
+                "field_value": {
+                  "type": "string",
+                  "description": "New value for the regulatory requirement",
+                  "example": "new requirement value"
+                }
+              }
+            }
           }
         }
       },
@@ -44082,6 +44881,11 @@
               "x-format": "+E.164"
             },
             "description": "The list of phone numbers to update."
+          },
+          "assign_only": {
+            "type": "boolean",
+            "description": "If true, only assign numbers to the profile without changing other settings.",
+            "default": false
           }
         },
         "example": {
@@ -45303,17 +46107,57 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "SetWirelessBlocklistForSimCardGroup": {
+      "CreateRequirementGroup": {
         "required": [
-          "wireless_blocklist_id"
+          "country_code",
+          "phone_number_type",
+          "action"
         ],
         "type": "object",
         "properties": {
-          "wireless_blocklist_id": {
+          "country_code": {
             "type": "string",
-            "description": "The identification of the related Wireless Blocklist resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "description": "ISO alpha 2 country code",
+            "example": "US"
+          },
+          "phone_number_type": {
+            "enum": [
+              "local",
+              "toll_free",
+              "mobile",
+              "national",
+              "shared_cost"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "local"
+          },
+          "action": {
+            "enum": [
+              "ordering",
+              "porting"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "ordering"
+          },
+          "customer_reference": {
+            "type": "string",
+            "example": "My Requirement Group"
+          },
+          "regulatory_requirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "requirement_id": {
+                  "type": "string"
+                },
+                "field_value": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -53804,18 +54648,10 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "SetPrivateWirelessGatewayForSimCardGroup": {
-        "required": [
-          "private_wireless_gateway_id"
-        ],
-        "type": "object",
-        "properties": {
-          "private_wireless_gateway_id": {
-            "type": "string",
-            "description": "The identification of the related Private Wireless Gateway resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          }
+      "GetRequirementGroups_200": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RequirementGroup"
         }
       },
       "ConnectionAndroidPushCredentialId": {
@@ -53826,65 +54662,47 @@
         "nullable": true,
         "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
       },
-      "PostSimCardDataUsageNotification": {
+      "CreatePrivateWirelessGateway": {
         "required": [
-          "sim_card_id",
-          "threshold"
+          "network_id",
+          "name"
         ],
         "type": "object",
         "properties": {
-          "sim_card_id": {
+          "network_id": {
             "type": "string",
-            "description": "The identification UUID of the related SIM card resource.",
+            "description": "The identification of the related network resource.",
             "format": "uuid",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
-          "threshold": {
-            "type": "object",
-            "properties": {
-              "amount": {
-                "type": "string",
-                "example": "2048.1"
-              },
-              "unit": {
-                "enum": [
-                  "MB",
-                  "GB"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "example": "MB"
-              }
-            },
-            "description": "Data usage threshold that will trigger the notification."
+          "name": {
+            "type": "string",
+            "description": "The private wireless gateway name.",
+            "example": "My private wireless gateway"
+          },
+          "region_code": {
+            "type": "string",
+            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
+            "example": "dc2"
           }
         }
       },
-      "UpdateRequirementGroup": {
+      "UpdatePortoutStatus": {
+        "required": [
+          "reason"
+        ],
         "type": "object",
         "properties": {
-          "customer_reference": {
+          "reason": {
             "type": "string",
-            "description": "Reference for the customer",
-            "example": "0002"
+            "description": "Provide a reason if rejecting the port out request",
+            "example": "I do not recognize this transaction"
           },
-          "regulatory_requirements": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "requirement_id": {
-                  "type": "string",
-                  "description": "Unique identifier for the regulatory requirement",
-                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
-                },
-                "field_value": {
-                  "type": "string",
-                  "description": "New value for the regulatory requirement",
-                  "example": "new requirement value"
-                }
-              }
-            }
+          "host_messaging": {
+            "type": "boolean",
+            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
+            "default": false,
+            "example": false
           }
         }
       },
@@ -53924,57 +54742,39 @@
         },
         "description": "Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering."
       },
-      "CreateRequirementGroup": {
-        "required": [
-          "country_code",
-          "phone_number_type",
-          "action"
-        ],
+      "PostPortRequestSupportingDocuments": {
         "type": "object",
         "properties": {
-          "country_code": {
-            "type": "string",
-            "description": "ISO alpha 2 country code",
-            "example": "US"
-          },
-          "phone_number_type": {
-            "enum": [
-              "local",
-              "toll_free",
-              "mobile",
-              "national",
-              "shared_cost"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "local"
-          },
-          "action": {
-            "enum": [
-              "ordering",
-              "porting"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "ordering"
-          },
-          "customer_reference": {
-            "type": "string",
-            "example": "My Requirement Group"
-          },
-          "regulatory_requirements": {
+          "documents": {
+            "maxItems": 10,
+            "minItems": 1,
             "type": "array",
             "items": {
+              "required": [
+                "type",
+                "document_id"
+              ],
               "type": "object",
               "properties": {
-                "requirement_id": {
-                  "type": "string"
+                "type": {
+                  "enum": [
+                    "loa",
+                    "invoice"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "Identifies the type of the document",
+                  "example": "loa"
                 },
-                "field_value": {
-                  "type": "string"
+                "document_id": {
+                  "type": "string",
+                  "description": "Identifies the associated document",
+                  "format": "uuid",
+                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
                 }
               }
-            }
+            },
+            "description": "List of supporting documents parameters"
           }
         }
       },
@@ -54417,10 +55217,13 @@
           }
         }
       },
-      "GetRequirementGroups_200": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/RequirementGroup"
+      "PostPortRequestComment": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Comment to post on this portout request"
+          }
         }
       },
       "CountryCoverage": {
@@ -54589,6 +55392,30 @@
           "inventory_coverage": true,
           "shared_cost": { },
           "region": "AMER"
+        }
+      },
+      "CreateAlphanumericSenderIdRequest": {
+        "required": [
+          "alphanumeric_sender_id",
+          "messaging_profile_id"
+        ],
+        "type": "object",
+        "properties": {
+          "alphanumeric_sender_id": {
+            "type": "string",
+            "description": "The alphanumeric sender ID string.",
+            "example": "MyCompany"
+          },
+          "messaging_profile_id": {
+            "type": "string",
+            "description": "The messaging profile to associate the sender ID with.",
+            "format": "uuid"
+          },
+          "us_long_code_fallback": {
+            "type": "string",
+            "description": "A US long code number to use as fallback when sending to US destinations.",
+            "example": "+15551234567"
+          }
         }
       },
       "CreateAndroidPushCredentialRequest": {
@@ -56833,6 +57660,24 @@
             "type": "boolean",
             "description": "Enables automatic character encoding optimization for SMS messages. When enabled, the system automatically selects the most efficient encoding (GSM-7 or UCS-2) based on message content to maximize character limits and minimize costs.",
             "default": false
+          },
+          "resource_group_id": {
+            "maxLength": 64,
+            "type": "string",
+            "description": "The resource group ID to associate with this messaging profile.",
+            "nullable": true
+          },
+          "health_webhook_url": {
+            "type": "string",
+            "description": "A URL to receive health check webhooks for numbers in this profile.",
+            "format": "url",
+            "nullable": true
+          },
+          "ai_assistant_id": {
+            "maxLength": 64,
+            "type": "string",
+            "description": "The AI assistant ID to associate with this messaging profile.",
+            "nullable": true
           }
         },
         "example": {
@@ -58364,6 +59209,12 @@
             },
             "description": "Enabled country destinations to send verification codes. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[\"*\"]`, all destinations will be allowed."
           },
+          "app_name": {
+            "pattern": "^[A-Za-z0-9 -]{1,30}$",
+            "type": "string",
+            "description": "The name that identifies the application requesting 2fa in the verification message.",
+            "example": "Example Secure App"
+          },
           "default_verification_timeout_secs": {
             "type": "integer",
             "description": "For every request that is initiated via this Verify profile, this sets the number of seconds before a verification request code expires. Once the verification request expires, the user cannot use the code to verify their identity.",
@@ -58372,11 +59223,53 @@
           }
         }
       },
+      "CreateVerifyProfileRCSRequest": {
+        "title": "CreateVerifyProfileRCSRequest",
+        "type": "object",
+        "properties": {
+          "messaging_template_id": {
+            "type": "string",
+            "description": "The message template identifier selected from /verify_profiles/templates",
+            "format": "uuid",
+            "example": "0abb5b4f-459f-445a-bfcd-488998b7572d"
+          },
+          "app_name": {
+            "pattern": "^[A-Za-z0-9 -]{1,30}$",
+            "type": "string",
+            "description": "The name that identifies the application requesting 2fa in the verification message.",
+            "example": "Example Secure App"
+          },
+          "code_length": {
+            "type": "integer",
+            "description": "The length of the verify code to generate.",
+            "default": 5,
+            "example": 6
+          },
+          "whitelisted_destinations": {
+            "type": "array",
+            "items": {
+              "pattern": "^[A-Z]{2}$",
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code"
+            },
+            "description": "Enabled country destinations to send verification codes. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[\"*\"]`, all destinations will be allowed."
+          },
+          "default_verification_timeout_secs": {
+            "type": "integer",
+            "description": "For every request that is initiated via this Verify profile, this sets the number of seconds before a verification request code expires. Once the verification request expires, the user cannot use the code to verify their identity.",
+            "default": 300,
+            "example": 300
+          },
+          "sms_fallback": {
+            "type": "boolean",
+            "description": "Enable SMS fallback when RCS delivery fails.",
+            "default": true,
+            "example": true
+          }
+        }
+      },
       "CreateVerifyProfileSMSRequest": {
         "title": "CreateVerifyProfileSMSRequest",
-        "required": [
-          "whitelisted_destinations"
-        ],
         "type": "object",
         "properties": {
           "messaging_template_id": {
@@ -58421,28 +59314,15 @@
           }
         }
       },
-      "CreatePrivateWirelessGateway": {
-        "required": [
-          "network_id",
-          "name"
-        ],
+      "PostPortabilityCheck": {
         "type": "object",
         "properties": {
-          "network_id": {
-            "type": "string",
-            "description": "The identification of the related network resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "name": {
-            "type": "string",
-            "description": "The private wireless gateway name.",
-            "example": "My private wireless gateway"
-          },
-          "region_code": {
-            "type": "string",
-            "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
-            "example": "dc2"
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The list of +E.164 formatted phone numbers to check for portability"
           }
         }
       },
@@ -58506,22 +59386,19 @@
           }
         }
       },
-      "UpdatePortoutStatus": {
-        "required": [
-          "reason"
-        ],
+      "OperatorConnectRefresh_202": {
+        "title": "Operator Connect Refresh Response",
         "type": "object",
         "properties": {
-          "reason": {
-            "type": "string",
-            "description": "Provide a reason if rejecting the port out request",
-            "example": "I do not recognize this transaction"
-          },
-          "host_messaging": {
+          "success": {
             "type": "boolean",
-            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
-            "default": false,
-            "example": false
+            "description": "Describes wether or not the operation was successful",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "description": "A message describing the result of the operation",
+            "example": "Operator connect refresh started"
           }
         }
       },
@@ -58941,39 +59818,19 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "PostPortRequestSupportingDocuments": {
+      "OperatorConnectRefresh_200": {
+        "title": "Operator Connect Refresh Response",
         "type": "object",
         "properties": {
-          "documents": {
-            "maxItems": 10,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "required": [
-                "type",
-                "document_id"
-              ],
-              "type": "object",
-              "properties": {
-                "type": {
-                  "enum": [
-                    "loa",
-                    "invoice"
-                  ],
-                  "type": "string",
-                  "additionalProperties": false,
-                  "description": "Identifies the type of the document",
-                  "example": "loa"
-                },
-                "document_id": {
-                  "type": "string",
-                  "description": "Identifies the associated document",
-                  "format": "uuid",
-                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-                }
-              }
-            },
-            "description": "List of supporting documents parameters"
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "description": "A message describing the result of the operation",
+            "example": "Operator connect refresh already in progress"
           }
         }
       },
@@ -59413,12 +60270,17 @@
           }
         }
       },
-      "PostPortRequestComment": {
+      "ListOAuthGrants_200": {
         "type": "object",
         "properties": {
-          "body": {
-            "type": "string",
-            "description": "Comment to post on this portout request"
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuthGrant"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/oauth_PaginationMeta"
           }
         }
       },
@@ -62537,15 +63399,17 @@
           }
         }
       },
-      "PostPortabilityCheck": {
+      "ListOAuthClients_200": {
         "type": "object",
         "properties": {
-          "phone_numbers": {
+          "data": {
             "type": "array",
             "items": {
-              "type": "string"
-            },
-            "description": "The list of +E.164 formatted phone numbers to check for portability"
+              "$ref": "#/components/schemas/OAuthClient"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/oauth_PaginationMeta"
           }
         }
       },
@@ -63082,37 +63946,30 @@
           }
         }
       },
-      "OperatorConnectRefresh_202": {
-        "title": "Operator Connect Refresh Response",
+      "RegisterOAuthClient_400": {
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful",
-            "example": true
-          },
-          "message": {
+          "error": {
             "type": "string",
-            "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh started"
+            "example": "invalid_client_metadata"
+          },
+          "error_description": {
+            "type": "string",
+            "example": "The client metadata was invalid"
+          },
+          "invalid_fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         }
       },
-      "OperatorConnectRefresh_200": {
-        "title": "Operator Connect Refresh Response",
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful",
-            "example": true
-          },
-          "message": {
-            "type": "string",
-            "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh already in progress"
-          }
-        }
+      "AuthorizeOAuth_422": {
+        "type": "string"
       },
       "ForbiddenError": {
         "type": "object",
@@ -63455,19 +64312,8 @@
         "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.",
         "default": "UDP"
       },
-      "ListOAuthGrants_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OAuthGrant"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/oauth_PaginationMeta"
-          }
-        }
+      "AuthorizeOAuth_404": {
+        "type": "string"
       },
       "FunctionDefinition": {
         "title": "FunctionDefinition",
@@ -65110,19 +65956,8 @@
           "status": "successful"
         }
       },
-      "ListOAuthClients_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OAuthClient"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/oauth_PaginationMeta"
-          }
-        }
+      "AuthorizeOAuth_400": {
+        "type": "string"
       },
       "ImportAssistantsRequest": {
         "title": "ImportAssistantsRequest",
@@ -67024,23 +67859,27 @@
           }
         }
       },
-      "RegisterOAuthClient_400": {
+      "PostNumbersFeatures_200": {
         "type": "object",
         "properties": {
-          "error": {
-            "type": "string",
-            "example": "invalid_client_metadata"
-          },
-          "error_description": {
-            "type": "string",
-            "example": "The client metadata was invalid"
-          },
-          "invalid_fields": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "string"
+          "data": {
+            "type": "array",
+            "items": {
+              "required": [
+                "phone_number",
+                "features"
+              ],
+              "type": "object",
+              "properties": {
+                "phone_number": {
+                  "type": "string"
+                },
+                "features": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
@@ -69285,8 +70124,19 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "AuthorizeOAuth_422": {
-        "type": "string"
+      "PostNumbersFeatures": {
+        "required": [
+          "phone_numbers"
+        ],
+        "type": "object",
+        "properties": {
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       },
       "MediaResource": {
         "title": "Media Resource",
@@ -69409,8 +70259,18 @@
           }
         }
       },
-      "AuthorizeOAuth_404": {
-        "type": "string"
+      "updateNumberOrderPhoneNumberRequirementGroup": {
+        "required": [
+          "requirement_group_id"
+        ],
+        "type": "object",
+        "properties": {
+          "requirement_group_id": {
+            "type": "string",
+            "description": "The ID of the requirement group to associate",
+            "format": "uuid"
+          }
+        }
       },
       "MessageDetailRecord": {
         "required": [
@@ -69841,6 +70701,20 @@
             "type": "boolean",
             "description": "Enables automatic character encoding optimization for SMS messages. When enabled, the system automatically selects the most efficient encoding (GSM-7 or UCS-2) based on message content to maximize character limits and minimize costs.",
             "default": false
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "The organization that owns this messaging profile."
+          },
+          "ai_assistant_id": {
+            "type": "string",
+            "description": "The AI assistant ID associated with this messaging profile.",
+            "nullable": true
+          },
+          "resource_group_id": {
+            "type": "string",
+            "description": "The resource group ID associated with this messaging profile.",
+            "nullable": true
           }
         },
         "example": {
@@ -70450,8 +71324,19 @@
           }
         }
       },
-      "AuthorizeOAuth_400": {
-        "type": "string"
+      "ListNotificationSettings_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationSetting"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
+          }
+        }
       },
       "MobileNetworkOperator": {
         "title": "MobileNetworkOperator",
@@ -70923,6 +71808,17 @@
               }
             },
             "readOnly": true
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "The organization that owns this phone number."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with this phone number."
           }
         },
         "example": {
@@ -71200,29 +72096,17 @@
           }
         }
       },
-      "PostNumbersFeatures_200": {
+      "FindNotificationsProfiles_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "required": [
-                "phone_number",
-                "features"
-              ],
-              "type": "object",
-              "properties": {
-                "phone_number": {
-                  "type": "string"
-                },
-                "features": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/components/schemas/NotificationProfile"
             }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -73465,17 +74349,17 @@
           ]
         }
       },
-      "PostNumbersFeatures": {
-        "required": [
-          "phone_numbers"
-        ],
+      "FindNotificationsEvents_200": {
         "type": "object",
         "properties": {
-          "phone_numbers": {
+          "data": {
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/NotificationEvent"
             }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -74624,6 +75508,14 @@
           "errors": [ ]
         }
       },
+      "OutboundMessageResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/OutboundMessagePayload"
+          }
+        }
+      },
       "OutboundVoiceProfile": {
         "title": "Outbound Voice Profile",
         "required": [
@@ -74792,16 +75684,17 @@
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
       },
-      "updateNumberOrderPhoneNumberRequirementGroup": {
-        "required": [
-          "requirement_group_id"
-        ],
+      "FindNotificationsEventsConditions_200": {
         "type": "object",
         "properties": {
-          "requirement_group_id": {
-            "type": "string",
-            "description": "The ID of the requirement group to associate",
-            "format": "uuid"
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationEventCondition"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -74825,13 +75718,13 @@
           }
         }
       },
-      "ListNotificationSettings_200": {
+      "ListNotificationChannels_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationSetting"
+              "$ref": "#/components/schemas/NotificationChannel"
             }
           },
           "meta": {
@@ -74988,6 +75881,32 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/VerificationRequestStatus"
+            },
+            "description": "The records yielded by this request",
+            "default": [ ]
+          },
+          "total_records": {
+            "title": "Total Records",
+            "type": "integer",
+            "description": "The total amount of records for these query parameters",
+            "default": 0
+          }
+        },
+        "description": "A paginated response"
+      },
+      "Paginated_VerificationStatusHistoryEntry_": {
+        "title": "Paginated[VerificationStatusHistoryEntry]",
+        "required": [
+          "records",
+          "total_records"
+        ],
+        "type": "object",
+        "properties": {
+          "records": {
+            "title": "Records",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerificationStatusHistoryEntry"
             },
             "description": "The records yielded by this request",
             "default": [ ]
@@ -76469,6 +77388,17 @@
               }
             },
             "readOnly": true
+          },
+          "organization_id": {
+            "type": "string",
+            "description": "The organization that owns this phone number."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with this phone number."
           }
         },
         "example": {
@@ -77117,17 +78047,30 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
-      "FindNotificationsProfiles_200": {
+      "CreatePushCredential": {
+        "required": [
+          "type"
+        ],
         "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationProfile"
-            }
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateIosPushCredentialRequest"
           },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+          {
+            "$ref": "#/components/schemas/CreateAndroidPushCredentialRequest"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CreateIosPushCredentialRequest": "#/components/schemas/CreateIosPushCredentialRequest",
+            "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
           }
         }
       },
@@ -80138,6 +81081,14 @@
           }
         }
       },
+      "ProfileMetrics": {
+        "type": "object",
+        "description": "Detailed metrics for a messaging profile."
+      },
+      "ProfileMetricsHighLevel": {
+        "type": "object",
+        "description": "High-level metrics summary for a messaging profile."
+      },
       "PublicInternetGateway": {
         "type": "object",
         "allOf": [
@@ -81546,19 +82497,9 @@
         "additionalProperties": false,
         "description": "Defines how the recording was created."
       },
-      "FindNotificationsEvents_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationEvent"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
-          }
-        }
+      "DeleteAutorespConfig_200": {
+        "type": "string",
+        "example": "OK"
       },
       "RecordingTrack": {
         "enum": [
@@ -81730,17 +82671,17 @@
           }
         }
       },
-      "FindNotificationsEventsConditions_200": {
+      "GetProfileMetrics_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEventCondition"
+              "$ref": "#/components/schemas/ProfileMetricsHighLevel"
             }
           },
           "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+            "$ref": "#/components/schemas/messaging_PaginationMeta"
           }
         }
       },
@@ -84532,17 +85473,17 @@
         },
         "description": "The send_message tool allows the assistant to send SMS or MMS messages to the end user. The 'to' and 'from' addresses are automatically determined from the conversation context, and the message text is generated by the assistant."
       },
-      "ListNotificationChannels_200": {
+      "ListMessagingHostedNumbers_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationChannel"
+              "$ref": "#/components/schemas/PhoneNumberWithMessagingSettings"
             }
           },
           "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+            "$ref": "#/components/schemas/messaging_PaginationMeta"
           }
         }
       },
@@ -86377,36 +87318,32 @@
           "stream_id": "1edb94f9-7ef0-4150-b502-e0ebadfd9491"
         }
       },
-      "CreatePushCredential": {
-        "required": [
-          "type"
-        ],
+      "GetMessage_200": {
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateIosPushCredentialRequest"
-          },
-          {
-            "$ref": "#/components/schemas/CreateAndroidPushCredentialRequest"
-          }
-        ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CreateIosPushCredentialRequest": "#/components/schemas/CreateIosPushCredentialRequest",
-            "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
+          "data": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutboundMessagePayload"
+              },
+              {
+                "$ref": "#/components/schemas/InboundMessagePayload"
+              }
+            ]
           }
         }
       },
-      "DeleteAutorespConfig_200": {
-        "type": "string",
-        "example": "OK"
+      "GetGroupMmsMessages_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OutboundMessagePayload"
+            }
+          }
+        }
       },
       "StreamBidirectionalCodec": {
         "title": "Bidirectional Stream Codec",
@@ -86481,19 +87418,48 @@
         "default": "default",
         "example": "PCMA"
       },
-      "GetMessage_200": {
+      "SendAlphanumericSenderIdMessage": {
+        "required": [
+          "from",
+          "to",
+          "text",
+          "messaging_profile_id"
+        ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "object",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/OutboundMessagePayload"
-              },
-              {
-                "$ref": "#/components/schemas/InboundMessagePayload"
-              }
-            ]
+          "from": {
+            "type": "string",
+            "description": "A valid alphanumeric sender ID on the user's account.",
+            "example": "MyCompany"
+          },
+          "to": {
+            "type": "string",
+            "description": "Receiving address (+E.164 formatted phone number or short code)."
+          },
+          "text": {
+            "type": "string",
+            "description": "The message body."
+          },
+          "messaging_profile_id": {
+            "type": "string",
+            "description": "The messaging profile ID to use.",
+            "format": "uuid"
+          },
+          "webhook_url": {
+            "type": "string",
+            "description": "Callback URL for delivery status updates.",
+            "format": "url",
+            "nullable": true
+          },
+          "webhook_failover_url": {
+            "type": "string",
+            "description": "Failover callback URL for delivery status updates.",
+            "format": "url",
+            "nullable": true
+          },
+          "use_profile_webhooks": {
+            "type": "boolean",
+            "description": "If true, use the messaging profile's webhook settings."
           }
         }
       },
@@ -87347,8 +88313,7 @@
           "productionMessageContent",
           "optInWorkflow",
           "optInWorkflowImageURLs",
-          "additionalInformation",
-          "isvReseller"
+          "additionalInformation"
         ],
         "type": "object",
         "properties": {
@@ -87484,7 +88449,8 @@
             "title": "Isvreseller",
             "maxLength": 500,
             "type": "string",
-            "description": "ISV name"
+            "description": "ISV name",
+            "nullable": true
           },
           "webhookUrl": {
             "title": "Webhookurl",
@@ -92812,12 +93778,6 @@
           "vertical": {
             "$ref": "#/components/schemas/Vertical"
           },
-          "altBusiness_id": {
-            "title": "Altbusiness Id",
-            "maxLength": 50,
-            "type": "string",
-            "description": "Alternate business identifier such as DUNS, LEI, or GIIN"
-          },
           "altBusinessIdType": {
             "$ref": "#/components/schemas/AltBusinessIdType"
           },
@@ -92845,6 +93805,12 @@
             "type": "string",
             "description": "Webhook failover URL for brand status updates.",
             "example": "https://webhook.com/9010a453-4df8-4be6-a551-1070892888d6"
+          },
+          "altBusinessId": {
+            "title": "Altbusiness Id",
+            "maxLength": 50,
+            "type": "string",
+            "description": "Alternate business identifier such as DUNS, LEI, or GIIN"
           }
         }
       },
@@ -94504,6 +95470,13 @@
             "type": "string",
             "description": "Configure the messaging product for this number:\n\n* Omit this field or set its value to `null` to keep the current value.\n* Set this field to a quoted product ID to set this phone number to that product",
             "example": "P2P"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags to set on this phone number."
           }
         },
         "example": {
@@ -95040,11 +96013,62 @@
             },
             "description": "Enabled country destinations to send verification codes. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[\"*\"]`, all destinations will be allowed."
           },
+          "app_name": {
+            "pattern": "^[A-Za-z0-9 -]{1,30}$",
+            "type": "string",
+            "description": "The name that identifies the application requesting 2fa in the verification message.",
+            "example": "Example Secure App"
+          },
           "default_verification_timeout_secs": {
             "type": "integer",
             "description": "For every request that is initiated via this Verify profile, this sets the number of seconds before a verification request code expires. Once the verification request expires, the user cannot use the code to verify their identity.",
             "default": 300,
             "example": 300
+          }
+        }
+      },
+      "UpdateVerifyProfileRCSRequest": {
+        "title": "UpdateVerifyProfileRCSRequest",
+        "type": "object",
+        "properties": {
+          "messaging_template_id": {
+            "type": "string",
+            "description": "The message template identifier selected from /verify_profiles/templates",
+            "format": "uuid",
+            "example": "0abb5b4f-459f-445a-bfcd-488998b7572d"
+          },
+          "app_name": {
+            "pattern": "^[A-Za-z0-9 -]{1,30}$",
+            "type": "string",
+            "description": "The name that identifies the application requesting 2fa in the verification message.",
+            "example": "Example Secure App"
+          },
+          "code_length": {
+            "type": "integer",
+            "description": "The length of the verify code to generate.",
+            "default": 5,
+            "example": 6
+          },
+          "whitelisted_destinations": {
+            "type": "array",
+            "items": {
+              "pattern": "^[A-Z]{2}$",
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code"
+            },
+            "description": "Enabled country destinations to send verification codes. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[\"*\"]`, all destinations will be allowed."
+          },
+          "default_verification_timeout_secs": {
+            "type": "integer",
+            "description": "For every request that is initiated via this Verify profile, this sets the number of seconds before a verification request code expires. Once the verification request expires, the user cannot use the code to verify their identity.",
+            "default": 300,
+            "example": 300
+          },
+          "sms_fallback": {
+            "type": "boolean",
+            "description": "Enable SMS fallback when RCS delivery fails.",
+            "default": true,
+            "example": true
           }
         }
       },
@@ -96312,7 +97336,6 @@
           "optInWorkflow",
           "optInWorkflowImageURLs",
           "additionalInformation",
-          "isvReseller",
           "id",
           "verificationRequestId"
         ],
@@ -96520,7 +97543,6 @@
           "optInWorkflow",
           "optInWorkflowImageURLs",
           "additionalInformation",
-          "isvReseller",
           "id",
           "verificationStatus"
         ],
@@ -96735,6 +97757,34 @@
         "description": "The possible statuses of the verification request.",
         "example": "accepted"
       },
+      "VerificationStatusHistoryEntry": {
+        "title": "VerificationStatusHistoryEntry",
+        "required": [
+          "verificationStatus",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "verificationStatus": {
+            "$ref": "#/components/schemas/TFVerificationStatus"
+          },
+          "reason": {
+            "title": "Reason",
+            "maxLength": 500,
+            "type": "string",
+            "description": "An explanation of why this request has its current status.",
+            "nullable": true,
+            "example": "Unfortunately, we have to cancel this request as we do not support non tollfree US numbers."
+          },
+          "updatedAt": {
+            "title": "Updatedat",
+            "type": "string",
+            "description": "The timestamp at which this status change occurred",
+            "format": "date-time"
+          }
+        },
+        "description": "A single entry in the verification request status history"
+      },
       "VerificationType": {
         "title": "VerificationType",
         "enum": [
@@ -96927,6 +97977,12 @@
         "title": "VerifyProfileFlashcallResponse",
         "type": "object",
         "properties": {
+          "app_name": {
+            "pattern": "^[A-Za-z0-9 -]{1,30}$",
+            "type": "string",
+            "description": "The name that identifies the application requesting 2fa in the verification message.",
+            "example": "Example Secure App"
+          },
           "default_verification_timeout_secs": {
             "type": "integer",
             "description": "For every request that is initiated via this Verify profile, this sets the number of seconds before a verification request code expires. Once the verification request expires, the user cannot use the code to verify their identity.",
@@ -96947,6 +98003,51 @@
           "text": {
             "type": "string",
             "example": "Your {{app_name}} verification code is: {{code}}."
+          }
+        }
+      },
+      "VerifyProfileRCSResponse": {
+        "title": "VerifyProfileRCSResponse",
+        "type": "object",
+        "properties": {
+          "messaging_template_id": {
+            "type": "string",
+            "description": "The message template identifier selected from /verify_profiles/templates",
+            "format": "uuid",
+            "example": "0abb5b4f-459f-445a-bfcd-488998b7572d"
+          },
+          "app_name": {
+            "pattern": "^[A-Za-z0-9 -]{1,30}$",
+            "type": "string",
+            "description": "The name that identifies the application requesting 2fa in the verification message.",
+            "example": "Example Secure App"
+          },
+          "code_length": {
+            "type": "integer",
+            "description": "The length of the verify code to generate.",
+            "default": 5,
+            "example": 6
+          },
+          "whitelisted_destinations": {
+            "type": "array",
+            "items": {
+              "pattern": "^[A-Z]{2}$",
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code"
+            },
+            "description": "Enabled country destinations to send verification codes. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[\"*\"]`, all destinations will be allowed."
+          },
+          "default_verification_timeout_secs": {
+            "type": "integer",
+            "description": "For every request that is initiated via this Verify profile, this sets the number of seconds before a verification request code expires. Once the verification request expires, the user cannot use the code to verify their identity.",
+            "default": 300,
+            "example": 300
+          },
+          "sms_fallback": {
+            "type": "boolean",
+            "description": "Enable SMS fallback when RCS delivery fails.",
+            "default": true,
+            "example": true
           }
         }
       },
@@ -96994,6 +98095,9 @@
           "language": {
             "type": "string",
             "example": "en-US"
+          },
+          "rcs": {
+            "$ref": "#/components/schemas/VerifyProfileRCSResponse"
           }
         }
       },
@@ -102658,6 +103762,60 @@
       "AcceptCampaign_202": {
         "type": "object"
       },
+      "AddStorageSSLCertificate": {
+        "type": "object",
+        "properties": {
+          "certificate": {
+            "type": "string",
+            "description": "The SSL certificate file",
+            "format": "binary"
+          },
+          "private_key": {
+            "type": "string",
+            "description": "The private key file",
+            "format": "binary"
+          }
+        }
+      },
+      "GetStorageAPIUsage_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketAPIUsageResponse"
+            }
+          }
+        }
+      },
+      "GetBucketUsage_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BucketUsage"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMetaSimple"
+          }
+        }
+      },
+      "ListMigrationSourceCoverage_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MigrationSourceCoverageParams"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMetaSimple"
+          }
+        }
+      },
       "ListMigrationSources_200": {
         "type": "object",
         "properties": {
@@ -102875,6 +104033,9 @@
           "language": {
             "type": "string",
             "example": "en-US"
+          },
+          "rcs": {
+            "$ref": "#/components/schemas/CreateVerifyProfileRCSRequest"
           }
         }
       },
@@ -102906,6 +104067,9 @@
           "language": {
             "type": "string",
             "example": "en-US"
+          },
+          "rcs": {
+            "$ref": "#/components/schemas/UpdateVerifyProfileRCSRequest"
           }
         }
       },
@@ -103277,6 +104441,21 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/AdvancedOrder"
+            }
+          }
+        }
+      },
+      "AlphanumericSenderIdResponse": {
+        "description": "Successful response with a single alphanumeric sender ID.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/AlphanumericSenderId"
+                }
+              }
             }
           }
         }
@@ -105883,6 +107062,27 @@
                 },
                 "meta": {
                   "$ref": "#/components/schemas/PaginationMeta"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ListAlphanumericSenderIdsResponse": {
+        "description": "Successful response with a list of alphanumeric sender IDs.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AlphanumericSenderId"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/messaging_PaginationMeta"
                 }
               }
             }
@@ -111165,8 +112365,48 @@
           }
         }
       },
+      "messaging_BadRequestResponse": {
+        "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/messaging_Errors"
+            }
+          }
+        }
+      },
       "messaging_GenericErrorResponse": {
         "description": "Unexpected error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/messaging_Errors"
+            }
+          }
+        }
+      },
+      "messaging_NotFoundResponse": {
+        "description": "Not Found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/messaging_Errors"
+            }
+          }
+        }
+      },
+      "messaging_UnauthorizedResponse": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/messaging_Errors"
+            }
+          }
+        }
+      },
+      "messaging_UnprocessableEntityResponse": {
+        "description": "Unprocessable Entity",
         "content": {
           "application/json": {
             "schema": {

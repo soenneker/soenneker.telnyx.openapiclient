@@ -3,6 +3,8 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Messages.Alphanumeric_sender_id;
+using Soenneker.Telnyx.OpenApiClient.Messages.Group;
 using Soenneker.Telnyx.OpenApiClient.Messages.Group_mms;
 using Soenneker.Telnyx.OpenApiClient.Messages.Item;
 using Soenneker.Telnyx.OpenApiClient.Messages.Long_code;
@@ -25,6 +27,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Messages
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The alphanumeric_sender_id property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Alphanumeric_sender_id.Alphanumeric_sender_idRequestBuilder Alphanumeric_sender_id
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Alphanumeric_sender_id.Alphanumeric_sender_idRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The group property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messages.Group.GroupRequestBuilder Group
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messages.Group.GroupRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The group_mms property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Messages.Group_mms.Group_mmsRequestBuilder Group_mms
         {

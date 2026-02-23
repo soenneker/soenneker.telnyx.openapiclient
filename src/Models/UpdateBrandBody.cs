@@ -203,7 +203,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "altBusiness_id", n => { AltBusinessId = n.GetStringValue(); } },
+                { "altBusinessId", n => { AltBusinessId = n.GetStringValue(); } },
                 { "altBusinessIdType", n => { AltBusinessIdType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AltBusinessIdType>(); } },
                 { "businessContactEmail", n => { BusinessContactEmail = n.GetStringValue(); } },
                 { "city", n => { City = n.GetStringValue(); } },
@@ -237,7 +237,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("altBusiness_id", AltBusinessId);
+            writer.WriteStringValue("altBusinessId", AltBusinessId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AltBusinessIdType>("altBusinessIdType", AltBusinessIdType);
             writer.WriteStringValue("businessContactEmail", BusinessContactEmail);
             writer.WriteStringValue("city", City);

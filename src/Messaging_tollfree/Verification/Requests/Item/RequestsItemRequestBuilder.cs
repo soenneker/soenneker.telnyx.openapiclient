@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.Status_history;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Request
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RequestsItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The status_history property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.Status_history.Status_historyRequestBuilder Status_history
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.Status_history.Status_historyRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Messaging_tollfree.Verification.Requests.Item.RequestsItemRequestBuilder"/> and sets the default values.
         /// </summary>

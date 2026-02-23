@@ -27,9 +27,9 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Partner_campaigns
         #pragma warning disable CS1591
         TcrBrandId,
         #pragma warning restore CS1591
-        [EnumMember(Value = "-tcrBranId")]
+        [EnumMember(Value = "-tcrBrandId")]
         #pragma warning disable CS1591
-        Minus_tcrBranId,
+        Minus_tcrBrandId,
         #pragma warning restore CS1591
         [EnumMember(Value = "tcrCampaignId")]
         #pragma warning disable CS1591

@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>If true, only assign numbers to the profile without changing other settings.</summary>
+        public bool? AssignOnly { get; set; }
         /// <summary>Configure the messaging profile these phone numbers are assigned to:* Set this field to `&quot;&quot;` to unassign each number from their respective messaging profile* Set this field to a quoted UUID of a messaging profile to assign these numbers to that messaging profile</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,6 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "assign_only", n => { AssignOnly = n.GetBoolValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
                 { "numbers", n => { Numbers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -66,6 +69,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("assign_only", AssignOnly);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
             writer.WriteCollectionOfPrimitiveValues<string>("numbers", Numbers);
             writer.WriteAdditionalData(AdditionalData);
