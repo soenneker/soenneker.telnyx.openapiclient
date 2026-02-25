@@ -41104,6 +41104,15 @@
               },
               {
                 "$ref": "#/components/schemas/AWSVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/AzureVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/RimeVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/ResembleVoiceSettings"
               }
             ],
             "properties": {
@@ -41117,7 +41126,10 @@
               "mapping": {
                 "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
                 "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-                "aws": "#/components/schemas/AWSVoiceSettings"
+                "aws": "#/components/schemas/AWSVoiceSettings",
+                "azure": "#/components/schemas/AzureVoiceSettings",
+                "rime": "#/components/schemas/RimeVoiceSettings",
+                "resemble": "#/components/schemas/ResembleVoiceSettings"
               }
             }
           },
@@ -42203,6 +42215,55 @@
             "type": "string",
             "description": "The custom recording file name to be used instead of the default `call_leg_id`. Telnyx will still add a Unix timestamp suffix.",
             "example": "my_recording_file_name"
+          },
+          "webhook_urls": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "A map of event types to webhook URLs. When an event of the specified type occurs, the webhook URL associated with that event type will be called instead of `webhook_url`. Events not mapped here will use the default `webhook_url`.",
+            "example": {
+              "call.hangup": "https://www.example.com/webhooks/hangup",
+              "call.bridge": "https://www.example.com/webhooks/bridge"
+            }
+          },
+          "webhook_urls_method": {
+            "enum": [
+              "POST",
+              "GET"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "HTTP request method to invoke `webhook_urls`.",
+            "default": "POST",
+            "example": "POST"
+          },
+          "webhook_retries_policies": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "retries_ms": {
+                  "maxItems": 5,
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  },
+                  "description": "Array of delays in milliseconds between retry attempts. Total sum cannot exceed 60000ms."
+                }
+              }
+            },
+            "description": "A map of event types to retry policies. Each retry policy contains an array of `retries_ms` specifying the delays between retry attempts in milliseconds. Maximum 5 retries, total delay cannot exceed 60 seconds.",
+            "example": {
+              "call.hangup": {
+                "retries_ms": [
+                  1000,
+                  2000,
+                  5000
+                ]
+              }
+            }
           }
         },
         "example": {
@@ -43773,6 +43834,56 @@
         "description": "Azure region to use for speech recognition",
         "example": "eastus"
       },
+      "AzureVoiceSettings": {
+        "title": "Azure Voice Settings",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "azure"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice settings provider type"
+          },
+          "api_key_ref": {
+            "type": "string",
+            "description": "The `identifier` for an integration secret that refers to your Azure Speech API key.",
+            "example": "my_azure_api_key"
+          },
+          "region": {
+            "type": "string",
+            "description": "The Azure region for the Speech service (e.g., `eastus`, `westeurope`). Required when using a custom API key.",
+            "example": "eastus"
+          },
+          "deployment_id": {
+            "type": "string",
+            "description": "The deployment ID for a custom Azure neural voice.",
+            "example": "my-custom-voice-deployment"
+          },
+          "effect": {
+            "enum": [
+              "eq_car",
+              "eq_telecomhp8k"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Audio effect to apply."
+          },
+          "gender": {
+            "enum": [
+              "Male",
+              "Female"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice gender filter."
+          }
+        }
+      },
       "BackgroundTaskStatus": {
         "title": "BackgroundTaskStatus",
         "enum": [
@@ -44478,6 +44589,12 @@
             "description": "The additional parameter that will be passed to the video conference. It is a text field and the user can decide how to use it. For example, you can set the participant name or pass JSON text. It can be used only with video_room_id parameter.",
             "example": "Alice"
           },
+          "prevent_double_bridge": {
+            "type": "boolean",
+            "description": "When set to `true`, it prevents bridging if the target call is already bridged to another call. Disabled by default.",
+            "default": false,
+            "example": true
+          },
           "park_after_unbridge": {
             "type": "string",
             "description": "Specifies behavior after the bridge ends (i.e. the opposite leg either hangs up or is transferred). If supplied with the value `self`, the current leg will be parked after unbridge. If not set, the default behavior is to hang up the leg.",
@@ -44623,6 +44740,11 @@
             "description": "When enabled, DTMF tones are not passed to the call participant. The webhooks containing the DTMF information will be sent.",
             "default": "none",
             "example": "opposite"
+          },
+          "hold_after_unbridge": {
+            "type": "boolean",
+            "description": "Specifies behavior after the bridge ends. If set to `true`, the current leg will be put on hold after unbridge instead of being hung up.",
+            "example": true
           }
         },
         "example": {
@@ -54327,7 +54449,7 @@
           },
           "voice": {
             "type": "string",
-            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`.  Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`\n- **Minimax:** Use `Minimax.<ModelId>.<VoiceId>` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Optional parameters: `speed` (float, default 1.0), `vol` (float, default 1.0), `pitch` (integer, default 0). \n- **Resemble:** Use `Resemble.<ModelId>.<VoiceId>` (e.g., `Resemble.Pro.my_voice`). Supported models: `Pro` (multilingual) and `Turbo` (English only).\"",
+            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>` (e.g., `Azure.en-CA-ClaraNeural`, `Azure.en-US-BrianMultilingualNeural`, `Azure.en-US-Ava:DragonHDLatestNeural`). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use `voice_settings` to configure custom deployments, regions, or API keys.\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use `Telnyx.<model_id>.<voice_id>` (e.g., `Telnyx.KokoroTTS.af`). Use `voice_settings` to configure voice_speed and other synthesis parameters.\n- **Minimax:** Use `Minimax.<ModelId>.<VoiceId>` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Use `voice_settings` to configure speed, volume, pitch, and language_boost.\n- **Rime:** Use `Rime.<model_id>.<voice_id>` (e.g., `Rime.Arcana.cove`). Supported model_ids: `Arcana`, `Mist`. Use `voice_settings` to configure voice_speed.\n- **Resemble:** Use `Resemble.Turbo.<voice_id>` (e.g., `Resemble.Turbo.my_voice`). Only `Turbo` model is supported. Use `voice_settings` to configure precision, sample_rate, and format.\n\nFor service_level basic, you may define the gender of the speaker (male or female).\"",
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
@@ -54347,6 +54469,15 @@
               },
               {
                 "$ref": "#/components/schemas/MinimaxVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/AzureVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/RimeVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/ResembleVoiceSettings"
               }
             ],
             "properties": {
@@ -54361,7 +54492,10 @@
                 "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
                 "telnyx": "#/components/schemas/TelnyxVoiceSettings",
                 "aws": "#/components/schemas/AWSVoiceSettings",
-                "minimax": "#/components/schemas/MinimaxVoiceSettings"
+                "minimax": "#/components/schemas/MinimaxVoiceSettings",
+                "azure": "#/components/schemas/AzureVoiceSettings",
+                "rime": "#/components/schemas/RimeVoiceSettings",
+                "resemble": "#/components/schemas/ResembleVoiceSettings"
               }
             }
           },
@@ -64488,6 +64622,15 @@
               },
               {
                 "$ref": "#/components/schemas/AWSVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/AzureVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/RimeVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/ResembleVoiceSettings"
               }
             ],
             "properties": {
@@ -64501,7 +64644,10 @@
               "mapping": {
                 "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
                 "telnyx": "#/components/schemas/TelnyxVoiceSettings",
-                "aws": "#/components/schemas/AWSVoiceSettings"
+                "aws": "#/components/schemas/AWSVoiceSettings",
+                "azure": "#/components/schemas/AzureVoiceSettings",
+                "rime": "#/components/schemas/RimeVoiceSettings",
+                "resemble": "#/components/schemas/ResembleVoiceSettings"
               }
             }
           },
@@ -64744,7 +64890,7 @@
           },
           "voice": {
             "type": "string",
-            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`.  Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`\n- **Minimax:** Use `Minimax.<ModelId>.<VoiceId>` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Optional parameters: `speed` (float, default 1.0), `vol` (float, default 1.0), `pitch` (integer, default 0). \n- **Resemble:** Use `Resemble.<ModelId>.<VoiceId>` (e.g., `Resemble.Pro.my_voice`). Supported models: `Pro` (multilingual) and `Turbo` (English only).\"",
+            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>` (e.g., `Azure.en-CA-ClaraNeural`, `Azure.en-US-BrianMultilingualNeural`, `Azure.en-US-Ava:DragonHDLatestNeural`). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use `voice_settings` to configure custom deployments, regions, or API keys.\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use `Telnyx.<model_id>.<voice_id>` (e.g., `Telnyx.KokoroTTS.af`). Use `voice_settings` to configure voice_speed and other synthesis parameters.\n- **Minimax:** Use `Minimax.<ModelId>.<VoiceId>` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Use `voice_settings` to configure speed, volume, pitch, and language_boost.\n- **Rime:** Use `Rime.<model_id>.<voice_id>` (e.g., `Rime.Arcana.cove`). Supported model_ids: `Arcana`, `Mist`. Use `voice_settings` to configure voice_speed.\n- **Resemble:** Use `Resemble.Turbo.<voice_id>` (e.g., `Resemble.Turbo.my_voice`). Only `Turbo` model is supported. Use `voice_settings` to configure precision, sample_rate, and format.\n\nFor service_level basic, you may define the gender of the speaker (male or female).\"",
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
@@ -64764,6 +64910,15 @@
               },
               {
                 "$ref": "#/components/schemas/MinimaxVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/AzureVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/RimeVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/ResembleVoiceSettings"
               }
             ],
             "properties": {
@@ -64778,7 +64933,10 @@
                 "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
                 "telnyx": "#/components/schemas/TelnyxVoiceSettings",
                 "aws": "#/components/schemas/AWSVoiceSettings",
-                "minimax": "#/components/schemas/MinimaxVoiceSettings"
+                "minimax": "#/components/schemas/MinimaxVoiceSettings",
+                "azure": "#/components/schemas/AzureVoiceSettings",
+                "rime": "#/components/schemas/RimeVoiceSettings",
+                "resemble": "#/components/schemas/ResembleVoiceSettings"
               }
             }
           },
@@ -65874,6 +66032,13 @@
             "type": "string",
             "description": "Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.",
             "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          },
+          "custom_headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomSipHeader"
+            },
+            "description": "Custom headers to be added to the SIP BYE message."
           }
         },
         "example": {
@@ -83121,6 +83286,59 @@
           }
         }
       },
+      "ResembleVoiceSettings": {
+        "title": "Resemble Voice Settings",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "resemble"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice settings provider type"
+          },
+          "precision": {
+            "enum": [
+              "PCM_16",
+              "PCM_24",
+              "PCM_32",
+              "MULAW"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Audio precision format.",
+            "default": "PCM_32"
+          },
+          "sample_rate": {
+            "enum": [
+              "8000",
+              "16000",
+              "22050",
+              "32000",
+              "44100",
+              "48000"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Audio sample rate in Hz.",
+            "default": "48000"
+          },
+          "format": {
+            "enum": [
+              "wav",
+              "mp3"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Output audio format.",
+            "default": "mp3"
+          }
+        }
+      },
       "ReservedPhoneNumber": {
         "type": "object",
         "properties": {
@@ -83332,6 +83550,30 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/Verification"
+          }
+        }
+      },
+      "RimeVoiceSettings": {
+        "title": "Rime Voice Settings",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "rime"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice settings provider type"
+          },
+          "voice_speed": {
+            "type": "number",
+            "description": "Speech speed multiplier. Default is 1.0.",
+            "format": "float",
+            "default": 1.0,
+            "example": 1.0
           }
         }
       },
@@ -86610,7 +86852,7 @@
           },
           "voice": {
             "type": "string",
-            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`.  Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use `Telnyx.<model_id>.<voice_id>`\n- **Minimax:** Use `Minimax.<ModelId>.<VoiceId>` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Optional parameters: `speed` (float, default 1.0), `vol` (float, default 1.0), `pitch` (integer, default 0). \n- **Resemble:** Use `Resemble.<ModelId>.<VoiceId>` (e.g., `Resemble.Pro.my_voice`). Supported models: `Pro` (multilingual) and `Turbo` (English only).\"",
+            "description": "\"Specifies the voice used in speech synthesis.\n\n- Define voices using the format `<Provider>.<Model>.<VoiceId>`. Specifying only the provider will give default values for voice_id and model_id.\n\n **Supported Providers:**\n- **AWS:** Use `AWS.Polly.<VoiceId>` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.\n- **Azure:** Use `Azure.<VoiceId>` (e.g., `Azure.en-CA-ClaraNeural`, `Azure.en-US-BrianMultilingualNeural`, `Azure.en-US-Ava:DragonHDLatestNeural`). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use `voice_settings` to configure custom deployments, regions, or API keys.\n- **ElevenLabs:** Use `ElevenLabs.<ModelId>.<VoiceId>` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\\\"voice_settings\\\": {\\\"api_key_ref\\\": \\\"<secret_identifier>\\\"}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).\n- **Telnyx:** Use `Telnyx.<model_id>.<voice_id>` (e.g., `Telnyx.KokoroTTS.af`). Use `voice_settings` to configure voice_speed and other synthesis parameters.\n- **Minimax:** Use `Minimax.<ModelId>.<VoiceId>` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Use `voice_settings` to configure speed, volume, pitch, and language_boost.\n- **Rime:** Use `Rime.<model_id>.<voice_id>` (e.g., `Rime.Arcana.cove`). Supported model_ids: `Arcana`, `Mist`. Use `voice_settings` to configure voice_speed.\n- **Resemble:** Use `Resemble.Turbo.<voice_id>` (e.g., `Resemble.Turbo.my_voice`). Only `Turbo` model is supported. Use `voice_settings` to configure precision, sample_rate, and format.\n\nFor service_level basic, you may define the gender of the speaker (male or female).\"",
             "example": "Telnyx.KokoroTTS.af"
           },
           "voice_settings": {
@@ -86630,6 +86872,15 @@
               },
               {
                 "$ref": "#/components/schemas/MinimaxVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/AzureVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/RimeVoiceSettings"
+              },
+              {
+                "$ref": "#/components/schemas/ResembleVoiceSettings"
               }
             ],
             "properties": {
@@ -86644,7 +86895,10 @@
                 "elevenlabs": "#/components/schemas/ElevenLabsVoiceSettings",
                 "telnyx": "#/components/schemas/TelnyxVoiceSettings",
                 "aws": "#/components/schemas/AWSVoiceSettings",
-                "minimax": "#/components/schemas/MinimaxVoiceSettings"
+                "minimax": "#/components/schemas/MinimaxVoiceSettings",
+                "azure": "#/components/schemas/AzureVoiceSettings",
+                "rime": "#/components/schemas/RimeVoiceSettings",
+                "resemble": "#/components/schemas/ResembleVoiceSettings"
               }
             }
           },

@@ -131,7 +131,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AIAssistantStartRequest_voice_settings : IComposedTypeWrapper, IParsable
@@ -144,6 +144,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings AWSVoiceSettings { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings? AzureVoiceSettings { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings AzureVoiceSettings { get; set; }
+#endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,6 +159,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings ElevenLabsVoiceSettings { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings? ResembleVoiceSettings { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings ResembleVoiceSettings { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings? RimeVoiceSettings { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings RimeVoiceSettings { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -174,9 +198,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.AWSVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings();
                 }
+                else if("azure".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.AzureVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings();
+                }
                 else if("elevenlabs".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ElevenLabsVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings();
+                }
+                else if("resemble".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.ResembleVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings();
+                }
+                else if("rime".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.RimeVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings();
                 }
                 else if("telnyx".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
@@ -194,9 +230,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     return AWSVoiceSettings.GetFieldDeserializers();
                 }
+                else if(AzureVoiceSettings != null)
+                {
+                    return AzureVoiceSettings.GetFieldDeserializers();
+                }
                 else if(ElevenLabsVoiceSettings != null)
                 {
                     return ElevenLabsVoiceSettings.GetFieldDeserializers();
+                }
+                else if(ResembleVoiceSettings != null)
+                {
+                    return ResembleVoiceSettings.GetFieldDeserializers();
+                }
+                else if(RimeVoiceSettings != null)
+                {
+                    return RimeVoiceSettings.GetFieldDeserializers();
                 }
                 else if(TelnyxVoiceSettings != null)
                 {
@@ -215,9 +263,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings>(null, AWSVoiceSettings);
                 }
+                else if(AzureVoiceSettings != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings>(null, AzureVoiceSettings);
+                }
                 else if(ElevenLabsVoiceSettings != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>(null, ElevenLabsVoiceSettings);
+                }
+                else if(ResembleVoiceSettings != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings>(null, ResembleVoiceSettings);
+                }
+                else if(RimeVoiceSettings != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings>(null, RimeVoiceSettings);
                 }
                 else if(TelnyxVoiceSettings != null)
                 {

@@ -62,7 +62,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Specifies which legs of the call should receive the spoken audio.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.SpeakRequest_target_legs? TargetLegs { get; set; }
-        /// <summary>&quot;Specifies the voice used in speech synthesis.- Define voices using the format `&lt;Provider&gt;.&lt;Model&gt;.&lt;VoiceId&gt;`. Specifying only the provider will give default values for voice_id and model_id. **Supported Providers:**- **AWS:** Use `AWS.Polly.&lt;VoiceId&gt;` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.- **Azure:** Use `Azure.&lt;VoiceId&gt;. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)- **ElevenLabs:** Use `ElevenLabs.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\&quot;voice_settings\&quot;: {\&quot;api_key_ref\&quot;: \&quot;&lt;secret_identifier&gt;\&quot;}`.  Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).- **Telnyx:** Use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;`- **Minimax:** Use `Minimax.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Optional parameters: `speed` (float, default 1.0), `vol` (float, default 1.0), `pitch` (integer, default 0). - **Resemble:** Use `Resemble.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `Resemble.Pro.my_voice`). Supported models: `Pro` (multilingual) and `Turbo` (English only).&quot;</summary>
+        /// <summary>&quot;Specifies the voice used in speech synthesis.- Define voices using the format `&lt;Provider&gt;.&lt;Model&gt;.&lt;VoiceId&gt;`. Specifying only the provider will give default values for voice_id and model_id. **Supported Providers:**- **AWS:** Use `AWS.Polly.&lt;VoiceId&gt;` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.- **Azure:** Use `Azure.&lt;VoiceId&gt;` (e.g., `Azure.en-CA-ClaraNeural`, `Azure.en-US-BrianMultilingualNeural`, `Azure.en-US-Ava:DragonHDLatestNeural`). For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery). Use `voice_settings` to configure custom deployments, regions, or API keys.- **ElevenLabs:** Use `ElevenLabs.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `ElevenLabs.eleven_multilingual_v2.21m00Tcm4TlvDq8ikWAM`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration identifier secret in `\&quot;voice_settings\&quot;: {\&quot;api_key_ref\&quot;: \&quot;&lt;secret_identifier&gt;\&quot;}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices).- **Telnyx:** Use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;` (e.g., `Telnyx.KokoroTTS.af`). Use `voice_settings` to configure voice_speed and other synthesis parameters.- **Minimax:** Use `Minimax.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `Minimax.speech-02-hd.Wise_Woman`). Supported models: `speech-02-turbo`, `speech-02-hd`, `speech-2.6-turbo`, `speech-2.8-turbo`. Use `voice_settings` to configure speed, volume, pitch, and language_boost.- **Rime:** Use `Rime.&lt;model_id&gt;.&lt;voice_id&gt;` (e.g., `Rime.Arcana.cove`). Supported model_ids: `Arcana`, `Mist`. Use `voice_settings` to configure voice_speed.- **Resemble:** Use `Resemble.Turbo.&lt;voice_id&gt;` (e.g., `Resemble.Turbo.my_voice`). Only `Turbo` model is supported. Use `voice_settings` to configure precision, sample_rate, and format.For service_level basic, you may define the gender of the speaker (male or female).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Voice { get; set; }
@@ -140,7 +140,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SpeakRequest_voice_settings : IComposedTypeWrapper, IParsable
@@ -152,6 +152,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings AWSVoiceSettings { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings? AzureVoiceSettings { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings AzureVoiceSettings { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -168,6 +176,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings MinimaxVoiceSettings { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings? ResembleVoiceSettings { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings ResembleVoiceSettings { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings? RimeVoiceSettings { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings RimeVoiceSettings { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -191,6 +215,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.AWSVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings();
                 }
+                else if("azure".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.AzureVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings();
+                }
                 else if("elevenlabs".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ElevenLabsVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings();
@@ -198,6 +226,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if("minimax".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.MinimaxVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings();
+                }
+                else if("resemble".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.ResembleVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings();
+                }
+                else if("rime".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.RimeVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings();
                 }
                 else if("telnyx".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
@@ -215,6 +251,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     return AWSVoiceSettings.GetFieldDeserializers();
                 }
+                else if(AzureVoiceSettings != null)
+                {
+                    return AzureVoiceSettings.GetFieldDeserializers();
+                }
                 else if(ElevenLabsVoiceSettings != null)
                 {
                     return ElevenLabsVoiceSettings.GetFieldDeserializers();
@@ -222,6 +262,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if(MinimaxVoiceSettings != null)
                 {
                     return MinimaxVoiceSettings.GetFieldDeserializers();
+                }
+                else if(ResembleVoiceSettings != null)
+                {
+                    return ResembleVoiceSettings.GetFieldDeserializers();
+                }
+                else if(RimeVoiceSettings != null)
+                {
+                    return RimeVoiceSettings.GetFieldDeserializers();
                 }
                 else if(TelnyxVoiceSettings != null)
                 {
@@ -240,6 +288,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings>(null, AWSVoiceSettings);
                 }
+                else if(AzureVoiceSettings != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings>(null, AzureVoiceSettings);
+                }
                 else if(ElevenLabsVoiceSettings != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>(null, ElevenLabsVoiceSettings);
@@ -247,6 +299,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if(MinimaxVoiceSettings != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings>(null, MinimaxVoiceSettings);
+                }
+                else if(ResembleVoiceSettings != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings>(null, ResembleVoiceSettings);
+                }
+                else if(RimeVoiceSettings != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings>(null, RimeVoiceSettings);
                 }
                 else if(TelnyxVoiceSettings != null)
                 {
