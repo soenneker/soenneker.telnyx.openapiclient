@@ -486,6 +486,10 @@
       "description": "Speech to text usage reports"
     },
     {
+      "name": "Stored Payment Transactions",
+      "description": "Operations for managing stored payment transactions."
+    },
+    {
       "name": "TeXML Applications",
       "description": "TeXML Applications operations"
     },
@@ -496,6 +500,10 @@
     {
       "name": "Telco Data Usage Reports",
       "description": "Number lookup usage reports"
+    },
+    {
+      "name": "Text To Speech Commands",
+      "description": "Text to speech streaming command operations"
     },
     {
       "name": "Text to Speech Commands",
@@ -34830,7 +34838,114 @@
         "x-latency-category": "responsive"
       }
     },
+    "/queues": {
+      "get": {
+        "summary": "List queues",
+        "description": "List all queues for the authenticated user.",
+        "operationId": "ListQueues",
+        "tags": [
+          "Queue Commands"
+        ],
+        "parameters": [
+          {
+            "name": "page[number]",
+            "in": "query",
+            "description": "The page number to load",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          },
+          {
+            "name": "page[size]",
+            "in": "query",
+            "description": "The size of the page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 250,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ListQueuesResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
+          }
+        },
+        "x-latency-category": "interactive"
+      },
+      "post": {
+        "summary": "Create a queue",
+        "description": "Create a new call queue.",
+        "operationId": "CreateQueue",
+        "tags": [
+          "Queue Commands"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateQueueRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/QueueResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
+          }
+        },
+        "x-latency-category": "interactive"
+      }
+    },
     "/queues/{queue_name}": {
+      "delete": {
+        "summary": "Delete a queue",
+        "description": "Delete an existing call queue.",
+        "operationId": "DeleteQueue",
+        "tags": [
+          "Queue Commands"
+        ],
+        "parameters": [
+          {
+            "name": "queue_name",
+            "description": "Uniquely identifies the queue by name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Queue deleted successfully."
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          }
+        },
+        "x-latency-category": "interactive"
+      },
       "get": {
         "summary": "Retrieve a call queue",
         "description": "Retrieve an existing call queue",
@@ -34855,6 +34970,49 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFoundResponse"
+          }
+        },
+        "x-latency-category": "interactive"
+      },
+      "post": {
+        "summary": "Update a queue",
+        "description": "Update properties of an existing call queue.",
+        "operationId": "UpdateQueue",
+        "tags": [
+          "Queue Commands"
+        ],
+        "parameters": [
+          {
+            "name": "queue_name",
+            "description": "Uniquely identifies the queue by name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateQueueRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/QueueResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
           }
         },
         "x-latency-category": "interactive"
@@ -39722,7 +39880,7 @@
     },
     "/speech-to-text/transcription": {
       "get": {
-        "summary": "Transcribe speech to text",
+        "summary": "Speech to text over websocket",
         "description": "Transcribe audio streams to text over WebSocket.",
         "operationId": "TranscriptionOverWs",
         "tags": [
@@ -41965,7 +42123,7 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "$ref": "#/components/schemas/CreateQueueRequest"
+                "$ref": "#/components/schemas/call-scripting_CreateQueueRequest"
               }
             }
           }
@@ -42053,7 +42211,7 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateQueueRequest"
+                "$ref": "#/components/schemas/call-scripting_UpdateQueueRequest"
               }
             }
           }
@@ -42457,55 +42615,68 @@
       }
     },
     "/text-to-speech/speech": {
-      "post": {
-        "summary": "Generate speech from text",
-        "description": "Converts the provided text to speech using the specified voice and returns audio data",
-        "operationId": "generateTextToSpeech",
+      "get": {
+        "summary": "Stream text to speech over WebSocket",
+        "description": "Open a WebSocket connection to stream text and receive synthesized audio in real time. Authentication is provided via the standard `Authorization: Bearer <API_KEY>` header. Send JSON frames with text to synthesize; receive JSON frames containing base64-encoded audio chunks.\n\nSupported providers: `aws`, `telnyx`, `azure`, `murfai`, `minimax`, `rime`, `resemble`, `elevenlabs`.\n\n**Connection flow:**\n1. Open WebSocket with query parameters specifying provider, voice, and model.\n2. Send an initial handshake message `{\"text\": \" \"}` (single space) with optional `voice_settings` to initialize the session.\n3. Send text messages as `{\"text\": \"Hello world\"}`.\n4. Receive audio chunks as JSON frames with base64-encoded audio.\n5. A final frame with `isFinal: true` indicates the end of audio for the current text.\n\nTo interrupt and restart synthesis mid-stream, send `{\"force\": true}` \u2014 the current worker is stopped and a new one is started.",
+        "operationId": "TextToSpeechOverWs",
         "tags": [
-          "Text to Speech Commands"
+          "Text To Speech Commands"
         ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "voice",
-                  "text"
-                ],
-                "properties": {
-                  "voice": {
-                    "type": "string",
-                    "description": "The voice ID in the format Provider.ModelId.VoiceId.\n\nExamples:\n- AWS.Polly.Joanna-Neural\n- Azure.en-US-AvaMultilingualNeural\n- ElevenLabs.eleven_multilingual_v2.Rachel\n- Telnyx.KokoroTTS.af\n\nUse the `GET /text-to-speech/voices` endpoint to get a complete list of available voices."
-                  },
-                  "text": {
-                    "type": "string",
-                    "description": "The text to convert to speech"
-                  }
-                }
-              }
-            }
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/voice"
+          },
+          {
+            "$ref": "#/components/parameters/provider"
+          },
+          {
+            "$ref": "#/components/parameters/model_id"
+          },
+          {
+            "$ref": "#/components/parameters/voice_id"
+          },
+          {
+            "$ref": "#/components/parameters/disable_cache"
+          },
+          {
+            "$ref": "#/components/parameters/audio_format"
+          },
+          {
+            "$ref": "#/components/parameters/socket_id"
           }
-        },
+        ],
         "responses": {
-          "200": {
-            "description": "Audio data generated from the provided text",
+          "101": {
+            "description": "WebSocket connection established. Communication proceeds via JSON frames.\n\n**Client \u2192 Server:** See `ClientTextFrame` schema.\n**Server \u2192 Client:** See `AudioChunkFrame`, `FinalFrame`, and `ErrorFrame` schemas.",
             "content": {
-              "audio/mpeg": {
+              "application/json": {
                 "schema": {
-                  "type": "object",
-                  "format": "binary",
-                  "description": "Raw audio data in MP3 format"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ClientTextFrame"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AudioChunkFrame"
+                    },
+                    {
+                      "$ref": "#/components/schemas/FinalFrame"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ErrorFrame"
+                    }
+                  ]
                 }
               }
             }
+          },
+          "200": {
+            "description": "WebSocket upgrade successful \u2014 this response is not returned directly. See 101 for frame documentation."
+          },
+          "400": {
+            "description": "Invalid parameters \u2014 provider not supported or missing required fields."
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedResponse"
-          },
-          "422": {
-            "description": "Invalid request parameters"
+            "description": "Authentication failed \u2014 missing or invalid `x-telnyx-auth-rev2` header."
           }
         },
         "x-latency-category": "interactive"
@@ -43510,6 +43681,99 @@
           },
           "422": {
             "description": "Unprocessable Entity"
+          }
+        },
+        "x-latency-category": "responsive"
+      }
+    },
+    "/v2/payment/stored_payment_transactions": {
+      "post": {
+        "summary": "Create a stored payment transaction",
+        "operationId": "createStoredPaymentTransaction",
+        "tags": [
+          "Stored Payment Transactions"
+        ],
+        "x-endpoint-cost": "light",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StoredPaymentTransactionRequest"
+              },
+              "example": {
+                "amount": "120.00"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Stored payment transaction created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StoredPaymentTransactionResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "de06811a-2e43-4561-af5a-7d0a26e20aaa",
+                    "record_type": "transaction",
+                    "amount_cents": 12000,
+                    "processor_status": "submitted_for_settlement",
+                    "amount_currency": "USD",
+                    "created_at": "2026-02-25T10:00:00Z",
+                    "auto_recharge": false,
+                    "transaction_processing_type": "stored_payment"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - insufficient permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "10027",
+                      "title": "Invalid amount format",
+                      "detail": "Amount must include dollars and cents (e.g. \"120.00\").",
+                      "meta": {
+                        "url": "https://developers.telnyx.com/docs/overview/errors/10027"
+                      },
+                      "source": {
+                        "pointer": "/"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
           }
         },
         "x-latency-category": "responsive"
@@ -47620,6 +47884,19 @@
           "example": "318fb664-d341-44d2-8405-e6bfb9ced6d9"
         }
       },
+      "audio_format": {
+        "name": "audio_format",
+        "in": "query",
+        "required": false,
+        "description": "Audio output format override. Supported for Telnyx `Natural`/`NaturalHD` models only. Accepted values: `pcm`, `wav`.",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "pcm",
+            "wav"
+          ]
+        }
+      },
       "audit-logs_FilterConsolidated": {
         "name": "filter",
         "in": "query",
@@ -48153,6 +48430,16 @@
           }
         }
       },
+      "disable_cache": {
+        "name": "disable_cache",
+        "in": "query",
+        "required": false,
+        "description": "When `true`, bypass the audio cache and generate fresh audio.",
+        "schema": {
+          "type": "boolean",
+          "default": false
+        }
+      },
       "documents_PageConsolidated": {
         "name": "page",
         "in": "query",
@@ -48376,6 +48663,15 @@
               "$ref": "#/components/schemas/telnyx_models"
             }
           ]
+        }
+      },
+      "model_id": {
+        "name": "model_id",
+        "in": "query",
+        "required": false,
+        "description": "Model identifier for the chosen provider. Examples: `Natural`, `NaturalHD` (Telnyx); `Polly.Generative` (AWS).",
+        "schema": {
+          "type": "string"
         }
       },
       "notifications_FilterConsolidated": {
@@ -48728,6 +49024,26 @@
           "default": "created_at"
         }
       },
+      "provider": {
+        "name": "provider",
+        "in": "query",
+        "required": false,
+        "description": "TTS provider. Defaults to `telnyx` if not specified. Ignored when `voice` is provided.",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "aws",
+            "telnyx",
+            "azure",
+            "elevenlabs",
+            "minimax",
+            "murfai",
+            "rime",
+            "resemble"
+          ],
+          "default": "telnyx"
+        }
+      },
       "push-notifications_PageConsolidated": {
         "name": "page",
         "in": "query",
@@ -48762,6 +49078,15 @@
           "format": "uuid",
           "type": "string",
           "example": "7b6a6449-b055-45a6-81f6-f6f0dffa4cc6"
+        }
+      },
+      "socket_id": {
+        "name": "socket_id",
+        "in": "query",
+        "required": false,
+        "description": "Client-provided socket identifier for tracking. If not provided, one is generated server-side.",
+        "schema": {
+          "type": "string"
         }
       },
       "telephony-credentials_FilterConsolidated": {
@@ -48986,6 +49311,15 @@
           }
         }
       },
+      "voice": {
+        "name": "voice",
+        "in": "query",
+        "required": false,
+        "description": "Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id` (e.g. `telnyx.NaturalHD.Telnyx_Alloy` or `azure.en-US-AvaMultilingualNeural`). When provided, the `provider`, `model_id`, and `voice_id` are extracted automatically. Takes precedence over individual `provider`/`model_id`/`voice_id` parameters.",
+        "schema": {
+          "type": "string"
+        }
+      },
       "voice-channels_PageConsolidated": {
         "name": "page",
         "in": "query",
@@ -49009,6 +49343,15 @@
               "description": "The page number to load"
             }
           }
+        }
+      },
+      "voice_id": {
+        "name": "voice_id",
+        "in": "query",
+        "required": false,
+        "description": "Voice identifier for the chosen provider.",
+        "schema": {
+          "type": "string"
         }
       },
       "wireless_PageConsolidated": {
@@ -54009,6 +54352,28 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/QueueCall"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/PaginationMeta"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ListQueuesResponse": {
+        "description": "Successful response with a list of queues.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "title": "List Queues Response",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Queue"
                   }
                 },
                 "meta": {
@@ -60131,6 +60496,38 @@
           "data"
         ],
         "title": "AssistantsListData"
+      },
+      "AudioChunkFrame": {
+        "type": "object",
+        "description": "Server-to-client frame containing a base64-encoded audio chunk.",
+        "properties": {
+          "audio": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Base64-encoded audio data. May be `null` for providers that use `drop_concatenated_audio` mode (Telnyx Natural/NaturalHD, Rime, Minimax, MurfAI, Resemble) \u2014 in that case only streamed chunks carry audio."
+          },
+          "text": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The text segment that this audio chunk corresponds to."
+          },
+          "isFinal": {
+            "type": "boolean",
+            "description": "Always `false` for audio chunk frames."
+          },
+          "cached": {
+            "type": "boolean",
+            "description": "Whether this audio was served from cache."
+          },
+          "timeToFirstAudioFrameMs": {
+            "type": "integer",
+            "description": "Milliseconds from the start-of-speech request to the first audio frame. Only present on the first audio chunk of a synthesis request."
+          }
+        }
       },
       "AudioTranscriptionRequest": {
         "type": "object",
@@ -69174,6 +69571,43 @@
           "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d"
         }
       },
+      "ClientTextFrame": {
+        "type": "object",
+        "description": "Client-to-server frame containing text to synthesize.",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text to convert to speech. Send `\" \"` (single space) as an initial handshake with optional `voice_settings`. Subsequent messages contain the actual text to synthesize."
+          },
+          "voice_settings": {
+            "type": "object",
+            "description": "Provider-specific voice settings sent with the initial handshake. Contents vary by provider \u2014 e.g. `{\"speed\": 1.2}` for Minimax, `{\"voice_speed\": 1.5}` for Telnyx.",
+            "additionalProperties": true
+          },
+          "force": {
+            "type": "boolean",
+            "description": "When `true`, stops the current synthesis worker and starts a new one. Used to interrupt speech mid-stream and begin synthesizing new text."
+          }
+        },
+        "examples": [
+          {
+            "text": " ",
+            "voice_settings": {
+              "voice_speed": 1.2
+            }
+          },
+          {
+            "text": "Hello, welcome to Telnyx text to speech."
+          },
+          {
+            "text": "New text after interruption.",
+            "force": true
+          }
+        ]
+      },
       "CloudflareSyncStatus": {
         "title": "CloudflareSyncStatus",
         "enum": [
@@ -75893,21 +76327,28 @@
       "CreateQueueRequest": {
         "type": "object",
         "title": "Create Queue Request",
+        "required": [
+          "queue_name"
+        ],
         "properties": {
-          "MaxSize": {
-            "description": "The maximum size of the queue.",
-            "example": 10,
-            "type": "integer"
+          "queue_name": {
+            "description": "The name of the queue. Must be between 1 and 255 characters.",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "example": "tier_1_support"
           },
-          "FriendlyName": {
-            "description": "A human readable name for the queue.",
-            "example": "Support Queue",
-            "type": "string"
+          "max_size": {
+            "description": "The maximum number of calls allowed in the queue.",
+            "type": "integer",
+            "minimum": 1,
+            "default": 300,
+            "example": 100
           }
         },
         "example": {
-          "MaxSize": 10,
-          "FriendlyName": "Support Queue"
+          "queue_name": "tier_1_support",
+          "max_size": 100
         }
       },
       "CreateRoomClientTokenRequest": {
@@ -79767,6 +80208,16 @@
         },
         "type": "object"
       },
+      "ErrorFrame": {
+        "type": "object",
+        "description": "Server-to-client frame indicating an error during synthesis. The connection is closed shortly after.",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong."
+          }
+        }
+      },
       "ErrorRecord": {
         "type": "object",
         "properties": {
@@ -81274,6 +81725,29 @@
             "type": "string",
             "description": "Billing group UUID to filter by",
             "example": "adfaa016-f921-4b6c-97bb-e4c1dad231c5"
+          }
+        }
+      },
+      "FinalFrame": {
+        "type": "object",
+        "description": "Server-to-client frame indicating synthesis is complete for the current text.",
+        "properties": {
+          "audio": {
+            "type": "null",
+            "description": "Always `null` for the final frame."
+          },
+          "text": {
+            "type": "string",
+            "description": "Empty string."
+          },
+          "isFinal": {
+            "type": "boolean",
+            "description": "Always `true`.",
+            "const": true
+          },
+          "timeToFirstAudioFrameMs": {
+            "type": "integer",
+            "description": "Present if this was the first response frame."
           }
         }
       },
@@ -100660,6 +101134,20 @@
           }
         }
       },
+      "ResembleSampleRate": {
+        "type": "string",
+        "title": "Resemble Sample Rate",
+        "description": "Audio sample rate in Hz.",
+        "enum": [
+          "8000",
+          "16000",
+          "22050",
+          "32000",
+          "44100",
+          "48000"
+        ],
+        "default": "48000"
+      },
       "ResembleVoiceSettings": {
         "type": "object",
         "title": "Resemble Voice Settings",
@@ -100683,17 +101171,7 @@
             "default": "PCM_32"
           },
           "sample_rate": {
-            "description": "Audio sample rate in Hz.",
-            "type": "string",
-            "enum": [
-              "8000",
-              "16000",
-              "22050",
-              "32000",
-              "44100",
-              "48000"
-            ],
-            "default": "48000"
+            "$ref": "#/components/schemas/ResembleSampleRate"
           },
           "format": {
             "description": "Output audio format.",
@@ -104359,6 +104837,16 @@
             "type": "string",
             "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
           },
+          "channels": {
+            "description": "When `dual`, final audio file will be stereo recorded with the conference creator on the first channel, and the rest on the second channel.",
+            "enum": [
+              "single",
+              "dual"
+            ],
+            "type": "string",
+            "default": "single",
+            "example": "dual"
+          },
           "play_beep": {
             "description": "If enabled, a beep sound will be played at the start of a recording.",
             "type": "boolean",
@@ -104945,6 +105433,60 @@
         "description": "Should fax preview be stored on temporary URL.",
         "type": "boolean",
         "default": false
+      },
+      "StoredPaymentTransactionRequest": {
+        "type": "object",
+        "required": [
+          "amount"
+        ],
+        "properties": {
+          "amount": {
+            "type": "string",
+            "description": "Amount in dollars and cents, e.g. \"120.00\"",
+            "example": "120.00"
+          }
+        }
+      },
+      "StoredPaymentTransactionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "record_type": {
+                "type": "string",
+                "enum": [
+                  "transaction"
+                ]
+              },
+              "amount_cents": {
+                "type": "integer"
+              },
+              "processor_status": {
+                "type": "string"
+              },
+              "amount_currency": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "auto_recharge": {
+                "type": "boolean"
+              },
+              "transaction_processing_type": {
+                "type": "string",
+                "enum": [
+                  "stored_payment"
+                ]
+              }
+            }
+          }
+        }
       },
       "StreamBidirectionalCodec": {
         "type": "string",
@@ -113191,15 +113733,19 @@
       "UpdateQueueRequest": {
         "type": "object",
         "title": "Update Queue Request",
+        "required": [
+          "max_size"
+        ],
         "properties": {
-          "MaxSize": {
-            "description": "The maximum size of the queue.",
-            "example": 10,
-            "type": "integer"
+          "max_size": {
+            "description": "The maximum number of calls allowed in the queue.",
+            "type": "integer",
+            "minimum": 1,
+            "example": 200
           }
         },
         "example": {
-          "MaxSize": 10
+          "max_size": 200
         }
       },
       "UpdateQueuedCallRequest": {
@@ -118381,6 +118927,26 @@
         },
         "type": "object"
       },
+      "call-scripting_CreateQueueRequest": {
+        "type": "object",
+        "title": "Create Queue Request",
+        "properties": {
+          "MaxSize": {
+            "description": "The maximum size of the queue.",
+            "example": 10,
+            "type": "integer"
+          },
+          "FriendlyName": {
+            "description": "A human readable name for the queue.",
+            "example": "Support Queue",
+            "type": "string"
+          }
+        },
+        "example": {
+          "MaxSize": 10,
+          "FriendlyName": "Support Queue"
+        }
+      },
       "call-scripting_PaginationMeta": {
         "title": "Pagination Meta",
         "type": "object",
@@ -118525,6 +119091,20 @@
         },
         "example": {
           "Status": "completed"
+        }
+      },
+      "call-scripting_UpdateQueueRequest": {
+        "type": "object",
+        "title": "Update Queue Request",
+        "properties": {
+          "MaxSize": {
+            "description": "The maximum size of the queue.",
+            "example": 10,
+            "type": "integer"
+          }
+        },
+        "example": {
+          "MaxSize": 10
         }
       },
       "callConversationEnded": {
@@ -121472,6 +122052,11 @@
         "description": "OAuth 2.0 authentication for Telnyx API and MCP integrations"
       },
       "outbound-voice-profiles_bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "stored-payment-transactions_bearerAuth": {
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"

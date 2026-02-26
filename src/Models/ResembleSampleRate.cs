@@ -5,7 +5,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>Audio sample rate in Hz.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum ResembleVoiceSettings_sample_rate
+    public enum ResembleSampleRate
     {
         [EnumMember(Value = "8000")]
         #pragma warning disable CS1591

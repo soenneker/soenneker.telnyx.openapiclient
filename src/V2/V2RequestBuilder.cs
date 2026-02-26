@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections;
+using Soenneker.Telnyx.OpenApiClient.V2.Payment;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -25,6 +26,11 @@ namespace Soenneker.Telnyx.OpenApiClient.V2
         public global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Mobile_voice_connectionsRequestBuilder Mobile_voice_connections
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections.Mobile_voice_connectionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The payment property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.V2.Payment.PaymentRequestBuilder Payment
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Payment.PaymentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.V2RequestBuilder"/> and sets the default values.

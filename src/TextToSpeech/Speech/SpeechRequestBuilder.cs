@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,7 +21,7 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SpeechRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/text-to-speech/speech", pathParameters)
+        public SpeechRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/text-to-speech/speech{?audio_format*,disable_cache*,model_id*,provider*,socket_id*,voice*,voice_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,54 +29,44 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SpeechRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/text-to-speech/speech", rawUrl)
+        public SpeechRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/text-to-speech/speech{?audio_format*,disable_cache*,model_id*,provider*,socket_id*,voice*,voice_id*}", rawUrl)
         {
         }
         /// <summary>
-        /// Converts the provided text to speech using the specified voice and returns audio data
+        /// &quot;Open a WebSocket connection to stream text and receive synthesized audio in real time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header. Send JSON frames with text to synthesize; receive JSON frames containing base64-encoded audio chunks.Supported providers: `aws`, `telnyx`, `azure`, `murfai`, `minimax`, `rime`, `resemble`, `elevenlabs`.**Connection flow:**1. Open WebSocket with query parameters specifying provider, voice, and model.2. Send an initial handshake message `{\&quot;text\&quot;: \&quot; \&quot;}` (single space) with optional `voice_settings` to initialize the session.3. Send text messages as `{\&quot;text\&quot;: \&quot;Hello world\&quot;}`.4. Receive audio chunks as JSON frames with base64-encoded audio.5. A final frame with `isFinal: true` indicates the end of audio for the current text.To interrupt and restart synthesis mid-stream, send `{\&quot;force\&quot;: true}` — the current worker is stopped and a new one is started.&quot;
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
-        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors">When receiving a 401 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateTextToSpeech body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.SpeechRequestBuilder.SpeechRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateTextToSpeech body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.SpeechRequestBuilder.SpeechRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "401", global::Soenneker.Telnyx.OpenApiClient.Models.Call_control_Errors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Converts the provided text to speech using the specified voice and returns audio data
+        /// &quot;Open a WebSocket connection to stream text and receive synthesized audio in real time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header. Send JSON frames with text to synthesize; receive JSON frames containing base64-encoded audio chunks.Supported providers: `aws`, `telnyx`, `azure`, `murfai`, `minimax`, `rime`, `resemble`, `elevenlabs`.**Connection flow:**1. Open WebSocket with query parameters specifying provider, voice, and model.2. Send an initial handshake message `{\&quot;text\&quot;: \&quot; \&quot;}` (single space) with optional `voice_settings` to initialize the session.3. Send text messages as `{\&quot;text\&quot;: \&quot;Hello world\&quot;}`.4. Receive audio chunks as JSON frames with base64-encoded audio.5. A final frame with `isFinal: true` indicates the end of audio for the current text.To interrupt and restart synthesis mid-stream, send `{\&quot;force\&quot;: true}` — the current worker is stopped and a new one is started.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateTextToSpeech body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.SpeechRequestBuilder.SpeechRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateTextToSpeech body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.SpeechRequestBuilder.SpeechRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "audio/mpeg, application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -88,6 +77,62 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech
         public global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.SpeechRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.SpeechRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// &quot;Open a WebSocket connection to stream text and receive synthesized audio in real time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header. Send JSON frames with text to synthesize; receive JSON frames containing base64-encoded audio chunks.Supported providers: `aws`, `telnyx`, `azure`, `murfai`, `minimax`, `rime`, `resemble`, `elevenlabs`.**Connection flow:**1. Open WebSocket with query parameters specifying provider, voice, and model.2. Send an initial handshake message `{\&quot;text\&quot;: \&quot; \&quot;}` (single space) with optional `voice_settings` to initialize the session.3. Send text messages as `{\&quot;text\&quot;: \&quot;Hello world\&quot;}`.4. Receive audio chunks as JSON frames with base64-encoded audio.5. A final frame with `isFinal: true` indicates the end of audio for the current text.To interrupt and restart synthesis mid-stream, send `{\&quot;force\&quot;: true}` — the current worker is stopped and a new one is started.&quot;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class SpeechRequestBuilderGetQueryParameters 
+        {
+            /// <summary>&quot;Audio output format override. Supported for Telnyx `Natural`/`NaturalHD` models only. Accepted values: `pcm`, `wav`.&quot;</summary>
+            [QueryParameter("audio_format")]
+            public global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.GetAudio_formatQueryParameterType? AudioFormat { get; set; }
+            /// <summary>When `true`, bypass the audio cache and generate fresh audio.</summary>
+            [QueryParameter("disable_cache")]
+            public bool? DisableCache { get; set; }
+            /// <summary>&quot;Model identifier for the chosen provider. Examples: `Natural`, `NaturalHD` (Telnyx); `Polly.Generative` (AWS).&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("model_id")]
+            public string? ModelId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("model_id")]
+            public string ModelId { get; set; }
+#endif
+            /// <summary>TTS provider. Defaults to `telnyx` if not specified. Ignored when `voice` is provided.</summary>
+            [QueryParameter("provider")]
+            public global::Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech.GetProviderQueryParameterType? Provider { get; set; }
+            /// <summary>Client-provided socket identifier for tracking. If not provided, one is generated server-side.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("socket_id")]
+            public string? SocketId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("socket_id")]
+            public string SocketId { get; set; }
+#endif
+            /// <summary>Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id` (e.g. `telnyx.NaturalHD.Telnyx_Alloy` or `azure.en-US-AvaMultilingualNeural`). When provided, the `provider`, `model_id`, and `voice_id` are extracted automatically. Takes precedence over individual `provider`/`model_id`/`voice_id` parameters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("voice")]
+            public string? Voice { get; set; }
+#nullable restore
+#else
+            [QueryParameter("voice")]
+            public string Voice { get; set; }
+#endif
+            /// <summary>Voice identifier for the chosen provider.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("voice_id")]
+            public string? VoiceId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("voice_id")]
+            public string VoiceId { get; set; }
+#endif
         }
     }
 }

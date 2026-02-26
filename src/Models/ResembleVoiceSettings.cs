@@ -19,7 +19,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Audio precision format.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_precision? Precision { get; set; }
         /// <summary>Audio sample rate in Hz.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_sample_rate? SampleRate { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleSampleRate? SampleRate { get; set; }
         /// <summary>Voice settings provider type</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_type? Type { get; set; }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AdditionalData = new Dictionary<string, object>();
             Format = global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_format.Mp3;
             Precision = global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_precision.PCM_32;
-            SampleRate = global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_sample_rate.FourEightZeroZeroZero;
+            SampleRate = global::Soenneker.Telnyx.OpenApiClient.Models.ResembleSampleRate.FourEightZeroZeroZero;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -52,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_format>(); } },
                 { "precision", n => { Precision = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_precision>(); } },
-                { "sample_rate", n => { SampleRate = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_sample_rate>(); } },
+                { "sample_rate", n => { SampleRate = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleSampleRate>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_type>(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_format>("format", Format);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_precision>("precision", Precision);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_sample_rate>("sample_rate", SampleRate);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleSampleRate>("sample_rate", SampleRate);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

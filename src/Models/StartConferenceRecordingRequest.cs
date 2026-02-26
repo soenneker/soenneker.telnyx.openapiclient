@@ -14,6 +14,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>When `dual`, final audio file will be stereo recorded with the conference creator on the first channel, and the rest on the second channel.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_channels? Channels { get; set; }
         /// <summary>Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `conference_id`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,6 +46,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public StartConferenceRecordingRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            Channels = global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_channels.Single;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,6 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_channels>(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "custom_file_name", n => { CustomFileName = n.GetStringValue(); } },
                 { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format>(); } },
@@ -78,6 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_channels>("channels", Channels);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("custom_file_name", CustomFileName);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartConferenceRecordingRequest_format>("format", Format);
