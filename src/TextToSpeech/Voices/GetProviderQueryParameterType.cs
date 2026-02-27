@@ -12,6 +12,10 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices
         #pragma warning disable CS1591
         Aws,
         #pragma warning restore CS1591
+        [EnumMember(Value = "telnyx")]
+        #pragma warning disable CS1591
+        Telnyx,
+        #pragma warning restore CS1591
         [EnumMember(Value = "azure")]
         #pragma warning disable CS1591
         Azure,
@@ -20,9 +24,17 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices
         #pragma warning disable CS1591
         Elevenlabs,
         #pragma warning restore CS1591
-        [EnumMember(Value = "telnyx")]
+        [EnumMember(Value = "minimax")]
         #pragma warning disable CS1591
-        Telnyx,
+        Minimax,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "rime")]
+        #pragma warning disable CS1591
+        Rime,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "resemble")]
+        #pragma warning disable CS1591
+        Resemble,
         #pragma warning restore CS1591
     }
 }
