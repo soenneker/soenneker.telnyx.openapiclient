@@ -35954,7 +35954,7 @@
     "/speech-to-text/transcription": {
       "get": {
         "tags": [
-          "Speech To Text Commands"
+          "Speech To Text over WebSockets"
         ],
         "summary": "Speech to text over websocket",
         "description": "Transcribe audio streams to text over WebSocket.",
@@ -118607,7 +118607,7 @@
       "description": "Short codes"
     },
     {
-      "name": "Speech To Text Commands",
+      "name": "Speech To Text over WebSockets",
       "description": "Speech to text command operations"
     },
     {
@@ -118636,6 +118636,10 @@
     },
     {
       "name": "Text To Speech Commands",
+      "description": "Text to speech streaming command operations"
+    },
+    {
+      "name": "Text To Speech over WebSockets",
       "description": "Text to speech file-based command operations"
     },
     {
