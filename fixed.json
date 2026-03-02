@@ -38333,6 +38333,62 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Text To Speech over WebSockets"
+        ],
+        "summary": "Generate speech from text",
+        "description": "\"Generate synthesized speech audio from text input. Returns audio in the requested format (binary audio stream, base64-encoded JSON, or an audio URL for later retrieval).\n\nAuthentication is provided via the standard `Authorization: Bearer <API_KEY>` header.\n\nThe `voice` parameter provides a convenient shorthand to specify provider, model, and voice in a single string (e.g. `telnyx.NaturalHD.Alloy`). Alternatively, specify `provider` explicitly along with provider-specific parameters.\n\nSupported providers: `aws`, `telnyx`, `azure`, `elevenlabs`, `minimax`, `rime`, `resemble`.\"",
+        "operationId": "generateSpeech",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateSpeechRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "\"Speech generated successfully. The response format depends on the `output_type` parameter:\n- `binary_output` (default): Returns raw audio bytes with the appropriate `Content-Type` header (e.g. `audio/mpeg`).\n- `base64_output`: Returns a JSON object with `base64_audio` field.\"",
+            "content": {
+              "audio/mpeg": {
+                "schema": {
+                  "type": "string",
+                  "description": "Raw audio bytes. Returned when `output_type` is `binary_output` (default).",
+                  "format": "binary"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Base64AudioResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request — invalid parameters or provider error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/text_to_speech_ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation failed — invalid or missing required fields.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/text-to-speech/voices": {
@@ -38387,7 +38443,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/text_to_speech_file_ErrorResponse"
+                  "$ref": "#/components/schemas/text_to_speech_ErrorResponse"
                 }
               }
             }
@@ -79302,13 +79358,7 @@
           },
           "event_type": {
             "enum": [
-              "porting_order.deleted",
-              "porting_order.loa_updated",
-              "porting_order.messaging_changed",
-              "porting_order.status_changed",
-              "porting_order.sharing_token_expired",
-              "porting_order.new_comment",
-              "porting_order.split"
+              "porting_order.deleted"
             ],
             "type": "string",
             "additionalProperties": false,
@@ -79397,18 +79447,12 @@
           },
           "event_type": {
             "enum": [
-              "porting_order.deleted",
-              "porting_order.loa_updated",
-              "porting_order.messaging_changed",
-              "porting_order.status_changed",
-              "porting_order.sharing_token_expired",
-              "porting_order.new_comment",
-              "porting_order.split"
+              "porting_order.messaging_changed"
             ],
             "type": "string",
             "additionalProperties": false,
             "description": "Identifies the event type",
-            "example": "porting_order.deleted"
+            "example": "porting_order.messaging_changed"
           },
           "porting_order_id": {
             "type": "string",
@@ -79528,18 +79572,12 @@
           },
           "event_type": {
             "enum": [
-              "porting_order.deleted",
-              "porting_order.loa_updated",
-              "porting_order.messaging_changed",
-              "porting_order.status_changed",
-              "porting_order.sharing_token_expired",
-              "porting_order.new_comment",
-              "porting_order.split"
+              "porting_order.new_comment"
             ],
             "type": "string",
             "additionalProperties": false,
             "description": "Identifies the event type",
-            "example": "porting_order.deleted"
+            "example": "porting_order.new_comment"
           },
           "porting_order_id": {
             "type": "string",
@@ -79658,18 +79696,12 @@
           },
           "event_type": {
             "enum": [
-              "porting_order.deleted",
-              "porting_order.loa_updated",
-              "porting_order.messaging_changed",
-              "porting_order.status_changed",
-              "porting_order.sharing_token_expired",
-              "porting_order.new_comment",
               "porting_order.split"
             ],
             "type": "string",
             "additionalProperties": false,
             "description": "Identifies the event type",
-            "example": "porting_order.deleted"
+            "example": "porting_order.split"
           },
           "porting_order_id": {
             "type": "string",
@@ -79776,18 +79808,12 @@
           },
           "event_type": {
             "enum": [
-              "porting_order.deleted",
-              "porting_order.loa_updated",
-              "porting_order.messaging_changed",
-              "porting_order.status_changed",
-              "porting_order.sharing_token_expired",
-              "porting_order.new_comment",
-              "porting_order.split"
+              "porting_order.status_changed"
             ],
             "type": "string",
             "additionalProperties": false,
             "description": "Identifies the event type",
-            "example": "porting_order.deleted"
+            "example": "porting_order.status_changed"
           },
           "porting_order_id": {
             "type": "string",
@@ -79885,18 +79911,13 @@
           },
           "event_type": {
             "enum": [
-              "porting_order.deleted",
               "porting_order.loa_updated",
-              "porting_order.messaging_changed",
-              "porting_order.status_changed",
-              "porting_order.sharing_token_expired",
-              "porting_order.new_comment",
-              "porting_order.split"
+              "porting_order.sharing_token_expired"
             ],
             "type": "string",
             "additionalProperties": false,
             "description": "Identifies the event type",
-            "example": "porting_order.deleted"
+            "example": "porting_order.loa_updated"
           },
           "porting_order_id": {
             "type": "string",
@@ -104103,7 +104124,7 @@
         "type": "string",
         "additionalProperties": false
       },
-      "text_to_speech_file_ErrorResponse": {
+      "text_to_speech_ErrorResponse": {
         "type": "object",
         "properties": {
           "errors": {
@@ -104968,6 +104989,11 @@
             "ErrorFrame": "#/components/schemas/ErrorFrame"
           }
         }
+      },
+      "generateSpeech_200": {
+        "type": "string",
+        "description": "Raw audio bytes. Returned when `output_type` is `binary_output` (default).",
+        "format": "binary"
       },
       "GetUsageReports_200": {
         "type": "string",
@@ -118637,10 +118663,6 @@
     {
       "name": "Text To Speech Commands",
       "description": "Text to speech streaming command operations"
-    },
-    {
-      "name": "Text To Speech over WebSockets",
-      "description": "Text to speech file-based command operations"
     },
     {
       "name": "Text to Speech Commands",
