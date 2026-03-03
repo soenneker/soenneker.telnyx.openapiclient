@@ -38336,7 +38336,7 @@
       },
       "post": {
         "tags": [
-          "Text To Speech over WebSockets"
+          "Text To Speech Commands"
         ],
         "summary": "Generate speech from text",
         "description": "\"Generate synthesized speech audio from text input. Returns audio in the requested format (binary audio stream, base64-encoded JSON, or an audio URL for later retrieval).\n\nAuthentication is provided via the standard `Authorization: Bearer <API_KEY>` header.\n\nThe `voice` parameter provides a convenient shorthand to specify provider, model, and voice in a single string (e.g. `telnyx.NaturalHD.Alloy`). Alternatively, specify `provider` explicitly along with provider-specific parameters.\n\nSupported providers: `aws`, `telnyx`, `azure`, `elevenlabs`, `minimax`, `rime`, `resemble`.\"",
@@ -43017,6 +43017,9 @@
             },
             {
               "$ref": "#/components/schemas/inference_embedding_TransferTool"
+            },
+            {
+              "$ref": "#/components/schemas/InviteTool"
             },
             {
               "$ref": "#/components/schemas/SIPReferTool"
@@ -69004,6 +69007,82 @@
         },
         "example": {
           "total_results": 25
+        }
+      },
+      "InviteTool": {
+        "title": "InviteTool",
+        "required": [
+          "type",
+          "invite"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "invite"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "invite": {
+            "$ref": "#/components/schemas/InviteToolConfig"
+          }
+        }
+      },
+      "InviteToolConfig": {
+        "title": "InviteToolConfig",
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Number or SIP URI placing the call.",
+            "example": "+35319605860"
+          },
+          "custom_headers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The value of the header. Note that we support mustache templating for the value. For example you can use `{{#integration_secret}}test-secret{{/integration_secret}}` to pass the value of the integration secret."
+                }
+              }
+            },
+            "description": "Custom headers to be added to the SIP INVITE for the invite command."
+          },
+          "voicemail_detection": {
+            "type": "object",
+            "properties": {
+              "detection_mode": {
+                "enum": [
+                  "disabled",
+                  "premium"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The AMD detection mode to use. 'premium' enables premium answering machine detection. 'disabled' turns off AMD detection."
+              },
+              "on_voicemail_detected": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "enum": [
+                      "stop_invite"
+                    ],
+                    "type": "string",
+                    "additionalProperties": false,
+                    "description": "The action to take when voicemail is detected."
+                  }
+                },
+                "description": "Action to take when voicemail is detected on the invited call."
+              }
+            },
+            "description": "Configuration for voicemail detection (AMD - Answering Machine Detection) on the invited call."
+          }
         }
       },
       "Invoice": {
