@@ -126,6 +126,7 @@ using Soenneker.Telnyx.OpenApiClient.Room_participants;
 using Soenneker.Telnyx.OpenApiClient.Room_recordings;
 using Soenneker.Telnyx.OpenApiClient.Room_sessions;
 using Soenneker.Telnyx.OpenApiClient.Rooms;
+using Soenneker.Telnyx.OpenApiClient.Session_analysis;
 using Soenneker.Telnyx.OpenApiClient.Seti;
 using Soenneker.Telnyx.OpenApiClient.Short_codes;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_actions;
@@ -771,6 +772,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder Rooms
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Rooms.RoomsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The session_analysis property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Session_analysis.Session_analysisRequestBuilder Session_analysis
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Session_analysis.Session_analysisRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The seti property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Seti.SetiRequestBuilder Seti
