@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Metadata to add to the message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageMetadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage_metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageMetadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage_metadata Metadata { get; set; }
 #endif
         /// <summary>The role of the messages author, in this case `assistant`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage_role? Role { get; set; }
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.MessageMetadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage_metadata.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage_role>(); } },
                 { "tool_calls", n => { ToolCalls = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall>(global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage_metadata>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage_role>("role", Role);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall>("tool_calls", ToolCalls);
             writer.WriteAdditionalData(AdditionalData);

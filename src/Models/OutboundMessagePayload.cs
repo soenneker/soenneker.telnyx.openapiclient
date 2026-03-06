@@ -150,6 +150,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_type? Type { get; set; }
         /// <summary>Message must be out of the queue by this time or else it will be discarded and marked as &apos;sending_failed&apos;. Once the message moves out of the queue, this field will be nulled</summary>
         public DateTimeOffset? ValidUntil { get; set; }
+        /// <summary>Seconds the message is queued due to rate limiting before being sent to the carrier. Represents the maximum wait across all applicable rate limits (account, carrier, campaign). 0.0 = no queuing delay.</summary>
+        public float? WaitSeconds { get; set; }
         /// <summary>The failover URL where webhooks related to this message will be sent if sending to the primary URL fails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -217,6 +219,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_type>(); } },
                 { "valid_until", n => { ValidUntil = n.GetDateTimeOffsetValue(); } },
+                { "wait_seconds", n => { WaitSeconds = n.GetFloatValue(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
@@ -254,6 +257,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_to>("to", To);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_type>("type", Type);
             writer.WriteDateTimeOffsetValue("valid_until", ValidUntil);
+            writer.WriteFloatValue("wait_seconds", WaitSeconds);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);

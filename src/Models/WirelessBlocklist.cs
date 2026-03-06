@@ -64,7 +64,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public WirelessBlocklist()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.Telnyx.OpenApiClient.Models.WirelessBlocklist_type.Country;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

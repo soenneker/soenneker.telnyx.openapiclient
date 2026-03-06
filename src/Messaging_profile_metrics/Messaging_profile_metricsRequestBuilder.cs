@@ -94,7 +94,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Messaging_profile_metrics
         {
             /// <summary>The time frame for metrics.</summary>
             [QueryParameter("time_frame")]
-            public global::Soenneker.Telnyx.OpenApiClient.Messaging_profile_metrics.GetTime_frameQueryParameterType? TimeFrame { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.MessagingMetricsTimeFrame? TimeFrame { get; set; }
         }
     }
 }

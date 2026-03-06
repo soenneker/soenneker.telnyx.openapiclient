@@ -64,7 +64,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public SIMCardPublicIP()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardPublicIP_type.Ipv4;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

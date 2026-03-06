@@ -96,6 +96,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Type { get; set; }
 #endif
+        /// <summary>Seconds the message is queued due to rate limiting before being sent to the carrier. Represents the maximum wait across all applicable rate limits (account, carrier, campaign). 0.0 = no queuing delay.</summary>
+        public float? WaitSeconds { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RCSResponse_data"/> and sets the default values.
         /// </summary>
@@ -132,6 +134,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "to", n => { To = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
+                { "wait_seconds", n => { WaitSeconds = n.GetFloatValue(); } },
             };
         }
         /// <summary>
@@ -152,6 +155,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RCSToItem>("to", To);
             writer.WriteStringValue("type", Type);
+            writer.WriteFloatValue("wait_seconds", WaitSeconds);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

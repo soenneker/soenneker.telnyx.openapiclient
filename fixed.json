@@ -1072,7 +1072,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AcceptCampaign_202"
+                  "type": "object"
                 }
               }
             }
@@ -1435,7 +1435,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetCampaignOperationStatus_200"
+                  "type": "object"
                 }
               }
             }
@@ -1480,7 +1480,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetCampaignOsrAttributes_200"
+                  "type": "object"
                 }
               }
             }
@@ -1816,7 +1816,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetPartnerCampaignSharingStatus_200"
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/CampaignSharingStatus"
+                  }
                 }
               }
             }
@@ -5227,7 +5230,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/chat_public_chat_completions_post_200"
+                  "type": "object"
                 }
               }
             }
@@ -7769,7 +7772,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/post_public_missions_missions_mission_id_clone_201"
+                  "type": "object"
                 }
               }
             }
@@ -7812,7 +7815,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/get_public_missions_missions_mission_id_knowledge_bases_200"
+                  "type": "object"
                 }
               }
             }
@@ -7853,7 +7856,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/post_public_missions_missions_mission_id_knowledge_bases_201"
+                  "type": "object"
                 }
               }
             }
@@ -7945,7 +7948,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/get_public_missions_missions_mission_id_knowledge_bases_knowledge_base_id_200"
+                  "type": "object"
                 }
               }
             }
@@ -7995,7 +7998,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/put_public_missions_missions_mission_id_knowledge_bases_knowledge_base_id_200"
+                  "type": "object"
                 }
               }
             }
@@ -8038,7 +8041,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/get_public_missions_missions_mission_id_mcp_servers_200"
+                  "type": "object"
                 }
               }
             }
@@ -8079,7 +8082,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/post_public_missions_missions_mission_id_mcp_servers_201"
+                  "type": "object"
                 }
               }
             }
@@ -8171,7 +8174,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/get_public_missions_missions_mission_id_mcp_servers_mcp_server_id_200"
+                  "type": "object"
                 }
               }
             }
@@ -8221,7 +8224,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/put_public_missions_missions_mission_id_mcp_servers_mcp_server_id_200"
+                  "type": "object"
                 }
               }
             }
@@ -9377,7 +9380,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/get_public_missions_missions_mission_id_tools_200"
+                  "type": "object"
                 }
               }
             }
@@ -9418,7 +9421,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/post_public_missions_missions_mission_id_tools_201"
+                  "type": "object"
                 }
               }
             }
@@ -9510,7 +9513,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/get_public_missions_missions_mission_id_tools_tool_id_200"
+                  "type": "object"
                 }
               }
             }
@@ -9560,7 +9563,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/put_public_missions_missions_mission_id_tools_tool_id_200"
+                  "type": "object"
                 }
               }
             }
@@ -9974,7 +9977,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindAuthenticationProviders_400"
+                  "type": "object"
                 }
               }
             }
@@ -9984,7 +9987,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindAuthenticationProviders_401"
+                  "type": "object"
                 }
               }
             }
@@ -9994,7 +9997,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FindAuthenticationProviders_404"
+                  "type": "object"
                 }
               }
             }
@@ -10038,7 +10041,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateAuthenticationProvider_422"
+                  "type": "object"
                 }
               }
             }
@@ -10086,7 +10089,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteAuthenticationProvider_401"
+                  "type": "object"
                 }
               }
             }
@@ -10096,7 +10099,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteAuthenticationProvider_404"
+                  "type": "object"
                 }
               }
             }
@@ -10106,7 +10109,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteAuthenticationProvider_422"
+                  "type": "object"
                 }
               }
             }
@@ -10152,7 +10155,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetAuthenticationProvider_401"
+                  "type": "object"
                 }
               }
             }
@@ -10162,7 +10165,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetAuthenticationProvider_404"
+                  "type": "object"
                 }
               }
             }
@@ -10172,7 +10175,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetAuthenticationProvider_422"
+                  "type": "object"
                 }
               }
             }
@@ -10238,7 +10241,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateAuthenticationProvider_401"
+                  "type": "object"
                 }
               }
             }
@@ -10248,7 +10251,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateAuthenticationProvider_404"
+                  "type": "object"
                 }
               }
             }
@@ -10258,7 +10261,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateAuthenticationProvider_422"
+                  "type": "object"
                 }
               }
             }
@@ -21793,17 +21796,7 @@
             "in": "query",
             "description": "The time frame for metrics.",
             "schema": {
-              "enum": [
-                "1h",
-                "3h",
-                "24h",
-                "3d",
-                "7d",
-                "30d"
-              ],
-              "type": "string",
-              "additionalProperties": false,
-              "default": "24h"
+              "$ref": "#/components/schemas/MessagingMetricsTimeFrame"
             }
           }
         ],
@@ -22084,17 +22077,7 @@
             "in": "query",
             "description": "The time frame for metrics.",
             "schema": {
-              "enum": [
-                "1h",
-                "3h",
-                "24h",
-                "3d",
-                "7d",
-                "30d"
-              ],
-              "type": "string",
-              "additionalProperties": false,
-              "default": "24h"
+              "$ref": "#/components/schemas/MessagingMetricsTimeFrame"
             }
           }
         ],
@@ -22107,7 +22090,8 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/ProfileMetrics"
+                      "type": "object",
+                      "description": "Detailed metrics for a messaging profile."
                     }
                   }
                 }
@@ -34677,6 +34661,262 @@
         }
       }
     },
+    "/session_analysis/metadata": {
+      "get": {
+        "tags": [
+          "Session Analysis"
+        ],
+        "summary": "Get metadata overview",
+        "description": "Returns all available record types and supported query parameters for session analysis.",
+        "operationId": "GetSessionAnalysisMetadata",
+        "responses": {
+          "200": {
+            "description": "Metadata overview",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetadataOverviewResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAnalysisErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAnalysisErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/session_analysis/metadata/{record_type}": {
+      "get": {
+        "tags": [
+          "Session Analysis"
+        ],
+        "summary": "Get record type metadata",
+        "description": "Returns detailed metadata for a specific record type, including relationships and examples.",
+        "operationId": "GetSessionAnalysisRecordTypeMetadata",
+        "parameters": [
+          {
+            "name": "record_type",
+            "in": "path",
+            "description": "The record type identifier (e.g. \"call-control\").",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Record type metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecordTypeMetadataResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record type not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAnalysisErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAnalysisErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/session_analysis/{record_type}/{event_id}": {
+      "get": {
+        "tags": [
+          "Session Analysis"
+        ],
+        "summary": "Get session analysis",
+        "description": "Retrieves a full session analysis tree for a given event, including costs, child events, and product linkages.",
+        "operationId": "GetSessionAnalysis",
+        "parameters": [
+          {
+            "name": "record_type",
+            "in": "path",
+            "description": "The record type identifier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "event_id",
+            "in": "path",
+            "description": "The event identifier (UUID).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "include_children",
+            "in": "query",
+            "description": "Whether to include child events in the response.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "max_depth",
+            "in": "query",
+            "description": "Maximum traversal depth for the event tree.",
+            "schema": {
+              "maximum": 5,
+              "minimum": 1,
+              "type": "integer",
+              "default": 2
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "Controls what data to expand on each event node.",
+            "schema": {
+              "enum": [
+                "record",
+                "none"
+              ],
+              "type": "string",
+              "additionalProperties": false,
+              "default": "record"
+            }
+          },
+          {
+            "name": "date_time",
+            "in": "query",
+            "description": "ISO 8601 timestamp to narrow index selection for faster lookups.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session analysis result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAnalysisResponse"
+                },
+                "example": {
+                  "session_id": "call-123",
+                  "status": "completed",
+                  "created_at": "2025-01-12T10:00:00Z",
+                  "completed_at": "2025-01-12T10:05:00Z",
+                  "cost": {
+                    "total": "0.056800",
+                    "currency": "USD"
+                  },
+                  "root": {
+                    "id": "call-123",
+                    "product": "callcontrol-cdrs",
+                    "event_name": "callcontrol-cdrs",
+                    "relationship": null,
+                    "cost": {
+                      "event_cost": "0.001800",
+                      "cumulative_cost": "0.056800",
+                      "currency": "USD"
+                    },
+                    "links": {
+                      "self": "/v2/session_analysis/callcontrol-cdrs/call-123",
+                      "records": "/v2/detail_records?record_type=callcontrol-cdrs&id=call-123"
+                    },
+                    "record": { },
+                    "children": [ ]
+                  },
+                  "meta": {
+                    "event_count": 3,
+                    "products": [
+                      "ai-voice-assistant",
+                      "callcontrol-cdrs",
+                      "inference"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAnalysisErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAnalysisErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Event not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAnalysisErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionAnalysisErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/seti/black_box_test_results": {
       "get": {
         "tags": [
@@ -35956,8 +36196,8 @@
         "tags": [
           "Speech To Text over WebSockets"
         ],
-        "summary": "Speech to text over websocket",
-        "description": "Transcribe audio streams to text over WebSocket.",
+        "summary": "Speech to text over WebSocket",
+        "description": "\"Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer <API_KEY>` header.\n\nSupported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`.\n\n**Connection flow:**\n1. Open WebSocket with query parameters specifying engine, input format, and language.\n2. Send binary audio frames (mp3/wav format).\n3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.\n4. Close connection when done.\"",
         "operationId": "TranscriptionOverWs",
         "parameters": [
           {
@@ -35976,7 +36216,27 @@
             "$ref": "#/components/parameters/model"
           }
         ],
+        "requestBody": {
+          "description": "Client sends binary audio frames (mp3 or wav format) over the WebSocket. See `SttClientEvent` schema.",
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/TranscriptionOverWs"
+              }
+            }
+          }
+        },
         "responses": {
+          "101": {
+            "description": "WebSocket connection established. Communication proceeds via binary audio frames (client) and JSON transcript frames (server).\n\n**Client → Server:** Binary audio data (mp3/wav).\n**Server → Client:** See `TranscriptFrame` and `SttErrorFrame` schemas.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SttServerEvent"
+                }
+              }
+            }
+          },
           "422": {
             "$ref": "#/components/responses/speech-to-text_UnprocessableEntityResponse"
           }
@@ -41691,22 +41951,17 @@
           }
         }
       },
-      "ValidateRegistrationCodes": {
+      "TranscriptionOverWs": {
+        "required": [
+          "value"
+        ],
         "type": "object",
         "properties": {
-          "registration_codes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "value": {
+            "type": "string",
+            "description": "Binary audio data in mp3 or wav format.",
+            "format": "binary"
           }
-        },
-        "description": "The object containing the Array of SIM card registration codes.",
-        "example": {
-          "registration_codes": [
-            "123456780",
-            "1231231230"
-          ]
         }
       },
       "ActionsParticipantsRequest": {
@@ -42582,20 +42837,22 @@
           "send_silence_when_idle": true
         }
       },
-      "SetPublicIPsBulk": {
-        "required": [
-          "sim_card_ids"
-        ],
+      "ValidateRegistrationCodes": {
         "type": "object",
         "properties": {
-          "sim_card_ids": {
+          "registration_codes": {
             "type": "array",
             "items": {
-              "type": "string",
-              "description": "Identifies the resource.",
-              "format": "uuid"
+              "type": "string"
             }
           }
+        },
+        "description": "The object containing the Array of SIM card registration codes.",
+        "example": {
+          "registration_codes": [
+            "123456780",
+            "1231231230"
+          ]
         }
       },
       "AssignProfileToCampaignRequest": {
@@ -42856,7 +43113,8 @@
             "description": "The tool calls generated by the model, such as function calls."
           },
           "metadata": {
-            "$ref": "#/components/schemas/MessageMetadata"
+            "type": "object",
+            "description": "Metadata to add to the message"
           }
         },
         "description": "Messages sent by the model in response to user messages.",
@@ -43056,6 +43314,13 @@
       "AudioChunkFrame": {
         "type": "object",
         "properties": {
+          "type": {
+            "enum": [
+              "audio_chunk"
+            ],
+            "type": "string",
+            "description": "Frame type identifier."
+          },
           "audio": {
             "type": "string",
             "description": "Base64-encoded audio data. May be `null` for providers that use `drop_concatenated_audio` mode (Telnyx Natural/NaturalHD, Rime, Minimax, MurfAI, Resemble) — in that case only streamed chunks carry audio.",
@@ -43962,23 +44227,19 @@
         "type": "string",
         "additionalProperties": false
       },
-      "PreviewSimCardOrders": {
+      "SetPublicIPsBulk": {
         "required": [
-          "quantity",
-          "address_id"
+          "sim_card_ids"
         ],
         "type": "object",
         "properties": {
-          "quantity": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
-            "example": 21
-          },
-          "address_id": {
-            "type": "string",
-            "description": "Uniquely identifies the address for the order.",
-            "example": "1293384261075731499"
+          "sim_card_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Identifies the resource.",
+              "format": "uuid"
+            }
           }
         }
       },
@@ -44016,6 +44277,26 @@
         },
         "description": "AWS Polly provider-specific parameters."
       },
+      "PreviewSimCardOrders": {
+        "required": [
+          "quantity",
+          "address_id"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
+            "example": 21
+          },
+          "address_id": {
+            "type": "string",
+            "description": "Uniquely identifies the address for the order.",
+            "example": "1293384261075731499"
+          }
+        }
+      },
       "SetWirelessBlocklistForSimCardGroup": {
         "required": [
           "wireless_blocklist_id"
@@ -44041,40 +44322,6 @@
             "description": "The identification of the related Private Wireless Gateway resource.",
             "format": "uuid",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          }
-        }
-      },
-      "PostSimCardDataUsageNotification": {
-        "required": [
-          "sim_card_id",
-          "threshold"
-        ],
-        "type": "object",
-        "properties": {
-          "sim_card_id": {
-            "type": "string",
-            "description": "The identification UUID of the related SIM card resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
-          },
-          "threshold": {
-            "type": "object",
-            "properties": {
-              "amount": {
-                "type": "string",
-                "example": "2048.1"
-              },
-              "unit": {
-                "enum": [
-                  "MB",
-                  "GB"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "example": "MB"
-              }
-            },
-            "description": "Data usage threshold that will trigger the notification."
           }
         }
       },
@@ -45183,31 +45430,37 @@
           "park_after_unbridge": "self"
         }
       },
-      "UpdateRequirementGroup": {
+      "PostSimCardDataUsageNotification": {
+        "required": [
+          "sim_card_id",
+          "threshold"
+        ],
         "type": "object",
         "properties": {
-          "customer_reference": {
+          "sim_card_id": {
             "type": "string",
-            "description": "Reference for the customer",
-            "example": "0002"
+            "description": "The identification UUID of the related SIM card resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
           },
-          "regulatory_requirements": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "requirement_id": {
-                  "type": "string",
-                  "description": "Unique identifier for the regulatory requirement",
-                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
-                },
-                "field_value": {
-                  "type": "string",
-                  "description": "New value for the regulatory requirement",
-                  "example": "new requirement value"
-                }
+          "threshold": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "example": "2048.1"
+              },
+              "unit": {
+                "enum": [
+                  "MB",
+                  "GB"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "example": "MB"
               }
-            }
+            },
+            "description": "Data usage threshold that will trigger the notification."
           }
         }
       },
@@ -46658,43 +46911,13 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "CreateRequirementGroup": {
-        "required": [
-          "country_code",
-          "phone_number_type",
-          "action"
-        ],
+      "UpdateRequirementGroup": {
         "type": "object",
         "properties": {
-          "country_code": {
-            "type": "string",
-            "description": "ISO alpha 2 country code",
-            "example": "US"
-          },
-          "phone_number_type": {
-            "enum": [
-              "local",
-              "toll_free",
-              "mobile",
-              "national",
-              "shared_cost"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "local"
-          },
-          "action": {
-            "enum": [
-              "ordering",
-              "porting"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "ordering"
-          },
           "customer_reference": {
             "type": "string",
-            "example": "My Requirement Group"
+            "description": "Reference for the customer",
+            "example": "0002"
           },
           "regulatory_requirements": {
             "type": "array",
@@ -46702,10 +46925,14 @@
               "type": "object",
               "properties": {
                 "requirement_id": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Unique identifier for the regulatory requirement",
+                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
                 },
                 "field_value": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "New value for the regulatory requirement",
+                  "example": "new requirement value"
                 }
               }
             }
@@ -52122,6 +52349,45 @@
           }
         }
       },
+      "ChildRelationshipInfo": {
+        "required": [
+          "relationship_type",
+          "via",
+          "cost_rollup",
+          "traversal_enabled",
+          "description",
+          "child_product",
+          "child_event",
+          "child_record_type"
+        ],
+        "type": "object",
+        "properties": {
+          "relationship_type": {
+            "type": "string"
+          },
+          "via": {
+            "$ref": "#/components/schemas/MetadataFieldMapping"
+          },
+          "cost_rollup": {
+            "type": "boolean"
+          },
+          "traversal_enabled": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "child_product": {
+            "type": "string"
+          },
+          "child_event": {
+            "type": "string"
+          },
+          "child_record_type": {
+            "type": "string"
+          }
+        }
+      },
       "CivicAddress": {
         "title": "Civic Address",
         "type": "object",
@@ -55232,10 +55498,58 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "GetRequirementGroups_200": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/RequirementGroup"
+      "CreateRequirementGroup": {
+        "required": [
+          "country_code",
+          "phone_number_type",
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "ISO alpha 2 country code",
+            "example": "US"
+          },
+          "phone_number_type": {
+            "enum": [
+              "local",
+              "toll_free",
+              "mobile",
+              "national",
+              "shared_cost"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "local"
+          },
+          "action": {
+            "enum": [
+              "ordering",
+              "porting"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "ordering"
+          },
+          "customer_reference": {
+            "type": "string",
+            "example": "My Requirement Group"
+          },
+          "regulatory_requirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "requirement_id": {
+                  "type": "string"
+                },
+                "field_value": {
+                  "type": "string"
+                }
+              }
+            }
+          }
         }
       },
       "ConnectionAndroidPushCredentialId": {
@@ -55245,6 +55559,12 @@
         "default": null,
         "nullable": true,
         "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
+      },
+      "GetRequirementGroups_200": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RequirementGroup"
+        }
       },
       "CreatePrivateWirelessGateway": {
         "required": [
@@ -55268,25 +55588,6 @@
             "type": "string",
             "description": "The code of the region where the private wireless gateway will be assigned. A list of available regions can be found at the regions endpoint",
             "example": "dc2"
-          }
-        }
-      },
-      "UpdatePortoutStatus": {
-        "required": [
-          "reason"
-        ],
-        "type": "object",
-        "properties": {
-          "reason": {
-            "type": "string",
-            "description": "Provide a reason if rejecting the port out request",
-            "example": "I do not recognize this transaction"
-          },
-          "host_messaging": {
-            "type": "boolean",
-            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
-            "default": false,
-            "example": false
           }
         }
       },
@@ -55326,39 +55627,22 @@
         },
         "description": "Configuration options for Jitter Buffer. Enables Jitter Buffer for RTP streams of SIP Trunking calls. The feature is off unless enabled. You may define min and max values in msec for customized buffering behaviors. Larger values add latency but tolerate more jitter, while smaller values reduce latency but are more sensitive to jitter and reordering."
       },
-      "PostPortRequestSupportingDocuments": {
+      "UpdatePortoutStatus": {
+        "required": [
+          "reason"
+        ],
         "type": "object",
         "properties": {
-          "documents": {
-            "maxItems": 10,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "required": [
-                "type",
-                "document_id"
-              ],
-              "type": "object",
-              "properties": {
-                "type": {
-                  "enum": [
-                    "loa",
-                    "invoice"
-                  ],
-                  "type": "string",
-                  "additionalProperties": false,
-                  "description": "Identifies the type of the document",
-                  "example": "loa"
-                },
-                "document_id": {
-                  "type": "string",
-                  "description": "Identifies the associated document",
-                  "format": "uuid",
-                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
-                }
-              }
-            },
-            "description": "List of supporting documents parameters"
+          "reason": {
+            "type": "string",
+            "description": "Provide a reason if rejecting the port out request",
+            "example": "I do not recognize this transaction"
+          },
+          "host_messaging": {
+            "type": "boolean",
+            "description": "Indicates whether messaging services should be maintained with Telnyx after the port out completes",
+            "default": false,
+            "example": false
           }
         }
       },
@@ -55758,6 +56042,28 @@
           }
         }
       },
+      "CostInfo": {
+        "required": [
+          "event_cost",
+          "cumulative_cost",
+          "currency"
+        ],
+        "type": "object",
+        "properties": {
+          "event_cost": {
+            "type": "string",
+            "description": "Cost of this individual event."
+          },
+          "cumulative_cost": {
+            "type": "string",
+            "description": "Cumulative cost including all descendants."
+          },
+          "currency": {
+            "type": "string",
+            "description": "ISO 4217 currency code."
+          }
+        }
+      },
       "CostInformation": {
         "type": "object",
         "properties": {
@@ -55781,6 +56087,23 @@
           "currency": "USD"
         }
       },
+      "CostSummary": {
+        "required": [
+          "total",
+          "currency"
+        ],
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "string",
+            "description": "Total session cost as a decimal string."
+          },
+          "currency": {
+            "type": "string",
+            "description": "ISO 4217 currency code."
+          }
+        }
+      },
       "Country": {
         "title": "Country",
         "required": [
@@ -55801,12 +56124,39 @@
           }
         }
       },
-      "PostPortRequestComment": {
+      "PostPortRequestSupportingDocuments": {
         "type": "object",
         "properties": {
-          "body": {
-            "type": "string",
-            "description": "Comment to post on this portout request"
+          "documents": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "required": [
+                "type",
+                "document_id"
+              ],
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "loa",
+                    "invoice"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "Identifies the type of the document",
+                  "example": "loa"
+                },
+                "document_id": {
+                  "type": "string",
+                  "description": "Identifies the associated document",
+                  "format": "uuid",
+                  "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+                }
+              }
+            },
+            "description": "List of supporting documents parameters"
           }
         }
       },
@@ -59905,15 +60255,12 @@
           }
         }
       },
-      "PostPortabilityCheck": {
+      "PostPortRequestComment": {
         "type": "object",
         "properties": {
-          "phone_numbers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The list of +E.164 formatted phone numbers to check for portability"
+          "body": {
+            "type": "string",
+            "description": "Comment to post on this portout request"
           }
         }
       },
@@ -59977,19 +60324,15 @@
           }
         }
       },
-      "OperatorConnectRefresh_202": {
-        "title": "Operator Connect Refresh Response",
+      "PostPortabilityCheck": {
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Describes wether or not the operation was successful",
-            "example": true
-          },
-          "message": {
-            "type": "string",
-            "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh started"
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The list of +E.164 formatted phone numbers to check for portability"
           }
         }
       },
@@ -60409,7 +60752,7 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "OperatorConnectRefresh_200": {
+      "OperatorConnectRefresh_202": {
         "title": "Operator Connect Refresh Response",
         "type": "object",
         "properties": {
@@ -60421,7 +60764,7 @@
           "message": {
             "type": "string",
             "description": "A message describing the result of the operation",
-            "example": "Operator connect refresh already in progress"
+            "example": "Operator connect refresh started"
           }
         }
       },
@@ -60861,17 +61204,19 @@
           }
         }
       },
-      "ListOAuthGrants_200": {
+      "OperatorConnectRefresh_200": {
+        "title": "Operator Connect Refresh Response",
         "type": "object",
         "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OAuthGrant"
-            }
+          "success": {
+            "type": "boolean",
+            "description": "Describes wether or not the operation was successful",
+            "example": true
           },
-          "meta": {
-            "$ref": "#/components/schemas/oauth_PaginationMeta"
+          "message": {
+            "type": "string",
+            "description": "A message describing the result of the operation",
+            "example": "Operator connect refresh already in progress"
           }
         }
       },
@@ -61217,7 +61562,8 @@
             "description": "The contents of the developer message."
           },
           "metadata": {
-            "$ref": "#/components/schemas/MessageMetadata"
+            "type": "object",
+            "description": "Metadata to add to the message"
           }
         },
         "description": "Developer-provided instructions that the model should follow, regardless of messages sent by the user.",
@@ -62869,6 +63215,13 @@
       "ErrorFrame": {
         "type": "object",
         "properties": {
+          "type": {
+            "enum": [
+              "error"
+            ],
+            "type": "string",
+            "description": "Frame type identifier."
+          },
           "error": {
             "type": "string",
             "description": "Error message describing what went wrong."
@@ -62998,6 +63351,59 @@
           "idempotency_key": {
             "title": "Idempotency Key",
             "type": "string"
+          }
+        }
+      },
+      "EventNode": {
+        "required": [
+          "id",
+          "product",
+          "event_name",
+          "cost",
+          "links",
+          "record",
+          "children"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Event identifier."
+          },
+          "product": {
+            "type": "string",
+            "description": "Product that generated this event."
+          },
+          "event_name": {
+            "type": "string",
+            "description": "Name of the event type."
+          },
+          "relationship": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/RelationshipInfo"
+              }
+            ],
+            "description": "Relationship to the parent node, null for root.",
+            "nullable": true
+          },
+          "cost": {
+            "$ref": "#/components/schemas/CostInfo"
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "record": {
+            "type": "object",
+            "description": "The underlying detail record data. Contents vary by record type."
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventNode"
+            },
+            "description": "Child events in the session tree."
           }
         }
       },
@@ -64018,13 +64424,13 @@
           }
         }
       },
-      "ListOAuthClients_200": {
+      "ListOAuthGrants_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/OAuthClient"
+              "$ref": "#/components/schemas/OAuthGrant"
             }
           },
           "meta": {
@@ -64419,6 +64825,23 @@
           "name": "sms"
         }
       },
+      "FieldMapping": {
+        "required": [
+          "local_field",
+          "parent_field"
+        ],
+        "type": "object",
+        "properties": {
+          "local_field": {
+            "type": "string",
+            "description": "Field name on the child record."
+          },
+          "parent_field": {
+            "type": "string",
+            "description": "Field name on the parent record."
+          }
+        }
+      },
       "Filter": {
         "type": "object",
         "properties": {
@@ -64477,6 +64900,13 @@
       "FinalFrame": {
         "type": "object",
         "properties": {
+          "type": {
+            "enum": [
+              "final"
+            ],
+            "type": "string",
+            "description": "Frame type identifier."
+          },
           "audio": {
             "description": "Always `null` for the final frame.",
             "nullable": true
@@ -64590,6 +65020,20 @@
           }
         }
       },
+      "ListOAuthClients_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuthClient"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/oauth_PaginationMeta"
+          }
+        }
+      },
       "RegisterOAuthClient_400": {
         "type": "object",
         "properties": {
@@ -64611,9 +65055,6 @@
             }
           }
         }
-      },
-      "AuthorizeOAuth_422": {
-        "type": "string"
       },
       "ForbiddenError": {
         "type": "object",
@@ -64956,7 +65397,7 @@
         "description": "One of UDP, TLS, or TCP. Applies only to connections with IP authentication or FQDN authentication.",
         "default": "UDP"
       },
-      "AuthorizeOAuth_404": {
+      "AuthorizeOAuth_422": {
         "type": "string"
       },
       "FunctionDefinition": {
@@ -66712,7 +67153,7 @@
           "status": "successful"
         }
       },
-      "AuthorizeOAuth_400": {
+      "AuthorizeOAuth_404": {
         "type": "string"
       },
       "ImportAssistantsRequest": {
@@ -68615,31 +69056,8 @@
           }
         }
       },
-      "PostNumbersFeatures_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "required": [
-                "phone_number",
-                "features"
-              ],
-              "type": "object",
-              "properties": {
-                "phone_number": {
-                  "type": "string"
-                },
-                "features": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
+      "AuthorizeOAuth_400": {
+        "type": "string"
       },
       "Integration": {
         "title": "Integration",
@@ -69697,6 +70115,23 @@
             "title": "Telnyx Agent Id",
             "type": "string",
             "description": "The Telnyx AI agent ID to link"
+          }
+        }
+      },
+      "Links": {
+        "required": [
+          "self",
+          "records"
+        ],
+        "type": "object",
+        "properties": {
+          "self": {
+            "type": "string",
+            "description": "Link to this session analysis node."
+          },
+          "records": {
+            "type": "string",
+            "description": "Link to the underlying detail records."
           }
         }
       },
@@ -70956,16 +71391,28 @@
           "t38_fax_gateway_enabled": true
         }
       },
-      "PostNumbersFeatures": {
-        "required": [
-          "phone_numbers"
-        ],
+      "PostNumbersFeatures_200": {
         "type": "object",
         "properties": {
-          "phone_numbers": {
+          "data": {
             "type": "array",
             "items": {
-              "type": "string"
+              "required": [
+                "phone_number",
+                "features"
+              ],
+              "type": "object",
+              "properties": {
+                "phone_number": {
+                  "type": "string"
+                },
+                "features": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
         }
@@ -71091,16 +71538,17 @@
           }
         }
       },
-      "updateNumberOrderPhoneNumberRequirementGroup": {
+      "PostNumbersFeatures": {
         "required": [
-          "requirement_group_id"
+          "phone_numbers"
         ],
         "type": "object",
         "properties": {
-          "requirement_group_id": {
-            "type": "string",
-            "description": "The ID of the requirement group to associate",
-            "format": "uuid"
+          "phone_numbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -71404,6 +71852,21 @@
           ]
         }
       },
+      "MessagingMetricsTimeFrame": {
+        "title": "Messaging Metrics Time Frame",
+        "enum": [
+          "1h",
+          "3h",
+          "24h",
+          "3d",
+          "7d",
+          "30d"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The time frame for metrics aggregation.",
+        "default": "24h"
+      },
       "MessagingProfile": {
         "type": "object",
         "properties": {
@@ -71689,6 +72152,63 @@
             "description": "Number of results to return per page based on pagination settings (included when defaults are used.)",
             "format": "integer",
             "example": 1
+          }
+        }
+      },
+      "MetadataFieldMapping": {
+        "required": [
+          "local_field",
+          "parent_field"
+        ],
+        "type": "object",
+        "properties": {
+          "local_field": {
+            "type": "string"
+          },
+          "parent_field": {
+            "type": "string"
+          }
+        }
+      },
+      "MetadataInfo": {
+        "required": [
+          "total_record_types",
+          "last_updated"
+        ],
+        "type": "object",
+        "properties": {
+          "total_record_types": {
+            "type": "integer"
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "MetadataOverviewResponse": {
+        "required": [
+          "record_types",
+          "query_parameters",
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "record_types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecordTypeInfo"
+            }
+          },
+          "query_parameters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/QueryParameterInfo"
+            },
+            "description": "Map of supported query parameter names to their definitions."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetadataInfo"
           }
         }
       },
@@ -72184,17 +72704,16 @@
           }
         }
       },
-      "ListNotificationSettings_200": {
+      "updateNumberOrderPhoneNumberRequirementGroup": {
+        "required": [
+          "requirement_group_id"
+        ],
         "type": "object",
         "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NotificationSetting"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/PaginationMeta"
+          "requirement_group_id": {
+            "type": "string",
+            "description": "The ID of the requirement group to associate",
+            "format": "uuid"
           }
         }
       },
@@ -72956,13 +73475,13 @@
           }
         }
       },
-      "FindNotificationsProfiles_200": {
+      "ListNotificationSettings_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationProfile"
+              "$ref": "#/components/schemas/NotificationSetting"
             }
           },
           "meta": {
@@ -75209,13 +75728,13 @@
           ]
         }
       },
-      "FindNotificationsEvents_200": {
+      "FindNotificationsProfiles_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEvent"
+              "$ref": "#/components/schemas/NotificationProfile"
             }
           },
           "meta": {
@@ -75926,6 +76445,13 @@
           "smart_encoding_applied": {
             "type": "boolean",
             "description": "Indicates whether smart encoding was applied to this message. When `true`, one or more Unicode characters were automatically replaced with GSM-7 equivalents to reduce segment count and cost. The original message text is preserved in webhooks."
+          },
+          "wait_seconds": {
+            "type": "number",
+            "description": "Seconds the message is queued due to rate limiting before being sent to the carrier. Represents the maximum wait across all applicable rate limits (account, carrier, campaign). 0.0 = no queuing delay.",
+            "format": "float",
+            "nullable": true,
+            "example": 0.5
           }
         },
         "example": {
@@ -76544,13 +77070,13 @@
           "updated_at": "2018-02-02T22:25:27.521Z"
         }
       },
-      "FindNotificationsEventsConditions_200": {
+      "FindNotificationsEvents_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationEventCondition"
+              "$ref": "#/components/schemas/NotificationEvent"
             }
           },
           "meta": {
@@ -76578,13 +77104,13 @@
           }
         }
       },
-      "ListNotificationChannels_200": {
+      "FindNotificationsEventsConditions_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationChannel"
+              "$ref": "#/components/schemas/NotificationEventCondition"
             }
           },
           "meta": {
@@ -76880,6 +77406,45 @@
             "type": "integer",
             "description": "The number of results per page.",
             "example": 25
+          }
+        }
+      },
+      "ParentRelationshipInfo": {
+        "required": [
+          "relationship_type",
+          "via",
+          "cost_rollup",
+          "traversal_enabled",
+          "description",
+          "parent_product",
+          "parent_event",
+          "parent_record_type"
+        ],
+        "type": "object",
+        "properties": {
+          "relationship_type": {
+            "type": "string"
+          },
+          "via": {
+            "$ref": "#/components/schemas/MetadataFieldMapping"
+          },
+          "cost_rollup": {
+            "type": "boolean"
+          },
+          "traversal_enabled": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "parent_product": {
+            "type": "string"
+          },
+          "parent_event": {
+            "type": "string"
+          },
+          "parent_record_type": {
+            "type": "string"
           }
         }
       },
@@ -78907,30 +79472,17 @@
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901"
         }
       },
-      "CreatePushCredential": {
-        "required": [
-          "type"
-        ],
+      "ListNotificationChannels_200": {
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateIosPushCredentialRequest"
-          },
-          {
-            "$ref": "#/components/schemas/CreateAndroidPushCredentialRequest"
-          }
-        ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "CreateIosPushCredentialRequest": "#/components/schemas/CreateIosPushCredentialRequest",
-            "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationChannel"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -82092,6 +82644,40 @@
         "default": "high",
         "example": "high"
       },
+      "QueryParameterInfo": {
+        "required": [
+          "type",
+          "default",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "default": {
+            "type": "string"
+          },
+          "min": {
+            "type": "integer",
+            "nullable": true
+          },
+          "max": {
+            "type": "integer",
+            "nullable": true
+          },
+          "enum_values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
       "Queue": {
         "title": "Queue",
         "required": [
@@ -82411,7 +82997,8 @@
             "$ref": "#/components/schemas/RCSOpenUrlAction"
           },
           "share_location_action": {
-            "$ref": "#/components/schemas/RCSShareLocationAction"
+            "type": "object",
+            "description": "Opens the RCS app's location chooser so the user can pick a location to send back to the agent."
           }
         },
         "description": "When tapped, initiates the corresponding native action on the device."
@@ -83002,6 +83589,13 @@
               "received_at": {
                 "type": "string",
                 "format": "date-time"
+              },
+              "wait_seconds": {
+                "type": "number",
+                "description": "Seconds the message is queued due to rate limiting before being sent to the carrier. Represents the maximum wait across all applicable rate limits (account, carrier, campaign). 0.0 = no queuing delay.",
+                "format": "float",
+                "nullable": true,
+                "example": 0.5
               }
             }
           }
@@ -83191,6 +83785,99 @@
         "additionalProperties": false,
         "description": "Identifies record type."
       },
+      "RecordTypeInfo": {
+        "required": [
+          "record_type",
+          "aliases",
+          "product",
+          "event",
+          "description",
+          "child_relationships",
+          "parent_relationships"
+        ],
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "type": "string"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "product": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "child_relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChildRelationshipInfo"
+            }
+          },
+          "parent_relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParentRelationshipInfo"
+            }
+          }
+        }
+      },
+      "RecordTypeMetadataResponse": {
+        "required": [
+          "record_type",
+          "aliases",
+          "product",
+          "event",
+          "child_relationships",
+          "parent_relationships",
+          "examples",
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "type": "string"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "product": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          },
+          "child_relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChildRelationshipInfo"
+            }
+          },
+          "parent_relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParentRelationshipInfo"
+            }
+          },
+          "examples": {
+            "type": "object",
+            "description": "Example queries and responses for this record type."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/RelationshipMetadata"
+          }
+        }
+      },
       "RecordingResponse": {
         "title": "RecordingResponse",
         "type": "object",
@@ -83322,9 +84009,32 @@
         "additionalProperties": false,
         "description": "Defines how the recording was created."
       },
-      "DeleteAutorespConfig_200": {
-        "type": "string",
-        "example": "OK"
+      "CreatePushCredential": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateIosPushCredentialRequest"
+          },
+          {
+            "$ref": "#/components/schemas/CreateAndroidPushCredentialRequest"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CreateIosPushCredentialRequest": "#/components/schemas/CreateIosPushCredentialRequest",
+            "CreateAndroidPushCredentialRequest": "#/components/schemas/CreateAndroidPushCredentialRequest"
+          }
+        }
       },
       "RecordingTrack": {
         "enum": [
@@ -83496,19 +84206,9 @@
           }
         }
       },
-      "GetProfileMetrics_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProfileMetricsHighLevel"
-            }
-          },
-          "meta": {
-            "$ref": "#/components/schemas/messaging_PaginationMeta"
-          }
-        }
+      "DeleteAutorespConfig_200": {
+        "type": "string",
+        "example": "OK"
       },
       "RegionIn": {
         "type": "object",
@@ -83803,6 +84503,50 @@
           "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
           "command_id": "891510ac-f3e4-11e8-af5b-de00688a4901",
           "cause": "USER_BUSY"
+        }
+      },
+      "RelationshipInfo": {
+        "required": [
+          "type",
+          "via",
+          "parent_id"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Relationship type identifier."
+          },
+          "via": {
+            "$ref": "#/components/schemas/FieldMapping"
+          },
+          "parent_id": {
+            "type": "string",
+            "description": "Identifier of the parent event."
+          }
+        }
+      },
+      "RelationshipMetadata": {
+        "required": [
+          "total_children",
+          "total_siblings",
+          "total_parents",
+          "max_recommended_depth"
+        ],
+        "type": "object",
+        "properties": {
+          "total_children": {
+            "type": "integer"
+          },
+          "total_siblings": {
+            "type": "integer"
+          },
+          "total_parents": {
+            "type": "integer"
+          },
+          "max_recommended_depth": {
+            "type": "integer"
+          }
         }
       },
       "Release": {
@@ -84143,6 +84887,26 @@
                 }
               }
             }
+          }
+        }
+      },
+      "ResponseMeta": {
+        "required": [
+          "event_count",
+          "products"
+        ],
+        "type": "object",
+        "properties": {
+          "event_count": {
+            "type": "integer",
+            "description": "Total number of events in the session tree."
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of distinct products involved in the session."
           }
         }
       },
@@ -85660,7 +86424,6 @@
             ],
             "type": "string",
             "additionalProperties": false,
-            "default": "ipv4",
             "readOnly": true,
             "example": "ipv4"
           },
@@ -86420,13 +87183,14 @@
         },
         "description": "The send_message tool allows the assistant to send SMS or MMS messages to the end user. The 'to' and 'from' addresses are automatically determined from the conversation context, and the message text is generated by the assistant."
       },
-      "ListMessagingHostedNumbers_200": {
+      "GetProfileMetrics_200": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PhoneNumberWithMessagingSettings"
+              "type": "object",
+              "description": "High-level metrics summary for a messaging profile."
             }
           },
           "meta": {
@@ -86504,6 +87268,79 @@
         "description": "Indicates the coverage of the termination regions.",
         "default": "global",
         "example": "global"
+      },
+      "SessionAnalysisError": {
+        "required": [
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "SessionAnalysisErrorResponse": {
+        "required": [
+          "errors"
+        ],
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SessionAnalysisError"
+            }
+          }
+        }
+      },
+      "SessionAnalysisResponse": {
+        "required": [
+          "session_id",
+          "status",
+          "created_at",
+          "cost",
+          "root",
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "description": "Identifier for the analyzed session."
+          },
+          "status": {
+            "type": "string",
+            "description": "Analysis status (e.g. \"completed\")."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the session started.",
+            "format": "date-time"
+          },
+          "completed_at": {
+            "type": "string",
+            "description": "When the session completed.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cost": {
+            "$ref": "#/components/schemas/CostSummary"
+          },
+          "root": {
+            "$ref": "#/components/schemas/EventNode"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ResponseMeta"
+          }
+        }
       },
       "SettingsDataErrorMessage": {
         "title": "SettingsDataErrorMessage",
@@ -88288,6 +89125,20 @@
           "stream_id": "1edb94f9-7ef0-4150-b502-e0ebadfd9491"
         }
       },
+      "ListMessagingHostedNumbers_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PhoneNumberWithMessagingSettings"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/messaging_PaginationMeta"
+          }
+        }
+      },
       "GetMessage_200": {
         "type": "object",
         "properties": {
@@ -88301,17 +89152,6 @@
                 "$ref": "#/components/schemas/InboundMessagePayload"
               }
             ]
-          }
-        }
-      },
-      "GetGroupMmsMessages_200": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OutboundMessagePayload"
-            }
           }
         }
       },
@@ -88444,6 +89284,39 @@
         "default": "default",
         "example": "PCMA"
       },
+      "GetGroupMmsMessages_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OutboundMessagePayload"
+            }
+          }
+        }
+      },
+      "StreamStatus": {
+        "enum": [
+          "stopped"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The status of the Stream you wish to update.",
+        "default": "stopped",
+        "example": "stopped"
+      },
+      "StreamTrack": {
+        "enum": [
+          "inbound_track",
+          "outbound_track",
+          "both_tracks"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Tracks to be included in the stream",
+        "default": "inbound_track",
+        "example": "both_tracks"
+      },
       "SendAlphanumericSenderIdMessage": {
         "required": [
           "from",
@@ -88488,28 +89361,6 @@
             "description": "If true, use the messaging profile's webhook settings."
           }
         }
-      },
-      "StreamStatus": {
-        "enum": [
-          "stopped"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The status of the Stream you wish to update.",
-        "default": "stopped",
-        "example": "stopped"
-      },
-      "StreamTrack": {
-        "enum": [
-          "inbound_track",
-          "outbound_track",
-          "both_tracks"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Tracks to be included in the stream",
-        "default": "inbound_track",
-        "example": "both_tracks"
       },
       "SttDeleteDetailReportResponse": {
         "type": "object",
@@ -88585,6 +89436,27 @@
         },
         "description": "Request object for Speech to Text detailed report"
       },
+      "SttErrorFrame": {
+        "required": [
+          "type",
+          "error"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "error"
+            ],
+            "type": "string",
+            "description": "Frame type identifier."
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong."
+          }
+        },
+        "description": "Server-to-client frame indicating an error during transcription. The connection may be closed shortly after."
+      },
       "SttGetDetailReportByIdResponse": {
         "type": "object",
         "properties": {
@@ -88609,6 +89481,37 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/SttDetailReportResponse"
+          }
+        }
+      },
+      "SttServerEvent": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TranscriptFrame"
+          },
+          {
+            "$ref": "#/components/schemas/SttErrorFrame"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "Union of all server-to-client WebSocket events for STT streaming.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "transcript": "#/components/schemas/TranscriptFrame",
+            "error": "#/components/schemas/SttErrorFrame",
+            "TranscriptFrame": "#/components/schemas/TranscriptFrame",
+            "SttErrorFrame": "#/components/schemas/SttErrorFrame"
           }
         }
       },
@@ -89285,7 +90188,8 @@
             "description": "The contents of the system message."
           },
           "metadata": {
-            "$ref": "#/components/schemas/MessageMetadata"
+            "type": "object",
+            "description": "Metadata to add to the message"
           }
         },
         "description": "Developer-provided instructions that the model should follow, regardless of messages sent by the user.",
@@ -92867,7 +93771,8 @@
             "description": "Tool call that this message is responding to."
           },
           "metadata": {
-            "$ref": "#/components/schemas/MessageMetadata"
+            "type": "object",
+            "description": "Metadata to add to the message"
           }
         },
         "example": {
@@ -92934,6 +93839,35 @@
         "description": "Specifies the type of traffic allowed in this profile.",
         "default": "conversational",
         "example": "conversational"
+      },
+      "TranscriptFrame": {
+        "required": [
+          "type",
+          "transcript"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "transcript"
+            ],
+            "type": "string",
+            "description": "Frame type identifier."
+          },
+          "transcript": {
+            "type": "string",
+            "description": "The transcribed text from the audio."
+          },
+          "is_final": {
+            "type": "boolean",
+            "description": "Whether this is a final transcription result. When `false`, this is an interim result that may be refined."
+          },
+          "confidence": {
+            "type": "number",
+            "description": "Confidence score of the transcription, ranging from 0 to 1."
+          }
+        },
+        "description": "Server-to-client frame containing a transcription result."
       },
       "Transcription": {
         "title": "Transcription",
@@ -93241,6 +94175,8 @@
         "discriminator": {
           "propertyName": "transcription_model",
           "mapping": {
+            "deepgram/nova-2": "#/components/schemas/DeepgramNova2Config",
+            "deepgram/nova-3": "#/components/schemas/DeepgramNova3Config",
             "DeepgramNova2Config": "#/components/schemas/DeepgramNova2Config",
             "DeepgramNova3Config": "#/components/schemas/DeepgramNova3Config"
           }
@@ -94333,6 +95269,42 @@
           }
         },
         "description": "Request model for triggering test suite runs.\n\nOptional request body for the trigger test suite runs endpoint."
+      },
+      "TtsServerEvent": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AudioChunkFrame"
+          },
+          {
+            "$ref": "#/components/schemas/FinalFrame"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorFrame"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "Union of all server-to-client WebSocket events for TTS streaming.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "audio_chunk": "#/components/schemas/AudioChunkFrame",
+            "final": "#/components/schemas/FinalFrame",
+            "error": "#/components/schemas/ErrorFrame",
+            "AudioChunkFrame": "#/components/schemas/AudioChunkFrame",
+            "FinalFrame": "#/components/schemas/FinalFrame",
+            "ErrorFrame": "#/components/schemas/ErrorFrame"
+          }
+        }
       },
       "TwimlRecordingChannels": {
         "enum": [
@@ -98029,7 +99001,8 @@
             "description": "The contents of the user message."
           },
           "metadata": {
-            "$ref": "#/components/schemas/MessageMetadata"
+            "type": "object",
+            "description": "Metadata to add to the message"
           }
         },
         "description": "Messages sent by an end user",
@@ -101097,6 +102070,13 @@
               "received_at": {
                 "type": "string",
                 "format": "date-time"
+              },
+              "wait_seconds": {
+                "type": "number",
+                "description": "Seconds the message is queued due to rate limiting before being sent to the carrier. Represents the maximum wait across all applicable rate limits (account, carrier, campaign). 0.0 = no queuing delay.",
+                "format": "float",
+                "nullable": true,
+                "example": 0.5
               }
             }
           }
@@ -101349,7 +102329,6 @@
             "type": "string",
             "additionalProperties": false,
             "description": "The type of the wireless blocklist.",
-            "default": "country",
             "example": "country"
           },
           "values": {
@@ -104374,10 +105353,10 @@
             "$ref": "#/components/schemas/EnumObjectListResponse_Wrapper"
           },
           {
-            "$ref": "#/components/schemas/EnumObjectToStringResponse"
+            "type": "object"
           },
           {
-            "$ref": "#/components/schemas/EnumObjecToObjecttResponse"
+            "type": "object"
           },
           {
             "$ref": "#/components/schemas/EnumPaginatedResponse"
@@ -105044,13 +106023,7 @@
             "$ref": "#/components/schemas/ClientTextFrame"
           },
           {
-            "$ref": "#/components/schemas/AudioChunkFrame"
-          },
-          {
-            "$ref": "#/components/schemas/FinalFrame"
-          },
-          {
-            "$ref": "#/components/schemas/ErrorFrame"
+            "$ref": "#/components/schemas/TtsServerEvent"
           }
         ],
         "properties": {
@@ -105063,9 +106036,7 @@
           "propertyName": "type",
           "mapping": {
             "ClientTextFrame": "#/components/schemas/ClientTextFrame",
-            "AudioChunkFrame": "#/components/schemas/AudioChunkFrame",
-            "FinalFrame": "#/components/schemas/FinalFrame",
-            "ErrorFrame": "#/components/schemas/ErrorFrame"
+            "TtsServerEvent": "#/components/schemas/TtsServerEvent"
           }
         }
       },
@@ -118272,10 +119243,6 @@
       "description": "Configure AI assistant specifications"
     },
     {
-      "name": "Audio",
-      "description": "Turn audio into text or text into audio."
-    },
-    {
       "name": "Audit Logs",
       "description": "Audit log operations."
     },
@@ -118430,6 +119397,10 @@
     {
       "name": "FQDNs",
       "description": "FQDN operations"
+    },
+    {
+      "name": "File-based Text-to-Speech",
+      "description": "Turn audio into text or text into audio."
     },
     {
       "name": "Fine Tuning",
@@ -118706,6 +119677,10 @@
     {
       "name": "SIPREC Connectors",
       "description": "SIPREC connectors configuration."
+    },
+    {
+      "name": "Session Analysis",
+      "description": "Analyze voice AI sessions, costs, and event hierarchies across Telnyx products."
     },
     {
       "name": "Short Codes",

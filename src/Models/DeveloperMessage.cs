@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Metadata to add to the message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageMetadata? Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MessageMetadata Metadata { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_metadata Metadata { get; set; }
 #endif
         /// <summary>The role of the messages author, in this case developer.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_role? Role { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "content", n => { Content = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageMetadata>(global::Soenneker.Telnyx.OpenApiClient.Models.MessageMetadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_metadata.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_role>(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessageMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_metadata>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage_role>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }

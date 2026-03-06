@@ -34,22 +34,24 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
         {
         }
         /// <summary>
-        /// Transcribe audio streams to text over WebSocket.
+        /// &quot;Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.&quot;
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
+        /// <param name="body">Binary request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Speech_to_text_Errors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder.TranscriptionRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> GetAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder.TranscriptionRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder.TranscriptionRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> GetAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder.TranscriptionRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToGetRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "422", global::Soenneker.Telnyx.OpenApiClient.Models.Speech_to_text_Errors.CreateFromDiscriminatorValue },
@@ -57,22 +59,25 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Transcribe audio streams to text over WebSocket.
+        /// &quot;Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">Binary request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder.TranscriptionRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder.TranscriptionRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder.TranscriptionRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Stream body, Action<RequestConfiguration<global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder.TranscriptionRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetStreamContent(body, "application/octet-stream");
             return requestInfo;
         }
         /// <summary>
@@ -85,7 +90,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
             return new global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Transcribe audio streams to text over WebSocket.
+        /// &quot;Open a WebSocket connection to stream audio and receive transcriptions in real-time. Authentication is provided via the standard `Authorization: Bearer &lt;API_KEY&gt;` header.Supported engines: `Azure`, `Deepgram`, `Google`, `Telnyx`.**Connection flow:**1. Open WebSocket with query parameters specifying engine, input format, and language.2. Send binary audio frames (mp3/wav format).3. Receive JSON transcript frames with `transcript`, `is_final`, and `confidence` fields.4. Close connection when done.&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranscriptionRequestBuilderGetQueryParameters 

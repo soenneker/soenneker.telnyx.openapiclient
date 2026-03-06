@@ -58,10 +58,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Opens the RCS app&apos;s location chooser so the user can pick a location to send back to the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSShareLocationAction? ShareLocationAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSAction_share_location_action? ShareLocationAction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSShareLocationAction ShareLocationAction { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RCSAction_share_location_action ShareLocationAction { get; set; }
 #endif
         /// <summary>Text that is shown in the suggested action. Maximum 25 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "fallback_url", n => { FallbackUrl = n.GetStringValue(); } },
                 { "open_url_action", n => { OpenUrlAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction.CreateFromDiscriminatorValue); } },
                 { "postback_data", n => { PostbackData = n.GetStringValue(); } },
-                { "share_location_action", n => { ShareLocationAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSShareLocationAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSShareLocationAction.CreateFromDiscriminatorValue); } },
+                { "share_location_action", n => { ShareLocationAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSAction_share_location_action>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSAction_share_location_action.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "view_location_action", n => { ViewLocationAction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSViewLocationAction>(global::Soenneker.Telnyx.OpenApiClient.Models.RCSViewLocationAction.CreateFromDiscriminatorValue); } },
             };
@@ -126,7 +126,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("fallback_url", FallbackUrl);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSOpenUrlAction>("open_url_action", OpenUrlAction);
             writer.WriteStringValue("postback_data", PostbackData);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSShareLocationAction>("share_location_action", ShareLocationAction);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSAction_share_location_action>("share_location_action", ShareLocationAction);
             writer.WriteStringValue("text", Text);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RCSViewLocationAction>("view_location_action", ViewLocationAction);
             writer.WriteAdditionalData(AdditionalData);
