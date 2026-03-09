@@ -36,5 +36,9 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Voices
         #pragma warning disable CS1591
         Resemble,
         #pragma warning restore CS1591
+        [EnumMember(Value = "inworld")]
+        #pragma warning disable CS1591
+        Inworld,
+        #pragma warning restore CS1591
     }
 }

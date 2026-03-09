@@ -16,9 +16,5 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Call,
         #pragma warning restore CS1591
-        [EnumMember(Value = "flashcall")]
-        #pragma warning disable CS1591
-        Flashcall,
-        #pragma warning restore CS1591
     }
 }

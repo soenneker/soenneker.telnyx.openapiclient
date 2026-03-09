@@ -41,6 +41,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams Elevenlabs { get; set; }
 #endif
+        /// <summary>Inworld provider-specific parameters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_inworld? Inworld { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_inworld Inworld { get; set; }
+#endif
         /// <summary>Language code (e.g. `en-US`). Usage varies by provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,6 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "azure", n => { Azure = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams.CreateFromDiscriminatorValue); } },
                 { "disable_cache", n => { DisableCache = n.GetBoolValue(); } },
                 { "elevenlabs", n => { Elevenlabs = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams.CreateFromDiscriminatorValue); } },
+                { "inworld", n => { Inworld = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_inworld>(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_inworld.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "minimax", n => { Minimax = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams.CreateFromDiscriminatorValue); } },
                 { "output_type", n => { OutputType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_output_type>(); } },
@@ -165,6 +174,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams>("azure", Azure);
             writer.WriteBoolValue("disable_cache", DisableCache);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams>("elevenlabs", Elevenlabs);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_inworld>("inworld", Inworld);
             writer.WriteStringValue("language", Language);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams>("minimax", Minimax);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_output_type>("output_type", OutputType);

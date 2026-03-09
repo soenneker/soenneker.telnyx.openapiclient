@@ -138,6 +138,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PreferredCodecs { get; set; }
 #endif
+        /// <summary>Prevents bridging and hangs up the call if the target is already bridged. Disabled by default.</summary>
+        public bool? PreventDoubleBridge { get; set; }
         /// <summary>Start recording automatically after an event. Disabled by default.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record? Record { get; set; }
         /// <summary>Defines which channel should be recorded (&apos;single&apos; or &apos;dual&apos;) when `record` is specified.</summary>
@@ -329,6 +331,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "media_name", n => { MediaName = n.GetStringValue(); } },
                 { "park_after_unbridge", n => { ParkAfterUnbridge = n.GetStringValue(); } },
                 { "preferred_codecs", n => { PreferredCodecs = n.GetStringValue(); } },
+                { "prevent_double_bridge", n => { PreventDoubleBridge = n.GetBoolValue(); } },
                 { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record>(); } },
                 { "record_channels", n => { RecordChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record_channels>(); } },
                 { "record_custom_file_name", n => { RecordCustomFileName = n.GetStringValue(); } },
@@ -391,6 +394,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("media_name", MediaName);
             writer.WriteStringValue("park_after_unbridge", ParkAfterUnbridge);
             writer.WriteStringValue("preferred_codecs", PreferredCodecs);
+            writer.WriteBoolValue("prevent_double_bridge", PreventDoubleBridge);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record>("record", Record);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record_channels>("record_channels", RecordChannels);
             writer.WriteStringValue("record_custom_file_name", RecordCustomFileName);

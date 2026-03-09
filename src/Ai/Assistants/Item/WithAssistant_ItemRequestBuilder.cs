@@ -7,6 +7,7 @@ using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.CanaryDeploys;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Chat;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Clone;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tags;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Texml;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tools;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Versions;
@@ -43,6 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Scheduled_eventsRequestBuilder Scheduled_events
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Scheduled_events.Scheduled_eventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tags property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tags.TagsRequestBuilder Tags
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Tags.TagsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The texml property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.Texml.TexmlRequestBuilder Texml

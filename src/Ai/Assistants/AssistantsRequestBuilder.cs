@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Import;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item;
+using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tags;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests;
 using Soenneker.Telnyx.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -24,6 +25,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Import.ImportRequestBuilder Import
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Import.ImportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tags property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tags.TagsRequestBuilder Tags
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tags.TagsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The tests property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Tests.TestsRequestBuilder Tests
