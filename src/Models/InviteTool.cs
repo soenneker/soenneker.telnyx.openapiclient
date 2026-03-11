@@ -14,13 +14,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The invite property</summary>
+        /// <summary>The invite_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig? Invite { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig? InviteConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig Invite { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig InviteConfig { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool_type? Type { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "invite", n => { Invite = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig.CreateFromDiscriminatorValue); } },
+                { "invite_config", n => { InviteConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool_type>(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig>("invite", Invite);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig>("invite_config", InviteConfig);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

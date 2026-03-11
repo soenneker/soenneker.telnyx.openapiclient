@@ -35842,6 +35842,60 @@
         }
       }
     },
+    "/sim_cards/actions/bulk_disable_voice": {
+      "post": {
+        "tags": [
+          "SIM Cards"
+        ],
+        "summary": "Request bulk disabling voice on SIM cards.",
+        "description": "This API triggers an asynchronous operation to disable voice on SIM cards belonging to a specified SIM Card Group.<br/>\nFor each SIM Card a SIM Card Action will be generated. The status of the SIM Card Actions can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API.\n\nThe overall status of the Bulk SIM Card Action can be followed through the [List Bulk SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-bulk-sim-card-actions) API.\n",
+        "operationId": "DisableVoiceBulk",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisableVoiceBulk"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/BulkSIMCardActionResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/wireless_UnprocessableEntity"
+          }
+        }
+      }
+    },
+    "/sim_cards/actions/bulk_enable_voice": {
+      "post": {
+        "tags": [
+          "SIM Cards"
+        ],
+        "summary": "Request bulk enabling voice on SIM cards.",
+        "description": "This API triggers an asynchronous operation to enable voice on SIM cards belonging to a specified SIM Card Group.<br/>\nFor each SIM Card a SIM Card Action will be generated. The status of the SIM Card Actions can be followed through the [List SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-sim-card-actions) API.\n\nThe overall status of the Bulk SIM Card Action can be followed through the [List Bulk SIM Card Action](https://developers.telnyx.com/api-reference/sim-card-actions/list-bulk-sim-card-actions) API.\n",
+        "operationId": "EnableVoiceBulk",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnableVoiceBulk"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "$ref": "#/components/responses/BulkSIMCardActionResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/wireless_UnprocessableEntity"
+          }
+        }
+      }
+    },
     "/sim_cards/actions/bulk_set_public_ips": {
       "post": {
         "tags": [
@@ -39737,6 +39791,568 @@
         }
       }
     },
+    "/v2/whatsapp/business_accounts": {
+      "get": {
+        "tags": [
+          "Whatsapp Business Accounts"
+        ],
+        "summary": "List Whatsapp Business Accounts",
+        "operationId": "ListWabas",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WabasListResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/business_accounts/{id}": {
+      "delete": {
+        "tags": [
+          "Whatsapp Business Accounts"
+        ],
+        "summary": "Delete a Whatsapp Business Account",
+        "operationId": "deleteWaba",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WabaId"
+          }
+        ],
+        "responses": {
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Whatsapp Business Accounts"
+        ],
+        "summary": "Get a single Whatsapp Business Account",
+        "operationId": "GetSingleWaba",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WabaId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WabaSingleResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/business_accounts/{id}/phone_numbers": {
+      "get": {
+        "tags": [
+          "Whatsapp Business Accounts"
+        ],
+        "summary": "List phone numbers for a WABA",
+        "operationId": "ListWabaPhones",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WabaId"
+          },
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappPhonesListResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Initialize Whatsapp phone number verification",
+        "operationId": "InitializeWhatsappVerification",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WabaId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhatsappPhoneNumberVerificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/business_accounts/{id}/settings": {
+      "get": {
+        "tags": [
+          "Whatsapp Business Accounts"
+        ],
+        "summary": "Get WABA settings",
+        "operationId": "GetWabaSettings",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WabaId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WabaSettingsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Whatsapp Business Accounts"
+        ],
+        "summary": "Update WABA settings",
+        "operationId": "PatchWabaSettings",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WabaId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchWabaSettingsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WabaSettingsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/message_templates": {
+      "get": {
+        "tags": [
+          "Whatsapp Message Templates"
+        ],
+        "summary": "List Whatsapp message templates",
+        "operationId": "ListWhatsappTemplates",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
+          },
+          {
+            "name": "filter[waba_id]",
+            "in": "query",
+            "description": "Filter by WABA ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[category]",
+            "in": "query",
+            "description": "Filter by category",
+            "schema": {
+              "enum": [
+                "MARKETING",
+                "UTILITY",
+                "AUTHENTICATION"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "filter[status]",
+            "in": "query",
+            "description": "Filter by template status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[search]",
+            "in": "query",
+            "description": "Search templates by name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappTemplateListResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Whatsapp Message Templates"
+        ],
+        "summary": "Create a Whatsapp message template",
+        "operationId": "PostWhatsappTemplate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhatsappCreateTemplateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/WhatsappTemplateSingleResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/phone_numbers": {
+      "get": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "List Whatsapp phone numbers",
+        "operationId": "ListPhoneNumbers_1",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PageConsolidated"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappPhonesListResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/phone_numbers/{phone_number}": {
+      "delete": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Delete a Whatsapp phone number",
+        "operationId": "DeleteWhatsappPhoneNumber",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "responses": {
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/phone_numbers/{phone_number}/calling_settings": {
+      "get": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Get calling settings for a phone number",
+        "operationId": "GetWhatsappCallingSettings",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappCallingSettingsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Enable or disable Whatsapp calling for a phone number",
+        "operationId": "PatchWhatsappCallingSettings",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhatsappPatchCallingSettingsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappCallingSettingsResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/phone_numbers/{phone_number}/profile": {
+      "get": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Get phone number business profile",
+        "operationId": "GetWhatsappProfile",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappProfileSingleResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Update phone number business profile",
+        "operationId": "PatchWhatsappProfile",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhatsappUpdateProfileRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappProfileSingleResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/phone_numbers/{phone_number}/profile/photo": {
+      "delete": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Delete Whatsapp profile photo",
+        "operationId": "DeleteWhatsappProfilePhoto",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "responses": {
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Upload Whatsapp profile photo",
+        "operationId": "PostWhatsappProfilePhoto",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/PostWhatsappProfilePhoto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappProfileSingleResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/phone_numbers/{phone_number}/resend_verification": {
+      "post": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Resend verification code",
+        "operationId": "ResendWhatsappVerification",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhatsappResendVerificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp/phone_numbers/{phone_number}/verify": {
+      "post": {
+        "tags": [
+          "Whatsapp Phone Numbers"
+        ],
+        "summary": "Submit verification code for a phone number",
+        "operationId": "VerifyWhatsappPhoneNumber",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappPhoneNumber"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhatsappVerifyCodeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/v2/whatsapp_message_templates/{id}": {
+      "delete": {
+        "tags": [
+          "Whatsapp Message Templates"
+        ],
+        "summary": "Delete a Whatsapp message template",
+        "operationId": "DeleteWhatsappTemplate",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappTemplateId"
+          }
+        ],
+        "responses": {
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Whatsapp Message Templates"
+        ],
+        "summary": "Get a Whatsapp message template by ID",
+        "operationId": "GetWhatsappTemplate",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappTemplateId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappTemplateSingleResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Whatsapp Message Templates"
+        ],
+        "summary": "Update a Whatsapp message template",
+        "operationId": "PatchWhatsappTemplate",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WhatsappTemplateId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WhatsappUpdateTemplateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/WhatsappTemplateSingleResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/messaging_GenericErrorResponse"
+          }
+        }
+      }
+    },
     "/verifications/by_phone_number/{phone_number}": {
       "get": {
         "tags": [
@@ -42085,16 +42701,19 @@
           }
         }
       },
-      "TranscriptionOverWs": {
+      "SetPublicIPsBulk": {
         "required": [
-          "value"
+          "sim_card_ids"
         ],
         "type": "object",
         "properties": {
-          "value": {
-            "type": "string",
-            "description": "Binary audio data in mp3 or wav format.",
-            "format": "binary"
+          "sim_card_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Identifies the resource.",
+              "format": "uuid"
+            }
           }
         }
       },
@@ -42984,22 +43603,16 @@
           "send_silence_when_idle": true
         }
       },
-      "ValidateRegistrationCodes": {
+      "EnableVoiceBulk": {
+        "required": [
+          "sim_card_group_id"
+        ],
         "type": "object",
         "properties": {
-          "registration_codes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "sim_card_group_id": {
+            "type": "string",
+            "example": "6b14e151-8493-4fa1-8664-1cc4e6d14158"
           }
-        },
-        "description": "The object containing the Array of SIM card registration codes.",
-        "example": {
-          "registration_codes": [
-            "123456780",
-            "1231231230"
-          ]
         }
       },
       "AssignProfileToCampaignRequest": {
@@ -44374,19 +44987,15 @@
         "type": "string",
         "additionalProperties": false
       },
-      "SetPublicIPsBulk": {
+      "DisableVoiceBulk": {
         "required": [
-          "sim_card_ids"
+          "sim_card_group_id"
         ],
         "type": "object",
         "properties": {
-          "sim_card_ids": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "Identifies the resource.",
-              "format": "uuid"
-            }
+          "sim_card_group_id": {
+            "type": "string",
+            "example": "6b14e151-8493-4fa1-8664-1cc4e6d14158"
           }
         }
       },
@@ -45863,11 +46472,13 @@
           },
           "action_type": {
             "enum": [
+              "bulk_disable_voice",
+              "bulk_enable_voice",
               "bulk_set_public_ips"
             ],
             "type": "string",
             "additionalProperties": false,
-            "description": "\"The operation type. It can be one of the following: <br/>\n<ul>\n<li><code>bulk_set_public_ips</code> - set a public IP for each specified SIM card.</li>\n</ul>\"",
+            "description": "\"The action type. It can be one of the following: <br/>\n<ul>\n<li><code>bulk_disable_voice</code> - disable voice for every SIM Card in a SIM Card Group.</li>\n<li><code>bulk_enable_voice</code> - enable voice for every SIM Card in a SIM Card Group.</li>\n<li><code>bulk_set_public_ips</code> - set a public IP for each specified SIM Card.</li>\n</ul>\"",
             "readOnly": true,
             "example": "bulk_set_public_ips"
           },
@@ -45902,11 +46513,13 @@
           },
           "action_type": {
             "enum": [
+              "bulk_disable_voice",
+              "bulk_enable_voice",
               "bulk_set_public_ips"
             ],
             "type": "string",
             "additionalProperties": false,
-            "description": "\"The operation type. It can be one of the following: <br/>\n<ul>\n<li><code>bulk_set_public_ips</code> - set a public IP for each specified SIM card.</li>\n</ul>\"",
+            "description": "\"The action type. It can be one of the following: <br/>\n<ul>\n<li><code>bulk_disable_voice</code> - disable voice for every SIM Card in a SIM Card Group.</li>\n<li><code>bulk_enable_voice</code> - enable voice for every SIM Card in a SIM Card Group.</li>\n<li><code>bulk_set_public_ips</code> - set a public IP for each specified SIM Card.</li>\n</ul>\"",
             "readOnly": true,
             "example": "bulk_set_public_ips"
           },
@@ -69596,7 +70209,7 @@
         "title": "InviteTool",
         "required": [
           "type",
-          "invite"
+          "invite_config"
         ],
         "type": "object",
         "properties": {
@@ -69607,7 +70220,7 @@
             "type": "string",
             "additionalProperties": false
           },
-          "invite": {
+          "invite_config": {
             "$ref": "#/components/schemas/InviteToolConfig"
           }
         }
@@ -76699,7 +77312,8 @@
           "sent_at": null,
           "completed_at": null,
           "valid_until": null,
-          "errors": [ ]
+          "errors": [ ],
+          "wait_seconds": 0.5
         }
       },
       "OutboundMessagePayloadCancelled": {
@@ -77962,6 +78576,40 @@
             "type": "integer",
             "description": "Specifies how many seconds to wait before timing out a webhook.",
             "example": 25
+          }
+        }
+      },
+      "PatchWabaSettingsRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "IANA timezone identifier",
+            "example": "America/New_York"
+          },
+          "webhook_url": {
+            "type": "string",
+            "description": "URL to send Whatsapp events",
+            "format": "url"
+          },
+          "webhook_failover_url": {
+            "type": "string",
+            "description": "Failover URL to send Whatsapp events",
+            "format": "url"
+          },
+          "webhook_enabled": {
+            "type": "boolean",
+            "description": "Enable/disable receiving Whatsapp events"
+          },
+          "webhook_events": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Whatsapp event to subscribe to"
+            }
           }
         }
       },
@@ -86028,6 +86676,13 @@
             "nullable": true,
             "readOnly": true,
             "example": null
+          },
+          "voice_enabled": {
+            "type": "boolean",
+            "description": "Indicates whether voice services are enabled for the SIM card.",
+            "default": false,
+            "readOnly": true,
+            "example": false
           }
         }
       },
@@ -88059,6 +88714,13 @@
             },
             "description": "List of IMEIs authorized to use a given SIM card.",
             "nullable": true
+          },
+          "voice_enabled": {
+            "type": "boolean",
+            "description": "Indicates whether voice services are enabled for the SIM card.",
+            "default": false,
+            "readOnly": true,
+            "example": false
           }
         }
       },
@@ -101105,6 +101767,98 @@
         "additionalProperties": false,
         "description": "Message Volume Enums"
       },
+      "WabaResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Internal ID of Whatsapp business account",
+            "format": "uuid"
+          },
+          "record_type": {
+            "type": "string",
+            "example": "whatsapp_business_account"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of Whatsapp business account"
+          },
+          "waba_id": {
+            "type": "string",
+            "description": "WABA ID of Whatsapp business account"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of Whatsapp business account"
+          },
+          "phone_numbers_count": {
+            "type": "integer",
+            "description": "Count of phone numbers associated with Whatsapp business account"
+          },
+          "business_verification_status": {
+            "type": "string",
+            "description": "Business verification status of Whatsapp business account"
+          },
+          "account_review_status": {
+            "type": "string",
+            "description": "Account review status of Whatsapp business account"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country associated with Whatsapp business account"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "WabaSettings": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Internal ID of Whatsapp business account",
+            "format": "uuid"
+          },
+          "record_type": {
+            "type": "string",
+            "example": "whatsapp_business_account_settings"
+          },
+          "name": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string",
+            "example": "America/Chicago"
+          },
+          "webhook_url": {
+            "type": "string",
+            "description": "URL to receive Whatsapp events",
+            "format": "url"
+          },
+          "webhook_failover_url": {
+            "type": "string",
+            "description": "Failover URL to receive Whatsapp events",
+            "format": "url"
+          },
+          "webhook_enabled": {
+            "type": "boolean",
+            "description": "Enable/disable receiving Whatsapp events"
+          },
+          "webhook_events": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Whatsapp event to subscribe to"
+            }
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "WdrReport": {
         "type": "object",
         "properties": {
@@ -101733,6 +102487,27 @@
           }
         }
       },
+      "WhatsappCallingSettingsData": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "example": "whatsapp_calling_settings"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Phone number in E164 format"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "True if calling is enabled on the phone"
+          }
+        }
+      },
       "WhatsappContact": {
         "type": "object",
         "properties": {
@@ -101830,6 +102605,42 @@
                   "type": "string"
                 }
               }
+            }
+          }
+        }
+      },
+      "WhatsappCreateTemplateRequest": {
+        "required": [
+          "waba_id",
+          "name",
+          "category",
+          "language",
+          "components"
+        ],
+        "type": "object",
+        "properties": {
+          "waba_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "enum": [
+              "MARKETING",
+              "UTILITY",
+              "AUTHENTICATION"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "language": {
+            "type": "string"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "object"
             }
           }
         }
@@ -102186,6 +102997,140 @@
           }
         }
       },
+      "WhatsappPatchCallingSettingsRequest": {
+        "required": [
+          "enabled"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "WhatsappPhoneNumberVerificationRequest": {
+        "required": [
+          "phone_number",
+          "display_name"
+        ],
+        "type": "object",
+        "properties": {
+          "phone_number": {
+            "type": "string"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "verification_method": {
+            "enum": [
+              "sms",
+              "voice"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "default": "sms"
+          },
+          "language": {
+            "type": "string",
+            "default": "en_US"
+          }
+        }
+      },
+      "WhatsappPhoneResponse": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "example": "whatsapp_business_phone_number"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Phone number in E164 format"
+          },
+          "phone_number_id": {
+            "type": "string",
+            "description": "Whatsapp phone number ID"
+          },
+          "waba_id": {
+            "type": "string",
+            "description": "WABA ID of Whatsapp business account"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "User ID"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "quality_rating": {
+            "type": "string",
+            "description": "Whatsapp quality rating"
+          },
+          "status": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "calling_enabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "WhatsappProfileData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "record_type": {
+            "type": "string",
+            "example": "whatsapp_phone_number_profiles"
+          },
+          "phone_number_id": {
+            "type": "string",
+            "description": "Whatsapp phone number ID"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "profile_photo_url": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "about": {
+            "maxLength": 139,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 512,
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "WhatsappReaction": {
         "type": "object",
         "properties": {
@@ -102194,6 +103139,20 @@
           },
           "emoji": {
             "type": "string"
+          }
+        }
+      },
+      "WhatsappResendVerificationRequest": {
+        "type": "object",
+        "properties": {
+          "verification_method": {
+            "enum": [
+              "sms",
+              "voice"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "default": "sms"
           }
         }
       },
@@ -102284,6 +103243,124 @@
                 "example": 0.5
               }
             }
+          }
+        }
+      },
+      "WhatsappTemplateData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "record_type": {
+            "type": "string",
+            "example": "whatsapp_message_template"
+          },
+          "template_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "enum": [
+              "MARKETING",
+              "UTILITY",
+              "AUTHENTICATION"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "language": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "rejection_reason": {
+            "type": "string"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Whatsapp template components (header, body, footer, buttons)"
+          },
+          "whatsapp_business_account": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "WhatsappUpdateProfileRequest": {
+        "type": "object",
+        "properties": {
+          "display_name": {
+            "type": "string"
+          },
+          "about": {
+            "maxLength": 139,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 512,
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          }
+        }
+      },
+      "WhatsappUpdateTemplateRequest": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "enum": [
+              "MARKETING",
+              "UTILITY",
+              "AUTHENTICATION"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "WhatsappVerifyCodeRequest": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
           }
         }
       },
@@ -106115,6 +107192,37 @@
       "AcceptCampaign_202": {
         "type": "object"
       },
+      "ValidateRegistrationCodes": {
+        "type": "object",
+        "properties": {
+          "registration_codes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "The object containing the Array of SIM card registration codes.",
+        "example": {
+          "registration_codes": [
+            "123456780",
+            "1231231230"
+          ]
+        }
+      },
+      "TranscriptionOverWs": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "Binary audio data in mp3 or wav format.",
+            "format": "binary"
+          }
+        }
+      },
       "AddStorageSSLCertificate": {
         "type": "object",
         "properties": {
@@ -106280,6 +107388,19 @@
           },
           "meta": {
             "$ref": "#/components/schemas/mobile_voice_connections_PaginationMeta"
+          }
+        }
+      },
+      "PostWhatsappProfilePhoto": {
+        "required": [
+          "file"
+        ],
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Image file (JPEG recommended, max 10 MB)",
+            "format": "binary"
           }
         }
       },
@@ -113761,6 +114882,144 @@
           }
         }
       },
+      "WabaSettingsResponse": {
+        "description": "Successful response with Whatsapp business account settings",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/WabaSettings"
+                }
+              }
+            }
+          }
+        }
+      },
+      "WabaSingleResponse": {
+        "description": "Successful response with Whatsapp business account",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/WabaResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "WabasListResponse": {
+        "description": "Successful response with list of Whatsapp business accounts",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WabaResponse"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/messaging_PaginationMeta"
+                }
+              }
+            }
+          }
+        }
+      },
+      "WhatsappCallingSettingsResponse": {
+        "description": "Successful response with Whatsapp calling settings",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/WhatsappCallingSettingsData"
+                }
+              }
+            }
+          }
+        }
+      },
+      "WhatsappPhonesListResponse": {
+        "description": "Successful response with Whatsapp phone numbers",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WhatsappPhoneResponse"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/messaging_PaginationMeta"
+                }
+              }
+            }
+          }
+        }
+      },
+      "WhatsappProfileSingleResponse": {
+        "description": "Successful response with Whatsapp profile",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/WhatsappProfileData"
+                }
+              }
+            }
+          }
+        }
+      },
+      "WhatsappTemplateListResponse": {
+        "description": "Successful response with Whatsapp template",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WhatsappTemplateData"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/messaging_PaginationMeta"
+                }
+              }
+            }
+          }
+        }
+      },
+      "WhatsappTemplateSingleResponse": {
+        "description": "Successful response with Whatsapp template",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/WhatsappTemplateData"
+                }
+              }
+            }
+          }
+        }
+      },
       "WireguardInterfaceListResponse": {
         "description": "Successful response",
         "content": {
@@ -117008,6 +118267,33 @@
           "example": "ca1d2263-d1f1-43ac-ba53-248e7a4bb26a"
         }
       },
+      "WabaId": {
+        "name": "id",
+        "in": "path",
+        "description": "Whatsapp Business Account ID",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "WhatsappPhoneNumber": {
+        "name": "phone_number",
+        "in": "path",
+        "description": "Phone number (E.164 format)",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "WhatsappTemplateId": {
+        "name": "id",
+        "in": "path",
+        "description": "Whatsapp message template ID",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
       "WirelessBlocklistId": {
         "name": "id",
         "in": "path",
@@ -119967,6 +121253,18 @@
     {
       "name": "Webhooks",
       "description": "Webhooks operations"
+    },
+    {
+      "name": "Whatsapp Business Accounts",
+      "description": "Manage Whatsapp business accounts"
+    },
+    {
+      "name": "Whatsapp Message Templates",
+      "description": "Manage Whatsapp message templates"
+    },
+    {
+      "name": "Whatsapp Phone Numbers",
+      "description": "Manage Whatsapp phone numbers"
     },
     {
       "name": "Whatsapp messaging",

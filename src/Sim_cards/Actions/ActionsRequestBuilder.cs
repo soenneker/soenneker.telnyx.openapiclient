@@ -2,6 +2,8 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Bulk_disable_voice;
+using Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Bulk_enable_voice;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Bulk_set_public_ips;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Validate_registration_codes;
 using System.Collections.Generic;
@@ -16,6 +18,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The bulk_disable_voice property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Bulk_disable_voice.Bulk_disable_voiceRequestBuilder Bulk_disable_voice
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Bulk_disable_voice.Bulk_disable_voiceRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The bulk_enable_voice property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Bulk_enable_voice.Bulk_enable_voiceRequestBuilder Bulk_enable_voice
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Bulk_enable_voice.Bulk_enable_voiceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The bulk_set_public_ips property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Actions.Bulk_set_public_ips.Bulk_set_public_ipsRequestBuilder Bulk_set_public_ips
         {

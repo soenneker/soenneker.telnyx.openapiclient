@@ -194,6 +194,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Version { get; private set; }
 #endif
+        /// <summary>Indicates whether voice services are enabled for the SIM card.</summary>
+        public bool? VoiceEnabled { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard"/> and sets the default values.
         /// </summary>
@@ -246,6 +248,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_type>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
+                { "voice_enabled", n => { VoiceEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

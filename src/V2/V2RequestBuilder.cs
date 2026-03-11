@@ -5,6 +5,8 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.V2.Mobile_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections;
 using Soenneker.Telnyx.OpenApiClient.V2.Payment;
+using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp;
+using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp_message_templates;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -31,6 +33,16 @@ namespace Soenneker.Telnyx.OpenApiClient.V2
         public global::Soenneker.Telnyx.OpenApiClient.V2.Payment.PaymentRequestBuilder Payment
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.V2.Payment.PaymentRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The whatsapp property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.WhatsappRequestBuilder Whatsapp
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp.WhatsappRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The whatsapp_message_templates property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp_message_templates.Whatsapp_message_templatesRequestBuilder Whatsapp_message_templates
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp_message_templates.Whatsapp_message_templatesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.V2RequestBuilder"/> and sets the default values.
