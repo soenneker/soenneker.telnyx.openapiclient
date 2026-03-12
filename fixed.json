@@ -19865,7 +19865,7 @@
             "schema": {
               "type": "string",
               "format": "date-time",
-              "example": "2020-07-01T00:00:00-06:00"
+              "example": "2020-07-02T00:00:00-06:00"
             }
           },
           {
@@ -41457,6 +41457,786 @@
         }
       }
     },
+    "/voice_clones": {
+      "get": {
+        "tags": [
+          "Voice Clones"
+        ],
+        "summary": "List voice clones",
+        "description": "Returns a paginated list of voice clones belonging to the authenticated account.",
+        "operationId": "listVoiceClones",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/voice-designs_PageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/voice-designs_PageSize"
+          },
+          {
+            "$ref": "#/components/parameters/FilterName"
+          },
+          {
+            "$ref": "#/components/parameters/voice-designs_Sort"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated list of voice clones.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceCloneListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Voice Clones"
+        ],
+        "summary": "Create a voice clone from a voice design",
+        "description": "Creates a new voice clone by capturing the voice identity of an existing voice design. The clone can then be used for text-to-speech synthesis.",
+        "operationId": "createVoiceClone",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VoiceCloneRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Voice clone created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceCloneResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voice design not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity — validation error in the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad gateway — upstream voice cloning service is unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voice_clones/from_upload": {
+      "post": {
+        "tags": [
+          "Voice Clones"
+        ],
+        "summary": "Create a voice clone from an audio file upload",
+        "description": "\"Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best results, provide 5–10 seconds of clear speech. Maximum file size: 2MB.\"",
+        "operationId": "createVoiceCloneFromUpload",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/VoiceCloneUploadRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Voice clone created successfully from the uploaded audio.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceCloneResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request — the audio file is invalid, unsupported, or exceeds the size limit.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity — validation error in the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad gateway — upstream voice cloning service is unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voice_clones/{id}": {
+      "delete": {
+        "tags": [
+          "Voice Clones"
+        ],
+        "summary": "Delete a voice clone",
+        "description": "Permanently deletes a voice clone. This action cannot be undone.",
+        "operationId": "deleteVoiceClone",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The voice clone UUID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voice clone not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Voice Clones"
+        ],
+        "summary": "Update a voice clone",
+        "description": "Updates the name, language, or gender of a voice clone.",
+        "operationId": "updateVoiceClone",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The voice clone UUID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VoiceCloneUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Voice clone updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceCloneResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voice clone not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity — validation error in the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voice_clones/{id}/sample": {
+      "get": {
+        "tags": [
+          "Voice Clones"
+        ],
+        "summary": "Download voice clone audio sample",
+        "description": "Downloads the WAV audio sample that was used to create the voice clone.",
+        "operationId": "getVoiceCloneSample",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The voice clone UUID.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "WAV audio sample binary.",
+            "content": {
+              "audio/wav": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voice clone not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voice_designs": {
+      "get": {
+        "tags": [
+          "Voice Designs"
+        ],
+        "summary": "List voice designs",
+        "description": "Returns a paginated list of voice designs belonging to the authenticated account.",
+        "operationId": "listVoiceDesigns",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/voice-designs_PageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/voice-designs_PageSize"
+          },
+          {
+            "$ref": "#/components/parameters/FilterName"
+          },
+          {
+            "$ref": "#/components/parameters/voice-designs_Sort"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated list of voice designs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceDesignListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Voice Designs"
+        ],
+        "summary": "Create or add a version to a voice design",
+        "description": "Creates a new voice design (version 1) when `voice_design_id` is omitted. When `voice_design_id` is provided, adds a new version to the existing design instead. A design can have at most 50 versions.",
+        "operationId": "createVoiceDesign",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VoiceDesignRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Voice design created or new version added successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceDesignResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voice design not found — the specified `voice_design_id` does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict — the voice design has reached the maximum of 50 versions.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity — validation error in the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad gateway — upstream voice synthesis service is unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voice_designs/{id}": {
+      "delete": {
+        "tags": [
+          "Voice Designs"
+        ],
+        "summary": "Delete a voice design",
+        "description": "Permanently deletes a voice design and all of its versions. This action cannot be undone.",
+        "operationId": "deleteVoiceDesign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The voice design UUID or name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voice design not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Voice Designs"
+        ],
+        "summary": "Get a voice design",
+        "description": "Returns the latest version of a voice design, or a specific version when `?version=N` is provided. The `id` parameter accepts either a UUID or the design name.",
+        "operationId": "getVoiceDesign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The voice design UUID or name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Specific version number to retrieve. Defaults to the latest version.",
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested voice design.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceDesignResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voice design not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Voice Designs"
+        ],
+        "summary": "Rename a voice design",
+        "description": "Updates the name of a voice design. All versions retain their other properties.",
+        "operationId": "updateVoiceDesign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The voice design UUID or name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VoiceDesignUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Voice design renamed successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceDesignUpdatedResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voice design not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity — validation error in the request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voice_designs/{id}/sample": {
+      "get": {
+        "tags": [
+          "Voice Designs"
+        ],
+        "summary": "Download voice design audio sample",
+        "description": "Downloads the WAV audio sample for the voice design. Returns the latest version's sample by default, or a specific version when `?version=N` is provided. The `id` parameter accepts either a UUID or the design name.",
+        "operationId": "getVoiceDesignSample",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The voice design UUID or name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Specific version number to download the sample for. Defaults to the latest version.",
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "WAV audio sample binary.",
+            "content": {
+              "audio/wav": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voice design or version not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voice_designs/{id}/versions/{version}": {
+      "delete": {
+        "tags": [
+          "Voice Designs"
+        ],
+        "summary": "Delete a specific version of a voice design",
+        "description": "Permanently deletes a specific version of a voice design. The version number must be a positive integer.",
+        "operationId": "deleteVoiceDesignVersion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The voice design UUID or name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "description": "The version number to delete.",
+            "required": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad request — invalid version number.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized — missing or invalid bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voice design or version not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/voice_designs_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/webhook_deliveries": {
       "get": {
         "tags": [
@@ -53008,6 +53788,11 @@
           "top_p": {
             "type": "number",
             "description": "An alternative or complement to `temperature`. This adjusts how many of the top possibilities to consider."
+          },
+          "enable_thinking": {
+            "type": "boolean",
+            "description": "Whether to enable the thinking/reasoning phase for models that support it (e.g., QwQ, Qwen3). When set to false, the model will skip the internal reasoning step and respond directly, which can reduce latency. Defaults to true.",
+            "default": true
           }
         }
       },
@@ -63997,6 +64782,34 @@
           }
         },
         "description": "Server-to-client frame indicating an error during synthesis. The connection is closed shortly after."
+      },
+      "ErrorObject": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Telnyx-specific error code."
+          },
+          "title": {
+            "type": "string",
+            "description": "Short, human-readable summary of the error."
+          },
+          "detail": {
+            "type": "string",
+            "description": "Detailed, human-readable explanation of the error."
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "pointer": {
+                "type": "string",
+                "description": "A JSON Pointer (RFC 6901) to the field that caused the error."
+              }
+            },
+            "description": "Reference to the source of the error."
+          }
+        },
+        "description": "A single error object."
       },
       "ErrorRecord": {
         "type": "object",
@@ -101171,23 +101984,29 @@
       "Vertical": {
         "title": "Vertical",
         "enum": [
-          "REAL_ESTATE",
-          "HEALTHCARE",
+          "AGRICULTURE",
+          "COMMUNICATION",
+          "CONSTRUCTION",
+          "EDUCATION",
           "ENERGY",
           "ENTERTAINMENT",
-          "RETAIL",
-          "AGRICULTURE",
-          "INSURANCE",
-          "EDUCATION",
-          "HOSPITALITY",
           "FINANCIAL",
           "GAMBLING",
-          "CONSTRUCTION",
-          "NGO",
-          "MANUFACTURING",
           "GOVERNMENT",
+          "HEALTHCARE",
+          "HOSPITALITY",
+          "HUMAN_RESOURCES",
+          "INSURANCE",
+          "LEGAL",
+          "MANUFACTURING",
+          "NGO",
+          "POLITICAL",
+          "POSTAL",
+          "PROFESSIONAL",
+          "REAL_ESTATE",
+          "RETAIL",
           "TECHNOLOGY",
-          "COMMUNICATION"
+          "TRANSPORTATION"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -101508,6 +102327,229 @@
         },
         "description": "A voice available for text-to-speech synthesis."
       },
+      "VoiceCloneData": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "enum": [
+              "voice_clone"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Identifies the resource type."
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the voice clone.",
+            "format": "uuid"
+          },
+          "source_voice_design_id": {
+            "type": "string",
+            "description": "UUID of the source voice design. `null` for upload-based clones.",
+            "format": "uuid",
+            "nullable": true
+          },
+          "source_voice_design_version": {
+            "type": "integer",
+            "description": "Version of the source voice design used. `null` for upload-based clones.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the voice clone."
+          },
+          "language": {
+            "type": "string",
+            "description": "ISO 639-1 language code of the voice clone.",
+            "nullable": true
+          },
+          "gender": {
+            "enum": [
+              "male",
+              "female",
+              "neutral"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Gender of the voice clone.",
+            "nullable": true
+          },
+          "label": {
+            "type": "string",
+            "description": "Voice style description. If not explicitly set on upload, falls back to the source design's prompt text.",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the voice clone was created.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the voice clone was last updated.",
+            "format": "date-time"
+          }
+        },
+        "description": "A voice clone object."
+      },
+      "VoiceCloneListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VoiceCloneData"
+            },
+            "description": "Array of voice clone objects."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/voice_designs_PaginationMeta"
+          }
+        },
+        "description": "Paginated list of voice clones."
+      },
+      "VoiceCloneRequest": {
+        "required": [
+          "name",
+          "voice_design_id",
+          "language",
+          "gender"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Name for the voice clone."
+          },
+          "voice_design_id": {
+            "type": "string",
+            "description": "UUID of the source voice design to clone.",
+            "format": "uuid"
+          },
+          "language": {
+            "type": "string",
+            "description": "ISO 639-1 language code for the clone (e.g. `en`, `fr`, `de`)."
+          },
+          "gender": {
+            "enum": [
+              "male",
+              "female",
+              "neutral"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Gender of the voice clone."
+          }
+        },
+        "description": "Request body for creating a voice clone from an existing voice design.",
+        "example": {
+          "name": "clone-narrator",
+          "voice_design_id": "550e8400-e29b-41d4-a716-446655440000",
+          "language": "en",
+          "gender": "male"
+        }
+      },
+      "VoiceCloneResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/VoiceCloneData"
+          }
+        },
+        "description": "Response envelope for a single voice clone.",
+        "example": {
+          "data": {
+            "record_type": "voice_clone",
+            "id": "660f9511-f3ac-52e5-b827-557766551111",
+            "source_voice_design_id": "550e8400-e29b-41d4-a716-446655440000",
+            "source_voice_design_version": 1,
+            "name": "clone-narrator",
+            "language": "en",
+            "gender": "male",
+            "label": "Speak in a warm, friendly tone",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z"
+          }
+        }
+      },
+      "VoiceCloneUpdateRequest": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "New name for the voice clone."
+          },
+          "language": {
+            "type": "string",
+            "description": "Updated ISO 639-1 language code or `auto`."
+          },
+          "gender": {
+            "enum": [
+              "male",
+              "female",
+              "neutral"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Updated gender for the voice clone."
+          }
+        },
+        "description": "Request body for updating a voice clone.",
+        "example": {
+          "name": "updated-clone"
+        }
+      },
+      "VoiceCloneUploadRequest": {
+        "required": [
+          "audio_file",
+          "language",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "audio_file": {
+            "type": "string",
+            "description": "\"Audio file to clone the voice from. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best quality, provide 5–10 seconds of clear, uninterrupted speech. Maximum size: 2MB.\"",
+            "format": "binary"
+          },
+          "name": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Name for the voice clone."
+          },
+          "language": {
+            "pattern": "^([Aa]uto|[a-z]{2,3}(-[A-Za-z0-9]{2,8})*)$",
+            "type": "string",
+            "description": "ISO 639-1 language code (e.g. `en`, `fr`) or `auto` for automatic detection."
+          },
+          "gender": {
+            "enum": [
+              "male",
+              "female",
+              "neutral"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Gender of the voice clone."
+          },
+          "ref_text": {
+            "type": "string",
+            "description": "Optional transcript of the audio file. Providing this improves clone quality."
+          },
+          "label": {
+            "type": "string",
+            "description": "Optional custom label describing the voice style. If omitted, falls back to the source design's prompt text."
+          }
+        },
+        "description": "Multipart form data for creating a voice clone from a direct audio upload."
+      },
       "getDocumentDownloadLink_200": {
         "required": [
           "data"
@@ -101527,6 +102569,241 @@
                 "example": "https://s3.amazonaws.com/bucket/path/to/document?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=..."
               }
             }
+          }
+        }
+      },
+      "VoiceDesignData": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "enum": [
+              "voice_design"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Identifies the resource type."
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the voice design.",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the voice design."
+          },
+          "version": {
+            "type": "integer",
+            "description": "Version number of this voice design."
+          },
+          "text": {
+            "type": "string",
+            "description": "Sample text used to synthesize this version."
+          },
+          "prompt": {
+            "type": "string",
+            "description": "Natural language prompt used to define the voice style for this version."
+          },
+          "voice_sample_size": {
+            "type": "integer",
+            "description": "Size of the voice sample audio in bytes."
+          },
+          "version_created_at": {
+            "type": "string",
+            "description": "Timestamp when this specific version was created.",
+            "format": "date-time"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the voice design was first created.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the voice design was last updated.",
+            "format": "date-time"
+          }
+        },
+        "description": "A voice design object with full version detail."
+      },
+      "VoiceDesignListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VoiceDesignSummaryData"
+            },
+            "description": "Array of voice design summary objects."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/voice_designs_PaginationMeta"
+          }
+        },
+        "description": "Paginated list of voice designs."
+      },
+      "VoiceDesignRequest": {
+        "required": [
+          "text",
+          "prompt"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Name for the voice design. Required when creating a new design (`voice_design_id` is not provided); ignored when adding a version. Cannot be a UUID."
+          },
+          "voice_design_id": {
+            "type": "string",
+            "description": "ID of an existing voice design to add a new version to. When provided, a new version is created instead of a new design.",
+            "format": "uuid"
+          },
+          "text": {
+            "type": "string",
+            "description": "Sample text to synthesize for this voice design."
+          },
+          "prompt": {
+            "type": "string",
+            "description": "Natural language description of the voice style, e.g. 'Speak in a warm, friendly tone with a slight British accent'."
+          },
+          "language": {
+            "type": "string",
+            "description": "\"Language for synthesis. Supported values: Auto, Chinese, English, Japanese, Korean, German, French, Russian, Portuguese, Spanish, Italian. Defaults to Auto.\"",
+            "default": "Auto"
+          },
+          "temperature": {
+            "maximum": 2.0,
+            "minimum": 0.0,
+            "type": "number",
+            "description": "\"Sampling temperature controlling randomness. Higher values produce more varied output. Default: 0.9.\"",
+            "format": "float"
+          },
+          "top_k": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer",
+            "description": "\"Top-k sampling parameter — limits the token vocabulary considered at each step. Default: 50.\""
+          },
+          "top_p": {
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "type": "number",
+            "description": "\"Top-p (nucleus) sampling parameter — cumulative probability cutoff for token selection. Default: 1.0.\"",
+            "format": "float"
+          },
+          "repetition_penalty": {
+            "maximum": 2.0,
+            "minimum": 1.0,
+            "type": "number",
+            "description": "\"Repetition penalty to reduce repeated patterns in generated audio. Default: 1.05.\"",
+            "format": "float"
+          },
+          "max_new_tokens": {
+            "maximum": 4096,
+            "minimum": 100,
+            "type": "integer",
+            "description": "\"Maximum number of tokens to generate. Default: 2048.\""
+          }
+        },
+        "description": "Request body for creating a new voice design or adding a version to an existing one. Omit `voice_design_id` to create a new design; include it to add a new version.",
+        "example": {
+          "name": "friendly-narrator",
+          "text": "Hello, welcome to our service.",
+          "prompt": "Speak in a warm, friendly tone",
+          "language": "Auto"
+        }
+      },
+      "VoiceDesignResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/VoiceDesignData"
+          }
+        },
+        "description": "Response envelope for a single voice design with full version detail.",
+        "example": {
+          "data": {
+            "record_type": "voice_design",
+            "id": "550e8400-e29b-41d4-a716-446655440000",
+            "name": "friendly-narrator",
+            "version": 1,
+            "text": "Hello, welcome.",
+            "prompt": "Speak in a warm tone",
+            "voice_sample_size": 48000,
+            "version_created_at": "2024-01-01T00:00:00Z",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-01T00:00:00Z"
+          }
+        }
+      },
+      "VoiceDesignSummaryData": {
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "enum": [
+              "voice_design"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Identifies the resource type."
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the voice design.",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the voice design."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the voice design was first created.",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp when the voice design was last updated.",
+            "format": "date-time"
+          }
+        },
+        "description": "A summarized voice design object (without version-specific fields)."
+      },
+      "VoiceDesignUpdateRequest": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "New name for the voice design."
+          }
+        },
+        "description": "Request body for renaming a voice design.",
+        "example": {
+          "name": "updated-narrator"
+        }
+      },
+      "VoiceDesignUpdatedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/VoiceDesignSummaryData"
+          }
+        },
+        "description": "Response envelope for a voice design after a rename operation (no version-specific fields).",
+        "example": {
+          "data": {
+            "record_type": "voice_design",
+            "id": "550e8400-e29b-41d4-a716-446655440000",
+            "name": "updated-narrator",
+            "created_at": "2024-01-01T00:00:00Z",
+            "updated_at": "2024-01-02T00:00:00Z"
           }
         }
       },
@@ -106943,6 +108220,55 @@
           }
         }
       },
+      "voice_designs_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorObject"
+            }
+          }
+        },
+        "description": "Standard error response envelope.",
+        "example": {
+          "errors": [
+            {
+              "code": "10005",
+              "title": "Resource not found",
+              "detail": "Voice design not found"
+            }
+          ]
+        }
+      },
+      "voice_designs_PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "page_number": {
+            "type": "integer",
+            "description": "Current page number (1-based)."
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "Number of results per page."
+          },
+          "total_results": {
+            "type": "integer",
+            "description": "Total number of results across all pages."
+          },
+          "total_pages": {
+            "type": "integer",
+            "description": "Total number of pages."
+          }
+        },
+        "description": "Pagination metadata returned with list responses.",
+        "example": {
+          "page_number": 1,
+          "page_size": 20,
+          "total_results": 42,
+          "total_pages": 3
+        }
+      },
       "webhook_delivery": {
         "type": "object",
         "properties": {
@@ -107519,6 +108845,14 @@
             "$ref": "#/components/schemas/UpdateVerifyProfileRCSRequest"
           }
         }
+      },
+      "getVoiceCloneSample_200": {
+        "type": "string",
+        "format": "binary"
+      },
+      "getVoiceDesignSample_200": {
+        "type": "string",
+        "format": "binary"
       },
       "GetWireguardPeerConfig_200": {
         "type": "string",
@@ -117110,6 +118444,14 @@
           }
         }
       },
+      "FilterName": {
+        "name": "filter[name]",
+        "in": "query",
+        "description": "Case-insensitive substring filter on the name field.",
+        "schema": {
+          "type": "string"
+        }
+      },
       "FilterOTAUpdatesConsolidated": {
         "name": "filter",
         "in": "query",
@@ -119743,6 +121085,43 @@
           }
         }
       },
+      "voice-designs_PageNumber": {
+        "name": "page[number]",
+        "in": "query",
+        "description": "Page number for pagination (1-based).",
+        "schema": {
+          "minimum": 1,
+          "type": "integer",
+          "default": 1
+        }
+      },
+      "voice-designs_PageSize": {
+        "name": "page[size]",
+        "in": "query",
+        "description": "Number of results per page.",
+        "schema": {
+          "maximum": 250,
+          "minimum": 1,
+          "type": "integer",
+          "default": 20
+        }
+      },
+      "voice-designs_Sort": {
+        "name": "sort",
+        "in": "query",
+        "description": "Sort order. Prefix with `-` for descending. Defaults to `-created_at`.",
+        "schema": {
+          "enum": [
+            "name",
+            "-name",
+            "created_at",
+            "-created_at"
+          ],
+          "type": "string",
+          "additionalProperties": false,
+          "default": "-created_at"
+        }
+      },
       "voice_id": {
         "name": "voice_id",
         "in": "query",
@@ -121245,6 +122624,14 @@
     {
       "name": "Voice Channels",
       "description": "Voice Channels"
+    },
+    {
+      "name": "Voice Clones",
+      "description": "Capture and manage voice identities as clones for use in text-to-speech synthesis."
+    },
+    {
+      "name": "Voice Designs",
+      "description": "Create and manage AI-generated voice designs using natural language prompts."
     },
     {
       "name": "Voicemail",
