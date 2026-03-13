@@ -48,6 +48,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConferenceId { get; set; }
 #endif
+        /// <summary>Identifies the Telnyx application (Call Control, TeXML) or SIP connection resource associated with this recording.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConnectionId { get; set; }
+#nullable restore
+#else
+        public string ConnectionId { get; set; }
+#endif
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,6 +74,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The duration of the recording in milliseconds.</summary>
         public int? DurationMillis { get; set; }
+        /// <summary>The `from` (caller) number for the call that generated this recording.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? From { get; set; }
+#nullable restore
+#else
+        public string From { get; set; }
+#endif
         /// <summary>Uniquely identifies the recording.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,6 +89,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Id { get; set; }
+#endif
+        /// <summary>Indicates what triggered the recording. Possible values include `DialVerb`, `Conference`, `OutboundAPI`, `Trunking`, `RecordVerb`, `StartCallRecordingAPI`, `StartConferenceRecordingAPI`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InitiatedBy { get; set; }
+#nullable restore
+#else
+        public string InitiatedBy { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date of when the recording ended.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,6 +120,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_source? Source { get; set; }
         /// <summary>The status of the recording. Only `completed` recordings are currently supported.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_status? Status { get; set; }
+        /// <summary>The `to` (callee) number for the call that generated this recording.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? To { get; set; }
+#nullable restore
+#else
+        public string To { get; set; }
+#endif
         /// <summary>ISO 8601 formatted date indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -134,15 +166,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "call_session_id", n => { CallSessionId = n.GetStringValue(); } },
                 { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_channels>(); } },
                 { "conference_id", n => { ConferenceId = n.GetStringValue(); } },
+                { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "download_urls", n => { DownloadUrls = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls>(global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls.CreateFromDiscriminatorValue); } },
                 { "duration_millis", n => { DurationMillis = n.GetIntValue(); } },
+                { "from", n => { From = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "initiated_by", n => { InitiatedBy = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_record_type>(); } },
                 { "recording_ended_at", n => { RecordingEndedAt = n.GetStringValue(); } },
                 { "recording_started_at", n => { RecordingStartedAt = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_source>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_status>(); } },
+                { "to", n => { To = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -158,15 +194,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("call_session_id", CallSessionId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_channels>("channels", Channels);
             writer.WriteStringValue("conference_id", ConferenceId);
+            writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls>("download_urls", DownloadUrls);
             writer.WriteIntValue("duration_millis", DurationMillis);
+            writer.WriteStringValue("from", From);
             writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("initiated_by", InitiatedBy);
             writer.WriteStringValue("recording_ended_at", RecordingEndedAt);
             writer.WriteStringValue("recording_started_at", RecordingStartedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_record_type>("record_type", RecordType);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_source>("source", Source);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_status>("status", Status);
+            writer.WriteStringValue("to", To);
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

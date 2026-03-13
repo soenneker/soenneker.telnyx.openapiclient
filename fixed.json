@@ -31791,6 +31791,45 @@
         "summary": "List all recording transcriptions",
         "description": "Returns a list of your recording transcriptions.",
         "operationId": "getRecordingTranscriptions",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/call-recordings_PageConsolidated"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filter recording transcriptions by various attributes.",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recording_id": {
+                  "type": "string",
+                  "description": "If present, transcriptions will be filtered to those associated with the given recording.",
+                  "format": "uuid",
+                  "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1"
+                },
+                "created_at": {
+                  "type": "object",
+                  "properties": {
+                    "gte": {
+                      "type": "string",
+                      "description": "Returns only transcriptions created later than or at given ISO 8601 datetime.",
+                      "example": "2019-03-29T11:10:00Z"
+                    },
+                    "lte": {
+                      "type": "string",
+                      "description": "Returns only transcriptions created earlier than or at given ISO 8601 datetime.",
+                      "example": "2019-03-29T11:10:00Z"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/ListRecordingTranscriptionsResponse"
@@ -31878,7 +31917,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "\"Consolidated filter parameter (deepObject style). Originally: filter[conference_id], filter[created_at][gte], filter[created_at][lte], filter[call_leg_id], filter[call_session_id], filter[from], filter[to], filter[connection_id], filter[sip_call_id]\"",
+            "description": "Filter recordings by various attributes.",
             "style": "deepObject",
             "explode": true,
             "schema": {
@@ -31934,8 +31973,50 @@
                 },
                 "sip_call_id": {
                   "type": "string",
-                  "description": "If present, recordings will be filtered to those with a matching `sip_call_id` attribute. Matching is case-sensitive",
+                  "description": "If present, recordings will be filtered to those with a matching `sip_call_id` attribute. Matching is case-sensitive.",
                   "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1"
+                },
+                "call_control_id": {
+                  "type": "string",
+                  "description": "If present, recordings will be filtered to those with a matching `call_control_id`.",
+                  "example": "v3:e-31OnvjEM7Y4wvxr3TKNk8M3QyLcGZPiUIzCGtwQtOtEjY-B0urkw"
+                },
+                "conference_region": {
+                  "type": "string",
+                  "description": "If present, recordings will be filtered to those with a matching `conference_region`.",
+                  "example": "us"
+                },
+                "start_time": {
+                  "type": "object",
+                  "properties": {
+                    "gte": {
+                      "type": "string",
+                      "description": "Returns only recordings with a start time later than or equal to the given ISO 8601 datetime.",
+                      "example": "2019-03-29T11:10:00Z"
+                    },
+                    "lte": {
+                      "type": "string",
+                      "description": "Returns only recordings with a start time earlier than or equal to the given ISO 8601 datetime.",
+                      "example": "2019-03-29T11:10:00Z"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "end_time": {
+                  "type": "object",
+                  "properties": {
+                    "gte": {
+                      "type": "string",
+                      "description": "Returns only recordings with an end time later than or equal to the given ISO 8601 datetime.",
+                      "example": "2019-03-29T11:10:00Z"
+                    },
+                    "lte": {
+                      "type": "string",
+                      "description": "Returns only recordings with an end time earlier than or equal to the given ISO 8601 datetime.",
+                      "example": "2019-03-29T11:10:00Z"
+                    }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -31975,6 +32056,16 @@
           "$ref": "#/components/requestBodies/DeleteRecordingsRequest"
         },
         "responses": {
+          "200": {
+            "description": "The recordings have been successfully deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteRecordings_200"
+                }
+              }
+            }
+          },
           "default": {
             "$ref": "#/components/responses/call-recordings_GenericErrorResponse"
           },
@@ -40353,6 +40444,330 @@
         }
       }
     },
+    "/v2/x402/credit_account": {
+      "post": {
+        "tags": [
+          "x402 Payment Transactions"
+        ],
+        "summary": "Settle a payment",
+        "description": "Settles an x402 payment using the quote ID and a signed payment authorization. The payment signature can be provided via the `PAYMENT-SIGNATURE` header or the `payment_signature` body parameter. Settlement is idempotent — submitting the same quote ID multiple times returns the existing transaction.",
+        "operationId": "settleX402Payment",
+        "parameters": [
+          {
+            "name": "PAYMENT-SIGNATURE",
+            "in": "header",
+            "description": "Signed payment authorization for the quote. Alternative to providing `payment_signature` in the request body.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/X402SettleRequest"
+              },
+              "example": {
+                "id": "quote_abc123",
+                "payment_signature": "0xabc123..."
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Payment settled successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/X402TransactionResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "de06811a-2e43-4561-af5a-7d0a26e20aaa",
+                    "record_type": "x402_transaction",
+                    "amount": "50.00",
+                    "currency": "USD",
+                    "status": "settled",
+                    "quote_id": "quote_abc123",
+                    "tx_hash": "0xabc123def456...",
+                    "created_at": "2026-03-13T15:00:00Z"
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Payment already settled (idempotent response)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/X402TransactionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request — invalid signature, expired authorization, invalid nonce, or malformed payment payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/X402SettlementErrorResponse"
+                },
+                "examples": {
+                  "invalid_signature": {
+                    "summary": "Invalid payment signature",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "invalid_signature",
+                          "title": "Payment Failed",
+                          "detail": "Payment failed: the payment signature is invalid. Please sign a new payment authorization."
+                        }
+                      ]
+                    }
+                  },
+                  "expired_authorization": {
+                    "summary": "Expired payment authorization",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "expired_authorization",
+                          "title": "Payment Failed",
+                          "detail": "Payment failed: the payment authorization has expired. Please request a new quote and try again."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/x402_transactions_ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden — x402 payments not enabled, account tier ineligible, or account suspended",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/x402_transactions_ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity — missing required parameters or insufficient funds/allowance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/X402SettlementErrorResponse"
+                },
+                "examples": {
+                  "validation_error": {
+                    "summary": "Missing required parameter",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "unknown",
+                          "title": "Invalid request",
+                          "detail": "id is required"
+                        }
+                      ]
+                    }
+                  },
+                  "insufficient_balance": {
+                    "summary": "Insufficient wallet balance",
+                    "value": {
+                      "errors": [
+                        {
+                          "code": "insufficient_balance",
+                          "title": "Payment Failed",
+                          "detail": "Payment failed: your wallet does not have enough USDC to complete this transaction. Please add funds and try again."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error — facilitator unavailable, transaction failed on-chain, or unknown error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/X402SettlementErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "transaction_failed",
+                      "title": "Payment Failed",
+                      "detail": "Payment transaction failed on-chain. Your funds have not been transferred. Please try again or contact support."
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad gateway — upstream settlement service error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/x402_transactions_ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable — facilitator or settlement timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/X402SettlementErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "facilitator_timeout",
+                      "title": "Payment Failed",
+                      "detail": "Payment processing timed out. Your funds have not been transferred. Please try again."
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/x402/credit_account/quote": {
+      "post": {
+        "tags": [
+          "x402 Payment Transactions"
+        ],
+        "summary": "Create a payment quote",
+        "description": "Creates a payment quote for the specified USD amount. Returns payment details including the x402 payment requirements, network, and expiration time. The quote must be settled before it expires.",
+        "operationId": "createX402Quote",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/X402QuoteRequest"
+              },
+              "example": {
+                "amount_usd": "50.00"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Quote created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/X402QuoteResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "quote_abc123",
+                    "record_type": "quote",
+                    "amount_usd": "50.00",
+                    "amount_crypto": "50000000",
+                    "network": "eip155:8453",
+                    "expires_at": "2026-03-13T15:05:00Z",
+                    "payment_requirements": {
+                      "x402Version": 2,
+                      "resource": {
+                        "url": "https://api.telnyx.com/v2/x402/credit_account",
+                        "description": "Payment of $50.00 USD",
+                        "mimeType": "application/json"
+                      },
+                      "accepts": [
+                        {
+                          "scheme": "exact",
+                          "network": "eip155:8453",
+                          "amount": "50000000",
+                          "asset": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                          "payTo": "0x1234567890abcdef1234567890abcdef12345678",
+                          "maxTimeoutSeconds": 900,
+                          "extra": {
+                            "quoteId": "quote_abc123",
+                            "facilitatorUrl": "https://api.cdp.coinbase.com/platform/v2/x402",
+                            "name": "USD Coin",
+                            "version": "2"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/x402_transactions_ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden — x402 payments not enabled, account tier ineligible, or account suspended",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/x402_transactions_ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity — invalid amount",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/x402_transactions_ErrorResponse"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "code": "unknown",
+                      "title": "Invalid request",
+                      "detail": "amount_usd must be at least 5.00"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad gateway — upstream payment service failed to create quote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/x402_transactions_ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/verifications/by_phone_number/{phone_number}": {
       "get": {
         "tags": [
@@ -43481,19 +43896,15 @@
           }
         }
       },
-      "SetPublicIPsBulk": {
+      "EnableVoiceBulk": {
         "required": [
-          "sim_card_ids"
+          "sim_card_group_id"
         ],
         "type": "object",
         "properties": {
-          "sim_card_ids": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "Identifies the resource.",
-              "format": "uuid"
-            }
+          "sim_card_group_id": {
+            "type": "string",
+            "example": "6b14e151-8493-4fa1-8664-1cc4e6d14158"
           }
         }
       },
@@ -44383,7 +44794,7 @@
           "send_silence_when_idle": true
         }
       },
-      "EnableVoiceBulk": {
+      "DisableVoiceBulk": {
         "required": [
           "sim_card_group_id"
         ],
@@ -45767,15 +46178,23 @@
         "type": "string",
         "additionalProperties": false
       },
-      "DisableVoiceBulk": {
+      "PreviewSimCardOrders": {
         "required": [
-          "sim_card_group_id"
+          "quantity",
+          "address_id"
         ],
         "type": "object",
         "properties": {
-          "sim_card_group_id": {
+          "quantity": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
+            "example": 21
+          },
+          "address_id": {
             "type": "string",
-            "example": "6b14e151-8493-4fa1-8664-1cc4e6d14158"
+            "description": "Uniquely identifies the address for the order.",
+            "example": "1293384261075731499"
           }
         }
       },
@@ -45813,26 +46232,6 @@
         },
         "description": "AWS Polly provider-specific parameters."
       },
-      "PreviewSimCardOrders": {
-        "required": [
-          "quantity",
-          "address_id"
-        ],
-        "type": "object",
-        "properties": {
-          "quantity": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "The amount of SIM cards that the user would like to purchase in the SIM card order.",
-            "example": 21
-          },
-          "address_id": {
-            "type": "string",
-            "description": "Uniquely identifies the address for the order.",
-            "example": "1293384261075731499"
-          }
-        }
-      },
       "SetWirelessBlocklistForSimCardGroup": {
         "required": [
           "wireless_blocklist_id"
@@ -45858,6 +46257,40 @@
             "description": "The identification of the related Private Wireless Gateway resource.",
             "format": "uuid",
             "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          }
+        }
+      },
+      "PostSimCardDataUsageNotification": {
+        "required": [
+          "sim_card_id",
+          "threshold"
+        ],
+        "type": "object",
+        "properties": {
+          "sim_card_id": {
+            "type": "string",
+            "description": "The identification UUID of the related SIM card resource.",
+            "format": "uuid",
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "threshold": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "example": "2048.1"
+              },
+              "unit": {
+                "enum": [
+                  "MB",
+                  "GB"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "example": "MB"
+              }
+            },
+            "description": "Data usage threshold that will trigger the notification."
           }
         }
       },
@@ -46966,37 +47399,31 @@
           "park_after_unbridge": "self"
         }
       },
-      "PostSimCardDataUsageNotification": {
-        "required": [
-          "sim_card_id",
-          "threshold"
-        ],
+      "UpdateRequirementGroup": {
         "type": "object",
         "properties": {
-          "sim_card_id": {
+          "customer_reference": {
             "type": "string",
-            "description": "The identification UUID of the related SIM card resource.",
-            "format": "uuid",
-            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+            "description": "Reference for the customer",
+            "example": "0002"
           },
-          "threshold": {
-            "type": "object",
-            "properties": {
-              "amount": {
-                "type": "string",
-                "example": "2048.1"
-              },
-              "unit": {
-                "enum": [
-                  "MB",
-                  "GB"
-                ],
-                "type": "string",
-                "additionalProperties": false,
-                "example": "MB"
+          "regulatory_requirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "requirement_id": {
+                  "type": "string",
+                  "description": "Unique identifier for the regulatory requirement",
+                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
+                },
+                "field_value": {
+                  "type": "string",
+                  "description": "New value for the regulatory requirement",
+                  "example": "new requirement value"
+                }
               }
-            },
-            "description": "Data usage threshold that will trigger the notification."
+            }
           }
         }
       },
@@ -48451,13 +48878,43 @@
           "recording_id": "d7e9c1d4-8b2a-4b8f-b3a7-9a671c9e9b0a"
         }
       },
-      "UpdateRequirementGroup": {
+      "CreateRequirementGroup": {
+        "required": [
+          "country_code",
+          "phone_number_type",
+          "action"
+        ],
         "type": "object",
         "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "ISO alpha 2 country code",
+            "example": "US"
+          },
+          "phone_number_type": {
+            "enum": [
+              "local",
+              "toll_free",
+              "mobile",
+              "national",
+              "shared_cost"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "local"
+          },
+          "action": {
+            "enum": [
+              "ordering",
+              "porting"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "ordering"
+          },
           "customer_reference": {
             "type": "string",
-            "description": "Reference for the customer",
-            "example": "0002"
+            "example": "My Requirement Group"
           },
           "regulatory_requirements": {
             "type": "array",
@@ -48465,14 +48922,10 @@
               "type": "object",
               "properties": {
                 "requirement_id": {
-                  "type": "string",
-                  "description": "Unique identifier for the regulatory requirement",
-                  "example": "53970723-fbff-4f46-a975-f62be6c1a585"
+                  "type": "string"
                 },
                 "field_value": {
-                  "type": "string",
-                  "description": "New value for the regulatory requirement",
-                  "example": "new requirement value"
+                  "type": "string"
                 }
               }
             }
@@ -57053,58 +57506,10 @@
           "outbound_voice_profile_id": "1293384261075731499"
         }
       },
-      "CreateRequirementGroup": {
-        "required": [
-          "country_code",
-          "phone_number_type",
-          "action"
-        ],
-        "type": "object",
-        "properties": {
-          "country_code": {
-            "type": "string",
-            "description": "ISO alpha 2 country code",
-            "example": "US"
-          },
-          "phone_number_type": {
-            "enum": [
-              "local",
-              "toll_free",
-              "mobile",
-              "national",
-              "shared_cost"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "local"
-          },
-          "action": {
-            "enum": [
-              "ordering",
-              "porting"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "ordering"
-          },
-          "customer_reference": {
-            "type": "string",
-            "example": "My Requirement Group"
-          },
-          "regulatory_requirements": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "requirement_id": {
-                  "type": "string"
-                },
-                "field_value": {
-                  "type": "string"
-                }
-              }
-            }
-          }
+      "GetRequirementGroups_200": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RequirementGroup"
         }
       },
       "ConnectionAndroidPushCredentialId": {
@@ -57115,10 +57520,17 @@
         "nullable": true,
         "example": "06b09dfd-7154-4980-8b75-cebf7a9d4f8e"
       },
-      "GetRequirementGroups_200": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/RequirementGroup"
+      "DeleteRecordings_200": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "ok"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "example": "ok"
+          }
         }
       },
       "CreatePrivateWirelessGateway": {
@@ -85635,6 +86047,26 @@
             "description": "The status of the recording. Only `completed` recordings are currently supported.",
             "example": "completed"
           },
+          "from": {
+            "type": "string",
+            "description": "The `from` (caller) number for the call that generated this recording.",
+            "example": "+15551234567"
+          },
+          "to": {
+            "type": "string",
+            "description": "The `to` (callee) number for the call that generated this recording.",
+            "example": "+15557654321"
+          },
+          "connection_id": {
+            "type": "string",
+            "description": "Identifies the Telnyx application (Call Control, TeXML) or SIP connection resource associated with this recording.",
+            "example": "175237942907135762"
+          },
+          "initiated_by": {
+            "type": "string",
+            "description": "Indicates what triggered the recording. Possible values include `DialVerb`, `Conference`, `OutboundAPI`, `Trunking`, `RecordVerb`, `StartCallRecordingAPI`, `StartConferenceRecordingAPI`.",
+            "example": "StartCallRecordingAPI"
+          },
           "updated_at": {
             "type": "string",
             "description": "ISO 8601 formatted date indicating when the resource was updated.",
@@ -105069,6 +105501,252 @@
           }
         }
       },
+      "X402PaymentRequirements": {
+        "type": "object",
+        "properties": {
+          "x402Version": {
+            "enum": [
+              2
+            ],
+            "type": "integer",
+            "additionalProperties": false,
+            "description": "x402 protocol version. Currently always 2."
+          },
+          "resource": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "Canonical URL of the payment resource."
+              },
+              "description": {
+                "type": "string",
+                "description": "Human-readable description of the payment."
+              },
+              "mimeType": {
+                "type": "string",
+                "description": "MIME type of the resource."
+              }
+            },
+            "description": "The resource being paid for. Included in the payment signature."
+          },
+          "accepts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string",
+                  "description": "Payment scheme (e.g. \"exact\")."
+                },
+                "network": {
+                  "type": "string",
+                  "description": "Blockchain network identifier in CAIP-2 format (e.g. \"eip155:8453\" for Base)."
+                },
+                "amount": {
+                  "type": "string",
+                  "description": "Amount in the token's smallest unit."
+                },
+                "asset": {
+                  "type": "string",
+                  "description": "Token contract address (e.g. USDC on Base)."
+                },
+                "payTo": {
+                  "type": "string",
+                  "description": "Recipient wallet address."
+                },
+                "maxTimeoutSeconds": {
+                  "type": "integer",
+                  "description": "Maximum time in seconds before the payment authorization expires."
+                },
+                "extra": {
+                  "type": "object",
+                  "properties": {
+                    "quoteId": {
+                      "type": "string"
+                    },
+                    "facilitatorUrl": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "EIP-712 domain name (e.g. \"USD Coin\")."
+                    },
+                    "version": {
+                      "type": "string",
+                      "description": "EIP-712 domain version."
+                    }
+                  },
+                  "description": "Additional scheme-specific parameters including EIP-712 domain info and the facilitator URL."
+                }
+              }
+            },
+            "description": "Accepted payment schemes. Currently only the `exact` EVM scheme is supported."
+          }
+        },
+        "description": "x402 protocol v2 payment requirements. Contains all information needed to construct and sign a payment authorization."
+      },
+      "X402QuoteRequest": {
+        "required": [
+          "amount_usd"
+        ],
+        "type": "object",
+        "properties": {
+          "amount_usd": {
+            "type": "string",
+            "description": "Amount in USD to fund (minimum 5.00, maximum 10000.00).",
+            "example": "50.00"
+          }
+        }
+      },
+      "X402QuoteResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique quote identifier. Use this to settle the payment."
+              },
+              "record_type": {
+                "enum": [
+                  "quote"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              },
+              "amount_usd": {
+                "type": "string",
+                "description": "The quoted amount in USD."
+              },
+              "amount_crypto": {
+                "type": "string",
+                "description": "The equivalent amount in the payment cryptocurrency's smallest unit (e.g. USDC has 6 decimals, so $50.00 = \"50000000\")."
+              },
+              "network": {
+                "type": "string",
+                "description": "The blockchain network for the payment in CAIP-2 format (e.g. eip155:8453 for Base)."
+              },
+              "expires_at": {
+                "type": "string",
+                "description": "ISO 8601 timestamp when the quote expires.",
+                "format": "date-time"
+              },
+              "payment_requirements": {
+                "$ref": "#/components/schemas/X402PaymentRequirements"
+              }
+            }
+          }
+        }
+      },
+      "X402SettleRequest": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The quote ID to settle."
+          },
+          "payment_signature": {
+            "type": "string",
+            "description": "Base64-encoded signed payment authorization (x402 PaymentPayload). Can alternatively be provided via the PAYMENT-SIGNATURE header."
+          }
+        }
+      },
+      "X402SettlementErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "enum": [
+                    "invalid_signature",
+                    "expired_authorization",
+                    "invalid_nonce",
+                    "insufficient_balance",
+                    "insufficient_funds",
+                    "insufficient_allowance",
+                    "facilitator_unavailable",
+                    "facilitator_timeout",
+                    "settlement_timeout",
+                    "transaction_failed",
+                    "unknown"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "Machine-readable error code."
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Short error title (e.g. \"Payment Failed\")."
+                },
+                "detail": {
+                  "type": "string",
+                  "description": "Human-readable error description with guidance."
+                }
+              }
+            }
+          }
+        },
+        "description": "Error response for x402 settlement failures. Uses string error codes from the x402 error handling system."
+      },
+      "X402TransactionResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique transaction identifier."
+              },
+              "record_type": {
+                "enum": [
+                  "x402_transaction"
+                ],
+                "type": "string",
+                "additionalProperties": false
+              },
+              "amount": {
+                "type": "string",
+                "description": "The transaction amount in the specified currency."
+              },
+              "currency": {
+                "type": "string",
+                "description": "The currency of the transaction amount (e.g. USD)."
+              },
+              "status": {
+                "enum": [
+                  "settled"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The settlement status of the transaction."
+              },
+              "quote_id": {
+                "type": "string",
+                "description": "The original quote ID associated with this transaction."
+              },
+              "tx_hash": {
+                "type": "string",
+                "description": "The on-chain transaction hash, if available.",
+                "nullable": true
+              },
+              "created_at": {
+                "type": "string",
+                "description": "ISO 8601 timestamp when the transaction was created.",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      },
       "PatchChannelZone": {
         "required": [
           "channels"
@@ -108517,6 +109195,60 @@
       },
       "AcceptCampaign_202": {
         "type": "object"
+      },
+      "x402_transactions_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "detail": {
+                  "type": "string"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "pointer": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "SetPublicIPsBulk": {
+        "required": [
+          "sim_card_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "sim_card_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Identifies the resource.",
+              "format": "uuid"
+            }
+          }
+        }
       },
       "ValidateRegistrationCodes": {
         "type": "object",
@@ -122672,6 +123404,10 @@
     {
       "name": "Wireless Regions",
       "description": "Regions for wireless services"
+    },
+    {
+      "name": "x402 Payment Transactions",
+      "description": "Operations for x402 cryptocurrency payment transactions. Fund your Telnyx account using USDC stablecoin payments via the x402 protocol."
     }
   ]
 }

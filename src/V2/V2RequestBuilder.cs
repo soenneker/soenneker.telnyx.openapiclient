@@ -7,6 +7,7 @@ using Soenneker.Telnyx.OpenApiClient.V2.Mobile_voice_connections;
 using Soenneker.Telnyx.OpenApiClient.V2.Payment;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp;
 using Soenneker.Telnyx.OpenApiClient.V2.Whatsapp_message_templates;
+using Soenneker.Telnyx.OpenApiClient.V2.X402;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -43,6 +44,11 @@ namespace Soenneker.Telnyx.OpenApiClient.V2
         public global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp_message_templates.Whatsapp_message_templatesRequestBuilder Whatsapp_message_templates
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.V2.Whatsapp_message_templates.Whatsapp_message_templatesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The x402 property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.V2.X402.X402RequestBuilder X402
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.V2.X402.X402RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.V2.V2RequestBuilder"/> and sets the default values.
