@@ -103333,6 +103333,11 @@
             "default": "auto",
             "nullable": true
           },
+          "expressive_mode": {
+            "type": "boolean",
+            "description": "Enables emotionally expressive speech using SSML emotion tags. When enabled, the assistant uses audio tags like angry, excited, content, and sad to add emotional nuance. Only supported for Telnyx Ultra voices.",
+            "default": false
+          },
           "background_audio": {
             "type": "object",
             "oneOf": [
