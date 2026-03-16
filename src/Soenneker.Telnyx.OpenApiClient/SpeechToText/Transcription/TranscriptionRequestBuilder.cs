@@ -22,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TranscriptionRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/speech-to-text/transcription?input_format={input_format}&transcription_engine={transcription_engine}{&interim_results*,language*,model*}", pathParameters)
+        public TranscriptionRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/speech-to-text/transcription?input_format={input_format}&transcription_engine={transcription_engine}{&endpointing*,interim_results*,keyterm*,keywords*,language*,model*,redact*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TranscriptionRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/speech-to-text/transcription?input_format={input_format}&transcription_engine={transcription_engine}{&interim_results*,language*,model*}", rawUrl)
+        public TranscriptionRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/speech-to-text/transcription?input_format={input_format}&transcription_engine={transcription_engine}{&endpointing*,interim_results*,keyterm*,keywords*,language*,model*,redact*}", rawUrl)
         {
         }
         /// <summary>
@@ -95,12 +95,35 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranscriptionRequestBuilderGetQueryParameters 
         {
+            /// <summary>Silence duration (in milliseconds) that triggers end-of-speech detection. When set, the engine uses this value to determine when a speaker has stopped talking. Not all engines support this parameter.</summary>
+            [QueryParameter("endpointing")]
+            public int? Endpointing { get; set; }
             /// <summary>The format of input audio stream.</summary>
             [QueryParameter("input_format")]
             public global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.GetInput_formatQueryParameterType? InputFormat { get; set; }
             /// <summary>Whether to receive interim transcription results.</summary>
             [QueryParameter("interim_results")]
             public bool? InterimResults { get; set; }
+            /// <summary>A key term to boost in the transcription. The engine will be more likely to recognize this term. Can be specified multiple times for multiple terms.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("keyterm")]
+            public string? Keyterm { get; set; }
+#nullable restore
+#else
+            [QueryParameter("keyterm")]
+            public string Keyterm { get; set; }
+#endif
+            /// <summary>Comma-separated list of keywords to boost in the transcription. The engine will prioritize recognition of these words.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("keywords")]
+            public string? Keywords { get; set; }
+#nullable restore
+#else
+            [QueryParameter("keywords")]
+            public string Keywords { get; set; }
+#endif
             /// <summary>The language spoken in the audio stream.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -120,6 +143,16 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
 #else
             [QueryParameter("model")]
             public string Model { get; set; }
+#endif
+            /// <summary>Enable redaction of sensitive information (e.g., PCI data, SSN) from transcription results. Supported values depend on the transcription engine.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("redact")]
+            public string? Redact { get; set; }
+#nullable restore
+#else
+            [QueryParameter("redact")]
+            public string Redact { get; set; }
 #endif
             /// <summary>The transcription engine to use for processing the audio stream.</summary>
             [QueryParameter("transcription_engine")]

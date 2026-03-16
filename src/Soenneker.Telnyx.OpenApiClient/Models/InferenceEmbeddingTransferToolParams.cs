@@ -46,6 +46,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection VoicemailDetection { get; set; }
 #endif
+        /// <summary>Optional delay in milliseconds before playing the warm message audio when the transferred call is answered. When set, the audio_url is not included in the dial command; instead, playback starts after the specified delay. When not set, existing behavior (audio_url in dial) is preserved.</summary>
+        public int? WarmMessageDelayMs { get; set; }
         /// <summary>Natural language instructions for your agent for how to provide context for the transfer recipient.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,6 +85,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "from", n => { From = n.GetStringValue(); } },
                 { "targets", n => { Targets = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targets>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targets.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection.CreateFromDiscriminatorValue); } },
+                { "warm_message_delay_ms", n => { WarmMessageDelayMs = n.GetIntValue(); } },
                 { "warm_transfer_instructions", n => { WarmTransferInstructions = n.GetStringValue(); } },
             };
         }
@@ -97,6 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("from", From);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targets>("targets", Targets);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection>("voicemail_detection", VoicemailDetection);
+            writer.WriteIntValue("warm_message_delay_ms", WarmMessageDelayMs);
             writer.WriteStringValue("warm_transfer_instructions", WarmTransferInstructions);
             writer.WriteAdditionalData(AdditionalData);
         }

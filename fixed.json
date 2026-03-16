@@ -36492,6 +36492,18 @@
           },
           {
             "$ref": "#/components/parameters/model"
+          },
+          {
+            "$ref": "#/components/parameters/endpointing"
+          },
+          {
+            "$ref": "#/components/parameters/redact"
+          },
+          {
+            "$ref": "#/components/parameters/keyterm"
+          },
+          {
+            "$ref": "#/components/parameters/keywords"
           }
         ],
         "requestBody": {
@@ -70342,6 +70354,12 @@
             "type": "string",
             "description": "Natural language instructions for your agent for how to provide context for the transfer recipient.",
             "example": "Briefly greet the transfer recipient and provide any relevant information from the call. Let them know you will bridge the call right after."
+          },
+          "warm_message_delay_ms": {
+            "type": "integer",
+            "description": "Optional delay in milliseconds before playing the warm message audio when the transferred call is answered. When set, the audio_url is not included in the dial command; instead, playback starts after the specified delay. When not set, existing behavior (audio_url in dial) is preserved.",
+            "nullable": true,
+            "example": 2000
           },
           "custom_headers": {
             "type": "array",
@@ -121006,6 +121024,15 @@
           }
         }
       },
+      "endpointing": {
+        "name": "endpointing",
+        "in": "query",
+        "description": "Silence duration (in milliseconds) that triggers end-of-speech detection. When set, the engine uses this value to determine when a speaker has stopped talking. Not all engines support this parameter.",
+        "schema": {
+          "type": "integer"
+        },
+        "example": 500
+      },
       "external-voice-integrations_PageConsolidated": {
         "name": "page",
         "in": "query",
@@ -121075,6 +121102,24 @@
           "type": "boolean"
         },
         "example": true
+      },
+      "keyterm": {
+        "name": "keyterm",
+        "in": "query",
+        "description": "A key term to boost in the transcription. The engine will be more likely to recognize this term. Can be specified multiple times for multiple terms.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "Telnyx"
+      },
+      "keywords": {
+        "name": "keywords",
+        "in": "query",
+        "description": "Comma-separated list of keywords to boost in the transcription. The engine will prioritize recognition of these words.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "Telnyx,SIP,WebRTC"
       },
       "language": {
         "name": "language",
@@ -121546,6 +121591,15 @@
             }
           }
         }
+      },
+      "redact": {
+        "name": "redact",
+        "in": "query",
+        "description": "Enable redaction of sensitive information (e.g., PCI data, SSN) from transcription results. Supported values depend on the transcription engine.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "pci"
       },
       "release_id": {
         "name": "release_id",
