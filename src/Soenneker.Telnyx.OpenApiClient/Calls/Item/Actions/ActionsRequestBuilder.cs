@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_add_messages;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_join;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer;
@@ -55,6 +56,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_add_messages.Ai_assistant_add_messagesRequestBuilder Ai_assistant_add_messages
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_add_messages.Ai_assistant_add_messagesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The ai_assistant_join property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_join.Ai_assistant_joinRequestBuilder Ai_assistant_join
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_join.Ai_assistant_joinRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The ai_assistant_start property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_start.Ai_assistant_startRequestBuilder Ai_assistant_start

@@ -10913,6 +10913,8 @@
             "description": "Filter by action type.",
             "schema": {
               "enum": [
+                "bulk_disable_voice",
+                "bulk_enable_voice",
                 "bulk_set_public_ips"
               ],
               "type": "string",
@@ -11561,6 +11563,42 @@
           },
           "422": {
             "$ref": "#/components/responses/UnprocessableEntityResponse"
+          }
+        }
+      }
+    },
+    "/calls/{call_control_id}/actions/ai_assistant_join": {
+      "post": {
+        "tags": [
+          "Call Commands"
+        ],
+        "summary": "Join AI Assistant Conversation",
+        "description": "Add a participant to an existing AI assistant conversation. Use this command to bring an additional call leg into a running AI conversation.",
+        "operationId": "CallJoinAIAssistant",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CallControlId"
+          }
+        ],
+        "requestBody": {
+          "description": "AI Assistant Join request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AIAssistantJoinRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CallControlCommandResponseWithConversationId"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntityResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/call-control_GenericErrorResponse"
           }
         }
       }
@@ -43587,6 +43625,72 @@
               "content": "Get the user's favorite color"
             }
           ]
+        }
+      },
+      "AIAssistantJoinParticipant": {
+        "required": [
+          "id",
+          "role"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The call_control_id of the participant to add to the conversation.",
+            "example": "v3:abc123def456"
+          },
+          "role": {
+            "enum": [
+              "user"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The role of the participant in the conversation.",
+            "example": "user"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name for the participant.",
+            "example": "John Doe"
+          },
+          "on_hangup": {
+            "enum": [
+              "continue_conversation",
+              "end_conversation"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Determines what happens to the conversation when this participant hangs up.",
+            "default": "continue_conversation",
+            "example": "continue_conversation"
+          }
+        }
+      },
+      "AIAssistantJoinRequest": {
+        "required": [
+          "conversation_id",
+          "participant"
+        ],
+        "type": "object",
+        "properties": {
+          "conversation_id": {
+            "type": "string",
+            "description": "The ID of the AI assistant conversation to join.",
+            "example": "v3:abc123"
+          },
+          "participant": {
+            "$ref": "#/components/schemas/AIAssistantJoinParticipant"
+          },
+          "client_state": {
+            "type": "string",
+            "description": "Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.",
+            "example": "aGF2ZSBhIG5pY2UgZGF5ID1d"
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Use this field to avoid duplicate commands. Telnyx will ignore any command with the same `command_id` for the same `call_control_id`.",
+            "example": "891510ac-f3e4-11e8-af5b-de00688a4901"
+          }
         }
       },
       "AIAssistantStartRequest": {

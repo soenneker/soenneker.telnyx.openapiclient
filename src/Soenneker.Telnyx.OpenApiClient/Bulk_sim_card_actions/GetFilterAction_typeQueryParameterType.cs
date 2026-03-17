@@ -8,6 +8,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Bulk_sim_card_actions
     public enum GetFilterAction_typeQueryParameterType
     #pragma warning restore CS1591
     {
+        [EnumMember(Value = "bulk_disable_voice")]
+        #pragma warning disable CS1591
+        Bulk_disable_voice,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "bulk_enable_voice")]
+        #pragma warning disable CS1591
+        Bulk_enable_voice,
+        #pragma warning restore CS1591
         [EnumMember(Value = "bulk_set_public_ips")]
         #pragma warning disable CS1591
         Bulk_set_public_ips,
