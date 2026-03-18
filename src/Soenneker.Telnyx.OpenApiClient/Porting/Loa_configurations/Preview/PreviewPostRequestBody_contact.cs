@@ -5,34 +5,48 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview
+namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Preview
 {
     /// <summary>
-    /// The logo of the LOA configuration
+    /// The contact information of the company.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PreviewPostRequestBody_logo : IAdditionalDataHolder, IParsable
+    public partial class PreviewPostRequestBody_contact : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The document identification</summary>
-        public Guid? DocumentId { get; set; }
+        /// <summary>The email address of the contact</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Email { get; set; }
+#nullable restore
+#else
+        public string Email { get; set; }
+#endif
+        /// <summary>The phone number of the contact</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PhoneNumber { get; set; }
+#nullable restore
+#else
+        public string PhoneNumber { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview.PreviewPostRequestBody_logo"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Preview.PreviewPostRequestBody_contact"/> and sets the default values.
         /// </summary>
-        public PreviewPostRequestBody_logo()
+        public PreviewPostRequestBody_contact()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview.PreviewPostRequestBody_logo"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Preview.PreviewPostRequestBody_contact"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview.PreviewPostRequestBody_logo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Preview.PreviewPostRequestBody_contact CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview.PreviewPostRequestBody_logo();
+            return new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Preview.PreviewPostRequestBody_contact();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +56,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "document_id", n => { DocumentId = n.GetGuidValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -52,7 +67,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Preview
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("document_id", DocumentId);
+            writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

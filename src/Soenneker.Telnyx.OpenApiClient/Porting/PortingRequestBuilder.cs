@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Porting.Events;
-using Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration;
 using Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations;
 using Soenneker.Telnyx.OpenApiClient.Porting.Reports;
 using Soenneker.Telnyx.OpenApiClient.Porting.Uk_carriers;
@@ -23,11 +22,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting
         public global::Soenneker.Telnyx.OpenApiClient.Porting.Events.EventsRequestBuilder Events
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Porting.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The loa_configuration property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Loa_configurationRequestBuilder Loa_configuration
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configuration.Loa_configurationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The loa_configurations property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Loa_configurationsRequestBuilder Loa_configurations

@@ -54,6 +54,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings InterruptionSettings { get; set; }
 #endif
+        /// <summary>A list of messages to seed the conversation history before the assistant starts. Follows the same message format as the `ai_assistant_add_messages` command.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_message_history>? MessageHistory { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_message_history> MessageHistory { get; set; }
+#endif
+        /// <summary>A list of participants to add to the conversation when it starts.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantJoinParticipant>? Participants { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantJoinParticipant> Participants { get; set; }
+#endif
+        /// <summary>When `true`, a webhook is sent each time the conversation message history is updated.</summary>
+        public bool? SendMessageHistoryUpdates { get; set; }
         /// <summary>The settings associated with speech to text for the voice assistant. This is only relevant if the assistant uses a text-to-text language model. Any assistant using a model with native audio support (e.g. `fixie-ai/ultravox-v0_4`) will ignore this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,6 +126,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
                 { "interruption_settings", n => { InterruptionSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings.CreateFromDiscriminatorValue); } },
+                { "message_history", n => { MessageHistory = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_message_history>(global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_message_history.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "participants", n => { Participants = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantJoinParticipant>(global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantJoinParticipant.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "send_message_history_updates", n => { SendMessageHistoryUpdates = n.GetBoolValue(); } },
                 { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig.CreateFromDiscriminatorValue); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
                 { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings.CreateFromDiscriminatorValue); } },
@@ -125,10 +146,148 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("greeting", Greeting);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings>("interruption_settings", InterruptionSettings);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_message_history>("message_history", MessageHistory);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantJoinParticipant>("participants", Participants);
+            writer.WriteBoolValue("send_message_history_updates", SendMessageHistoryUpdates);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig>("transcription", Transcription);
             writer.WriteStringValue("voice", Voice);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_voice_settings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessage"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessage"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserMessage"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class AIAssistantStartRequest_message_history : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage? AssistantMessage { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage AssistantMessage { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage? DeveloperMessage { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage DeveloperMessage { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessage"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessage? SystemMessage { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessage SystemMessage { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessage"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessage? ToolMessage { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessage ToolMessage { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UserMessage"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.UserMessage? UserMessage { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.UserMessage UserMessage { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_message_history"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_message_history CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("role")?.GetStringValue();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest.AIAssistantStartRequest_message_history();
+                if("assistant".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.AssistantMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage();
+                }
+                else if("developer".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.DeveloperMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage();
+                }
+                else if("system".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.SystemMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessage();
+                }
+                else if("tool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.ToolMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessage();
+                }
+                else if("user".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.UserMessage = new global::Soenneker.Telnyx.OpenApiClient.Models.UserMessage();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(AssistantMessage != null)
+                {
+                    return AssistantMessage.GetFieldDeserializers();
+                }
+                else if(DeveloperMessage != null)
+                {
+                    return DeveloperMessage.GetFieldDeserializers();
+                }
+                else if(SystemMessage != null)
+                {
+                    return SystemMessage.GetFieldDeserializers();
+                }
+                else if(ToolMessage != null)
+                {
+                    return ToolMessage.GetFieldDeserializers();
+                }
+                else if(UserMessage != null)
+                {
+                    return UserMessage.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(AssistantMessage != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantMessage>(null, AssistantMessage);
+                }
+                else if(DeveloperMessage != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DeveloperMessage>(null, DeveloperMessage);
+                }
+                else if(SystemMessage != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SystemMessage>(null, SystemMessage);
+                }
+                else if(ToolMessage != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolMessage>(null, ToolMessage);
+                }
+                else if(UserMessage != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UserMessage>(null, UserMessage);
+                }
+            }
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/>

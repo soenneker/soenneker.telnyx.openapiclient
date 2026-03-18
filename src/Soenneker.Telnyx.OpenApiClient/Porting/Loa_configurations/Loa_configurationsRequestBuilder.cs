@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item;
+using Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Preview;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Loa_configurationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The preview property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Preview.PreviewRequestBuilder Preview
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Preview.PreviewRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.porting.loa_configurations.item collection</summary>
         /// <param name="position">Identifies a LOA configuration.</param>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Porting.Loa_configurations.Item.Loa_configurationsItemRequestBuilder"/></returns>

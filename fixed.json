@@ -28859,24 +28859,6 @@
         }
       }
     },
-    "/porting/loa_configuration/preview": {
-      "post": {
-        "tags": [
-          "Porting Orders"
-        ],
-        "summary": "Preview the LOA configuration parameters",
-        "description": "Preview the LOA template that would be generated without need to create LOA configuration.",
-        "operationId": "PreviewLoaConfigurationParams",
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CreatePortingLOAConfiguration"
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/DownloadLOATemplate"
-          }
-        }
-      }
-    },
     "/porting/loa_configurations": {
       "get": {
         "tags": [
@@ -28909,6 +28891,24 @@
         "responses": {
           "201": {
             "$ref": "#/components/responses/CreatePortingLOAConfiguration"
+          }
+        }
+      }
+    },
+    "/porting/loa_configurations/preview": {
+      "post": {
+        "tags": [
+          "Porting Orders"
+        ],
+        "summary": "Preview the LOA configuration parameters",
+        "description": "Preview the LOA template that would be generated without need to create LOA configuration.",
+        "operationId": "PreviewLoaConfigurationParams",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/CreatePortingLOAConfiguration"
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/DownloadLOATemplate"
           }
         }
       }
@@ -43772,6 +43772,62 @@
           },
           "transcription": {
             "$ref": "#/components/schemas/TranscriptionConfig"
+          },
+          "message_history": {
+            "type": "array",
+            "items": {
+              "required": [
+                "role"
+              ],
+              "type": "object",
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/UserMessage"
+                },
+                {
+                  "$ref": "#/components/schemas/AssistantMessage"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessage"
+                },
+                {
+                  "$ref": "#/components/schemas/SystemMessage"
+                },
+                {
+                  "$ref": "#/components/schemas/DeveloperMessage"
+                }
+              ],
+              "properties": {
+                "role": {
+                  "type": "string"
+                }
+              },
+              "discriminator": {
+                "propertyName": "role",
+                "mapping": {
+                  "user": "#/components/schemas/UserMessage",
+                  "assistant": "#/components/schemas/AssistantMessage",
+                  "tool": "#/components/schemas/ToolMessage",
+                  "system": "#/components/schemas/SystemMessage",
+                  "developer": "#/components/schemas/DeveloperMessage"
+                }
+              }
+            },
+            "description": "A list of messages to seed the conversation history before the assistant starts. Follows the same message format as the `ai_assistant_add_messages` command.",
+            "default": [ ]
+          },
+          "send_message_history_updates": {
+            "type": "boolean",
+            "description": "When `true`, a webhook is sent each time the conversation message history is updated.",
+            "default": false
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AIAssistantJoinParticipant"
+            },
+            "description": "A list of participants to add to the conversation when it starts.",
+            "default": [ ]
           },
           "client_state": {
             "type": "string",
