@@ -41,14 +41,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams Elevenlabs { get; set; }
 #endif
-        /// <summary>Inworld provider-specific parameters.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_inworld? Inworld { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_inworld Inworld { get; set; }
-#endif
         /// <summary>Language code (e.g. `en-US`). Usage varies by provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.RimeProviderParams Rime { get; set; }
 #endif
-        /// <summary>Telnyx provider-specific parameters.</summary>
+        /// <summary>Telnyx provider-specific parameters. Use `voice_speed` and `temperature` for `Natural` and `NaturalHD` models. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxProviderParams? Telnyx { get; set; }
@@ -103,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Text type. Use `ssml` for SSML-formatted input (supported by AWS and Azure).</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_text_type? TextType { get; set; }
-        /// <summary>&quot;Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id`. Examples: `telnyx.NaturalHD.Alloy`, `azure.en-US-AvaMultilingualNeural`, `aws.Polly.Generative.Lucia`. When provided, `provider`, `model_id`, and `voice_id` are extracted automatically and take precedence over individual parameters.&quot;</summary>
+        /// <summary>&quot;Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id`. Examples: `telnyx.NaturalHD.Alloy`, `Telnyx.Ultra.&lt;voice_id&gt;`, `azure.en-US-AvaMultilingualNeural`, `aws.Polly.Generative.Lucia`. When provided, `provider`, `model_id`, and `voice_id` are extracted automatically and take precedence over individual parameters.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Voice { get; set; }
@@ -149,7 +141,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "azure", n => { Azure = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams.CreateFromDiscriminatorValue); } },
                 { "disable_cache", n => { DisableCache = n.GetBoolValue(); } },
                 { "elevenlabs", n => { Elevenlabs = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams.CreateFromDiscriminatorValue); } },
-                { "inworld", n => { Inworld = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_inworld>(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_inworld.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "minimax", n => { Minimax = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams.CreateFromDiscriminatorValue); } },
                 { "output_type", n => { OutputType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_output_type>(); } },
@@ -174,7 +165,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AzureProviderParams>("azure", Azure);
             writer.WriteBoolValue("disable_cache", DisableCache);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsProviderParams>("elevenlabs", Elevenlabs);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_inworld>("inworld", Inworld);
             writer.WriteStringValue("language", Language);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxProviderParams>("minimax", Minimax);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_output_type>("output_type", OutputType);

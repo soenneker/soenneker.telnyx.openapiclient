@@ -16,5 +16,9 @@ namespace Soenneker.Telnyx.OpenApiClient.TextToSpeech.Speech
         #pragma warning disable CS1591
         Wav,
         #pragma warning restore CS1591
+        [EnumMember(Value = "mp3")]
+        #pragma warning disable CS1591
+        Mp3,
+        #pragma warning restore CS1591
     }
 }

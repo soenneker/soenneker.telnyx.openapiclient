@@ -38884,7 +38884,7 @@
           "Text To Speech Commands"
         ],
         "summary": "Stream text to speech over WebSocket",
-        "description": "\"Open a WebSocket connection to stream text and receive synthesized audio in real time. Authentication is provided via the standard `Authorization: Bearer <API_KEY>` header. Send JSON frames with text to synthesize; receive JSON frames containing base64-encoded audio chunks.\n\nSupported providers: `aws`, `telnyx`, `azure`, `murfai`, `minimax`, `rime`, `resemble`, `elevenlabs`, `inworld`.\n\n**Connection flow:**\n1. Open WebSocket with query parameters specifying provider, voice, and model.\n2. Send an initial handshake message `{\\\"text\\\": \\\" \\\"}` (single space) with optional `voice_settings` to initialize the session.\n3. Send text messages as `{\\\"text\\\": \\\"Hello world\\\"}`.\n4. Receive audio chunks as JSON frames with base64-encoded audio.\n5. A final frame with `isFinal: true` indicates the end of audio for the current text.\n\nTo interrupt and restart synthesis mid-stream, send `{\\\"force\\\": true}` — the current worker is stopped and a new one is started.\"",
+        "description": "\"Open a WebSocket connection to stream text and receive synthesized audio in real time. Authentication is provided via the standard `Authorization: Bearer <API_KEY>` header. Send JSON frames with text to synthesize; receive JSON frames containing base64-encoded audio chunks.\n\nSupported providers: `aws`, `telnyx`, `azure`, `murfai`, `minimax`, `rime`, `resemble`, `elevenlabs`.\n\n**Connection flow:**\n1. Open WebSocket with query parameters specifying provider, voice, and model.\n2. Send an initial handshake message `{\\\"text\\\": \\\" \\\"}` (single space) with optional `voice_settings` to initialize the session.\n3. Send text messages as `{\\\"text\\\": \\\"Hello world\\\"}`.\n4. Receive audio chunks as JSON frames with base64-encoded audio.\n5. A final frame with `isFinal: true` indicates the end of audio for the current text.\n\nTo interrupt and restart synthesis mid-stream, send `{\\\"force\\\": true}` — the current worker is stopped and a new one is started.\n\n**Note:** The Telnyx `Ultra` model is not available over WebSocket. Use the HTTP POST `/text-to-speech/speech` endpoint instead.\"",
         "operationId": "TextToSpeechOverWs",
         "parameters": [
           {
@@ -38927,7 +38927,7 @@
           "Text To Speech Commands"
         ],
         "summary": "Generate speech from text",
-        "description": "\"Generate synthesized speech audio from text input. Returns audio in the requested format (binary audio stream, base64-encoded JSON, or an audio URL for later retrieval).\n\nAuthentication is provided via the standard `Authorization: Bearer <API_KEY>` header.\n\nThe `voice` parameter provides a convenient shorthand to specify provider, model, and voice in a single string (e.g. `telnyx.NaturalHD.Alloy`). Alternatively, specify `provider` explicitly along with provider-specific parameters.\n\nSupported providers: `aws`, `telnyx`, `azure`, `elevenlabs`, `minimax`, `rime`, `resemble`, `inworld`.\"",
+        "description": "\"Generate synthesized speech audio from text input. Returns audio in the requested format (binary audio stream, base64-encoded JSON, or an audio URL for later retrieval).\n\nAuthentication is provided via the standard `Authorization: Bearer <API_KEY>` header.\n\nThe `voice` parameter provides a convenient shorthand to specify provider, model, and voice in a single string (e.g. `telnyx.NaturalHD.Alloy` or `Telnyx.Ultra.<voice_id>`). Alternatively, specify `provider` explicitly along with provider-specific parameters.\n\nSupported providers: `aws`, `telnyx`, `azure`, `elevenlabs`, `minimax`, `rime`, `resemble`.\n\nThe Telnyx `Ultra` model supports 44 languages with emotion control, speed adjustment, and volume control. Use the `telnyx` provider-specific parameters to configure these features.\"",
         "operationId": "generateSpeech",
         "requestBody": {
           "content": {
@@ -39000,8 +39000,7 @@
                 "elevenlabs",
                 "minimax",
                 "rime",
-                "resemble",
-                "inworld"
+                "resemble"
               ],
               "type": "string",
               "additionalProperties": false
@@ -39036,6 +39035,229 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/traffic_policy_profiles": {
+      "get": {
+        "tags": [
+          "Traffic Policy Profiles"
+        ],
+        "summary": "Get all traffic policy profiles",
+        "description": "Get all traffic policy profiles belonging to the user that match the given filters.",
+        "operationId": "GetTrafficPolicyProfiles",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/wireless_PageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/wireless_PageSize"
+          },
+          {
+            "name": "filter[type]",
+            "in": "query",
+            "description": "Filter by traffic policy profile type.",
+            "schema": {
+              "enum": [
+                "whitelist",
+                "blacklist",
+                "throttling"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            },
+            "example": "whitelist"
+          },
+          {
+            "name": "filter[service]",
+            "in": "query",
+            "description": "Filter by service ID.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "service_123"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorts traffic policy profiles by the given field. Defaults to ascending order unless field is prefixed with a minus sign.",
+            "schema": {
+              "enum": [
+                "service",
+                "-service",
+                "type",
+                "-type"
+              ],
+              "type": "string",
+              "additionalProperties": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetTrafficPolicyProfilesResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/wireless_GenericErrorResponse"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Traffic Policy Profiles"
+        ],
+        "summary": "Create a traffic policy profile",
+        "description": "Create a new traffic policy profile. At least one of `services`, `ip_ranges`, or `domains` must be provided.",
+        "operationId": "CreateTrafficPolicyProfile",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTrafficPolicyProfile"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/CreateTrafficPolicyProfileResponse"
+          },
+          "422": {
+            "$ref": "#/components/responses/wireless_UnprocessableEntity"
+          },
+          "default": {
+            "$ref": "#/components/responses/wireless_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/traffic_policy_profiles/services": {
+      "get": {
+        "tags": [
+          "Traffic Policy Profiles"
+        ],
+        "summary": "Get all available traffic policy profile services",
+        "description": "Get all available PCEF services that can be used in traffic policy profiles.",
+        "operationId": "GetTrafficPolicyProfileServices",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/wireless_PageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/wireless_PageSize"
+          },
+          {
+            "name": "filter[group]",
+            "in": "query",
+            "description": "Filter services by group.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Social Media"
+          },
+          {
+            "name": "filter[name]",
+            "in": "query",
+            "description": "Filter services by name.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Netflix"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetTrafficPolicyProfileServicesResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/wireless_GenericErrorResponse"
+          }
+        }
+      }
+    },
+    "/traffic_policy_profiles/{id}": {
+      "delete": {
+        "tags": [
+          "Traffic Policy Profiles"
+        ],
+        "summary": "Delete a traffic policy profile",
+        "description": "Deletes the traffic policy profile.",
+        "operationId": "DeleteTrafficPolicyProfile",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/TrafficPolicyProfileId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/DeleteTrafficPolicyProfileResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/wireless_ResourceNotFound"
+          },
+          "default": {
+            "$ref": "#/components/responses/wireless_GenericErrorResponse"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Traffic Policy Profiles"
+        ],
+        "summary": "Get a traffic policy profile",
+        "description": "Returns the details regarding a specific traffic policy profile.",
+        "operationId": "GetTrafficPolicyProfile",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/TrafficPolicyProfileId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetTrafficPolicyProfileResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/wireless_ResourceNotFound"
+          },
+          "default": {
+            "$ref": "#/components/responses/wireless_GenericErrorResponse"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Traffic Policy Profiles"
+        ],
+        "summary": "Update a traffic policy profile",
+        "description": "Updates a traffic policy profile.",
+        "operationId": "UpdateTrafficPolicyProfile",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/TrafficPolicyProfileId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTrafficPolicyProfile"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/UpdateTrafficPolicyProfileResponse"
+          },
+          "404": {
+            "$ref": "#/components/responses/wireless_ResourceNotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/wireless_UnprocessableEntity"
+          },
+          "default": {
+            "$ref": "#/components/responses/wireless_GenericErrorResponse"
           }
         }
       }
@@ -49321,6 +49543,194 @@
               ],
               "type": "object"
             }
+          }
+        }
+      },
+      "CallCost": {
+        "title": "Call Cost",
+        "type": "object",
+        "properties": {
+          "record_type": {
+            "enum": [
+              "event"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Identifies the type of the resource.",
+            "example": "event"
+          },
+          "event_type": {
+            "enum": [
+              "call.cost"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of event being delivered.",
+            "example": "call.cost"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the event.",
+            "format": "uuid",
+            "example": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0"
+          },
+          "occurred_at": {
+            "type": "string",
+            "description": "ISO 8601 datetime of when the event occurred.",
+            "format": "date-time",
+            "example": "2018-02-02T22:25:27.521992Z"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "call_control_id": {
+                "type": "string",
+                "description": "Call ID used to issue commands via Call Control API.",
+                "example": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg"
+              },
+              "connection_id": {
+                "type": "string",
+                "description": "Call Control App ID (formerly Telnyx connection ID) used in the call.",
+                "example": "7267xxxxxxxxxxxxxx"
+              },
+              "call_leg_id": {
+                "type": "string",
+                "description": "ID that is unique to the call and can be used to correlate webhook events.",
+                "example": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1"
+              },
+              "call_session_id": {
+                "type": "string",
+                "description": "ID that is unique to the call session and can be used to correlate webhook events. Call session is a group of related call legs that logically belong to the same phone call, e.g. an inbound and outbound leg of a transferred call.",
+                "example": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1"
+              },
+              "client_state": {
+                "type": "string",
+                "description": "State received from a command. Base64-encoded.",
+                "example": "aGF2ZSBhIG5pY2UgZGF5ID1d"
+              },
+              "billing_group_id": {
+                "type": "string",
+                "description": "Identifies the billing group associated with the call.",
+                "nullable": true,
+                "example": "f5586561-8ff0-4291-a0ac-84fe544797bd"
+              },
+              "status": {
+                "enum": [
+                  "success",
+                  "error"
+                ],
+                "type": "string",
+                "additionalProperties": false,
+                "description": "The status of the cost calculation (`success` or `error`).",
+                "example": "success"
+              },
+              "total_cost": {
+                "type": "string",
+                "description": "The total cost of the call.",
+                "nullable": true,
+                "example": "0.0106"
+              },
+              "billed_duration_secs": {
+                "type": "integer",
+                "description": "The longest billed duration across all cost parts, in seconds.",
+                "nullable": true,
+                "example": 120
+              },
+              "cost_parts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CallCostPart"
+                },
+                "description": "Breakdown of costs by call part."
+              },
+              "occurred_at": {
+                "type": "string",
+                "description": "ISO 8601 datetime of when the event occurred.",
+                "format": "date-time",
+                "example": "2018-02-02T22:25:27.521992Z"
+              }
+            }
+          }
+        },
+        "example": {
+          "record_type": "event",
+          "event_type": "call.cost",
+          "id": "0ccc7b54-4df3-4bca-a65a-3da1ecc777f0",
+          "occurred_at": "2018-02-02T22:25:27.521992Z",
+          "payload": {
+            "call_control_id": "v3:MdI91X4lWFEs7IgbBEOT9M4AigoY08M0WWZFISt1Yw2axZ_IiE4pqg",
+            "connection_id": "7267xxxxxxxxxxxxxx",
+            "call_leg_id": "428c31b6-7af4-4bcb-b7f5-5013ef9657c1",
+            "call_session_id": "428c31b6-abf3-3bc1-b7f4-5013ef9657c1",
+            "client_state": "aGF2ZSBhIG5pY2UgZGF5ID1d",
+            "billing_group_id": "f5586561-8ff0-4291-a0ac-84fe544797bd",
+            "status": "success",
+            "total_cost": "0.0106",
+            "billed_duration_secs": 120,
+            "cost_parts": [
+              {
+                "call_part": "sip-trunking",
+                "rate": "0.0050",
+                "cost": "0.0050",
+                "currency": "USD",
+                "billed_duration_secs": 60
+              },
+              {
+                "call_part": "call-recording",
+                "rate": "0.00190",
+                "cost": "0.0038",
+                "currency": "USD",
+                "billed_duration_secs": 120
+              },
+              {
+                "call_part": "call-control",
+                "rate": "0.00180",
+                "cost": "0.0018",
+                "currency": "USD",
+                "billed_duration_secs": 60
+              }
+            ],
+            "occurred_at": "2018-02-02T22:25:27.521992Z"
+          }
+        }
+      },
+      "CallCostEvent": {
+        "title": "Call Cost Event",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CallCost"
+          }
+        }
+      },
+      "CallCostPart": {
+        "title": "Call Cost Part",
+        "type": "object",
+        "properties": {
+          "call_part": {
+            "type": "string",
+            "description": "The product component this cost applies to. Values are determined by the billing system (e.g. sip-trunking, call-control, call-recording). Not a fixed set — new values may appear as products evolve.",
+            "example": "call-control"
+          },
+          "rate": {
+            "type": "string",
+            "description": "The per-minute rate applied.",
+            "example": "0.00180"
+          },
+          "cost": {
+            "type": "string",
+            "description": "The cost for this part of the call.",
+            "example": "0.0018"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The currency of the cost.",
+            "example": "USD"
+          },
+          "billed_duration_secs": {
+            "type": "integer",
+            "description": "The billed duration in seconds for this part of the call.",
+            "example": 180
           }
         }
       },
@@ -68228,7 +68638,7 @@
         "properties": {
           "voice": {
             "type": "string",
-            "description": "\"Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id`. Examples: `telnyx.NaturalHD.Alloy`, `azure.en-US-AvaMultilingualNeural`, `aws.Polly.Generative.Lucia`. When provided, `provider`, `model_id`, and `voice_id` are extracted automatically and take precedence over individual parameters.\""
+            "description": "\"Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id`. Examples: `telnyx.NaturalHD.Alloy`, `Telnyx.Ultra.<voice_id>`, `azure.en-US-AvaMultilingualNeural`, `aws.Polly.Generative.Lucia`. When provided, `provider`, `model_id`, and `voice_id` are extracted automatically and take precedence over individual parameters.\""
           },
           "text": {
             "type": "string",
@@ -68242,8 +68652,7 @@
               "elevenlabs",
               "minimax",
               "rime",
-              "resemble",
-              "inworld"
+              "resemble"
             ],
             "type": "string",
             "additionalProperties": false,
@@ -68301,10 +68710,6 @@
           },
           "resemble": {
             "$ref": "#/components/schemas/ResembleProviderParams"
-          },
-          "inworld": {
-            "type": "object",
-            "description": "Inworld provider-specific parameters."
           }
         },
         "description": "Request body for generating speech from text."
@@ -71757,10 +72162,6 @@
             "example": "https://us-east-1.telnyxstorage.com/porting-documents/telnyx/..."
           }
         }
-      },
-      "InworldProviderParams": {
-        "type": "object",
-        "description": "Inworld provider-specific parameters."
       },
       "InworldVoiceSettings": {
         "title": "Inworld Voice Settings",
@@ -94444,9 +94845,12 @@
         "type": "object",
         "properties": {
           "voice_speed": {
+            "maximum": 2.0,
+            "minimum": 0.5,
             "type": "number",
-            "description": "Voice speed multiplier.",
-            "format": "float"
+            "description": "\"Voice speed multiplier. Applies to all models. Range: 0.5 to 2.0.\"",
+            "format": "float",
+            "default": 1.0
           },
           "response_format": {
             "type": "string",
@@ -94460,12 +94864,34 @@
           },
           "temperature": {
             "type": "number",
-            "description": "Sampling temperature.",
+            "description": "Sampling temperature. Applies to `Natural` and `NaturalHD` models only.",
             "format": "float",
             "default": 0.5
+          },
+          "volume": {
+            "maximum": 2.0,
+            "minimum": 0.0,
+            "type": "number",
+            "description": "\"Volume level for the Ultra model. Range: 0.0 to 2.0.\"",
+            "format": "float",
+            "default": 1.0
+          },
+          "emotion": {
+            "enum": [
+              "neutral",
+              "happy",
+              "sad",
+              "angry",
+              "fearful",
+              "disgusted",
+              "surprised"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Emotion control for the Ultra model. Adjusts the emotional tone of the synthesized speech."
           }
         },
-        "description": "Telnyx provider-specific parameters."
+        "description": "Telnyx provider-specific parameters. Use `voice_speed` and `temperature` for `Natural` and `NaturalHD` models. For the `Ultra` model, use `voice_speed`, `volume`, and `emotion`."
       },
       "TelnyxTranscriptionLanguage": {
         "title": "Telnyx transcription engine list of languages",
@@ -96118,6 +96544,73 @@
             "type": "string",
             "description": "Grand total of all charges as decimal string",
             "example": "180.00"
+          }
+        }
+      },
+      "TrafficPolicyProfile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifies the resource.",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+          },
+          "record_type": {
+            "type": "string",
+            "readOnly": true,
+            "example": "traffic_policy_profile"
+          },
+          "type": {
+            "enum": [
+              "whitelist",
+              "blacklist",
+              "throttling"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of the traffic policy profile.",
+            "example": "whitelist"
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of PCEF service IDs included in the profile."
+          },
+          "ip_ranges": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of IP ranges in CIDR notation."
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of domain names."
+          },
+          "limit_bw_kbps": {
+            "type": "integer",
+            "description": "Bandwidth limit in kbps.",
+            "nullable": true,
+            "example": 512
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date-time indicating when the resource was created.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO 8601 formatted date-time indicating when the resource was updated.",
+            "readOnly": true,
+            "example": "2018-02-02T22:25:27.521Z"
           }
         }
       },
@@ -105661,6 +106154,31 @@
           }
         }
       },
+      "WirelessPcrfService": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The service identifier.",
+            "example": "service_123"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the service.",
+            "example": "Netflix"
+          },
+          "group": {
+            "type": "string",
+            "description": "The group the service belongs to.",
+            "example": "Streaming"
+          },
+          "resource_type": {
+            "type": "string",
+            "readOnly": true,
+            "example": "wireless_pcrf_service"
+          }
+        }
+      },
       "WirelessRate": {
         "type": "object",
         "properties": {
@@ -109599,6 +110117,103 @@
         "description": "Raw audio bytes. Returned when `output_type` is `binary_output` (default).",
         "format": "binary"
       },
+      "CreateTrafficPolicyProfile": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "whitelist",
+              "blacklist"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of the traffic policy profile.",
+            "example": "whitelist"
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of PCEF service IDs to include in the profile."
+          },
+          "ip_ranges": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of IP ranges in CIDR notation."
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of domain names."
+          },
+          "limit_bw_kbps": {
+            "enum": [
+              512,
+              1024
+            ],
+            "type": "integer",
+            "additionalProperties": false,
+            "description": "Bandwidth limit in kbps. Must be 512 or 1024.",
+            "example": 512
+          }
+        }
+      },
+      "UpdateTrafficPolicyProfile": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "whitelist",
+              "blacklist",
+              "throttling"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of the traffic policy profile.",
+            "example": "whitelist"
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of PCEF service IDs to include in the profile."
+          },
+          "ip_ranges": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of IP ranges in CIDR notation."
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of domain names."
+          },
+          "limit_bw_kbps": {
+            "enum": [
+              512,
+              1024
+            ],
+            "type": "integer",
+            "additionalProperties": false,
+            "description": "Bandwidth limit in kbps. Must be 512 or 1024, or null to remove.",
+            "nullable": true,
+            "example": 1024
+          }
+        }
+      },
       "GetUsageReports_200": {
         "type": "string",
         "description": "CSV formatted data",
@@ -111170,6 +111785,21 @@
           }
         }
       },
+      "CreateTrafficPolicyProfileResponse": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/TrafficPolicyProfile"
+                }
+              }
+            }
+          }
+        }
+      },
       "CreateWdrReportResponse": {
         "description": "Successful response",
         "content": {
@@ -111351,6 +111981,29 @@
               "properties": {
                 "data": {
                   "$ref": "#/components/schemas/SIMCard"
+                }
+              }
+            }
+          }
+        }
+      },
+      "DeleteTrafficPolicyProfileResponse": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Identifies the resource.",
+                      "format": "uuid",
+                      "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+                    }
+                  }
                 }
               }
             }
@@ -112260,6 +112913,63 @@
               "properties": {
                 "data": {
                   "$ref": "#/components/schemas/SIMCard"
+                }
+              }
+            }
+          }
+        }
+      },
+      "GetTrafficPolicyProfileResponse": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/TrafficPolicyProfile"
+                }
+              }
+            }
+          }
+        }
+      },
+      "GetTrafficPolicyProfileServicesResponse": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WirelessPcrfService"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/PaginationMeta"
+                }
+              }
+            }
+          }
+        }
+      },
+      "GetTrafficPolicyProfilesResponse": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TrafficPolicyProfile"
+                  }
+                },
+                "meta": {
+                  "$ref": "#/components/schemas/PaginationMeta"
                 }
               }
             }
@@ -116885,6 +117595,21 @@
           }
         }
       },
+      "UpdateTrafficPolicyProfileResponse": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$ref": "#/components/schemas/TrafficPolicyProfile"
+                }
+              }
+            }
+          }
+        }
+      },
       "UpdateWirelessBlocklistResponse": {
         "description": "Successful response",
         "content": {
@@ -120512,6 +121237,17 @@
         },
         "example": "+1312345678"
       },
+      "TrafficPolicyProfileId": {
+        "name": "id",
+        "in": "path",
+        "description": "Identifies the traffic policy profile.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid",
+          "example": "6a09cdc3-8948-47f0-aa62-74ac943d6c58"
+        }
+      },
       "UserBundleId": {
         "name": "user_bundle_id",
         "in": "path",
@@ -120576,11 +121312,12 @@
       "audio_format": {
         "name": "audio_format",
         "in": "query",
-        "description": "\"Audio output format override. Supported for Telnyx `Natural`/`NaturalHD` models only. Accepted values: `pcm`, `wav`.\"",
+        "description": "Audio output format override. Supported for Telnyx models. `pcm` and `wav` are available for `Natural`/`NaturalHD` models. The `Ultra` model outputs PCM at 24kHz s16le or MP3 at 128kbps 24kHz.",
         "schema": {
           "enum": [
             "pcm",
-            "wav"
+            "wav",
+            "mp3"
           ],
           "type": "string",
           "additionalProperties": false
@@ -121387,7 +122124,7 @@
       "model_id": {
         "name": "model_id",
         "in": "query",
-        "description": "\"Model identifier for the chosen provider. Examples: `Natural`, `NaturalHD` (Telnyx); `Polly.Generative` (AWS).\"",
+        "description": "\"Model identifier for the chosen provider. Examples: `Natural`, `NaturalHD`, `Ultra` (Telnyx); `Polly.Generative` (AWS).\"",
         "schema": {
           "type": "string"
         }
@@ -121719,8 +122456,7 @@
             "minimax",
             "murfai",
             "rime",
-            "resemble",
-            "inworld"
+            "resemble"
           ],
           "type": "string",
           "additionalProperties": false,
@@ -122006,7 +122742,7 @@
       "voice": {
         "name": "voice",
         "in": "query",
-        "description": "Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id` (e.g. `telnyx.NaturalHD.Telnyx_Alloy` or `azure.en-US-AvaMultilingualNeural`). When provided, the `provider`, `model_id`, and `voice_id` are extracted automatically. Takes precedence over individual `provider`/`model_id`/`voice_id` parameters.",
+        "description": "Voice identifier in the format `provider.model_id.voice_id` or `provider.voice_id` (e.g. `telnyx.NaturalHD.Telnyx_Alloy`, `Telnyx.Ultra.<voice_id>`, or `azure.en-US-AvaMultilingualNeural`). When provided, the `provider`, `model_id`, and `voice_id` are extracted automatically. Takes precedence over individual `provider`/`model_id`/`voice_id` parameters.",
         "schema": {
           "type": "string"
         }
@@ -123543,6 +124279,10 @@
     {
       "name": "Text to Speech Commands",
       "description": "Text to Speech commands operations"
+    },
+    {
+      "name": "Traffic Policy Profiles",
+      "description": "Traffic Policy Profiles operations"
     },
     {
       "name": "Usage Reports (BETA)",
