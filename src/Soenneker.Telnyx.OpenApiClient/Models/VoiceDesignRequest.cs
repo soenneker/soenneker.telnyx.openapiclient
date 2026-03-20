@@ -41,6 +41,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Prompt { get; set; }
 #endif
+        /// <summary>Voice synthesis provider. `telnyx` uses the Qwen3TTS model; `minimax` uses the Minimax speech models. Case-insensitive. Defaults to `telnyx`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignRequest_provider? Provider { get; set; }
         /// <summary>&quot;Repetition penalty to reduce repeated patterns in generated audio. Default: 1.05.&quot;</summary>
         public float? RepetitionPenalty { get; set; }
         /// <summary>&quot;Sampling temperature controlling randomness. Higher values produce more varied output. Default: 0.9.&quot;</summary>
@@ -66,6 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Language = "Auto";
+            Provider = global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignRequest_provider.Telnyx;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -89,6 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "max_new_tokens", n => { MaxNewTokens = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "prompt", n => { Prompt = n.GetStringValue(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignRequest_provider>(); } },
                 { "repetition_penalty", n => { RepetitionPenalty = n.GetFloatValue(); } },
                 { "temperature", n => { Temperature = n.GetFloatValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
@@ -108,6 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("max_new_tokens", MaxNewTokens);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("prompt", Prompt);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceDesignRequest_provider>("provider", Provider);
             writer.WriteFloatValue("repetition_penalty", RepetitionPenalty);
             writer.WriteFloatValue("temperature", Temperature);
             writer.WriteStringValue("text", Text);

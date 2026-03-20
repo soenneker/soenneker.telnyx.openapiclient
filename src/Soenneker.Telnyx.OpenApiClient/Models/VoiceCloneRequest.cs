@@ -33,6 +33,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Voice synthesis provider. Case-insensitive. Defaults to `telnyx`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_provider? Provider { get; set; }
         /// <summary>UUID of the source voice design to clone.</summary>
         public Guid? VoiceDesignId { get; set; }
         /// <summary>
@@ -41,6 +43,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public VoiceCloneRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            Provider = global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_provider.Telnyx;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,6 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_gender>(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_provider>(); } },
                 { "voice_design_id", n => { VoiceDesignId = n.GetGuidValue(); } },
             };
         }
@@ -76,6 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_gender>("gender", Gender);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("name", Name);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_provider>("provider", Provider);
             writer.WriteGuidValue("voice_design_id", VoiceDesignId);
             writer.WriteAdditionalData(AdditionalData);
         }

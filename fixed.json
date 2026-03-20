@@ -42163,6 +42163,9 @@
             "$ref": "#/components/parameters/FilterName"
           },
           {
+            "$ref": "#/components/parameters/FilterProvider"
+          },
+          {
             "$ref": "#/components/parameters/voice-designs_Sort"
           }
         ],
@@ -76361,11 +76364,12 @@
         "enum": [
           "Denoiser",
           "DeepFilterNet",
-          "Krisp"
+          "Krisp",
+          "AiCoustics"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The engine to use for noise suppression.\nFor backward compatibility, engines A, B, and C are also supported, but are deprecated:\n A - Denoiser\n B - DeepFilterNet\n C - Krisp",
+        "description": "The engine to use for noise suppression.\nFor backward compatibility, engines A, B, C, and D are also supported, but are deprecated:\n A - Denoiser\n B - DeepFilterNet\n C - Krisp\n D - AiCoustics",
         "default": "Denoiser",
         "example": "Denoiser"
       },
@@ -76380,9 +76384,76 @@
             "description": "The attenuation limit for noise suppression (0-100). Only applicable for DeepFilterNet.",
             "default": 100,
             "example": 100
+          },
+          "mode": {
+            "enum": [
+              "standard",
+              "advanced"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Processing mode. Only applicable for DeepFilterNet.",
+            "example": "standard"
+          },
+          "model": {
+            "enum": [
+              "krisp-viva-tel-v2.kef",
+              "krisp-viva-tel-lite-v1.kef",
+              "krisp-viva-pro-v1.kef",
+              "krisp-viva-ss-v1.kef"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The Krisp model to use. Only applicable for Krisp.",
+            "example": "krisp-viva-tel-v2.kef"
+          },
+          "suppression_level": {
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Suppression level (0.0-100.0). Only applicable for Krisp.",
+            "example": 50.0
+          },
+          "family": {
+            "enum": [
+              "sparrow",
+              "quail"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "AiCoustics model family. 'sparrow' optimized for human-to-human calls, 'quail' optimized for Voice AI/STT. Only applicable for AiCoustics.",
+            "example": "sparrow"
+          },
+          "size": {
+            "enum": [
+              "s",
+              "l",
+              "xs",
+              "xxs",
+              "vf_l",
+              "vf_1_1_l"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "AiCoustics model size. 's' and 'l' work with both families. 'xs' and 'xxs' are sparrow-only. 'vf_l' and 'vf_1_1_l' are quail-only. Only applicable for AiCoustics.",
+            "example": "l"
+          },
+          "enhancement_level": {
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "type": "number",
+            "description": "Enhancement intensity (0.0-1.0). Only applicable for AiCoustics.",
+            "example": 0.5
+          },
+          "voice_gain": {
+            "maximum": 4.0,
+            "minimum": 0.1,
+            "type": "number",
+            "description": "Voice gain multiplier (0.1-4.0). Only applicable for AiCoustics.",
+            "example": 1.0
           }
         },
-        "description": "Configuration parameters for noise suppression engines."
+        "description": "Configuration parameters for noise suppression engines. Different engines support different parameters."
       },
       "NoiseSuppressionStartBody": {
         "title": "Noise Suppression Start Request",
@@ -103491,6 +103562,29 @@
             "type": "string",
             "description": "Timestamp when the voice clone was last updated.",
             "format": "date-time"
+          },
+          "provider": {
+            "enum": [
+              "telnyx",
+              "minimax",
+              "Telnyx",
+              "Minimax"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice synthesis provider used for this clone."
+          },
+          "provider_supported_models": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of TTS model identifiers supported by this clone's provider."
+          },
+          "provider_voice_id": {
+            "type": "string",
+            "description": "Provider-specific voice identifier used for TTS synthesis. For Telnyx clones this equals the clone ID; for Minimax it is the Minimax-assigned voice ID.",
+            "nullable": true
           }
         },
         "description": "A voice clone object."
@@ -103544,6 +103638,18 @@
             "type": "string",
             "additionalProperties": false,
             "description": "Gender of the voice clone."
+          },
+          "provider": {
+            "enum": [
+              "telnyx",
+              "minimax",
+              "Telnyx",
+              "Minimax"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice synthesis provider. Case-insensitive. Defaults to `telnyx`.",
+            "default": "Telnyx"
           }
         },
         "description": "Request body for creating a voice clone from an existing voice design.",
@@ -103551,7 +103657,8 @@
           "name": "clone-narrator",
           "voice_design_id": "550e8400-e29b-41d4-a716-446655440000",
           "language": "en",
-          "gender": "male"
+          "gender": "male",
+          "provider": "telnyx"
         }
       },
       "VoiceCloneResponse": {
@@ -103573,7 +103680,12 @@
             "gender": "male",
             "label": "Speak in a warm, friendly tone",
             "created_at": "2024-01-01T00:00:00Z",
-            "updated_at": "2024-01-01T00:00:00Z"
+            "updated_at": "2024-01-01T00:00:00Z",
+            "provider": "Telnyx",
+            "provider_supported_models": [
+              "Qwen3TTS"
+            ],
+            "provider_voice_id": "660f9511-f3ac-52e5-b827-557766551111"
           }
         }
       },
@@ -103619,7 +103731,7 @@
         "properties": {
           "audio_file": {
             "type": "string",
-            "description": "\"Audio file to clone the voice from. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best quality, provide 5–10 seconds of clear, uninterrupted speech. Maximum size: 2MB.\"",
+            "description": "\"Audio file to clone the voice from. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best quality, provide 5–10 seconds of clear, uninterrupted speech. Maximum size: 5MB for Telnyx, 20MB for Minimax.\"",
             "format": "binary"
           },
           "name": {
@@ -103649,6 +103761,18 @@
           "label": {
             "type": "string",
             "description": "Optional custom label describing the voice style. If omitted, falls back to the source design's prompt text."
+          },
+          "provider": {
+            "enum": [
+              "telnyx",
+              "minimax",
+              "Telnyx",
+              "Minimax"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice synthesis provider. Case-insensitive. Defaults to `telnyx`.",
+            "default": "Telnyx"
           }
         },
         "description": "Multipart form data for creating a voice clone from a direct audio upload."
@@ -103725,6 +103849,30 @@
             "type": "string",
             "description": "Timestamp when the voice design was last updated.",
             "format": "date-time"
+          },
+          "provider": {
+            "enum": [
+              "telnyx",
+              "minimax",
+              "Telnyx",
+              "Minimax"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice synthesis provider used for this design.",
+            "nullable": true
+          },
+          "provider_supported_models": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of TTS model identifiers supported by this design's provider (e.g. `Qwen3TTS`, `speech-02-turbo`)."
+          },
+          "provider_voice_id": {
+            "type": "string",
+            "description": "Provider-specific voice identifier. For Telnyx designs this is the design version ID; for Minimax it is the Minimax-assigned voice ID.",
+            "nullable": true
           }
         },
         "description": "A voice design object with full version detail."
@@ -103808,6 +103956,18 @@
             "minimum": 100,
             "type": "integer",
             "description": "\"Maximum number of tokens to generate. Default: 2048.\""
+          },
+          "provider": {
+            "enum": [
+              "telnyx",
+              "minimax",
+              "Telnyx",
+              "Minimax"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice synthesis provider. `telnyx` uses the Qwen3TTS model; `minimax` uses the Minimax speech models. Case-insensitive. Defaults to `telnyx`.",
+            "default": "Telnyx"
           }
         },
         "description": "Request body for creating a new voice design or adding a version to an existing one. Omit `voice_design_id` to create a new design; include it to add a new version.",
@@ -103815,7 +103975,8 @@
           "name": "friendly-narrator",
           "text": "Hello, welcome to our service.",
           "prompt": "Speak in a warm, friendly tone",
-          "language": "Auto"
+          "language": "Auto",
+          "provider": "telnyx"
         }
       },
       "VoiceDesignResponse": {
@@ -103837,7 +103998,12 @@
             "voice_sample_size": 48000,
             "version_created_at": "2024-01-01T00:00:00Z",
             "created_at": "2024-01-01T00:00:00Z",
-            "updated_at": "2024-01-01T00:00:00Z"
+            "updated_at": "2024-01-01T00:00:00Z",
+            "provider": "Telnyx",
+            "provider_supported_models": [
+              "Qwen3TTS"
+            ],
+            "provider_voice_id": "550e8400-e29b-41d4-a716-446655440000"
           }
         }
       },
@@ -103870,6 +104036,25 @@
             "type": "string",
             "description": "Timestamp when the voice design was last updated.",
             "format": "date-time"
+          },
+          "provider": {
+            "enum": [
+              "telnyx",
+              "minimax",
+              "Telnyx",
+              "Minimax"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Voice synthesis provider used for this design.",
+            "nullable": true
+          },
+          "provider_supported_models": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of TTS model identifiers supported by this design's provider."
           }
         },
         "description": "A summarized voice design object (without version-specific fields)."
@@ -120193,6 +120378,21 @@
               }
             }
           }
+        }
+      },
+      "FilterProvider": {
+        "name": "filter[provider]",
+        "in": "query",
+        "description": "Filter by voice synthesis provider. Case-insensitive.",
+        "schema": {
+          "enum": [
+            "telnyx",
+            "minimax",
+            "Telnyx",
+            "Minimax"
+          ],
+          "type": "string",
+          "additionalProperties": false
         }
       },
       "FilterReleasesConsolidated": {

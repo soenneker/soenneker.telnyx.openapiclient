@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Voice_clonesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/voice_clones{?filter%5Bname%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
+        public Voice_clonesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/voice_clones{?filter%5Bname%5D*,filter%5Bprovider%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Voice_clonesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/voice_clones{?filter%5Bname%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
+        public Voice_clonesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/voice_clones{?filter%5Bname%5D*,filter%5Bprovider%5D*,page%5Bnumber%5D*,page%5Bsize%5D*,sort*}", rawUrl)
         {
         }
         /// <summary>
@@ -172,6 +172,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones
             [QueryParameter("filter%5Bname%5D")]
             public string Filtername { get; set; }
 #endif
+            /// <summary>Filter by voice synthesis provider. Case-insensitive.</summary>
+            [QueryParameter("filter%5Bprovider%5D")]
+            public global::Soenneker.Telnyx.OpenApiClient.Voice_clones.GetFilterProviderQueryParameterType? Filterprovider { get; set; }
             /// <summary>Page number for pagination (1-based).</summary>
             [QueryParameter("page%5Bnumber%5D")]
             public int? Pagenumber { get; set; }

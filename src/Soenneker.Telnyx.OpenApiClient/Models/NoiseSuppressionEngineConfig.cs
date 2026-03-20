@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration parameters for noise suppression engines.
+    /// Configuration parameters for noise suppression engines. Different engines support different parameters.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NoiseSuppressionEngineConfig : IAdditionalDataHolder, IParsable
@@ -17,6 +17,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The attenuation limit for noise suppression (0-100). Only applicable for DeepFilterNet.</summary>
         public int? AttenuationLimit { get; set; }
+        /// <summary>Enhancement intensity (0.0-1.0). Only applicable for AiCoustics.</summary>
+        public double? EnhancementLevel { get; set; }
+        /// <summary>AiCoustics model family. &apos;sparrow&apos; optimized for human-to-human calls, &apos;quail&apos; optimized for Voice AI/STT. Only applicable for AiCoustics.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_family? Family { get; set; }
+        /// <summary>Processing mode. Only applicable for DeepFilterNet.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_mode? Mode { get; set; }
+        /// <summary>The Krisp model to use. Only applicable for Krisp.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_model? Model { get; set; }
+        /// <summary>AiCoustics model size. &apos;s&apos; and &apos;l&apos; work with both families. &apos;xs&apos; and &apos;xxs&apos; are sparrow-only. &apos;vf_l&apos; and &apos;vf_1_1_l&apos; are quail-only. Only applicable for AiCoustics.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_size? Size { get; set; }
+        /// <summary>Suppression level (0.0-100.0). Only applicable for Krisp.</summary>
+        public double? SuppressionLevel { get; set; }
+        /// <summary>Voice gain multiplier (0.1-4.0). Only applicable for AiCoustics.</summary>
+        public double? VoiceGain { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig"/> and sets the default values.
         /// </summary>
@@ -43,6 +57,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attenuation_limit", n => { AttenuationLimit = n.GetIntValue(); } },
+                { "enhancement_level", n => { EnhancementLevel = n.GetDoubleValue(); } },
+                { "family", n => { Family = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_family>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_mode>(); } },
+                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_model>(); } },
+                { "size", n => { Size = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_size>(); } },
+                { "suppression_level", n => { SuppressionLevel = n.GetDoubleValue(); } },
+                { "voice_gain", n => { VoiceGain = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -53,6 +74,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("attenuation_limit", AttenuationLimit);
+            writer.WriteDoubleValue("enhancement_level", EnhancementLevel);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_family>("family", Family);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_mode>("mode", Mode);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_model>("model", Model);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.NoiseSuppressionEngineConfig_size>("size", Size);
+            writer.WriteDoubleValue("suppression_level", SuppressionLevel);
+            writer.WriteDoubleValue("voice_gain", VoiceGain);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
