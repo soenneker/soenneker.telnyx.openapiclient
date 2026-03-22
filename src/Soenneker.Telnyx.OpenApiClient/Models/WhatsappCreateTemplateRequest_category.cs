@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>&quot;Template category: AUTHENTICATION, UTILITY, or MARKETING.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum WhatsappCreateTemplateRequest_category
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "MARKETING")]
         #pragma warning disable CS1591

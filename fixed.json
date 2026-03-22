@@ -105190,10 +105190,12 @@
         "type": "object",
         "properties": {
           "waba_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The WhatsApp Business Account ID."
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Template name. Lowercase letters, numbers, and underscores only."
           },
           "category": {
             "enum": [
@@ -105202,16 +105204,37 @@
               "AUTHENTICATION"
             ],
             "type": "string",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "description": "\"Template category: AUTHENTICATION, UTILITY, or MARKETING.\""
           },
           "language": {
-            "type": "string"
+            "type": "string",
+            "description": "Template language code (e.g. en_US, es, pt_BR)."
           },
           "components": {
             "type": "array",
             "items": {
-              "type": "object"
-            }
+              "type": "object",
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/WhatsappTemplateHeaderComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/WhatsappTemplateBodyComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/WhatsappTemplateFooterComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/WhatsappTemplateButtonsComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/WhatsappTemplateCarouselComponent"
+                }
+              ],
+              "description": "A template component. Additional Meta component types not listed here are also accepted."
+            },
+            "description": "Template components defining message structure. Passed through to Meta Graph API. Templates with variables must include example values. Supports HEADER, BODY, FOOTER, BUTTONS, CAROUSEL and any future Meta component types."
           }
         }
       },
@@ -105816,6 +105839,177 @@
           }
         }
       },
+      "WhatsappTemplateBodyComponent": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "BODY"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "text": {
+            "maxLength": 1024,
+            "type": "string",
+            "description": "Body text content. Use {{1}}, {{2}}, etc. for variable placeholders. Required for MARKETING and UTILITY templates. Optional for AUTHENTICATION templates where Meta provides the built-in OTP body."
+          },
+          "example": {
+            "type": "object",
+            "properties": {
+              "body_text": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "description": "Array containing one array of sample values, one per variable in order."
+              }
+            },
+            "description": "Sample values for body variables. Required when body text contains parameters."
+          }
+        },
+        "description": "The main text content of the message. Supports multiple variable parameters ({{1}}, {{2}}, etc.). Variables cannot be at the start or end. Maximum 1024 characters."
+      },
+      "WhatsappTemplateButtonsComponent": {
+        "required": [
+          "type",
+          "buttons"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "BUTTONS"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "buttons": {
+            "type": "array",
+            "items": {
+              "required": [
+                "type"
+              ],
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "URL",
+                    "PHONE_NUMBER",
+                    "QUICK_REPLY",
+                    "OTP",
+                    "COPY_CODE",
+                    "FLOW"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false
+                },
+                "text": {
+                  "maxLength": 25,
+                  "type": "string",
+                  "description": "Button label text. Maximum 25 characters. Required for URL, PHONE_NUMBER, and QUICK_REPLY buttons. Not required for OTP buttons (Meta supplies the label)."
+                },
+                "url": {
+                  "type": "string",
+                  "description": "URL for URL-type buttons. Supports one variable ({{1}})."
+                },
+                "phone_number": {
+                  "type": "string",
+                  "description": "Phone number in E.164 format."
+                },
+                "otp_type": {
+                  "enum": [
+                    "COPY_CODE",
+                    "ONE_TAP"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false
+                },
+                "example": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Sample values for URL variable."
+                },
+                "package_name": {
+                  "type": "string",
+                  "description": "Android package name. Required for ONE_TAP OTP buttons."
+                },
+                "signature_hash": {
+                  "type": "string",
+                  "description": "Android app signing key hash. Required for ONE_TAP OTP buttons."
+                },
+                "autofill_text": {
+                  "type": "string",
+                  "description": "Custom autofill button text for ONE_TAP OTP buttons."
+                },
+                "zero_tap_terms_accepted": {
+                  "type": "boolean",
+                  "description": "Whether zero-tap terms have been accepted."
+                },
+                "flow_id": {
+                  "type": "string",
+                  "description": "Flow ID for FLOW-type buttons."
+                },
+                "flow_action": {
+                  "enum": [
+                    "navigate",
+                    "data_exchange"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "Flow action type for FLOW-type buttons."
+                },
+                "navigate_screen": {
+                  "type": "string",
+                  "description": "Target screen name for FLOW buttons with navigate action."
+                }
+              }
+            },
+            "description": "Array of button objects. Meta supports various combinations of button types."
+          }
+        },
+        "description": "Optional interactive buttons. Maximum 3 buttons per template."
+      },
+      "WhatsappTemplateCarouselComponent": {
+        "required": [
+          "type",
+          "cards"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "CAROUSEL"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "cards": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "components": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "description": "Array of card objects, each with its own components."
+          }
+        },
+        "description": "Carousel component for multi-card templates. Each card can contain its own header, body, and buttons."
+      },
       "WhatsappTemplateData": {
         "type": "object",
         "properties": {
@@ -105845,7 +106039,8 @@
             "type": "string"
           },
           "status": {
-            "type": "string"
+            "type": "string",
+            "description": "Current template status from Meta (e.g. PENDING, APPROVED, REJECTED, PAUSED, DISABLED). Additional statuses may be returned as Meta evolves the template lifecycle."
           },
           "rejection_reason": {
             "type": "string"
@@ -105855,7 +106050,7 @@
             "items": {
               "type": "object"
             },
-            "description": "Whatsapp template components (header, body, footer, buttons)"
+            "description": "Template components (header, body, footer, buttons) as submitted, including example values."
           },
           "whatsapp_business_account": {
             "type": "object",
@@ -105874,6 +106069,84 @@
             "format": "date-time"
           }
         }
+      },
+      "WhatsappTemplateFooterComponent": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "FOOTER"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "text": {
+            "maxLength": 60,
+            "type": "string",
+            "description": "Footer text. Maximum 60 characters. For non-authentication templates."
+          },
+          "code_expiration_minutes": {
+            "type": "integer",
+            "description": "OTP code expiration time in minutes. Used in AUTHENTICATION template footers instead of free-form text."
+          }
+        },
+        "description": "Optional footer displayed at the bottom of the message. Does not support variables."
+      },
+      "WhatsappTemplateHeaderComponent": {
+        "required": [
+          "type",
+          "format"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "HEADER"
+            ],
+            "type": "string",
+            "additionalProperties": false
+          },
+          "format": {
+            "enum": [
+              "TEXT",
+              "IMAGE",
+              "VIDEO",
+              "DOCUMENT",
+              "LOCATION"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "\"Header format type: TEXT (supports one variable), IMAGE, VIDEO, DOCUMENT, or LOCATION.\""
+          },
+          "text": {
+            "type": "string",
+            "description": "Header text. Required when format is TEXT. Supports one variable ({{1}}). Variables cannot be at the start or end."
+          },
+          "example": {
+            "type": "object",
+            "properties": {
+              "header_text": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Sample values for text header variables."
+              },
+              "header_handle": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Media handle for IMAGE, VIDEO, or DOCUMENT headers."
+              }
+            },
+            "description": "Sample values for header variables."
+          }
+        },
+        "description": "Optional header displayed at the top of the message."
       },
       "WhatsappUpdateProfileRequest": {
         "type": "object",
@@ -105918,8 +106191,27 @@
           "components": {
             "type": "array",
             "items": {
-              "type": "object"
-            }
+              "type": "object",
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/WhatsappTemplateHeaderComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/WhatsappTemplateBodyComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/WhatsappTemplateFooterComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/WhatsappTemplateButtonsComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/WhatsappTemplateCarouselComponent"
+                }
+              ],
+              "description": "A template component. Additional Meta component types not listed here are also accepted."
+            },
+            "description": "Updated template components. Same structure as the create request."
           }
         }
       },

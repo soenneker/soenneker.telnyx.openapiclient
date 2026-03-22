@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The category property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_category? Category { get; set; }
-        /// <summary>Whatsapp template components (header, body, footer, buttons)</summary>
+        /// <summary>Template components (header, body, footer, buttons) as submitted, including example values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_components>? Components { get; set; }
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string RejectionReason { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>Current template status from Meta (e.g. PENDING, APPROVED, REJECTED, PAUSED, DISABLED). Additional statuses may be returned as Meta evolves the template lifecycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }

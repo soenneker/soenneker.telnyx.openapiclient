@@ -14,17 +14,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The category property</summary>
+        /// <summary>&quot;Template category: AUTHENTICATION, UTILITY, or MARKETING.&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest_category? Category { get; set; }
-        /// <summary>The components property</summary>
+        /// <summary>Template components defining message structure. Passed through to Meta Graph API. Templates with variables must include example values. Supports HEADER, BODY, FOOTER, BUTTONS, CAROUSEL and any future Meta component types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest_components>? Components { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest.WhatsappCreateTemplateRequest_components>? Components { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest_components> Components { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest.WhatsappCreateTemplateRequest_components> Components { get; set; }
 #endif
-        /// <summary>The language property</summary>
+        /// <summary>Template language code (e.g. en_US, es, pt_BR).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Language { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Template name. Lowercase letters, numbers, and underscores only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The waba_id property</summary>
+        /// <summary>The WhatsApp Business Account ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WabaId { get; set; }
@@ -74,7 +74,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "category", n => { Category = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest_category>(); } },
-                { "components", n => { Components = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest_components>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest_components.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "components", n => { Components = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest.WhatsappCreateTemplateRequest_components>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest.WhatsappCreateTemplateRequest_components.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "waba_id", n => { WabaId = n.GetStringValue(); } },
@@ -88,11 +88,146 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest_category>("category", Category);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest_components>("components", Components);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest.WhatsappCreateTemplateRequest_components>("components", Components);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("waba_id", WabaId);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponent"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WhatsappCreateTemplateRequest_components : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent? WhatsappTemplateBodyComponent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent WhatsappTemplateBodyComponent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponent? WhatsappTemplateButtonsComponent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponent WhatsappTemplateButtonsComponent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent? WhatsappTemplateCarouselComponent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent WhatsappTemplateCarouselComponent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent? WhatsappTemplateFooterComponent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent WhatsappTemplateFooterComponent { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent? WhatsappTemplateHeaderComponent { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent WhatsappTemplateHeaderComponent { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest.WhatsappCreateTemplateRequest_components"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest.WhatsappCreateTemplateRequest_components CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappCreateTemplateRequest.WhatsappCreateTemplateRequest_components();
+                if("WhatsappTemplateBodyComponent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WhatsappTemplateBodyComponent = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent();
+                }
+                else if("WhatsappTemplateButtonsComponent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WhatsappTemplateButtonsComponent = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponent();
+                }
+                else if("WhatsappTemplateCarouselComponent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WhatsappTemplateCarouselComponent = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent();
+                }
+                else if("WhatsappTemplateFooterComponent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WhatsappTemplateFooterComponent = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent();
+                }
+                else if("WhatsappTemplateHeaderComponent".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.WhatsappTemplateHeaderComponent = new global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(WhatsappTemplateBodyComponent != null)
+                {
+                    return WhatsappTemplateBodyComponent.GetFieldDeserializers();
+                }
+                else if(WhatsappTemplateButtonsComponent != null)
+                {
+                    return WhatsappTemplateButtonsComponent.GetFieldDeserializers();
+                }
+                else if(WhatsappTemplateCarouselComponent != null)
+                {
+                    return WhatsappTemplateCarouselComponent.GetFieldDeserializers();
+                }
+                else if(WhatsappTemplateFooterComponent != null)
+                {
+                    return WhatsappTemplateFooterComponent.GetFieldDeserializers();
+                }
+                else if(WhatsappTemplateHeaderComponent != null)
+                {
+                    return WhatsappTemplateHeaderComponent.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(WhatsappTemplateBodyComponent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent>(null, WhatsappTemplateBodyComponent);
+                }
+                else if(WhatsappTemplateButtonsComponent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateButtonsComponent>(null, WhatsappTemplateButtonsComponent);
+                }
+                else if(WhatsappTemplateCarouselComponent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateCarouselComponent>(null, WhatsappTemplateCarouselComponent);
+                }
+                else if(WhatsappTemplateFooterComponent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateFooterComponent>(null, WhatsappTemplateFooterComponent);
+                }
+                else if(WhatsappTemplateHeaderComponent != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateHeaderComponent>(null, WhatsappTemplateHeaderComponent);
+                }
+            }
         }
     }
 }
