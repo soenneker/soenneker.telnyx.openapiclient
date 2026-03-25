@@ -66,6 +66,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters QueryParameters { get; set; }
 #endif
+        /// <summary>A list of mappings that extract values from the webhook response and store them as dynamic variables. Each mapping specifies a dynamic variable name and a dot-notation path to the value in the response body.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_store_fields_as_variables>? StoreFieldsAsVariables { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_store_fields_as_variables> StoreFieldsAsVariables { get; set; }
+#endif
         /// <summary>The maximum number of milliseconds to wait for the webhook to respond. Only applicable when async is false.</summary>
         public int? TimeoutMs { get; set; }
         /// <summary>&quot;The URL of the external tool to be called. This URL is going to be used by the assistant. The URL can be templated like: `https://example.com/api/v1/{id}`, where `{id}` is a placeholder for a value that will be provided by the assistant if `path_parameters` are provided with the `id` attribute.&quot;</summary>
@@ -110,6 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "path_parameters", n => { PathParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_path_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_path_parameters.CreateFromDiscriminatorValue); } },
                 { "query_parameters", n => { QueryParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters.CreateFromDiscriminatorValue); } },
+                { "store_fields_as_variables", n => { StoreFieldsAsVariables = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_store_fields_as_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_store_fields_as_variables.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -129,6 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_path_parameters>("path_parameters", PathParameters);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters>("query_parameters", QueryParameters);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_store_fields_as_variables>("store_fields_as_variables", StoreFieldsAsVariables);
             writer.WriteIntValue("timeout_ms", TimeoutMs);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

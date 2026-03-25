@@ -15,6 +15,7 @@ using Soenneker.Telnyx.OpenApiClient.Ai.Missions;
 using Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests;
 using Soenneker.Telnyx.OpenApiClient.Ai.Openai;
 using Soenneker.Telnyx.OpenApiClient.Ai.Summarize;
+using Soenneker.Telnyx.OpenApiClient.Ai.Tools;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -91,6 +92,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Summarize.SummarizeRequestBuilder Summarize
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Summarize.SummarizeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tools property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Tools.ToolsRequestBuilder Tools
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Tools.ToolsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.AiRequestBuilder"/> and sets the default values.
