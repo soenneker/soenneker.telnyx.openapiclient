@@ -40,6 +40,7 @@ using Soenneker.Telnyx.OpenApiClient.Document_links;
 using Soenneker.Telnyx.OpenApiClient.Documents;
 using Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_addresses;
 using Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints;
+using Soenneker.Telnyx.OpenApiClient.Enterprises;
 using Soenneker.Telnyx.OpenApiClient.External_connections;
 using Soenneker.Telnyx.OpenApiClient.Fax_applications;
 using Soenneker.Telnyx.OpenApiClient.Faxes;
@@ -118,6 +119,7 @@ using Soenneker.Telnyx.OpenApiClient.Recordings;
 using Soenneker.Telnyx.OpenApiClient.Regions;
 using Soenneker.Telnyx.OpenApiClient.Regulatory_requirements;
 using Soenneker.Telnyx.OpenApiClient.Reports;
+using Soenneker.Telnyx.OpenApiClient.Reputation;
 using Soenneker.Telnyx.OpenApiClient.Requirement_groups;
 using Soenneker.Telnyx.OpenApiClient.Requirement_types;
 using Soenneker.Telnyx.OpenApiClient.Requirements;
@@ -142,6 +144,7 @@ using Soenneker.Telnyx.OpenApiClient.Storage;
 using Soenneker.Telnyx.OpenApiClient.Sub_number_orders;
 using Soenneker.Telnyx.OpenApiClient.Sub_number_orders_report;
 using Soenneker.Telnyx.OpenApiClient.Telephony_credentials;
+using Soenneker.Telnyx.OpenApiClient.Terms_of_service;
 using Soenneker.Telnyx.OpenApiClient.Texml;
 using Soenneker.Telnyx.OpenApiClient.Texml_applications;
 using Soenneker.Telnyx.OpenApiClient.TextToSpeech;
@@ -345,6 +348,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder Dynamic_emergency_endpoints
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Dynamic_emergency_endpoints.Dynamic_emergency_endpointsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The enterprises property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Enterprises.EnterprisesRequestBuilder Enterprises
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Enterprises.EnterprisesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The external_connections property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.External_connections.External_connectionsRequestBuilder External_connections
@@ -736,6 +744,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Reports.ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The reputation property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Reputation.ReputationRequestBuilder Reputation
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Reputation.ReputationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The requirement_groups property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Requirement_groups.Requirement_groupsRequestBuilder Requirement_groups
         {
@@ -855,6 +868,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Telephony_credentialsRequestBuilder Telephony_credentials
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Telephony_credentials.Telephony_credentialsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The terms_of_service property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Terms_of_serviceRequestBuilder Terms_of_service
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Terms_of_service.Terms_of_serviceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The texml property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Texml.TexmlRequestBuilder Texml
