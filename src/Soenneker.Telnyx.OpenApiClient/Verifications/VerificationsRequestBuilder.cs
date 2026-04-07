@@ -7,6 +7,7 @@ using Soenneker.Telnyx.OpenApiClient.Verifications.Call;
 using Soenneker.Telnyx.OpenApiClient.Verifications.Flashcall;
 using Soenneker.Telnyx.OpenApiClient.Verifications.Item;
 using Soenneker.Telnyx.OpenApiClient.Verifications.Sms;
+using Soenneker.Telnyx.OpenApiClient.Verifications.Whatsapp;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -38,6 +39,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Verifications
         public global::Soenneker.Telnyx.OpenApiClient.Verifications.Sms.SmsRequestBuilder Sms
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Verifications.Sms.SmsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The whatsapp property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Verifications.Whatsapp.WhatsappRequestBuilder Whatsapp
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Verifications.Whatsapp.WhatsappRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Telnyx.OpenApiClient.verifications.item collection</summary>
         /// <param name="position">The identifier of the verification to retrieve.</param>

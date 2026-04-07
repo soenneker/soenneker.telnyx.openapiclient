@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The flashcall property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest? Flashcall { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest? Flashcall { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest Flashcall { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest Flashcall { get; set; }
 #endif
         /// <summary>The language property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -78,6 +78,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string WebhookUrl { get; set; }
 #endif
+        /// <summary>The whatsapp property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest? Whatsapp { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest Whatsapp { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfile"/> and sets the default values.
         /// </summary>
@@ -104,13 +112,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "call", n => { Call = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileCallRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileCallRequest.CreateFromDiscriminatorValue); } },
-                { "flashcall", n => { Flashcall = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest.CreateFromDiscriminatorValue); } },
+                { "flashcall", n => { Flashcall = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "rcs", n => { Rcs = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRCSRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRCSRequest.CreateFromDiscriminatorValue); } },
                 { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest.CreateFromDiscriminatorValue); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
+                { "whatsapp", n => { Whatsapp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -121,13 +130,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileCallRequest>("call", Call);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileFlashcallRequest>("flashcall", Flashcall);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest>("flashcall", Flashcall);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileRCSRequest>("rcs", Rcs);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest>("sms", Sms);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest>("whatsapp", Whatsapp);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

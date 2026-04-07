@@ -48,5 +48,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Contacts,
         #pragma warning restore CS1591
+        [EnumMember(Value = "text")]
+        #pragma warning disable CS1591
+        Text,
+        #pragma warning restore CS1591
     }
 }

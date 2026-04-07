@@ -17,6 +17,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number of channels for the recording. &apos;single&apos; for mono, &apos;dual&apos; for stereo.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings_channels? Channels { get; set; }
+        /// <summary>Whether call recording is enabled. When set to false, calls will not be recorded regardless of other recording configuration.</summary>
+        public bool? Enabled { get; set; }
         /// <summary>The format of the recording file.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings_format? Format { get; set; }
         /// <summary>
@@ -47,6 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings_channels>(); } },
+                { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings_format>(); } },
             };
         }
@@ -58,6 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings_channels>("channels", Channels);
+            writer.WriteBoolValue("enabled", Enabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings_format>("format", Format);
             writer.WriteAdditionalData(AdditionalData);
         }

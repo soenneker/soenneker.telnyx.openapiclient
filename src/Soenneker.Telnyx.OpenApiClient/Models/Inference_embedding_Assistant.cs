@@ -120,6 +120,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The observability_settings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Observability? ObservabilitySettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.Observability ObservabilitySettings { get; set; }
+#endif
         /// <summary>The privacy_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -207,6 +215,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "messaging_settings", n => { MessagingSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "observability_settings", n => { ObservabilitySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Observability>(global::Soenneker.Telnyx.OpenApiClient.Models.Observability.CreateFromDiscriminatorValue); } },
                 { "privacy_settings", n => { PrivacySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings>(global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings.CreateFromDiscriminatorValue); } },
                 { "telephony_settings", n => { TelephonySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_Assistant.Assistants>(global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_Assistant.Assistants.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -236,6 +245,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingSettings>("messaging_settings", MessagingSettings);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Observability>("observability_settings", ObservabilitySettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings>("privacy_settings", PrivacySettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings>("telephony_settings", TelephonySettings);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_Assistant.Assistants>("tools", Tools);
