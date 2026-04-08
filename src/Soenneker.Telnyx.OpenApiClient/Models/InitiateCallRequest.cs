@@ -82,6 +82,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? MachineDetectionSpeechThreshold { get; set; }
         /// <summary>Maximum timeout threshold in milliseconds for overall detection.</summary>
         public int? MachineDetectionTimeout { get; set; }
+        /// <summary>Defines whether media should be encrypted on the call. When set to `SRTP`, the call will use Secure Real-time Transport Protocol for media encryption. When set to `DTLS`, the call will use DTLS for media encryption. Only supported for SIP destinations.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_MediaEncryption? MediaEncryption { get; set; }
         /// <summary>The list of comma-separated codecs to be offered on a call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -199,6 +201,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             AsyncAmdStatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_AsyncAmdStatusCallbackMethod.POST;
             DetectionMode = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_DetectionMode.Regular;
             MachineDetection = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_MachineDetection.Disable;
+            MediaEncryption = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_MediaEncryption.Disabled;
             SipRegion = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_SipRegion.US;
             StatusCallbackEvent = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackEvent.Completed;
             StatusCallbackMethod = global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_StatusCallbackMethod.POST;
@@ -239,6 +242,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "MachineDetectionSpeechEndThreshold", n => { MachineDetectionSpeechEndThreshold = n.GetIntValue(); } },
                 { "MachineDetectionSpeechThreshold", n => { MachineDetectionSpeechThreshold = n.GetIntValue(); } },
                 { "MachineDetectionTimeout", n => { MachineDetectionTimeout = n.GetIntValue(); } },
+                { "MediaEncryption", n => { MediaEncryption = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_MediaEncryption>(); } },
                 { "PreferredCodecs", n => { PreferredCodecs = n.GetStringValue(); } },
                 { "Record", n => { Record = n.GetBoolValue(); } },
                 { "RecordingChannels", n => { RecordingChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingChannels>(); } },
@@ -288,6 +292,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("MachineDetectionSpeechEndThreshold", MachineDetectionSpeechEndThreshold);
             writer.WriteIntValue("MachineDetectionSpeechThreshold", MachineDetectionSpeechThreshold);
             writer.WriteIntValue("MachineDetectionTimeout", MachineDetectionTimeout);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_MediaEncryption>("MediaEncryption", MediaEncryption);
             writer.WriteStringValue("PreferredCodecs", PreferredCodecs);
             writer.WriteBoolValue("Record", Record);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateCallRequest_RecordingChannels>("RecordingChannels", RecordingChannels);

@@ -14,6 +14,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Optional message template with dynamic variable support using mustache syntax (e.g., {{variable_name}}). When set, the assistant will use this template for the SMS body instead of generating one. Dynamic variables like {{telnyx_end_user_target}}, {{telnyx_agent_target}}, and custom webhook-provided variables will be resolved at runtime.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MessageTemplate { get; set; }
+#nullable restore
+#else
+        public string MessageTemplate { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool_send_message"/> and sets the default values.
         /// </summary>
@@ -39,6 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "message_template", n => { MessageTemplate = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -48,6 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("message_template", MessageTemplate);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
