@@ -22,8 +22,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The type of wireless blocklist.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_type? Type { get; set; }
         /// <summary>Values to block. The values here depend on the `type` of Wireless Blocklist.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +56,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_type>(); } },
                 { "values", n => { Values = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_values>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_values.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -70,7 +67,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_type>("type", Type);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_values>("values", Values);
             writer.WriteAdditionalData(AdditionalData);
         }

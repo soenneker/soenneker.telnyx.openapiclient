@@ -102,6 +102,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PreferredCodecs { get; set; }
 #endif
+        /// <summary>Indicates the privacy level to be used for the call. When set to `id`, caller ID information (name and number) will be hidden from the called party. When set to `none` or omitted, caller ID will be shown normally.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_privacy? Privacy { get; set; }
         /// <summary>Start recording automatically after an event. Disabled by default.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record? Record { get; set; }
         /// <summary>Defines which channel should be recorded (&apos;single&apos; or &apos;dual&apos;) when `record` is specified.</summary>
@@ -257,6 +259,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "mute_dtmf", n => { MuteDtmf = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf>(); } },
                 { "park_after_unbridge", n => { ParkAfterUnbridge = n.GetStringValue(); } },
                 { "preferred_codecs", n => { PreferredCodecs = n.GetStringValue(); } },
+                { "privacy", n => { Privacy = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_privacy>(); } },
                 { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record>(); } },
                 { "record_channels", n => { RecordChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_channels>(); } },
                 { "record_custom_file_name", n => { RecordCustomFileName = n.GetStringValue(); } },
@@ -303,6 +306,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_mute_dtmf>("mute_dtmf", MuteDtmf);
             writer.WriteStringValue("park_after_unbridge", ParkAfterUnbridge);
             writer.WriteStringValue("preferred_codecs", PreferredCodecs);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_privacy>("privacy", Privacy);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record>("record", Record);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_record_channels>("record_channels", RecordChannels);
             writer.WriteStringValue("record_custom_file_name", RecordCustomFileName);

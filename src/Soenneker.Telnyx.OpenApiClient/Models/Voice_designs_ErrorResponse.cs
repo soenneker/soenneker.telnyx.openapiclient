@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject>? Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Voice_designs_ErrorObject>? Errors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject> Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Voice_designs_ErrorObject> Errors { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
@@ -51,7 +51,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Voice_designs_ErrorObject>(global::Soenneker.Telnyx.OpenApiClient.Models.Voice_designs_ErrorObject.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Voice_designs_ErrorObject>("errors", Errors);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

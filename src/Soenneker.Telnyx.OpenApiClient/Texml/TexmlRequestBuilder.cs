@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Texml.Accounts;
+using Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls;
 using Soenneker.Telnyx.OpenApiClient.Texml.Secrets;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml
         public global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.AccountsRequestBuilder Accounts
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Accounts.AccountsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The ai_calls property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls.Ai_callsRequestBuilder Ai_calls
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls.Ai_callsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The secrets property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Texml.Secrets.SecretsRequestBuilder Secrets

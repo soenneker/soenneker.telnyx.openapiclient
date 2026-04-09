@@ -112,6 +112,7 @@ using Soenneker.Telnyx.OpenApiClient.Porting_orders;
 using Soenneker.Telnyx.OpenApiClient.Porting_phone_numbers;
 using Soenneker.Telnyx.OpenApiClient.Portouts;
 using Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways;
+using Soenneker.Telnyx.OpenApiClient.Pronunciation_dicts;
 using Soenneker.Telnyx.OpenApiClient.Public_internet_gateways;
 using Soenneker.Telnyx.OpenApiClient.Queues;
 using Soenneker.Telnyx.OpenApiClient.Recording_transcriptions;
@@ -708,6 +709,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder Private_wireless_gateways
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Private_wireless_gateways.Private_wireless_gatewaysRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The pronunciation_dicts property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Pronunciation_dicts.Pronunciation_dictsRequestBuilder Pronunciation_dicts
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Pronunciation_dicts.Pronunciation_dictsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The public_internet_gateways property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Public_internet_gateways.Public_internet_gatewaysRequestBuilder Public_internet_gateways

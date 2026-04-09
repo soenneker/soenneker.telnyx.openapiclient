@@ -7,15 +7,14 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>
-    /// A single error object.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class ErrorObject : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Telnyx-specific error code.</summary>
+        /// <summary>Machine-readable error code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Code { get; set; }
@@ -23,7 +22,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Code { get; set; }
 #endif
-        /// <summary>Detailed, human-readable explanation of the error.</summary>
+        /// <summary>Detailed error description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Detail { get; set; }
@@ -31,7 +30,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Detail { get; set; }
 #endif
-        /// <summary>Reference to the source of the error.</summary>
+        /// <summary>Source of the error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject_source? Source { get; set; }
@@ -39,7 +38,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorObject_source Source { get; set; }
 #endif
-        /// <summary>Short, human-readable summary of the error.</summary>
+        /// <summary>Short human-readable error title.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title { get; set; }
