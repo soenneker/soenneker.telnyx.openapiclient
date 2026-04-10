@@ -37,6 +37,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
+        /// <summary>TTS model identifier for the voice clone.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_model_id? ModelId { get; set; }
         /// <summary>Name of the voice clone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> ProviderSupportedModels { get; set; }
 #endif
-        /// <summary>Provider-specific voice identifier used for TTS synthesis. For Telnyx clones this equals the clone ID; for Minimax it is the Minimax-assigned voice ID.</summary>
+        /// <summary>Provider-specific voice identifier used for TTS synthesis. May differ from the clone UUID depending on the provider and model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProviderVoiceId { get; set; }
@@ -69,6 +71,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public Guid? SourceVoiceDesignId { get; set; }
         /// <summary>Version of the source voice design used. `null` for upload-based clones.</summary>
         public int? SourceVoiceDesignVersion { get; set; }
+        /// <summary>Clone status. pending for Ultra clones while on-prem import is in progress, active once ready, failed if verification timed out, expired if not kept alive.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_status? Status { get; set; }
         /// <summary>Timestamp when the voice clone was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -101,6 +105,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
+                { "model_id", n => { ModelId = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_model_id>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_provider>(); } },
                 { "provider_supported_models", n => { ProviderSupportedModels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -108,6 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_record_type>(); } },
                 { "source_voice_design_id", n => { SourceVoiceDesignId = n.GetGuidValue(); } },
                 { "source_voice_design_version", n => { SourceVoiceDesignVersion = n.GetIntValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_status>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -123,6 +129,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("label", Label);
             writer.WriteStringValue("language", Language);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_model_id>("model_id", ModelId);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_provider>("provider", Provider);
             writer.WriteCollectionOfPrimitiveValues<string>("provider_supported_models", ProviderSupportedModels);
@@ -130,6 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_record_type>("record_type", RecordType);
             writer.WriteGuidValue("source_voice_design_id", SourceVoiceDesignId);
             writer.WriteIntValue("source_voice_design_version", SourceVoiceDesignVersion);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneData_status>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

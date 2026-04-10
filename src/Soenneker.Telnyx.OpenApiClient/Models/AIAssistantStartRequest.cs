@@ -14,13 +14,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>AI Assistant configuration</summary>
+        /// <summary>AI Assistant configuration. All fields except `id` are optional — the assistant&apos;s stored configuration will be used as fallback for any omitted fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest_assistant? Assistant { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest? Assistant { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest_assistant Assistant { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest Assistant { get; set; }
 #endif
         /// <summary>Use this field to add state to every subsequent webhook. It must be a valid Base-64 encoded string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest_assistant>(global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest_assistant.CreateFromDiscriminatorValue); } },
+                { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CreateFromDiscriminatorValue); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
@@ -141,7 +141,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AIAssistantStartRequest_assistant>("assistant", Assistant);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest>("assistant", Assistant);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteStringValue("greeting", Greeting);

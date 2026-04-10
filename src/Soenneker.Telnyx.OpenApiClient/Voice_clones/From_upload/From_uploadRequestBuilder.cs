@@ -34,10 +34,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones.From_upload
         {
         }
         /// <summary>
-        /// &quot;Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best results, provide 5–10 seconds of clear speech. Maximum file size: 2MB.&quot;
+        /// &quot;Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best results, provide 5–10 seconds of clear speech. Maximum file size: 5MB for Telnyx, 20MB for Minimax.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse"/></returns>
-        /// <param name="body">Multipart form data for creating a voice clone from a direct audio upload.</param>
+        /// <param name="body">&quot;Multipart form data for creating a voice clone from a direct audio upload. Maximum file size: 5MB for Telnyx, 20MB for Minimax.&quot;</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.Voice_designs_ErrorResponse">When receiving a 400 status code</exception>
@@ -65,10 +65,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Voice_clones.From_upload
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best results, provide 5–10 seconds of clear speech. Maximum file size: 2MB.&quot;
+        /// &quot;Creates a new voice clone by uploading an audio file directly. Supported formats: WAV, MP3, FLAC, OGG, M4A. For best results, provide 5–10 seconds of clear speech. Maximum file size: 5MB for Telnyx, 20MB for Minimax.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Multipart form data for creating a voice clone from a direct audio upload.</param>
+        /// <param name="body">&quot;Multipart form data for creating a voice clone from a direct audio upload. Maximum file size: 5MB for Telnyx, 20MB for Minimax.&quot;</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

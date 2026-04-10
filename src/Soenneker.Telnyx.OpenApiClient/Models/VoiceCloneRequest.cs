@@ -8,43 +8,27 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Request body for creating a voice clone from an existing voice design.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxDesignClone"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class VoiceCloneRequest : IAdditionalDataHolder, IParsable
+    public partial class VoiceCloneRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Gender of the voice clone.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_gender? Gender { get; set; }
-        /// <summary>ISO 639-1 language code for the clone (e.g. `en`, `fr`, `de`).</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxDesignClone"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Language { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxDesignClone? MinimaxDesignClone { get; set; }
 #nullable restore
 #else
-        public string Language { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxDesignClone MinimaxDesignClone { get; set; }
 #endif
-        /// <summary>Name for the voice clone.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone? TelnyxDesignClone { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone TelnyxDesignClone { get; set; }
 #endif
-        /// <summary>Voice synthesis provider. Case-insensitive. Defaults to `telnyx`.</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_provider? Provider { get; set; }
-        /// <summary>UUID of the source voice design to clone.</summary>
-        public Guid? VoiceDesignId { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest"/> and sets the default values.
-        /// </summary>
-        public VoiceCloneRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-            Provider = global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_provider.Telnyx;
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -53,7 +37,17 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public static global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest();
+            var mappingValue = parseNode.GetChildNode("provider")?.GetStringValue();
+            var result = new global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest();
+            if("minimax".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.MinimaxDesignClone = new global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxDesignClone();
+            }
+            else if("telnyx".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.TelnyxDesignClone = new global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,14 +55,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(MinimaxDesignClone != null)
             {
-                { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_gender>(); } },
-                { "language", n => { Language = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "provider", n => { Provider = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_provider>(); } },
-                { "voice_design_id", n => { VoiceDesignId = n.GetGuidValue(); } },
-            };
+                return MinimaxDesignClone.GetFieldDeserializers();
+            }
+            else if(TelnyxDesignClone != null)
+            {
+                return TelnyxDesignClone.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -77,12 +72,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_gender>("gender", Gender);
-            writer.WriteStringValue("language", Language);
-            writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceCloneRequest_provider>("provider", Provider);
-            writer.WriteGuidValue("voice_design_id", VoiceDesignId);
-            writer.WriteAdditionalData(AdditionalData);
+            if(MinimaxDesignClone != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxDesignClone>(null, MinimaxDesignClone);
+            }
+            else if(TelnyxDesignClone != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxDesignClone>(null, TelnyxDesignClone);
+            }
         }
     }
 }

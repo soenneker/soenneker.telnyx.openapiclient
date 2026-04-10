@@ -24,6 +24,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config AnsweringMachineDetectionConfig { get; set; }
 #endif
+        /// <summary>AI Assistant configuration. All fields except `id` are optional — the assistant&apos;s stored configuration will be used as fallback for any omitted fields.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest? Assistant { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest Assistant { get; set; }
+#endif
         /// <summary>The URL of a file to be played back to the callee when the call is answered. The URL can point to either a WAV or MP3 file. media_name and audio_url cannot be used together in one request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -315,6 +323,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "answering_machine_detection", n => { AnsweringMachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection>(); } },
                 { "answering_machine_detection_config", n => { AnsweringMachineDetectionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config.CreateFromDiscriminatorValue); } },
+                { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CreateFromDiscriminatorValue); } },
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
                 { "billing_group_id", n => { BillingGroupId = n.GetGuidValue(); } },
                 { "bridge_intent", n => { BridgeIntent = n.GetBoolValue(); } },
@@ -379,6 +388,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection>("answering_machine_detection", AnsweringMachineDetection);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config>("answering_machine_detection_config", AnsweringMachineDetectionConfig);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest>("assistant", Assistant);
             writer.WriteStringValue("audio_url", AudioUrl);
             writer.WriteGuidValue("billing_group_id", BillingGroupId);
             writer.WriteBoolValue("bridge_intent", BridgeIntent);
