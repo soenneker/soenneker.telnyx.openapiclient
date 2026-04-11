@@ -9,29 +9,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ValidationError_loc : IAdditionalDataHolder, IParsable
+    public partial class GoogleTranscriptionLanguage_Wrapper : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The value property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ValidationError_loc_value? Value { get; set; }
+        /// <summary>Language to use for speech recognition</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidationError_loc"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage_Wrapper"/> and sets the default values.
         /// </summary>
-        public ValidationError_loc()
+        public GoogleTranscriptionLanguage_Wrapper()
         {
             AdditionalData = new Dictionary<string, object>();
+            Value = global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage.En;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ValidationError_loc"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage_Wrapper"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Telnyx.OpenApiClient.Models.ValidationError_loc CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage_Wrapper CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Telnyx.OpenApiClient.Models.ValidationError_loc();
+            return new global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage_Wrapper();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,7 +42,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationError_loc_value>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage>(); } },
             };
         }
         /// <summary>
@@ -51,7 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ValidationError_loc_value>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

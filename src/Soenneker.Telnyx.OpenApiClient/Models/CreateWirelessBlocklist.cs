@@ -27,10 +27,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Values to block. The values here depend on the `type` of Wireless Blocklist.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist_values>? Values { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>? Values { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist_values> Values { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch> Values { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist"/> and sets the default values.
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist_type>(); } },
-                { "values", n => { Values = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist_values>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist_values.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "values", n => { Values = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist_type>("type", Type);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CreateWirelessBlocklist_values>("values", Values);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("values", Values);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

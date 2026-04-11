@@ -73,10 +73,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Relationship to the parent node, null for root.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EventNode_relationship? Relationship { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo? Relationship { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.EventNode_relationship Relationship { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo Relationship { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EventNode"/> and sets the default values.
@@ -110,7 +110,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Links>(global::Soenneker.Telnyx.OpenApiClient.Models.Links.CreateFromDiscriminatorValue); } },
                 { "product", n => { Product = n.GetStringValue(); } },
                 { "record", n => { Record = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNode_record>(global::Soenneker.Telnyx.OpenApiClient.Models.EventNode_record.CreateFromDiscriminatorValue); } },
-                { "relationship", n => { Relationship = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNode_relationship>(global::Soenneker.Telnyx.OpenApiClient.Models.EventNode_relationship.CreateFromDiscriminatorValue); } },
+                { "relationship", n => { Relationship = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo>(global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Links>("links", Links);
             writer.WriteStringValue("product", Product);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNode_record>("record", Record);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNode_relationship>("relationship", Relationship);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RelationshipInfo>("relationship", Relationship);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

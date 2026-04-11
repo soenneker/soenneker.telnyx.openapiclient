@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Values to block. The values here depend on the `type` of Wireless Blocklist.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_values>? Values { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>? Values { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_values> Values { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch> Values { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist"/> and sets the default values.
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "values", n => { Values = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_values>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_values.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "values", n => { Values = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateWirelessBlocklist_values>("values", Values);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("values", Values);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

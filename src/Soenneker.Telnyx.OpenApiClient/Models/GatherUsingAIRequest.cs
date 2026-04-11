@@ -65,10 +65,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The language property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_language? Language { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage_Wrapper? Language { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_language Language { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage_Wrapper Language { get; set; }
 #endif
         /// <summary>The message history you want the voice assistant to be aware of, this can be useful to keep the context of the conversation, or to pass additional information to the voice assistant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -147,7 +147,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "gather_ended_speech", n => { GatherEndedSpeech = n.GetStringValue(); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
                 { "interruption_settings", n => { InterruptionSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings.CreateFromDiscriminatorValue); } },
-                { "language", n => { Language = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_language>(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_language.CreateFromDiscriminatorValue); } },
+                { "language", n => { Language = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage_Wrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage_Wrapper.CreateFromDiscriminatorValue); } },
                 { "message_history", n => { MessageHistory = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_message_history>(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_message_history.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_parameters.CreateFromDiscriminatorValue); } },
                 { "send_message_history_updates", n => { SendMessageHistoryUpdates = n.GetBoolValue(); } },
@@ -171,7 +171,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("gather_ended_speech", GatherEndedSpeech);
             writer.WriteStringValue("greeting", Greeting);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterruptionSettings>("interruption_settings", InterruptionSettings);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_language>("language", Language);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GoogleTranscriptionLanguage_Wrapper>("language", Language);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_message_history>("message_history", MessageHistory);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GatherUsingAIRequest_parameters>("parameters", Parameters);
             writer.WriteBoolValue("send_message_history_updates", SendMessageHistoryUpdates);

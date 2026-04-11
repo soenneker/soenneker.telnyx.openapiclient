@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Either a list of participant id to perform the action on, or the keyword &quot;all&quot; to perform the action on all participant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants? Participants { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? Participants { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants Participants { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch Participants { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest"/> and sets the default values.
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "exclude", n => { Exclude = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "participants", n => { Participants = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants>(global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants.CreateFromDiscriminatorValue); } },
+                { "participants", n => { Participants = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<Guid?>("exclude", Exclude);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ActionsParticipantsRequest_participants>("participants", Participants);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("participants", Participants);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

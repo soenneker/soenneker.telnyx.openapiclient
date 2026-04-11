@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam_content? Content { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam_content Content { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch Content { get; set; }
 #endif
         /// <summary>The role property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam_role? Role { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam_content>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam_content.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam_role>(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam_content>("content", Content);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("content", Content);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionSystemMessageParam_role>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }

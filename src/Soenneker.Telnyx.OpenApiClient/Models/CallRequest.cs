@@ -257,10 +257,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_to? To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? To { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_to To { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch To { get; set; }
 #endif
         /// <summary>Enable transcription upon call answer. The default value is false.</summary>
         public bool? Transcription { get; set; }
@@ -372,7 +372,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "supervisor_role", n => { SupervisorRole = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_supervisor_role>(); } },
                 { "time_limit_secs", n => { TimeLimitSecs = n.GetIntValue(); } },
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
-                { "to", n => { To = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_to>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_to.CreateFromDiscriminatorValue); } },
+                { "to", n => { To = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "transcription", n => { Transcription = n.GetBoolValue(); } },
                 { "transcription_config", n => { TranscriptionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -437,7 +437,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_supervisor_role>("supervisor_role", SupervisorRole);
             writer.WriteIntValue("time_limit_secs", TimeLimitSecs);
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_to>("to", To);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("to", To);
             writer.WriteBoolValue("transcription", Transcription);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest>("transcription_config", TranscriptionConfig);
             writer.WriteStringValue("webhook_url", WebhookUrl);

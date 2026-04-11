@@ -21,10 +21,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Input text to embed. Can be a string or array of strings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest_input? Input { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest_input Input { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch Input { get; set; }
 #endif
         /// <summary>ID of the model to use. Use the List embedding models endpoint to see available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "dimensions", n => { Dimensions = n.GetIntValue(); } },
                 { "encoding_format", n => { EncodingFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest_encoding_format>(); } },
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest_input>(global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest_input.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "user", n => { User = n.GetStringValue(); } },
             };
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("dimensions", Dimensions);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest_encoding_format>("encoding_format", EncodingFormat);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest_input>("input", Input);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("input", Input);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
