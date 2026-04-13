@@ -17,36 +17,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The global_ip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_global_ip? GlobalIp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp? GlobalIp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_global_ip GlobalIp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp GlobalIp { get; set; }
 #endif
         /// <summary>The global_ip_assignment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_global_ip_assignment? GlobalIpAssignment { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment? GlobalIpAssignment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_global_ip_assignment GlobalIpAssignment { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment GlobalIpAssignment { get; set; }
 #endif
         /// <summary>The received property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_received? Received { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived? Received { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_received Received { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived Received { get; set; }
 #endif
         /// <summary>The timestamp of the metric.</summary>
         public DateTimeOffset? Timestamp { get; set; }
         /// <summary>The transmitted property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_transmitted? Transmitted { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted? Transmitted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_transmitted Transmitted { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted Transmitted { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric"/> and sets the default values.
@@ -73,11 +73,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "global_ip", n => { GlobalIp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_global_ip>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_global_ip.CreateFromDiscriminatorValue); } },
-                { "global_ip_assignment", n => { GlobalIpAssignment = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_global_ip_assignment>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_global_ip_assignment.CreateFromDiscriminatorValue); } },
-                { "received", n => { Received = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_received>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_received.CreateFromDiscriminatorValue); } },
+                { "global_ip", n => { GlobalIp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp.CreateFromDiscriminatorValue); } },
+                { "global_ip_assignment", n => { GlobalIpAssignment = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment.CreateFromDiscriminatorValue); } },
+                { "received", n => { Received = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived.CreateFromDiscriminatorValue); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
-                { "transmitted", n => { Transmitted = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_transmitted>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_transmitted.CreateFromDiscriminatorValue); } },
+                { "transmitted", n => { Transmitted = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -87,11 +87,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_global_ip>("global_ip", GlobalIp);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_global_ip_assignment>("global_ip_assignment", GlobalIpAssignment);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_received>("received", Received);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIp>("global_ip", GlobalIp);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricGlobalIpAssignment>("global_ip_assignment", GlobalIpAssignment);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricReceived>("received", Received);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetric_transmitted>("transmitted", Transmitted);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentUsageMetricTransmitted>("transmitted", Transmitted);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

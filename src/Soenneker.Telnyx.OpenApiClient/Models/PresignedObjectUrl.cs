@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrl_content? Content { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrlContent? Content { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrl_content Content { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrlContent Content { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrl"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrl_content>(global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrl_content.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrlContent>(global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrlContent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrl_content>("content", Content);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PresignedObjectUrlContent>("content", Content);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

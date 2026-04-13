@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>An object representing the total cost of the order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_cost? Cost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderCost? Cost { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_cost Cost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderCost Cost { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was last created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -35,10 +35,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>An object representing the address information from when the order was submitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_order_address? OrderAddress { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderOrderAddress? OrderAddress { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_order_address OrderAddress { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderOrderAddress OrderAddress { get; private set; }
 #endif
         /// <summary>The amount of SIM cards requested in the SIM card order.</summary>
         public int? Quantity { get; set; }
@@ -93,10 +93,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cost", n => { Cost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_cost.CreateFromDiscriminatorValue); } },
+                { "cost", n => { Cost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderCost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderCost.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "order_address", n => { OrderAddress = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_order_address>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_order_address.CreateFromDiscriminatorValue); } },
+                { "order_address", n => { OrderAddress = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderOrderAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderOrderAddress.CreateFromDiscriminatorValue); } },
                 { "quantity", n => { Quantity = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_status>(); } },
@@ -111,7 +111,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_cost>("cost", Cost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderCost>("cost", Cost);
             writer.WriteIntValue("quantity", Quantity);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrder_status>("status", Status);
             writer.WriteStringValue("tracking_url", TrackingUrl);

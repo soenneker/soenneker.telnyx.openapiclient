@@ -31,10 +31,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The webhook payload for the portout.status_changed event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged_payload? Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged_payload Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload Payload { get; set; }
 #endif
         /// <summary>The status of the payload generation.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged_payload_status? PayloadStatus { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged_event_type>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged_payload>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged_payload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload.CreateFromDiscriminatorValue); } },
                 { "payload_status", n => { PayloadStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged_payload_status>(); } },
                 { "portout_id", n => { PortoutId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged_event_type>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged_payload>("payload", Payload);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChangedPayload>("payload", Payload);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookPortoutStatusChanged_payload_status>("payload_status", PayloadStatus);
             writer.WriteGuidValue("portout_id", PortoutId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

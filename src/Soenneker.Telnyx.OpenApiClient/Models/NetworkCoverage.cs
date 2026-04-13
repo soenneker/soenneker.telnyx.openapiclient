@@ -25,10 +25,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Location? Location { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation? Location { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Location Location { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation Location { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "available_services", n => { AvailableServices = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AvailableService_Wrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.AvailableService_Wrapper.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "location", n => { Location = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Location>(global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Location.CreateFromDiscriminatorValue); } },
+                { "location", n => { Location = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation>(global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
             };
         }
@@ -76,7 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AvailableService_Wrapper>("available_services", AvailableServices);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Netapps_Location>("location", Location);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NetappsLocation>("location", Location);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

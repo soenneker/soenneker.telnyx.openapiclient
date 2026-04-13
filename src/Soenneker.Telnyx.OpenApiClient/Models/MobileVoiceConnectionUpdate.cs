@@ -27,18 +27,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_inbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateInbound? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_inbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateInbound Inbound { get; set; }
 #endif
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_outbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateOutbound? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_outbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateOutbound Outbound { get; set; }
 #endif
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,8 +95,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "connection_name", n => { ConnectionName = n.GetStringValue(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_inbound.CreateFromDiscriminatorValue); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_outbound.CreateFromDiscriminatorValue); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateInbound.CreateFromDiscriminatorValue); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateOutbound.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "webhook_api_version", n => { WebhookApiVersion = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_webhook_api_version>(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
@@ -113,8 +113,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteStringValue("connection_name", ConnectionName);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_inbound>("inbound", Inbound);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_outbound>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateInbound>("inbound", Inbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdateOutbound>("outbound", Outbound);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobileVoiceConnectionUpdate_webhook_api_version>("webhook_api_version", WebhookApiVersion);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);

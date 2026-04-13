@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item
         /// <summary>Record of all attempts to deliver a webhook.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery? Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDelivery? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery Data { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDelivery Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item.Webhook_deliveriesGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery>(global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDelivery>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDelivery.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Webhook_delivery>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookDelivery>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

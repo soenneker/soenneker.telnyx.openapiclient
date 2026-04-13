@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The body parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the body of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_body_parameters? BodyParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters? BodyParameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_body_parameters BodyParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters BodyParameters { get; set; }
 #endif
         /// <summary>The description of the tool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,18 +53,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The path parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the path of the request if the URL contains a placeholder for a value. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_path_parameters? PathParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters? PathParameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_path_parameters PathParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters PathParameters { get; set; }
 #endif
         /// <summary>The query parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the query of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters? QueryParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters? QueryParameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters QueryParameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters QueryParameters { get; set; }
 #endif
         /// <summary>A list of mappings that extract values from the webhook response and store them as dynamic variables. Each mapping specifies a dynamic variable name and a dot-notation path to the value in the response body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,13 +111,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "async", n => { Async = n.GetBoolValue(); } },
-                { "body_parameters", n => { BodyParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_body_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_body_parameters.CreateFromDiscriminatorValue); } },
+                { "body_parameters", n => { BodyParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "headers", n => { Headers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_headers>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_headers.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "method", n => { Method = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_method>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "path_parameters", n => { PathParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_path_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_path_parameters.CreateFromDiscriminatorValue); } },
-                { "query_parameters", n => { QueryParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters.CreateFromDiscriminatorValue); } },
+                { "path_parameters", n => { PathParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters.CreateFromDiscriminatorValue); } },
+                { "query_parameters", n => { QueryParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters.CreateFromDiscriminatorValue); } },
                 { "store_fields_as_variables", n => { StoreFieldsAsVariables = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_store_fields_as_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_store_fields_as_variables.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timeout_ms", n => { TimeoutMs = n.GetIntValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -131,13 +131,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("async", Async);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_body_parameters>("body_parameters", BodyParameters);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters>("body_parameters", BodyParameters);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_headers>("headers", Headers);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_method>("method", Method);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_path_parameters>("path_parameters", PathParameters);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_query_parameters>("query_parameters", QueryParameters);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsPathParameters>("path_parameters", PathParameters);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsQueryParameters>("query_parameters", QueryParameters);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_store_fields_as_variables>("store_fields_as_variables", StoreFieldsAsVariables);
             writer.WriteIntValue("timeout_ms", TimeoutMs);
             writer.WriteStringValue("url", Url);

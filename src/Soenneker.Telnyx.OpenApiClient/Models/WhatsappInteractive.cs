@@ -15,36 +15,36 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The action property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_action? Action { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction? Action { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_action Action { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction Action { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_body? Body { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveBody? Body { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_body Body { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveBody Body { get; set; }
 #endif
         /// <summary>The footer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_footer? Footer { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveFooter? Footer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_footer Footer { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveFooter Footer { get; set; }
 #endif
         /// <summary>The header property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_header? Header { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveHeader? Header { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_header Header { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveHeader Header { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_type? Type { get; set; }
@@ -73,10 +73,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_action>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_action.CreateFromDiscriminatorValue); } },
-                { "body", n => { Body = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_body>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_body.CreateFromDiscriminatorValue); } },
-                { "footer", n => { Footer = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_footer>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_footer.CreateFromDiscriminatorValue); } },
-                { "header", n => { Header = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_header>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_header.CreateFromDiscriminatorValue); } },
+                { "action", n => { Action = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction.CreateFromDiscriminatorValue); } },
+                { "body", n => { Body = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveBody>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveBody.CreateFromDiscriminatorValue); } },
+                { "footer", n => { Footer = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveFooter>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveFooter.CreateFromDiscriminatorValue); } },
+                { "header", n => { Header = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveHeader.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_type>(); } },
             };
         }
@@ -87,10 +87,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_action>("action", Action);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_body>("body", Body);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_footer>("footer", Footer);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_header>("header", Header);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveAction>("action", Action);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveBody>("body", Body);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveFooter>("footer", Footer);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractiveHeader>("header", Header);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappInteractive_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

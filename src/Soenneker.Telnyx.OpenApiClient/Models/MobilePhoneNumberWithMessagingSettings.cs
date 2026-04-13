@@ -27,10 +27,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettings_features? Features { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettingsFeatures? Features { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettings_features Features { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettingsFeatures Features { get; private set; }
 #endif
         /// <summary>Identifies the type of resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,7 +121,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "features", n => { Features = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettings_features>(global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettings_features.CreateFromDiscriminatorValue); } },
+                { "features", n => { Features = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettingsFeatures>(global::Soenneker.Telnyx.OpenApiClient.Models.MobilePhoneNumberWithMessagingSettingsFeatures.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "messaging_product", n => { MessagingProduct = n.GetStringValue(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },

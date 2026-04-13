@@ -29,10 +29,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_payload? Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadPayload? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_payload Payload { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadPayload Payload { get; set; }
 #endif
         /// <summary>The status of the payload generation.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_payload_status? PayloadStatus { get; set; }
@@ -66,7 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "available_notification_methods", n => { AvailableNotificationMethods = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_available_notification_methods>()?.AsList(); } },
                 { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_event_type>(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_payload>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_payload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadPayload>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadPayload.CreateFromDiscriminatorValue); } },
                 { "payload_status", n => { PayloadStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_payload_status>(); } },
                 { "porting_order_id", n => { PortingOrderId = n.GetGuidValue(); } },
             };
@@ -81,7 +81,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_available_notification_methods>("available_notification_methods", AvailableNotificationMethods);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_event_type>("event_type", EventType);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_payload>("payload", Payload);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayloadPayload>("payload", Payload);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingEventDeletedPayload_payload_status>("payload_status", PayloadStatus);
             writer.WriteGuidValue("porting_order_id", PortingOrderId);
             writer.WriteAdditionalData(AdditionalData);

@@ -43,10 +43,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Identifies the requirement type that meets this requirement</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type? RequirementType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType? RequirementType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type RequirementType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType RequirementType { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail"/> and sets the default values.
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "field_value", n => { FieldValue = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "requirement_status", n => { RequirementStatus = n.GetStringValue(); } },
-                { "requirement_type", n => { RequirementType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type.CreateFromDiscriminatorValue); } },
+                { "requirement_type", n => { RequirementType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("field_value", FieldValue);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("requirement_status", RequirementStatus);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetail_requirement_type>("requirement_type", RequirementType);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingOrderRequirementDetailRequirementType>("requirement_type", RequirementType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

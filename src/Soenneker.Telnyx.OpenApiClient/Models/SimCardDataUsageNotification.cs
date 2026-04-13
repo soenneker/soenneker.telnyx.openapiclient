@@ -38,10 +38,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Data usage threshold that will trigger the notification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotification_threshold? Threshold { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThreshold? Threshold { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotification_threshold Threshold { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThreshold Threshold { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,7 +80,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "sim_card_id", n => { SimCardId = n.GetGuidValue(); } },
-                { "threshold", n => { Threshold = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotification_threshold>(global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotification_threshold.CreateFromDiscriminatorValue); } },
+                { "threshold", n => { Threshold = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThreshold>(global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThreshold.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -92,7 +92,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("sim_card_id", SimCardId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotification_threshold>("threshold", Threshold);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimCardDataUsageNotificationThreshold>("threshold", Threshold);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

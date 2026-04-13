@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Response details, optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Http_response? Response { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HttpResponse? Response { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Http_response Response { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.HttpResponse Response { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Http"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "request", n => { Request = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http_request>(global::Soenneker.Telnyx.OpenApiClient.Models.Http_request.CreateFromDiscriminatorValue); } },
-                { "response", n => { Response = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http_response>(global::Soenneker.Telnyx.OpenApiClient.Models.Http_response.CreateFromDiscriminatorValue); } },
+                { "response", n => { Response = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HttpResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.HttpResponse.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http_request>("request", Request);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Http_response>("response", Response);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.HttpResponse>("response", Response);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

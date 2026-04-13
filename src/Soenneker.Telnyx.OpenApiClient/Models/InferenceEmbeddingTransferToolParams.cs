@@ -41,10 +41,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Configuration for voicemail detection (AMD - Answering Machine Detection) on the transferred call. Allows the assistant to detect when a voicemail system answers the transferred call and take appropriate action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection? VoicemailDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection? VoicemailDetection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection VoicemailDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection VoicemailDetection { get; set; }
 #endif
         /// <summary>Optional delay in milliseconds before playing the warm message audio when the transferred call is answered. When set, the audio_url is not included in the dial command; instead, playback starts after the specified delay. When not set, existing behavior (audio_url in dial) is preserved.</summary>
         public int? WarmMessageDelayMs { get; set; }
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_custom_headers>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_custom_headers.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "targets", n => { Targets = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targets>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targets.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection.CreateFromDiscriminatorValue); } },
+                { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection.CreateFromDiscriminatorValue); } },
                 { "warm_message_delay_ms", n => { WarmMessageDelayMs = n.GetIntValue(); } },
                 { "warm_transfer_instructions", n => { WarmTransferInstructions = n.GetStringValue(); } },
             };
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_custom_headers>("custom_headers", CustomHeaders);
             writer.WriteStringValue("from", From);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targets>("targets", Targets);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_voicemail_detection>("voicemail_detection", VoicemailDetection);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection>("voicemail_detection", VoicemailDetection);
             writer.WriteIntValue("warm_message_delay_ms", WarmMessageDelayMs);
             writer.WriteStringValue("warm_transfer_instructions", WarmTransferInstructions);
             writer.WriteAdditionalData(AdditionalData);

@@ -27,10 +27,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Specifies the extension range for this porting phone number extension.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_extension_range? ExtensionRange { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange? ExtensionRange { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_extension_range ExtensionRange { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange ExtensionRange { get; set; }
 #endif
         /// <summary>Uniquely identifies this porting phone number extension.</summary>
         public Guid? Id { get; private set; }
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "activation_ranges", n => { ActivationRanges = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_activation_ranges>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_activation_ranges.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "extension_range", n => { ExtensionRange = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_extension_range>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_extension_range.CreateFromDiscriminatorValue); } },
+                { "extension_range", n => { ExtensionRange = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "porting_phone_number_id", n => { PortingPhoneNumberId = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
@@ -88,7 +88,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_activation_ranges>("activation_ranges", ActivationRanges);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtension_extension_range>("extension_range", ExtensionRange);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberExtensionExtensionRange>("extension_range", ExtensionRange);
             writer.WriteGuidValue("porting_phone_number_id", PortingPhoneNumberId);
             writer.WriteAdditionalData(AdditionalData);
         }

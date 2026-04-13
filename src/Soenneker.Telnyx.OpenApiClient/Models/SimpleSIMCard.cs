@@ -35,18 +35,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The SIM card consumption so far in the current billing cycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard_current_billing_period_consumed_data? CurrentBillingPeriodConsumedData { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCardCurrentBillingPeriodConsumedData? CurrentBillingPeriodConsumedData { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard_current_billing_period_consumed_data CurrentBillingPeriodConsumedData { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCardCurrentBillingPeriodConsumedData CurrentBillingPeriodConsumedData { get; private set; }
 #endif
         /// <summary>The SIM card individual data limit configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard_data_limit? DataLimit { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCardDataLimit? DataLimit { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard_data_limit DataLimit { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCardDataLimit DataLimit { get; private set; }
 #endif
         /// <summary>The Embedded Identity Document (eID) for eSIM cards.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -166,8 +166,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "actions_in_progress", n => { ActionsInProgress = n.GetBoolValue(); } },
                 { "authorized_imeis", n => { AuthorizedImeis = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "current_billing_period_consumed_data", n => { CurrentBillingPeriodConsumedData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard_current_billing_period_consumed_data>(global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard_current_billing_period_consumed_data.CreateFromDiscriminatorValue); } },
-                { "data_limit", n => { DataLimit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard_data_limit>(global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard_data_limit.CreateFromDiscriminatorValue); } },
+                { "current_billing_period_consumed_data", n => { CurrentBillingPeriodConsumedData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCardCurrentBillingPeriodConsumedData>(global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCardCurrentBillingPeriodConsumedData.CreateFromDiscriminatorValue); } },
+                { "data_limit", n => { DataLimit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCardDataLimit>(global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCardDataLimit.CreateFromDiscriminatorValue); } },
                 { "eid", n => { Eid = n.GetStringValue(); } },
                 { "esim_installation_status", n => { EsimInstallationStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SimpleSIMCard_esim_installation_status>(); } },
                 { "iccid", n => { Iccid = n.GetStringValue(); } },

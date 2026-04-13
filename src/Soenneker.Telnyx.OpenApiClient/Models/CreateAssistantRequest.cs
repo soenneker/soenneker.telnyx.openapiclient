@@ -241,7 +241,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Assistants : IComposedTypeWrapper, IParsable
@@ -270,21 +270,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool HangupTool { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool? InferenceEmbeddingTransferTool { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool? InferenceEmbeddingTransferTool { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool InferenceEmbeddingTransferTool { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool InferenceEmbeddingTransferTool { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool? InferenceEmbeddingWebhookTool { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool? InferenceEmbeddingWebhookTool { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool InferenceEmbeddingWebhookTool { get; set; }
+            public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool InferenceEmbeddingWebhookTool { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -348,13 +348,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.HangupTool = new global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool();
                 }
-                else if("inference_embedding_TransferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("InferenceEmbeddingTransferTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.InferenceEmbeddingTransferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool();
+                    result.InferenceEmbeddingTransferTool = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool();
                 }
-                else if("inference_embedding_WebhookTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("InferenceEmbeddingWebhookTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.InferenceEmbeddingWebhookTool = new global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool();
+                    result.InferenceEmbeddingWebhookTool = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool();
                 }
                 else if("InviteTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
@@ -447,11 +447,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 }
                 else if(InferenceEmbeddingTransferTool != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_TransferTool>(null, InferenceEmbeddingTransferTool);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool>(null, InferenceEmbeddingTransferTool);
                 }
                 else if(InferenceEmbeddingWebhookTool != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Inference_embedding_WebhookTool>(null, InferenceEmbeddingWebhookTool);
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool>(null, InferenceEmbeddingWebhookTool);
                 }
                 else if(InviteTool != null)
                 {

@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Upper limit on the amount of data the SIM cards, within the group, can use.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSIMCardGroup_data_limit? DataLimit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSIMCardGroupDataLimit? DataLimit { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSIMCardGroup_data_limit DataLimit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSIMCardGroupDataLimit DataLimit { get; set; }
 #endif
         /// <summary>Indicates whether the SIM card group is the users default group.&lt;br/&gt;The default group is created for the user and can not be removed.</summary>
         public bool? Default { get; private set; }
@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "consumed_data", n => { ConsumedData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData>(global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "data_limit", n => { DataLimit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSIMCardGroup_data_limit>(global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSIMCardGroup_data_limit.CreateFromDiscriminatorValue); } },
+                { "data_limit", n => { DataLimit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSIMCardGroupDataLimit>(global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSIMCardGroupDataLimit.CreateFromDiscriminatorValue); } },
                 { "default", n => { Default = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -118,7 +118,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConsumedData>("consumed_data", ConsumedData);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSIMCardGroup_data_limit>("data_limit", DataLimit);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SearchedSIMCardGroupDataLimit>("data_limit", DataLimit);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("private_wireless_gateway_id", PrivateWirelessGatewayId);
             writer.WriteIntValue("sim_card_count", SimCardCount);

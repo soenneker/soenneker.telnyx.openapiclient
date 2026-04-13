@@ -53,18 +53,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>These errors may point at addressees when referring to unsuccessful/unconfirmed delivery statuses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Error>? Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError>? Errors { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Error> Errors { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError> Errors { get; set; }
 #endif
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_from? From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadFrom? From { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_from From { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadFrom From { get; set; }
 #endif
         /// <summary>Identifies the type of resource.</summary>
         public Guid? Id { get; set; }
@@ -199,8 +199,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "cost_breakdown", n => { CostBreakdown = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost_breakdown>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost_breakdown.CreateFromDiscriminatorValue); } },
                 { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_direction>(); } },
                 { "encoding", n => { Encoding = n.GetStringValue(); } },
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Error>(global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Error.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_from>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_from.CreateFromDiscriminatorValue); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError>(global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "from", n => { From = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadFrom>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadFrom.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "media", n => { Media = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_media>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_media.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
@@ -237,8 +237,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_cost_breakdown>("cost_breakdown", CostBreakdown);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_direction>("direction", Direction);
             writer.WriteStringValue("encoding", Encoding);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.Messaging_Error>("errors", Errors);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_from>("from", From);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.MessagingError>("errors", Errors);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayloadFrom>("from", From);
             writer.WriteGuidValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_media>("media", Media);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);

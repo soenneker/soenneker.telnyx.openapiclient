@@ -27,18 +27,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Configuration for noise suppression. Only applicable when noise_suppression is &apos;deepfilternet&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config? NoiseSuppressionConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig? NoiseSuppressionConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config NoiseSuppressionConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig NoiseSuppressionConfig { get; set; }
 #endif
         /// <summary>Configuration for call recording format and channel settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings? RecordingSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings? RecordingSettings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings RecordingSettings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings RecordingSettings { get; set; }
 #endif
         /// <summary>When enabled, allows users to interact with your AI assistant directly from your website without requiring authentication. This is required for FE widgets that work with assistants that have telephony enabled.</summary>
         public bool? SupportsUnauthenticatedWebCalls { get; set; }
@@ -49,10 +49,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>&quot;Configuration for voicemail detection (AMD - Answering Machine Detection) on outgoing calls. These settings only apply if AMD is enabled on the Dial command. See [TeXML Dial documentation](https://developers.telnyx.com/api-reference/texml-rest-commands/initiate-an-outbound-call) for enabling AMD. Recommended settings: MachineDetection=Enable, AsyncAmd=true, DetectionMode=Premium.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_voicemail_detection? VoicemailDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetection? VoicemailDetection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_voicemail_detection VoicemailDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetection VoicemailDetection { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings"/> and sets the default values.
@@ -81,12 +81,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "default_texml_app_id", n => { DefaultTexmlAppId = n.GetStringValue(); } },
                 { "noise_suppression", n => { NoiseSuppression = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression>(); } },
-                { "noise_suppression_config", n => { NoiseSuppressionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config.CreateFromDiscriminatorValue); } },
-                { "recording_settings", n => { RecordingSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings.CreateFromDiscriminatorValue); } },
+                { "noise_suppression_config", n => { NoiseSuppressionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig.CreateFromDiscriminatorValue); } },
+                { "recording_settings", n => { RecordingSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings.CreateFromDiscriminatorValue); } },
                 { "supports_unauthenticated_web_calls", n => { SupportsUnauthenticatedWebCalls = n.GetBoolValue(); } },
                 { "time_limit_secs", n => { TimeLimitSecs = n.GetIntValue(); } },
                 { "user_idle_timeout_secs", n => { UserIdleTimeoutSecs = n.GetIntValue(); } },
-                { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_voicemail_detection>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_voicemail_detection.CreateFromDiscriminatorValue); } },
+                { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetection.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -98,12 +98,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("default_texml_app_id", DefaultTexmlAppId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression>("noise_suppression", NoiseSuppression);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_noise_suppression_config>("noise_suppression_config", NoiseSuppressionConfig);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_recording_settings>("recording_settings", RecordingSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsNoiseSuppressionConfig>("noise_suppression_config", NoiseSuppressionConfig);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings>("recording_settings", RecordingSettings);
             writer.WriteBoolValue("supports_unauthenticated_web_calls", SupportsUnauthenticatedWebCalls);
             writer.WriteIntValue("time_limit_secs", TimeLimitSecs);
             writer.WriteIntValue("user_idle_timeout_secs", UserIdleTimeoutSecs);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings_voicemail_detection>("voicemail_detection", VoicemailDetection);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsVoicemailDetection>("voicemail_detection", VoicemailDetection);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

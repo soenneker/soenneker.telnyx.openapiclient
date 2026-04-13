@@ -17,28 +17,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The global_ip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_global_ip? GlobalIp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricGlobalIp? GlobalIp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_global_ip GlobalIp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricGlobalIp GlobalIp { get; set; }
 #endif
         /// <summary>The received property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_received? Received { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricReceived? Received { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_received Received { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricReceived Received { get; set; }
 #endif
         /// <summary>The timestamp of the metric.</summary>
         public DateTimeOffset? Timestamp { get; set; }
         /// <summary>The transmitted property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_transmitted? Transmitted { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricTransmitted? Transmitted { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_transmitted Transmitted { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricTransmitted Transmitted { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric"/> and sets the default values.
@@ -65,10 +65,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "global_ip", n => { GlobalIp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_global_ip>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_global_ip.CreateFromDiscriminatorValue); } },
-                { "received", n => { Received = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_received>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_received.CreateFromDiscriminatorValue); } },
+                { "global_ip", n => { GlobalIp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricGlobalIp>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricGlobalIp.CreateFromDiscriminatorValue); } },
+                { "received", n => { Received = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricReceived>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricReceived.CreateFromDiscriminatorValue); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
-                { "transmitted", n => { Transmitted = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_transmitted>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_transmitted.CreateFromDiscriminatorValue); } },
+                { "transmitted", n => { Transmitted = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricTransmitted>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricTransmitted.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,10 +78,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_global_ip>("global_ip", GlobalIp);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_received>("received", Received);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricGlobalIp>("global_ip", GlobalIp);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricReceived>("received", Received);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetric_transmitted>("transmitted", Transmitted);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpUsageMetricTransmitted>("transmitted", Transmitted);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

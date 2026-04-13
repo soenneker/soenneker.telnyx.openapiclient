@@ -39,18 +39,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionInbound? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionInbound Inbound { get; set; }
 #endif
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionOutbound? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionOutbound Outbound { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -128,8 +128,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "credential_active", n => { CredentialActive = n.GetBoolValue(); } },
                 { "external_sip_connection", n => { ExternalSipConnection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnection>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound.CreateFromDiscriminatorValue); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound.CreateFromDiscriminatorValue); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionInbound.CreateFromDiscriminatorValue); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionOutbound.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -151,8 +151,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("credential_active", CredentialActive);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnection>("external_sip_connection", ExternalSipConnection);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_inbound>("inbound", Inbound);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnection_outbound>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionInbound>("inbound", Inbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalConnectionOutbound>("outbound", Outbound);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("updated_at", UpdatedAt);

@@ -95,10 +95,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The region property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCombined_region? Region { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion? Region { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCombined_region Region { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion Region { get; set; }
 #endif
         /// <summary>The region the interface should be deployed to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -194,7 +194,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "primary_routing_announcement", n => { PrimaryRoutingAnnouncement = n.GetBoolValue(); } },
                 { "primary_telnyx_ip", n => { PrimaryTelnyxIp = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCombined_region>(global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCombined_region.CreateFromDiscriminatorValue); } },
+                { "region", n => { Region = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion>(global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion.CreateFromDiscriminatorValue); } },
                 { "region_code", n => { RegionCode = n.GetStringValue(); } },
                 { "secondary_bgp_key", n => { SecondaryBgpKey = n.GetStringValue(); } },
                 { "secondary_cloud_account_id", n => { SecondaryCloudAccountId = n.GetStringValue(); } },
@@ -224,7 +224,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("primary_cloud_ip", PrimaryCloudIp);
             writer.WriteBoolValue("primary_routing_announcement", PrimaryRoutingAnnouncement);
             writer.WriteStringValue("primary_telnyx_ip", PrimaryTelnyxIp);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VirtualCrossConnectCombined_region>("region", Region);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion>("region", Region);
             writer.WriteStringValue("region_code", RegionCode);
             writer.WriteStringValue("secondary_bgp_key", SecondaryBgpKey);
             writer.WriteStringValue("secondary_cloud_account_id", SecondaryCloudAccountId);

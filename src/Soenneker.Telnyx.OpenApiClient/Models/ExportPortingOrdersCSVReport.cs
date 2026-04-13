@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The filters to apply to the export porting order CSV report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport_filters? Filters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReportFilters? Filters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport_filters Filters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReportFilters Filters { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport_filters>(global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport_filters.CreateFromDiscriminatorValue); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReportFilters>(global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReportFilters.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReport_filters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExportPortingOrdersCSVReportFilters>("filters", Filters);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

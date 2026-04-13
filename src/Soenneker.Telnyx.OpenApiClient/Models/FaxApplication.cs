@@ -45,18 +45,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplication_inbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplication_inbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound Inbound { get; set; }
 #endif
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplication_outbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationOutbound? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplication_outbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationOutbound Outbound { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -131,8 +131,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "application_name", n => { ApplicationName = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplication_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplication_inbound.CreateFromDiscriminatorValue); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplication_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplication_outbound.CreateFromDiscriminatorValue); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound.CreateFromDiscriminatorValue); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationOutbound.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -153,8 +153,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("application_name", ApplicationName);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplication_inbound>("inbound", Inbound);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplication_outbound>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationInbound>("inbound", Inbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FaxApplicationOutbound>("outbound", Outbound);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("updated_at", UpdatedAt);

@@ -41,10 +41,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_source? Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSource? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Error_source Source { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSource Source { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta>(global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_source>(global::Soenneker.Telnyx.OpenApiClient.Models.Error_source.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSource>(global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSource.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_meta>("meta", Meta);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Error_source>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ErrorSource>("source", Source);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

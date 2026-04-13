@@ -53,18 +53,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_inbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInbound? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_inbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInbound Inbound { get; set; }
 #endif
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_outbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationOutbound? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_outbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationOutbound Outbound { get; set; }
 #endif
         /// <summary>Identifies the type of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -156,8 +156,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "first_command_timeout_secs", n => { FirstCommandTimeoutSecs = n.GetIntValue(); } },
                 { "friendly_name", n => { FriendlyName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_inbound.CreateFromDiscriminatorValue); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_outbound.CreateFromDiscriminatorValue); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInbound.CreateFromDiscriminatorValue); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationOutbound.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "status_callback", n => { StatusCallback = n.GetStringValue(); } },
                 { "status_callback_method", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_status_callback_method>(); } },
@@ -184,8 +184,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("first_command_timeout_secs", FirstCommandTimeoutSecs);
             writer.WriteStringValue("friendly_name", FriendlyName);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_inbound>("inbound", Inbound);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_outbound>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationInbound>("inbound", Inbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplicationOutbound>("outbound", Outbound);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteStringValue("status_callback", StatusCallback);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TexmlApplication_status_callback_method>("status_callback_method", StatusCallbackMethod);

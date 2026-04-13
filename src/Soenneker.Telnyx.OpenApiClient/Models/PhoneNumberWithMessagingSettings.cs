@@ -35,10 +35,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features? Features { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettingsFeatures? Features { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features Features { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettingsFeatures Features { get; private set; }
 #endif
         /// <summary>High level health metrics about the number and it&apos;s messaging sending patterns.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -138,7 +138,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "eligible_messaging_products", n => { EligibleMessagingProducts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "features", n => { Features = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettings_features.CreateFromDiscriminatorValue); } },
+                { "features", n => { Features = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettingsFeatures>(global::Soenneker.Telnyx.OpenApiClient.Models.PhoneNumberWithMessagingSettingsFeatures.CreateFromDiscriminatorValue); } },
                 { "health", n => { Health = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics>(global::Soenneker.Telnyx.OpenApiClient.Models.NumberHealthMetrics.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "messaging_product", n => { MessagingProduct = n.GetStringValue(); } },

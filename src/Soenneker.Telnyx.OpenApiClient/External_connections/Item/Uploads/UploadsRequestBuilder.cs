@@ -79,22 +79,22 @@ namespace Soenneker.Telnyx.OpenApiClient.External_connections.Item.Uploads
         /// <summary>
         /// Creates a new Upload request to Microsoft teams with the included phone numbers. Only one of civic_address_id or location_id must be provided, not both. The maximum allowed phone numbers for the numbers_ids array is 1000.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUpload_202"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateUploadRequestResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUpload_202?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUploadRequestResponse?> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUpload_202> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUploadRequestResponse> PostAsync(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUpload_202>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionUpload_202.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.CreateUploadRequestResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.CreateUploadRequestResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your Upload requests for the given external connection.

@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Optional configuration parameters to modify &apos;answering_machine_detection&apos; performance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config? AnsweringMachineDetectionConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestAnsweringMachineDetectionConfig? AnsweringMachineDetectionConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config AnsweringMachineDetectionConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestAnsweringMachineDetectionConfig AnsweringMachineDetectionConfig { get; set; }
 #endif
         /// <summary>AI Assistant configuration. All fields except `id` are optional — the assistant&apos;s stored configuration will be used as fallback for any omitted fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,10 +65,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Optional configuration parameters to dial new participant into a conference.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config? ConferenceConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfig? ConferenceConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config ConferenceConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfig ConferenceConfig { get; set; }
 #endif
         /// <summary>The ID of the Call Control App (formerly ID of the connection) to be used when dialing the destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -322,7 +322,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "answering_machine_detection", n => { AnsweringMachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection>(); } },
-                { "answering_machine_detection_config", n => { AnsweringMachineDetectionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config.CreateFromDiscriminatorValue); } },
+                { "answering_machine_detection_config", n => { AnsweringMachineDetectionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestAnsweringMachineDetectionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestAnsweringMachineDetectionConfig.CreateFromDiscriminatorValue); } },
                 { "assistant", n => { Assistant = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest.CreateFromDiscriminatorValue); } },
                 { "audio_url", n => { AudioUrl = n.GetStringValue(); } },
                 { "billing_group_id", n => { BillingGroupId = n.GetGuidValue(); } },
@@ -330,7 +330,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "bridge_on_answer", n => { BridgeOnAnswer = n.GetBoolValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
-                { "conference_config", n => { ConferenceConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config.CreateFromDiscriminatorValue); } },
+                { "conference_config", n => { ConferenceConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfig.CreateFromDiscriminatorValue); } },
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "dialogflow_config", n => { DialogflowConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig.CreateFromDiscriminatorValue); } },
@@ -387,7 +387,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection>("answering_machine_detection", AnsweringMachineDetection);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_answering_machine_detection_config>("answering_machine_detection_config", AnsweringMachineDetectionConfig);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestAnsweringMachineDetectionConfig>("answering_machine_detection_config", AnsweringMachineDetectionConfig);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest>("assistant", Assistant);
             writer.WriteStringValue("audio_url", AudioUrl);
             writer.WriteGuidValue("billing_group_id", BillingGroupId);
@@ -395,7 +395,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("bridge_on_answer", BridgeOnAnswer);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_conference_config>("conference_config", ConferenceConfig);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequestConferenceConfig>("conference_config", ConferenceConfig);
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>("custom_headers", CustomHeaders);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.DialogflowConfig>("dialogflow_config", DialogflowConfig);

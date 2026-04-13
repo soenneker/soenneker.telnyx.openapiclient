@@ -19,10 +19,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The filters that were applied to generate this report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_filters? Filters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters? Filters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_filters Filters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters Filters { get; set; }
 #endif
         /// <summary>Identifies the resource.</summary>
         public Guid? Id { get; private set; }
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_filters>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_filters.CreateFromDiscriminatorValue); } },
+                { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters>(global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "order_type", n => { OrderType = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_status>(); } },
@@ -82,7 +82,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_filters>("filters", Filters);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReportFilters>("filters", Filters);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SubNumberOrdersReport_status>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

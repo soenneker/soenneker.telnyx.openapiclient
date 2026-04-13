@@ -26,10 +26,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The resource being paid for. Included in the payment signature.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_resource? Resource { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsResource? Resource { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_resource Resource { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsResource Resource { get; set; }
 #endif
         /// <summary>x402 protocol version. Currently always 2.</summary>
         public int? X402Version { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "accepts", n => { Accepts = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_accepts>(global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_accepts.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "resource", n => { Resource = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_resource>(global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_resource.CreateFromDiscriminatorValue); } },
+                { "resource", n => { Resource = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsResource>(global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsResource.CreateFromDiscriminatorValue); } },
                 { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_accepts>("accepts", Accepts);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirements_resource>("resource", Resource);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.X402PaymentRequirementsResource>("resource", Resource);
             writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);
         }

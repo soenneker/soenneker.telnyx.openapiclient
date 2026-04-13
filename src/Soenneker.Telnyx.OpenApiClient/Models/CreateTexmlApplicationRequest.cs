@@ -37,18 +37,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_inbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequestInbound? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_inbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequestInbound Inbound { get; set; }
 #endif
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_outbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequestOutbound? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_outbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequestOutbound Outbound { get; set; }
 #endif
         /// <summary>URL for Telnyx to send requests to containing information about call progress events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -122,8 +122,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "first_command_timeout", n => { FirstCommandTimeout = n.GetBoolValue(); } },
                 { "first_command_timeout_secs", n => { FirstCommandTimeoutSecs = n.GetIntValue(); } },
                 { "friendly_name", n => { FriendlyName = n.GetStringValue(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_inbound.CreateFromDiscriminatorValue); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_outbound.CreateFromDiscriminatorValue); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequestInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequestInbound.CreateFromDiscriminatorValue); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequestOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequestOutbound.CreateFromDiscriminatorValue); } },
                 { "status_callback", n => { StatusCallback = n.GetStringValue(); } },
                 { "status_callback_method", n => { StatusCallbackMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_status_callback_method>(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -146,8 +146,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("first_command_timeout", FirstCommandTimeout);
             writer.WriteIntValue("first_command_timeout_secs", FirstCommandTimeoutSecs);
             writer.WriteStringValue("friendly_name", FriendlyName);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_inbound>("inbound", Inbound);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_outbound>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequestInbound>("inbound", Inbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequestOutbound>("outbound", Outbound);
             writer.WriteStringValue("status_callback", StatusCallback);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateTexmlApplicationRequest_status_callback_method>("status_callback_method", StatusCallbackMethod);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

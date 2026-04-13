@@ -36,10 +36,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A JSON object representation of the action params.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings? Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupActionSettings? Settings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupActionSettings Settings { get; set; }
 #endif
         /// <summary>The SIM card group identification.</summary>
         public Guid? SimCardGroupId { get; set; }
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupActionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupActionSettings.CreateFromDiscriminatorValue); } },
                 { "sim_card_group_id", n => { SimCardGroupId = n.GetGuidValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_status>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_type>(); } },
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_settings>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupActionSettings>("settings", Settings);
             writer.WriteGuidValue("sim_card_group_id", SimCardGroupId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_status>("status", Status);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardGroupAction_type>("type", Type);

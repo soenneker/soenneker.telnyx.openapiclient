@@ -63,10 +63,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The region property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WireguardInterfaceRead_region? Region { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion? Region { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WireguardInterfaceRead_region Region { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion Region { get; set; }
 #endif
         /// <summary>The region interface is deployed to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "network_id", n => { NetworkId = n.GetGuidValue(); } },
                 { "public_key", n => { PublicKey = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WireguardInterfaceRead_region>(global::Soenneker.Telnyx.OpenApiClient.Models.WireguardInterfaceRead_region.CreateFromDiscriminatorValue); } },
+                { "region", n => { Region = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion>(global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion.CreateFromDiscriminatorValue); } },
                 { "region_code", n => { RegionCode = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InterfaceStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -135,7 +135,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("enable_sip_trunking", EnableSipTrunking);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("network_id", NetworkId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WireguardInterfaceRead_region>("region", Region);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion>("region", Region);
             writer.WriteStringValue("region_code", RegionCode);
             writer.WriteAdditionalData(AdditionalData);
         }

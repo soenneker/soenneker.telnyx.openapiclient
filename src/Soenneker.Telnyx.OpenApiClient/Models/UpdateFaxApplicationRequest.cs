@@ -37,18 +37,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequest_inbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequestInbound? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequest_inbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequestInbound Inbound { get; set; }
 #endif
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequest_outbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequestOutbound? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequest_outbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequestOutbound Outbound { get; set; }
 #endif
         /// <summary>Tags associated with the Fax Application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,8 +106,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "anchorsite_override", n => { AnchorsiteOverride = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>(); } },
                 { "application_name", n => { ApplicationName = n.GetStringValue(); } },
                 { "fax_email_recipient", n => { FaxEmailRecipient = n.GetStringValue(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequest_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequest_inbound.CreateFromDiscriminatorValue); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequest_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequest_outbound.CreateFromDiscriminatorValue); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequestInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequestInbound.CreateFromDiscriminatorValue); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequestOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequestOutbound.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
@@ -125,8 +125,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnchorsiteOverride>("anchorsite_override", AnchorsiteOverride);
             writer.WriteStringValue("application_name", ApplicationName);
             writer.WriteStringValue("fax_email_recipient", FaxEmailRecipient);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequest_inbound>("inbound", Inbound);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequest_outbound>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequestInbound>("inbound", Inbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UpdateFaxApplicationRequestOutbound>("outbound", Outbound);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);

@@ -21,18 +21,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The inbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound? Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequestInbound? Inbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound Inbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequestInbound Inbound { get; set; }
 #endif
         /// <summary>The outbound property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_outbound? Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequestOutbound? Outbound { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_outbound Outbound { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequestOutbound Outbound { get; set; }
 #endif
         /// <summary>Tags associated with the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,8 +88,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "external_sip_connection", n => { ExternalSipConnection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnectionZoomOnly>(); } },
-                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound.CreateFromDiscriminatorValue); } },
-                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_outbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_outbound.CreateFromDiscriminatorValue); } },
+                { "inbound", n => { Inbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequestInbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequestInbound.CreateFromDiscriminatorValue); } },
+                { "outbound", n => { Outbound = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequestOutbound>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequestOutbound.CreateFromDiscriminatorValue); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "webhook_event_failover_url", n => { WebhookEventFailoverUrl = n.GetStringValue(); } },
                 { "webhook_event_url", n => { WebhookEventUrl = n.GetStringValue(); } },
@@ -105,8 +105,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalSipConnectionZoomOnly>("external_sip_connection", ExternalSipConnection);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_inbound>("inbound", Inbound);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequest_outbound>("outbound", Outbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequestInbound>("inbound", Inbound);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateExternalConnectionRequestOutbound>("outbound", Outbound);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("webhook_event_failover_url", WebhookEventFailoverUrl);
             writer.WriteStringValue("webhook_event_url", WebhookEventUrl);

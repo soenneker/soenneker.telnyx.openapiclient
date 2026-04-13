@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The hyperparameters used for the fine-tuning job.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters? Hyperparameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters? Hyperparameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters Hyperparameters { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters Hyperparameters { get; set; }
 #endif
         /// <summary>The base model that is being fine-tuned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,7 +71,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "hyperparameters", n => { Hyperparameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters.CreateFromDiscriminatorValue); } },
+                { "hyperparameters", n => { Hyperparameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "suffix", n => { Suffix = n.GetStringValue(); } },
                 { "training_file", n => { TrainingFile = n.GetStringValue(); } },
@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequest_hyperparameters>("hyperparameters", Hyperparameters);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateFineTuningJobRequestHyperparameters>("hyperparameters", Hyperparameters);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("suffix", Suffix);
             writer.WriteStringValue("training_file", TrainingFile);

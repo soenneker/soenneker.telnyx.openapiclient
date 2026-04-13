@@ -27,26 +27,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The shipping_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_shipping_cost? ShippingCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewShippingCost? ShippingCost { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_shipping_cost ShippingCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewShippingCost ShippingCost { get; set; }
 #endif
         /// <summary>The sim_cards_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_sim_cards_cost? SimCardsCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewSimCardsCost? SimCardsCost { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_sim_cards_cost SimCardsCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewSimCardsCost SimCardsCost { get; set; }
 #endif
         /// <summary>The total_cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_total_cost? TotalCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewTotalCost? TotalCost { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_total_cost TotalCost { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewTotalCost TotalCost { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview"/> and sets the default values.
@@ -75,9 +75,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "quantity", n => { Quantity = n.GetIntValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "shipping_cost", n => { ShippingCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_shipping_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_shipping_cost.CreateFromDiscriminatorValue); } },
-                { "sim_cards_cost", n => { SimCardsCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_sim_cards_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_sim_cards_cost.CreateFromDiscriminatorValue); } },
-                { "total_cost", n => { TotalCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_total_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_total_cost.CreateFromDiscriminatorValue); } },
+                { "shipping_cost", n => { ShippingCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewShippingCost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewShippingCost.CreateFromDiscriminatorValue); } },
+                { "sim_cards_cost", n => { SimCardsCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewSimCardsCost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewSimCardsCost.CreateFromDiscriminatorValue); } },
+                { "total_cost", n => { TotalCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewTotalCost>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewTotalCost.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -88,9 +88,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("quantity", Quantity);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_shipping_cost>("shipping_cost", ShippingCost);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_sim_cards_cost>("sim_cards_cost", SimCardsCost);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreview_total_cost>("total_cost", TotalCost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewShippingCost>("shipping_cost", ShippingCost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewSimCardsCost>("sim_cards_cost", SimCardsCost);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardOrderPreviewTotalCost>("total_cost", TotalCost);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

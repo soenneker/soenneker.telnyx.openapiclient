@@ -87,10 +87,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The whatsapp_business_account property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_whatsapp_business_account? WhatsappBusinessAccount { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataWhatsappBusinessAccount? WhatsappBusinessAccount { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_whatsapp_business_account WhatsappBusinessAccount { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataWhatsappBusinessAccount WhatsappBusinessAccount { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData"/> and sets the default values.
@@ -128,7 +128,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "template_id", n => { TemplateId = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "whatsapp_business_account", n => { WhatsappBusinessAccount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_whatsapp_business_account>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_whatsapp_business_account.CreateFromDiscriminatorValue); } },
+                { "whatsapp_business_account", n => { WhatsappBusinessAccount = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataWhatsappBusinessAccount>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataWhatsappBusinessAccount.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -149,7 +149,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("template_id", TemplateId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateData_whatsapp_business_account>("whatsapp_business_account", WhatsappBusinessAccount);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateDataWhatsappBusinessAccount>("whatsapp_business_account", WhatsappBusinessAccount);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

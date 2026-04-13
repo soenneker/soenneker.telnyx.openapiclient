@@ -37,10 +37,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The local property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_local? Local { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal? Local { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_local Local { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal Local { get; set; }
 #endif
         /// <summary>The mobile property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,10 +93,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The toll_free property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free? TollFree { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree? TollFree { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free TollFree { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree TollFree { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage"/> and sets the default values.
@@ -127,7 +127,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "features", n => { Features = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "international_sms", n => { InternationalSms = n.GetBoolValue(); } },
                 { "inventory_coverage", n => { InventoryCoverage = n.GetBoolValue(); } },
-                { "local", n => { Local = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_local>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_local.CreateFromDiscriminatorValue); } },
+                { "local", n => { Local = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal.CreateFromDiscriminatorValue); } },
                 { "mobile", n => { Mobile = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_mobile>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_mobile.CreateFromDiscriminatorValue); } },
                 { "national", n => { National = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_national>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_national.CreateFromDiscriminatorValue); } },
                 { "numbers", n => { Numbers = n.GetBoolValue(); } },
@@ -137,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "reservable", n => { Reservable = n.GetBoolValue(); } },
                 { "shared_cost", n => { SharedCost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost.CreateFromDiscriminatorValue); } },
-                { "toll_free", n => { TollFree = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free.CreateFromDiscriminatorValue); } },
+                { "toll_free", n => { TollFree = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree>(global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -151,7 +151,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("features", Features);
             writer.WriteBoolValue("international_sms", InternationalSms);
             writer.WriteBoolValue("inventory_coverage", InventoryCoverage);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_local>("local", Local);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageLocal>("local", Local);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_mobile>("mobile", Mobile);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_national>("national", National);
             writer.WriteBoolValue("numbers", Numbers);
@@ -161,7 +161,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("region", Region);
             writer.WriteBoolValue("reservable", Reservable);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_shared_cost>("shared_cost", SharedCost);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverage_toll_free>("toll_free", TollFree);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CountryCoverageTollFree>("toll_free", TollFree);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -37,10 +37,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Specifies the phone number range for this porting phone number block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_range? PhoneNumberRange { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberRange? PhoneNumberRange { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_range PhoneNumberRange { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberRange PhoneNumberRange { get; set; }
 #endif
         /// <summary>Specifies the phone number type for this porting phone number block.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_type? PhoneNumberType { get; set; }
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "phone_number_range", n => { PhoneNumberRange = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_range>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_range.CreateFromDiscriminatorValue); } },
+                { "phone_number_range", n => { PhoneNumberRange = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberRange>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberRange.CreateFromDiscriminatorValue); } },
                 { "phone_number_type", n => { PhoneNumberType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_type>(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -98,7 +98,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_activation_ranges>("activation_ranges", ActivationRanges);
             writer.WriteStringValue("country_code", CountryCode);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_range>("phone_number_range", PhoneNumberRange);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlockPhoneNumberRange>("phone_number_range", PhoneNumberRange);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingPhoneNumberBlock_phone_number_type>("phone_number_type", PhoneNumberType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -27,18 +27,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The issued_by property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_by? IssuedBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificateIssuedBy? IssuedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_by IssuedBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificateIssuedBy IssuedBy { get; set; }
 #endif
         /// <summary>The issued_to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_to? IssuedTo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificateIssuedTo? IssuedTo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_to IssuedTo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificateIssuedTo IssuedTo { get; set; }
 #endif
         /// <summary>The time the certificate is valid from</summary>
         public DateTimeOffset? ValidFrom { get; set; }
@@ -71,8 +71,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "issued_by", n => { IssuedBy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_by>(global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_by.CreateFromDiscriminatorValue); } },
-                { "issued_to", n => { IssuedTo = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_to>(global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_to.CreateFromDiscriminatorValue); } },
+                { "issued_by", n => { IssuedBy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificateIssuedBy>(global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificateIssuedBy.CreateFromDiscriminatorValue); } },
+                { "issued_to", n => { IssuedTo = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificateIssuedTo>(global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificateIssuedTo.CreateFromDiscriminatorValue); } },
                 { "valid_from", n => { ValidFrom = n.GetDateTimeOffsetValue(); } },
                 { "valid_to", n => { ValidTo = n.GetDateTimeOffsetValue(); } },
             };
@@ -86,8 +86,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_by>("issued_by", IssuedBy);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificate_issued_to>("issued_to", IssuedTo);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificateIssuedBy>("issued_by", IssuedBy);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SSLCertificateIssuedTo>("issued_to", IssuedTo);
             writer.WriteDateTimeOffsetValue("valid_from", ValidFrom);
             writer.WriteDateTimeOffsetValue("valid_to", ValidTo);
             writer.WriteAdditionalData(AdditionalData);

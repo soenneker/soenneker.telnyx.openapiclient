@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The function that the model called.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_function? Function { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolCallFunction? Function { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_function Function { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ToolCallFunction Function { get; set; }
 #endif
         /// <summary>The ID of the tool call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "function", n => { Function = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_function>(global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_function.CreateFromDiscriminatorValue); } },
+                { "function", n => { Function = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCallFunction>(global::Soenneker.Telnyx.OpenApiClient.Models.ToolCallFunction.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_type>(); } },
             };
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_function>("function", Function);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCallFunction>("function", Function);
             writer.WriteStringValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ToolCall_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

@@ -89,18 +89,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Template message object. Provide either template_id or name + language to identify the template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_template? Template { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplate? Template { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_template Template { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplate Template { get; set; }
 #endif
         /// <summary>Text message content. Can only be sent within a 24-hour customer service window.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_text? Text { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentText? Text { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_text Text { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentText Text { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_type? Type { get; set; }
@@ -146,8 +146,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "location", n => { Location = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappLocation>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappLocation.CreateFromDiscriminatorValue); } },
                 { "reaction", n => { Reaction = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappReaction>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappReaction.CreateFromDiscriminatorValue); } },
                 { "sticker", n => { Sticker = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMedia>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMedia.CreateFromDiscriminatorValue); } },
-                { "template", n => { Template = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_template>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_template.CreateFromDiscriminatorValue); } },
-                { "text", n => { Text = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_text>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_text.CreateFromDiscriminatorValue); } },
+                { "template", n => { Template = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplate>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplate.CreateFromDiscriminatorValue); } },
+                { "text", n => { Text = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentText>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentText.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_type>(); } },
                 { "video", n => { Video = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMedia>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMedia.CreateFromDiscriminatorValue); } },
             };
@@ -168,8 +168,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappLocation>("location", Location);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappReaction>("reaction", Reaction);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMedia>("sticker", Sticker);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_template>("template", Template);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_text>("text", Text);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentTemplate>("template", Template);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContentText>("text", Text);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessageContent_type>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMedia>("video", Video);
             writer.WriteAdditionalData(AdditionalData);

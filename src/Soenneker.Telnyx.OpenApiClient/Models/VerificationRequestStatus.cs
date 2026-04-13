@@ -156,7 +156,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string DoingBusinessAs { get; set; }
 #endif
         /// <summary>Business entity classification</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Toll_free_verification_EntityType? EntityType { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType? EntityType { get; set; }
         /// <summary>The helpMessageResponse property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -315,7 +315,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "doingBusinessAs", n => { DoingBusinessAs = n.GetStringValue(); } },
-                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Toll_free_verification_EntityType>(); } },
+                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType>(); } },
                 { "helpMessageResponse", n => { HelpMessageResponse = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
@@ -362,7 +362,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteStringValue("doingBusinessAs", DoingBusinessAs);
-            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Toll_free_verification_EntityType>("entityType", EntityType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType>("entityType", EntityType);
             writer.WriteStringValue("helpMessageResponse", HelpMessageResponse);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("isvReseller", IsvReseller);

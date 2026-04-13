@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Info about the conference that the participant is in</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Participant_conference? Conference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantConference? Conference { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Participant_conference Conference { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantConference Conference { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date of when the participant was created</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,7 +109,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "call_control_id", n => { CallControlId = n.GetStringValue(); } },
                 { "call_leg_id", n => { CallLegId = n.GetStringValue(); } },
-                { "conference", n => { Conference = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_conference>(global::Soenneker.Telnyx.OpenApiClient.Models.Participant_conference.CreateFromDiscriminatorValue); } },
+                { "conference", n => { Conference = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantConference>(global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantConference.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "end_conference_on_exit", n => { EndConferenceOnExit = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -131,7 +131,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("call_control_id", CallControlId);
             writer.WriteStringValue("call_leg_id", CallLegId);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Participant_conference>("conference", Conference);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ParticipantConference>("conference", Conference);
             writer.WriteStringValue("created_at", CreatedAt);
             writer.WriteBoolValue("end_conference_on_exit", EndConferenceOnExit);
             writer.WriteStringValue("id", Id);

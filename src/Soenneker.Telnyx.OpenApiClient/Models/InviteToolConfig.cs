@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Configuration for voicemail detection (AMD - Answering Machine Detection) on the invited call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig_voicemail_detection? VoicemailDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection? VoicemailDetection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig_voicemail_detection VoicemailDetection { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection VoicemailDetection { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig"/> and sets the default values.
@@ -65,7 +65,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig_custom_headers>(global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig_custom_headers.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "from", n => { From = n.GetStringValue(); } },
-                { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig_voicemail_detection>(global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig_voicemail_detection.CreateFromDiscriminatorValue); } },
+                { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig_custom_headers>("custom_headers", CustomHeaders);
             writer.WriteStringValue("from", From);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfig_voicemail_detection>("voicemail_detection", VoicemailDetection);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InviteToolConfigVoicemailDetection>("voicemail_detection", VoicemailDetection);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,10 +18,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Sample values for body variables. Required when body text contains parameters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent_example? Example { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentExample? Example { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent_example Example { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentExample Example { get; set; }
 #endif
         /// <summary>Body text content. Use {{1}}, {{2}}, etc. for variable placeholders. Required for MARKETING and UTILITY templates. Optional for AUTHENTICATION templates where Meta provides the built-in OTP body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "example", n => { Example = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent_example>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent_example.CreateFromDiscriminatorValue); } },
+                { "example", n => { Example = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentExample>(global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentExample.CreateFromDiscriminatorValue); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent_type>(); } },
             };
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent_example>("example", Example);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponentExample>("example", Example);
             writer.WriteStringValue("text", Text);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappTemplateBodyComponent_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

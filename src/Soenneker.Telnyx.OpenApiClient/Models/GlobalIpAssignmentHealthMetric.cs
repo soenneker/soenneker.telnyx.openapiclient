@@ -17,26 +17,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The global_ip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_global_ip? GlobalIp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp? GlobalIp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_global_ip GlobalIp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp GlobalIp { get; set; }
 #endif
         /// <summary>The global_ip_assignment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_global_ip_assignment? GlobalIpAssignment { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment? GlobalIpAssignment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_global_ip_assignment GlobalIpAssignment { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment GlobalIpAssignment { get; set; }
 #endif
         /// <summary>The health property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_health? Health { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth? Health { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_health Health { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth Health { get; set; }
 #endif
         /// <summary>The timestamp of the metric.</summary>
         public DateTimeOffset? Timestamp { get; set; }
@@ -65,9 +65,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "global_ip", n => { GlobalIp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_global_ip>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_global_ip.CreateFromDiscriminatorValue); } },
-                { "global_ip_assignment", n => { GlobalIpAssignment = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_global_ip_assignment>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_global_ip_assignment.CreateFromDiscriminatorValue); } },
-                { "health", n => { Health = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_health>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_health.CreateFromDiscriminatorValue); } },
+                { "global_ip", n => { GlobalIp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp.CreateFromDiscriminatorValue); } },
+                { "global_ip_assignment", n => { GlobalIpAssignment = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment.CreateFromDiscriminatorValue); } },
+                { "health", n => { Health = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth.CreateFromDiscriminatorValue); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -78,9 +78,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_global_ip>("global_ip", GlobalIp);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_global_ip_assignment>("global_ip_assignment", GlobalIpAssignment);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetric_health>("health", Health);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIp>("global_ip", GlobalIp);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricGlobalIpAssignment>("global_ip_assignment", GlobalIpAssignment);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIpAssignmentHealthMetricHealth>("health", Health);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);
             writer.WriteAdditionalData(AdditionalData);
         }

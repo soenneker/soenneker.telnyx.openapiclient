@@ -35,18 +35,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The SIM card consumption so far in the current billing cycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_billing_period_consumed_data? CurrentBillingPeriodConsumedData { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardCurrentBillingPeriodConsumedData? CurrentBillingPeriodConsumedData { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_billing_period_consumed_data CurrentBillingPeriodConsumedData { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardCurrentBillingPeriodConsumedData CurrentBillingPeriodConsumedData { get; private set; }
 #endif
         /// <summary>Current physical location data of a given SIM card. Accuracy is given in meters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_device_location? CurrentDeviceLocation { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardCurrentDeviceLocation? CurrentDeviceLocation { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_device_location CurrentDeviceLocation { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardCurrentDeviceLocation CurrentDeviceLocation { get; private set; }
 #endif
         /// <summary>IMEI of the device where a given SIM card is currently being used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,10 +75,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The SIM card individual data limit configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_data_limit? DataLimit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardDataLimit? DataLimit { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_data_limit DataLimit { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardDataLimit DataLimit { get; set; }
 #endif
         /// <summary>The Embedded Identity Document (eID) for eSIM cards.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,10 +137,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>PIN and PUK codes for the SIM card. Only available when include_pin_puk_codes=true is set in the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_pin_puk_codes? PinPukCodes { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardPinPukCodes? PinPukCodes { get; private set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_pin_puk_codes PinPukCodes { get; private set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardPinPukCodes PinPukCodes { get; private set; }
 #endif
         /// <summary>The record_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -224,12 +224,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "actions_in_progress", n => { ActionsInProgress = n.GetBoolValue(); } },
                 { "authorized_imeis", n => { AuthorizedImeis = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "current_billing_period_consumed_data", n => { CurrentBillingPeriodConsumedData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_billing_period_consumed_data>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_billing_period_consumed_data.CreateFromDiscriminatorValue); } },
-                { "current_device_location", n => { CurrentDeviceLocation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_device_location>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_current_device_location.CreateFromDiscriminatorValue); } },
+                { "current_billing_period_consumed_data", n => { CurrentBillingPeriodConsumedData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardCurrentBillingPeriodConsumedData>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardCurrentBillingPeriodConsumedData.CreateFromDiscriminatorValue); } },
+                { "current_device_location", n => { CurrentDeviceLocation = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardCurrentDeviceLocation>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardCurrentDeviceLocation.CreateFromDiscriminatorValue); } },
                 { "current_imei", n => { CurrentImei = n.GetStringValue(); } },
                 { "current_mcc", n => { CurrentMcc = n.GetStringValue(); } },
                 { "current_mnc", n => { CurrentMnc = n.GetStringValue(); } },
-                { "data_limit", n => { DataLimit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_data_limit>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_data_limit.CreateFromDiscriminatorValue); } },
+                { "data_limit", n => { DataLimit = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardDataLimit>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardDataLimit.CreateFromDiscriminatorValue); } },
                 { "eid", n => { Eid = n.GetStringValue(); } },
                 { "esim_installation_status", n => { EsimInstallationStatus = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_esim_installation_status>(); } },
                 { "iccid", n => { Iccid = n.GetStringValue(); } },
@@ -239,7 +239,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "ipv6", n => { Ipv6 = n.GetStringValue(); } },
                 { "live_data_session", n => { LiveDataSession = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_live_data_session>(); } },
                 { "msisdn", n => { Msisdn = n.GetStringValue(); } },
-                { "pin_puk_codes", n => { PinPukCodes = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_pin_puk_codes>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_pin_puk_codes.CreateFromDiscriminatorValue); } },
+                { "pin_puk_codes", n => { PinPukCodes = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardPinPukCodes>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardPinPukCodes.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "resources_with_in_progress_actions", n => { ResourcesWithInProgressActions = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_resources_with_in_progress_actions>(global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_resources_with_in_progress_actions.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sim_card_group_id", n => { SimCardGroupId = n.GetGuidValue(); } },
@@ -259,7 +259,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("authorized_imeis", AuthorizedImeis);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCard_data_limit>("data_limit", DataLimit);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardDataLimit>("data_limit", DataLimit);
             writer.WriteGuidValue("sim_card_group_id", SimCardGroupId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.SIMCardStatus>("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

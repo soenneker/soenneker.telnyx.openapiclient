@@ -67,10 +67,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Links to download the recording files.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls? DownloadUrls { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataDownloadUrls? DownloadUrls { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls DownloadUrls { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataDownloadUrls DownloadUrls { get; set; }
 #endif
         /// <summary>The duration of the recording in milliseconds.</summary>
         public int? DurationMillis { get; set; }
@@ -168,7 +168,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "conference_id", n => { ConferenceId = n.GetStringValue(); } },
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
-                { "download_urls", n => { DownloadUrls = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls>(global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls.CreateFromDiscriminatorValue); } },
+                { "download_urls", n => { DownloadUrls = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataDownloadUrls>(global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataDownloadUrls.CreateFromDiscriminatorValue); } },
                 { "duration_millis", n => { DurationMillis = n.GetIntValue(); } },
                 { "from", n => { From = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -196,7 +196,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("conference_id", ConferenceId);
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseData_download_urls>("download_urls", DownloadUrls);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RecordingResponseDataDownloadUrls>("download_urls", DownloadUrls);
             writer.WriteIntValue("duration_millis", DurationMillis);
             writer.WriteStringValue("from", From);
             writer.WriteStringValue("id", Id);

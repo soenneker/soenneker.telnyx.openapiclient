@@ -36,10 +36,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>A JSON object representation of the operation. The information present here will relate directly to the source of the OTA request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings? Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdateSettings? Settings { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings Settings { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdateSettings Settings { get; set; }
 #endif
         /// <summary>The identification UUID of the related SIM card resource.</summary>
         public Guid? SimCardId { get; set; }
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdateSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdateSettings.CreateFromDiscriminatorValue); } },
                 { "sim_card_id", n => { SimCardId = n.GetGuidValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_status>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_type>(); } },
@@ -97,7 +97,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_settings>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdateSettings>("settings", Settings);
             writer.WriteGuidValue("sim_card_id", SimCardId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_status>("status", Status);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CompleteOTAUpdate_type>("type", Type);

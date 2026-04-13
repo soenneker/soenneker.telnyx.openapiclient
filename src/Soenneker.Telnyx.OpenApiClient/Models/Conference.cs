@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>IDs related to who ended the conference. It is expected for them to all be there or all be null</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_ended_by? EndedBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy? EndedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_ended_by EndedBy { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy EndedBy { get; set; }
 #endif
         /// <summary>Reason why the conference ended</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.Conference_end_reason? EndReason { get; set; }
@@ -112,7 +112,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "connection_id", n => { ConnectionId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "end_reason", n => { EndReason = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_end_reason>(); } },
-                { "ended_by", n => { EndedBy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_ended_by>(global::Soenneker.Telnyx.OpenApiClient.Models.Conference_ended_by.CreateFromDiscriminatorValue); } },
+                { "ended_by", n => { EndedBy = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy>(global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy.CreateFromDiscriminatorValue); } },
                 { "expires_at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -131,7 +131,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("connection_id", ConnectionId);
             writer.WriteStringValue("created_at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_ended_by>("ended_by", EndedBy);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConferenceEndedBy>("ended_by", EndedBy);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Conference_end_reason>("end_reason", EndReason);
             writer.WriteStringValue("expires_at", ExpiresAt);
             writer.WriteStringValue("id", Id);

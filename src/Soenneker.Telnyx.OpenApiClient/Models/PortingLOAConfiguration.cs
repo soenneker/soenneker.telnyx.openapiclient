@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The address of the company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_address? Address { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationAddress? Address { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_address Address { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationAddress Address { get; set; }
 #endif
         /// <summary>The name of the company</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The contact information of the company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_contact? Contact { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationContact? Contact { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_contact Contact { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationContact Contact { get; set; }
 #endif
         /// <summary>ISO 8601 formatted date indicating when the resource was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -45,10 +45,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The logo to be used in the LOA.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_logo? Logo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationLogo? Logo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_logo Logo { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationLogo Logo { get; set; }
 #endif
         /// <summary>The name of the LOA configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,12 +101,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_address>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_address.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationAddress>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationAddress.CreateFromDiscriminatorValue); } },
                 { "company_name", n => { CompanyName = n.GetStringValue(); } },
-                { "contact", n => { Contact = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_contact>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_contact.CreateFromDiscriminatorValue); } },
+                { "contact", n => { Contact = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationContact>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationContact.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "logo", n => { Logo = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_logo>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_logo.CreateFromDiscriminatorValue); } },
+                { "logo", n => { Logo = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationLogo>(global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationLogo.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
@@ -120,12 +120,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_address>("address", Address);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationAddress>("address", Address);
             writer.WriteStringValue("company_name", CompanyName);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_contact>("contact", Contact);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationContact>("contact", Contact);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfiguration_logo>("logo", Logo);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PortingLOAConfigurationLogo>("logo", Logo);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("organization_id", OrganizationId);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
