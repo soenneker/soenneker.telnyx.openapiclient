@@ -272,6 +272,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest TranscriptionConfig { get; set; }
 #endif
+        /// <summary>A map of event types to retry policies. Each retry policy contains an array of `retries_ms` specifying the delays between retry attempts in milliseconds. Maximum 5 retries, total delay cannot exceed 60 seconds.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_retries_policies? WebhookRetriesPolicies { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_retries_policies WebhookRetriesPolicies { get; set; }
+#endif
         /// <summary>Use this field to override the URL for which Telnyx will send subsequent webhooks to for this call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -282,6 +290,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>HTTP request type used for `webhook_url`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_url_method? WebhookUrlMethod { get; set; }
+        /// <summary>A map of event types to webhook URLs. When an event of the specified type occurs, the webhook URL associated with that event type will be called instead of the default webhook URL. Events not mapped here will use the default webhook URL.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_urls? WebhookUrls { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_urls WebhookUrls { get; set; }
+#endif
+        /// <summary>HTTP request method to invoke `webhook_urls`.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_urls_method? WebhookUrlsMethod { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest"/> and sets the default values.
         /// </summary>
@@ -302,6 +320,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             StreamTrack = global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_stream_track.Inbound_track;
             SupervisorRole = global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_supervisor_role.Barge;
             WebhookUrlMethod = global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_url_method.POST;
+            WebhookUrlsMethod = global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_urls_method.POST;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -375,8 +394,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "to", n => { To = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "transcription", n => { Transcription = n.GetBoolValue(); } },
                 { "transcription_config", n => { TranscriptionConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest.CreateFromDiscriminatorValue); } },
+                { "webhook_retries_policies", n => { WebhookRetriesPolicies = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_retries_policies>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_retries_policies.CreateFromDiscriminatorValue); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
                 { "webhook_url_method", n => { WebhookUrlMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_url_method>(); } },
+                { "webhook_urls", n => { WebhookUrls = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_urls>(global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_urls.CreateFromDiscriminatorValue); } },
+                { "webhook_urls_method", n => { WebhookUrlsMethod = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_urls_method>(); } },
             };
         }
         /// <summary>
@@ -440,8 +462,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("to", To);
             writer.WriteBoolValue("transcription", Transcription);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionStartRequest>("transcription_config", TranscriptionConfig);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_retries_policies>("webhook_retries_policies", WebhookRetriesPolicies);
             writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_url_method>("webhook_url_method", WebhookUrlMethod);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_urls>("webhook_urls", WebhookUrls);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_webhook_urls_method>("webhook_urls_method", WebhookUrlsMethod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

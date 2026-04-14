@@ -96,7 +96,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Session_analysis.Item.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithEvent_ItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>ISO 8601 timestamp to narrow index selection for faster lookups.</summary>
+            /// <summary>ISO 8601 timestamp or date to narrow index selection for faster lookups. Accepts full datetime (e.g., 2026-03-17T10:00:00Z) or date-only format (e.g., 2026-03-17).</summary>
             [QueryParameter("date_time")]
             public DateTimeOffset? DateTime { get; set; }
             /// <summary>Controls what data to expand on each event node.</summary>

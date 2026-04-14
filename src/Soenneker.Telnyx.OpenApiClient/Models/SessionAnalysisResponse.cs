@@ -14,8 +14,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>When the session completed.</summary>
-        public DateTimeOffset? CompletedAt { get; set; }
         /// <summary>The cost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,8 +22,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.CostSummary Cost { get; set; }
 #endif
-        /// <summary>When the session started.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,14 +45,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string SessionId { get; set; }
-#endif
-        /// <summary>Analysis status (e.g. &quot;completed&quot;).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SessionAnalysisResponse"/> and sets the default values.
@@ -83,13 +71,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "completed_at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "cost", n => { Cost = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CostSummary>(global::Soenneker.Telnyx.OpenApiClient.Models.CostSummary.CreateFromDiscriminatorValue); } },
-                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResponseMeta>(global::Soenneker.Telnyx.OpenApiClient.Models.ResponseMeta.CreateFromDiscriminatorValue); } },
                 { "root", n => { Root = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNode>(global::Soenneker.Telnyx.OpenApiClient.Models.EventNode.CreateFromDiscriminatorValue); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -99,13 +84,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("completed_at", CompletedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CostSummary>("cost", Cost);
-            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ResponseMeta>("meta", Meta);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventNode>("root", Root);
             writer.WriteStringValue("session_id", SessionId);
-            writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
