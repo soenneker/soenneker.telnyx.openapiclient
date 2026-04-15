@@ -48,6 +48,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader> CustomHeaders { get; set; }
 #endif
+        /// <summary>Enables deepfake detection on the call. When enabled, audio from the remote party is streamed to a detection service that analyzes whether the voice is AI-generated. Results are delivered via the `call.deepfake_detection.result` webhook.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection? DeepfakeDetection { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection DeepfakeDetection { get; set; }
+#endif
         /// <summary>The list of comma-separated codecs in a preferred order for the forked media to be received.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest_preferred_codecs? PreferredCodecs { get; set; }
         /// <summary>Start recording automatically after an event. Disabled by default.</summary>
@@ -186,6 +194,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "deepfake_detection", n => { DeepfakeDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection.CreateFromDiscriminatorValue); } },
                 { "preferred_codecs", n => { PreferredCodecs = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest_preferred_codecs>(); } },
                 { "record", n => { Record = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest_record>(); } },
                 { "record_channels", n => { RecordChannels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest_record_channels>(); } },
@@ -225,6 +234,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>("custom_headers", CustomHeaders);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection>("deepfake_detection", DeepfakeDetection);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest_preferred_codecs>("preferred_codecs", PreferredCodecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest_record>("record", Record);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest_record_channels>("record_channels", RecordChannels);
