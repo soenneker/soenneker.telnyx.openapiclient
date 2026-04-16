@@ -28,7 +28,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? DefaultVerificationTimeoutSecs { get; set; }
         /// <summary>The message template identifier selected from /verify_profiles/templates</summary>
         public Guid? MessagingTemplateId { get; set; }
-        /// <summary>Enabled country destinations to send verification codes. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[&quot;*&quot;]`, all destinations will be allowed.</summary>
+        /// <summary>Enabled country destinations to send verification codes. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[&quot;*&quot;]`, all destinations will be allowed. **Conditionally required:** this field must be provided when your organization is configured to require explicit whitelisted destinations; otherwise it is optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? WhitelistedDestinations { get; set; }

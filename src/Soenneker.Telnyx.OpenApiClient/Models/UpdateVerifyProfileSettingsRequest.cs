@@ -24,7 +24,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>For every request that is initiated via this Verify profile, this sets the number of seconds before a verification request code expires. Once the verification request expires, the user cannot use the code to verify their identity.</summary>
         public int? DefaultVerificationTimeoutSecs { get; set; }
-        /// <summary>Enabled country destinations to send verification codes. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[&quot;*&quot;]`, all destinations will be allowed.</summary>
+        /// <summary>Enabled country destinations to send verification codes. The elements in the list must be valid ISO 3166-1 alpha-2 country codes. If set to `[&quot;*&quot;]`, all destinations will be allowed. **Conditionally required:** this field must be provided when your organization is configured to require explicit whitelisted destinations; otherwise it is optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? WhitelistedDestinations { get; set; }
