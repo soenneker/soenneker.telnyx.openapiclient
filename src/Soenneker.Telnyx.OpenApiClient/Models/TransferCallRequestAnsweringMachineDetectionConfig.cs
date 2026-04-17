@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Optional configuration parameters to modify &apos;answering_machine_detection&apos; performance.
+    /// Optional configuration parameters to modify &apos;answering_machine_detection&apos; performance. Only `total_analysis_time_millis` and `greeting_duration_millis` parameters are applicable when `premium` is selected as answering_machine_detection.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferCallRequestAnsweringMachineDetectionConfig : IAdditionalDataHolder, IParsable

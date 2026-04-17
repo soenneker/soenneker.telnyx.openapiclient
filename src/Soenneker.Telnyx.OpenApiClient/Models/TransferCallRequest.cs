@@ -16,7 +16,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Enables Answering Machine Detection. When a call is answered, Telnyx runs real-time detection to determine if it was picked up by a human or a machine and sends an `call.machine.detection.ended` webhook with the analysis result. If &apos;greeting_end&apos; or &apos;detect_words&apos; is used and a &apos;machine&apos; is detected, you will receive another &apos;call.machine.greeting.ended&apos; webhook when the answering machine greeting ends with a beep or silence. If `detect_beep` is used, you will only receive &apos;call.machine.greeting.ended&apos; if a beep is detected.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequest_answering_machine_detection? AnsweringMachineDetection { get; set; }
-        /// <summary>Optional configuration parameters to modify &apos;answering_machine_detection&apos; performance.</summary>
+        /// <summary>Optional configuration parameters to modify &apos;answering_machine_detection&apos; performance. Only `total_analysis_time_millis` and `greeting_duration_millis` parameters are applicable when `premium` is selected as answering_machine_detection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.TransferCallRequestAnsweringMachineDetectionConfig? AnsweringMachineDetectionConfig { get; set; }
