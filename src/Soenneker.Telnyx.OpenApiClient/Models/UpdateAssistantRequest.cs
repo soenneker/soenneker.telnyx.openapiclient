@@ -110,6 +110,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityReq ObservabilitySettings { get; set; }
 #endif
+        /// <summary>Configuration for post-conversation processing. When enabled, the assistant receives one additional LLM turn after the conversation ends, allowing it to execute tool calls such as logging to a CRM or sending a summary. The assistant can execute multiple parallel or sequential tools during this phase. Telephony-control tools (e.g. hangup, transfer) are unavailable post-conversation. Beta feature.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq? PostConversationSettings { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq PostConversationSettings { get; set; }
+#endif
         /// <summary>The privacy_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -203,6 +211,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "observability_settings", n => { ObservabilitySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityReq>(global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityReq.CreateFromDiscriminatorValue); } },
+                { "post_conversation_settings", n => { PostConversationSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq>(global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq.CreateFromDiscriminatorValue); } },
                 { "privacy_settings", n => { PrivacySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings>(global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings.CreateFromDiscriminatorValue); } },
                 { "telephony_settings", n => { TelephonySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings.CreateFromDiscriminatorValue); } },
                 { "tool_ids", n => { ToolIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -231,6 +240,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityReq>("observability_settings", ObservabilitySettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PostConversationSettingsReq>("post_conversation_settings", PostConversationSettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.PrivacySettings>("privacy_settings", PrivacySettings);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings>("telephony_settings", TelephonySettings);
             writer.WriteCollectionOfPrimitiveValues<string>("tool_ids", ToolIds);

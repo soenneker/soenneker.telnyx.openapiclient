@@ -20,6 +20,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public double? EotThreshold { get; set; }
         /// <summary>Available only for deepgram/flux. Maximum milliseconds of silence before forcing an end of turn, regardless of confidence.</summary>
         public int? EotTimeoutMs { get; set; }
+        /// <summary>Available only for deepgram/nova-3 and deepgram/flux. A comma-separated list of key terms to boost for recognition during transcription. Helps improve accuracy for domain-specific terminology, proper nouns, or uncommon words.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Keyterm { get; set; }
+#nullable restore
+#else
+        public string Keyterm { get; set; }
+#endif
         /// <summary>The numerals property</summary>
         public bool? Numerals { get; set; }
         /// <summary>The smart_format property</summary>
@@ -52,6 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "eager_eot_threshold", n => { EagerEotThreshold = n.GetDoubleValue(); } },
                 { "eot_threshold", n => { EotThreshold = n.GetDoubleValue(); } },
                 { "eot_timeout_ms", n => { EotTimeoutMs = n.GetIntValue(); } },
+                { "keyterm", n => { Keyterm = n.GetStringValue(); } },
                 { "numerals", n => { Numerals = n.GetBoolValue(); } },
                 { "smart_format", n => { SmartFormat = n.GetBoolValue(); } },
             };
@@ -66,6 +75,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("eager_eot_threshold", EagerEotThreshold);
             writer.WriteDoubleValue("eot_threshold", EotThreshold);
             writer.WriteIntValue("eot_timeout_ms", EotTimeoutMs);
+            writer.WriteStringValue("keyterm", Keyterm);
             writer.WriteBoolValue("numerals", Numerals);
             writer.WriteBoolValue("smart_format", SmartFormat);
             writer.WriteAdditionalData(AdditionalData);
