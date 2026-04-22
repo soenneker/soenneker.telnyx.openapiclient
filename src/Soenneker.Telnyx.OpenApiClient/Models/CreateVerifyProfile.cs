@@ -81,10 +81,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The whatsapp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest? Whatsapp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsWhatsAppRequest? Whatsapp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest Whatsapp { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsWhatsAppRequest Whatsapp { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfile"/> and sets the default values.
@@ -119,7 +119,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest.CreateFromDiscriminatorValue); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
-                { "whatsapp", n => { Whatsapp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest.CreateFromDiscriminatorValue); } },
+                { "whatsapp", n => { Whatsapp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsWhatsAppRequest>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsWhatsAppRequest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -137,7 +137,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSMSRequest>("sms", Sms);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsRequest>("whatsapp", Whatsapp);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateVerifyProfileSettingsWhatsAppRequest>("whatsapp", Whatsapp);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

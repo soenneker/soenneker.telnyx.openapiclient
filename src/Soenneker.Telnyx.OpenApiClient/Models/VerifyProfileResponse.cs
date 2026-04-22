@@ -98,6 +98,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string WebhookUrl { get; set; }
 #endif
+        /// <summary>The whatsapp property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileWhatsAppResponse? Whatsapp { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileWhatsAppResponse Whatsapp { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileResponse"/> and sets the default values.
         /// </summary>
@@ -135,6 +143,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "webhook_failover_url", n => { WebhookFailoverUrl = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
+                { "whatsapp", n => { Whatsapp = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileWhatsAppResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileWhatsAppResponse.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -156,6 +165,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("updated_at", UpdatedAt);
             writer.WriteStringValue("webhook_failover_url", WebhookFailoverUrl);
             writer.WriteStringValue("webhook_url", WebhookUrl);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileWhatsAppResponse>("whatsapp", Whatsapp);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
