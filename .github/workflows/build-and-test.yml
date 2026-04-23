@@ -38,7 +38,7 @@ jobs:
         run: dotnet build test/Soenneker.Telnyx.OpenApiClient.Tests/Soenneker.Telnyx.OpenApiClient.Tests.csproj --configuration Release --no-restore --verbosity minimal
 
       - name: Test
-        run: dotnet test test/Soenneker.Telnyx.OpenApiClient.Tests/Soenneker.Telnyx.OpenApiClient.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
+        run: dotnet test --project test/Soenneker.Telnyx.OpenApiClient.Tests/Soenneker.Telnyx.OpenApiClient.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
 
       - name: Pack
         run: dotnet pack src/Soenneker.Telnyx.OpenApiClient/Soenneker.Telnyx.OpenApiClient.csproj --configuration Release --no-build --no-restore --output . --verbosity minimal
