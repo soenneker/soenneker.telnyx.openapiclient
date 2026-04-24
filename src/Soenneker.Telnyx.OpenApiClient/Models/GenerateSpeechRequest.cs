@@ -111,6 +111,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_voice_settings VoiceSettings { get; set; }
 #endif
+        /// <summary>xAI provider-specific parameters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.XAIProviderParams? Xai { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.XAIProviderParams Xai { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest"/> and sets the default values.
         /// </summary>
@@ -152,6 +160,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "text_type", n => { TextType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_text_type>(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
                 { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_voice_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_voice_settings.CreateFromDiscriminatorValue); } },
+                { "xai", n => { Xai = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.XAIProviderParams>(global::Soenneker.Telnyx.OpenApiClient.Models.XAIProviderParams.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -176,6 +185,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_text_type>("text_type", TextType);
             writer.WriteStringValue("voice", Voice);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GenerateSpeechRequest_voice_settings>("voice_settings", VoiceSettings);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.XAIProviderParams>("xai", Xai);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

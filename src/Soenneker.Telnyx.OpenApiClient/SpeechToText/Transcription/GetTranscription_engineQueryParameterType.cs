@@ -24,5 +24,9 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
         #pragma warning disable CS1591
         Telnyx,
         #pragma warning restore CS1591
+        [EnumMember(Value = "xAI")]
+        #pragma warning disable CS1591
+        XAI,
+        #pragma warning restore CS1591
     }
 }
