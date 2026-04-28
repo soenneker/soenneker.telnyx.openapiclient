@@ -26,18 +26,18 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>External LLM configuration for bringing your own LLM endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_external_llm? ExternalLlm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestExternalLlm? ExternalLlm { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_external_llm ExternalLlm { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestExternalLlm ExternalLlm { get; set; }
 #endif
         /// <summary>Fallback LLM configuration used when the primary LLM provider is unavailable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_fallback_config? FallbackConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig? FallbackConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_fallback_config FallbackConfig { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig FallbackConfig { get; set; }
 #endif
         /// <summary>Initial greeting text spoken when the assistant starts. Can be plain text for any voice or SSML for `AWS.Polly.&lt;voice_id&gt;` voices. There is a 3,000 character limit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,8 +146,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_dynamic_variables.CreateFromDiscriminatorValue); } },
-                { "external_llm", n => { ExternalLlm = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_external_llm>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_external_llm.CreateFromDiscriminatorValue); } },
-                { "fallback_config", n => { FallbackConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_fallback_config>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_fallback_config.CreateFromDiscriminatorValue); } },
+                { "external_llm", n => { ExternalLlm = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestExternalLlm>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestExternalLlm.CreateFromDiscriminatorValue); } },
+                { "fallback_config", n => { FallbackConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig.CreateFromDiscriminatorValue); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
@@ -168,8 +168,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_dynamic_variables>("dynamic_variables", DynamicVariables);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_external_llm>("external_llm", ExternalLlm);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequest_fallback_config>("fallback_config", FallbackConfig);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestExternalLlm>("external_llm", ExternalLlm);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallAssistantRequestFallbackConfig>("fallback_config", FallbackConfig);
             writer.WriteStringValue("greeting", Greeting);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("instructions", Instructions);

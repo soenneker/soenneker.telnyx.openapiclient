@@ -30,6 +30,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CreatedAt { get; set; }
 #endif
+        /// <summary>The maximum daily spend allowed on this verify profile, in USD.</summary>
+        public double? DailySpendLimit { get; set; }
+        /// <summary>Whether the daily spend limit is enforced for this verify profile.</summary>
+        public bool? DailySpendLimitEnabled { get; set; }
         /// <summary>The flashcall property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,14 +59,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Name { get; set; }
-#endif
-        /// <summary>The rcs property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileRCSResponse? Rcs { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileRCSResponse Rcs { get; set; }
 #endif
         /// <summary>The possible verification profile record types.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.VerificationProfileRecordType? RecordType { get; set; }
@@ -133,11 +129,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "call", n => { Call = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileCallResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileCallResponse.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "daily_spend_limit", n => { DailySpendLimit = n.GetDoubleValue(); } },
+                { "daily_spend_limit_enabled", n => { DailySpendLimitEnabled = n.GetBoolValue(); } },
                 { "flashcall", n => { Flashcall = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileFlashcallResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileFlashcallResponse.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "rcs", n => { Rcs = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileRCSResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileRCSResponse.CreateFromDiscriminatorValue); } },
                 { "record_type", n => { RecordType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationProfileRecordType>(); } },
                 { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSMSResponse>(global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSMSResponse.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
@@ -155,11 +152,12 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileCallResponse>("call", Call);
             writer.WriteStringValue("created_at", CreatedAt);
+            writer.WriteDoubleValue("daily_spend_limit", DailySpendLimit);
+            writer.WriteBoolValue("daily_spend_limit_enabled", DailySpendLimitEnabled);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileFlashcallResponse>("flashcall", Flashcall);
             writer.WriteGuidValue("id", Id);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileRCSResponse>("rcs", Rcs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerificationProfileRecordType>("record_type", RecordType);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.VerifyProfileSMSResponse>("sms", Sms);
             writer.WriteStringValue("updated_at", UpdatedAt);

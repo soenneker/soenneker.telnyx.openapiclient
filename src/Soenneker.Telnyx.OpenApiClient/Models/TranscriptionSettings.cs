@@ -14,7 +14,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The language of the audio to be transcribed. If not set, of if set to `auto`, the model will automatically detect the language.</summary>
+        /// <summary>Integration secret identifier for the transcription provider API key. Currently used for Azure transcription regions that require a customer-provided API key.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ApiKeyRef { get; set; }
+#nullable restore
+#else
+        public string ApiKeyRef { get; set; }
+#endif
+        /// <summary>&quot;The language of the audio to be transcribed. If not set, or if set to `auto`, supported models will automatically detect the language. For `deepgram/flux`, supported values are: `auto` (Telnyx language detection controls the language hint), `multi` (no language hint), and language-specific hints `en`, `es`, `fr`, `de`, `hi`, `ru`, `pt`, `ja`, `it`, and `nl`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Language { get; set; }
@@ -22,9 +30,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>The speech to text model to be used by the voice assistant. All the deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking but is English-only.- `deepgram/nova-3` is multi-lingual with automatic language detection but slightly higher latency.</summary>
+        /// <summary>The speech to text model to be used by the voice assistant. All Deepgram models are run on-premise.- `deepgram/flux` is optimized for turn-taking with multilingual language hints.- `deepgram/nova-3` is multilingual with automatic language detection.- `deepgram/nova-2` is Deepgram&apos;s previous-generation multilingual model.- `azure/fast` is a multilingual Azure transcription model.- `assemblyai/universal-streaming` is a multilingual streaming model with configurable turn detection.- `xai/grok-stt` is a multilingual Grok STT model.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings_model? Model { get; set; }
-        /// <summary>Region on third party cloud providers (currently Azure) if using one of their models</summary>
+        /// <summary>Region on third party cloud providers (currently Azure) if using one of their models. Some regions require `api_key_ref`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Region { get; set; }
@@ -65,6 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "api_key_ref", n => { ApiKeyRef = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings_model>(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
@@ -78,6 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("api_key_ref", ApiKeyRef);
             writer.WriteStringValue("language", Language);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings_model>("model", Model);
             writer.WriteStringValue("region", Region);

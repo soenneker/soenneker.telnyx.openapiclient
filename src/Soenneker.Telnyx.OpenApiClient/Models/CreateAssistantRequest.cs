@@ -46,6 +46,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures?> EnabledFeatures { get; set; }
 #endif
+        /// <summary>The external_llm property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLLMReq? ExternalLlm { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLLMReq ExternalLlm { get; set; }
+#endif
+        /// <summary>The fallback_config property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq? FallbackConfig { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq FallbackConfig { get; set; }
+#endif
         /// <summary>Text that the assistant will use to start the conversation. This may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables). Use an empty string to have the assistant wait for the user to speak first. Use the special value `&lt;assistant-speaks-first-with-model-generated-message&gt;` to have the assistant generate the greeting based on the system instructions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -203,6 +219,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest_dynamic_variables.CreateFromDiscriminatorValue); } },
                 { "dynamic_variables_webhook_url", n => { DynamicVariablesWebhookUrl = n.GetStringValue(); } },
                 { "enabled_features", n => { EnabledFeatures = n.GetCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures>()?.AsList(); } },
+                { "external_llm", n => { ExternalLlm = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLLMReq>(global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLLMReq.CreateFromDiscriminatorValue); } },
+                { "fallback_config", n => { FallbackConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq>(global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq.CreateFromDiscriminatorValue); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
                 { "insight_settings", n => { InsightSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings.CreateFromDiscriminatorValue); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
@@ -232,6 +250,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.CreateAssistantRequest_dynamic_variables>("dynamic_variables", DynamicVariables);
             writer.WriteStringValue("dynamic_variables_webhook_url", DynamicVariablesWebhookUrl);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Telnyx.OpenApiClient.Models.EnabledFeatures>("enabled_features", EnabledFeatures);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ExternalLLMReq>("external_llm", ExternalLlm);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.FallbackConfigReq>("fallback_config", FallbackConfig);
             writer.WriteStringValue("greeting", Greeting);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InsightSettings>("insight_settings", InsightSettings);
             writer.WriteStringValue("instructions", Instructions);
