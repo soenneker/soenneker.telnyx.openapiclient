@@ -80,6 +80,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PhoneNumberId { get; set; }
 #endif
+        /// <summary>The profile_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProfileId { get; set; }
+#nullable restore
+#else
+        public string ProfileId { get; set; }
+#endif
         /// <summary>The profile_photo_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -140,6 +148,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "phone_number_id", n => { PhoneNumberId = n.GetStringValue(); } },
+                { "profile_id", n => { ProfileId = n.GetStringValue(); } },
                 { "profile_photo_url", n => { ProfilePhotoUrl = n.GetStringValue(); } },
                 { "record_type", n => { RecordType = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -162,6 +171,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("phone_number_id", PhoneNumberId);
+            writer.WriteStringValue("profile_id", ProfileId);
             writer.WriteStringValue("profile_photo_url", ProfilePhotoUrl);
             writer.WriteStringValue("record_type", RecordType);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

@@ -62,6 +62,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
+        /// <summary>Messaging profile ID for inbound messages</summary>
+        public Guid? ProfileId { get; set; }
         /// <summary>The website property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -101,6 +103,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "profile_id", n => { ProfileId = n.GetGuidValue(); } },
                 { "website", n => { Website = n.GetStringValue(); } },
             };
         }
@@ -117,6 +120,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteStringValue("email", Email);
+            writer.WriteGuidValue("profile_id", ProfileId);
             writer.WriteStringValue("website", Website);
             writer.WriteAdditionalData(AdditionalData);
         }

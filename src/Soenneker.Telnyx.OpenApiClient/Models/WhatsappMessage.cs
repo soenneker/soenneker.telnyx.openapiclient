@@ -22,6 +22,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string From { get; set; }
 #endif
+        /// <summary>Messaging profile ID - required if the &apos;from&apos; number is not SMS-enabled</summary>
+        public Guid? MessagingProfileId { get; set; }
         /// <summary>Phone number in +E.164 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,6 +76,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "from", n => { From = n.GetStringValue(); } },
+                { "messaging_profile_id", n => { MessagingProfileId = n.GetGuidValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessage_type>(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
@@ -88,6 +91,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("from", From);
+            writer.WriteGuidValue("messaging_profile_id", MessagingProfileId);
             writer.WriteStringValue("to", To);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.WhatsappMessage_type>("type", Type);
             writer.WriteStringValue("webhook_url", WebhookUrl);

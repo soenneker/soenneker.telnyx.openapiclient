@@ -23,6 +23,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         Azure,
         #pragma warning restore CS1591
+        [EnumMember(Value = "xAI")]
+        #pragma warning disable CS1591
+        XAI,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "AssemblyAI")]
+        #pragma warning disable CS1591
+        AssemblyAI,
+        #pragma warning restore CS1591
         [EnumMember(Value = "A")]
         #pragma warning disable CS1591
         A,

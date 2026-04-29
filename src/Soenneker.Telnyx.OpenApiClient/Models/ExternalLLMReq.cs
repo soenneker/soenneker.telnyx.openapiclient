@@ -32,7 +32,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CertificateRef { get; set; }
 #endif
-        /// <summary>&quot;When enabled, Telnyx forwards the assistant&apos;s dynamic variables to the external LLM endpoint. Defaults to false. The chat completion request includes a top-level `extra_metadata` object when dynamic variables are available. For example: `{\&quot;extra_metadata\&quot;:{\&quot;customer_name\&quot;:\&quot;Jane\&quot;,\&quot;account_id\&quot;:\&quot;acct_789\&quot;,\&quot;telnyx_agent_target\&quot;:\&quot;+13125550100\&quot;,\&quot;telnyx_end_user_target\&quot;:\&quot;+13125550123\&quot;}}`.&quot;</summary>
+        /// <summary>&quot;When `true`, Telnyx forwards the assistant&apos;s dynamic variables to the external LLM endpoint as a top-level `extra_metadata` object on the chat completion request body. Defaults to `false`. Example payload sent to the external endpoint: `{\&quot;extra_metadata\&quot;: {\&quot;customer_name\&quot;: \&quot;Jane\&quot;, \&quot;account_id\&quot;: \&quot;acct_789\&quot;, \&quot;telnyx_agent_target\&quot;: \&quot;+13125550100\&quot;, \&quot;telnyx_end_user_target\&quot;: \&quot;+13125550123\&quot;}}`. Distinct from OpenAI&apos;s native `metadata` field, which has its own size and type limits.&quot;</summary>
         public bool? ForwardMetadata { get; set; }
         /// <summary>Integration secret identifier for the external LLM API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
