@@ -22,13 +22,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string From { get; set; }
 #endif
-        /// <summary>The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to.</summary>
+        /// <summary>The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to. This can also be a dynamic variable string like `{{ targets }}` where `targets` is returned by the dynamic variables webhook and resolves to an array of target objects at runtime.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams_targets>? Targets { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? Targets { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams_targets> Targets { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch Targets { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams"/> and sets the default values.
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "from", n => { From = n.GetStringValue(); } },
-                { "targets", n => { Targets = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams_targets>(global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams_targets.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "targets", n => { Targets = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("from", From);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CallControlTransferToolParams_targets>("targets", Targets);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("targets", Targets);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
