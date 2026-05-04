@@ -22,6 +22,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Host { get; set; }
 #endif
+        /// <summary>The prompt_label property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PromptLabel { get; set; }
+#nullable restore
+#else
+        public string PromptLabel { get; set; }
+#endif
+        /// <summary>The prompt_name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PromptName { get; set; }
+#nullable restore
+#else
+        public string PromptName { get; set; }
+#endif
+        /// <summary>Whether to auto-publish the assistant&apos;s instructions as a Langfuse prompt.When ENABLED + prompt_name set, every assistant create/update pushes`instructions` to Langfuse via create_prompt and stores the returnedversion in prompt_version.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.PromptSyncStatus? PromptSync { get; set; }
+        /// <summary>The prompt_version property</summary>
+        public int? PromptVersion { get; set; }
         /// <summary>The public_key_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,6 +86,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "host", n => { Host = n.GetStringValue(); } },
+                { "prompt_label", n => { PromptLabel = n.GetStringValue(); } },
+                { "prompt_name", n => { PromptName = n.GetStringValue(); } },
+                { "prompt_sync", n => { PromptSync = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PromptSyncStatus>(); } },
+                { "prompt_version", n => { PromptVersion = n.GetIntValue(); } },
                 { "public_key_ref", n => { PublicKeyRef = n.GetStringValue(); } },
                 { "secret_key_ref", n => { SecretKeyRef = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityStatus>(); } },
@@ -79,6 +103,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("host", Host);
+            writer.WriteStringValue("prompt_label", PromptLabel);
+            writer.WriteStringValue("prompt_name", PromptName);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.PromptSyncStatus>("prompt_sync", PromptSync);
+            writer.WriteIntValue("prompt_version", PromptVersion);
             writer.WriteStringValue("public_key_ref", PublicKeyRef);
             writer.WriteStringValue("secret_key_ref", SecretKeyRef);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ObservabilityStatus>("status", Status);
