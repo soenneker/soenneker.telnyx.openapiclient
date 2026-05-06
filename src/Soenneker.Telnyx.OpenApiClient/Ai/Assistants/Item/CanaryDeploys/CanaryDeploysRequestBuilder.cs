@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.CanaryDeploys
         /// Endpoint to create a canary deploy configuration for an assistant.Creates a new canary deploy configuration with multiple version IDs and their trafficpercentages for A/B testing or gradual rollouts of assistant versions.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CanaryDeployResponse"/></returns>
-        /// <param name="body">Request model for creating or updating canary deploys.</param>
+        /// <param name="body">Create/update request body. Accepts:- ``rules`` — canonical ordered list of routing rules</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
@@ -108,7 +108,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.CanaryDeploys
         /// Endpoint to update a canary deploy configuration for an assistant.Updates the existing canary deploy configuration with new version IDs and percentages.  All old versions and percentages are replaces by new ones from this request.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CanaryDeployResponse"/></returns>
-        /// <param name="body">Request model for creating or updating canary deploys.</param>
+        /// <param name="body">Create/update request body. Accepts:- ``rules`` — canonical ordered list of routing rules</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.HTTPValidationError">When receiving a 422 status code</exception>
@@ -171,7 +171,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.CanaryDeploys
         /// Endpoint to create a canary deploy configuration for an assistant.Creates a new canary deploy configuration with multiple version IDs and their trafficpercentages for A/B testing or gradual rollouts of assistant versions.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Request model for creating or updating canary deploys.</param>
+        /// <param name="body">Create/update request body. Accepts:- ``rules`` — canonical ordered list of routing rules</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -193,7 +193,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Assistants.Item.CanaryDeploys
         /// Endpoint to update a canary deploy configuration for an assistant.Updates the existing canary deploy configuration with new version IDs and percentages.  All old versions and percentages are replaces by new ones from this request.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Request model for creating or updating canary deploys.</param>
+        /// <param name="body">Create/update request body. Accepts:- ``rules`` — canonical ordered list of routing rules</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

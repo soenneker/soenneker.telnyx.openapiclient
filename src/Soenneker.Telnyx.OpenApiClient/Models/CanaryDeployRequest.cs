@@ -8,20 +8,20 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Request model for creating or updating canary deploys.
+    /// Create/update request body. Accepts:- ``rules`` — canonical ordered list of routing rules
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CanaryDeployRequest : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>List of version configurations</summary>
+        /// <summary>The rules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.VersionConfig>? Versions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RuleInput>? Rules { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.VersionConfig> Versions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RuleInput> Rules { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CanaryDeployRequest"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "versions", n => { Versions = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VersionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.VersionConfig.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RuleInput>(global::Soenneker.Telnyx.OpenApiClient.Models.RuleInput.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VersionConfig>("versions", Versions);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RuleInput>("rules", Rules);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

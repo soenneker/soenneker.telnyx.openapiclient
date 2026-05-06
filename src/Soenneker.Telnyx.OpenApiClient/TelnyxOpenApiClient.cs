@@ -150,6 +150,7 @@ using Soenneker.Telnyx.OpenApiClient.Texml;
 using Soenneker.Telnyx.OpenApiClient.Texml_applications;
 using Soenneker.Telnyx.OpenApiClient.TextToSpeech;
 using Soenneker.Telnyx.OpenApiClient.Traffic_policy_profiles;
+using Soenneker.Telnyx.OpenApiClient.Uac_connections;
 using Soenneker.Telnyx.OpenApiClient.Usage_reports;
 using Soenneker.Telnyx.OpenApiClient.User_addresses;
 using Soenneker.Telnyx.OpenApiClient.User_tags;
@@ -899,6 +900,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Traffic_policy_profiles.Traffic_policy_profilesRequestBuilder Traffic_policy_profiles
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Traffic_policy_profiles.Traffic_policy_profilesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The uac_connections property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Uac_connections.Uac_connectionsRequestBuilder Uac_connections
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Uac_connections.Uac_connectionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The usage_reports property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Usage_reports.Usage_reportsRequestBuilder Usage_reports

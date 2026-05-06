@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Response model for canary deploy operations.
+    /// Response shape.Always carries ``rules`` (canonical).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CanaryDeployResponse : IAdditionalDataHolder, IParsable
@@ -25,16 +25,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>The versions property</summary>
+        /// <summary>The rules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.VersionConfig>? Versions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RuleOutput>? Rules { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.VersionConfig> Versions { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.RuleOutput> Rules { get; set; }
 #endif
+        /// <summary>The updated_at property</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.CanaryDeployResponse"/> and sets the default values.
         /// </summary>
@@ -62,8 +62,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RuleOutput>(global::Soenneker.Telnyx.OpenApiClient.Models.RuleOutput.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "versions", n => { Versions = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VersionConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.VersionConfig.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -75,8 +75,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.RuleOutput>("rules", Rules);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.VersionConfig>("versions", Versions);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
