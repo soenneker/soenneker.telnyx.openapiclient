@@ -60,7 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// Order new external vetting for a brand
+        /// Order new external vetting for a brand.Duplicate orders for the same `evpId` and `vettingClass` return `400` with code `10012` if a successful vetting exists within the last 180 days, or one is currently being processed. Failed vettings can be retried immediately.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ExternalVetting"/></returns>
         /// <param name="body">The request body</param>
@@ -133,7 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.OneZerodlc.Brand.Item.ExternalVetting
             return requestInfo;
         }
         /// <summary>
-        /// Order new external vetting for a brand
+        /// Order new external vetting for a brand.Duplicate orders for the same `evpId` and `vettingClass` return `400` with code `10012` if a successful vetting exists within the last 180 days, or one is currently being processed. Failed vettings can be retried immediately.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

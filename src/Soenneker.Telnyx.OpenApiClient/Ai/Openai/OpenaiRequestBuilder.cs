@@ -2,7 +2,9 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.Ai.Openai.Chat;
 using Soenneker.Telnyx.OpenApiClient.Ai.Openai.Embeddings;
+using Soenneker.Telnyx.OpenApiClient.Ai.Openai.ModelsRequests;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,10 +17,20 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Openai
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OpenaiRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The chat property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.Chat.ChatRequestBuilder Chat
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.Chat.ChatRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The embeddings property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.Embeddings.EmbeddingsRequestBuilder Embeddings
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.Embeddings.EmbeddingsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The models property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.ModelsRequests.ModelsRequestBuilder Models
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.ModelsRequests.ModelsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.OpenaiRequestBuilder"/> and sets the default values.

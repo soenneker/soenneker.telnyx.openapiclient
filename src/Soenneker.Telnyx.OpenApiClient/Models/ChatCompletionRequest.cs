@@ -90,6 +90,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam ResponseFormat { get; set; }
 #endif
+        /// <summary>If specified, the system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.</summary>
+        public int? Seed { get; set; }
+        /// <summary>Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? Stop { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch Stop { get; set; }
+#endif
         /// <summary>Whether or not to stream data-only server-sent events as they become available.</summary>
         public bool? Stream { get; set; }
         /// <summary>Adjusts the &quot;creativity&quot; of the model. Lower values make the model more deterministic and repetitive, while higher values make the model more random and creative.</summary>
@@ -153,6 +163,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "n", n => { N = n.GetDoubleValue(); } },
                 { "presence_penalty", n => { PresencePenalty = n.GetDoubleValue(); } },
                 { "response_format", n => { ResponseFormat = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam>(global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam.CreateFromDiscriminatorValue); } },
+                { "seed", n => { Seed = n.GetIntValue(); } },
+                { "stop", n => { Stop = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
                 { "stream", n => { Stream = n.GetBoolValue(); } },
                 { "temperature", n => { Temperature = n.GetDoubleValue(); } },
                 { "tool_choice", n => { ToolChoice = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_tool_choice>(); } },
@@ -186,6 +198,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteDoubleValue("n", N);
             writer.WriteDoubleValue("presence_penalty", PresencePenalty);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionResponseFormatParam>("response_format", ResponseFormat);
+            writer.WriteIntValue("seed", Seed);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("stop", Stop);
             writer.WriteBoolValue("stream", Stream);
             writer.WriteDoubleValue("temperature", Temperature);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ChatCompletionRequest_tool_choice>("tool_choice", ToolChoice);

@@ -15,21 +15,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The speech to text model to be used by the voice assistant.- `distil-whisper/distil-large-v2` is lower latency but English-only.- `openai/whisper-large-v3-turbo` is multi-lingual with automatic language detection but slightly higher latency.- `google` is a multi-lingual option, please describe the language in the `language` field.</summary>
+        /// <summary>&quot;The language of the audio to be transcribed. If not set, or if set to `auto`, supported models will automatically detect the language. Supported and meaningful values depend on the selected transcription `model`. For `deepgram/flux`, supported values are: `auto` (Telnyx language detection controls the language hint), `multi` (no language hint), and language-specific hints `en`, `es`, `fr`, `de`, `hi`, `ru`, `pt`, `ja`, `it`, and `nl`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Model { get; set; }
+        public string? Language { get; set; }
 #nullable restore
 #else
-        public string Model { get; set; }
+        public string Language { get; set; }
 #endif
+        /// <summary>The speech to text model to be used by the voice assistant. Supported models include:- `deepgram/flux` (or `flux`) for live streaming turn-taking.- `deepgram/nova-3` and `deepgram/nova-2` for live streaming transcription.- `speechmatics/standard` and `speechmatics/enhanced` for live streaming transcription.- `assemblyai/universal-streaming` for live streaming transcription.- `xai/grok-stt` for live streaming transcription.- `azure/fast` and `azure/realtime`; Azure models require `region`, and unsupported regions require `api_key_ref`.- `google/latest_long` for non-streaming multilingual transcription.- `distil-whisper/distil-large-v2` for lower-latency English-only non-streaming transcription.- `openai/whisper-large-v3-turbo` for multilingual non-streaming transcription with automatic language detection.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig_model? Model { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig"/> and sets the default values.
         /// </summary>
         public TranscriptionConfig()
         {
             AdditionalData = new Dictionary<string, object>();
-            Model = "distil-whisper/distil-large-v2";
+            Language = "auto";
+            Model = global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig_model.DistilWhisperDistilLargeV2;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -49,7 +52,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "model", n => { Model = n.GetStringValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig_model>(); } },
             };
         }
         /// <summary>
@@ -59,7 +63,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("model", Model);
+            writer.WriteStringValue("language", Language);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionConfig_model>("model", Model);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

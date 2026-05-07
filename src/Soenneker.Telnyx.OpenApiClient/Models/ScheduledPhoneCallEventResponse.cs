@@ -22,6 +22,24 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string AssistantId { get; set; }
 #endif
+        /// <summary>The call_attempts property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantScheduledCallAttempt>? CallAttempts { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantScheduledCallAttempt> CallAttempts { get; set; }
+#endif
+        /// <summary>Duration of the call in seconds</summary>
+        public int? CallDuration { get; set; }
+        /// <summary>&quot;Values: busy, canceled, no-answer, ringing, completed, failed, in-progress&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CallStatus { get; set; }
+#nullable restore
+#else
+        public string CallStatus { get; set; }
+#endif
         /// <summary>The conversation_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,6 +58,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Date time at which call was sent</summary>
+        public DateTimeOffset? DispatchedAt { get; set; }
         /// <summary>A map of dynamic variable names to values. These variables can be referenced in the assistant&apos;s instructions and messages using {{variable_name}} syntax.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,10 +76,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<string> Errors { get; set; }
 #endif
+        /// <summary>&quot;Configure number of retries on client errors: busy, no-answer, failed, canceled (caller hung up before the callee answered)&quot;</summary>
+        public int? MaxRetriesClientErrors { get; set; }
         /// <summary>The retry_attempts property</summary>
         public int? RetryAttempts { get; set; }
         /// <summary>The retry_count property</summary>
         public int? RetryCount { get; set; }
+        /// <summary>The retry_interval_secs property</summary>
+        public int? RetryIntervalSecs { get; set; }
         /// <summary>The scheduled_at_fixed_datetime property</summary>
         public DateTimeOffset? ScheduledAtFixedDatetime { get; set; }
         /// <summary>The scheduled_event_id property</summary>
@@ -116,13 +140,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assistant_id", n => { AssistantId = n.GetStringValue(); } },
+                { "call_attempts", n => { CallAttempts = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantScheduledCallAttempt>(global::Soenneker.Telnyx.OpenApiClient.Models.AssistantScheduledCallAttempt.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "call_duration", n => { CallDuration = n.GetIntValue(); } },
+                { "call_status", n => { CallStatus = n.GetStringValue(); } },
                 { "conversation_id", n => { ConversationId = n.GetStringValue(); } },
                 { "conversation_metadata", n => { ConversationMetadata = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_conversation_metadata>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_conversation_metadata.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "dispatched_at", n => { DispatchedAt = n.GetDateTimeOffsetValue(); } },
                 { "dynamic_variables", n => { DynamicVariables = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_dynamic_variables>(global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_dynamic_variables.CreateFromDiscriminatorValue); } },
                 { "errors", n => { Errors = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "max_retries_client_errors", n => { MaxRetriesClientErrors = n.GetIntValue(); } },
                 { "retry_attempts", n => { RetryAttempts = n.GetIntValue(); } },
                 { "retry_count", n => { RetryCount = n.GetIntValue(); } },
+                { "retry_interval_secs", n => { RetryIntervalSecs = n.GetIntValue(); } },
                 { "scheduled_at_fixed_datetime", n => { ScheduledAtFixedDatetime = n.GetDateTimeOffsetValue(); } },
                 { "scheduled_event_id", n => { ScheduledEventId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus>(); } },
@@ -139,13 +169,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("assistant_id", AssistantId);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.AssistantScheduledCallAttempt>("call_attempts", CallAttempts);
+            writer.WriteIntValue("call_duration", CallDuration);
+            writer.WriteStringValue("call_status", CallStatus);
             writer.WriteStringValue("conversation_id", ConversationId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_conversation_metadata>("conversation_metadata", ConversationMetadata);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteDateTimeOffsetValue("dispatched_at", DispatchedAt);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ScheduledPhoneCallEventResponse_dynamic_variables>("dynamic_variables", DynamicVariables);
             writer.WriteCollectionOfPrimitiveValues<string>("errors", Errors);
+            writer.WriteIntValue("max_retries_client_errors", MaxRetriesClientErrors);
             writer.WriteIntValue("retry_attempts", RetryAttempts);
             writer.WriteIntValue("retry_count", RetryCount);
+            writer.WriteIntValue("retry_interval_secs", RetryIntervalSecs);
             writer.WriteDateTimeOffsetValue("scheduled_at_fixed_datetime", ScheduledAtFixedDatetime);
             writer.WriteStringValue("scheduled_event_id", ScheduledEventId);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.EventStatus>("status", Status);

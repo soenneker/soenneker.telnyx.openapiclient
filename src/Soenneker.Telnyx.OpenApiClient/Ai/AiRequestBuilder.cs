@@ -4,7 +4,6 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Ai.Assistants;
 using Soenneker.Telnyx.OpenApiClient.Ai.Audio;
-using Soenneker.Telnyx.OpenApiClient.Ai.Chat;
 using Soenneker.Telnyx.OpenApiClient.Ai.Clusters;
 using Soenneker.Telnyx.OpenApiClient.Ai.Conversations;
 using Soenneker.Telnyx.OpenApiClient.Ai.Embeddings;
@@ -12,7 +11,6 @@ using Soenneker.Telnyx.OpenApiClient.Ai.Fine_tuning;
 using Soenneker.Telnyx.OpenApiClient.Ai.Integrations;
 using Soenneker.Telnyx.OpenApiClient.Ai.Mcp_servers;
 using Soenneker.Telnyx.OpenApiClient.Ai.Missions;
-using Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests;
 using Soenneker.Telnyx.OpenApiClient.Ai.Openai;
 using Soenneker.Telnyx.OpenApiClient.Ai.Summarize;
 using Soenneker.Telnyx.OpenApiClient.Ai.Tools;
@@ -37,11 +35,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Audio.AudioRequestBuilder Audio
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Audio.AudioRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The chat property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Ai.Chat.ChatRequestBuilder Chat
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Chat.ChatRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The clusters property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Clusters.ClustersRequestBuilder Clusters
@@ -77,11 +70,6 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Missions.MissionsRequestBuilder Missions
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Missions.MissionsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The models property</summary>
-        public global::Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests.ModelsRequestBuilder Models
-        {
-            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.ModelsRequests.ModelsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The openai property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.OpenaiRequestBuilder Openai
