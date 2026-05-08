@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Defines whether media should be encrypted on the new call leg.</summary>
+    /// <summary>&quot;Defines whether media should be encrypted on the new call leg. For SIP URI destinations, media encryption can also be requested per endpoint with the `secure` URI parameter: `;secure=true` or `;secure=srtp` enables SRTP, and `;secure=dtls` enables DTLS. This parameter, when set to `SRTP` or `DTLS`, takes precedence over the per-endpoint `secure` value.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TransferCallRequest_media_encryption
     {

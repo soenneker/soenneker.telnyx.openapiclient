@@ -128,7 +128,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string LinkTo { get; set; }
 #endif
-        /// <summary>Defines whether media should be encrypted on the call.</summary>
+        /// <summary>&quot;Defines whether media should be encrypted on the call. For SIP URI destinations, media encryption can also be requested per endpoint with the `secure` URI parameter: `;secure=true` or `;secure=srtp` enables SRTP, and `;secure=dtls` enables DTLS. This parameter, when set to `SRTP` or `DTLS`, takes precedence over the per-endpoint `secure` value.&quot;</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_media_encryption? MediaEncryption { get; set; }
         /// <summary>The media_name of a file to be played back to the callee when the call is answered. The media_name must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. The file must either be a WAV or MP3 file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -262,7 +262,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? TimeLimitSecs { get; set; }
         /// <summary>The number of seconds that Telnyx will wait for the call to be answered by the destination to which it is being called. If the timeout is reached before an answer is received, the call will hangup and a `call.hangup` webhook with a `hangup_cause` of `timeout` will be sent. Minimum value is 5 seconds. Maximum value is 600 seconds.</summary>
         public int? TimeoutSecs { get; set; }
-        /// <summary>The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings</summary>
+        /// <summary>The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings. For SIP URI destinations, append `;secure=true` or `;secure=srtp` to enable SRTP media encryption for that endpoint, or `;secure=dtls` to enable DTLS media encryption for that endpoint. If `media_encryption` is set to `SRTP` or `DTLS`, it takes precedence over any per-endpoint `secure` URI parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? To { get; set; }

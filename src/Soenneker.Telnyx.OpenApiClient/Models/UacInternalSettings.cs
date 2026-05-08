@@ -15,7 +15,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The SIP URI that Telnyx will call when handling an inbound request from the external peer. Do not include a `sip:` prefix. The value must be in the format `userinfo@[subdomain.]sip.telnyx.com` or `userinfo@[subdomain.]sipdev.telnyx.com`; the userinfo portion may contain only letters, digits, hyphens, and underscores.</summary>
+        /// <summary>The SIP URI that Telnyx will call when handling an inbound request from the external peer. Do not include a `sip:` prefix. The value must be in the format `userinfo@&lt;subdomain.&gt;sip.telnyx.com` or `userinfo@&lt;subdomain.&gt;sipdev.telnyx.com`; the userinfo portion may contain only letters, digits, hyphens, and underscores.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DestinationUri { get; set; }

@@ -15,6 +15,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>When true, disables user interruptions while the assistant greeting is playing.</summary>
+        public bool? DisableGreetingInterruption { get; set; }
         /// <summary>Whether users can interrupt the assistant while it is speaking.</summary>
         public bool? Enable { get; set; }
         /// <summary>Controls when the assistant starts speaking after the user stops. These thresholds primarily apply to non turn-taking transcription models. For turn-taking models like `deepgram/flux`, end-of-turn detection is driven by the transcription end-of-turn settings under `transcription.settings` instead.</summary>
@@ -50,6 +52,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "disable_greeting_interruption", n => { DisableGreetingInterruption = n.GetBoolValue(); } },
                 { "enable", n => { Enable = n.GetBoolValue(); } },
                 { "start_speaking_plan", n => { StartSpeakingPlan = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan>(global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan.CreateFromDiscriminatorValue); } },
             };
@@ -61,6 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("disable_greeting_interruption", DisableGreetingInterruption);
             writer.WriteBoolValue("enable", Enable);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.StartSpeakingPlan>("start_speaking_plan", StartSpeakingPlan);
             writer.WriteAdditionalData(AdditionalData);
