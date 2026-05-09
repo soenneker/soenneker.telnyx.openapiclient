@@ -7,16 +7,35 @@ using System.IO;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
+    /// <summary>
+    /// Metadata for a model available on Telnyx Inference. Returned by `GET /v2/ai/openai/models` (and the deprecated `GET /v2/ai/models`). Open-source models live under their Hugging Face organization (e.g. `moonshotai/Kimi-K2.6`, `zai-org/GLM-5.1-FP8`, `MiniMaxAI/MiniMax-M2.7`); fine-tuned models are owned by the Telnyx organization that trained them.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class ModelMetadata : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The created property</summary>
-        public int? Created { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>Base model the fine-tuned model was trained from. Only set for fine-tuned models.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BaseModel { get; set; }
+#nullable restore
+#else
+        public string BaseModel { get; set; }
+#endif
+        /// <summary>Maximum total tokens (prompt + completion) supported by the model in a single request.</summary>
+        public int? ContextLength { get; set; }
+        /// <summary>Timestamp at which the model was registered on Telnyx Inference (ISO 8601).</summary>
+        public DateTimeOffset? Created { get; set; }
+        /// <summary>Short, human-readable summary of what the model is best suited for.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
+        /// <summary>Model identifier. For open-source models, follows the `{organization}/{model_name}` convention from Hugging Face (e.g. `moonshotai/Kimi-K2.6`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id { get; set; }
@@ -24,7 +43,29 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The object property</summary>
+        /// <summary>Whether the model can be used as a base for a fine-tuning job via `POST /v2/ai/fine_tuning/jobs`.</summary>
+        public bool? IsFineTunable { get; set; }
+        /// <summary>Whether the model accepts image inputs in chat completions (multimodal vision support).</summary>
+        public bool? IsVisionSupported { get; set; }
+        /// <summary>ISO language codes the model supports (e.g. `en`, `es`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Languages { get; set; }
+#nullable restore
+#else
+        public List<string> Languages { get; set; }
+#endif
+        /// <summary>License the model is distributed under, e.g. `Apache 2.0`, `MIT`, `Llama 3 Community License`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? License { get; set; }
+#nullable restore
+#else
+        public string License { get; set; }
+#endif
+        /// <summary>Maximum number of completion (output) tokens the model will generate per request. `null` if unconstrained beyond `context_length`.</summary>
+        public int? MaxCompletionTokens { get; set; }
+        /// <summary>Object type. Always `model`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Object { get; set; }
@@ -32,7 +73,15 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Object { get; set; }
 #endif
-        /// <summary>The owned_by property</summary>
+        /// <summary>Organization that originally published the model, matching the prefix of `id` for open-source models.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Organization { get; set; }
+#nullable restore
+#else
+        public string Organization { get; set; }
+#endif
+        /// <summary>Owner of the model. `Telnyx` for Telnyx-hosted open-source models, the upstream provider name for proxied models, or the Telnyx organization id for fine-tuned models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OwnedBy { get; set; }
@@ -40,6 +89,44 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string OwnedBy { get; set; }
 #endif
+        /// <summary>Total parameter count of the model.</summary>
+        public int? Parameters { get; set; }
+        /// <summary>Human-readable parameter count, e.g. `1.0T`, `753.9B`, `8B`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ParametersStr { get; set; }
+#nullable restore
+#else
+        public string ParametersStr { get; set; }
+#endif
+        /// <summary>Mapping of token kind to price in USD per 1M tokens, as a string. Typical keys are `input` and `output`; embedding models expose `embedding`. Empty object when pricing is not yet published for the model.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing? Pricing { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing Pricing { get; set; }
+#endif
+        /// <summary>Whether Telnyx currently recommends this model as the LLM powering a Telnyx AI Assistant.</summary>
+        public bool? RecommendedForAssistants { get; set; }
+        /// <summary>Public region names where the model is currently deployed (e.g. `us-central-1`, `eu-central-1`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Regions { get; set; }
+#nullable restore
+#else
+        public List<string> Regions { get; set; }
+#endif
+        /// <summary>Primary task the model is intended for, e.g. `text-generation`, `audio-text-to-text`, `feature-extraction` (embeddings).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Task { get; set; }
+#nullable restore
+#else
+        public string Task { get; set; }
+#endif
+        /// <summary>Billing tier the model belongs to. Used together with `pricing` to determine cost per 1M tokens.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_tier? Tier { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata"/> and sets the default values.
         /// </summary>
@@ -47,6 +134,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Object = "model";
+            Task = "text-generation";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,10 +154,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created", n => { Created = n.GetIntValue(); } },
+                { "base_model", n => { BaseModel = n.GetStringValue(); } },
+                { "context_length", n => { ContextLength = n.GetIntValue(); } },
+                { "created", n => { Created = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "is_fine_tunable", n => { IsFineTunable = n.GetBoolValue(); } },
+                { "is_vision_supported", n => { IsVisionSupported = n.GetBoolValue(); } },
+                { "languages", n => { Languages = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "license", n => { License = n.GetStringValue(); } },
+                { "max_completion_tokens", n => { MaxCompletionTokens = n.GetIntValue(); } },
                 { "object", n => { Object = n.GetStringValue(); } },
+                { "organization", n => { Organization = n.GetStringValue(); } },
                 { "owned_by", n => { OwnedBy = n.GetStringValue(); } },
+                { "parameters", n => { Parameters = n.GetIntValue(); } },
+                { "parameters_str", n => { ParametersStr = n.GetStringValue(); } },
+                { "pricing", n => { Pricing = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing>(global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing.CreateFromDiscriminatorValue); } },
+                { "recommended_for_assistants", n => { RecommendedForAssistants = n.GetBoolValue(); } },
+                { "regions", n => { Regions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "task", n => { Task = n.GetStringValue(); } },
+                { "tier", n => { Tier = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_tier>(); } },
             };
         }
         /// <summary>
@@ -79,10 +183,26 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("created", Created);
+            writer.WriteStringValue("base_model", BaseModel);
+            writer.WriteIntValue("context_length", ContextLength);
+            writer.WriteDateTimeOffsetValue("created", Created);
+            writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
+            writer.WriteBoolValue("is_fine_tunable", IsFineTunable);
+            writer.WriteBoolValue("is_vision_supported", IsVisionSupported);
+            writer.WriteCollectionOfPrimitiveValues<string>("languages", Languages);
+            writer.WriteStringValue("license", License);
+            writer.WriteIntValue("max_completion_tokens", MaxCompletionTokens);
             writer.WriteStringValue("object", Object);
+            writer.WriteStringValue("organization", Organization);
             writer.WriteStringValue("owned_by", OwnedBy);
+            writer.WriteIntValue("parameters", Parameters);
+            writer.WriteStringValue("parameters_str", ParametersStr);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing>("pricing", Pricing);
+            writer.WriteBoolValue("recommended_for_assistants", RecommendedForAssistants);
+            writer.WriteCollectionOfPrimitiveValues<string>("regions", Regions);
+            writer.WriteStringValue("task", Task);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_tier>("tier", Tier);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

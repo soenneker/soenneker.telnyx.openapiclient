@@ -32,5 +32,9 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription
         #pragma warning disable CS1591
         Speechmatics,
         #pragma warning restore CS1591
+        [EnumMember(Value = "Soniox")]
+        #pragma warning disable CS1591
+        Soniox,
+        #pragma warning restore CS1591
     }
 }
