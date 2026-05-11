@@ -99,7 +99,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ParametersStr { get; set; }
 #endif
-        /// <summary>Mapping of token kind to price in USD per 1M tokens, as a string. Typical keys are `input` and `output`; embedding models expose `embedding`. Empty object when pricing is not yet published for the model.</summary>
+        /// <summary>Mapping of token kind to price, as strings to preserve precision. Typical keys are `prompt`, `cached_prompt`, and `completion`. When pricing is available the block also includes `currency` (ISO 4217 code matching the account&apos;s configured billing currency) and `unit` (the denomination the prices are quoted in, currently always `1M_tokens` for token-priced models).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.ModelMetadata_pricing? Pricing { get; set; }

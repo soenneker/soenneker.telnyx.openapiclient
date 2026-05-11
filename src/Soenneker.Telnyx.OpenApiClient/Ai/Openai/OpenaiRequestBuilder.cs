@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Telnyx.OpenApiClient.Ai.Openai.Chat;
 using Soenneker.Telnyx.OpenApiClient.Ai.Openai.Embeddings;
 using Soenneker.Telnyx.OpenApiClient.Ai.Openai.ModelsRequests;
+using Soenneker.Telnyx.OpenApiClient.Ai.Openai.Responses;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -31,6 +32,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Ai.Openai
         public global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.ModelsRequests.ModelsRequestBuilder Models
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.ModelsRequests.ModelsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The responses property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.Responses.ResponsesRequestBuilder Responses
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.Responses.ResponsesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Ai.Openai.OpenaiRequestBuilder"/> and sets the default values.

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Mapping of token kind to price in USD per 1M tokens, as a string. Typical keys are `input` and `output`; embedding models expose `embedding`. Empty object when pricing is not yet published for the model.
+    /// Mapping of token kind to price, as strings to preserve precision. Typical keys are `prompt`, `cached_prompt`, and `completion`. When pricing is available the block also includes `currency` (ISO 4217 code matching the account&apos;s configured billing currency) and `unit` (the denomination the prices are quoted in, currently always `1M_tokens` for token-priced models).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ModelMetadata_pricing : IAdditionalDataHolder, IParsable
