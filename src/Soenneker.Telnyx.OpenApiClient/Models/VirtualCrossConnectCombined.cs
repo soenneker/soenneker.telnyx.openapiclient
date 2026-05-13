@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string PrimaryCloudAccountId { get; set; }
 #endif
-        /// <summary>The IP address assigned for your side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.</summary>
+        /// <summary>The IP address assigned for your side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value can not be patched once the VXC has bene provisioned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PrimaryCloudIp { get; set; }
@@ -73,7 +73,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string PrimaryCloudIp { get; set; }
 #endif
         /// <summary>Indicates whether the primary circuit is enabled. Setting this to `false` will disable the circuit.</summary>
-        public bool? PrimaryEnabled { get; private set; }
+        public bool? PrimaryEnabled { get; set; }
         /// <summary>Whether the primary BGP route is being announced.</summary>
         public bool? PrimaryRoutingAnnouncement { get; set; }
         /// <summary>The IP address assigned to the Telnyx side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.</summary>
@@ -100,7 +100,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion Region { get; set; }
 #endif
-        /// <summary>The region the interface should be deployed to.</summary>
+        /// <summary>The region interface is deployed to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RegionCode { get; set; }
@@ -124,7 +124,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string SecondaryCloudAccountId { get; set; }
 #endif
-        /// <summary>The IP address assigned for your side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.</summary>
+        /// <summary>The IP address assigned for your side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value can not be patched once the VXC has bene provisioned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SecondaryCloudIp { get; set; }
@@ -133,7 +133,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string SecondaryCloudIp { get; set; }
 #endif
         /// <summary>Indicates whether the secondary circuit is enabled. Setting this to `false` will disable the circuit.</summary>
-        public bool? SecondaryEnabled { get; private set; }
+        public bool? SecondaryEnabled { get; set; }
         /// <summary>Whether the secondary BGP route is being announced.</summary>
         public bool? SecondaryRoutingAnnouncement { get; set; }
         /// <summary>The IP address assigned to the Telnyx side of the Virtual Cross Connect.&lt;br /&gt;&lt;br /&gt;If none is provided, one will be generated for you.&lt;br /&gt;&lt;br /&gt;This value should be null for GCE as Google will only inform you of your assigned IP once the connection has been accepted.</summary>
@@ -222,6 +222,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("primary_bgp_key", PrimaryBgpKey);
             writer.WriteStringValue("primary_cloud_account_id", PrimaryCloudAccountId);
             writer.WriteStringValue("primary_cloud_ip", PrimaryCloudIp);
+            writer.WriteBoolValue("primary_enabled", PrimaryEnabled);
             writer.WriteBoolValue("primary_routing_announcement", PrimaryRoutingAnnouncement);
             writer.WriteStringValue("primary_telnyx_ip", PrimaryTelnyxIp);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.RegionOutRegion>("region", Region);
@@ -229,6 +230,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("secondary_bgp_key", SecondaryBgpKey);
             writer.WriteStringValue("secondary_cloud_account_id", SecondaryCloudAccountId);
             writer.WriteStringValue("secondary_cloud_ip", SecondaryCloudIp);
+            writer.WriteBoolValue("secondary_enabled", SecondaryEnabled);
             writer.WriteBoolValue("secondary_routing_announcement", SecondaryRoutingAnnouncement);
             writer.WriteStringValue("secondary_telnyx_ip", SecondaryTelnyxIp);
             writer.WriteAdditionalData(AdditionalData);

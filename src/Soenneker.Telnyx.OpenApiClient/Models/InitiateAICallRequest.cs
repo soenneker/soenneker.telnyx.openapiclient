@@ -58,7 +58,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CallerId { get; set; }
 #endif
-        /// <summary>URL destination for Telnyx to send conversation callback events to.</summary>
+        /// <summary>URL destination for Telnyx to send AI conversation callback events for this call. Events include `conversation_created` and `conversation_ended`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ConversationCallback { get; set; }
@@ -66,9 +66,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConversationCallback { get; set; }
 #endif
-        /// <summary>HTTP request type used for `ConversationCallback`.</summary>
+        /// <summary>HTTP request type used for `ConversationCallback` and `ConversationCallbacks`.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallRequest_ConversationCallbackMethod? ConversationCallbackMethod { get; set; }
-        /// <summary>An array of URL destinations for conversation callback events.</summary>
+        /// <summary>Array of URL destinations for AI conversation callback events for this call. Events include `conversation_created` and `conversation_ended`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ConversationCallbacks { get; set; }
@@ -166,7 +166,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Defines the SIP region to be used for the call.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallRequest_SipRegion? SipRegion { get; set; }
-        /// <summary>URL destination for Telnyx to send status callback events to for the call.</summary>
+        /// <summary>URL destination for Telnyx to send status callback events for this AI call. When provided, this per-call value overrides the status callback URL configured on the TeXML application/connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StatusCallback { get; set; }
@@ -174,7 +174,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string StatusCallback { get; set; }
 #endif
-        /// <summary>&quot;The call events for which Telnyx should send a webhook. Multiple events can be defined when separated by a space. Valid values: initiated, ringing, answered, completed.&quot;</summary>
+        /// <summary>&quot;The status callback events for which Telnyx should send a webhook for this AI call. Multiple events can be defined when separated by a space. Valid values: initiated, ringing, answered, completed, no-answer, busy, canceled, failed, analyzed. When provided, this per-call value overrides the status callback events configured on the TeXML application/connection.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StatusCallbackEvent { get; set; }
@@ -182,9 +182,9 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string StatusCallbackEvent { get; set; }
 #endif
-        /// <summary>HTTP request type used for `StatusCallback`.</summary>
+        /// <summary>HTTP request type used for `StatusCallback` and `StatusCallbacks` for this AI call. When provided, this per-call value overrides the status callback method configured on the TeXML application/connection.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallRequest_StatusCallbackMethod? StatusCallbackMethod { get; set; }
-        /// <summary>An array of URL destinations for Telnyx to send status callback events to for the call.</summary>
+        /// <summary>Array of URL destinations for Telnyx to send status callback events for this AI call. When provided, these per-call values override the status callback URL configured on the TeXML application/connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? StatusCallbacks { get; set; }

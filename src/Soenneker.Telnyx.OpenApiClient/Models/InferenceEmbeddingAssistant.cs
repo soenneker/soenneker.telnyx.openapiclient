@@ -213,10 +213,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Deprecated for new integrations. Inline tool definitions available to the assistant. Prefer `tool_ids` to attach shared tools created with the AI Tools endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.Assistants>? Tools { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.InferenceEmbeddingAssistant_tools>? Tools { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.Assistants> Tools { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.InferenceEmbeddingAssistant_tools> Tools { get; set; }
 #endif
         /// <summary>The transcription property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -312,7 +312,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "related_mission_ids", n => { RelatedMissionIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "telephony_settings", n => { TelephonySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings.CreateFromDiscriminatorValue); } },
-                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.Assistants>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.Assistants.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.InferenceEmbeddingAssistant_tools>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.InferenceEmbeddingAssistant_tools.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings.CreateFromDiscriminatorValue); } },
                 { "version_created_at", n => { VersionCreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "version_id", n => { VersionId = n.GetStringValue(); } },
@@ -354,7 +354,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("related_mission_ids", RelatedMissionIds);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettings>("telephony_settings", TelephonySettings);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.Assistants>("tools", Tools);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.InferenceEmbeddingAssistant_tools>("tools", Tools);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TranscriptionSettings>("transcription", Transcription);
             writer.WriteDateTimeOffsetValue("version_created_at", VersionCreatedAt);
             writer.WriteStringValue("version_id", VersionId);
@@ -367,7 +367,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HandoffTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.HangupTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingWebhookTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InviteTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RetrievalTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SendMessageTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SIPReferTool"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.SkipTurnTool"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Assistants : IComposedTypeWrapper, IParsable
+        public partial class InferenceEmbeddingAssistant_tools : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -452,13 +452,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.Assistants"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.InferenceEmbeddingAssistant_tools"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.Assistants CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.InferenceEmbeddingAssistant_tools CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.Assistants();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingAssistant.InferenceEmbeddingAssistant_tools();
                 if("DTMFTool".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.DTMFTool = new global::Soenneker.Telnyx.OpenApiClient.Models.DTMFTool();

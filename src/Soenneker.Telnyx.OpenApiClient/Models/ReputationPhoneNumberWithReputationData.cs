@@ -9,9 +9,25 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReputationPhoneNumberWithReputationData : global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberPublic, IParsable
+    public partial class ReputationPhoneNumberWithReputationData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>When the number was associated</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>ID of the associated enterprise</summary>
+        public Guid? EnterpriseId { get; set; }
+        /// <summary>Unique identifier</summary>
+        public Guid? Id { get; set; }
+        /// <summary>Phone number in E.164 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PhoneNumber { get; set; }
+#nullable restore
+#else
+        public string PhoneNumber { get; set; }
+#endif
         /// <summary>Reputation metrics (null if not yet fetched)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,12 +36,21 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData_reputation_data ReputationData { get; set; }
 #endif
+        /// <summary>When the record was last updated</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData"/> and sets the default values.
+        /// </summary>
+        public ReputationPhoneNumberWithReputationData()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData();
@@ -34,22 +59,32 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "enterprise_id", n => { EnterpriseId = n.GetGuidValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "reputation_data", n => { ReputationData = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData_reputation_data>(global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData_reputation_data.CreateFromDiscriminatorValue); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteGuidValue("enterprise_id", EnterpriseId);
+            writer.WriteGuidValue("id", Id);
+            writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ReputationPhoneNumberWithReputationData_reputation_data>("reputation_data", ReputationData);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

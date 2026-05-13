@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>HTTP request type used for `ConversationCallback`.</summary>
+    /// <summary>HTTP request type used for `ConversationCallback` and `ConversationCallbacks`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum InitiateAICallRequest_ConversationCallbackMethod
     {

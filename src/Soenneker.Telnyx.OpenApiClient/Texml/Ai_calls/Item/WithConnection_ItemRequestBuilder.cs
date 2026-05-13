@@ -34,7 +34,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls.Item
         {
         }
         /// <summary>
-        /// Initiate an outbound AI call with warm-up support. Validates parameters, builds an internal TeXML with an AI Assistant configuration, encodes instructions into client state, and calls the dial API. The Twiml, Texml, and Url parameters are not allowed and will result in a 422 error.
+        /// &quot;Initiate an outbound AI call with warm-up support. Validates parameters, builds an internal TeXML with an AI Assistant configuration, encodes instructions into client state, and calls the dial API. The Twiml, Texml, and Url parameters are not allowed and will result in a 422 error.**Expected callback events:**Status callbacks: `initiated`, `ringing`, `answered`, one terminal status (`completed`, `no-answer`, `busy`, `canceled`, or `failed`), then `analyzed` after post-call processing completes.Conversation callbacks: `conversation_created` and `conversation_ended`.Recording, AMD, transcription, and deepfake detection callbacks are only sent when those features are enabled.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallResult"/></returns>
         /// <param name="body">The request body</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Texml.Ai_calls.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallResult>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallResult.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Initiate an outbound AI call with warm-up support. Validates parameters, builds an internal TeXML with an AI Assistant configuration, encodes instructions into client state, and calls the dial API. The Twiml, Texml, and Url parameters are not allowed and will result in a 422 error.
+        /// &quot;Initiate an outbound AI call with warm-up support. Validates parameters, builds an internal TeXML with an AI Assistant configuration, encodes instructions into client state, and calls the dial API. The Twiml, Texml, and Url parameters are not allowed and will result in a 422 error.**Expected callback events:**Status callbacks: `initiated`, `ringing`, `answered`, one terminal status (`completed`, `no-answer`, `busy`, `canceled`, or `failed`), then `analyzed` after post-call processing completes.Conversation callbacks: `conversation_created` and `conversation_ended`.Recording, AMD, transcription, and deepfake detection callbacks are only sent when those features are enabled.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

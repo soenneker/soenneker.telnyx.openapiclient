@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>HTTP request type used for `StatusCallback`.</summary>
+    /// <summary>HTTP request type used for `StatusCallback` and `StatusCallbacks` for this AI call. When provided, this per-call value overrides the status callback method configured on the TeXML application/connection.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum InitiateAICallRequest_StatusCallbackMethod
     {

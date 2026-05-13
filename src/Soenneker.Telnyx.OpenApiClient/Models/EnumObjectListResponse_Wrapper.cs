@@ -17,10 +17,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpoint>? Value { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper_value>? Value { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpoint> Value { get; set; }
+        public List<global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper_value> Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpoint>(global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpoint.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper_value>(global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper_value.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WithEndpoint>("value", Value);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.EnumObjectListResponse_Wrapper_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

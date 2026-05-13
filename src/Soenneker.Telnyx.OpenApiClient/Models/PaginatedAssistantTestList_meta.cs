@@ -11,14 +11,31 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
     /// Pagination metadata including total counts and current page info.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PaginatedAssistantTestList_meta : global::Soenneker.Telnyx.OpenApiClient.Models.Meta, IParsable
+    public partial class PaginatedAssistantTestList_meta : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The page_number property</summary>
+        public int? PageNumber { get; set; }
+        /// <summary>The page_size property</summary>
+        public int? PageSize { get; set; }
+        /// <summary>The total_pages property</summary>
+        public int? TotalPages { get; set; }
+        /// <summary>The total_results property</summary>
+        public int? TotalResults { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList_meta"/> and sets the default values.
+        /// </summary>
+        public PaginatedAssistantTestList_meta()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList_meta"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList_meta CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList_meta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Models.PaginatedAssistantTestList_meta();
@@ -27,20 +44,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "page_number", n => { PageNumber = n.GetIntValue(); } },
+                { "page_size", n => { PageSize = n.GetIntValue(); } },
+                { "total_pages", n => { TotalPages = n.GetIntValue(); } },
+                { "total_results", n => { TotalResults = n.GetIntValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteIntValue("page_number", PageNumber);
+            writer.WriteIntValue("page_size", PageSize);
+            writer.WriteIntValue("total_pages", TotalPages);
+            writer.WriteIntValue("total_results", TotalResults);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

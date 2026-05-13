@@ -9,9 +9,19 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class GlobalIPHealthCheck : global::Soenneker.Telnyx.OpenApiClient.Models.Record, IParsable
+    public partial class GlobalIPHealthCheck : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>ISO 8601 formatted date-time indicating when the resource was created.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedAt { get; private set; }
+#nullable restore
+#else
+        public string CreatedAt { get; private set; }
+#endif
         /// <summary>Global IP ID.</summary>
         public Guid? GlobalIpId { get; set; }
         /// <summary>A Global IP health check params.</summary>
@@ -30,12 +40,37 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string HealthCheckType { get; set; }
 #endif
+        /// <summary>Identifies the resource.</summary>
+        public Guid? Id { get; private set; }
+        /// <summary>Identifies the type of the resource.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RecordType { get; private set; }
+#nullable restore
+#else
+        public string RecordType { get; private set; }
+#endif
+        /// <summary>ISO 8601 formatted date-time indicating when the resource was updated.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UpdatedAt { get; private set; }
+#nullable restore
+#else
+        public string UpdatedAt { get; private set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck"/> and sets the default values.
+        /// </summary>
+        public GlobalIPHealthCheck()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck();
@@ -44,26 +79,30 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
                 { "global_ip_id", n => { GlobalIpId = n.GetGuidValue(); } },
                 { "health_check_params", n => { HealthCheckParams = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck_health_check_params>(global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck_health_check_params.CreateFromDiscriminatorValue); } },
                 { "health_check_type", n => { HealthCheckType = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "record_type", n => { RecordType = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
             writer.WriteGuidValue("global_ip_id", GlobalIpId);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.GlobalIPHealthCheck_health_check_params>("health_check_params", HealthCheckParams);
             writer.WriteStringValue("health_check_type", HealthCheckType);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }
