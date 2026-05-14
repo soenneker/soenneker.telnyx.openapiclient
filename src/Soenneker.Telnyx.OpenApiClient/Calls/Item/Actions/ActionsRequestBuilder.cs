@@ -9,6 +9,8 @@ using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Ai_assistant_stop;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Answer;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Bridge;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Client_state_update;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Conversation_relay_start;
+using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Conversation_relay_stop;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Enqueue;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_start;
 using Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Fork_stop;
@@ -86,6 +88,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Client_state_update.Client_state_updateRequestBuilder Client_state_update
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Client_state_update.Client_state_updateRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The conversation_relay_start property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Conversation_relay_start.Conversation_relay_startRequestBuilder Conversation_relay_start
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Conversation_relay_start.Conversation_relay_startRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The conversation_relay_stop property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Conversation_relay_stop.Conversation_relay_stopRequestBuilder Conversation_relay_stop
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Conversation_relay_stop.Conversation_relay_stopRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The enqueue property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Enqueue.EnqueueRequestBuilder Enqueue

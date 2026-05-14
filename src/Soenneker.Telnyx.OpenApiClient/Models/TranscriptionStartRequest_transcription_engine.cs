@@ -31,6 +31,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         #pragma warning disable CS1591
         AssemblyAI,
         #pragma warning restore CS1591
+        [EnumMember(Value = "Speechmatics")]
+        #pragma warning disable CS1591
+        Speechmatics,
+        #pragma warning restore CS1591
         [EnumMember(Value = "A")]
         #pragma warning disable CS1591
         A,
