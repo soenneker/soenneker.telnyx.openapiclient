@@ -48,7 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string FromDisplayName { get; set; }
 #endif
-        /// <summary>The media_name used for the fax&apos;s media. Must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. media_name and media_url/contents can&apos;t be submitted together.</summary>
+        /// <summary>&quot;The media_name used for the fax&apos;s media. Must point to a file previously uploaded to api.telnyx.com/v2/media by the same user/organization. Supported formats: PDF, TIFF, JPEG, PNG, DOC, DOCX, RTF, and TXT. media_name and media_url/contents can&apos;t be submitted together.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MediaName { get; set; }
@@ -56,7 +56,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MediaName { get; set; }
 #endif
-        /// <summary>The URL (or list of URLs) to the PDF used for the fax&apos;s media. media_url and media_name/contents can&apos;t be submitted together.</summary>
+        /// <summary>&quot;The URL (or list of URLs) to the fax document. Supported formats: PDF, TIFF, JPEG, PNG, DOC, DOCX, RTF, and TXT. media_url and media_name/contents can&apos;t be submitted together.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MediaUrl { get; set; }

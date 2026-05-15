@@ -37,7 +37,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Conversation_relay_s
         /// Start a Conversation Relay session on an active call. Conversation Relay connects the call audio to your WebSocket so your application can exchange realtime messages with the caller while Telnyx handles speech recognition and text-to-speech. Only one AI Assistant or Conversation Relay session can be active on a call at a time.**Expected Webhooks:**- `call.conversation.ended` - Sent when the Conversation Relay session ends. If the customer WebSocket disconnects, the webhook payload `reason` is `customer_disconnect`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Conversation_relay_start.Conversation_relay_startPostResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Start a Conversation Relay session. Provide either `conversation_relay_url` or `conversation_relay_settings.url`; when both nested and top-level equivalents are provided, top-level values take precedence as described on `conversation_relay_settings`.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Telnyx.OpenApiClient.Models.CallControlErrors">When receiving a 422 status code</exception>
@@ -64,7 +64,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Calls.Item.Actions.Conversation_relay_s
         /// Start a Conversation Relay session on an active call. Conversation Relay connects the call audio to your WebSocket so your application can exchange realtime messages with the caller while Telnyx handles speech recognition and text-to-speech. Only one AI Assistant or Conversation Relay session can be active on a call at a time.**Expected Webhooks:**- `call.conversation.ended` - Sent when the Conversation Relay session ends. If the customer WebSocket disconnects, the webhook payload `reason` is `customer_disconnect`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Start a Conversation Relay session. Provide either `conversation_relay_url` or `conversation_relay_settings.url`; when both nested and top-level equivalents are provided, top-level values take precedence as described on `conversation_relay_settings`.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

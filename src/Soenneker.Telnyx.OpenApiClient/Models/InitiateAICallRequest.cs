@@ -84,7 +84,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallRequest_CustomHeaders> CustomHeaders { get; set; }
 #endif
-        /// <summary>Allows you to choose between Premium and Standard detections.</summary>
+        /// <summary>Allows you to choose between Regular, Premium, and PremiumCallScreening detections. See https://developers.telnyx.com/docs/voice/programmable-voice/answering-machine-detection</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallRequest_DetectionMode? DetectionMode { get; set; }
         /// <summary>The phone number of the party initiating the call. Phone numbers are formatted with a `+` and country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,6 +96,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Enables Answering Machine Detection.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallRequest_MachineDetection? MachineDetection { get; set; }
+        /// <summary>Silence duration threshold after a call screening prompt before ending prompt detection, in milliseconds. Used when `DetectionMode` is `PremiumCallScreening`.</summary>
+        public int? MachineDetectionPromptEndTimeout { get; set; }
         /// <summary>If initial silence duration is greater than this value, consider it a machine. Ignored when `premium` detection is used.</summary>
         public int? MachineDetectionSilenceTimeout { get; set; }
         /// <summary>Silence duration threshold after a greeting message or voice for it be considered human. Ignored when `premium` detection is used.</summary>
@@ -252,6 +254,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "DetectionMode", n => { DetectionMode = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallRequest_DetectionMode>(); } },
                 { "From", n => { From = n.GetStringValue(); } },
                 { "MachineDetection", n => { MachineDetection = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallRequest_MachineDetection>(); } },
+                { "MachineDetectionPromptEndTimeout", n => { MachineDetectionPromptEndTimeout = n.GetIntValue(); } },
                 { "MachineDetectionSilenceTimeout", n => { MachineDetectionSilenceTimeout = n.GetIntValue(); } },
                 { "MachineDetectionSpeechEndThreshold", n => { MachineDetectionSpeechEndThreshold = n.GetIntValue(); } },
                 { "MachineDetectionSpeechThreshold", n => { MachineDetectionSpeechThreshold = n.GetIntValue(); } },
@@ -300,6 +303,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallRequest_DetectionMode>("DetectionMode", DetectionMode);
             writer.WriteStringValue("From", From);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.InitiateAICallRequest_MachineDetection>("MachineDetection", MachineDetection);
+            writer.WriteIntValue("MachineDetectionPromptEndTimeout", MachineDetectionPromptEndTimeout);
             writer.WriteIntValue("MachineDetectionSilenceTimeout", MachineDetectionSilenceTimeout);
             writer.WriteIntValue("MachineDetectionSpeechEndThreshold", MachineDetectionSpeechEndThreshold);
             writer.WriteIntValue("MachineDetectionSpeechThreshold", MachineDetectionSpeechThreshold);

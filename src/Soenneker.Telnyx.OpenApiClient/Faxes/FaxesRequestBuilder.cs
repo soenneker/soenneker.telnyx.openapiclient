@@ -72,7 +72,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes
             return await RequestAdapter.SendAsync<global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesGetResponse>(requestInfo, global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Send a fax. Files have size limits and page count limit validations. If a file is bigger than 50MB or has more than 350 pages it will fail with `file_size_limit_exceeded` and `page_count_limit_exceeded` respectively. **Expected Webhooks:**- `fax.queued`- `fax.media.processed`- `fax.sending.started`- `fax.delivered`- `fax.failed`
+        /// Send a fax. Files have size limits and page count limit validations. If a file is bigger than 50MB or has more than 350 pages it will fail with `file_size_limit_exceeded` and `page_count_limit_exceeded` respectively.**Supported file formats:**- PDF (`application/pdf`)- TIFF (`application/tiff`, `image/tiff`)- JPEG (`image/jpeg`)- PNG (`image/png`)- Microsoft Word `.doc` (`application/msword`)- Microsoft Word `.docx` (`application/vnd.openxmlformats-officedocument.wordprocessingml.document`)- Rich Text Format `.rtf` (`application/rtf`)- Plain text `.txt` (`text/plain`)**Expected Webhooks:**- `fax.queued`- `fax.media.processed`- `fax.sending.started`- `fax.delivered`- `fax.failed`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Faxes.FaxesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -115,7 +115,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Faxes
             return requestInfo;
         }
         /// <summary>
-        /// Send a fax. Files have size limits and page count limit validations. If a file is bigger than 50MB or has more than 350 pages it will fail with `file_size_limit_exceeded` and `page_count_limit_exceeded` respectively. **Expected Webhooks:**- `fax.queued`- `fax.media.processed`- `fax.sending.started`- `fax.delivered`- `fax.failed`
+        /// Send a fax. Files have size limits and page count limit validations. If a file is bigger than 50MB or has more than 350 pages it will fail with `file_size_limit_exceeded` and `page_count_limit_exceeded` respectively.**Supported file formats:**- PDF (`application/pdf`)- TIFF (`application/tiff`, `image/tiff`)- JPEG (`image/jpeg`)- PNG (`image/png`)- Microsoft Word `.doc` (`application/msword`)- Microsoft Word `.docx` (`application/vnd.openxmlformats-officedocument.wordprocessingml.document`)- Rich Text Format `.rtf` (`application/rtf`)- Plain text `.txt` (`text/plain`)**Expected Webhooks:**- `fax.queued`- `fax.media.processed`- `fax.sending.started`- `fax.delivered`- `fax.failed`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

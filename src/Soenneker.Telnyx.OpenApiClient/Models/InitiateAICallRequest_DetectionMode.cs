@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
-    /// <summary>Allows you to choose between Premium and Standard detections.</summary>
+    /// <summary>Allows you to choose between Regular, Premium, and PremiumCallScreening detections. See https://developers.telnyx.com/docs/voice/programmable-voice/answering-machine-detection</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum InitiateAICallRequest_DetectionMode
     {
@@ -14,6 +14,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         [EnumMember(Value = "Regular")]
         #pragma warning disable CS1591
         Regular,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "PremiumCallScreening")]
+        #pragma warning disable CS1591
+        PremiumCallScreening,
         #pragma warning restore CS1591
     }
 }
