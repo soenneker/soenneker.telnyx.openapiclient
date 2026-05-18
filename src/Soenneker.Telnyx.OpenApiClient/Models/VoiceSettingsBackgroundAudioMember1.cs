@@ -18,6 +18,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1_type? Type { get; set; }
         /// <summary>The predefined media to use. `silence` disables background audio.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1_value? Value { get; set; }
+        /// <summary>Volume level for the predefined background audio. Supports values from 0.1 to 1.0 in 0.1 increments.</summary>
+        public double? Volume { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1"/> and sets the default values.
         /// </summary>
@@ -46,6 +48,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1_type>(); } },
                 { "value", n => { Value = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1_value>(); } },
+                { "volume", n => { Volume = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -57,6 +60,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1_type>("type", Type);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.VoiceSettingsBackgroundAudioMember1_value>("value", Value);
+            writer.WriteDoubleValue("volume", Volume);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
