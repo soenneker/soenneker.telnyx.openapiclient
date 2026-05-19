@@ -16,12 +16,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Available only for deepgram/flux. Confidence threshold for eager end of turn detection. Must be lower than or equal to eot_threshold. Setting this equal to eot_threshold effectively disables eager end of turn.</summary>
         public double? EagerEotThreshold { get; set; }
+        /// <summary>Available only for soniox/stt-rt-v4. When true, Soniox emits end-of-utterance events at the cadence configured by `max_endpoint_delay_ms`.</summary>
+        public bool? EnableEndpointDetection { get; set; }
         /// <summary>Available only for assemblyai/universal-streaming. Confidence level required to trigger an end of turn. Higher values require more certainty before ending a turn.</summary>
         public double? EndOfTurnConfidenceThreshold { get; set; }
         /// <summary>Available only for deepgram/flux. Confidence required to trigger an end of turn. Higher values = more reliable turn detection but slightly increased latency.</summary>
         public double? EotThreshold { get; set; }
         /// <summary>Available only for deepgram/flux. Maximum milliseconds of silence before forcing an end of turn, regardless of confidence.</summary>
         public int? EotTimeoutMs { get; set; }
+        /// <summary>Available only for soniox/stt-rt-v4. When true, Soniox streams interim (non-final) results in addition to finalized transcripts.</summary>
+        public bool? InterimResults { get; set; }
         /// <summary>Available only for deepgram/nova-3 and deepgram/flux. A comma-separated list of key terms to boost for recognition during transcription. Helps improve accuracy for domain-specific terminology, proper nouns, or uncommon words. This field may be templated with [dynamic variables](https://developers.telnyx.com/docs/inference/ai-assistants/dynamic-variables) using mustache syntax (e.g. `Telnyx,{{customer_name}},VoIP`). Variables are resolved at call time before the value is sent to the speech-to-text engine.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,6 +34,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Keyterm { get; set; }
 #endif
+        /// <summary>Available only for soniox/stt-rt-v4. Maximum silence (in milliseconds) before Soniox emits an end-of-utterance event. Only honored when `enable_endpoint_detection` is true.</summary>
+        public int? MaxEndpointDelayMs { get; set; }
         /// <summary>Available only for assemblyai/universal-streaming. Maximum duration of silence in milliseconds before forcing an end of turn.</summary>
         public int? MaxTurnSilence { get; set; }
         /// <summary>Available only for assemblyai/universal-streaming. Minimum duration of silence in milliseconds before a turn can end. Must be less than or equal to max_turn_silence.</summary>
@@ -64,10 +70,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "eager_eot_threshold", n => { EagerEotThreshold = n.GetDoubleValue(); } },
+                { "enable_endpoint_detection", n => { EnableEndpointDetection = n.GetBoolValue(); } },
                 { "end_of_turn_confidence_threshold", n => { EndOfTurnConfidenceThreshold = n.GetDoubleValue(); } },
                 { "eot_threshold", n => { EotThreshold = n.GetDoubleValue(); } },
                 { "eot_timeout_ms", n => { EotTimeoutMs = n.GetIntValue(); } },
+                { "interim_results", n => { InterimResults = n.GetBoolValue(); } },
                 { "keyterm", n => { Keyterm = n.GetStringValue(); } },
+                { "max_endpoint_delay_ms", n => { MaxEndpointDelayMs = n.GetIntValue(); } },
                 { "max_turn_silence", n => { MaxTurnSilence = n.GetIntValue(); } },
                 { "min_turn_silence", n => { MinTurnSilence = n.GetIntValue(); } },
                 { "numerals", n => { Numerals = n.GetBoolValue(); } },
@@ -82,10 +91,13 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("eager_eot_threshold", EagerEotThreshold);
+            writer.WriteBoolValue("enable_endpoint_detection", EnableEndpointDetection);
             writer.WriteDoubleValue("end_of_turn_confidence_threshold", EndOfTurnConfidenceThreshold);
             writer.WriteDoubleValue("eot_threshold", EotThreshold);
             writer.WriteIntValue("eot_timeout_ms", EotTimeoutMs);
+            writer.WriteBoolValue("interim_results", InterimResults);
             writer.WriteStringValue("keyterm", Keyterm);
+            writer.WriteIntValue("max_endpoint_delay_ms", MaxEndpointDelayMs);
             writer.WriteIntValue("max_turn_silence", MaxTurnSilence);
             writer.WriteIntValue("min_turn_silence", MinTurnSilence);
             writer.WriteBoolValue("numerals", Numerals);
