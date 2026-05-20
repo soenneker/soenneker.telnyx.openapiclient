@@ -16,6 +16,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If async, the assistant will move forward without waiting for your server to respond.</summary>
         public bool? Async { get; set; }
+        /// <summary>Maximum time in milliseconds that the conversation worker waits for an async webhook response before returning &quot;Submitted&quot; to the LLM. If unset, the platform default (currently 300ms) is used.</summary>
+        public int? AsyncTimeoutMs { get; set; }
         /// <summary>The body parameters the webhook tool accepts, described as a JSON Schema object. These parameters will be passed to the webhook as the body of the request. See the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,6 +113,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "async", n => { Async = n.GetBoolValue(); } },
+                { "async_timeout_ms", n => { AsyncTimeoutMs = n.GetIntValue(); } },
                 { "body_parameters", n => { BodyParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "headers", n => { Headers = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_headers>(global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_headers.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -131,6 +134,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("async", Async);
+            writer.WriteIntValue("async_timeout_ms", AsyncTimeoutMs);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParamsBodyParameters>("body_parameters", BodyParameters);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.WebhookToolParams_headers>("headers", Headers);
