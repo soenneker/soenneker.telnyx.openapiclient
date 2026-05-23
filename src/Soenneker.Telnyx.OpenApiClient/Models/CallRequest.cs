@@ -180,6 +180,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record_track? RecordTrack { get; set; }
         /// <summary>When set to `trim-silence`, silence will be removed from the beginning and end of the recording.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record_trim? RecordTrim { get; set; }
+        /// <summary>&quot;DTMF digits to send automatically after the called party answers. Useful for reaching an extension behind an IVR (e.g. `\&quot;200\&quot;` to dial extension 200 once the called party picks up). Allowed characters: `0-9`, `A-D`, `w` (0.5s pause), `W` (1s pause), `*`, `#`. Maximum 64 characters. When omitted, no automatic DTMF is sent. May also be supplied inline by appending `,&lt;digits&gt;` to `to` (e.g. `to=+18004247767,200`); if both forms are present, this explicit field takes precedence.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SendDigitsOnAnswer { get; set; }
+#nullable restore
+#else
+        public string SendDigitsOnAnswer { get; set; }
+#endif
         /// <summary>Generate silence RTP packets when no transmission available.</summary>
         public bool? SendSilenceWhenIdle { get; set; }
         /// <summary>SIP Authentication password used for SIP challenges.</summary>
@@ -262,7 +270,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public int? TimeLimitSecs { get; set; }
         /// <summary>The number of seconds that Telnyx will wait for the call to be answered by the destination to which it is being called. If the timeout is reached before an answer is received, the call will hangup and a `call.hangup` webhook with a `hangup_cause` of `timeout` will be sent. Minimum value is 5 seconds. Maximum value is 600 seconds.</summary>
         public int? TimeoutSecs { get; set; }
-        /// <summary>The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings. For SIP URI destinations, append `;secure=true` or `;secure=srtp` to enable SRTP media encryption for that endpoint, or `;secure=dtls` to enable DTLS media encryption for that endpoint. If `media_encryption` is set to `SRTP` or `DTLS`, it takes precedence over any per-endpoint `secure` URI parameter.</summary>
+        /// <summary>The DID or SIP URI to dial out to. Multiple DID or SIP URIs can be provided using an array of strings. For SIP URI destinations, append `;secure=true` or `;secure=srtp` to enable SRTP media encryption for that endpoint, or `;secure=dtls` to enable DTLS media encryption for that endpoint. If `media_encryption` is set to `SRTP` or `DTLS`, it takes precedence over any per-endpoint `secure` URI parameter. For a single string destination, you may append a comma followed by DTMF digits (e.g. `+18004247767,200`) to play those digits as DTMF once the called party answers — equivalent to setting `send_digits_on_answer` separately. If both are present, the explicit `send_digits_on_answer` parameter takes precedence. This shorthand is not supported when `to` is an array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? To { get; set; }
@@ -380,6 +388,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "record_timeout_secs", n => { RecordTimeoutSecs = n.GetIntValue(); } },
                 { "record_track", n => { RecordTrack = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record_track>(); } },
                 { "record_trim", n => { RecordTrim = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record_trim>(); } },
+                { "send_digits_on_answer", n => { SendDigitsOnAnswer = n.GetStringValue(); } },
                 { "send_silence_when_idle", n => { SendSilenceWhenIdle = n.GetBoolValue(); } },
                 { "sip_auth_password", n => { SipAuthPassword = n.GetStringValue(); } },
                 { "sip_auth_username", n => { SipAuthUsername = n.GetStringValue(); } },
@@ -449,6 +458,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteIntValue("record_timeout_secs", RecordTimeoutSecs);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record_track>("record_track", RecordTrack);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.CallRequest_record_trim>("record_trim", RecordTrim);
+            writer.WriteStringValue("send_digits_on_answer", SendDigitsOnAnswer);
             writer.WriteBoolValue("send_silence_when_idle", SendSilenceWhenIdle);
             writer.WriteStringValue("sip_auth_password", SipAuthPassword);
             writer.WriteStringValue("sip_auth_username", SipAuthUsername);
