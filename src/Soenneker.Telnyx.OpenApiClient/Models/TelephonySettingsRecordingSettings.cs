@@ -21,6 +21,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public bool? Enabled { get; set; }
         /// <summary>The format of the recording file.</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_format? Format { get; set; }
+        /// <summary>When enabled, the call recording will stop when the conversation ends (for example, when the assistant hangs up or the call is transferred). When disabled, recording continues until the call itself ends.</summary>
+        public bool? StopOnConversationEnd { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings"/> and sets the default values.
         /// </summary>
@@ -51,6 +53,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "channels", n => { Channels = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_channels>(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "format", n => { Format = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_format>(); } },
+                { "stop_on_conversation_end", n => { StopOnConversationEnd = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -63,6 +66,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_channels>("channels", Channels);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TelephonySettingsRecordingSettings_format>("format", Format);
+            writer.WriteBoolValue("stop_on_conversation_end", StopOnConversationEnd);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

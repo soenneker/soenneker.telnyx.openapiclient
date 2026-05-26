@@ -162,6 +162,7 @@ using Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects;
 using Soenneker.Telnyx.OpenApiClient.Virtual_cross_connects_coverage;
 using Soenneker.Telnyx.OpenApiClient.Voice_clones;
 using Soenneker.Telnyx.OpenApiClient.Voice_designs;
+using Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports;
 using Soenneker.Telnyx.OpenApiClient.Webhook_deliveries;
 using Soenneker.Telnyx.OpenApiClient.WellKnown;
 using Soenneker.Telnyx.OpenApiClient.Wireguard_interfaces;
@@ -960,6 +961,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Voice_designs.Voice_designsRequestBuilder Voice_designs
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Voice_designs.Voice_designsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The voice_sdk_call_reports property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Voice_sdk_call_reportsRequestBuilder Voice_sdk_call_reports
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Voice_sdk_call_reports.Voice_sdk_call_reportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The webhook_deliveries property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Webhook_deliveries.Webhook_deliveriesRequestBuilder Webhook_deliveries

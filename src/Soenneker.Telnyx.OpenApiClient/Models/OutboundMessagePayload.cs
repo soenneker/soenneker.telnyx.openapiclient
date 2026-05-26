@@ -84,6 +84,8 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string MessagingProfileId { get; set; }
 #endif
+        /// <summary>The number of characters in the message text</summary>
+        public int? NumChars { get; set; }
         /// <summary>The id of the organization the messaging profile belongs to.</summary>
         public Guid? OrganizationId { get; set; }
         /// <summary>Number of parts into which the message&apos;s body must be split.</summary>
@@ -204,6 +206,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "media", n => { Media = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_media>(global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_media.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "messaging_profile_id", n => { MessagingProfileId = n.GetStringValue(); } },
+                { "num_chars", n => { NumChars = n.GetIntValue(); } },
                 { "organization_id", n => { OrganizationId = n.GetGuidValue(); } },
                 { "parts", n => { Parts = n.GetIntValue(); } },
                 { "received_at", n => { ReceivedAt = n.GetDateTimeOffsetValue(); } },
@@ -242,6 +245,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.OutboundMessagePayload_media>("media", Media);
             writer.WriteStringValue("messaging_profile_id", MessagingProfileId);
+            writer.WriteIntValue("num_chars", NumChars);
             writer.WriteGuidValue("organization_id", OrganizationId);
             writer.WriteIntValue("parts", Parts);
             writer.WriteDateTimeOffsetValue("received_at", ReceivedAt);
