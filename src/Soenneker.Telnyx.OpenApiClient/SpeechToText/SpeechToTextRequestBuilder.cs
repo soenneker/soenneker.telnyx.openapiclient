@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers;
 using Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.Telnyx.OpenApiClient.SpeechToText
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpeechToTextRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The providers property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers.ProvidersRequestBuilder Providers
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Providers.ProvidersRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The transcription property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.SpeechToText.Transcription.TranscriptionRequestBuilder Transcription
         {

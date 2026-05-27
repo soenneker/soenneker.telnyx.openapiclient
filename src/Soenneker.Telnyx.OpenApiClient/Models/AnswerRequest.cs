@@ -40,6 +40,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string CommandId { get; set; }
 #endif
+        /// <summary>Starts a Conversation Relay session automatically when the answered/dialed call is answered. This embedded shape is supported on `answer` and `dial`. It uses public field names (`url`, `dtmf_detection`, `greeting`, `voice`, `language`, etc.) and maps them to the underlying Conversation Relay action. `client_state`, `tts_language`, and `transcription_language` inside this object are ignored; use the parent command&apos;s `client_state` and `command_id` fields instead.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig? ConversationRelayConfig { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig ConversationRelayConfig { get; set; }
+#endif
         /// <summary>Custom headers to be added to the SIP INVITE response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -193,6 +201,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "billing_group_id", n => { BillingGroupId = n.GetGuidValue(); } },
                 { "client_state", n => { ClientState = n.GetStringValue(); } },
                 { "command_id", n => { CommandId = n.GetStringValue(); } },
+                { "conversation_relay_config", n => { ConversationRelayConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig.CreateFromDiscriminatorValue); } },
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>(global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "deepfake_detection", n => { DeepfakeDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection.CreateFromDiscriminatorValue); } },
                 { "preferred_codecs", n => { PreferredCodecs = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest_preferred_codecs>(); } },
@@ -233,6 +242,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteGuidValue("billing_group_id", BillingGroupId);
             writer.WriteStringValue("client_state", ClientState);
             writer.WriteStringValue("command_id", CommandId);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayEmbeddedConfig>("conversation_relay_config", ConversationRelayConfig);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.CustomSipHeader>("custom_headers", CustomHeaders);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequestDeepfakeDetection>("deepfake_detection", DeepfakeDetection);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.AnswerRequest_preferred_codecs>("preferred_codecs", PreferredCodecs);

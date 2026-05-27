@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Start a Conversation Relay session. Provide either `conversation_relay_url` or `conversation_relay_settings.url`; when both nested and top-level equivalents are provided, top-level values take precedence as described on `conversation_relay_settings`.
+    /// Start a Conversation Relay session. You may provide the WebSocket URL as `url`, `conversation_relay_url`, or `conversation_relay_settings.url`; top-level values take precedence over nested settings. Use `transcription_engine` and `transcription_engine_config` for speech-to-text configuration; the `transcription` object is not supported.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationRelayStartRequest : IAdditionalDataHolder, IParsable
@@ -41,7 +41,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #endif
         /// <summary>Enable DTMF detection for the relay session.</summary>
         public bool? ConversationRelayDtmfDetection { get; set; }
-        /// <summary>Conversation Relay connection settings. This object is used by TeXML Call Scripting&apos;s `&lt;ConversationRelay&gt;` verb. The `interruptible` and `interruptible_greeting` fields are shorthand for `interruption_settings.interruptible` and `interruption_settings.interruptible_greeting`; use top-level `interruption_settings` for the full interruption settings shape.</summary>
+        /// <summary>Conversation Relay connection settings. This object can provide `url`, `dtmf_detection`, `interruptible`, `interruptible_greeting`, and `languages`. Top-level aliases override nested values when both are present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelaySettings? ConversationRelaySettings { get; set; }
@@ -57,6 +57,16 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string ConversationRelayUrl { get; set; }
 #endif
+        /// <summary>Custom key-value parameters forwarded to the relay session as `assistant.dynamic_variables`. If `assistant.dynamic_variables` is also present, these values are merged in.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_custom_parameters? CustomParameters { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_custom_parameters CustomParameters { get; set; }
+#endif
+        /// <summary>Public alias for `conversation_relay_dtmf_detection`. If both are present, this value wins.</summary>
+        public bool? DtmfDetection { get; set; }
         /// <summary>Text played when the relay session starts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +75,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Greeting { get; set; }
 #endif
+        /// <summary>Controls when caller input can interrupt assistant speech. `any` allows speech or DTMF interruptions; `none` disables interruptions; `speech` allows speech only; `dtmf` allows DTMF only.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? Interruptible { get; set; }
+        /// <summary>Controls when caller input can interrupt assistant speech. `any` allows speech or DTMF interruptions; `none` disables interruptions; `speech` allows speech only; `dtmf` allows DTMF only.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible? InterruptibleGreeting { get; set; }
         /// <summary>Settings for handling caller interruptions during Conversation Relay speech.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,7 +87,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptionSettings InterruptionSettings { get; set; }
 #endif
-        /// <summary>Default language for the relay session. This value is used for both text-to-speech and speech recognition unless `tts_language` or `transcription_language` are provided.</summary>
+        /// <summary>Default language for the relay session. This value is used for both text-to-speech and speech recognition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Language { get; set; }
@@ -81,7 +95,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public string Language { get; set; }
 #endif
-        /// <summary>Language-specific TTS and transcription settings. Use this when the relay session needs per-language provider, voice, or speech model configuration.</summary>
+        /// <summary>Per-language TTS and transcription settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage>? Languages { get; set; }
@@ -89,29 +103,48 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #else
         public List<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage> Languages { get; set; }
 #endif
-        /// <summary>Speech-to-text settings for Conversation Relay.</summary>
+        /// <summary>Structured voice provider. Must be supplied together with `structured_provider`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionSettings? Transcription { get; set; }
+        public string? Provider { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionSettings Transcription { get; set; }
+        public string Provider { get; set; }
 #endif
-        /// <summary>Language to use for speech recognition. Overrides `language` for transcription when provided.</summary>
+        /// <summary>Provider-specific structured voice settings. Must be supplied together with `provider`; Telnyx sends the value as the nested provider configuration for Conversation Relay.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TranscriptionLanguage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_structured_provider? StructuredProvider { get; set; }
 #nullable restore
 #else
-        public string TranscriptionLanguage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_structured_provider StructuredProvider { get; set; }
 #endif
-        /// <summary>Language to use for text-to-speech. Overrides `language` for TTS when provided.</summary>
+        /// <summary>Not supported for Conversation Relay start requests. Use `transcription_engine` and `transcription_engine_config` instead.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TtsLanguage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription? Transcription { get; set; }
 #nullable restore
 #else
-        public string TtsLanguage { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription Transcription { get; set; }
+#endif
+        /// <summary>Engine to use for speech recognition. Legacy values `A` - `Google`, `B` - `Telnyx` are supported for backward compatibility. For Conversation Relay, use this field with `transcription_engine_config`; the `transcription` object is not supported.</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription_engine? TranscriptionEngine { get; set; }
+        /// <summary>Engine-specific transcription settings for Conversation Relay. This accepts the same provider-specific options used by the Call Transcription Start command, such as `transcription_model`, without requiring the engine discriminator to be repeated inside this object.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription_engine_config? TranscriptionEngineConfig { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription_engine_config TranscriptionEngineConfig { get; set; }
+#endif
+        /// <summary>Text-to-speech provider. If omitted, Telnyx derives it from `voice` or `provider`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TtsProvider { get; set; }
+#nullable restore
+#else
+        public string TtsProvider { get; set; }
 #endif
         /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,6 +153,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
         public string Type { get; set; }
+#endif
+        /// <summary>Public alias for `conversation_relay_url`. Must start with `ws://` or `wss://`. If both are present, this value wins.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
+        public string Url { get; set; }
 #endif
         /// <summary>&quot;The voice to be used by the voice assistant. Currently we support ElevenLabs, Telnyx and AWS voices. **Supported Providers:**- **AWS:** Use `AWS.Polly.&lt;VoiceId&gt;` (e.g., `AWS.Polly.Joanna`). For neural voices, which provide more realistic, human-like speech, append `-Neural` to the `VoiceId` (e.g., `AWS.Polly.Joanna-Neural`). Check the [available voices](https://docs.aws.amazon.com/polly/latest/dg/available-voices.html) for compatibility.- **Azure:** Use `Azure.&lt;VoiceId&gt;. (e.g. Azure.en-CA-ClaraNeural, Azure.en-CA-LiamNeural, Azure.en-US-BrianMultilingualNeural, Azure.en-US-Ava:DragonHDLatestNeural. For a complete list of voices, go to [Azure Voice Gallery](https://speech.microsoft.com/portal/voicegallery).)- **ElevenLabs:** Use `ElevenLabs.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `ElevenLabs.BaseModel.John`). The `ModelId` part is optional. To use ElevenLabs, you must provide your ElevenLabs API key as an integration secret under `\&quot;voice_settings\&quot;: {\&quot;api_key_ref\&quot;: \&quot;&lt;secret_id&gt;\&quot;}`. See [integration secrets documentation](https://developers.telnyx.com/api/secrets-manager/integration-secrets/create-integration-secret) for details. Check [available voices](https://elevenlabs.io/docs/api-reference/get-voices). - **Telnyx:** Use `Telnyx.&lt;model_id&gt;.&lt;voice_id&gt;`- **Inworld:** Use `Inworld.&lt;ModelId&gt;.&lt;VoiceId&gt;` (e.g., `Inworld.Mini.Loretta`, `Inworld.Max.Oliver`). Supported models: `Mini`, `Max`.- **xAI:** Use `xAI.&lt;VoiceId&gt;` (e.g., `xAI.eve`). Available voices: `eve`, `ara`, `rex`, `sal`, `leo`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -143,7 +184,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public ConversationRelayStartRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            Interruptible = global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible.Any;
+            InterruptibleGreeting = global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible.Any;
             Language = "en";
+            TranscriptionEngine = global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription_engine.Google;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -169,14 +213,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "conversation_relay_dtmf_detection", n => { ConversationRelayDtmfDetection = n.GetBoolValue(); } },
                 { "conversation_relay_settings", n => { ConversationRelaySettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelaySettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelaySettings.CreateFromDiscriminatorValue); } },
                 { "conversation_relay_url", n => { ConversationRelayUrl = n.GetStringValue(); } },
+                { "custom_parameters", n => { CustomParameters = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_custom_parameters>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_custom_parameters.CreateFromDiscriminatorValue); } },
+                { "dtmf_detection", n => { DtmfDetection = n.GetBoolValue(); } },
                 { "greeting", n => { Greeting = n.GetStringValue(); } },
+                { "interruptible", n => { Interruptible = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>(); } },
+                { "interruptible_greeting", n => { InterruptibleGreeting = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>(); } },
                 { "interruption_settings", n => { InterruptionSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptionSettings.CreateFromDiscriminatorValue); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "languages", n => { Languages = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionSettings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionSettings.CreateFromDiscriminatorValue); } },
-                { "transcription_language", n => { TranscriptionLanguage = n.GetStringValue(); } },
-                { "tts_language", n => { TtsLanguage = n.GetStringValue(); } },
+                { "provider", n => { Provider = n.GetStringValue(); } },
+                { "structured_provider", n => { StructuredProvider = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_structured_provider>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_structured_provider.CreateFromDiscriminatorValue); } },
+                { "transcription", n => { Transcription = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription.CreateFromDiscriminatorValue); } },
+                { "transcription_engine", n => { TranscriptionEngine = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription_engine>(); } },
+                { "transcription_engine_config", n => { TranscriptionEngineConfig = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription_engine_config>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription_engine_config.CreateFromDiscriminatorValue); } },
+                { "tts_provider", n => { TtsProvider = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
+                { "url", n => { Url = n.GetStringValue(); } },
                 { "voice", n => { Voice = n.GetStringValue(); } },
                 { "voice_settings", n => { VoiceSettings = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest.ConversationRelayStartRequest_voice_settings>(global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest.ConversationRelayStartRequest_voice_settings.CreateFromDiscriminatorValue); } },
             };
@@ -194,20 +246,28 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteBoolValue("conversation_relay_dtmf_detection", ConversationRelayDtmfDetection);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelaySettings>("conversation_relay_settings", ConversationRelaySettings);
             writer.WriteStringValue("conversation_relay_url", ConversationRelayUrl);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_custom_parameters>("custom_parameters", CustomParameters);
+            writer.WriteBoolValue("dtmf_detection", DtmfDetection);
             writer.WriteStringValue("greeting", Greeting);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>("interruptible", Interruptible);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptible>("interruptible_greeting", InterruptibleGreeting);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayInterruptionSettings>("interruption_settings", InterruptionSettings);
             writer.WriteStringValue("language", Language);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayLanguage>("languages", Languages);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayTranscriptionSettings>("transcription", Transcription);
-            writer.WriteStringValue("transcription_language", TranscriptionLanguage);
-            writer.WriteStringValue("tts_language", TtsLanguage);
+            writer.WriteStringValue("provider", Provider);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_structured_provider>("structured_provider", StructuredProvider);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription>("transcription", Transcription);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription_engine>("transcription_engine", TranscriptionEngine);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest_transcription_engine_config>("transcription_engine_config", TranscriptionEngineConfig);
+            writer.WriteStringValue("tts_provider", TtsProvider);
             writer.WriteStringValue("type", Type);
+            writer.WriteStringValue("url", Url);
             writer.WriteStringValue("voice", Voice);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ConversationRelayStartRequest.ConversationRelayStartRequest_voice_settings>("voice_settings", VoiceSettings);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.XAIVoiceSettings"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AWSVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.AzureVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.RimeVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.TelnyxVoiceSettings"/>, <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.XAIVoiceSettings"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConversationRelayStartRequest_voice_settings : IComposedTypeWrapper, IParsable
@@ -235,6 +295,22 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings ElevenLabsVoiceSettings { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettings"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettings? InworldVoiceSettings { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettings InworldVoiceSettings { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings? MinimaxVoiceSettings { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings MinimaxVoiceSettings { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -290,6 +366,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 {
                     result.ElevenLabsVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings();
                 }
+                else if("inworld".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.InworldVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettings();
+                }
+                else if("minimax".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.MinimaxVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings();
+                }
                 else if("resemble".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ResembleVoiceSettings = new global::Soenneker.Telnyx.OpenApiClient.Models.ResembleVoiceSettings();
@@ -325,6 +409,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if(ElevenLabsVoiceSettings != null)
                 {
                     return ElevenLabsVoiceSettings.GetFieldDeserializers();
+                }
+                else if(InworldVoiceSettings != null)
+                {
+                    return InworldVoiceSettings.GetFieldDeserializers();
+                }
+                else if(MinimaxVoiceSettings != null)
+                {
+                    return MinimaxVoiceSettings.GetFieldDeserializers();
                 }
                 else if(ResembleVoiceSettings != null)
                 {
@@ -362,6 +454,14 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 else if(ElevenLabsVoiceSettings != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.ElevenLabsVoiceSettings>(null, ElevenLabsVoiceSettings);
+                }
+                else if(InworldVoiceSettings != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InworldVoiceSettings>(null, InworldVoiceSettings);
+                }
+                else if(MinimaxVoiceSettings != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.MinimaxVoiceSettings>(null, MinimaxVoiceSettings);
                 }
                 else if(ResembleVoiceSettings != null)
                 {

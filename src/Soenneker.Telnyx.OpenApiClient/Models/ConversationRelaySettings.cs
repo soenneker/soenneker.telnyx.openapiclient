@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Telnyx.OpenApiClient.Models
 {
     /// <summary>
-    /// Conversation Relay connection settings. This object is used by TeXML Call Scripting&apos;s `&lt;ConversationRelay&gt;` verb. The `interruptible` and `interruptible_greeting` fields are shorthand for `interruption_settings.interruptible` and `interruption_settings.interruptible_greeting`; use top-level `interruption_settings` for the full interruption settings shape.
+    /// Conversation Relay connection settings. This object can provide `url`, `dtmf_detection`, `interruptible`, `interruptible_greeting`, and `languages`. Top-level aliases override nested values when both are present.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationRelaySettings : IAdditionalDataHolder, IParsable
