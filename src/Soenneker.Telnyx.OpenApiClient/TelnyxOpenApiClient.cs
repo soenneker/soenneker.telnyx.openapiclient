@@ -139,6 +139,7 @@ using Soenneker.Telnyx.OpenApiClient.Sim_card_groups;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_order_preview;
 using Soenneker.Telnyx.OpenApiClient.Sim_card_orders;
 using Soenneker.Telnyx.OpenApiClient.Sim_cards;
+using Soenneker.Telnyx.OpenApiClient.Sip_registration_status;
 using Soenneker.Telnyx.OpenApiClient.Siprec_connectors;
 using Soenneker.Telnyx.OpenApiClient.SpeechToText;
 using Soenneker.Telnyx.OpenApiClient.Storage;
@@ -846,6 +847,11 @@ namespace Soenneker.Telnyx.OpenApiClient
         public global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder Sim_cards
         {
             get => new global::Soenneker.Telnyx.OpenApiClient.Sim_cards.Sim_cardsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sip_registration_status property</summary>
+        public global::Soenneker.Telnyx.OpenApiClient.Sip_registration_status.Sip_registration_statusRequestBuilder Sip_registration_status
+        {
+            get => new global::Soenneker.Telnyx.OpenApiClient.Sip_registration_status.Sip_registration_statusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The siprec_connectors property</summary>
         public global::Soenneker.Telnyx.OpenApiClient.Siprec_connectors.Siprec_connectorsRequestBuilder Siprec_connectors
