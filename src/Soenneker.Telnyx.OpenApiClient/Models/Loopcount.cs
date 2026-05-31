@@ -39,11 +39,11 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount();
-            if("Loopcount_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("Loopcount_Branch1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.LoopcountBranch1 = new global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_Branch1();
             }
-            else if("Loopcount_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("Loopcount_Branch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.LoopcountBranch2 = new global::Soenneker.Telnyx.OpenApiClient.Models.Loopcount_Branch2();
             }

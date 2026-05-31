@@ -154,13 +154,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         public string DoingBusinessAs { get; set; }
 #endif
         /// <summary>Business entity classification. Must be one of the 5 valid enum values.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType_Wrapper? EntityType { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType_Wrapper EntityType { get; set; }
-#endif
+        public global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType? EntityType { get; set; }
         /// <summary>The message returned when users text &apos;HELP&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -304,7 +298,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
                 { "campaignVerifyAuthorizationToken", n => { CampaignVerifyAuthorizationToken = n.GetStringValue(); } },
                 { "corporateWebsite", n => { CorporateWebsite = n.GetStringValue(); } },
                 { "doingBusinessAs", n => { DoingBusinessAs = n.GetStringValue(); } },
-                { "entityType", n => { EntityType = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType_Wrapper>(global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType_Wrapper.CreateFromDiscriminatorValue); } },
+                { "entityType", n => { EntityType = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType>(); } },
                 { "helpMessageResponse", n => { HelpMessageResponse = n.GetStringValue(); } },
                 { "isvReseller", n => { IsvReseller = n.GetStringValue(); } },
                 { "messageVolume", n => { MessageVolume = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>(); } },
@@ -346,7 +340,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             writer.WriteStringValue("campaignVerifyAuthorizationToken", CampaignVerifyAuthorizationToken);
             writer.WriteStringValue("corporateWebsite", CorporateWebsite);
             writer.WriteStringValue("doingBusinessAs", DoingBusinessAs);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType_Wrapper>("entityType", EntityType);
+            writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.TollFreeVerificationEntityType>("entityType", EntityType);
             writer.WriteStringValue("helpMessageResponse", HelpMessageResponse);
             writer.WriteStringValue("isvReseller", IsvReseller);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.Volume>("messageVolume", MessageVolume);

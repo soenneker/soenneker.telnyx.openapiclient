@@ -33,10 +33,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>The different possible targets of the transfer. The assistant will be able to choose one of the targets to transfer the call to. This can also be a dynamic variable string like `{{ targets }}` where `targets` is returned by the dynamic variables webhook and resolves to an array of target objects at runtime.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? Targets { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams.InferenceEmbeddingTransferToolParams_targets? Targets { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch Targets { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams.InferenceEmbeddingTransferToolParams_targets Targets { get; set; }
 #endif
         /// <summary>Configuration for voicemail detection (AMD - Answering Machine Detection) on the transferred call. Allows the assistant to detect when a voicemail system answers the transferred call and take appropriate action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,7 +83,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "custom_headers", n => { CustomHeaders = n.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_custom_headers>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_custom_headers.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "from", n => { From = n.GetStringValue(); } },
-                { "targets", n => { Targets = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "targets", n => { Targets = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams.InferenceEmbeddingTransferToolParams_targets>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams.InferenceEmbeddingTransferToolParams_targets.CreateFromDiscriminatorValue); } },
                 { "voicemail_detection", n => { VoicemailDetection = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection.CreateFromDiscriminatorValue); } },
                 { "warm_message_delay_ms", n => { WarmMessageDelayMs = n.GetIntValue(); } },
                 { "warm_transfer_instructions", n => { WarmTransferInstructions = n.GetStringValue(); } },
@@ -98,11 +98,78 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_custom_headers>("custom_headers", CustomHeaders);
             writer.WriteStringValue("from", From);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("targets", Targets);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams.InferenceEmbeddingTransferToolParams_targets>("targets", Targets);
             writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParamsVoicemailDetection>("voicemail_detection", VoicemailDetection);
             writer.WriteIntValue("warm_message_delay_ms", WarmMessageDelayMs);
             writer.WriteStringValue("warm_transfer_instructions", WarmTransferInstructions);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>, List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targetsMember1&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class InferenceEmbeddingTransferToolParams_targets : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type List&lt;global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targetsMember1&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targetsMember1>? InferenceEmbeddingTransferToolParamsTargetsMember1 { get; set; }
+#nullable restore
+#else
+            public List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targetsMember1> InferenceEmbeddingTransferToolParamsTargetsMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams.InferenceEmbeddingTransferToolParams_targets"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams.InferenceEmbeddingTransferToolParams_targets CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams.InferenceEmbeddingTransferToolParams_targets();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targetsMember1>(global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targetsMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targetsMember1> inferenceEmbeddingTransferToolParamsTargetsMember1Value)
+                {
+                    result.InferenceEmbeddingTransferToolParamsTargetsMember1 = inferenceEmbeddingTransferToolParamsTargetsMember1Value;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else if(InferenceEmbeddingTransferToolParamsTargetsMember1 != null)
+                {
+                    writer.WriteCollectionOfObjectValues<global::Soenneker.Telnyx.OpenApiClient.Models.InferenceEmbeddingTransferToolParams_targetsMember1>(null, InferenceEmbeddingTransferToolParamsTargetsMember1);
+                }
+            }
         }
     }
 }

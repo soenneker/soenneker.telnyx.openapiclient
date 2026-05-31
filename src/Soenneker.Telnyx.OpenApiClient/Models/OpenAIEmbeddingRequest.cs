@@ -21,10 +21,10 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
         /// <summary>Input text to embed. Can be a string or array of strings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch? Input { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest.OpenAIEmbeddingRequest_input? Input { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch Input { get; set; }
+        public global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest.OpenAIEmbeddingRequest_input Input { get; set; }
 #endif
         /// <summary>ID of the model to use. Use the List embedding models endpoint to see available models.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,7 +70,7 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             {
                 { "dimensions", n => { Dimensions = n.GetIntValue(); } },
                 { "encoding_format", n => { EncodingFormat = n.GetEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest_encoding_format>(); } },
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>(global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest.OpenAIEmbeddingRequest_input>(global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest.OpenAIEmbeddingRequest_input.CreateFromDiscriminatorValue); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "user", n => { User = n.GetStringValue(); } },
             };
@@ -84,10 +84,77 @@ namespace Soenneker.Telnyx.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("dimensions", Dimensions);
             writer.WriteEnumValue<global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest_encoding_format>("encoding_format", EncodingFormat);
-            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.UnionBranch>("input", Input);
+            writer.WriteObjectValue<global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest.OpenAIEmbeddingRequest_input>("input", Input);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class OpenAIEmbeddingRequest_input : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? OpenAIEmbeddingRequestInputString { get; set; }
+#nullable restore
+#else
+            public string OpenAIEmbeddingRequestInputString { get; set; }
+#endif
+            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<string>? String { get; set; }
+#nullable restore
+#else
+            public List<string> String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest.OpenAIEmbeddingRequest_input"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest.OpenAIEmbeddingRequest_input CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.Telnyx.OpenApiClient.Models.OpenAIEmbeddingRequest.OpenAIEmbeddingRequest_input();
+                if(parseNode.GetStringValue() is string openAIEmbeddingRequestInputStringValue)
+                {
+                    result.OpenAIEmbeddingRequestInputString = openAIEmbeddingRequestInputStringValue;
+                }
+                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(OpenAIEmbeddingRequestInputString != null)
+                {
+                    writer.WriteStringValue(null, OpenAIEmbeddingRequestInputString);
+                }
+                else if(String != null)
+                {
+                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
+                }
+            }
         }
     }
 }
